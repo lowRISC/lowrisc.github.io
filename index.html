@@ -106,12 +106,116 @@
     <li><a href="http://cseweb.ucsd.edu/~mbtaylor/">Michael Taylor (UCSD)</a></li>
   </ul>
 
-  <h3>Careers</h3>
+  <h3 id="faq">FAQ</h3>
+  <h4>Are you hiring?</h4>
   <p>
-  We are currently hiring. Two new positions are available at the Computer
-  Laboratory, University of Cambridge. For more details, <a 
+  Yes, we are currently advertising two positions based in Cambridge, UK.
+  For more details, <a 
     href="http://www.jobs.cam.ac.uk/job/4665/">see the job advert</a>. 
   Applications close on the 9th September 2014.
+  </p>
+  <h4>Are contract or remote working arrangements on offer?</h4>
+  <p>
+  We are not currently looking for contract or remote workers, but may in the 
+  future. If we do, we'll advertise via this website and the announcement 
+  list.
+  </p>
+
+  <h4>What are the goals of the project?</h4>
+  <ul>
+    <li>To create a fully open SoC and low-cost development board and to 
+      support the open-source hardware community. This will involve volume 
+      silicon manufacture.</li>
+    <li>To explore and promote novel hardware security features</li>
+    <li>To make it simple for existing companies and especially semiconductor 
+      startups to create derivative designs, e.g. by sharing scripts, tools, 
+      source and our experience</li>
+    <li>To create a benchmark design to aid academic research</li>
+  </ul>
+
+  <h4>When can I buy a lowRISC SoC?</h4>
+  <p>
+  As with most tech projects, the most accurate answer is "When it's ready". 
+  However, it's useful to consider some of the main milestones:
+  </p>
+  <ul>
+    <li><em>Release of an initial FPGA version:</em> we expect to do this in 
+      the next 6 months, and then further development will be fully open to 
+      the community.</li>
+    <li><em>Production of a test chip:</em> we expect to tape out a test chip towards the end 
+      of 2015.</li>
+    <li><em>Tape out of production silicon:</em> this is likely to happen, at 
+      the earliest, a year after the first test chip (in 2016).</li>
+  </ul>
+
+
+  <h4>Why RISC-V and not OpenRISC/SPARCv8/MIPS/...?</h4>
+  <p>
+  We considered two aspects when surveying the potentially instruction set 
+  architectures (ISAs), firstly the features of the ISA itself and secondly 
+  the existence of high performance designs. RISC-V is a 64-bit, 
+  contemporary clean-sheet design. Implementations exist in an open-source 
+  HDL (Chisel) and multiple high performance test chips have been produced, 
+  at 45 and 28nm. When performing this survey, the requirement that the ISA 
+  be freely implementable rules out most ISAs currently used by the 
+  industry. We did consider using older versions of commercial ISAs (i.e. 
+  versions where all relevant patents would have expired), but this raises 
+  the issue of how to go about bringing them up to date. To avoid legal 
+  uncertainty, we would have to make arbitrarily different choices to the 
+  original vendor, which means compatibility would be lost.
+  </p>
+
+  <h4>What features and peripherals will the SoC have?</h4>
+  </p>
+  We'll distribute draft specifications as soon as is reasonable. The plan 
+  is to share as much as possible as early as possible.
+  </p>
+
+  <h4>How will your designs be licensed?</h4>
+  <p>
+  A permissive open-source license.
+  </p>
+
+  <h4>How is this different to Raspberry Pi?</h4>
+  <p>
+  Our goals and focus are quite different. The Raspberry Pi exists to 
+  improve computer science education worldwide. A fully open-source SoC is 
+  not necessary to reach this goal, or even a pragmatic way of achieving it 
+  given the timescales involved. While it is an ultimate goal to support all 
+  the features of a modern commercial SoC, it will require a number of 
+  iterations of the design to achieve this. For example, early versions of 
+  our SoC will not include a GPU.
+  </p>
+
+  <h4>What is your relationship to Raspberry Pi?</h4>
+  <p>
+  We know the team well but this is a completely independent project.
+  Robert co-founded Raspberry Pi, while Alex is a contributor since the very 
+  early days of the project.
+  </p>
+    
+  <h4>What level of performance will it have?</h4>
+  <p>
+  To run Linux "well". The clock rate achieved will depend on the technology 
+  node and particular process selected. As a rough guide we would expect 
+  ~500-1GHz at 40nm and ~1.0-1.5GHz at 28nm.
+  <p>
+
+  <h4>Is volume fabrication feasible?</h4>
+  <p>
+  Yes. There are a number of routes open to us. Early production runs are 
+  likely to be done in batches of ~25 wafers. This would yield around 
+  100-200K good chips per batch. We expect to produce packaged chips for 
+  less than $10 each. 
+  </p>
+
+  <h4>How can I contribute?</h4>
+  </p>
+  In the coming months we will be launching mailing lists, a Wiki and of 
+  course a source code repository to publicly coordinate development of the 
+  project. This will include both hardware and software work. We hope to 
+  have interesting, evidence-backed debates about implementation options out 
+  in the open.
   </p>
 
   <h3>Contact us at info@lowrisc.org</h3>

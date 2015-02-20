@@ -1,0 +1,529 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>lowRISC project ideas for GSoC 2015</title>
+
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <style>
+      body {
+        color: #555;
+        font-family: 'Raleway', sans-serif;
+      }
+      .content {
+        margin: 0 auto;
+        padding: 0 2em;
+        max-width: 800px;
+        margin-bottom: 50px;
+        line-height: 1.6em;
+      }
+      .header {
+        margin: 0;
+        color: #333;
+        text-align: center;
+        padding: 2.5em 2em 0;
+        border-bottom: 1px solid #eee;
+      }
+      .header h1 {
+        margin: 0.2em 0;
+        font-size: 3em;
+        font-weight: bold;
+      }
+      .header h2 {
+        font-weight: bold;
+        color: #aaa;
+        padding: 0;
+        margin-top: 0;
+      }
+      .pure-form input[type] {
+          border: 2px solid #ddd;
+          box-shadow: none;
+          font-size: 100%;
+          margin-bottom: 1em;
+      }
+      .pure-form {
+        text-align: center;
+      }
+    </style>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-53520714-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+<body>
+  <div class="header">
+    <a href="http://www.lowrisc.org">
+      <img src="http://www.lowrisc.org/logo-med.gif" align="middle">
+    </a>
+	<p>
+  </p>
+<!--
+    <h1>lowRISC</h1>
+    <h2>Open to the core</h2>
+-->
+  </div>
+  <div class="content">
+    <a href="http://www.lowrisc.org">&#8673; Home</a>
+  <h1>Project ideas (in no particular order)</h1>
+  <h2>Schematic Viewer for Netlists (SVG/JavaScript)</h2>
+<p>
+<strong>Summary:</strong> Write a JavaScript library that fills an SVG element with an
+interactive schematic view for a circuit that is provided by a netlist in a
+JSON format.
+</p>
+<p>
+Although usable independent from Yosys, the main application for
+this will be in educational Web tools for teaching digital circuit design, that
+are based on YosysJS. There it will replace an ad-hoc display mechanism based
+on GraphViz. Unlike the existing GraphViz solution, the new schematic viewer
+should render proper schematic symbols for flip-flops and gates and enable
+users to modify the placement of symbols (by moving them around interactively).
+Additional goals would be integration of more advanced features that would
+directly benefit the educational users, such as the ability to evaluate the
+circuit with given input values (in this case the JSON netlist would also
+include evaluable models of all circuit elements, such as an
+and-inverter-graph).
+</p>
+<p>
+<strong>Links:</strong></br>
+<ul>
+<li><a href="http://www.clifford.at/yosys/">Yosys website</a></li>
+<li><a href="http://www.reddit.com/r/yosys">Yosys subreddit</a></li>
+<li><a href="http://www.clifford.at/yosys/yosysjs.html">YosysJS</a></li>
+<li><a href="https://www.google.co.uk/search?q=view+rtl+as+schematic">'Viewing RTL as schematic'</a> (related prior work)</li>
+<li>Wavedrom library: <a href="http://wavedrom.com/tutorial.html">waveforms</a> and
+        <a href="http://wavedrom.com/tutorial2.html">schematics</a></li>
+</ul>
+</p>
+<strong>Details:</strong></br>
+<strong>Skill level:</strong> intermediate</br>
+<strong>Language:</strong> Javascript</br>
+<strong>Mentor:</strong> Clifford Wolf <clifford@clifford.at></br>
+
+<h2>A fully open source FPGA compilation flow using Yosys</h2>
+<p>
+<strong>Summary:</strong> Implement a place-and-route mechanism targeting the iCE40 FPGA.</p>
+<p>The
+bitstream protocol of the iCE40 FPGA has been reverse engineered, which means
+we’re almost at the point where we can have a completely free toolchain
+targeting an FPGA. The iCE40 provides a relatively small number of LUTs (up to
+a few thousand), but is very low power. Netlists for the iCE40 FPGAs can be
+created with Yosys, but there is no place-and-route tool at the moment. This
+project will involve lots of algorithmic work. A good starting point would be a
+simulated annealing based P+R. This project has future applications to lowRISC
+in the case that we include some amount of programmable logic for the ‘minion’
+cores.
+</p>
+<p>
+<strong>Links:</strong></br>
+<ul>
+<li><a href="http://www.clifford.at/yosys/">Yosys website</a></li>
+<li><a href="http://www.reddit.com/r/yosys">Yosys subreddit</a></li>
+<li><a href="http://www.latticesemi.com/Products/FPGAandCPLD/iCE40.asp">iCE40</a></li>
+<li><a href="https://courses.cs.washington.edu/courses/cse467/11wi/lectures/P&R%20guest%20lecture.pdf">Placement and routing for FPGAs</a></li>
+</ul>
+</p>
+<strong>Details:</strong></br>
+<strong>Skill level:</strong> advanced</br>
+<strong>Language:</strong> C++</br>
+<strong>Mentor:</strong> Clifford Wolf <clifford@clifford.at></br>
+
+<h2>Porting Icarus Verilog to JavaScript using Emscripten</h2>
+<p>
+<strong>Summary:</strong> Icarus Verilog is an Open Source Verilog Simulator consisting of two
+parts: (1) a compiler front-end that creates a vvp-scripts and (2) a runtime
+that executes those vvp scripts. This project is about porting Icarus Verilog
+to JavaScript using Emscripten and creating a JavaScript wrapper to easily
+interface with Icarus Verilog from JavaScript. This project will be used as
+part of a larger effort to create web-based tools for teaching digital design
+techniques.
+</p>
+<p>
+
+<strong>Links:</strong></br>
+<ul>
+<li><a href="http://iverilog.icarus.com/">Icarus Verilog</a></li>
+<li><a href="http://emscripten.org/">Emscripten</a></li>
+</ul>
+</p>
+
+<strong>Details:</strong></br>
+<strong>Skill level:</strong> beginner/intermediate</br>
+<strong>Language:</strong> C/C++/JavaScript</br>
+<strong>Mentor:</strong> Clifford Wolf <clifford@clifford.at></br>
+
+<h2>Accessing the OpenCores ecosystem</h2>
+<p>
+<strong>Summary:</strong> Implement a Wishbone to TileLink bridge
+</p>
+<p>
+The OpenCores and OpenRISC community provide many useful IP cores which have
+been used in ASICs and FPGAs for more than ten years. Most of these cores use
+the Wishbone interface for communicating with a CPU. This project would create
+a tested and documented bridge component between TileLink and Wishbone to allow
+these cores to be easily integrated in the lowRISC project and by others in the
+RISC-V ecosystem.
+</p>
+<strong>Links:</strong></br>
+<ul>
+<li><a href="http://opencores.org/opencores,wishbone">Wishbone interconnect</a></li>
+<li><a href="https://github.com/lowRISC/uncore">lowRISC/Rocket 'uncore'</a></li>
+</ul>
+
+<strong>Details:</strong></br>
+<strong>Skill level:</strong> intermediate</br>
+<strong>Language:</strong> Verilog</br>
+<strong>Mentor:</strong> Olof Kindgren <olof.kindgren@gmail.com></br>
+
+<h2>Adding Chisel support to FuseSoC</h2>
+<p>
+<strong>Summary:</strong> Extend FuseSoC to support Chisel
+</p>
+<p>
+FuseSoC is a package manager and build system written in Python with the
+intention of making it easier to reuse cores from different sources, combine
+them into a SoC and run through simulators and FPGA/ASIC flows. Currently, only
+Verilog and VHDL (and C/C++ for simulations) is supported. This project would
+also add support for cores written in Chisel such as the Rocket core, which
+would eventually allow FuseSoC to be used as the build system for the lowRISC
+SoC.
+</p>
+
+<strong>Links:</strong></br>
+<ul>
+<li><a href="https://github.com/olofk/fusesoc">FuseSoC homepage</a></li>
+<li><a href="https://chisel.eecs.berkeley.edu">Chisel homepage</a></li>
+<li><a href="https://github.com/ucb-bar/rocket-chip">Rocket chip</a></li>
+</ul>
+
+<strong>Details:</strong></br>
+<strong>Skill level:</strong> beginner/intermediate</br>
+<strong>Language:</strong> Python</br>
+<strong>Mentor:</strong> Olof Kindgren <olof.kindgren@gmail.com></br>
+
+<h2>Extending tavor for instruction set fuzzing</h2>
+<p>
+<strong>Summary:</strong> Extend the tavor fuzzing tool to support directed generation of
+assembly test cases.
+</p>
+
+<p>
+Tavor is a tool and framework for fuzzing and
+delta-debugging, implemented in Golang. Formal methods such as model checking
+are often used in verification, but we’ve also found fuzzing to be a very
+useful way to quickly providing an initial test of an implementation (whether
+it’s an instruction set simulator or a full HDL implementation). The project
+would use tavor for instruction set fuzzing, extending it where necessary.
+Tavor would be extended to allow instruction sequences of certain types to be
+generated.
+</p>
+<strong>Links:</strong></br>
+<ul>
+<li><a href="https://github.com/zimmski/tavor">tavor homepage</a></li>
+<li><a href="http://roberto.greyhats.it/pubs/issta09.pdf">Fuzzing CPU emulators</a></li>
+</ul>
+
+<strong>Details:</strong></br>
+<strong>Skill level:</strong> intermediate</br>
+<strong>Language:</strong> Go</br>
+<strong>Mentor:</strong> Markus Zimmermann <markus.zimmermann@nethead.at></br>
+
+<h2>Constrained randomised testing with coverage tracking in Cocotb</h2>
+<p>
+<strong>Summary:</strong> Extend the Cocotb co-simulation library to support constrained
+randomised testing (e.g. via Google or-tools) and to track achieved coverage of
+the tested HDL.
+</p>
+
+<p>
+Cocotb is a Python framework for testing VHDL and [System]Verilog hardware
+designs.  Although various open source simulators are available, none of them
+provide the advanced verification features of expensive proprietary simulators.
+This project will implement constrained randomisation and functional coverage
+collection in Cocotb, giving open source projects these capabilities.
+</p>
+
+<p>
+Constrained Randomisation is a similar concept to fuzz testing; generating
+random stimulus transactions according to certain constraints in order to
+exercise a hardware design.  To understand how well the randomly generated
+inputs are testing design the we also need to instrument the code to track
+metrics on which scenarios have been exercised (known as functional coverage).
+</p>
+
+<p>
+The goal of this project is to provide a convenient interface to an existing
+constraint solver from Cocotb and create and manage a database of functional
+coverage points.  To facilitate processing of the coverage data we'll need to
+export to various formats for consumption by other tools.  We can also
+integrate coverage information with existing software development services such
+as coveralls.io.
+</p>
+
+<p>
+By undertaking this project you will learn about latest ASIC/FPGA verification
+practices and the interaction between hardware and software development
+</p>
+
+<strong>Links:</strong></br>
+<ul>
+<li><a href="http://potential.ventures/cocotb/">Cocotb homepage</a></li>
+<li><a href="https://github.com/potentialventures/cocotb ">Cocotb Github</a></li>
+<li><a href="https://code.google.com/p/or-tools/">or-tools</a></li>
+</ul>
+
+<strong>Details:</strong></br>
+<strong>Skill level:</strong> intermediate</br>
+<strong>Language:</strong> Python</br>
+<strong>Mentor:</strong> Chris Higgs <chris.higgs@potentialventures.com></br>
+
+<h2>LLVM pass for control-flow hijacking protection using lowRISC’s tagged memory</h2>
+<p>
+<strong>Summary:</strong> Implement the control-flow hijacking protection scheme outlined in the lowRISC memo
+</p>
+<p>
+lowRISC supports tagged memory, a mechanism that associates metadata (tags)
+with every location in physical memory. The initial motivation was to protect
+against control-flow hijacking, but it has a number of other potential use
+cases (described in more detail in our memo). A simple application of tagged
+memory is to mark every code pointer (such as return addresses or vtable
+addresses) with a tag making them read-only. The program should also be
+modified so the presence of this tag is checked upon loading the code pointer.
+This project would implement an LLVM pass applying this policy. Possible
+extensions to the project would be analysing the overhead of this policy on
+various programs, or looking at the protection of heap metadata.
+<p>
+
+<strong>Links:</strong></br>
+<ul>
+<li><a href="http://www.lowrisc.org/docs/memo-2014-001-tagged-memory-and-minion-cores/">Tagged memory and minion cores memo</a></li>
+<li><a href="http://www.llvm.org">LLVM</a></li>
+<li><a href="https://github.com/riscv/riscv-llvm">RISC-V LLVM port</a></li>
+</ul>
+
+<strong>Details:</strong></br>
+<strong>Skill level:</strong> intermediate/advanced</br>
+<strong>Language:</strong> C++</br>
+<strong>Mentor:</strong> Alex Bradbury <asb@lowrisc.org></br>
+
+<h2>TCP offload to minion cores using rump kernels</h2>
+<p>
+<strong>Summary:</strong> Use the NetBSD 'rump' kernel technology to run an IP stack on
+lowRISC’s small RISC-V 'minion' cores for the purpose of TCP offload.
+</p>
+
+<p>
+Rump kernels allows the reuse of NetBSD code such as driver implementations or
+the TCP/IP stack in other environments. These high quality drivers can be made
+to run on a diverse range of platforms including Linux userspace, the Xen
+hypervisor, and bare metal. This project would get rump kernels running in a
+bare metal RISC-V environment. A useful demonstration and proof of concept
+would be to show the NetBSD TCP/IP stack running on something approximating a
+lowRISC minion core. The sophistication of the TCP/IP offload offered will
+depend on the experience of the student and the time available towards the end
+of the project.
+</p>
+
+<strong>Links:</strong></br>
+<ul>
+<li><a href="http://www.lowrisc.org/docs/memo-2014-001-tagged-memory-and-minion-cores/">Tagged memory and minion cores memo</a></li>
+<li><a href="http://rumpkernel.org/">Rump kernels</a></li>
+</ul>
+
+<strong>Details:</strong></br>
+<strong>Skill level:</strong> intermediate/advanced</br>
+<strong>Language:</strong> C</br>
+<strong>Mentor:</strong> Justin Cormack <justin@specialbusservice.com></br>
+
+<h2>Porting L4/FIASCO.OC to RISC-V</h2>
+<p>
+<strong>Summary:</strong> Port the L4 FIASCO.OC microkernel and L4 runtime environment to
+RISC-V.
+</p>
+L4 microkernels are having their revival nowadays as secure and thin
+layer between the applications and the hardware. The traditional approach of a
+microkernel is that all kernel services are also executed in the user space,
+each in one container. Contrary to monolithic kernels, a kernel service is
+therefore accessed with inter-process messages and executed in user space. Only
+when necessary, certain capabilities are granted to a service container, e.g.,
+access to a device for a driver service. This allows for strong separation, but
+with the drawback that the inter-process communication needs to be really
+efficient. While the original microkernel approaches therefore lacked of
+success, modern computer architectures are better suited for the demands on the
+inter-process communication. The L4 family of microkernels is the most popular.
+</p>
+<p>
+FIASCO.OC is an L4 microkernel developed at TU Dresden/Germany. It is written
+in C++ and has real-time capabilities, multi-processor support and an
+object-oriented capabilities system. Similar to hypervisors, it is also
+possible to encapsulate entire operating systems in para-virtualized containers
+(such as L4Linux, L4OpenBSD or L4Android).  The goal of the project is to port
+the FIASCO microkernel to the RISC-V architecture. Beside the basic kernel
+functionality (memory mapping, processor sharing) a set of service containers
+from the L4 Runtime Environment (L4Re) also need to be adapted to the RISC-V
+architecture.
+</p>
+
+<strong>Links:</strong></br>
+<ul>
+<li><a href="https://os.inf.tu-dresden.de/fiasco/">FIASCO.OC</a></li>
+<li><a href="http://l4re.org/">L4Re runtime environment</a></li>
+</ul>
+
+<strong>Details:</strong></br>
+<strong>Skill level:</strong> advanced</br>
+<strong>Language:</strong> C/C++</br>
+<strong>Mentor:</strong> Stefan Wallentowitz <stefan@wallentowitz.de></br>
+
+<h2>Trace Debugging Infrastructure for lowRISC</h2>
+<p>
+<strong>Summary:</strong> Design and implementation of a trace debugging infrastructure for the
+cores and uncore logic in the lowRISC SoC. 
+</p>
+
+<p>
+Debugging embedded systems has
+become more and more complex. Traditional run-control debugging needs to be
+adapted to be aware of multiple processor cores and other active elements. For
+this, cross-triggering techniques and sophisticated tools are helpful for
+example.
+Beside this, trace debugging techniques become more and more important. Here,
+the hardware is monitored and certain events are generated, often with the
+timestamp of the event. For example, each change of the program counter can be
+trace event or alternatively only branches are considered trace events. Beside
+this, other hardware or software events may be part of an execution trace. The
+trace is generated while the system executes with minimal interference and
+analyzed offline (or also online).  The goal of this project is to analyze
+existing trace debugging approaches, especially the Nexus standard. Based on
+the discussion hardware monitors are then developed and the configuration and
+actual tracing infrastructure are prototypically developed for the lowRISC
+system-on-chip. Especially the different kinds of cores and other elements of
+the SoC should be considered.
+</p>
+
+<strong>Links:</strong></br>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Nexus_%28standard%29">Nexus</a></li>
+<li><a href="http://www.optimsoc.org">OpTiMSoC</a></li>
+<li><a href="http://www.mad-workshop.de//2013.html">Multicore application debugging workshop</a></li>
+</ul>
+
+<strong>Details:</strong></br>
+<strong>Skill level:</strong> intermediate</br>
+<strong>Language:</strong> (System)Verilog or Chisel</br>
+<strong>Mentor:</strong> Stefan Wallentowitz <stefan@wallentowitz.de></br>
+
+
+<h2>Optimized ray tracer for Nyuzi parallel processor</h2>
+<p>
+<strong>Summary:</strong> Write a ray tracing library that is optimized for Nyuzi parallel processor.
+</p>
+
+<p>
+Nyuzi is an open source parallel processor architecture. This project would
+implement a ray tracer that takes advantage of both vector arithmetic and
+hardware multithreading. This would act as a benchmark for exploring the
+performance of this architecture and also a validation test.  Part of the
+project may also involve proposing/implementing instruction set or architecture
+extensions to improve performance.
+</p>
+
+<strong>Links:</strong></br>
+<ul>
+<li><a href="https://github.com/jbush001/NyuziProcessor">Nyuzi processor</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Ray_tracing_%28graphics%29">Ray tracing (wikipedia)</a></li>
+</ul>
+
+<strong>Details:</strong></br>
+<strong>Skill level:</strong> intermediate</br>
+<strong>Language:</strong> C/C++</br>
+<strong>Mentor:</strong> Jeff Bush <jeffbush001@gmail.com></br>
+
+<h2>JTAG hardware debugging support for Nyuzi</h2>
+<p>
+<strong>Summary:</strong> Add the ability to single step, inspect memory, set breakpoints over JTAG.
+</p>
+<p>
+Nyuzi is an open source parallel processor architecture. This project would
+implement support in the hardware pipeline (running on FPGA) for control by a
+host over JTAG.
+</p>
+
+<strong>Links:</strong></br>
+<ul>
+<li><a href="https://github.com/jbush001/NyuziProcessor">Nyuzi processor</a></li>
+<li><a href="https://github.com/swetland/jtag">USB blaster JTAG tools</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Joint_Test_Action_Group">JTAG (Wikipedia)</a></li>
+</ul>
+
+<strong>Details:</strong></br>
+<strong>Skill level:</strong> advanced</br>
+<strong>Language:</strong> SystemVerilog, C</br>
+<strong>Mentor:</strong> Jeff Bush <jeffbush001@gmail.com></br>
+
+<h2>Porting musl libc to RISC-V</h2>
+<p>
+<strong>Summary:</strong> Create a port of the musl libc to RISC-V 32-bit and 64-bit.
+</p>
+<p>
+Musl is an MIT-licensed libc implementation with excellent support for static
+linking. It has been used by a number of lightweight Linux distributions, most
+prominently Alpine. This project would involve porting musl to the 32-bit and
+64-bit RISC-V instruction set architecture. An unoptimised port should require
+less than 1KLOC, so after achieving this initial milestone time should be spent
+both building out the musl benchmark suite and implementing optimised
+implementations for key functions.
+</p>
+
+<strong>Links:</strong></br>
+<ul>
+<li><a href="http://www.musl-libc.org/">Musl homepage</a></li>
+</ul>
+
+<strong>Details:</strong></br>
+<strong>Skill level:</strong> intermediate</br>
+<strong>Language:</strong> C</br>
+<strong>Mentor:</strong> Rich Felker <dalias@libc.org></br>
+
+<h2>jor1k port to RISC-V</h2>
+<p>
+<strong>Summary:</strong> Write a RISC-V 32-Bit CPU emulator in Javascript
+</p>
+<p>
+jor1k is an emulator for the OpenRISC platform and is the fastest emulator
+which runs in the web browser and boots Linux. It comes with a working
+underlying framework and a comprehensive library for hardware devices such as a
+framebuffer and network support, which can be used for the RISC-V too. This
+project would involve the programming of the missing part - a RISC-V 32-Bit CPU
+emulator following the ISA specification (estimated 1-1.5kLOC). A milestone
+would be the booting of Linux. We will then focus on optimizations using
+asm.js. Possible extensions include adding support for other features of the
+lowRISC platform, such as tagged memory or minion cores.  Basic knowledge about
+CPU design and general assembler programming is required. 
+</p>
+
+<strong>Links:</strong></br>
+<ul>
+<li><a href="https://github.com/s-macke/jor1k">jor1k repo</a></li>
+<li><a href="http://riscv.org/riscv-spec-v2.0.pdf">RISC-V ISA specification</a></li>
+<li><a href="https://github.com/s-macke/jor1k/wiki/Technical-details">jor1k technical details</a></li>
+</ul>
+
+<strong>Details:</strong></br>
+<strong>Skill level:</strong> intermediate/advanced</br>
+<strong>Language:</strong> Javascript</br>
+<strong>Mentor:</strong> Sebastian Macke <sebastian@macke.de></br>
+
+
+  </div>
+</body>
+</html>

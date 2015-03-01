@@ -249,22 +249,23 @@ SoC.
 <strong>Language:</strong> Python<br>
 <strong>Mentor:</strong> Olof Kindgren olof.kindgren@gmail.com<br>
 
-<h2>Extending tavor for instruction set fuzzing</h2>
+<h2>Extend Tavor to support directed generation of assembly test cases</h2>
 <p>
-<strong>Summary:</strong> Extend the tavor fuzzing tool to support directed generation of
-assembly test cases.
+<strong>Summary:</strong> Tavor is a framework for generation-based fuzzing which can be
+utilized to quickly provide an initial set of tests for an implementation. In
+comparison to formal methods, such as model checking, it is not meant to
+perform a full verification. Instead, fuzzing can be applied to test if an
+implementation is working at all.
 </p>
 
 <p>
-Tavor is a tool and framework for fuzzing and
-delta-debugging, implemented in Golang. Formal methods such as model checking
-are often used in verification, but we’ve also found fuzzing to be a very
-useful way to quickly providing an initial test of an implementation (whether
-it’s an instruction set simulator or a full HDL implementation). The project
-would use tavor for instruction set fuzzing, extending it where necessary.
-Tavor would be extended to allow instruction sequences of certain types to be
-generated.
+The goal of this project is to use and extend Tavor to fuzz instruction sets.
+It should be possible to easily maintain a definition of an instruction set to
+generate a small amount of assembly tests. Given an appropriate heuristic,
+these tests should cover all defined instructions in multiple corner cases
+acting as a sanity test for the implementation under test.
 </p>
+
 <strong>Links:</strong><br>
 <ul>
 <li><a href="https://github.com/zimmski/tavor">tavor homepage</a></li>

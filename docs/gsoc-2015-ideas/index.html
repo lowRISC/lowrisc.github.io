@@ -568,6 +568,31 @@ CPU design and general assembler programming is required.
 <strong>Language:</strong> Javascript<br>
 <strong>Mentor:</strong> Sebastian Macke sebastian@macke.de<br>
 
+<h2>OCaml native code port to RISC-V</h2>
+<p>
+<strong>Summary:</strong> Write a RISC-V 32-Bit native code generation backend for the OCaml compiler 
+</p>
+<p>
+OCaml is a functional programming language from the ML family, with code that can be compiled
+natively to x86, ARM, Sparc, PowerPC and MIPS binaries using the
+<a href="http://caml.inria.fr/pub/docs/manual-ocaml-4.00/manual025.html">ocamlopt</a> compiler
+included with the distribution.  This project would add support for the RISC-V instruction
+set into ocamlopt, and verify that the resulting code generation passes the test suite included
+with the OCaml compiler.  Once that passes, a stretch goal would be to compile libraries in the
+OCaml ecosystem to test their correct operation using the <a href="https://opam.ocaml.org">OPAM</a>
+package manager.
+</p>
+
+<strong>Links:</strong><br>
+<ul>
+<li><a href="https://github.com/ocaml/ocaml">OCaml compiler repository</a></li>
+<li><a href="https://realworldocaml.org/v1/en/html/the-compiler-backend-byte-code-and-native-code.html#compiling-fast-native-code">Native code compilation in Real World OCaml</a></li>
+</ul>
+
+<strong>Details:</strong><br>
+<strong>Skill level:</strong> intermediate/advanced<br>
+<strong>Language:</strong> OCaml<br>
+<strong>Mentor:</strong> Anil Madhavapeddy anil@recoil.org<br>
 
   </div>
 </body>

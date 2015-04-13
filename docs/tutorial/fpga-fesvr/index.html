@@ -5,7 +5,7 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
 
-        <title>Tagged memory and minion cores in the lowRISC SoC &middot; lowRISC</title>
+        <title>Building the front-end server &middot; lowRISC</title>
         <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' type='text/css'>
         <link rel="stylesheet" href="http://www.lowrisc.org//libraries/normalize.3.0.1.css" />
         <link rel="stylesheet" href="http://www.lowrisc.org//css/liquorice.css" />
@@ -76,7 +76,7 @@
             <div class="sixteen columns">
                 <article class="li-article">
                     <header class="li-article-header">
-                        <h1 class="li-article-title">Tagged memory and minion cores in the lowRISC SoC</h1>
+                        <h1 class="li-article-title">Building the front-end server</h1>
                         <span class="li-article-taxonomies">
                             
 
@@ -86,48 +86,52 @@
                         
                     </header>
                     <section>
-                        <p><a href="http://www.lowrisc.org/downloads/lowRISC-memo-2014-001.pdf">
-    <img src="lowRISC-memo-2014-001-pdf.png" alt="" />
+                        <p>The front-end server runs on the ARM side (PS) of the Zynq. It must
+be cross-compiled against the Xilinx SDK.</p>
 
-  </a></p>
+<p>To compile your own front-end server:</p>
 
-<p><a href="http://www.lowrisc.org/downloads/lowRISC-memo-2014-001.pdf">Download PDF</a></p>
+<pre><code># set up the RISCV environment variables
+# set up the Xilinx environment variables
+cd $TOP/riscv-tools/riscv-fesvr
+mkdir build_fpga
+cd build_fpga
+../configure --host=arm-xilinx-linux-gnueabi
+make -j
+</code></pre>
 
-<p>This document describes our current thinking on two aspects of the <a href="http://www.lowrisc.org">lowRISC</a>
-SoC, namely tagged memory and &lsquo;minion&rsquo; cores usable for I/O and other tasks.
-We are sharing it at this early stage in the spirit of &ldquo;release early,
-release often&rdquo; and to benefit from input and ideas from the wider community.</p>
+<p>Once compilation has completed, you should find the following files:</p>
 
-<p>Please post any comments or questions either in the discussion thread below,
-or <a href="http://listmaster.pepperfish.net/cgi-bin/mailman/listinfo/lowrisc-dev-lists.lowrisc.org">on our mailing
-list</a>.
-To keep informed of future development, <a href="http://www.lowrisc.org/#subscribe">subcribe to our announcements
-list</a> and follow
-<a href="https://twitter.com/lowRISC">@lowRISC</a>.</p>
+<pre><code>ls -l fesvr-zedboard
+ls -l libfesvr.so
+</code></pre>
+
+<p>To copy your new front-end server to the FPGA image:</p>
+
+<pre><code>cd $TOP/fpga-zynq/zedboard
+make ramdisk-open
+sudo cp $TOP/riscv-tools/riscv-fesvr/build_fpga/fesvr-zedboard \
+  ramdisk/home/root/fesvr-zynq
+sudo cp $TOP/riscv-tools/riscv-fesvr/build_fpga/libfesvr.so \
+  ramdisk/usr/local/lib/libfesvr.so
+make ramdisk-close
+sudo rm -fr ramdisk
+</code></pre>
+
+<p>The proxy kernel (pk) used by the FPGA is the same one used in
+simulation.  While not normally necessary, the proxy kernel can be recompiled using the following commands:</p>
+
+<pre><code>cd $TOP/fpga-zynq/zedboard
+make ramdisk-open
+sudo cp $TOP/riscv-tools/riscv-pk/build/pk ramdisk/home/root/pk
+make ramdisk-close
+sudo \rm -fr ramdisk
+</code></pre>
 
                     </section>
                 </article>
 
                 
-
-            <div id="disqus_thread"></div>
-            <script type="text/javascript">
-                 
-                var disqus_shortname = 'lowrisc'; 
-                var disqus_identifier = "/" + "docs/memo-2014-001-tagged-memory-and-minion-cores";
-                var disqus_title = "Tagged memory and minion cores in the lowRISC SoC";
-                var disqus_url = "http://www.lowrisc.org" + "docs/memo-2014-001-tagged-memory-and-minion-cores";
-
-                 
-                (function() {
-                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                })();
-            </script>
-            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-            </div>
-            
         </div>
     </div>
 

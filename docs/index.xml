@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docs on lowRISC</title>
+    <link>http://www.lowrisc.org/docs/</link>
+    <description>Recent content in Docs on lowRISC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 13 Apr 2015 14:27:08 +0100</lastBuildDate>
+    <atom:link href="http://www.lowrisc.org/docs/index.xml" rel="self" type="application/rss+xml" />
+    
+  </channel>
+</rss>
+

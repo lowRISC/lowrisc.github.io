@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on lowRISC</title>
+    <link>http://www.lowrisc.org/blog/</link>
+    <description>Recent content in Blogs on lowRISC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 13 Apr 2015 22:28:10 +0000</lastBuildDate>
+    <atom:link href="http://www.lowrisc.org/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>lowRISC tagged memory preview release</title>
+      <link>http://www.lowrisc.org/blog/2015/04/lowrisc-tagged-memory-preview-release</link>
+      <pubDate>Mon, 13 Apr 2015 22:28:10 +0000</pubDate>
+      
+      <guid>http://www.lowrisc.org/blog/2015/04/lowrisc-tagged-memory-preview-release</guid>
+      <description>&lt;p&gt;We&amp;rsquo;re pleased to announce the &lt;a href=&#34;http://www.lowrisc.org/docs/tutorial/&#34;&gt;first lowRISC preview release&lt;/a&gt;, demonstrating support for tagged memory as
+described in &lt;a href=&#34;http://www.lowrisc.org/docs/memo-2014-001-tagged-memory-and-minion-cores/&#34;&gt;our memo&lt;/a&gt;. Our ambition with lowRISC is to provide an open-source System-on-Chip
+platform for others to build on, along with low-cost development boards
+featuring a reference implementation. Although there&amp;rsquo;s more work to be done on
+the tagged memory implementation, now seemed a good time to document what
+we&amp;rsquo;ve done in order for the wider community to take a look. Please see our
+&lt;a href=&#34;http://www.lowrisc.org/docs/tutorial/&#34;&gt;full tutorial&lt;/a&gt; which describes in some
+detail the changes we&amp;rsquo;ve made to the Berkeley &lt;a href=&#34;https://github.com/ucb-bar/rocket&#34;&gt;Rocket
+core&lt;/a&gt;, as well as how you can build and try
+it out for yourself (either in simulation, or on an FPGA). We&amp;rsquo;ve gone to some
+effort to produce this documentation, both to document our work, and to share
+our experiences building upon the Berkeley RISC-V code releases in the hopes
+they&amp;rsquo;ll be useful to other groups.&lt;/p&gt;
+
+&lt;p&gt;The initial motivation for tagged memory was to prevent control-flow hijacking
+attacks, though there are a range of other potential uses including
+fine-grained memory synchronisation, garbage collection, and debug tools.&lt;br /&gt;
+Please note that the instructions used to manipulate tagged memory in this
+release (&lt;code&gt;ltag&lt;/code&gt; and &lt;code&gt;stag&lt;/code&gt;) are only temporary and chosen simply because they
+require minimal changes to the core pipeline. Future work will include
+exploring better ISA support, collecting performance numbers across a range of
+tagged memory uses and tuning the tag cache. We are also working on developing
+an &amp;lsquo;untethered&amp;rsquo; version of the SoC with the necessary peripherals integrated
+for standalone operation.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;ve visited lowrisc.org before, you&amp;rsquo;ll have noticed we&amp;rsquo;ve changed a few
+things around. Keep an eye on this blog (and its &lt;a href=&#34;http://www.lowrisc.org/index.xml&#34;&gt;RSS
+feed&lt;/a&gt;) to keep an eye on developments - we
+expect to be updating at least every couple of weeks. We&amp;rsquo;re very grateful to
+the RISC-V team at Berkeley for all their support and guidance. A large
+portion of the credit for this initial code release goes to &lt;a href=&#34;http://wsong83.github.io/&#34;&gt;Wei
+Song&lt;/a&gt;, who&amp;rsquo;s been working tirelessly on the HDL
+implementation.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
+

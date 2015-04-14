@@ -182,7 +182,9 @@ ul.li-article-list {
 .li-pagination {
     border-top: 1px solid #ccc;
     margin-top: 32px;
+    margin-bottom: 32px;
     padding-top: 16px;
+    padding-bottom: 16px;
 }
 
 .li-pagination-previous {

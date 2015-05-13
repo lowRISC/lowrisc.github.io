@@ -6,8 +6,140 @@
     <description>Recent content in Blogs on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Apr 2015 22:28:10 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 13 May 2015 20:45:07 +0100</lastBuildDate>
     <atom:link href="http://www.lowrisc.org/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Summer of Code students for lowRISC</title>
+      <link>http://www.lowrisc.org/blog/2015/05/summer-of-code-students-for-lowrisc</link>
+      <pubDate>Wed, 13 May 2015 20:45:07 +0100</pubDate>
+      
+      <guid>http://www.lowrisc.org/blog/2015/05/summer-of-code-students-for-lowrisc</guid>
+      <description>&lt;p&gt;lowRISC was fortunate enough to be chosen as a mentoring organisation in this
+year&amp;rsquo;s &lt;a href=&#34;https://developers.google.com/open-source/soc/&#34;&gt;Google Summer of
+Code&lt;/a&gt;. The Google Summer of
+Code program funds students to work on open source projects over the summer.
+We had 52 applications across the &lt;a href=&#34;http://www.lowrisc.org/docs/gsoc-2015-ideas/&#34;&gt;range of project
+ideas&lt;/a&gt; we&amp;rsquo;ve been advertising.
+As you can see from the range of project ideas, lowRISC is taking part as an
+umbrella organisation, working with a number of our friends in the wider open
+source software and hardware community.
+We were allocated three slots from Google, and given the volume of high
+quality applications making the selection was tremendously difficult. We have
+actually been able to fund an additional three applicants from other sources,
+but even then there were many promising projects we couldn&amp;rsquo;t support. We are
+extremely grateful to all the students who put so much time and effort in to
+their proposals, and to everyone who volunteered to mentor. The six &amp;lsquo;summer of
+code&amp;rsquo; projects for lowRISC are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.google-melange.com/gsoc/project/details/google/gsoc2015/asy/5757334940811264&#34;&gt;An online Verilog IDE based on
+YosysJS&lt;/a&gt;.
+Baptiste Duprat mentored by Clifford Wolf&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Baptiste will be working with an Emscripten-compiled version of
+the &lt;a href=&#34;http://www.clifford.at/yosys/&#34;&gt;Yosys&lt;/a&gt; logic synthesis tool, building an
+online Verilog IDE on top
+of it which would be particularly suitable for training and teaching
+materials. A big chunk of the proposed work is related to visualisation of the
+generated logic. Improving the accessibility of hardware design is essential for
+growing the potential contributor base to open source hardware
+projects like lowRISC, and this is just the start of our efforts in that
+space.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.google-melange.com/gsoc/project/details/google/gsoc2015/hesham/5868011953061888&#34;&gt;Porting seL4 to
+RISC-V&lt;/a&gt;.
+Hesham ALMatary mentored by Stefan Wallentowitz&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://sel4.systems/&#34;&gt;seL4&lt;/a&gt; is a formally verified microkernel, which
+currently has ports
+for x86 and ARM. Hesham will be performing a complete port to
+RISC-V/lowRISC. Security and microkernels are of great interest to
+many in the community. It&amp;rsquo;s also a good opportunity to expand RISC-V platform
+support and to put the recently released &lt;a href=&#34;https://blog.riscv.org/2015/05/risc-v-draft-privileged-architecture-version-1-7-released/&#34;&gt;RISC-V Privileged Architecture
+Specification&lt;/a&gt;
+through its paces. Hesham previously performed a port of RTEMS to
+OpenRISC.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.google-melange.com/gsoc/project/details/google/gsoc2015/prannoy1994/5651442522128384&#34;&gt;Porting jor1k to
+RISC-V&lt;/a&gt;.
+Prannoy Pilligundla mentored by Sebastian Macke&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://s-macke.github.io/jor1k/&#34;&gt;jor1k&lt;/a&gt; is by far the
+&lt;a href=&#34;https://github.com/s-macke/jor1k/wiki/Benchmark-with-other-emulators&#34;&gt;fastest&lt;/a&gt;
+Javascript-based full system
+simulator. It also features a network device, filesystem support, and
+a framebuffer. Prannoy will be adding support for RISC-V and look at
+supporting some of the features we offer on lowRISC such as &lt;a href=&#34;http://www.lowrisc.org/docs/memo-2014-001-tagged-memory-and-minion-cores/&#34;&gt;minion
+cores or tagged
+memory&lt;/a&gt;.
+This will be great not only as a demo, but
+also have practical uses in tutorial or educational material.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;TCP offload to minion cores using rump kernels. Sebastian Wicki
+mentored by Justin Cormack&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The intention here is to get a &lt;a href=&#34;http://rumpkernel.org/&#34;&gt;rump kernel&lt;/a&gt;
+(essentially a libified
+NetBSD) running bare-metal on a simple RISC-V system and evaluate
+exposing the TCP/IP stack for use by other cores. e.g. a TCP/IP
+offload engine running on a minion core. TCP offload is a good
+starting point, but of course the same concept could be applied
+elsewhere. For example, running a USB mass storage driver (and filesystem
+implementation) on a minion core and providing a simple high-level
+interface to the application cores.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Extend Tavor to support directed generation of assembly test cases.
+Yoann Blein mentored by Markus Zimmermann&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/zimmski/tavor&#34;&gt;Tavor&lt;/a&gt; is a sophisticated fuzzing tool
+implemented in Go. Yoann
+will be extending it to more readily support specifying instruction
+set features and generating a fuzzing suite targeting an ISA such as
+RISC-V. Yoann has some really interesting ideas on how to go about
+this, so I&amp;rsquo;m really interested in seeing where this on ends up.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Implement a Wishbone to TileLink bridge and extend TileLink
+documentation. Thomas Repetti mentored by Wei Song&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://en.wikipedia.org/wiki/Wishbone_%28computer_bus%29&#34;&gt;Wishbone&lt;/a&gt; is the
+interconnect of choice for most existing open
+source IP cores, including most devices on
+&lt;a href=&#34;http://opencores.org/&#34;&gt;opencores.org&lt;/a&gt;. The Berkeley
+&lt;a href=&#34;https://github.com/ucb-bar/rocket-chip&#34;&gt;Rocket&lt;/a&gt; RISC-V implementation uses
+their own &amp;lsquo;TileLink&amp;rsquo; protocol (we provide a &lt;a href=&#34;http://www.lowrisc.org/docs/tutorial/rocket-chip/&#34;&gt;brief
+overview&lt;/a&gt;. By providing a
+reusable bridge, this project will allow the easy reuse of opencores devices
+and leverage the many man-years of effort that has already gone in to them.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The first 3 of the above projects are part of Google Summer of Code
+and the bottom 3 directly funded, operating over roughly the same timeline.
+We&amp;rsquo;re also going to be having two local
+students interning with us here at the University of Cambridge
+Computer Lab starting towards the end of June, so it&amp;rsquo;s going to be a
+busy and productive summer. It bears repeating just how much we appreciate the
+support of everyone involved so far - Google through their Summer of Code
+initiative, the students, and those who&amp;rsquo;ve offered to act as mentors. We&amp;rsquo;re
+very excited about these projects, so please join us in welcoming the students
+involved to our community. If you have any questions, suggestions, or guidance
+please do leave them in the comments.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>lowRISC tagged memory preview release</title>

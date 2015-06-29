@@ -231,7 +231,7 @@ the minimal &lsquo;I&rsquo; instruction set, but could add it to the standard ex
 Linux.</li>
 </ul>
 
-<h1 id="goblincore64-a-risc-v-extension-for-data-intensive-computing-john-leideal:1198e896ab6f8fa7b8bfab04cfcd8c73">GoblinCore64. A RISC-V Extension for Data Intensive Computing: John Leideal</h1>
+<h1 id="goblincore64-a-risc-v-extension-for-data-intensive-computing-john-leidel:1198e896ab6f8fa7b8bfab04cfcd8c73">GoblinCore64. A RISC-V Extension for Data Intensive Computing: John Leidel</h1>
 
 <ul>
 <li>Building a processor design aimed at data intensive algorithms and
@@ -244,6 +244,14 @@ exception register etc etc.</li>
 determines whether a task may spawn and execute work on neighboring task
 processors, providing a very rudimentary protection mechanism.</li>
 <li>Making use of RV128I - it&rsquo;s not just there for fun!</li>
+<li>Support various instruction extensions, e.g. IWAIT, SWPAWN, JOIN, GETTASK,
+SETTASK. Basic operations needed to write a thread management system (such as
+pthreads) implemented as microcoded instructions in the RISC-V ISA.</li>
+<li>Also attempting to define the data structures which contain task queue data.</li>
+<li>Currently looking at lowRISC-style minion cores to implement microcoded
+memory coalescing units.</li>
+<li>Read the GC64 specification doc
+<a href="http://discl.cs.ttu.edu/gitlab/gc64/gc64-doc/tree/master">here</a>.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

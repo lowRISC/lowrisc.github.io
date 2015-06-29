@@ -97,7 +97,7 @@ the minimal &amp;lsquo;I&amp;rsquo; instruction set, but could add it to the sta
 Linux.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&#34;goblincore64-a-risc-v-extension-for-data-intensive-computing-john-leideal:1198e896ab6f8fa7b8bfab04cfcd8c73&#34;&gt;GoblinCore64. A RISC-V Extension for Data Intensive Computing: John Leideal&lt;/h1&gt;
+&lt;h1 id=&#34;goblincore64-a-risc-v-extension-for-data-intensive-computing-john-leidel:1198e896ab6f8fa7b8bfab04cfcd8c73&#34;&gt;GoblinCore64. A RISC-V Extension for Data Intensive Computing: John Leidel&lt;/h1&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Building a processor design aimed at data intensive algorithms and
@@ -110,6 +110,14 @@ exception register etc etc.&lt;/li&gt;
 determines whether a task may spawn and execute work on neighboring task
 processors, providing a very rudimentary protection mechanism.&lt;/li&gt;
 &lt;li&gt;Making use of RV128I - it&amp;rsquo;s not just there for fun!&lt;/li&gt;
+&lt;li&gt;Support various instruction extensions, e.g. IWAIT, SWPAWN, JOIN, GETTASK,
+SETTASK. Basic operations needed to write a thread management system (such as
+pthreads) implemented as microcoded instructions in the RISC-V ISA.&lt;/li&gt;
+&lt;li&gt;Also attempting to define the data structures which contain task queue data.&lt;/li&gt;
+&lt;li&gt;Currently looking at lowRISC-style minion cores to implement microcoded
+memory coalescing units.&lt;/li&gt;
+&lt;li&gt;Read the GC64 specification doc
+&lt;a href=&#34;http://discl.cs.ttu.edu/gitlab/gc64/gc64-doc/tree/master&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

@@ -164,6 +164,20 @@ at the workshop so the introduction of course makes a lot of sense.</li>
 <li>Although the core RISC-V effort is focused on the ISA specification, there
 is interest in looking to expand this to look at how to standardise access to
 I/O etc.</li>
+<li>RV32E is a &ldquo;pre-emptive strike&rdquo; at those who might be tempted to fragment
+the ISA space for very small cores. It is a 16-register subset of RV32I.</li>
+<li>The compressed instruction set has been released since the last workshop,
+there will be talk later today about it. It gives 25-30% code size reduction,
+and surprisingly there&rsquo;s still lots of 16-bit encode space for additional
+extensions.</li>
+<li>Krste makes the point that AArch64 has 8 addressing modes vs just 1 for
+RISC-V. The comparison of the size of the GCC/LLVM backends is perhaps less
+interesting given that the ARM backend actually has rather a lot more
+optimisations.</li>
+<li>&ldquo;Simplicity breeds contempt&rdquo;. &ldquo;So far, no evidence more complex ISA is
+justified for general code&rdquo;</li>
+<li>Will be talking about a Cray-style vector ISA extension later today (i.e.<br />
+not packed-SIMD ISA or GPU-style).</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

@@ -208,6 +208,24 @@ working on vector machines.</li>
 SIMD. Traditional vector machines allow you to set the vector length register
 to provide a more uniform programming model. This makes loop strip-mining more
 straight-forward.</li>
+<li>Add up to 32 vector data registers (v0-v31) in addition to the basic scalar
+x and f registers. Each vector register is at least 3 elements each, with
+variable bits per element. Also add 8 vector predicate registers, with 1-bit
+per element. Finally, add vector configuration and vector length CSR
+registers.</li>
+<li>Other features
+
+<ul>
+<li>Reconfigurable vector registers allow you to exchange unused architectural
+registers for longer vectors. e.g. if you only need 4 architectural vector
+registers you&rsquo;ll have a larger vector length.</li>
+<li>Mixed-precision support</li>
+<li>Intenger, fixed-point, floating-point arithmetic</li>
+<li>Unit-stride, strided, indexed load/stores</li>
+<li>Predication</li>
+</ul></li>
+<li>Mixed-precision support allows you to subdivide a physical register into
+multiple narrower architectural registers as requested.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

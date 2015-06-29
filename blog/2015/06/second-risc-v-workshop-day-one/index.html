@@ -204,6 +204,10 @@ layers, and fit into the standard 32-bit encoding space.</li>
 <li>Krste is critical of GPUs for general compute. I can summarise his arguments
 here, but the slides will be well worth a read. Krste has spent decades
 working on vector machines.</li>
+<li>With packed SIMD you tend to need completely new instructions for wider
+SIMD. Traditional vector machines allow you to set the vector length register
+to provide a more uniform programming model. This makes loop strip-mining more
+straight-forward.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

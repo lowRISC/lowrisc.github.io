@@ -44,6 +44,14 @@ optimisations.&lt;/li&gt;
 justified for general code&amp;rdquo;&lt;/li&gt;
 &lt;li&gt;Will be talking about a Cray-style vector ISA extension later today (i.e.&lt;br /&gt;
 not packed-SIMD ISA or GPU-style).&lt;/li&gt;
+&lt;li&gt;Rocket core is only about ~12kloc of Chisel in total. ~5kloc for the
+processor, ~2kloc for floating-point units, ~4.6kloc for &amp;lsquo;uncore&amp;rsquo; (coherence
+hubs, L2, caches etc).&lt;/li&gt;
+&lt;li&gt;State of the RISC-V Nation: many companies &amp;lsquo;kicking the tires&amp;rsquo;. If you were
+thinking of designing your own RISC ISA for project, then use RISC-V. If you
+need a complete working support core &lt;em&gt;today&lt;/em&gt; then pay $M for an industry core.&lt;br /&gt;
+If you need it in 6 months, then consider spending that $M on RISC-V
+development.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

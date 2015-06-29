@@ -226,6 +226,19 @@ registers you&rsquo;ll have a larger vector length.</li>
 </ul></li>
 <li>Mixed-precision support allows you to subdivide a physical register into
 multiple narrower architectural registers as requested.</li>
+<li>Sam binary code works regardless of number of physical register bits and the
+number of physical lanes.</li>
+<li>Use a polymorphic instruction encoding. e.g. a single signed integer ADD
+opcode that works on different size inputs and outputs.</li>
+<li>Have separate integer and floating-point loads and stores, where the size is
+inherent in the destination register number.</li>
+<li>All instructions are implicitly predicated under the first predicate
+register by default.</li>
+<li>What is the difference between V and Hwacha? Hwacha is a non-standard
+Berkeley vector extensions design to push the state-of-the-art for
+in-order/decoupled vector machines. There are similarities in the lane
+microarchitecture. Current focus is bringing up OpenCL for Hwacha, with the V
+extension to follow.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

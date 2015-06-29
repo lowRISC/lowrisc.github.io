@@ -120,6 +120,18 @@ memory coalescing units.&lt;/li&gt;
 &lt;a href=&#34;http://discl.cs.ttu.edu/gitlab/gc64/gc64-doc/tree/master&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h1 id=&#34;vector-extension-proposal-krste-asanović:1198e896ab6f8fa7b8bfab04cfcd8c73&#34;&gt;Vector Extension Proposal: Krste Asanović&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Goals: efficient and scalable to all reasonable design points. Be a good
+compiler target, and to support implicit auto-vectorisation through OpenMP and
+explicit SPMD (OpenCL) programming models. Want to work with virtualisation
+layers, and fit into the standard 32-bit encoding space.&lt;/li&gt;
+&lt;li&gt;Krste is critical of GPUs for general compute. I can summarise his arguments
+here, but the slides will be well worth a read. Krste has spent decades
+working on vector machines.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

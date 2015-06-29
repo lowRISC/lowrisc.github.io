@@ -52,6 +52,14 @@ thinking of designing your own RISC ISA for project, then use RISC-V. If you
 need a complete working support core &lt;em&gt;today&lt;/em&gt; then pay $M for an industry core.&lt;br /&gt;
 If you need it in 6 months, then consider spending that $M on RISC-V
 development.&lt;/li&gt;
+&lt;li&gt;RISC-V Foundation is being formed, a 501&amp;copy;(6), with Rick O&amp;rsquo;Conner as
+Executive Director. The mission statement is &amp;ldquo;to standardize, protect, and
+promote the free and open RISC-V instruction set architecture and its hardware
+and software ecosystem for use in all computing devices&amp;rdquo;. Plan is to publicly
+announce before HotChips later this year and is actively recruiting companies
+who want to be &amp;lsquo;founding&amp;rsquo; members. You will need to be a member of the
+foundation in good standing to use the RISC-V trademark (unless you are a
+non-profit).&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

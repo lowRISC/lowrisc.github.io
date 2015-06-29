@@ -97,6 +97,21 @@ the minimal &amp;lsquo;I&amp;rsquo; instruction set, but could add it to the sta
 Linux.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h1 id=&#34;goblincore64-a-risc-v-extension-for-data-intensive-computing-john-leideal:1198e896ab6f8fa7b8bfab04cfcd8c73&#34;&gt;GoblinCore64. A RISC-V Extension for Data Intensive Computing: John Leideal&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Building a processor design aimed at data intensive algorithms and
+applications. Applications tend to be very cache unfriendly.&lt;/li&gt;
+&lt;li&gt;GC64 (Goblin Core) has a thread control unit. A very small micro-coded unit
+(e.g. implement RV64C) is microcoded to perform the contest switching task.&lt;/li&gt;
+&lt;li&gt;Have added user-visible registers for thread id, thread context, task
+exception register etc etc.&lt;/li&gt;
+&lt;li&gt;The GKEY supervisor register contains a 64-bit key loaded by the kernel. It
+determines whether a task may spawn and execute work on neighboring task
+processors, providing a very rudimentary protection mechanism.&lt;/li&gt;
+&lt;li&gt;Making use of RV128I - it&amp;rsquo;s not just there for fun!&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

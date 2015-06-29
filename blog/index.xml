@@ -6,8 +6,26 @@
     <description>Recent content in Blogs on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 13 May 2015 20:45:07 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jun 2015 17:02:57 +0100</lastBuildDate>
     <atom:link href="http://www.lowrisc.org/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Second RISC-V Workshop: Day One</title>
+      <link>http://www.lowrisc.org/blog/2015/06/second-risc-v-workshop-day-one</link>
+      <pubDate>Mon, 29 Jun 2015 17:02:57 +0100</pubDate>
+      
+      <guid>http://www.lowrisc.org/blog/2015/06/second-risc-v-workshop-day-one</guid>
+      <description>
+
+&lt;p&gt;The &lt;a href=&#34;http://riscv.org/workshop-jun2015.html&#34;&gt;second RISC-V workshop&lt;/a&gt; is going
+on today and tomorrow in Berkeley, California. I&amp;rsquo;ll be keeping a semi-live
+blog of talks and announcements throughout the day.&lt;/p&gt;
+
+&lt;h2 id=&#34;introductions-and-welcome-krste-asanović:1198e896ab6f8fa7b8bfab04cfcd8c73&#34;&gt;Introductions and welcome: Krste Asanović&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Summer of Code students for lowRISC</title>

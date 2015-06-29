@@ -79,6 +79,22 @@ to get visas to give their talk&lt;/li&gt;
 and throw away ideas that add complexity but provide little benefit.&lt;/li&gt;
 &lt;li&gt;Ended up with a specification that is pleasingly minimal, with each
 instruction decoding to a single RV32 instruction.&lt;/li&gt;
+&lt;li&gt;Keen on community feedback on additional RVC instructions. Identified a set
+of 24 that have little impact on current compiler-generated code, but could be
+useful for some use cases.&lt;/li&gt;
+&lt;li&gt;You can read the RVC spec
+&lt;a href=&#34;http://riscv.org/spec/riscv-compressed-spec-v1.7.pdf&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Points out that Thumb2 is only a 32-bit address ISA. Although it is slightly
+smaller than RV32C, the RISC-V compressed spec has the benefit of supporting
+64-bit addressing.&lt;/li&gt;
+&lt;li&gt;Rather than adding the complexity of load multiple and store multiple,
+experimented with adding calls to a function that does the same thing. This
+hurts performance, but gives a large benefit for code size.&lt;/li&gt;
+&lt;li&gt;One question was on the power consumption impact. Don&amp;rsquo;t have numbers on that&lt;br /&gt;
+yet.&lt;/li&gt;
+&lt;li&gt;Should we require the compressed instruction set? Don&amp;rsquo;t want to add it to
+the minimal &amp;lsquo;I&amp;rsquo; instruction set, but could add it to the standard expected by
+Linux.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

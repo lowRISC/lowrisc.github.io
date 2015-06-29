@@ -286,6 +286,20 @@ and 60% global 3G.</li>
 <li>The IIT Madras team are using RapidIO extensively for their RISC-V work</li>
 <li>Has been doing work in the data center and HPC space. Looking to use the AXI
 ACE and connect that to RapidIO.</li>
+<li>There is interesting work on an open source RapidIO stack.</li>
+</ul>
+
+<h1 id="cava-cluster-in-a-rack-peter-hsu:1198e896ab6f8fa7b8bfab04cfcd8c73">CAVA. Cluster in a rack: Peter Hsu</h1>
+
+<ul>
+<li>Problem: designing a new computer is expensive. But 80% is the same every
+time.</li>
+<li>CAVA is not the same as the Oracle RAPID project.</li>
+<li>Would like to build a 1024-node cluster in a rack. DDR4 3200 = 25.6GB/s per
+64-bit channel. Each 1U card would be about 600W with 32 nodes.</li>
+<li>Looking at a 96-core 10nm chip (scaled from a previous 350nm project).<br />
+Suppose you have a 3-issue out of order core (600K gates) and 32KiB I+d cache,
+that would be around 0.24mm^2 in 10nm.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

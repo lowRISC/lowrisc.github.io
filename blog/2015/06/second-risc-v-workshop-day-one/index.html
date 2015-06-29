@@ -239,6 +239,23 @@ Berkeley vector extensions design to push the state-of-the-art for
 in-order/decoupled vector machines. There are similarities in the lane
 microarchitecture. Current focus is bringing up OpenCL for Hwacha, with the V
 extension to follow.</li>
+<li>Restartable page faults are supported. Similar to the DEC Vector VAX.</li>
+<li>Krste pleads people not to implement a packed SIMD extension, pointing out
+that a minimal V implementation would be very space efficient.</li>
+</ul>
+
+<h1 id="privileged-architecture-proposal-andrew-waterman:1198e896ab6f8fa7b8bfab04cfcd8c73">Privileged Architecture Proposal: Andrew Waterman</h1>
+
+<ul>
+<li>Aims to provide a clean split between layers of the stack.</li>
+<li>You can read the privileged spec
+<a href="http://riscv.org/spec/riscv-privileged-spec-v1.7.pdf">here</a>.</li>
+<li>Supports four privilege modes. User, Supervisor, Hypervisor and Machine
+mode.</li>
+<li>For a simple embedded system that only needs M-mode there is a low
+implementation cost. Only 2^7 bits of architectural state in addition to the
+user ISA, plus 2^7 more bits for timers and another 2^7 for basic performance
+counters.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

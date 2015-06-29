@@ -182,6 +182,21 @@ mode.&lt;/li&gt;
 implementation cost. Only 2^7 bits of architectural state in addition to the
 user ISA, plus 2^7 more bits for timers and another 2^7 for basic performance
 counters.&lt;/li&gt;
+&lt;li&gt;Defined the basic virtual memory architectures to support current Unix-style
+operating systems. The design is fairly conventional, using 4KiB pages.&lt;/li&gt;
+&lt;li&gt;Why go with 4KiB pages rather than 8KiB as was the initial plan? Concerned
+with porting software hard-coded to expect 4KiB pages. Also concerns about
+internal fragmentation.&lt;/li&gt;
+&lt;li&gt;Physical memory attributes such as cacheability are not encoded in the page
+table in RISC-V. Two major reasons that Andrew disagrees with this are that
+the granularity may not be tied to the page size, plus it is problematic for
+virtualisation. Potentially coherent DMA will become more common meaning you
+needn&amp;rsquo;t worry about these attributes.&lt;/li&gt;
+&lt;li&gt;Want to support device interactions via a virtio-style interface.&lt;/li&gt;
+&lt;li&gt;The draft Supervisor Binary Interface will be released with the next
+privileged ISA draft. It includes common functionality for TLB shootdowns,
+reboot/shutdown, sending inter-processor interrupts etc etc. This is a similar
+idea to the PALCode on the Alpha.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

@@ -226,6 +226,18 @@ time.&lt;/li&gt;
 &lt;li&gt;Looking at a 96-core 10nm chip (scaled from a previous 350nm project).&lt;br /&gt;
 Suppose you have a 3-issue out of order core (600K gates) and 32KiB I+d cache,
 that would be around 0.24mm^2 in 10nm.&lt;/li&gt;
+&lt;li&gt;Estimate a vector unit might be around the same area.&lt;/li&gt;
+&lt;li&gt;Peter has detailed estimates for per-chip power, but it&amp;rsquo;s probably best to
+refer to the slides for these.&lt;/li&gt;
+&lt;li&gt;Research plan for the cluster involves a unified simulation environment,
+running on generic clusters of x86 using open-source software. Everyone uses
+the same simulator to perform &amp;ldquo;apples to apples&amp;rdquo; comparison. This allows easy
+replication of published work.&lt;/li&gt;
+&lt;li&gt;Simulation infrastructure will involve a pipeline siumlator, SoC simulator
+(uncore logic), and a network simulator.&lt;/li&gt;
+&lt;li&gt;Interested in applying Cray-style vectors to database workloads&lt;/li&gt;
+&lt;li&gt;Could also have the ability to make associativity ways and possible
+individual cache lines lockable.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

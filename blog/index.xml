@@ -69,6 +69,10 @@ written in Chisel.&lt;/li&gt;
 &lt;li&gt;Chris argues there&amp;rsquo;s been a general lack of effort in academia to build and
 evaluate out-of-order designs. As he points out, much research relies on
 software simulators with no area or power numbers.&lt;/li&gt;
+&lt;li&gt;Some of the difficult questions for BOOM are which benchmarks to use, and
+how many cycles you need to run. He points out that mapping to FPGA running at
+50MHz, it would take around a day for the SPEC benchmarks for a cluster of
+FPGAs.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

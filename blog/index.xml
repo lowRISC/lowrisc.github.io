@@ -119,7 +119,31 @@ Null Convention Logic&lt;/li&gt;
 &lt;li&gt;This results in a system built entirely of combinational logic. I couldn&amp;rsquo;t
 hope to accurately summarise the work here. I&amp;rsquo;m afraid you might be best off
 waiting for the recording.&lt;/li&gt;
+&lt;li&gt;Current executing compiled quicksort at approximately 400mips (without
+serious optimisation).&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&#34;risc-v-erification-prashanth-mundkur:1ef1186fa93d1e56b496df4f0f6ee20f&#34;&gt;RISC-V(erification): Prashanth Mundkur&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Current architectures e.g. those from Intel and ARM have large errata sheets
+published semi-regularly. Can we do better for RISC-V?&lt;/li&gt;
+&lt;li&gt;Need an unambiguous formal ISA specification which should be coupled to a
+processor implementation amenable to the two, with a formal link between the
+two.&lt;/li&gt;
+&lt;li&gt;Currently specifying RISC-V in the &lt;a href=&#34;http://www.cl.cam.ac.uk/~acjf3/l3/&#34;&gt;L3
+DSL&lt;/a&gt;. The interpreter is used as a
+reference oracle for processor implementations.&lt;/li&gt;
+&lt;li&gt;The current state of the spec is &lt;a href=&#34;https://github.com/pmundkur/l3riscv&#34;&gt;available on
+Github&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;The work has already helped to highlight some areas where clarification is
+needed in the written specification&lt;/li&gt;
+&lt;li&gt;Next steps would involve support for the compressed instruction set and
+floating point, booting Linux, and using for tandem-verification (e.g. with
+Flue from Bluespec).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>
     

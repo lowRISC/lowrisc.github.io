@@ -197,7 +197,31 @@ Null Convention Logic</li>
 <li>This results in a system built entirely of combinational logic. I couldn&rsquo;t
 hope to accurately summarise the work here. I&rsquo;m afraid you might be best off
 waiting for the recording.</li>
+<li>Current executing compiled quicksort at approximately 400mips (without
+serious optimisation).</li>
 </ul>
+
+<h2 id="risc-v-erification-prashanth-mundkur:1ef1186fa93d1e56b496df4f0f6ee20f">RISC-V(erification): Prashanth Mundkur</h2>
+
+<ul>
+<li>Current architectures e.g. those from Intel and ARM have large errata sheets
+published semi-regularly. Can we do better for RISC-V?</li>
+<li>Need an unambiguous formal ISA specification which should be coupled to a
+processor implementation amenable to the two, with a formal link between the
+two.</li>
+<li>Currently specifying RISC-V in the <a href="http://www.cl.cam.ac.uk/~acjf3/l3/">L3
+DSL</a>. The interpreter is used as a
+reference oracle for processor implementations.</li>
+<li>The current state of the spec is <a href="https://github.com/pmundkur/l3riscv">available on
+Github</a>.</li>
+<li>The work has already helped to highlight some areas where clarification is
+needed in the written specification</li>
+<li>Next steps would involve support for the compressed instruction set and
+floating point, booting Linux, and using for tandem-verification (e.g. with
+Flue from Bluespec).</li>
+</ul>
+
+<p><em>Alex Bradbury</em></p>
 
                     </section>
                 </article>

@@ -42,6 +42,23 @@ having 16 registers).&lt;/li&gt;
 datapath, and 63 for the top-level. Combine with 983loc borrowed from Rocket.&lt;/li&gt;
 &lt;li&gt;A Verilog implementation of Z-scale is being implemented. It&amp;rsquo;s currently
 1215 lines of code.&lt;/li&gt;
+&lt;li&gt;The repo is &lt;a href=&#34;https://github.com/ucb-bar/zscale&#34;&gt;here&lt;/a&gt;, but Yunsup needs to
+do a little more work to make it easily buildable. There will be a blog post
+on the RISC-V site soon.&lt;/li&gt;
+&lt;li&gt;All future Rocket development will move to the public
+&lt;a href=&#34;https://github.com/ucb-bar/rocket-chip&#34;&gt;rocket-chip&lt;/a&gt; repo!&lt;/li&gt;
+&lt;li&gt;Memory interfaces:
+
+&lt;ul&gt;
+&lt;li&gt;TileLink is the Berkeley cache-coherent interconnect&lt;/li&gt;
+&lt;li&gt;NASTI (Berkeley implementation of AXI4)&lt;/li&gt;
+&lt;li&gt;HASTI (implementation of AHB-lite)&lt;/li&gt;
+&lt;li&gt;POCI (implementation of APB)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;The plan is to dump HTIF in Rocket, and add a standard JTAG debug interface.&lt;/li&gt;
+&lt;li&gt;Future work for Z-Scale includes a microarchitecture document, improving
+performance, implementing the C extensions, adding an MMU option, and adding
+more devices.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

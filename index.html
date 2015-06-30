@@ -149,6 +149,20 @@ software simulators with no area or power numbers.</li>
 how many cycles you need to run. He points out that mapping to FPGA running at
 50MHz, it would take around a day for the SPEC benchmarks for a cluster of
 FPGAs.</li>
+<li>The fact that rs1, rs2, rs3 and rd are always in the same space in the
+RISC-V ISA allows decode and rename to proceed in parallel.</li>
+<li>BOOM supports the full RV64G standard. It benefits from reusing Rocket as a
+library of components.</li>
+<li>BOOM uses explicit renaming, with a unified register file holding both
+x-regs and f-regs (floating point). A unified issue window holds all
+instructions.</li>
+<li>BOOM is synthesisable and hits 2GHz (30 FO4) in TSMC 45nm.</li>
+<li>BOOM is 9kloc of its own code, and pulls in 11.5kloc from other libraries
+(rocket, uncore, floating poing)</li>
+<li>BOOM compares well to an ARM Cortex-A9 and A15 in terms of CoreMark/MHz. A
+4-wide BOOM gives a similar CoreMark/MHz to the A15.</li>
+<li>Future work will look at new applications, a ROCC interface, new
+microarchitecture designs. The plan is to open source by this winter.</li>
 </ul>
 
     </section>

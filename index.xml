@@ -164,6 +164,12 @@ I&amp;rsquo;ll post the slides shortly.&lt;/li&gt;
 &lt;ul&gt;
 &lt;li&gt;Support dynamic voltage and frequency scaling on-chip with no off-chip
 components.&lt;/li&gt;
+&lt;li&gt;Want to switch all converters simultaneously to avoid charge sharing. The
+clock frequency adapts to track the voltage ripple.&lt;/li&gt;
+&lt;li&gt;Raven has a RISC-V scalar core, vector accelerator. 16KB scalar instruction
+cache, 32KB shared data cache, and 8KB instruction cache. This has a 1.19mm^2
+area.&lt;/li&gt;
+&lt;li&gt;The converter area is 0.19mm^2&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

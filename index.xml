@@ -88,6 +88,16 @@ instructions.&lt;/li&gt;
 &lt;li&gt;Future work will look at new applications, a ROCC interface, new
 microarchitecture designs. The plan is to open source by this winter.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&#34;fabscalar-risc-v-rangeen-basu-roy-chowdhury:1ef1186fa93d1e56b496df4f0f6ee20f&#34;&gt;Fabscalar RISC-V: Rangeen Basu Roy Chowdhury&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A FabScalar RISC-V version should be released in the next few days&lt;/li&gt;
+&lt;li&gt;FabScalar generates synthesisable RTL for arbitrary superscalar cores with a
+canonical superscalar template.&lt;/li&gt;
+&lt;li&gt;FabScalar uses a library of pipeline stages, providing many different
+designs for each canonical pipeline stage.&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

@@ -6,8 +6,30 @@
     <description>Recent content on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 29 Jun 2015 17:02:57 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 30 Jun 2015 17:00:45 +0100</lastBuildDate>
     <atom:link href="http://www.lowrisc.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Second RISC-V Workshop: Day Two</title>
+      <link>http://www.lowrisc.org/blog/2015/06/second-risc-v-workshop-day-two</link>
+      <pubDate>Tue, 30 Jun 2015 17:00:45 +0100</pubDate>
+      
+      <guid>http://www.lowrisc.org/blog/2015/06/second-risc-v-workshop-day-two</guid>
+      <description>
+
+&lt;p&gt;It&amp;rsquo;s the second day of the &lt;a href=&#34;http://riscv.org/workshop-jun2015.html&#34;&gt;second RISC-V
+workshop&lt;/a&gt; today in Berkeley,
+California.  I&amp;rsquo;ll be keeping a semi-live blog of talks and announcements
+throughout the day.&lt;/p&gt;
+
+&lt;h2 id=&#34;z-scale-tiny-32-bit-risc-v-systems-yunsup-lee:1ef1186fa93d1e56b496df4f0f6ee20f&#34;&gt;Z-scale. Tiny 32-bit RISC-V Systems: Yunsup Lee&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Z-Scale is a family of tiny cores, similar in spirit to the ARM Cortex-M
+family. It integrates with the AHB-Lite interconnect.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Second RISC-V Workshop: Day One</title>

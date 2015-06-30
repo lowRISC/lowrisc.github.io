@@ -173,6 +173,12 @@ microarchitecture designs. The plan is to open source by this winter.</li>
 canonical superscalar template.</li>
 <li>FabScalar uses a library of pipeline stages, providing many different
 designs for each canonical pipeline stage.</li>
+<li>Two chips have been built with FabScalar so far (using PISA).</li>
+<li>The RISC-V port was built on the previous PIA &lsquo;Superset Core&rsquo;. This had
+64-bit instructions and 32-bit address and data.</li>
+<li>For RISC-V FabScalar they have a unified physical register file and unified
+issue queue for floating point (so the FP ALU is treated like just another
+functional unit).</li>
 </ul>
 
     </section>

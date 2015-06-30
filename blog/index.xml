@@ -103,6 +103,22 @@ designs for each canonical pipeline stage.&lt;/li&gt;
 &lt;li&gt;For RISC-V FabScalar they have a unified physical register file and unified
 issue queue for floating point (so the FP ALU is treated like just another
 functional unit).&lt;/li&gt;
+&lt;li&gt;FabScalar RISC-V will be released as an open source tool complete with
+uncore components and verification infrastructure. It will be available on
+GitHub in the fall.&lt;/li&gt;
+&lt;li&gt;The license isn&amp;rsquo;t yet decided, but there&amp;rsquo;s a good chance it will be BSD.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;aristotle-a-logically-determined-clockless-risc-v-rv32i-matthew-kim:1ef1186fa93d1e56b496df4f0f6ee20f&#34;&gt;Aristotle. A Logically Determined (Clockless) RISC-V RV32I: Matthew Kim&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Two logical values are defined. Data and null (not data). Then define
+threshold operators to produce &amp;lsquo;null convention logic&amp;rsquo;.&lt;/li&gt;
+&lt;li&gt;See &lt;a href=&#34;https://users.soe.ucsc.edu/~scott/papers/NCL2.pdf&#34;&gt;here&lt;/a&gt; for more on
+Null Convention Logic&lt;/li&gt;
+&lt;li&gt;This results in a system built entirely of combinational logic. I couldn&amp;rsquo;t
+hope to accurately summarise the work here. I&amp;rsquo;m afraid you might be best off
+waiting for the recording.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

@@ -29,6 +29,19 @@ throughout the day.&lt;/p&gt;
 family. It integrates with the AHB-Lite interconnect.&lt;/li&gt;
 &lt;li&gt;Contrast to Rocket (in-order cores, 64-bit, 32-bit, dual-issue options), and
 BOOM (a family of out-of-order cores).&lt;/li&gt;
+&lt;li&gt;Z-Scale is a 32-bit 3-stage single-issue in-order pipeline executing the
+RV32IM ISA.&lt;/li&gt;
+&lt;li&gt;The instruction bus and data base are 32-bit AHB-Lite buses&lt;/li&gt;
+&lt;li&gt;There is a plan to publish a microarchitecture specification to make it easy
+for others to implement an equivalent design in the language of their choice.&lt;/li&gt;
+&lt;li&gt;The Zscale is slightly larger than the Cortex-M0 due to having 32 vs 16
+registers, 64-bit performance counters, and a fast multiply and divide. The
+plan is to add an option to generate a Zscale implementing RV32E (i.e. only
+having 16 registers).&lt;/li&gt;
+&lt;li&gt;Zscale is only 604 loc in Chisel. 274 lines for control, 267 for the
+datapath, and 63 for the top-level. Combine with 983loc borrowed from Rocket.&lt;/li&gt;
+&lt;li&gt;A Verilog implementation of Z-scale is being implemented. It&amp;rsquo;s currently
+1215 lines of code.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

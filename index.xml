@@ -170,6 +170,19 @@ clock frequency adapts to track the voltage ripple.&lt;/li&gt;
 cache, 32KB shared data cache, and 8KB instruction cache. This has a 1.19mm^2
 area.&lt;/li&gt;
 &lt;li&gt;The converter area is 0.19mm^2&lt;/li&gt;
+&lt;li&gt;The chip was wire-bonded on to a daughter-board, which was then connected to
+a larger motherboard connected to a Zedboard&lt;/li&gt;
+&lt;li&gt;Converter transitions are less than 20ns, which allows extremely
+fine-grained DVFS.&lt;/li&gt;
+&lt;li&gt;Raven3 showed 80% efficiency across a wide voltage range and achieved
+26GFLOPS/W using the on-chip conversion.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;evaluating-risc-v-cores-for-pulp-an-open-parallel-ultra-low-power-platform-sven-stucki:1ef1186fa93d1e56b496df4f0f6ee20f&#34;&gt;Evaluating RISC-V Cores for PULP. An Open Parallel Ultra-Low-Power Platform : Sven Stucki&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Approximately 40 people working on PULP in some way&lt;/li&gt;
+&lt;li&gt;Ultimate (ambitious) goal is one 1GOPS/mW (or 1pJ/op).&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

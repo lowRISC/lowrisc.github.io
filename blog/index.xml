@@ -97,7 +97,7 @@ the minimal &amp;lsquo;I&amp;rsquo; instruction set, but could add it to the sta
 Linux.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&#34;goblincore64-a-risc-v-extension-for-data-intensive-computing-john-leidel:1198e896ab6f8fa7b8bfab04cfcd8c73&#34;&gt;GoblinCore64. A RISC-V Extension for Data Intensive Computing: John Leidel&lt;/h1&gt;
+&lt;h2 id=&#34;goblincore64-a-risc-v-extension-for-data-intensive-computing-john-leidel:1198e896ab6f8fa7b8bfab04cfcd8c73&#34;&gt;GoblinCore64. A RISC-V Extension for Data Intensive Computing: John Leidel&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Building a processor design aimed at data intensive algorithms and
@@ -120,7 +120,7 @@ memory coalescing units.&lt;/li&gt;
 &lt;a href=&#34;http://discl.cs.ttu.edu/gitlab/gc64/gc64-doc/tree/master&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&#34;vector-extension-proposal-krste-asanović:1198e896ab6f8fa7b8bfab04cfcd8c73&#34;&gt;Vector Extension Proposal: Krste Asanović&lt;/h1&gt;
+&lt;h2 id=&#34;vector-extension-proposal-krste-asanović:1198e896ab6f8fa7b8bfab04cfcd8c73&#34;&gt;Vector Extension Proposal: Krste Asanović&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Goals: efficient and scalable to all reasonable design points. Be a good
@@ -170,7 +170,7 @@ extension to follow.&lt;/li&gt;
 that a minimal V implementation would be very space efficient.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&#34;privileged-architecture-proposal-andrew-waterman:1198e896ab6f8fa7b8bfab04cfcd8c73&#34;&gt;Privileged Architecture Proposal: Andrew Waterman&lt;/h1&gt;
+&lt;h2 id=&#34;privileged-architecture-proposal-andrew-waterman:1198e896ab6f8fa7b8bfab04cfcd8c73&#34;&gt;Privileged Architecture Proposal: Andrew Waterman&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Aims to provide a clean split between layers of the stack.&lt;/li&gt;
@@ -203,7 +203,7 @@ specified.&lt;/li&gt;
 v2.0 targeted for the fall.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&#34;rapidio-the-unified-fabric-for-performance-critical-computing-rick-o-connor:1198e896ab6f8fa7b8bfab04cfcd8c73&#34;&gt;RapidIO. The Unified Fabric for Performance-Critical Computing: Rick O&amp;rsquo;Connor&lt;/h1&gt;
+&lt;h2 id=&#34;rapidio-the-unified-fabric-for-performance-critical-computing-rick-o-connor:1198e896ab6f8fa7b8bfab04cfcd8c73&#34;&gt;RapidIO. The Unified Fabric for Performance-Critical Computing: Rick O&amp;rsquo;Connor&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;There are more 10Gbps RapidIO ports on the planet than there are 10Gbps
@@ -215,7 +215,7 @@ ACE and connect that to RapidIO.&lt;/li&gt;
 &lt;li&gt;There is interesting work on an open source RapidIO stack.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&#34;cava-cluster-in-a-rack-peter-hsu:1198e896ab6f8fa7b8bfab04cfcd8c73&#34;&gt;CAVA. Cluster in a rack: Peter Hsu&lt;/h1&gt;
+&lt;h2 id=&#34;cava-cluster-in-a-rack-peter-hsu:1198e896ab6f8fa7b8bfab04cfcd8c73&#34;&gt;CAVA. Cluster in a rack: Peter Hsu&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Problem: designing a new computer is expensive. But 80% is the same every

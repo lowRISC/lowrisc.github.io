@@ -182,7 +182,22 @@ fine-grained DVFS.&lt;/li&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Approximately 40 people working on PULP in some way&lt;/li&gt;
-&lt;li&gt;Ultimate (ambitious) goal is one 1GOPS/mW (or 1pJ/op).&lt;/li&gt;
+&lt;li&gt;Ultimate (ambitious) goal is one 1GOPS/mW (or 1pJ/op). Also hope to achieve
+energy proportionality.&lt;/li&gt;
+&lt;li&gt;Plan is to be open source on GitHub&lt;/li&gt;
+&lt;li&gt;PULP has been silicon-proven in 28nm, 65nm, 130nm and 180nm. The team have
+tape-outs planned through to 2016.&lt;/li&gt;
+&lt;li&gt;Sven has replaced the OpenRISC frontend with a RISC-V decoder, hoping to
+take advantage of the more active community and compressed instruction set
+support.&lt;/li&gt;
+&lt;li&gt;PULP is a simple 4-stage design supporting RV32IC as well as the mul
+instruction from the M extension.&lt;/li&gt;
+&lt;li&gt;Synthesising for UMC65, they see 22kilo-gate equivalent per core&lt;/li&gt;
+&lt;li&gt;The OR10N core was a new OpenRISC implementation with support for hardware
+loops, pre/postincrement memory access and vector instructions.&lt;/li&gt;
+&lt;li&gt;Heading for a GlobalFoundries 28nm tapeout in Q4 2015&lt;/li&gt;
+&lt;li&gt;See more on PULP &lt;a href=&#34;http://iis-projects.ee.ethz.ch/index.php/PULP&#34;&gt;at the
+website&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

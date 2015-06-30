@@ -60,6 +60,16 @@ on the RISC-V site soon.&lt;/li&gt;
 performance, implementing the C extensions, adding an MMU option, and adding
 more devices.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&#34;boom-berkeley-out-of-order-machine-chris-celio:1ef1186fa93d1e56b496df4f0f6ee20f&#34;&gt;BOOM. Berkeley Out-of-order-Machine: Chris Celio&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;BOOM is a (work in progress) superscalar, out-of-order RISC-V processor
+written in Chisel.&lt;/li&gt;
+&lt;li&gt;Chris argues there&amp;rsquo;s been a general lack of effort in academia to build and
+evaluate out-of-order designs. As he points out, much research relies on
+software simulators with no area or power numbers.&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

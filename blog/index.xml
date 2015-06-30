@@ -27,6 +27,8 @@ throughout the day.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Z-Scale is a family of tiny cores, similar in spirit to the ARM Cortex-M
 family. It integrates with the AHB-Lite interconnect.&lt;/li&gt;
+&lt;li&gt;Contrast to Rocket (in-order cores, 64-bit, 32-bit, dual-issue options), and
+BOOM (a family of out-of-order cores).&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

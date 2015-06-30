@@ -141,6 +141,14 @@ needed in the written specification&lt;/li&gt;
 &lt;li&gt;Next steps would involve support for the compressed instruction set and
 floating point, booting Linux, and using for tandem-verification (e.g. with
 Flue from Bluespec).&lt;/li&gt;
+&lt;li&gt;Hope to export usable HOL4 formal definitions, and use that to prove
+information properties (e.g. non-interference and information flow in
+low-level privileged code).&lt;/li&gt;
+&lt;li&gt;The talk is now moving to the second half, where Prashanth is presenting
+Nirav Dave&amp;rsquo;s work&lt;/li&gt;
+&lt;li&gt;This work is looking at rapidly verifying architectural and
+micro-architectural variants of RISC-V. Rely on translating between
+microarchitectural-states and ISA-level states.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

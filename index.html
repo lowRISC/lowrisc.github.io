@@ -74,13 +74,12 @@
     <div class="container">
         <div class="row">
             <div class="sixteen columns">
-		<h1>Welcome to the lowRisc project!</h1>
-		<section>
-		    <p>lowRISC is producing fully open hardware systems. From the processor core
+		<h1>Welcome to the lowRISC project!</h1>
+		<div class="li-intro">
+			<p><b>lowRISC</b> is producing fully open hardware systems. From the processor core
 		    to the development board, our goal is to create a completely open computing
-		    eco-system.</p>
-		    <p><a href="/about">Find out more</a></p>
-		</section>
+		    eco-system. <b><a href="/about">Find out more</a></b></p>
+		</div>
 		<div class="li-main-article-list">
 		    <h1>Latest news</h1>
 		    
@@ -217,6 +216,14 @@ needed in the written specification</li>
 <li>Next steps would involve support for the compressed instruction set and
 floating point, booting Linux, and using for tandem-verification (e.g. with
 Flue from Bluespec).</li>
+<li>Hope to export usable HOL4 formal definitions, and use that to prove
+information properties (e.g. non-interference and information flow in
+low-level privileged code).</li>
+<li>The talk is now moving to the second half, where Prashanth is presenting
+Nirav Dave&rsquo;s work</li>
+<li>This work is looking at rapidly verifying architectural and
+micro-architectural variants of RISC-V. Rely on translating between
+microarchitectural-states and ISA-level states.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

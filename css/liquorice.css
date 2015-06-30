@@ -13,6 +13,13 @@
  *   Free to use under the MIT license. 
  */
 
+.li-intro {
+    font-size: large;
+    border: 1px solid #e7e7e7;
+    background-color: #f8f8f8;
+    padding: 0.9em;
+}
+
 /** States ******************************************************************/
 .li-right {
     float: right

@@ -6,8 +6,38 @@
     <description>Recent content in Blogs on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 30 Jun 2015 17:00:45 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2015 10:51:14 +0100</lastBuildDate>
     <atom:link href="http://www.lowrisc.org/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>lowRISC at ORConf 2015</title>
+      <link>http://www.lowrisc.org/blog/2015/08/lowrisc-at-orconf-2015</link>
+      <pubDate>Sun, 16 Aug 2015 10:51:14 +0100</pubDate>
+      
+      <guid>http://www.lowrisc.org/blog/2015/08/lowrisc-at-orconf-2015</guid>
+      <description>&lt;p&gt;Please join us October 9th-11th in Geneva, Switzerland for &lt;a href=&#34;http://openrisc.io/orconf/&#34;&gt;ORConf
+2015&lt;/a&gt;. The event is kindly being hosted by CERN at
+the &lt;a href=&#34;http://knowledgetransfer.web.cern.ch/ideasquare/about&#34;&gt;IdeaSquare&lt;/a&gt;.
+Last year&amp;rsquo;s ORConf was home to the first public talk on lowRISC and we&amp;rsquo;re
+delighted this year it will also be hosting a
+series of lowRISC and RISC-V discussions, serving as a European lowRISC and
+RISC-V workshop. ORConf has in recent years grown to cover a range of open
+source hardware topics beyond the original OpenRISC focus. Expect
+presentations and discussion on free and open source IP projects,
+implementations on FPGA and in silicon, verification, EDA tools, licensing and
+embedded software, to name a few.&lt;/p&gt;
+
+&lt;p&gt;The event will run from 13:00 until 18:30 on Friday, 09:30 until 19:30 on
+Saturday, and from 09:30 until 15:30 on Sunday. Friday will consist primarily
+of breakout sessions, planning, and discussion regarding lowRISC. If you are
+already contributing or your are thinking of getting involved and want to
+learn more, you are very welcome to join us. If you would like to present,
+do submit a proposal either via the link at the &lt;a href=&#34;http://openrisc.io/orconf/&#34;&gt;ORConf
+website&lt;/a&gt; or to me at asb@lowrisc.org. We hope to
+see many of you there - please &lt;a href=&#34;http://goo.gl/forms/KRZux8vnyO&#34;&gt;register
+here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Second RISC-V Workshop: Day Two</title>

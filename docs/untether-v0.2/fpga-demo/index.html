@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+    <head>
+        
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+        <title>FPGA Demo &middot; lowRISC</title>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' type='text/css'>
+        <link rel="stylesheet" href="http://www.lowrisc.org/libraries/normalize.3.0.1.css" />
+        <link rel="stylesheet" href="http://www.lowrisc.org/css/liquorice.css" />
+        <link rel="shortcut icon" href="http://www.lowrisc.org/favicon.ico" />
+        <link rel="alternate" href="http://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-53520714-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+  </head>
+    <body class="li-body">
+
+<header class="li-page-header">
+  <div class="li-header-top">
+  </div>
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <div class="li-brand li-left">
+                
+                <a href="http://www.lowrisc.org"><img src="http://www.lowrisc.org/img/lowrisc_header_logo.png"/></a></div>
+                <div class="li-menu li-left">
+                    <span class="li-menu-icon" onclick="javascript:toggle('menu');">&#9776;</span>
+                    <ul id="menu2" class="li-menu-items">
+                        
+                            <li><a href="/"> Home </a></li>
+                        
+                            <li><a href="/about/"> About </a></li>
+                        
+                            <li><a href="/faq/"> FAQ </a></li>
+                        
+                            <li><a href="/docs/"> Docs </a></li>
+                        
+                            <li><a href="/community/"> Community </a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sixteen columns">
+                <ul id="menu" class="li-menu-items li-menu-mobile">
+                    
+                        <li><a href="/"> Home </a></li>
+                    
+                        <li><a href="/about/"> About </a></li>
+                    
+                        <li><a href="/faq/"> FAQ </a></li>
+                    
+                        <li><a href="/docs/"> Docs </a></li>
+                    
+                        <li><a href="/community/"> Community </a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <article class="li-article">
+                
+                  <p>
+                    <a href="http://www.lowrisc.org/docs/untether-v0.2/simulation/">⇡ Simulations and FPGA Demo</a>
+                  </p>
+                
+                    <header class="li-article-header">
+                        <h1 class="li-article-title">FPGA Demo</h1>
+                        <span class="li-article-taxonomies">
+                            
+
+                            
+                        </span>
+                        
+                        
+                    </header>
+                    <section>
+                        
+
+<p>A comprehensive FPGA demo of the untethered lowRISC SoC is provided using either the Xilinx KC705 kit or the NEXYS4-DDR board.</p>
+
+<p>Depending on the board, please set variable $FPGA_BOARD to the board name. It is set to kc705 in <code>lowrisc-chip/set_riscv_env.sh</code>.</p>
+
+<h3 id="file-structure-of-the-fpga-demo:92c049390011b714e22883abc9bbe9aa">File structure of the FPGA demo</h3>
+
+<ul>
+<li><code>constraint</code>: The constraint files used for the FPGA demo</li>
+<li><code>driver</code>: Bare metal driver programs used by bootloaders.</li>
+<li><code>examples</code>: Some bare metal test programs for FPGA peripherals.
+
+<ul>
+<li><code>boot</code>: Bootloader test, also serves as the on-chip boot program used by the FPGA demo.</li>
+<li><code>dram</code>: Test program for DDR RAM interface.</li>
+<li><code>hello</code>: A simple hello world program using the UART interface.</li>
+<li><code>reset</code>: A simulation-only test for the soft-reset process.</li>
+<li><code>sdcard</code>: Test the SD (SPI mode) interface and the <a href="http://elm-chan.org/fsw/ff/00index_e.html">FatFS</a> (Fat 32) support.</li>
+</ul></li>
+<li><code>bbl</code>: A revised Berkeley bootloader (BBL).</li>
+<li><code>generated-src</code>: Generated Verilog of the Chisel Rocket chip.</li>
+<li><code>lowrisc-chip-imp</code>: lowRISC SoC FPGA project directory.</li>
+<li><code>Makefile</code>: The root Makefile.</li>
+<li><code>script</code>: Some Vivado helper scripts.</li>
+<li><code>softfloat</code>: A soft implementation of single/double precision floating point library.</li>
+<li><code>src</code>: Source files needed by the FPGA demo
+
+<ul>
+<li><code>boot.mem</code>: The initial memory image of the on-chip booting BRAM.</li>
+<li><code>boot.bmm</code>: A memory structure file needed for reload memory image in bitstreams.</li>
+</ul></li>
+</ul>
+
+<h3 id="compile-the-fpga-project:92c049390011b714e22883abc9bbe9aa">Compile the FPGA project</h3>
+
+<p>To generate a bitstream:</p>
+
+<pre><code>cd $TOP/fpga/board/$FPGA_BOARD
+make bitstream
+</code></pre>
+
+<p>This make target automatically processes all compiling process from Chisel compilation to bitstream generation. The final bit stream is located at <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code>. However, in most cases, this bitstream may NOT be the one downloaded to the FPGA. Users can freely change the boot BRAM image after a bitstream is generated.</p>
+
+<p>For installing the USB-JTAG and USB-UART bridge, please see <a href="http://www.lowrisc.org/docs/untether-v0.2/xilinx/">[Install Xilinx Vivado]</a>.</p>
+
+<h4 id="compile-and-run-bare-metal-examples:92c049390011b714e22883abc9bbe9aa">Compile and run bare metal examples</h4>
+
+<p>Four runnable bare-metal examples are provided for users to run on FPGA. To compile an example and replace the bitstream with a new boot image, just use the example name as the make target.</p>
+
+<pre><code>cd $TOP/fpga/board/$FPGA_BOARD
+# compile and load the &quot;hello&quot; example
+make hello
+</code></pre>
+
+<p>If any of the examples have been compiled after an initial bitstream is generated, a NEW bitstream is generated as <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code> and this new bitstream should be used for configuring FPGA.</p>
+
+<h4 id="hello-world:92c049390011b714e22883abc9bbe9aa">Hello world</h4>
+
+<p>This is a simple example testing the UART interface.</p>
+
+<p>By default, the UART interface is configured to 115200Hz, 8-bit data and 1 bit odd parity check.</p>
+
+<p>After downloading the bitstream, the UART interface should print:</p>
+
+<pre><code>Hello World!
+</code></pre>
+
+<h4 id="dram-self-test:92c049390011b714e22883abc9bbe9aa">DRAM self-test</h4>
+
+<p>This example executes a read/write check of the DDR RAM. The check results are constantly printed to UART.</p>
+
+<p>Following is the result from UART:</p>
+
+<pre><code>DRAM test program.
+Write block @0 using key 0
+Write block @4000 using key 6f0f0ff0ff0fffff
+Write block @8000 using key acff906f00ffff00
+Write block @c000 using key ecd95a6095a65969
+Write block @10000 using key 5cf06fffc300acff
+Write block @14000 using key ef83f98ae4fbad3
+Write block @18000 using key 4a0f9ca55caacaf6
+Write block @1c000 using key 2c8ae174c8b13510
+Write block @20000 using key 3af96f0083266fff
+Write block @24000 using key 6d788d0089c15a13
+Write block @28000 using key bf2e925022d01819
+Write block @2c000 using key e5e31b4b77965fa5
+Write block @30000 using key cf85bf001a4f1c85
+Write block @34000 using key 182c99425f8cbd83
+Write block @38000 using key 95447d5e25bcede0
+Write block @3c000 using key 24def12a6b72afcf
+Check block @0 using key 0
+Write block @40000 using key bbc564a55a2f0000
+Check block @4000 using key 6f0f0ff0ff0fffff
+Write block @44000 using key 83e338f02c13ba40
+Check block @8000 using key acff906f00ffff00
+Write block @48000 using key 884576c23f9c42d9
+Check block @c000 using key ecd95a6095a65969
+Write block @4c000 using key af8184510747721f
+Check block @10000 using key 5cf06fffc300acff
+Write block @50000 using key c4b4d72cc1683166
+Check block @14000 using key ef83f98ae4fbad3
+Write block @54000 using key 8e92787d607a7aa6
+Check block @18000 using key 4a0f9ca55caacaf6
+......
+</code></pre>
+
+<h4 id="sd-card-read-test:92c049390011b714e22883abc9bbe9aa">SD card read test</h4>
+
+<p>This example reads a file named <code>test.txt</code> stored on a SD card (formatted in FAT 32) and then prints the content of this file to UART.</p>
+
+<p>Following is the result from UART:</p>
+
+<pre><code>test.txt opened
+Test SD file read.
+Hello!?
+
+file size 28
+test.txt closed.
+</code></pre>
+
+<h4 id="boot-test:92c049390011b714e22883abc9bbe9aa">Boot test</h4>
+
+<p>This example copies the content of a executable named &ldquo;<code>boot</code>&rdquo; from a SD card to DDR RAM and then boots it from DDR RAM.</p>
+
+<p>This example also served as the initial bootloader for the RISC-V Linux FPGA demo. It copies the revised BBL from SD to DDR RAM.</p>
+
+<p>Here is the UART print if we store a hello world executable to SD as the <code>boot</code> program.</p>
+
+<pre><code>lowRISC boot program
+=====================================
+Load boot into memory
+Load 1b418 bytes to memory.
+Read boot and load elf to DDR memory
+Boot the loaded program...
+Hello World!
+</code></pre>
+
+<p><a name="boot"></a></p>
+
+<h3 id="boot-risc-v-linux:92c049390011b714e22883abc9bbe9aa">Boot RISC-V Linux</h3>
+
+<p>For first time users, please try the pre-compiled RISC-V and ramdisk images.</p>
+
+<pre><code>cd $TOP/fpga/board/$FPGA_BOARD
+# insert and mount a SD card
+# Ensure the SD card is formatted in FAT 32
+
+# download and copy the pre-compiled image
+. preload_image.sh /PATH/TO/SD/
+
+# umount the SD card
+# insert the SD card to KC705 or NEXYS4-DDR
+
+# compile and load the on-chip boot
+make boot
+
+# open a UART terminal
+# set it to 115200 8bit data 1bit odd parity
+
+# open Vivado and download bit file:
+# lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit
+</code></pre>
+
+<p>If everything runs OK, here is the print from UART terminal:</p>
+
+<pre><code>lowRISC boot program
+=====================================
+Load boot into memory
+Load 12660 bytes to memory.
+Read boot and load elf to DDR memory
+Boot the loaded program...
+[    0.000000] Linux version 3.14.41-g886e5f9 (ws327@valencia.cl.cam.ac.uk) (gcc version 5.2.0 (GCC) ) #12 Mon Nov 9 14:45:45 GMT 2015
+[    0.000000] Available physical memory: 1022MB
+[    0.000000] Zone ranges:
+[    0.000000]   Normal   [mem 0x00200000-0x3fffffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x00200000-0x3fffffff]
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 258055
+[    0.000000] Kernel command line: root=/dev/htifblk0
+[    0.000000] PID hash table entries: 4096 (order: 3, 32768 bytes)
+[    0.000000] Dentry cache hash table entries: 131072 (order: 8, 1048576 bytes)
+[    0.000000] Inode-cache hash table entries: 65536 (order: 7, 524288 bytes)
+[    0.000000] Sorting __ex_table...
+[    0.000000] Memory: 1028060K/1046528K available (1725K kernel code, 120K rwdata, 356K rodata, 68K init, 211K bss, 18468K reserved)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] NR_IRQS:2
+[    0.150000] Calibrating delay using timer specific routine.. 20.01 BogoMIPS (lpj=100098)
+[    0.150000] pid_max: default: 32768 minimum: 301
+[    0.150000] Mount-cache hash table entries: 2048 (order: 2, 16384 bytes)
+[    0.150000] Mountpoint-cache hash table entries: 2048 (order: 2, 16384 bytes)
+[    0.150000] devtmpfs: initialized
+[    0.150000] NET: Registered protocol family 16
+[    0.150000] bio: create slab &lt;bio-0&gt; at 0
+[    0.150000] Switched to clocksource riscv_clocksource
+[    0.150000] NET: Registered protocol family 2
+[    0.150000] TCP established hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.150000] TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.150000] TCP: Hash tables configured (established 8192 bind 8192)
+[    0.150000] TCP: reno registered
+[    0.150000] UDP hash table entries: 512 (order: 2, 16384 bytes)
+[    0.150000] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+[    0.150000] NET: Registered protocol family 1
+[    0.150000] futex hash table entries: 256 (order: 0, 6144 bytes)
+[    0.150000] io scheduler noop registered
+[    0.150000] io scheduler cfq registered (default)
+[    0.180000] htifcon htif0: detected console
+[    0.190000] console [htifcon0] enabled
+[    0.190000] htifblk htif1: detected disk
+[    0.190000] htifblk htif1: added htifblk0
+[    0.200000] TCP: cubic registered
+[    0.200000] VFS: Mounted root (ext2 filesystem) readonly on device 254:0.
+[    0.200000] devtmpfs: mounted
+[    0.200000] Freeing unused kernel memory: 68K (ffffffff80000000 - ffffffff80011000)
+[    0.440000] EXT2-fs (htifblk0): warning: mounting unchecked fs, running e2fsck is recommended
+# 
+</code></pre>
+
+<h4 id="prepare-your-own-images:92c049390011b714e22883abc9bbe9aa">Prepare your own images</h4>
+
+<p>Three files are needed on SD for booting a RISC-V Linux:</p>
+
+<ul>
+<li><code>boot</code>: The bootloader (a revised Berkeley bootloader, BBL) for loading Linux kernel.</li>
+<li><code>vmlinux</code>: The RISC-V Linux kernel.</li>
+<li><code>root.bin</code>: The ramdisk image.</li>
+</ul>
+
+<p>For generating your own <code>vmlinux</code> and <code>root.bin</code>, please see <a href="http://www.lowrisc.org/docs/untether-v0.2/linux_compile/">[Compile the RISC-V Linux and the ramdisk <code>root.bin</code>]</a>.</p>
+
+<p>After compilation, load the kernel and ramdisk to SD:</p>
+
+<pre><code>cd $TOP/riscv-tools
+cp linux-3.14.41/vmlinux /PATH/TO/SD/vmlinux
+cp busybox-1.21.1/root.bin /PATH/TO/SD/root.bin
+</code></pre>
+
+<p>For generating BBL:</p>
+
+<pre><code>cd $TOP/fpga/board/$FPGA_BOARD
+make bbl
+cp bbl/bbl /PATH/TO/SD/boot
+</code></pre>
+
+<h3 id="other-useful-makefile-targets:92c049390011b714e22883abc9bbe9aa">Other useful Makefile targets</h3>
+
+<pre><code># generate a Vivado project
+make project
+
+# generate Verilog source files
+make verilog
+
+# generate and open a Vivado project in GUI
+make vivado
+
+# generate the BRAM structure file `src/boot.bmm`
+make search-ramb
+
+# replace the BRAM image in bitstream with `src/boot.mem`
+make bit-update
+
+# clean log files
+make clean
+
+# clean the whole project
+make cleanall
+</code></pre>
+
+                    </section>
+                </article>
+
+        </div>
+    </div>
+    
+    <div class="row li-pagination">
+      <div class="eight columns">
+        <div class="li-pagination-previous">
+          &nbsp;
+          
+          Previous<br />
+          &nbsp;
+          <a href="http://www.lowrisc.org/docs/untether-v0.2/vsim/"> RTL simulation</a>
+          
+        </div>
+      </div>
+      <div class="eight columns">
+        <div class="li-pagination-next">
+          &nbsp;
+          
+          Next<br />
+          &nbsp;
+          <a href="http://www.lowrisc.org/docs/untether-v0.2/fpga-sim/"> FPGA Simulation</a>
+          
+        </div>
+      </div>
+    </div>
+    
+
+
+                
+
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                 
+                var disqus_shortname = 'lowrisc'; 
+                var disqus_identifier = "/" + "docs/untether-v0.2/fpga-demo";
+                var disqus_title = "FPGA Demo";
+                var disqus_url = "http://www.lowrisc.org" + "docs/untether-v0.2/fpga-demo";
+
+                 
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+            
+
+<footer class="li-page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script type="text/javascript">
+    function toggle(id) {
+        var e = document.getElementById(id);
+        e.style.display == 'block' ? e.style.display = 'none' : e.style.display = 'block';
+    }
+    </script>
+    </body>
+</html>
+

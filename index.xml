@@ -6,7 +6,7 @@
     <description>Recent content on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Aug 2015 10:51:14 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 16 Nov 2015 15:44:50 +0100</lastBuildDate>
     <atom:link href="http://www.lowrisc.org/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -578,7 +578,7 @@ interconnect of choice for most existing open
 source IP cores, including most devices on
 &lt;a href=&#34;http://opencores.org/&#34;&gt;opencores.org&lt;/a&gt;. The Berkeley
 &lt;a href=&#34;https://github.com/ucb-bar/rocket-chip&#34;&gt;Rocket&lt;/a&gt; RISC-V implementation uses
-their own &amp;lsquo;TileLink&amp;rsquo; protocol (we provide a &lt;a href=&#34;http://www.lowrisc.org/docs/tutorial/rocket-chip/&#34;&gt;brief
+their own &amp;lsquo;TileLink&amp;rsquo; protocol (we provide a &lt;a href=&#34;http://www.lowrisc.org/docs/tagged-memory-v0.1/rocket-chip/&#34;&gt;brief
 overview&lt;/a&gt;. By providing a
 reusable bridge, this project will allow the easy reuse of opencores devices
 and leverage the many man-years of effort that has already gone in to them.&lt;/li&gt;
@@ -607,13 +607,13 @@ please do leave them in the comments.&lt;/p&gt;
       <pubDate>Mon, 13 Apr 2015 22:28:10 +0000</pubDate>
       
       <guid>http://www.lowrisc.org/blog/2015/04/lowrisc-tagged-memory-preview-release</guid>
-      <description>&lt;p&gt;We&amp;rsquo;re pleased to announce the &lt;a href=&#34;http://www.lowrisc.org/docs/tutorial/&#34;&gt;first lowRISC preview release&lt;/a&gt;, demonstrating support for tagged memory as
+      <description>&lt;p&gt;We&amp;rsquo;re pleased to announce the &lt;a href=&#34;http://www.lowrisc.org/docs/tagged-memory-v0.1/&#34;&gt;first lowRISC preview release&lt;/a&gt;, demonstrating support for tagged memory as
 described in &lt;a href=&#34;http://www.lowrisc.org/docs/memo-2014-001-tagged-memory-and-minion-cores/&#34;&gt;our memo&lt;/a&gt;. Our ambition with lowRISC is to provide an open-source System-on-Chip
 platform for others to build on, along with low-cost development boards
 featuring a reference implementation. Although there&amp;rsquo;s more work to be done on
 the tagged memory implementation, now seemed a good time to document what
 we&amp;rsquo;ve done in order for the wider community to take a look. Please see our
-&lt;a href=&#34;http://www.lowrisc.org/docs/tutorial/&#34;&gt;full tutorial&lt;/a&gt; which describes in some
+&lt;a href=&#34;http://www.lowrisc.org/docs/tagged-memory-v0.1/&#34;&gt;full tutorial&lt;/a&gt; which describes in some
 detail the changes we&amp;rsquo;ve made to the Berkeley &lt;a href=&#34;https://github.com/ucb-bar/rocket&#34;&gt;Rocket
 core&lt;/a&gt;, as well as how you can build and try
 it out for yourself (either in simulation, or on an FPGA). We&amp;rsquo;ve gone to some

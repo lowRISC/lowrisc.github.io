@@ -104,15 +104,32 @@
 
 <p>The Xilinx Vivado design suite can be downloaded from <a href="http://www.xilinx.com/support/download.html">http://www.xilinx.com/support/download.html</a> free of charge for registered users (registration is also free). For Ubuntu Linux, we recommend downloading the &ldquo;Vivado 2015.3: Full Installer For Linux Single File Download Image Including SDK&rdquo; (TAR/GZIP - 6.92 GB). Please move and extract the downloaded TAR/GZIP file, then run the <code>xsetup</code> script provided by the installation image.</p>
 
-<p>During the installation process, when asked for &ldquo;Select Edition to Install&rdquo;, please choose &ldquo;Vivado Design Edition&rdquo;. When choosing which packages to install, please add &ldquo;Software Development Kit&rdquo;. It is not required to install Xilinx Vivado in system directories, so please choose any installation directory preferred. The installation required around 21 GB of disk space.</p>
+<p>During the installation process, when asked for &ldquo;Select Edition to Install&rdquo;,
+please choose &ldquo;Vivado Design Edition&rdquo;. When choosing which packages to
+install, please add &ldquo;Software Development Kit&rdquo;. It is not required to install
+Xilinx Vivado in system directories, so choose any installation directory
+preferred. The installation requires around 21 GB of disk space.</p>
 
 <h3 id="license:2105b1c254507869daddae6ab7f61853">License</h3>
 
-<p>A license is required to use the Xilinx Vivado suite. For users who bought an FPGA developement kit, such as the KC705 kit, a voucher may be enclosed. This voucher will allow the user to generate a site and device locked license (version limited as well). Such a license will allow a user to implement designs targeting the sepecific FPGA used in the developement kit, such as Kintex-7 FPGAs for the KC705 kit. This license is a version limited one. Users are allowed to install and update the Xilinx Vivado suite for one year. Once the license is expired, the old Xilinx Vivado is still usable but not updatable.</p>
+<p>A license is required to use the Xilinx Vivado suite. For users who bought an
+FPGA developement kit, such as the KC705 kit, a voucher may be enclosed. This
+voucher will allow the user to generate a site and device locked license
+(version limited as well). Such a license will allow a user to implement
+designs targeting the sepecific FPGA used in the developement kit, such as
+Kintex-7 FPGAs for the KC705 kit. This license is a version limited one. Users
+are allowed to install and update the Xilinx Vivado suite for one year. Once
+the license is expired, the old Xilinx Vivado is still usable but not
+updateable.</p>
 
-<p>For users of low-end boards, such as the NEXYS4-DDR, please apply a free WebPACK license which allows implementations targeting certain Artix-7, Kintex-7 and Zynq-7000 FPGAs [<a href="http://www.xilinx.com/products/design-tools/vivado/vivado-webpack.html">vivado-webpack</a>].</p>
+<p>For users of low-end boards, such as the NEXYS4-DDR, you can apply a free
+WebPACK license which allows implementations targeting certain Artix-7,
+Kintex-7 and Zynq-7000 FPGAs
+[<a href="http://www.xilinx.com/products/design-tools/vivado/vivado-webpack.html">vivado-webpack</a>].</p>
 
-<p>To generate a license using a voucher or a WebPACK license, login Xilinx and visit <a href="http://www.xilinx.com/getlicense">http://www.xilinx.com/getlicense</a>.</p>
+<p>To generate a license using a voucher or a WebPACK license, login to Xilinx
+and visit
+<a href="http://www.xilinx.com/getlicense">http://www.xilinx.com/getlicense</a>.</p>
 
 <h3 id="enviroment-settings:2105b1c254507869daddae6ab7f61853">Enviroment settings</h3>
 
@@ -141,11 +158,18 @@ export XILINXD_LICENSE_FILE=/PATH/TO/LICENSE/FILE
 
 <h3 id="usb-uart-installation:2105b1c254507869daddae6ab7f61853">USB-UART installation</h3>
 
-<p>KC705 has a Silicon Labs CP2103GM USB-to-UART bridge. To utilize this bridge, please download the driver from <a href="http://www.silabs.com/Support%20Documents/Software/Linux_3.x.x_VCP_Driver_Source.zip">http://www.silabs.com/Support%20Documents/Software/Linux_3.x.x_VCP_Driver_Source.zip</a>. Follow the instructions in the &ldquo;CP210x_VCP_Linux_3.13.x_Release_Notes.txt&rdquo; enclosed in the driver package.</p>
+<p>The KC705 has a Silicon Labs CP2103GM USB-to-UART bridge. To utilize this
+bridge, please download the driver from
+<a href="http://www.silabs.com/Support%20Documents/Software/Linux_3.x.x_VCP_Driver_Source.zip">http://www.silabs.com/Support%20Documents/Software/Linux_3.x.x_VCP_Driver_Source.zip</a>.<br />
+Follow the instructions in the &ldquo;CP210x_VCP_Linux_3.13.x_Release_Notes.txt&rdquo;
+enclosed in the driver package.</p>
 
 <p>The FTDI USB-UART bridge chip used on NEXYS4-DDR is supported in Ubuntu 14.04 and does not require extra driver installation.</p>
 
-<p>The USB-UART bridge is normally shown in Ubuntu as /dev/ttyUSB0 ~ /dev/ttyUSB3. <a href="https://wiki.archlinux.org/index.php/Working_with_the_serial_console#Screen">Screen</a> or <a href="http://cutecom.sourceforge.net/">CuteCom</a> can be used to connect to this console.</p>
+<p>The USB-UART bridge is normally shown in Ubuntu as /dev/ttyUSB0 ~ /dev/ttyUSB3. <a href="http://manpages.ubuntu.com/manpages/lucid/man1/microcom.1.html">Microcom</a>, <a href="http://cutecom.sourceforge.net/">CuteCom</a> or <a href="https://wiki.archlinux.org/index.php/Working_with_the_serial_console#Screen">Screen</a> can be used to connect to this console.</p>
+
+<pre><code>microcom -p /dev/ttyUSB0 -s 115200
+</code></pre>
 
 <p>By default, users are not allowed to connect to /dev/ttyUSB0 due to the lack of permission. The easiest way of resolving this issue is to add yourself to the dialout group.</p>
 

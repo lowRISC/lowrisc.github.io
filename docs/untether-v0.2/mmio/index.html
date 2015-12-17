@@ -100,13 +100,35 @@
                     <section>
                         <p><strong>Note: this initial implementation of MMIO is subject to significant further optimizations.</strong></p>
 
-<p>Although peripherals are mapped into the memory space, they cannot be accessed in the same way as cachable memory due to the consistency requirement of I/O operations and the possible side-effect of I/O read and write operations. To safely access the I/O space of peripherals, memory mapped I/O (MMIO) gives the core pipeline uncached access to I/O space (bypassing both L1 and L2) while enforcing I/O operations in the program order.</p>
+<p>Although peripherals are mapped into the memory space, they cannot be accessed
+in the same way as cacheable memory due to the consistency requirement of I/O
+operations and the possible side-effects of I/O read and write operations. To
+safely access the I/O space of peripherals, memory mapped I/O (MMIO) gives the
+core pipeline uncached access to I/O space (bypassing both L1 and L2) while
+enforcing I/O operations in the program order.</p>
 
-<p>To bypass L1 and L2 for I/O operations, they must be identified from normal memory operations and processed separately in L1 D$. The following figure shows the new L1 D$ with MMIO (probe and write-back units are removed to highlight the MMIO). The components in blue are used for MMIO.</p>
+<p>To bypass L1 and L2 for I/O operations, they must be identified from normal
+memory operations and processed separately in the L1 D$. The following figure
+shows the new L1 D$ with MMIO (probe and write-back units are removed to
+highlight the MMIO). The components in blue are used for MMIO.</p>
 
 <p><img src="../figures/dcache_mmio.png" alt="Drawing" style="width: 600px;"/></p>
 
-<p>The <code>ioaddr</code> is an address checker controlled by the global I/O space mapping (see <a href="http://www.lowrisc.org/docs/untether-v0.2/pcr/">Memory and I/O maps, soft reset, and interrupts</a>). According to the I/O mapping, <code>ioaddr</code> identifies I/O requests in all D$ misses (<code>ioaddr.io</code> fires when <code>s1_req.addr</code> hits in I/O space). Since all I/O operations are uncached, they all miss in D$ and are catched by <code>ioaddr</code>, which then notifies the I/O missing handler (<code>iomshr</code>). <code>iomshr</code> processes the actual I/O requests using the I/O bus shown in the <a href="../overview#figure-overview">high-level view of the untethered Rocket chip</a>. If it is a write operation, D$ assumes it is served once the miss is acepted by <code>iomshr</code>. For a read operations, <code>iomshr</code> initiates an I/O replay after fetching the requested data from peripherals. Two buffer stages (<code>io_data</code>, <code>s1_io_data</code>) are added to ensure that the I/O replay follows the exact timing of normal memory replay. Consequently, the core pipeline gets the I/O value on the usual <code>cpu.resp</code> port at &ldquo;Stage 3&rdquo; of the I/O replay. Since there is only one <code>iomshr</code>, all I/O operations are processed in the program order.</p>
+<p>The <code>ioaddr</code> is an address checker controlled by the global I/O space mapping
+(see <a href="http://www.lowrisc.org/docs/untether-v0.2/pcr/">Memory and I/O maps, soft reset, and interrupts</a>).
+According to the I/O mapping, <code>ioaddr</code> identifies I/O requests in all D$
+misses (<code>ioaddr.io</code> fires when <code>s1_req.addr</code> hits in I/O space). Since all I/O
+operations are uncached, they all miss in D$ and are caught by <code>ioaddr</code>, which
+then notifies the I/O miss handler (<code>iomshr</code>). <code>iomshr</code> processes the actual
+I/O requests using the I/O bus shown in the <a href="../overview#figure-overview">high-level view of the untethered
+Rocket chip</a>. If it is a write operation, the D$
+assumes it is served once the miss is accepted by <code>iomshr</code>. For a read
+operation, <code>iomshr</code> initiates an I/O replay after fetching the requested data
+from peripherals. Two buffer stages (<code>io_data</code>, <code>s1_io_data</code>) are added to
+ensure that the I/O replay follows the exact timing of normal memory replay.<br />
+Consequently, the core pipeline gets the I/O value on the usual <code>cpu.resp</code>
+port at &ldquo;Stage 3&rdquo; of the I/O replay. Since there is only one <code>iomshr</code>, all I/O
+operations are processed in the program order.</p>
 
                     </section>
                 </article>

@@ -109,7 +109,8 @@ Please download and install a latest version for the best SystemVerilog support.
 
 <p>An FPGA demonstration is provided using either a <a href="http://www.xilinx.com/products/boards-and-kits/ek-k7-kc705-g.html">Xilinx Kintex-7 FPGA KC705 evaluation kit</a> or a low-end <a href="http://digilentinc.com/nexys4ddr/">Nexys™4 DDR Artix-7 FPGA Board</a>. The KC705 kit comes with a device and node locked license for <a href="http://www.xilinx.com/products/design-tools/vivado.html">Xilinx Vivado Design Suite</a>. The default version for FPGA demonstration project is Vivado 2015.3(64-bit). As for the users of the Nexys4-DDR boards, please acquire a free license and install the WebPACK edition of Vivado.</p>
 
-<p>By default, all simulations produce waveform in the VCD format. <a href="http://gtkwave.sourceforge.net/">GTKWave</a> can be used to view VCD files.</p>
+<p>By default, all simulations produce waveforms in the VCD format.<br />
+<a href="http://gtkwave.sourceforge.net/">GTKWave</a> can be used to view VCD files.</p>
 
 <p>Here shows software versions and environment variables on my machine:</p>
 
@@ -157,8 +158,8 @@ to build the RISC-V tools:</p>
 
 <h2 id="download-the-code-release:332a00eb4e29c66523efb552bbd30a5d">Download the code release</h2>
 
-<p>The <a href="https://github.com/lowrisc/lowrisc-chip">lowRISC chip git repository</a> is hosted by the GitHub
-website. Instead of cloning individual sub-modules, we recommend
+<p>The <a href="https://github.com/lowrisc/lowrisc-chip">lowRISC chip git repository</a> is
+hosted on GitHub . Instead of cloning individual sub-modules, we recommend
 cloning the entire repository to ensure all the sub-modules you
 acquire are compatible. Different versions of the sub-modules are not
 guaranteed to work.</p>
@@ -169,10 +170,6 @@ guaranteed to work.</p>
 cd ~/lowRISC/DIR
 git clone https://github.com/lowrisc/lowrisc-chip.git
 cd lowrisc-chip
-# === BEGIN ===
-# for release preview ONLY
-git checkout dev
-# === END ===
 git submodule update --init --recursive
 </code></pre>
 
@@ -181,7 +178,8 @@ git submodule update --init --recursive
 <ul>
 <li><em>master</em> : The major release branch, default, most stable. After major releases, only bugfixes related to the latest release are merged.</li>
 <li><em>dev</em> : The minor release branch, less stable. After major releases, new features are added to this branch waiting for the next major release.</li>
-<li><em>update</em> : The active developing branch, non-stable. The branch for developing new features, testing bugfixes, and experimenting ideas.</li>
+<li><em>update</em> : The active development branch, non-stable. The branch for
+developing new features, testing bugfixes, and experimenting with new ideas.</li>
 </ul>
 
 <p>To setup the necessary RISC-V variables use the setup script
@@ -208,10 +206,11 @@ compiling the rocket system.</li>
 <li><code>fpga</code>: FPGA demo implementations
 
 <ul>
-<li><code>board</code>: Demo projects for individual developement boards. <a href="http://www.lowrisc.org/docs/untether-v0.2/fpga-demo/">[FPGA Demo]</a>
+<li><code>board</code>: Demo projects for individual development boards. <a href="http://www.lowrisc.org/docs/untether-v0.2/fpga-demo/">[FPGA
+Demo]</a>
 
 <ul>
-<li><code>kc705</code>: Files for the Xilinx KC705 developement board.</li>
+<li><code>kc705</code>: Files for the Xilinx KC705 development board.</li>
 <li><code>nexys4</code>: Files for the Nexys™4 DDR Artix-7 FPGA Board.</li>
 </ul></li>
 </ul></li>
@@ -232,7 +231,7 @@ compiling the rocket system.</li>
 <li><code>socip</code>: The SystemVerilog/Verilog building blocks used in lowRISC chip.
 
 <ul>
-<li><code>nasti</code>: A SystemVerilog implemenation of NASTI/NASTI-Lite on-chip interconnection.</li>
+<li><code>nasti</code>: A SystemVerilog implementaion of NASTI/NASTI-Lite on-chip interconnection.</li>
 </ul></li>
 <li><code>src</code>: The top level code of lowRISC chip.
 

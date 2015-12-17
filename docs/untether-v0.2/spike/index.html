@@ -108,7 +108,7 @@ hasn&rsquo;t currently been modified to include tagged memory support.</p>
 
 <p>In this release, due to the peripheral mismatch between the original Rocket-chip and untethered lowRISC SoC, Spike can only be used to run a Linux Kernel and non-I/O related programs.</p>
 
-<p>Please see <a href="http://www.lowrisc.org/docs/untether-v0.2/riscv_compile/">Compile and install RISC-V cross-compiler</a> for the installation of Spike.</p>
+<p>Please see <a href="http://www.lowrisc.org/docs/untether-v0.2/riscv_compile/">Compile and install the RISC-V cross-compiler</a> for the installation of Spike.</p>
 
 <h3 id="using-spike:4c97a9276b269235c841d9122c55cc94">Using Spike</h3>
 
@@ -151,17 +151,21 @@ make install
 <pre><code>cd $TOP/riscv-tools/riscv-tests/isa
 make rv64ui-p-add
 spike rv64ui-p-add
-# show the rsturn value
+# show the return value
 echo $?
 </code></pre>
 
-<p>Since there is no peripheral support in the bare metal mode, return value is the only way to see the result of a test case. <code>0</code> is OK while non-zero identifies the failed test case.</p>
+<p>Since there is no peripheral support in the bare metal mode, the return value
+is the only way to see the result of a test case. <code>0</code> indicates success while
+non-zero identifies the failed test case.</p>
 
 <p><a name="spike-boot"></a></p>
 
-<h4 id="boot-a-risc-v-linux:4c97a9276b269235c841d9122c55cc94">Boot a RISC-V Linux</h4>
+<h4 id="booting-risc-v-linux:4c97a9276b269235c841d9122c55cc94">Booting RISC-V Linux</h4>
 
-<p>Before boot a Linux, please make sure the Linux image (<code>vmlinux</code>) and the ramdisk (<code>root.bin</code>) are available. Please see <a href="http://www.lowrisc.org/docs/untether-v0.2/linux_compile/">Compile the RISC-V Linux and the ramdisk <code>root.bin</code></a> for more details.</p>
+<p>Before booting Linux, please make sure the Linux image (<code>vmlinux</code>) and the
+ramdisk (<code>root.bin</code>) are available. Please see <a href="http://www.lowrisc.org/docs/untether-v0.2/linux_compile/">Compile RISC-V Linux and
+ramdisk <code>root.bin</code></a> for more details.</p>
 
 <pre><code>cd $TOP/riscv-tools/
 spike +disk=busybox-1.21.1/root.bin bbl linux-3.14.41/vmlinux

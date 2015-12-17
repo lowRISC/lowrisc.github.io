@@ -111,20 +111,32 @@
 <li><code>riscv-pk</code>: The proxy kernel that serves system calls on target machine.</li>
 </ul>
 
+<p>There are four ways to test a program:</p>
+
+<ul>
+<li>Behavioural simulation: run the program in the RISC-V ISA simulator (Spike). <br/>
+The <code>syscall()</code> interface provided in the original RISC-V proxy kernel is not compatible with the I/O interfaces provided in this release.
+Spike can be used to run programs that do not access I/O devices or user mode programs that run inside the RISC-V Linux.</li>
+<li>RTL simulation: simulate the program in Verilator (<code>$Top/vsim/</code>). <br/>
+No I/O devices is available in RTL simulation.</li>
+<li>FPGA simulation: simulate the program using Xilinx ISim (<code>$Top/fpga/board/$FPGA_BOARD/</code>). <br/>
+Behavioural modules for I/O devices are provided by Xilinx IPs; however, host end modules (UART terminal and SD card) are not available.</li>
+<li>FPGA run: actually run the program on an FPGA board (<code>$Top/fpga/board/$FPGA_BOARD/</code>). <br/>
+Full I/O support (UART and SD).</li>
+</ul>
+
 <p>Programs can be compiled and run in three different modes:</p>
 
 <ul>
-<li><strong>Bare metal mode</strong>: <br/>
-<em>Simulation only</em> <br/>
-Programs run in this mode have no peripheral support.<br/>
-This mode is used only for ISA regression test. The return value of a program indicates the result of an ISA test case. 0 is success while none-zero indentifies the No. of the failing case.</li>
-<li><strong>Newlib (supervisor) mode</strong>: <br/>
-<em>Simulation and FPGA</em> <br/>
-Programs run in this mode have the full control (supervisor priority) of peripherals (limited in simulation) but are single-threaded.<br/>
-Bootloaders are run in this mode.</li>
-<li><strong>Linux (user) mode</strong>: <br/>
-<em>FPGA only</em> <br/>
-Programs runs in a RISC-V Linux. They get multi-thread and peripheral support from the Linux kernel.</li>
+<li><strong>Bare metal mode</strong>: supervisor programs with no I/O accesses. <br/>
+<em>Behavioural simulation and RTL Simulation</em> <br/>
+Programs run in this mode have no peripheral support. This mode is used only for ISA and cache regression tests. The return value of a program indicates the result of an ISA test case. 0 is success while none-zero indentifies the No. of the failing case. Programs compiled in this mode would run silently on FPGAs or in FPGA simulations.</li>
+<li><strong>Newlib mode</strong>: supervisor programs with access to I/O devices. <br/>
+<em>FPGA simulation and FPGA run</em> <br/>
+Programs run in this mode have the full control (supervisor priority) of peripherals (limited in simulation) but are single-threaded. Bootloaders are run in this mode.</li>
+<li><strong>Linux mode</strong>: user programs with Linux support. <br/>
+<em>Behavioural simulation and FPGA run</em> <br/>
+Programs runs in the RISC-V Linux. They get multi-thread and peripheral support from the Linux kernel.</li>
 </ul>
 
 <p>Compiling and simulating programs in different modes depends on different tool sets.</p>
@@ -133,37 +145,25 @@ Programs runs in a RISC-V Linux. They get multi-thread and peripheral support fr
 <li><strong>Bare metal mode</strong>
 
 <ul>
-<li>Behaviour simulation: <br/>
+<li>Behavioural simulation: <br/>
 <code>riscv-gnu-toolchain</code>(newlib); <code>riscv-isa-sim</code>; <code>riscv-fesvr</code>.</li>
 <li>RTL simulation: <br/>
 <code>riscv-gnu-toolchain</code>(newlib); <a href="http://www.lowrisc.org/docs/untether-v0.2/verilator/">verilator</a>.</li>
-<li>FPGA simulation: <br/>
-<code>riscv-gnu-toolchain</code>(newlib); <a href="http://www.lowrisc.org/docs/untether-v0.2/xilinx/">vivado</a>.</li>
-<li>FPGA test: <br/>
-N/A</li>
 </ul></li>
 <li><strong>Newlib (supervisor) mode</strong>:
 
 <ul>
-<li>Behaviour simulation: <br/>
-<code>riscv-gnu-toolchain</code>(newlib); <code>riscv-isa-sim</code>; <code>riscv-fesvr</code>; <code>riscv-pk</code>.</li>
-<li>RTL simulation: <br/>
-<code>riscv-gnu-toolchain</code>(newlib); <a href="http://www.lowrisc.org/docs/untether-v0.2/verilator/">verilator</a>.</li>
 <li>FPGA simulation: <br/>
 <code>riscv-gnu-toolchain</code>(newlib); <a href="http://www.lowrisc.org/docs/untether-v0.2/xilinx/">vivado</a>.</li>
-<li>FPGA test: <br/>
+<li>FPGA run: <br/>
 <code>riscv-gnu-toolchain</code>(newlib); <a href="http://www.lowrisc.org/docs/untether-v0.2/xilinx/">vivado</a>.</li>
 </ul></li>
 <li><strong>Linux (user) mode</strong>
 
 <ul>
-<li>Behaviour simulation: <br/>
+<li>Behavioural simulation: <br/>
 <code>riscv-gnu-toolchain</code>(newlib+linux); <code>riscv-isa-sim</code>; <code>riscv-fesvr</code>; <code>riscv-pk</code>; <a href="../linux_compile#linux">vmlinux</a>; <a href="../linux_compile#busybox">root.bin</a>.</li>
-<li>RTL simulation: <br/>
-N/A</li>
-<li>FPGA simulation: <br/>
-N/A</li>
-<li>FPGA test: <br/>
+<li>FPGA run: <br/>
 <code>riscv-gnu-toolchain</code>(newlib+linux); <a href="http://www.lowrisc.org/docs/untether-v0.2/xilinx/">vivado</a>; <a href="../linux_compile#linux">vmlinux</a>; <a href="../linux_compile#busybox">root.bin</a>.</li>
 </ul></li>
 </ul>
@@ -189,7 +189,9 @@ which riscv64-unknown-elf-gcc
 
 <h3 id="building-the-linux-gcc:dca466123469e10ebd4d957a51c372fa">Building the Linux GCC</h3>
 
-<p>The build script above provides the newlib GCC but not the Linux GCC, which is needed for compiling programs in Linux (user) mode. To build a Linux GCC compiler:</p>
+<p>The build script above provides a GCC build using the Newlib libc but not the
+GNU libc, which is needed for compiling programs to run in user mode on Linux.
+To build a Linux GCC compiler:</p>
 
 <pre><code># set up the RISCV environment variables
 cd $TOP/riscv-tools/riscv-gnu-toolchain

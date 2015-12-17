@@ -104,19 +104,23 @@
 
 <h3 id="compilation:d97345269c451cb053ed120caf95ad9b">Compilation</h3>
 
-<p>To compile a simulator for lowRISC SoC:</p>
+<p>To compile a simulator for the lowRISC SoC:</p>
 
 <pre><code>cd $TOP/vsim
 make sim
 </code></pre>
 
-<p>This generates a simulator named <code>DefaultConfig-sim</code>. It is optimized for simulation speed and does not generate waveform. If the compilation time is too long on your machine, you can remove the compilation optimization by comment out the optimization flags in <code>Makefile</code>:</p>
+<p>This generates a simulator named <code>DefaultConfig-sim</code>. It is optimized for
+simulation speed and does not generate a waveform. If the compilation time is
+too long on your machine, you can disable compiler optimization by commenting
+out the optimization flags in <code>Makefile</code>:</p>
 
-<pre><code># remove optimization if compilation takes too long or run out of memory
+<pre><code># remove optimization if compilation takes too long or runs out of memory
 veri_opt_flags = -O3 -CFLAGS &quot;-O1&quot;
 </code></pre>
 
-<p>If waveform is needed for debugging failed test cases, a debugging simulator can be compiled by</p>
+<p>If a waveform is needed for debugging failed test cases, a debugging simulator
+can be compiled by</p>
 
 <pre><code>cd $TOP/vsim
 make sim-debug
@@ -126,7 +130,7 @@ make sim-debug
 
 <h3 id="running-simulations:d97345269c451cb053ed120caf95ad9b">Running simulations</h3>
 
-<p>The simulator recognizes the follwing arguments:</p>
+<p>The simulator recognizes the following arguments:</p>
 
 <pre><code>+vcd                    enable waveform output.
 +vcd_name=FILE_NAME     set the VCD file name, &quot;verilated.vcd&quot; in default.
@@ -135,13 +139,15 @@ make sim-debug
 </code></pre>
 
 <p><a name="elf2hex"></a>
-The <code>+vcd</code> and <code>+vcs_name</code> arguments are only effective with the debuggong simulator. Executables must be translated to hex files (memory image) for simulation. <code>elf2hex</code> is a program provided by riscv-fesvr for this purpose.</p>
+The <code>+vcd</code> and <code>+vcs_name</code> arguments are only effective with the debugging simulator. Executables must be translated to hex files (memory image) for simulation. <code>elf2hex</code> is a program provided by riscv-fesvr for this purpose.</p>
 
 <pre><code># translate rv64ui-p-add to rv64ui-p-add.hex
 elf2hex 16 4096 rv64ui-p-add &gt; rv64ui-p-add.hex
 </code></pre>
 
-<p>The second argument of <code>elf2hex</code>, 4096 in the above example, defines the size of the memory image to 64 KB. For large executables, modify this argument accordingly.</p>
+<p>The second argument of <code>elf2hex</code>, 4096 in the above example, defines the size
+of the memory image to be 64 KB. For large executables, modify this argument
+accordingly.</p>
 
 <p>To run a program without VCD:</p>
 

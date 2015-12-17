@@ -112,14 +112,16 @@
 
 <p>For downloading and compiling Verilator, please following the instructions of <a href="http://www.veripool.org/projects/verilator/wiki/Installing">http://www.veripool.org/projects/verilator/wiki/Installing</a>. &ldquo;Building from tarball&rdquo; should fit the purpose.</p>
 
-<p>Following is an example script for setting up environment for Verilator.</p>
+<p>Below is an example script for setting up the environment for Verilator:</p>
 
 <pre><code># assume Verilator is installed to /local/tool/verilator
 export VERILATOR_ROOT=/local/tool/verilator
 export PATH=$PATH:$VERILATOR_ROOT/bin
 </code></pre>
 
-<p>When Verilator is installed locally, some soft-links are missing which stops the compilation of simulation. If compiler errors similar to the fllowing appear,</p>
+<p>When Verilator is installed locally, some soft-links are missing which stops
+the compilation of simulation. If compiler errors similar to the following
+appear,</p>
 
 <pre><code>make[1]: *** No rule to make target `&lt;Verilator install path&gt;/include/verilated.mk'. Stop.
 Can't open perl script &quot;&lt;Verilator install path&gt;/bin/verilator_includer&quot;: No such file or directory

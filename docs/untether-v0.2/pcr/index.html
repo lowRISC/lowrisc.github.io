@@ -100,7 +100,7 @@
                     <section>
                         
 
-<p><strong>Note: the content of this part is subject to changes due to the lack of specification.</strong></p>
+<p><strong>Note: the content of this section is subject to change as the specification develops.</strong></p>
 
 <p>This <code>untethered</code> release starts to regulate the shared resources among cores, such as interrupts, memory and I/O maps, global timers, etc. A subset of control status register (CSR) space is defined as processor control registers (PCRs), whose values and accesses are shared by all cores and controlled by a global PCR control unit (<code>PCRControl</code>). The connections of the PCR control units is shown below.</p>
 
@@ -114,19 +114,32 @@
 
 <h4 id="pcr-read-write-response-pcr-resp:b09078dfce21ca0f6aa6d6ada91ffb50">PCR read/write response (<code>pcr_resp</code>)</h4>
 
-<p>Upon receving a request from <code>pcr_req</code>, the PCR control unit processes the request and sends back a response through the <code>pcr_resp</code> port connected to the requesting core when it is finished. When it is a read request, the PCR value is sent back in the response.</p>
+<p>Upon receiving a request from <code>pcr_req</code>, the PCR control unit processes the
+request and sends back a response through the <code>pcr_resp</code> port connected to the
+requesting core when it is finished. When it is a read request, the PCR value
+is sent back in the response.</p>
 
 <h4 id="broadcast-of-pcr-update-pcr-update:b09078dfce21ca0f6aa6d6ada91ffb50">Broadcast of PCR update (<code>pcr_update</code>)</h4>
 
-<p>Operations on some PCRs trigger changes of the global status, such as changing the I/O map. In this case, the updated PCR is boardcasted to all components potentially affected by this change. In this implementation, every L1 D$ has an <code>ioaddr</code> module for identifying I/O requests. To enforce the address mapping defined in the memory map, a memory address converter (<code>conv</code>) is added just below the L2 arbiter. Besides CSR modules, all <code>ioaddr</code> modules and the memory address converter receive PCR updates to track the changes in I/O and memory maps.</p>
+<p>Operations on some PCRs trigger changes of the global status, such as changing
+the I/O map. In this case, the updated PCR is broadcast to all components
+potentially affected by this change. In this implementation, every L1 D$ has
+an <code>ioaddr</code> module for identifying I/O requests. To enforce the address
+mapping defined in the memory map, a memory address converter (<code>conv</code>) is
+added just below the L2 arbiter. Besides CSR modules, all <code>ioaddr</code> modules and
+the memory address converter receive PCR updates to track the changes in I/O
+and memory maps.</p>
 
 <h4 id="irq-irq:b09078dfce21ca0f6aa6d6ada91ffb50">IRQ (<code>irq</code>)</h4>
 
-<p>All cores share the same interrupt sources but they can enable/disable inidividual interrupt separately. When an interrupt arrives, it is forward to all cores who have enabled it.</p>
+<p>All cores share the same interrupt sources but they can enable/disable
+individual interrupts separately. When an interrupt arrives, it is forwarded
+to all cores who have enabled it.</p>
 
 <h4 id="soft-reset-soft-reset:b09078dfce21ca0f6aa6d6ada91ffb50">Soft reset (<code>soft_reset</code>)</h4>
 
-<p>When a soft reset is triggered (a write to CSR <code>reset</code>), a reset signal is broadcasted to all cores and L2.</p>
+<p>When a soft reset is triggered (a write to CSR <code>reset</code>), a reset signal is
+broadcast to all cores and the L2.</p>
 
 <h2 id="individual-pcrs:b09078dfce21ca0f6aa6d6ada91ffb50">Individual PCRs</h2>
 
@@ -157,7 +170,7 @@
 <td><code>0x780</code></td>
 <td>Read/Write</td>
 <td>0</td>
-<td>Lagecy, only used in ISA regression test to identify return value.</td>
+<td>Legacy, only used in ISA regression test to identify return value.</td>
 </tr>
 
 <tr>
@@ -165,7 +178,7 @@
 <td><code>0x781</code></td>
 <td>Read/Write</td>
 <td>0</td>
-<td>Lagecy, not used.</td>
+<td>Legacy, not used.</td>
 </tr>
 
 <tr>
@@ -173,7 +186,7 @@
 <td><code>0x782</code></td>
 <td>Read/Write</td>
 <td>0</td>
-<td>When write, trigger a soft reset. Always read 0.</td>
+<td>When written, trigger a soft reset. Always reads 0.</td>
 </tr>
 
 <tr>
@@ -277,7 +290,7 @@
 <td><code>0x7af</code></td>
 <td>Read/Write</td>
 <td>0</td>
-<td>When write, trigger memory map update. Always read 0.</td>
+<td>When written, trigger memory map update. Always reads 0.</td>
 </tr>
 
 <tr>
@@ -349,7 +362,7 @@
 <td><code>0x7bf</code></td>
 <td>Read/Write</td>
 <td>0</td>
-<td>When write, trigger I/O map update. Always read 0.</td>
+<td>When written, trigger I/O map update. Always reads 0.</td>
 </tr>
 
 <tr>
@@ -486,7 +499,10 @@
 
 <p>The current wall clock counts at 50MHz. The value of this wall clock is updated to all cores every 20 cycles. The wall clock is not writable.</p>
 
-<p>When a core read CSR <code>time</code>, an actual read to the wall clock is initiated. However, the timer comparer in each core is compared against the infrequently updated local copy, which inccurs a 20 cycle inaccuracy in the worst case.</p>
+<p>When a core reads the CSR <code>time</code>, an actual read of the wall clock is
+initiated.  However, the timer comparator in each core is compared against the
+infrequently updated local copy, which incurs a 20 cycle inaccuracy in the
+worst case.</p>
 
 <h2 id="to-from-host:b09078dfce21ca0f6aa6d6ada91ffb50">To/from host</h2>
 
@@ -498,15 +514,22 @@
 
 <h2 id="memory-map:b09078dfce21ca0f6aa6d6ada91ffb50">Memory map</h2>
 
-<p>This implementation supports up to 4 separate memory sections. The space of any two sections should not be overlapped.</p>
+<p>This implementation supports up to 4 separate memory sections. The space of
+any two sections should not overlap.</p>
 
-<p>For each section, <code>mem_base</code> defines the base address appeared to the core; <code>mem_mask</code> defines the actual size of the section; <code>mem_phy</code> defines the base address appeared to on-chip interconnects. When <code>mem_mask</code> is 0, the section is disabled (size of 0). For any address (<code>addr</code>), it belongs to a memory section if <code>(addr &amp; ~mem_mask) == mem_base</code>. The translated address to on-chip interconnects is <code>(addr &amp; mem_mask) | mem_phy</code>.</p>
+<p>For each section, <code>mem_base</code> defines the base address as seen by the core;
+<code>mem_mask</code> defines the actual size of the section; <code>mem_phy</code> defines the base
+address as seen by on-chip interconnects. When <code>mem_mask</code> is 0, the section is
+disabled (size of 0). For any address (<code>addr</code>), it belongs to a memory section
+if <code>(addr &amp; ~mem_mask) == mem_base</code>. The translated address to on-chip
+interconnects is <code>(addr &amp; mem_mask) | mem_phy</code>.</p>
 
 <p>The update of a memory section should be an atomic operation. To ease this requirement, any write to a memory map is buffered. The actual update to the memory map is triggered by a write to <code>mem_update</code>.</p>
 
 <h2 id="i-o-map:b09078dfce21ca0f6aa6d6ada91ffb50">I/O map</h2>
 
-<p>This implementation supports up to 4 separate I/O sections. The space of any two sections should not be overlapped.</p>
+<p>This implementation supports up to 4 separate I/O sections. The space of any
+two sections should not overlap.</p>
 
 <p>For each section, <code>io_base</code> defines the base address; <code>io_mask</code> defines the actual size of the section. When <code>io_mask</code> is 0, the section is disabled (size of 0). For any address (<code>addr</code>), it belongs to an I/O section if <code>(addr &amp; ~io_mask) == io_base</code>. There is no address translation for I/O addresses.</p>
 

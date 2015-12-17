@@ -113,7 +113,7 @@
 
 <ul>
 <li><code>boot</code>: Bootloader test, also serves as the on-chip boot program used by the FPGA demo.</li>
-<li><code>dram</code>: Test program for DDR RAM interface.</li>
+<li><code>dram</code>: Test program for the DDR RAM interface.</li>
 <li><code>hello</code>: A simple hello world program using the UART interface.</li>
 <li><code>reset</code>: A simulation-only test for the soft-reset process.</li>
 <li><code>sdcard</code>: Test the SD (SPI mode) interface and the <a href="http://elm-chan.org/fsw/ff/00index_e.html">FatFS</a> (Fat 32) support.</li>
@@ -161,6 +161,11 @@ make hello
 
 <p>By default, the UART interface is configured to 115200Hz, 8-bit data and 1 bit odd parity check.</p>
 
+<p>Currently we recommend to use <code>microcom</code> (available in <code>apt-get</code>) to connect UART.</p>
+
+<pre><code>microcom -p /dev/ttyUSB0 -s 115200
+</code></pre>
+
 <p>After downloading the bitstream, the UART interface should print:</p>
 
 <pre><code>Hello World!
@@ -170,7 +175,7 @@ make hello
 
 <p>This example executes a read/write check of the DDR RAM. The check results are constantly printed to UART.</p>
 
-<p>Following is the result from UART:</p>
+<p>Below is the result from the UART:</p>
 
 <pre><code>DRAM test program.
 Write block @0 using key 0
@@ -207,7 +212,8 @@ Check block @18000 using key 4a0f9ca55caacaf6
 
 <h4 id="sd-card-read-test:92c049390011b714e22883abc9bbe9aa">SD card read test</h4>
 
-<p>This example reads a file named <code>test.txt</code> stored on a SD card (formatted in FAT 32) and then prints the content of this file to UART.</p>
+<p>This example reads a file named <code>test.txt</code> stored on a SD card (formatted in
+FAT32) and then prints the content of this file to UART.</p>
 
 <p>Following is the result from UART:</p>
 
@@ -225,7 +231,8 @@ test.txt closed.
 
 <p>This example also served as the initial bootloader for the RISC-V Linux FPGA demo. It copies the revised BBL from SD to DDR RAM.</p>
 
-<p>Here is the UART print if we store a hello world executable to SD as the <code>boot</code> program.</p>
+<p>Here is the UART output if we store a hello world executable to SD as the
+<code>boot</code> program.</p>
 
 <pre><code>lowRISC boot program
 =====================================
@@ -244,7 +251,7 @@ Hello World!
 
 <pre><code>cd $TOP/fpga/board/$FPGA_BOARD
 # insert and mount a SD card
-# Ensure the SD card is formatted in FAT 32
+# Ensure the SD card is formatted in FAT32
 
 # download and copy the pre-compiled image
 . preload_image.sh /PATH/TO/SD/
@@ -262,7 +269,7 @@ make boot
 # lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit
 </code></pre>
 
-<p>If everything runs OK, here is the print from UART terminal:</p>
+<p>Here is the output from the UART for a successful boot:</p>
 
 <pre><code>lowRISC boot program
 =====================================
@@ -319,7 +326,7 @@ Boot the loaded program...
 
 <h4 id="prepare-your-own-images:92c049390011b714e22883abc9bbe9aa">Prepare your own images</h4>
 
-<p>Three files are needed on SD for booting a RISC-V Linux:</p>
+<p>Three files are needed on SD for booting RISC-V Linux:</p>
 
 <ul>
 <li><code>boot</code>: The bootloader (a revised Berkeley bootloader, BBL) for loading Linux kernel.</li>
@@ -327,7 +334,8 @@ Boot the loaded program...
 <li><code>root.bin</code>: The ramdisk image.</li>
 </ul>
 
-<p>For generating your own <code>vmlinux</code> and <code>root.bin</code>, please see <a href="http://www.lowrisc.org/docs/untether-v0.2/linux_compile/">[Compile the RISC-V Linux and the ramdisk <code>root.bin</code>]</a>.</p>
+<p>For generating your own <code>vmlinux</code> and <code>root.bin</code>, please see <a href="http://www.lowrisc.org/docs/untether-v0.2/linux_compile/">[Compiling
+RISC-V Linux and the ramdisk <code>root.bin</code>]</a>.</p>
 
 <p>After compilation, load the kernel and ramdisk to SD:</p>
 

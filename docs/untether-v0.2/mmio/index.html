@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+    <head>
+        
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+        <title>Memory mapped I/O (MMIO) &middot; lowRISC</title>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' type='text/css'>
+        <link rel="stylesheet" href="http://www.lowrisc.org/libraries/normalize.3.0.1.css" />
+        <link rel="stylesheet" href="http://www.lowrisc.org/css/liquorice.css" />
+        <link rel="shortcut icon" href="http://www.lowrisc.org/favicon.ico" />
+        <link rel="alternate" href="http://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-53520714-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+  </head>
+    <body class="li-body">
+
+<header class="li-page-header">
+  <div class="li-header-top">
+  </div>
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <div class="li-brand li-left">
+                
+                <a href="http://www.lowrisc.org"><img src="http://www.lowrisc.org/img/lowrisc_header_logo.png"/></a></div>
+                <div class="li-menu li-left">
+                    <span class="li-menu-icon" onclick="javascript:toggle('menu');">&#9776;</span>
+                    <ul id="menu2" class="li-menu-items">
+                        
+                            <li><a href="/"> Home </a></li>
+                        
+                            <li><a href="/about/"> About </a></li>
+                        
+                            <li><a href="/faq/"> FAQ </a></li>
+                        
+                            <li><a href="/docs/"> Docs </a></li>
+                        
+                            <li><a href="/community/"> Community </a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sixteen columns">
+                <ul id="menu" class="li-menu-items li-menu-mobile">
+                    
+                        <li><a href="/"> Home </a></li>
+                    
+                        <li><a href="/about/"> About </a></li>
+                    
+                        <li><a href="/faq/"> FAQ </a></li>
+                    
+                        <li><a href="/docs/"> Docs </a></li>
+                    
+                        <li><a href="/community/"> Community </a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <article class="li-article">
+                
+                  <p>
+                    <a href="http://www.lowrisc.org/docs/untether-v0.2/overview/">⇡ Overview of the Rocket chip</a>
+                  </p>
+                
+                    <header class="li-article-header">
+                        <h1 class="li-article-title">Memory mapped I/O (MMIO)</h1>
+                        <span class="li-article-taxonomies">
+                            
+
+                            
+                        </span>
+                        
+                        
+                    </header>
+                    <section>
+                        <p><strong>Note: this initial implementation of MMIO is subject to significant further optimizations.</strong></p>
+
+<p>Although peripherals are mapped into the memory space, they cannot be accessed
+in the same way as cacheable memory due to the consistency requirement of I/O
+operations and the possible side-effects of I/O read and write operations. To
+safely access the I/O space of peripherals, memory mapped I/O (MMIO) gives the
+core pipeline uncached access to I/O space (bypassing both L1 and L2) while
+enforcing I/O operations in the program order.</p>
+
+<p>To bypass L1 and L2 for I/O operations, they must be identified from normal
+memory operations and processed separately in the L1 D$. The following figure
+shows the new L1 D$ with MMIO (probe and write-back units are removed to
+highlight the MMIO). The components in blue are used for MMIO.</p>
+
+<p><img src="../figures/dcache_mmio.png" alt="Drawing" style="width: 600px;"/></p>
+
+<p>The <code>ioaddr</code> is an address checker controlled by the global I/O space mapping
+(see <a href="http://www.lowrisc.org/docs/untether-v0.2/pcr/">Memory and I/O maps, soft reset, and interrupts</a>).
+According to the I/O mapping, <code>ioaddr</code> identifies I/O requests in all D$
+misses (<code>ioaddr.io</code> fires when <code>s1_req.addr</code> hits in I/O space). Since all I/O
+operations are uncached, they all miss in D$ and are caught by <code>ioaddr</code>, which
+then notifies the I/O miss handler (<code>iomshr</code>). <code>iomshr</code> processes the actual
+I/O requests using the I/O bus shown in the <a href="../overview#figure-overview">high-level view of the untethered
+Rocket chip</a>. If it is a write operation, the D$
+assumes it is served once the miss is accepted by <code>iomshr</code>. For a read
+operation, <code>iomshr</code> initiates an I/O replay after fetching the requested data
+from peripherals. Two buffer stages (<code>io_data</code>, <code>s1_io_data</code>) are added to
+ensure that the I/O replay follows the exact timing of normal memory replay.<br />
+Consequently, the core pipeline gets the I/O value on the usual <code>cpu.resp</code>
+port at &ldquo;Stage 3&rdquo; of the I/O replay. Since there is only one <code>iomshr</code>, all I/O
+operations are processed in the program order.</p>
+
+                    </section>
+                </article>
+
+        </div>
+    </div>
+    
+    <div class="row li-pagination">
+      <div class="eight columns">
+        <div class="li-pagination-previous">
+          &nbsp;
+          
+          Previous<br />
+          &nbsp;
+          <a href="http://www.lowrisc.org/docs/untether-v0.2/rocket-core/"> Rocket core overview</a>
+          
+        </div>
+      </div>
+      <div class="eight columns">
+        <div class="li-pagination-next">
+          &nbsp;
+          
+          Next<br />
+          &nbsp;
+          <a href="http://www.lowrisc.org/docs/untether-v0.2/pcr/"> Memory and I/O maps, soft reset, and interrupts</a>
+          
+        </div>
+      </div>
+    </div>
+    
+
+
+                
+
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                 
+                var disqus_shortname = 'lowrisc'; 
+                var disqus_identifier = "/" + "docs/untether-v0.2/mmio";
+                var disqus_title = "Memory mapped I/O (MMIO)";
+                var disqus_url = "http://www.lowrisc.org" + "docs/untether-v0.2/mmio";
+
+                 
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+            
+
+<footer class="li-page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script type="text/javascript">
+    function toggle(id) {
+        var e = document.getElementById(id);
+        e.style.display == 'block' ? e.style.display = 'none' : e.style.display = 'block';
+    }
+    </script>
+    </body>
+</html>
+

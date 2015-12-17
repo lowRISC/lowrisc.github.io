@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+    <head>
+        
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+        <title>Overview of the Rocket chip &middot; lowRISC</title>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' type='text/css'>
+        <link rel="stylesheet" href="http://www.lowrisc.org/libraries/normalize.3.0.1.css" />
+        <link rel="stylesheet" href="http://www.lowrisc.org/css/liquorice.css" />
+        <link rel="shortcut icon" href="http://www.lowrisc.org/favicon.ico" />
+        <link rel="alternate" href="http://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-53520714-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+  </head>
+    <body class="li-body">
+
+<header class="li-page-header">
+  <div class="li-header-top">
+  </div>
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <div class="li-brand li-left">
+                
+                <a href="http://www.lowrisc.org"><img src="http://www.lowrisc.org/img/lowrisc_header_logo.png"/></a></div>
+                <div class="li-menu li-left">
+                    <span class="li-menu-icon" onclick="javascript:toggle('menu');">&#9776;</span>
+                    <ul id="menu2" class="li-menu-items">
+                        
+                            <li><a href="/"> Home </a></li>
+                        
+                            <li><a href="/about/"> About </a></li>
+                        
+                            <li><a href="/faq/"> FAQ </a></li>
+                        
+                            <li><a href="/docs/"> Docs </a></li>
+                        
+                            <li><a href="/community/"> Community </a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sixteen columns">
+                <ul id="menu" class="li-menu-items li-menu-mobile">
+                    
+                        <li><a href="/"> Home </a></li>
+                    
+                        <li><a href="/about/"> About </a></li>
+                    
+                        <li><a href="/faq/"> FAQ </a></li>
+                    
+                        <li><a href="/docs/"> Docs </a></li>
+                    
+                        <li><a href="/community/"> Community </a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <article class="li-article">
+                
+                  <p>
+                    <a href="http://www.lowrisc.org/docs/untether-v0.2/">⇡ Untethered lowRISC tutorial</a>
+                  </p>
+                
+                    <header class="li-article-header">
+                        <h1 class="li-article-title">Overview of the Rocket chip</h1>
+                        <span class="li-article-taxonomies">
+                            
+
+                            
+                        </span>
+                        
+                        
+                    </header>
+                    <section>
+                        
+
+<p>An overview of Berkeley&rsquo;s RISC-V &ldquo;Rocket Chip&rdquo; SoC Generator can be found <a href="http://riscv.org/workshop-jan2015/riscv-rocket-chip-generator-workshop-jan2015.pdf">here</a>.</p>
+
+<p>A high-level view of the <code>untethered</code> Rocket chip is shown below. The design
+contains multiple Rocket tiles each of which consists of a Rocket core and L1
+instruction and data caches. All tiles share a unified and banked L2 cache and an I/O bus.
+The Rocket (Chisel) side of the SoC is encapsulated in a Chisel island whose features are configurable using the top-level configuration file <code>$TOP/src/main/scala/Configs.scala</code> (see <a href="http://www.lowrisc.org/docs/untether-v0.2/parameter/">Configuration parameters</a> for more details).
+Two NASTI/NASTI-Lite interfaces are exposed to the FPGA peripherals. They implement a limited subset of the AXI/AXI-Lite bus functions. The NASTI interface is used by the L2 cache for memory reads and writes, while the NASTI-Lite interface is used by the I/O bus for peripheral accesses.
+The NASTI on-chip interconnects are implemented in parameterized SystemVerilog located in <code>$TOP/socip/nasti</code>.</p>
+
+<p><a name="figure-overview"></a>
+<img src="../figures/lowrisc_soc.png" alt="Drawing" style="width: 600px;"/></p>
+
+<ul>
+<li><strong>On-FPGA Boot RAM</strong> <br/>
+(<code>0x00000000 - 0x0000FFFF</code>) <br/>
+On-FPGA Block RAM, 64 KB <a href="http://www.xilinx.com/support/documentation/ip_documentation/axi_bram_ctrl/v4_0/pg078-axi-bram-ctrl.pdf">[AXI Block RAM (BRAM) Controller v4.0]</a>.</li>
+<li><strong>DDR DRAM</strong>  <br/>
+(<code>0x40000000 - 0x7FFFFFFF</code>) <br/>
+Off-FPGA DRAM, KC705 DDR3 1 GB, NEXYS4-DDR DDR2 128 MB <a href="http://www.xilinx.com/support/documentation/ip_documentation/mig_7series/v2_4/ug586_7Series_MIS.pdf">[Zynq-7000 AP SoC and 7 Series Devices Memory Interface Solutions v2.4]</a>.</li>
+<li><strong>UART</strong>  <br/>
+(<code>0x80000000 - 0x8000FFFF</code>) <br/>
+Xilinx AXI UART 16550 <a href="http://www.xilinx.com/support/documentation/ip_documentation/axi_uart16550/v2_0/pg143-axi-uart16550.pdf">[AXI UART 16550 v2.0]</a>.</li>
+<li><strong>SD</strong>  <br/>
+(<code>0x80010000 - 0x8001FFFF</code>) <br>
+Xilinx AXI Quad SPI <a href="http://www.xilinx.com/support/documentation/ip_documentation/axi_quad_spi/v3_2/pg153-axi-quad-spi.pdf">[AXI Quad SPI v3.2]</a>. <br/>
+Fat 32 support <a href="http://elm-chan.org/fsw/ff/00index_e.html">[FatFs - Generic FAT File System Module]</a>.</li>
+</ul>
+
+<h2 id="further-reading:68f80267fa3a50980dbb745a782b8dca">Further reading</h2>
+
+<ul>
+<li><a href="/docs/untether-v0.2/rocket-core/">Rocket core</a></li>
+<li><a href="http://www.lowrisc.org/docs/untether-v0.2/mmio/">Memory mapped I/O (MMIO)</a></li>
+<li><a href="http://www.lowrisc.org/docs/untether-v0.2/pcr/">Memory and I/O maps, soft reset, and interrupts</a></li>
+<li><a href="http://www.lowrisc.org/docs/untether-v0.2/bootload/">Bootload procedure</a></li>
+<li><a href="http://www.lowrisc.org/docs/untether-v0.2/parameter/">Configuration parameters</a></li>
+</ul>
+
+                    </section>
+                </article>
+
+        </div>
+    </div>
+    
+    <div class="row li-pagination">
+      <div class="eight columns">
+        <div class="li-pagination-previous">
+          &nbsp;
+          
+        </div>
+      </div>
+      <div class="eight columns">
+        <div class="li-pagination-next">
+          &nbsp;
+          
+          Next<br />
+          &nbsp;
+          <a href="http://www.lowrisc.org/docs/untether-v0.2/dev-env/"> A guide to the development environment</a>
+          
+        </div>
+      </div>
+    </div>
+    
+
+
+                
+
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                 
+                var disqus_shortname = 'lowrisc'; 
+                var disqus_identifier = "/" + "docs/untether-v0.2/overview";
+                var disqus_title = "Overview of the Rocket chip";
+                var disqus_url = "http://www.lowrisc.org" + "docs/untether-v0.2/overview";
+
+                 
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+            
+
+<footer class="li-page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script type="text/javascript">
+    function toggle(id) {
+        var e = document.getElementById(id);
+        e.style.display == 'block' ? e.style.display = 'none' : e.style.display = 'block';
+    }
+    </script>
+    </body>
+</html>
+

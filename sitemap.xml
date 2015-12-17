@@ -3,8 +3,98 @@
   
   <url>
     <loc>http://www.lowrisc.org/</loc>
-    <lastmod>2015-08-16T10:51:14+01:00</lastmod>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/bootload/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/fpga-demo/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/dev-env/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/fpga-sim/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/overview/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/linux_compile/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/mmio/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/parameter/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/release/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/rocket-core/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/riscv_compile/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/pcr/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/simulation/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/spike/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/verilator/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/vsim/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/xilinx/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -38,87 +128,87 @@
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/tutorial/future/</loc>
+    <loc>http://www.lowrisc.org/docs/tagged-memory-v0.1/future/</loc>
     <lastmod>2015-04-13T14:27:08+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/tutorial/fpga-fesvr/</loc>
+    <loc>http://www.lowrisc.org/docs/tagged-memory-v0.1/fpga-fesvr/</loc>
     <lastmod>2015-04-12T16:24:16+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/tutorial/fpga-ramdisk/</loc>
+    <loc>http://www.lowrisc.org/docs/tagged-memory-v0.1/fpga-ramdisk/</loc>
     <lastmod>2015-04-12T16:22:20+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/tutorial/fpga-bootimage/</loc>
+    <loc>http://www.lowrisc.org/docs/tagged-memory-v0.1/fpga-bootimage/</loc>
     <lastmod>2015-04-12T16:19:10+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/tutorial/fpga/</loc>
+    <loc>http://www.lowrisc.org/docs/tagged-memory-v0.1/fpga/</loc>
     <lastmod>2015-04-12T15:52:33+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/tutorial/verilog-fpga-sim/</loc>
+    <loc>http://www.lowrisc.org/docs/tagged-memory-v0.1/verilog-fpga-sim/</loc>
     <lastmod>2015-04-12T15:51:05+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/tutorial/verilog-asic-sim/</loc>
+    <loc>http://www.lowrisc.org/docs/tagged-memory-v0.1/verilog-asic-sim/</loc>
     <lastmod>2015-04-12T15:47:34+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/tutorial/emulator/</loc>
+    <loc>http://www.lowrisc.org/docs/tagged-memory-v0.1/emulator/</loc>
     <lastmod>2015-04-12T15:44:04+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/tutorial/spike/</loc>
+    <loc>http://www.lowrisc.org/docs/tagged-memory-v0.1/spike/</loc>
     <lastmod>2015-04-12T15:42:11+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/tutorial/simulations/</loc>
+    <loc>http://www.lowrisc.org/docs/tagged-memory-v0.1/simulations/</loc>
     <lastmod>2015-04-12T15:39:40+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/tutorial/setup/</loc>
+    <loc>http://www.lowrisc.org/docs/tagged-memory-v0.1/setup/</loc>
     <lastmod>2015-04-12T15:35:46+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/tutorial/tag-tests/</loc>
+    <loc>http://www.lowrisc.org/docs/tagged-memory-v0.1/tag-tests/</loc>
     <lastmod>2015-04-12T15:33:14+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/tutorial/new-instructions/</loc>
+    <loc>http://www.lowrisc.org/docs/tagged-memory-v0.1/new-instructions/</loc>
     <lastmod>2015-04-12T15:28:01+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/tutorial/tags/</loc>
+    <loc>http://www.lowrisc.org/docs/tagged-memory-v0.1/tags/</loc>
     <lastmod>2015-04-12T15:16:58+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/tutorial/rocket-core/</loc>
+    <loc>http://www.lowrisc.org/docs/tagged-memory-v0.1/rocket-core/</loc>
     <lastmod>2015-04-12T15:12:50+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/tutorial/rocket-chip/</loc>
+    <loc>http://www.lowrisc.org/docs/tagged-memory-v0.1/rocket-chip/</loc>
     <lastmod>2015-04-12T15:05:25+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/tutorial/</loc>
+    <loc>http://www.lowrisc.org/docs/tagged-memory-v0.1/</loc>
     <lastmod>2015-04-12T14:18:41+01:00</lastmod>
   </url>
   

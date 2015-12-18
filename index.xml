@@ -30,7 +30,7 @@ development boards. We would gladly welcome assistance in supporting other
 boards.&lt;/p&gt;
 
 &lt;p&gt;Please note that the codebase temporarily lacks support for tagged memory
-included in the &lt;a href=&#34;http://www.lowrisc.org/docs/tagged-memory-v0.1/&#34;&gt;previous release&lt;/a&gt; which describes in some We plan to re-integrate tagged memory support
+included in the &lt;a href=&#34;http://www.lowrisc.org/docs/tagged-memory-v0.1/&#34;&gt;previous release&lt;/a&gt;. We plan to re-integrate tagged memory support
 with additional optimisations early next year. You can find a detailed list of
 changes in the &lt;a href=&#34;http://www.lowrisc.org/docs/untether-v0.2/release/&#34;&gt;release notes&lt;/a&gt;.
 One highlight is support for &lt;a href=&#34;http://www.lowrisc.org/docs/untether-v0.2/vsim/&#34;&gt;RTL simulation using the open-source Verilator

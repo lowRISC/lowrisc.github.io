@@ -1,0 +1,6 @@
+# Generated html for lowrisc.org
+Please note, this repository contains only generated HTML for the [lowRISC 
+website](http://www.lowrisc.org). Full history is maintained in the 
+[lowrisc-site repo](https://github.com/lowrisc/lowrisc-site), which contains 
+the source Markdown files. If you would like to make changes, please submit a 
+pull request there.

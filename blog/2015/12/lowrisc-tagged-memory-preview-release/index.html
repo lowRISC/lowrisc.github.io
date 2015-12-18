@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+    <head>
+        
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+        <title>lowRISC tagged memory preview release &middot; lowRISC</title>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' type='text/css'>
+        <link rel="stylesheet" href="http://localhost:1313//libraries/normalize.3.0.1.css" />
+        <link rel="stylesheet" href="http://localhost:1313//css/liquorice.css" />
+        <link rel="shortcut icon" href="http://localhost:1313//favicon.ico" />
+        <link rel="alternate" href="http://localhost:1313//index.xml" type="application/rss+xml" title="lowRISC" />
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-53520714-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+  </head>
+    <body class="li-body">
+
+<header class="li-page-header">
+  <div class="li-header-top">
+  </div>
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <div class="li-brand li-left">
+                
+                <a href="http://localhost:1313/"><img src="http://localhost:1313//img/lowrisc_header_logo.png"/></a></div>
+                <div class="li-menu li-left">
+                    <span class="li-menu-icon" onclick="javascript:toggle('menu');">&#9776;</span>
+                    <ul id="menu2" class="li-menu-items">
+                        
+                            <li><a href="/"> Home </a></li>
+                        
+                            <li><a href="/about/"> About </a></li>
+                        
+                            <li><a href="/faq/"> FAQ </a></li>
+                        
+                            <li><a href="/docs/"> Docs </a></li>
+                        
+                            <li><a href="/community/"> Community </a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sixteen columns">
+                <ul id="menu" class="li-menu-items li-menu-mobile">
+                    
+                        <li><a href="/"> Home </a></li>
+                    
+                        <li><a href="/about/"> About </a></li>
+                    
+                        <li><a href="/faq/"> FAQ </a></li>
+                    
+                        <li><a href="/docs/"> Docs </a></li>
+                    
+                        <li><a href="/community/"> Community </a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <article class="li-article">
+                
+                    <header class="li-article-header">
+                        <h1 class="li-article-title">lowRISC tagged memory preview release</h1>
+                        <span class="li-article-taxonomies">
+                            
+
+                            
+                        </span>
+                        
+                        
+                        <time class="li-article-date">Friday, December 18, 2015</time>
+                        
+                    </header>
+                    <section>
+                        <p>We&rsquo;re pleased to announce the <a href="http://localhost:1313/docs/tagged-memory-v0.1/">first lowRISC preview release</a>, demonstrating support for tagged memory as
+described in <a href="http://localhost:1313/docs/memo-2014-001-tagged-memory-and-minion-cores/">our memo</a>. Our ambition with lowRISC is to provide an open-source System-on-Chip
+platform for others to build on, along with low-cost development boards
+featuring a reference implementation. Although there&rsquo;s more work to be done on
+the tagged memory implementation, now seemed a good time to document what
+we&rsquo;ve done in order for the wider community to take a look. Please see our
+<a href="http://localhost:1313/docs/tagged-memory-v0.1/">full tutorial</a> which describes in some
+detail the changes we&rsquo;ve made to the Berkeley <a href="https://github.com/ucb-bar/rocket">Rocket
+core</a>, as well as how you can build and try
+it out for yourself (either in simulation, or on an FPGA). We&rsquo;ve gone to some
+effort to produce this documentation, both to document our work, and to share
+our experiences building upon the Berkeley RISC-V code releases in the hopes
+they&rsquo;ll be useful to other groups.</p>
+
+<p>The initial motivation for tagged memory was to prevent control-flow hijacking
+attacks, though there are a range of other potential uses including
+fine-grained memory synchronisation, garbage collection, and debug tools.<br />
+Please note that the instructions used to manipulate tagged memory in this
+release (<code>ltag</code> and <code>stag</code>) are only temporary and chosen simply because they
+require minimal changes to the core pipeline. Future work will include
+exploring better ISA support, collecting performance numbers across a range of
+tagged memory uses and tuning the tag cache. We are also working on developing
+an &lsquo;untethered&rsquo; version of the SoC with the necessary peripherals integrated
+for standalone operation.</p>
+
+<p>If you&rsquo;ve visited lowrisc.org before, you&rsquo;ll have noticed we&rsquo;ve changed a few
+things around. Keep an eye on this blog (and its <a href="http://www.lowrisc.org/index.xml">RSS
+feed</a>) to keep an eye on developments - we
+expect to be updating at least every couple of weeks. We&rsquo;re very grateful to
+the RISC-V team at Berkeley for all their support and guidance. A large
+portion of the credit for this initial code release goes to <a href="http://wsong83.github.io/">Wei
+Song</a>, who&rsquo;s been working tirelessly on the HDL
+implementation.</p>
+
+                    </section>
+                </article>
+
+        </div>
+    </div>
+    
+
+
+                
+
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                 
+                var disqus_shortname = 'lowrisc'; 
+                var disqus_identifier = "/" + "blog/2015/12/lowrisc-tagged-memory-preview-release";
+                var disqus_title = "lowRISC tagged memory preview release";
+                var disqus_url = "http://www.lowrisc.org" + "blog/2015/12/lowrisc-tagged-memory-preview-release";
+
+                 
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+            
+
+<footer class="li-page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script type="text/javascript">
+    function toggle(id) {
+        var e = document.getElementById(id);
+        e.style.display == 'block' ? e.style.display = 'none' : e.style.display = 'block';
+    }
+    </script>
+    <script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>
+

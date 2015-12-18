@@ -7,10 +7,10 @@
 
         <title>lowRISC &middot; lowRISC</title>
         <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' type='text/css'>
-        <link rel="stylesheet" href="http://www.lowrisc.org/libraries/normalize.3.0.1.css" />
-        <link rel="stylesheet" href="http://www.lowrisc.org/css/liquorice.css" />
-        <link rel="shortcut icon" href="/favicon.ico" />
-        <link rel="alternate" href="http://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
+        <link rel="stylesheet" href="http://www.lowrisc.org//libraries/normalize.3.0.1.css" />
+        <link rel="stylesheet" href="http://www.lowrisc.org//css/liquorice.css" />
+        <link rel="shortcut icon" href="http://www.lowrisc.org//favicon.ico" />
+        <link rel="alternate" href="http://www.lowrisc.org//index.xml" type="application/rss+xml" title="lowRISC" />
         <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -31,7 +31,7 @@
             <div class="sixteen columns">
                 <div class="li-brand li-left">
                 
-                <a href="http://www.lowrisc.org/"><img src="http://www.lowrisc.org/img/lowrisc_header_logo.png"/></a></div>
+                <a href="http://www.lowrisc.org/"><img src="http://www.lowrisc.org//img/lowrisc_header_logo.png"/></a></div>
                 <div class="li-menu li-left">
                     <span class="li-menu-icon" onclick="javascript:toggle('menu');">&#9776;</span>
                     <ul id="menu2" class="li-menu-items">
@@ -78,10 +78,72 @@
 		<div class="li-intro">
 			<p><b>lowRISC</b> is producing fully open hardware systems. From the processor core
 		    to the development board, our goal is to create a completely open computing
-		    eco-system. <b><a href="/about">Find out more</a></b></p>
+		    eco-system. <b><a href="http://www.lowrisc.org//about">Find out more</a></b></p>
 		</div>
 		<div class="li-main-article-list">
 		    <h1>Latest news</h1>
+		    
+		    <div class="li-article">
+			    <article>
+    <header>
+        <h2><a href="http://www.lowrisc.org/blog/2015/12/untethered-lowrisc-release">Untethered lowRISC release </a></h2>
+        <time class="li-article-date">Friday, December 18, 2015</time>
+    </header>
+    <section class="li-article-section">
+        <p>Over the past several months, we&rsquo;ve been working to provide a standalone or
+&lsquo;untethered&rsquo; SoC. Cores in the original <a href="https://github.com/ucb-bar/rocket-chip">Rocket
+chip</a> rely on communicating with a
+companion processor via the host-target interface (HTIF) to access peripherals
+and I/O. This release removes this requirement, adding an I/O bus and
+instantiating FPGA peripherals. The accompanying <a href="http://www.lowrisc.org/docs/untether-v0.2/">tutorial</a>, written by Wei Song, describes how to
+build this code release and explains the underlying structural changes. We
+support both the <a href="http://www.xilinx.com/products/boards-and-kits/ek-k7-kc705-g.html">Xilinx
+KC705</a> and
+the lower-priced <a href="http://store.digilentinc.com/nexys-4-ddr-artix-7-fpga-trainer-board-recommended-for-ece-curriculum/">Nexys4
+DDR</a>
+development boards. We would gladly welcome assistance in supporting other
+boards.</p>
+
+<p>Please note that the codebase temporarily lacks support for tagged memory
+included in the <a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/">previous release</a> which describes in some We plan to re-integrate tagged memory support
+with additional optimisations early next year. You can find a detailed list of
+changes in the <a href="http://www.lowrisc.org/docs/untether-v0.2/release/">release notes</a>.
+One highlight is support for <a href="http://www.lowrisc.org/docs/untether-v0.2/vsim/">RTL simulation using the open-source Verilator
+tool</a>.</p>
+
+<p>This development milestone should make it easier for other to contribute. If
+you&rsquo;re looking to get stuck in, you might want to consider looking at tasks
+such as:</p>
+
+<ul>
+<li>Cleaning up the <a href="https://github.com/lowRISC/riscv-linux">RISC-V Linux port</a>,
+improving devicetree support and removing the host-target interface.</li>
+<li>Replacing use of proprietary peripheral IP with open-source IP cores.</li>
+<li>Adding support for different FPGA development boards, including Altera
+boards.</li>
+<li>Implementing the <a href="http://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-852.pdf">BERI Programmable Interrupt
+Controller</a> (p73), and
+adding necessary Linux support.</li>
+</ul>
+
+<p>Our next development priorities are the re-integration of tagged memory
+support and an initial integration of a minion core design. We also expect to
+put out a job advert in the next few weeks for a new member of the lowRISC
+development team at the University of Cambridge Computer Laboratory.
+Interested applicants are encouraged to make informal enquiries about the post
+to Rob Mullins <a href="mailto:Robert.Mullins@cl.cam.ac.uk">Robert.Mullins@cl.cam.ac.uk</a>.</p>
+
+<p>We hope to see many of you at the <a href="http://riscv.org/workshop-jan2016.html">3rd RISC-V
+Workshop</a> in January, where Wei Song
+and Alex Bradbury will be presenting about lowRISC.</p>
+
+    </section>
+    <footer>
+        <a href='http://www.lowrisc.org/blog/2015/12/untethered-lowrisc-release'>More</a>
+    </footer>
+</article>
+
+		    </div>
 		    
 		    <div class="li-article">
 			    <article>
@@ -674,7 +736,7 @@ interconnect of choice for most existing open
 source IP cores, including most devices on
 <a href="http://opencores.org/">opencores.org</a>. The Berkeley
 <a href="https://github.com/ucb-bar/rocket-chip">Rocket</a> RISC-V implementation uses
-their own &lsquo;TileLink&rsquo; protocol (we provide a <a href="http://www.lowrisc.org/docs/tutorial/rocket-chip/">brief
+their own &lsquo;TileLink&rsquo; protocol (we provide a <a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/rocket-chip/">brief
 overview</a>. By providing a
 reusable bridge, this project will allow the easy reuse of opencores devices
 and leverage the many man-years of effort that has already gone in to them.</li>
@@ -710,13 +772,13 @@ please do leave them in the comments.</p>
         <time class="li-article-date">Monday, April 13, 2015</time>
     </header>
     <section class="li-article-section">
-        <p>We&rsquo;re pleased to announce the <a href="http://www.lowrisc.org/docs/tutorial/">first lowRISC preview release</a>, demonstrating support for tagged memory as
+        <p>We&rsquo;re pleased to announce the <a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/">first lowRISC preview release</a>, demonstrating support for tagged memory as
 described in <a href="http://www.lowrisc.org/docs/memo-2014-001-tagged-memory-and-minion-cores/">our memo</a>. Our ambition with lowRISC is to provide an open-source System-on-Chip
 platform for others to build on, along with low-cost development boards
 featuring a reference implementation. Although there&rsquo;s more work to be done on
 the tagged memory implementation, now seemed a good time to document what
 we&rsquo;ve done in order for the wider community to take a look. Please see our
-<a href="http://www.lowrisc.org/docs/tutorial/">full tutorial</a> which describes in some
+<a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/">full tutorial</a> which describes in some
 detail the changes we&rsquo;ve made to the Berkeley <a href="https://github.com/ucb-bar/rocket">Rocket
 core</a>, as well as how you can build and try
 it out for yourself (either in simulation, or on an FPGA). We&rsquo;ve gone to some

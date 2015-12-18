@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+    <head>
+        
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+        <title>FPGA Simulation &middot; lowRISC</title>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' type='text/css'>
+        <link rel="stylesheet" href="http://www.lowrisc.org//libraries/normalize.3.0.1.css" />
+        <link rel="stylesheet" href="http://www.lowrisc.org//css/liquorice.css" />
+        <link rel="shortcut icon" href="http://www.lowrisc.org//favicon.ico" />
+        <link rel="alternate" href="http://www.lowrisc.org//index.xml" type="application/rss+xml" title="lowRISC" />
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-53520714-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+  </head>
+    <body class="li-body">
+
+<header class="li-page-header">
+  <div class="li-header-top">
+  </div>
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <div class="li-brand li-left">
+                
+                <a href="http://www.lowrisc.org/"><img src="http://www.lowrisc.org//img/lowrisc_header_logo.png"/></a></div>
+                <div class="li-menu li-left">
+                    <span class="li-menu-icon" onclick="javascript:toggle('menu');">&#9776;</span>
+                    <ul id="menu2" class="li-menu-items">
+                        
+                            <li><a href="/"> Home </a></li>
+                        
+                            <li><a href="/about/"> About </a></li>
+                        
+                            <li><a href="/faq/"> FAQ </a></li>
+                        
+                            <li><a href="/docs/"> Docs </a></li>
+                        
+                            <li><a href="/community/"> Community </a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sixteen columns">
+                <ul id="menu" class="li-menu-items li-menu-mobile">
+                    
+                        <li><a href="/"> Home </a></li>
+                    
+                        <li><a href="/about/"> About </a></li>
+                    
+                        <li><a href="/faq/"> FAQ </a></li>
+                    
+                        <li><a href="/docs/"> Docs </a></li>
+                    
+                        <li><a href="/community/"> Community </a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <article class="li-article">
+                
+                    <header class="li-article-header">
+                        <h1 class="li-article-title">FPGA Simulation</h1>
+                        <span class="li-article-taxonomies">
+                            
+
+                            
+                        </span>
+                        
+                        
+                    </header>
+                    <section>
+                        
+
+<p>An FPGA simulation is provided using the Xilinx ISim simulator. However, due to the lack of behavioural models for all peripherals, this FPGA simulation covers only part of the whole SoC.</p>
+
+<ul>
+<li>All parts of the Rocket cores, L1/L2 caches and on-chip interconnects are simulated.</li>
+<li>A full DDR RAM simulation model is available from Xilinx (disabled by default) but extremely slow.</li>
+<li>A behavioural RAM simulation model is provided using SystemVerilog DPI interfaces (enabled by default).</li>
+<li>In simulation, both UART and SD (SPI) I/Os are constantly driven or open.</li>
+</ul>
+
+<p>Normally FPGA simulation is used only for debugging the initialization of
+peripherals.</p>
+
+<h3 id="run-fpga-simulation:6f44695b9518f13066be33678344d811">Run FPGA simulation</h3>
+
+<p>Use the hello world test as an example:</p>
+
+<pre><code>cd $TOP/fpga/board/$FPGA_BOARD
+# compile and load the test
+make hello
+# run the simulation
+make simulation
+</code></pre>
+
+<p>The result of simulation is recorded in <code>$TOP/fpga/board/$FPGA_BOARD/simulate.log</code>.</p>
+
+<p>Also, the waveform of the simulation is automatically recorded to <br/>
+<code>$TOP/fpga/board/$FPGA_BOARD/lowrisc-chip-imp/lowrisc-chip-imp.sim/sim_1/behav/lowrisc-chip.vcd</code>.
+If no VCD is needed, remove related lines in
+<code>$TOP/fpga/board/$FPGA_BOARD/script/simulate.tcl</code>. When VCD is enabled, be
+careful with disk space as the VCD file can grow very large.</p>
+
+<h3 id="simulate-other-programs:6f44695b9518f13066be33678344d811">Simulate other programs</h3>
+
+<p>The program to be executed in simulation is stored in the on-chip boot BRAM (<code>src/boot.mem</code>). To load simulation with an arbitrary program, it is needed to compile the program and replace the BRAM image. <code>elf2hex</code> should be used to translate an executable into a memory image. See <a href="../vsim#elf2hex">[RTL simulation]</a> for more information.</p>
+
+<h3 id="enable-the-full-ddr-simulation-model:6f44695b9518f13066be33678344d811">Enable the full DDR simulation model</h3>
+
+<p>It is possible to simulate the actual behaviour of the DDR interface but it is extremely slow.</p>
+
+<p>To enable the full DDR simulation model, revise <code>script/make_project.tcl</code>,
+changing</p>
+
+<pre><code>#set_property verilog_define [list FPGA FPGA_FULL KC705] $obj
+set_property verilog_define [list FPGA] $obj
+</code></pre>
+
+<p>into</p>
+
+<pre><code>set_property verilog_define [list FPGA FPGA_FULL KC705] $obj
+#set_property verilog_define [list FPGA] $obj
+</code></pre>
+
+<p>which effectively defines the <code>FPGA_FULL</code> and <code>KC705</code> macros for FPGA simulation. For NEXYS4-DDR, replace macro <code>KC705</code> with <code>NEXYS4</code>.</p>
+
+<p>Please rebuild the whole FPGA project to update the change:</p>
+
+<pre><code>make cleanall
+make project
+</code></pre>
+
+<p>Unless the DDR interface is the debugging target, it is strongly suggested NOT
+to enable this option.</p>
+
+                    </section>
+                </article>
+
+        </div>
+    </div>
+    
+    <div class="row li-pagination">
+      <div class="eight columns">
+        <div class="li-pagination-previous">
+          &nbsp;
+          
+        </div>
+      </div>
+      <div class="eight columns">
+        <div class="li-pagination-next">
+          &nbsp;
+          
+        </div>
+      </div>
+    </div>
+    
+
+
+                
+
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                 
+                var disqus_shortname = 'lowrisc'; 
+                var disqus_identifier = "/" + "docs/untether-v0.2/fpga-sim";
+                var disqus_title = "FPGA Simulation";
+                var disqus_url = "http://www.lowrisc.org" + "docs/untether-v0.2/fpga-sim";
+
+                 
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+            
+
+<footer class="li-page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script type="text/javascript">
+    function toggle(id) {
+        var e = document.getElementById(id);
+        e.style.display == 'block' ? e.style.display = 'none' : e.style.display = 'block';
+    }
+    </script>
+    </body>
+</html>
+

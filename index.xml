@@ -6,8 +6,63 @@
     <description>Recent content on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Aug 2015 10:51:14 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 18 Dec 2015 10:30:00 +0000</lastBuildDate>
     <atom:link href="http://www.lowrisc.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Untethered lowRISC release</title>
+      <link>http://www.lowrisc.org/blog/2015/12/untethered-lowrisc-release</link>
+      <pubDate>Fri, 18 Dec 2015 10:30:00 +0000</pubDate>
+      
+      <guid>http://www.lowrisc.org/blog/2015/12/untethered-lowrisc-release</guid>
+      <description>&lt;p&gt;Over the past several months, we&amp;rsquo;ve been working to provide a standalone or
+&amp;lsquo;untethered&amp;rsquo; SoC. Cores in the original &lt;a href=&#34;https://github.com/ucb-bar/rocket-chip&#34;&gt;Rocket
+chip&lt;/a&gt; rely on communicating with a
+companion processor via the host-target interface (HTIF) to access peripherals
+and I/O. This release removes this requirement, adding an I/O bus and
+instantiating FPGA peripherals. The accompanying &lt;a href=&#34;http://www.lowrisc.org/docs/untether-v0.2/&#34;&gt;tutorial&lt;/a&gt;, written by Wei Song, describes how to
+build this code release and explains the underlying structural changes. We
+support both the &lt;a href=&#34;http://www.xilinx.com/products/boards-and-kits/ek-k7-kc705-g.html&#34;&gt;Xilinx
+KC705&lt;/a&gt; and
+the lower-priced &lt;a href=&#34;http://store.digilentinc.com/nexys-4-ddr-artix-7-fpga-trainer-board-recommended-for-ece-curriculum/&#34;&gt;Nexys4
+DDR&lt;/a&gt;
+development boards. We would gladly welcome assistance in supporting other
+boards.&lt;/p&gt;
+
+&lt;p&gt;Please note that the codebase temporarily lacks support for tagged memory
+included in the &lt;a href=&#34;http://www.lowrisc.org/docs/tagged-memory-v0.1/&#34;&gt;previous release&lt;/a&gt; which describes in some We plan to re-integrate tagged memory support
+with additional optimisations early next year. You can find a detailed list of
+changes in the &lt;a href=&#34;http://www.lowrisc.org/docs/untether-v0.2/release/&#34;&gt;release notes&lt;/a&gt;.
+One highlight is support for &lt;a href=&#34;http://www.lowrisc.org/docs/untether-v0.2/vsim/&#34;&gt;RTL simulation using the open-source Verilator
+tool&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This development milestone should make it easier for other to contribute. If
+you&amp;rsquo;re looking to get stuck in, you might want to consider looking at tasks
+such as:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Cleaning up the &lt;a href=&#34;https://github.com/lowRISC/riscv-linux&#34;&gt;RISC-V Linux port&lt;/a&gt;,
+improving devicetree support and removing the host-target interface.&lt;/li&gt;
+&lt;li&gt;Replacing use of proprietary peripheral IP with open-source IP cores.&lt;/li&gt;
+&lt;li&gt;Adding support for different FPGA development boards, including Altera
+boards.&lt;/li&gt;
+&lt;li&gt;Implementing the &lt;a href=&#34;http://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-852.pdf&#34;&gt;BERI Programmable Interrupt
+Controller&lt;/a&gt; (p73), and
+adding necessary Linux support.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Our next development priorities are the re-integration of tagged memory
+support and an initial integration of a minion core design. We also expect to
+put out a job advert in the next few weeks for a new member of the lowRISC
+development team at the University of Cambridge Computer Laboratory.
+Interested applicants are encouraged to make informal enquiries about the post
+to Rob Mullins &lt;a href=&#34;mailto:Robert.Mullins@cl.cam.ac.uk&#34;&gt;Robert.Mullins@cl.cam.ac.uk&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We hope to see many of you at the &lt;a href=&#34;http://riscv.org/workshop-jan2016.html&#34;&gt;3rd RISC-V
+Workshop&lt;/a&gt; in January, where Wei Song
+and Alex Bradbury will be presenting about lowRISC.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>lowRISC at ORConf 2015</title>
@@ -578,7 +633,7 @@ interconnect of choice for most existing open
 source IP cores, including most devices on
 &lt;a href=&#34;http://opencores.org/&#34;&gt;opencores.org&lt;/a&gt;. The Berkeley
 &lt;a href=&#34;https://github.com/ucb-bar/rocket-chip&#34;&gt;Rocket&lt;/a&gt; RISC-V implementation uses
-their own &amp;lsquo;TileLink&amp;rsquo; protocol (we provide a &lt;a href=&#34;http://www.lowrisc.org/docs/tutorial/rocket-chip/&#34;&gt;brief
+their own &amp;lsquo;TileLink&amp;rsquo; protocol (we provide a &lt;a href=&#34;http://www.lowrisc.org/docs/tagged-memory-v0.1/rocket-chip/&#34;&gt;brief
 overview&lt;/a&gt;. By providing a
 reusable bridge, this project will allow the easy reuse of opencores devices
 and leverage the many man-years of effort that has already gone in to them.&lt;/li&gt;
@@ -607,13 +662,13 @@ please do leave them in the comments.&lt;/p&gt;
       <pubDate>Mon, 13 Apr 2015 22:28:10 +0000</pubDate>
       
       <guid>http://www.lowrisc.org/blog/2015/04/lowrisc-tagged-memory-preview-release</guid>
-      <description>&lt;p&gt;We&amp;rsquo;re pleased to announce the &lt;a href=&#34;http://www.lowrisc.org/docs/tutorial/&#34;&gt;first lowRISC preview release&lt;/a&gt;, demonstrating support for tagged memory as
+      <description>&lt;p&gt;We&amp;rsquo;re pleased to announce the &lt;a href=&#34;http://www.lowrisc.org/docs/tagged-memory-v0.1/&#34;&gt;first lowRISC preview release&lt;/a&gt;, demonstrating support for tagged memory as
 described in &lt;a href=&#34;http://www.lowrisc.org/docs/memo-2014-001-tagged-memory-and-minion-cores/&#34;&gt;our memo&lt;/a&gt;. Our ambition with lowRISC is to provide an open-source System-on-Chip
 platform for others to build on, along with low-cost development boards
 featuring a reference implementation. Although there&amp;rsquo;s more work to be done on
 the tagged memory implementation, now seemed a good time to document what
 we&amp;rsquo;ve done in order for the wider community to take a look. Please see our
-&lt;a href=&#34;http://www.lowrisc.org/docs/tutorial/&#34;&gt;full tutorial&lt;/a&gt; which describes in some
+&lt;a href=&#34;http://www.lowrisc.org/docs/tagged-memory-v0.1/&#34;&gt;full tutorial&lt;/a&gt; which describes in some
 detail the changes we&amp;rsquo;ve made to the Berkeley &lt;a href=&#34;https://github.com/ucb-bar/rocket&#34;&gt;Rocket
 core&lt;/a&gt;, as well as how you can build and try
 it out for yourself (either in simulation, or on an FPGA). We&amp;rsquo;ve gone to some

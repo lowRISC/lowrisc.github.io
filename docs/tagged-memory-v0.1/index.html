@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+    <head>
+        
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+        <title>lowRISC tagged memory tutorial &middot; lowRISC</title>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' type='text/css'>
+        <link rel="stylesheet" href="http://www.lowrisc.org//libraries/normalize.3.0.1.css" />
+        <link rel="stylesheet" href="http://www.lowrisc.org//css/liquorice.css" />
+        <link rel="shortcut icon" href="http://www.lowrisc.org//favicon.ico" />
+        <link rel="alternate" href="http://www.lowrisc.org//index.xml" type="application/rss+xml" title="lowRISC" />
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-53520714-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+  </head>
+    <body class="li-body">
+
+<header class="li-page-header">
+  <div class="li-header-top">
+  </div>
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <div class="li-brand li-left">
+                
+                <a href="http://www.lowrisc.org/"><img src="http://www.lowrisc.org//img/lowrisc_header_logo.png"/></a></div>
+                <div class="li-menu li-left">
+                    <span class="li-menu-icon" onclick="javascript:toggle('menu');">&#9776;</span>
+                    <ul id="menu2" class="li-menu-items">
+                        
+                            <li><a href="/"> Home </a></li>
+                        
+                            <li><a href="/about/"> About </a></li>
+                        
+                            <li><a href="/faq/"> FAQ </a></li>
+                        
+                            <li><a href="/docs/"> Docs </a></li>
+                        
+                            <li><a href="/community/"> Community </a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sixteen columns">
+                <ul id="menu" class="li-menu-items li-menu-mobile">
+                    
+                        <li><a href="/"> Home </a></li>
+                    
+                        <li><a href="/about/"> About </a></li>
+                    
+                        <li><a href="/faq/"> FAQ </a></li>
+                    
+                        <li><a href="/docs/"> Docs </a></li>
+                    
+                        <li><a href="/community/"> Community </a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <article class="li-article">
+                
+                    <header class="li-article-header">
+                        <h1 class="li-article-title">lowRISC tagged memory tutorial</h1>
+                        <span class="li-article-taxonomies">
+                            
+
+                            
+                        </span>
+                        
+                        
+                    </header>
+                    <section>
+                        
+
+<p><em>By Wei Song</em></p>
+
+<p><strong>Release version 0.1</strong> (04-2015)</p>
+
+<h2 id="introduction:d680e8a854a7cbad6d490c445cba2eba">Introduction</h2>
+
+<p><a href="http://www.lowrisc.org/">lowRISC</a> is a not-for-profit organisation whose goal is to
+produce a fully open source System-on-Chip (SoC) in volume. We are
+building upon RISC-V processor core implementations from the RISC-V
+team at UC Berkeley.  We will produce a SoC design to populate a
+low-cost community development board and to act as an ideal starting
+point for deritivative open-source and commercial designs.</p>
+
+<p>This tutorial introduces an extension to the Rocket chip
+<a href="#RocketChip">[1]</a> that adds preliminary support for tagged memory. The
+tutorial also acts as an introduction to the RISC-V tools and provides
+a step-by-step guide to setting up the environment necessary to run
+test programs either in simulation or on an FPGA.</p>
+
+<p>The Rocket chip generator is a parameterized SoC generator written in
+<a href="https://chisel.eecs.berkeley.edu/">Chisel</a> by the RISC-V team at UC Berkeley. Chisel can
+generate code to produce a cycle-accurate C++ emulator, Verilog
+optimised for FPGAs or Verilog for use in an ASIC flow. These
+cache-coherent multicore SoCs are powered by the 64-bit 5-stage scalar
+RISC-V Rocket core.</p>
+
+<p>The implementation of tagged memory presented here provides only the
+most basic support by extending on-chip caches to hold tags and by
+adding a tag cache. Instruction set support is provided in the form of
+load and store tag (<code>ltag</code>, <code>stag</code>) instructions. While these are
+useful for some experiments they are insufficient for more general use
+cases. Richer instruction set support and the ability to trigger
+interrupts based on tagged memory accesses will be added in subsequent
+releases. A future release will also provide the necessary
+modifications to the Linux kernel to ensure tagged memory is fully
+supported <a href="#Oakland:2015">[2]</a> (e.g. support in the VM subsystem, when
+copying memory and for the fork operation). Note: no such OS support
+is provided in this release.</p>
+
+<p>Tagged memory provides the ability to associate metadata, in the form
+of one or more tag bits, with each memory location. Tag bits can then
+be employed to provide fine-grained memory protection, e.g. to protect
+return addresses, vtable pointers and other code pointers on the stack
+and heap in order to prevent code hijacking attacks. We are also keen
+to explore other potential uses of tagged memory, e.g. the potential
+for aiding debugging, accelerating runtime services and providing
+fine-grained memory synchronization <a href="#Memo1">[3]</a>. In the current
+implementation the default configuration associates 4-bit tags with
+every double word (64-bits) in memory.</p>
+
+<h3 id="contents:d680e8a854a7cbad6d490c445cba2eba">Contents</h3>
+
+<ol>
+<li><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/rocket-chip/">Overview of the Rocket chip</a></li>
+<li><a href="/docs/tagged-memory-v0.1/rocket-core/">Overview of the Rocket core</a></li>
+<li><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/tags/">Tagged memory support</a>
+
+<ul>
+<li><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/new-instructions/">Adding HW/SW support for the load and store tag instructions</a></li>
+<li><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/tag-tests/">Tagged memory tests</a></li>
+</ul></li>
+<li><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/setup/">Setting up the development environment</a></li>
+<li><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/simulations/">Running simulations</a>
+
+<ul>
+<li><a href="/docs/tagged-memory-v0.1/spike/">Using the Spike Simulator</a></li>
+<li><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/emulator/">Using the C++ emulator generated by Chisel</a></li>
+<li><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/verilog-asic-sim/">Simulating the Verilog (ASIC target) generated by Chisel</a></li>
+<li><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/verilog-fpga-sim/">Simulating the Verilog (FPGA target) generated by Chisel</a></li>
+</ul></li>
+<li><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/fpga/">Running tests on the Zedboard FPGA</a></li>
+<li>Performance results (coming soon)</li>
+<li><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/future/">Future work</a></li>
+<li>Appendix
+
+<ul>
+<li><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/fpga-bootimage/">Rebuilding the boot image</a></li>
+<li><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/fpga-ramdisk/">Modifying the contents of the RAMDisk</a></li>
+<li><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/fpga-fesvr/">Building the front-end server</a></li>
+</ul></li>
+</ol>
+
+<h3 id="other-useful-sources-of-information:d680e8a854a7cbad6d490c445cba2eba">Other useful sources of information</h3>
+
+<ul>
+<li><a href="https://github.com/ucb-bar/rocket-chip#rocket-chip-generator">Rocket Chip Generator</a></li>
+<li><a href="https://github.com/riscv/riscv-tools/blob/master/README.md">Setting up the RISC-V tools</a></li>
+</ul>
+
+<h3 id="acknowledgements:d680e8a854a7cbad6d490c445cba2eba">Acknowledgements</h3>
+
+<p>Many thanks to the RISC-V team at Berkeley for all their support and
+guidance. Special thanks to Yunsup Lee, Henry Cook and Scott Beamer
+for fielding numerous questions from us about the implementation
+details of the Rocket core and chip.</p>
+
+<!-- Links -->
+
+<h3 id="bibliography:d680e8a854a7cbad6d490c445cba2eba">Bibliography</h3>
+
+<!-- References --> 
+
+<p><a name="RocketChip"></a>
+[1]: Yunsup Lee, &ldquo;RISC-V Rocket Chip Generator&rdquo;, RISC-V workshop, January 2015 <a href="http://riscv.org/workshop-jan2015/riscv-rocket-chip-generator-workshop-jan2015.pdf">slides</a></p>
+
+<p><a name="Oakland:2015"></a>
+[2] Robert N. M. Watson, Jonathan
+ Woodruff, Peter G. Neumann, Simon W. Moore, Jonathan Anderson, David
+ Chisnall, Nirav Dave, Brooks Davis, Khilan Gudka, Ben Laurie, Steven
+ J. Murdoch, Robert Norton, Michael Roe, Stacey Son, and Munraj
+ Vadera. &ldquo;CHERI: A Hybrid Capability-System Architecture for Scalable
+ Software Compartmentalization&rdquo;, Proceedings of the 36th IEEE Symposium
+ on Security and Privacy (&ldquo;Oakland&rdquo;), San Jose, California, USA, May
+ 2015.</p>
+
+<p><a name="Memo1"></a>
+[3] <a href="http://www.lowrisc.org/docs/memo-2014-001-tagged-memory-and-minion-cores/">Tagged memory and minion cores
+in the lowRISC SoC</a>, lowRISC-MEMO 2014-001</p>
+
+                    </section>
+                </article>
+
+        </div>
+    </div>
+    
+
+
+                
+
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                 
+                var disqus_shortname = 'lowrisc'; 
+                var disqus_identifier = "/" + "docs/tagged-memory-v0.1";
+                var disqus_title = "lowRISC tagged memory tutorial";
+                var disqus_url = "http://www.lowrisc.org" + "docs/tagged-memory-v0.1";
+
+                 
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+            
+
+<footer class="li-page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script type="text/javascript">
+    function toggle(id) {
+        var e = document.getElementById(id);
+        e.style.display == 'block' ? e.style.display = 'none' : e.style.display = 'block';
+    }
+    </script>
+    </body>
+</html>
+

@@ -375,6 +375,208 @@ make clean
 make cleanall
 </code></pre>
 
+<h2 id="fpga-resource-utilization:92c049390011b714e22883abc9bbe9aa">FPGA resource utilization</h2>
+
+<h4 id="kc705:92c049390011b714e22883abc9bbe9aa">KC705</h4>
+
+<p>Core clock rate: 50 MHz</p>
+
+<p>Overall resource utilization: LUT 27%, Register 8%, BRAM 17% DSP 3%</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>LUT</th>
+<th>Register</th>
+<th>BRAM</th>
+<th>DSP</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Overall</td>
+<td>54783</td>
+<td>32200</td>
+<td>74</td>
+<td>24</td>
+</tr>
+
+<tr>
+<td>* DDR3 Controller</td>
+<td>15389</td>
+<td>12258</td>
+<td>1</td>
+<td>0</td>
+</tr>
+
+<tr>
+<td>* NASTI Crossbar</td>
+<td>2254</td>
+<td>288</td>
+<td>0</td>
+<td>0</td>
+</tr>
+
+<tr>
+<td>* Rocket chip</td>
+<td>35421</td>
+<td>17343</td>
+<td>57</td>
+<td>24</td>
+</tr>
+
+<tr>
+<td>*** Rocket Tile</td>
+<td>23272</td>
+<td>11911</td>
+<td>21</td>
+<td>24</td>
+</tr>
+
+<tr>
+<td>***** Core</td>
+<td>4228</td>
+<td>1598</td>
+<td>0</td>
+<td>4</td>
+</tr>
+
+<tr>
+<td>***** FPU</td>
+<td>12626</td>
+<td>4150</td>
+<td>0</td>
+<td>20</td>
+</tr>
+
+<tr>
+<td>***** L1 D$</td>
+<td>2705</td>
+<td>2402</td>
+<td>11</td>
+<td>0</td>
+</tr>
+
+<tr>
+<td>***** L1 I$</td>
+<td>3477</td>
+<td>3545</td>
+<td>10</td>
+<td>0</td>
+</tr>
+
+<tr>
+<td>*** L2$</td>
+<td>9086</td>
+<td>3264</td>
+<td>36</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="nexys4-ddr:92c049390011b714e22883abc9bbe9aa">NEXYS4-DDR</h4>
+
+<p>Core clock rate: 25 MHz</p>
+
+<p>Overall resource utilization: LUT 69%, Register 19%, BRAM 54% DSP 10%</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>LUT</th>
+<th>Register</th>
+<th>BRAM</th>
+<th>DSP</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Overall</td>
+<td>43716</td>
+<td>23489</td>
+<td>73</td>
+<td>24</td>
+</tr>
+
+<tr>
+<td>* DDR2 Controller</td>
+<td>4433</td>
+<td>3574</td>
+<td>0</td>
+<td>0</td>
+</tr>
+
+<tr>
+<td>* NASTI Crossbar</td>
+<td>2235</td>
+<td>288</td>
+<td>0</td>
+<td>0</td>
+</tr>
+
+<tr>
+<td>* Rocket chip</td>
+<td>35330</td>
+<td>17343</td>
+<td>57</td>
+<td>24</td>
+</tr>
+
+<tr>
+<td>*** Rocket Tile</td>
+<td>23188</td>
+<td>11911</td>
+<td>21</td>
+<td>24</td>
+</tr>
+
+<tr>
+<td>***** Core</td>
+<td>4228</td>
+<td>1598</td>
+<td>0</td>
+<td>4</td>
+</tr>
+
+<tr>
+<td>***** FPU</td>
+<td>12566</td>
+<td>4150</td>
+<td>0</td>
+<td>20</td>
+</tr>
+
+<tr>
+<td>***** L1 D$</td>
+<td>2686</td>
+<td>2402</td>
+<td>11</td>
+<td>0</td>
+</tr>
+
+<tr>
+<td>***** L1 I$</td>
+<td>3473</td>
+<td>3545</td>
+<td>10</td>
+<td>0</td>
+</tr>
+
+<tr>
+<td>*** L2$</td>
+<td>9079</td>
+<td>3264</td>
+<td>36</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
                     </section>
                 </article>
 

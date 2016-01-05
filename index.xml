@@ -6,8 +6,24 @@
     <description>Recent content on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 Dec 2015 10:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 Jan 2016 17:35:57 +0000</lastBuildDate>
     <atom:link href="http://www.lowrisc.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Second RISC-V Workshop: Day One</title>
+      <link>http://www.lowrisc.org/blog/2016/01/second-risc-v-workshop-day-one</link>
+      <pubDate>Tue, 05 Jan 2016 17:35:57 +0000</pubDate>
+      
+      <guid>http://www.lowrisc.org/blog/2016/01/second-risc-v-workshop-day-one</guid>
+      <description>
+
+&lt;p&gt;The &lt;a href=&#34;http://riscv.org/workshop-jan2016.html&#34;&gt;third RISC-V workshop&lt;/a&gt; is going
+on today and tomorrow at the Oracle Conference Center, California. I&amp;rsquo;ll be keeping a semi-live
+blog of talks and announcements throughout the day.&lt;/p&gt;
+
+&lt;h2 id=&#34;introductions-and-risc-v-foundation-overview-rick-o-conner:404bdd89395af7de00a88d5e9af98f5d&#34;&gt;Introductions and RISC-V Foundation Overview: Rick O&amp;rsquo;Conner&lt;/h2&gt;
+</description>
+    </item>
     
     <item>
       <title>Untethered lowRISC release</title>

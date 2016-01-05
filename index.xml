@@ -255,6 +255,9 @@ OVMF (Open Virtual Machine Firmware).&lt;/li&gt;
 &lt;li&gt;The speakers are giving a very thorough description of the UEFI boot
 mechanism which I&amp;rsquo;m not able to do justice. You&amp;rsquo;re best waiting for the
 slides+video I&amp;rsquo;m afraid.&lt;/li&gt;
+&lt;li&gt;The project was started a few months ago, and can now boot to a UEFI shell.&lt;/li&gt;
+&lt;li&gt;They have created a new RISC-V QEMU target with some PC peripherals (CMOS,
+PM, PCI and other devices), and also implemented RISC-V machine mode.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

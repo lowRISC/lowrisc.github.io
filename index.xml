@@ -119,6 +119,17 @@ currently planned.&lt;/li&gt;
 implementations could implement. Is there a discovery mechanism for the
 functionality that is supported? Yes.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&#34;risc-v-in-axiom-michael-gielda:404bdd89395af7de00a88d5e9af98f5d&#34;&gt;RISC-V in Axiom: Michael Gielda&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Axiom is a fully open source 4K film camera design. It is an EU Horizon 2020
+project with multiple partners.&lt;/li&gt;
+&lt;li&gt;Aim of Axiom is to create an extensible open source platform that is also a
+desirable project in itself. The aim is to open up what is currently a fairly
+closed industry and lower barriers of entry to new players. There is an
+obvious parallel to the RISC-V and lowRISC projects.&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

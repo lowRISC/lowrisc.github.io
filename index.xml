@@ -47,7 +47,7 @@ members of committees must be members of the RISC-V Foundation.&lt;/li&gt;
 &lt;li&gt;All details of the foundation are a work in progress. Feedback is welcome!&lt;/li&gt;
 &lt;li&gt;16 member companies so far. Bluespec, Draper, Google, Hewlett Packard Labs,
 Microsemi, Oracle, SiFive, antmicro, codasip, Gray Research, Lattice
-Semiconductor, ROA logic, Rumble Development, Syntacore, Technolution&lt;/li&gt;
+Semiconductor, lowRISC, ROA logic, Rumble Development, Syntacore, Technolution&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;risc-v-updates-krste-asanovic:404bdd89395af7de00a88d5e9af98f5d&#34;&gt;RISC-V Updates: Krste Asanovic&lt;/h2&gt;
@@ -242,6 +242,19 @@ binary.&lt;/li&gt;
 &lt;li&gt;Don&amp;rsquo;t cheap out on SPI or flash part size. Just plan a 64MiB part.&lt;/li&gt;
 &lt;li&gt;Don&amp;rsquo;t reset the chipset on IE device not present.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;risc-v-and-uefi-dong-wei-and-abner-chang:404bdd89395af7de00a88d5e9af98f5d&#34;&gt;RISC-V and UEFI: Dong Wei and Abner Chang&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;There is a UEFI Forum consistent of a board of 12 directors, 12 promoters,
+42 contributors, 213 adopters.&lt;/li&gt;
+&lt;li&gt;UEFI and ACPI are both now handled by the UEFI Forum.&lt;/li&gt;
+&lt;li&gt;A RISC-V UEFI port is taking place using EDKII (EFI Development Kit II) and
+OVMF (Open Virtual Machine Firmware).&lt;/li&gt;
+&lt;li&gt;The speakers are giving a very thorough description of the UEFI boot
+mechanism which I&amp;rsquo;m not able to do justice. You&amp;rsquo;re best waiting for the
+slides+video I&amp;rsquo;m afraid.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

@@ -281,6 +281,15 @@ licensing model.</li>
 <ul>
 <li>Initializing the stuff outside the main CPU on a chromebook takes about 1
 billion instructions before it can start Linux.</li>
+<li>Firmware, 1990-2005 &ldquo;fire and forget&rdquo;. Set al lthe stff kernels can&rsquo;t do
+(e.g. LinuxBIOS), then get out of the way. But now there&rsquo;s a push for the
+firmware to hang around after boot.</li>
+<li>Ron argues this sucks. It&rsquo;s slow, there&rsquo;s no easy bugfix path, and it&rsquo;s not
+SMP capable on x86.</li>
+<li>Why doesn&rsquo;t Ron like persistent firmware? It&rsquo;s another attack vector,
+indistinguishable from a persistent embedded threat. Ron&rsquo;s preference is the
+platform management code run as a kernel thread. Minion cores are ideal for
+this (Ron&rsquo;s words, not mine!).</li>
 </ul>
 
     </section>

@@ -295,6 +295,19 @@ have a great opportunity to push the software stack forwards.&lt;/li&gt;
 &lt;li&gt;What can we achieve by the end of the year? Hopefully upstereamed GNU
 toolchain and QEMU. More mature Clang/LLVM support, upstreamed OS support,
 Debian/RISC-V port, start thinking about Android and a real-time OS.&lt;/li&gt;
+&lt;li&gt;How do we get there? We need to recruit more RISC-V developers and make it
+easier for people to get started by producing more docs and specifications.&lt;/li&gt;
+&lt;li&gt;Right now, the RISC-V Github has had 48 contributors from a wide range of
+Universities, companies and OSS projects.&lt;/li&gt;
+&lt;li&gt;We should present talks and tutorials at developer conferences and local
+user group meetings.&lt;/li&gt;
+&lt;li&gt;If you have local patches, upstream them!&lt;/li&gt;
+&lt;li&gt;How to attract developers? Could fund developers/projects via the
+Foundation, apply to be a Google Summer of Code mentoring organization, update
+the list of open bugs and future requests on github and track contribution
+statistics.&lt;/li&gt;
+&lt;li&gt;We can make it much easier for people to get started by building Debian
+packages, upstreaming, and providing regular binary snapshots.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

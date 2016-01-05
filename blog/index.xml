@@ -258,6 +258,8 @@ slides+video I&amp;rsquo;m afraid.&lt;/li&gt;
 &lt;li&gt;The project was started a few months ago, and can now boot to a UEFI shell.&lt;/li&gt;
 &lt;li&gt;They have created a new RISC-V QEMU target with some PC peripherals (CMOS,
 PM, PCI and other devices), and also implemented RISC-V machine mode.&lt;/li&gt;
+&lt;li&gt;Requests for new RISC-V spec additions: a periodic timer CSR, RTC with alarm
+CSR, PI management mode support, &amp;hellip; (sorry, missed some).&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

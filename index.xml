@@ -37,7 +37,7 @@ all parties.&lt;/li&gt;
 &lt;li&gt;The compatibility test suites shall always be publicly available as a source
 code download.&lt;/li&gt;
 &lt;li&gt;To protect the standard, only members (with commercial RISC-V products) of
-the Foundation in good standing can use &amp;ldquo;RISC-V&amp;rdquo; and associated trandemarks,
+the Foundation in good standing can use &amp;ldquo;RISC-V&amp;rdquo; and associated trademarks,
 and only for devices that pass the tests in the open-source compatibility
 suites maintained by the Foundation.&lt;/li&gt;
 &lt;li&gt;Drafting a new license for the ISA &amp;lsquo;combining the best of BSD, GPL and so
@@ -48,6 +48,14 @@ members of committees must be members of the RISC-V Foundation.&lt;/li&gt;
 &lt;li&gt;16 member companies so far. Bluespec, Draper, Google, Hewlett Packard Labs,
 Microsemi, Oracle, SiFive, antmicro, codasip, Gray Research, Lattice
 Semiconductor, ROA logic, Rumble Development, Syntacore, Technolution&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;risc-v-updates-krste-asanovic:404bdd89395af7de00a88d5e9af98f5d&#34;&gt;RISC-V Updates: Krste Asanovic&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The 1.9 version of the compressed extension is on track to become frozen and
+become blessed as v2.0. Now is the time to speak up if you have any feedback
+or concerns!&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

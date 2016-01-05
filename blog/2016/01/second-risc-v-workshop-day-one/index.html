@@ -168,6 +168,22 @@ management. To what extent can platform specs be shared across
 microcontroller-class, application cores, and rack-scale designs?</li>
 </ul>
 
+<h1 id="risc-v-external-debug-aka-jtag-debugging-tim-newsome:404bdd89395af7de00a88d5e9af98f5d">RISC-V External Debug (aka JTAG debugging): Tim Newsome</h1>
+
+<ul>
+<li>Goals: a debug system that works for everybody with a working system done by
+July 1st 2016.</li>
+<li>The specification will be submitted to the RISC-V Foundation and there are
+plans for an open source release of the debugger and implementations for
+Rocket and Z-Scale.</li>
+<li>Status: the specification is mostly complete.</li>
+<li>Features: (many, see the slides). Interested in tracing core execution to on
+or off-chip RAM and providing a framework to debug any component on the
+system, not just the RISC-V cores.</li>
+<li>The debug transport module provides access to the system bus. It implements
+a message queue and optional authentication.</li>
+</ul>
+
                     </section>
                 </article>
 

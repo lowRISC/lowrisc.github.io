@@ -200,6 +200,13 @@ potential bridge to Chisel RISC-V infrastructure?&lt;/li&gt;
 &lt;li&gt;Question: how do I get this? Not available yet, and not yet sure on the
 licensing model.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&#34;coreboot-on-risc-v-ron-minnich:404bdd89395af7de00a88d5e9af98f5d&#34;&gt;Coreboot on RISC-V: Ron Minnich&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Initializing the stuff outside the main CPU on a chromebook takes about 1
+billion instructions before it can start Linux.&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

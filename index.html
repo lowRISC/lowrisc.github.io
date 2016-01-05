@@ -243,7 +243,7 @@ chisel). AHB endpoints have now beed added and AXI is in-development.</li>
 <li>GRVI is pronounced &lsquo;groovy&rsquo;.</li>
 <li>There&rsquo;s lots of interest in FPGA accelerators right now (Altera acquisition,
 MSR&rsquo;s catapult).</li>
-<li>FPGAs are an interesting platform. Massively parallel. Specialized.<br />
+<li>FPGAs are an interesting platform. Massively parallel. Specialized.
 Connected. High throughput. Low latency. The big barrier is of course porting
 your software. Jan argues OpenCL for FPGAs is a major breakthrough for this
 problem, if you&rsquo;re lucky enough to have an application that can be expressed
@@ -258,7 +258,11 @@ CPUs per die.&rdquo;</li>
 <li>How many can you fit on a modern FPGA? The limiting resource is really the
 block RAMs. In a cluster, two processing elements can share an instruction
 BRAM, and all PEs can share a cluster memory.</li>
-<li>How should the clusters be interconnected?</li>
+<li>How should the clusters be interconnected? A 5-port virtual channel router
+might be a sensible choice in an ASIC, but does not map well to an FPGA.
+Instead use a <a href="http://fpga.org/2015/09/03/introducing-hoplite/">Hoplite</a> 2D
+router. This is only 1% of the area x delay product of FPGA-optimized VC
+routers.</li>
 </ul>
 
     </section>

@@ -261,6 +261,10 @@ composed of processor+accelerator clusters+NoC.</li>
 CPUs per die.&rdquo;</li>
 <li>Jan has achieved an RV32I datapath in about 250 LUTs. This core can achieve
 300-375MHz, 1.3-1.6CPI. The &lsquo;GRVI&rsquo; core is ~320 6-LUTs so &ldquo;1 MIPS/LUT&rdquo;.</li>
+<li>How many can you fit on a modern FPGA? The limiting resource is really the
+block RAMs. In a cluster, two processing elements can share an instruction
+BRAM, and all PEs can share a cluster memory.</li>
+<li>How should the clusters be interconnected?</li>
 </ul>
 
                     </section>

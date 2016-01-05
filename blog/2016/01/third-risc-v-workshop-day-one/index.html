@@ -268,7 +268,16 @@ BRAM, and all PEs can share a cluster memory.</li>
 might be a sensible choice in an ASIC, but does not map well to an FPGA.
 Instead use a <a href="http://fpga.org/2015/09/03/introducing-hoplite/">Hoplite</a> 2D
 router. This is only 1% of the area x delay product of FPGA-optimized VC
-routers.</li>
+routers. Each cluster has a 300 bit connection to the Hoplite router (with a
+256bit payload).</li>
+<li>400 of the GRVI Phalanx PEs can fit on a Xilinx KU040. The amortized cost of
+the router per processor is only 40 LUTs.</li>
+<li>Can fit 32 GRVI Phalanx PEs on an Artix-7-35T.</li>
+<li>Want to support different accelerated parallel programming models: SPMD,
+MIMD, MP. All potentially accelerated by custom GRVI And cluster fucntion
+units, custom memory or interconnects, custom accelerators on the NOC.</li>
+<li>Next steps: debug/trace over NoC, Hoplite/AXI4 bridges, OpenCL stack,
+potential bridge to Chisel RISC-V infrastructure?</li>
 </ul>
 
                     </section>

@@ -343,6 +343,26 @@ PM, PCI and other devices), and also implemented RISC-V machine mode.</li>
 CSR, PI management mode support, &hellip; (sorry, missed some).</li>
 </ul>
 
+<h2 id="freebsd-and-risc-v-ruslan-bukin:404bdd89395af7de00a88d5e9af98f5d">FreeBSD and RISC-V: Ruslan Bukin</h2>
+
+<ul>
+<li>FreeBSD will support RV64I in release 11.0.</li>
+<li>Why use FreeBSD? Among other reasons, it gives a full-stack BSD license
+(RISC-V, FreeBSD, LLVM/Clang).</li>
+<li>FreeBSD has been brought up on Spike.</li>
+<li>The early boot assembly code will put the hardware in a known state, build a
+ring buffer for interrupts, initialise the page tables, enable the MMU, then
+finally branch to a virtual address and call into C code.</li>
+<li>Userspace porting required modifications to jemalloc, csu (crt1.S, crtn.S,
+crti.S), libc, msun (libm), rtld-elf (the runtime linker).</li>
+<li>The FreeBSD port is based on the ARMv8 port. It has a 25k line diff and took
+6 months from scratch.</li>
+<li>Userland started working in December. Support will now be committed to
+FreeBSD SVN.</li>
+<li>Next plans include multicore, FPU, increasing the virtual address space,
+DTrace, performance monitoring counters, QEMU, &hellip;</li>
+</ul>
+
                     </section>
                 </article>
 

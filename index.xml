@@ -101,6 +101,9 @@ or off-chip RAM and providing a framework to debug any component on the
 system, not just the RISC-V cores.&lt;/li&gt;
 &lt;li&gt;The debug transport module provides access to the system bus. It implements
 a message queue and optional authentication.&lt;/li&gt;
+&lt;li&gt;New CSRs will be added and exposed on the system bus.&lt;/li&gt;
+&lt;li&gt;The spec describes a small amount of debug memory (1KiB ROM) and 8-16 bytes
+of RAM. This memory is not cached and is shared between all cores.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

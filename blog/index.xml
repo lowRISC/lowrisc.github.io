@@ -308,6 +308,13 @@ the list of open bugs and future requests on github and track contribution
 statistics.&lt;/li&gt;
 &lt;li&gt;We can make it much easier for people to get started by building Debian
 packages, upstreaming, and providing regular binary snapshots.&lt;/li&gt;
+&lt;li&gt;Spike is great for prototyping hardware features, but QEMU is a better tool
+for software development and a critical part of the RISC-V software story.&lt;/li&gt;
+&lt;li&gt;There&amp;rsquo;s more to specify. e.g. a platform specification (e.g. ARMv8 Server
+Base System Architecture), boot architecture (look at the ARMv8 Server Base
+Boot Requirements), RISC-V ABI, hypervisor, security.&lt;/li&gt;
+&lt;li&gt;Useful documents include a RISC-V Assembly Guide, some equivalent of the ARM
+Cortex-A Programmer&amp;rsquo;s Guide, and a New Contributor&amp;rsquo;s Guide.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

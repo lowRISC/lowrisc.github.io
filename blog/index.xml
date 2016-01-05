@@ -288,6 +288,14 @@ page&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;building-the-risc-v-software-ecosystem-arun-thomas:404bdd89395af7de00a88d5e9af98f5d&#34;&gt;Building the RISC-V software ecosystem: Arun Thomas&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;2016 is the year of RISC-V&amp;rdquo;. Or at least, the year of RISC-V software. We
+have a great opportunity to push the software stack forwards.&lt;/li&gt;
+&lt;li&gt;What can we achieve by the end of the year? Hopefully upstereamed GNU
+toolchain and QEMU. More mature Clang/LLVM support, upstreamed OS support,
+Debian/RISC-V port, start thinking about Android and a real-time OS.&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

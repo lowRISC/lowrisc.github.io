@@ -355,7 +355,14 @@ crti.S), libc, msun (libm), rtld-elf (the runtime linker).</li>
 FreeBSD SVN.</li>
 <li>Next plans include multicore, FPU, increasing the virtual address space,
 DTrace, performance monitoring counters, QEMU, &hellip;</li>
+<li>Proposed changes: split sptbr to sptrbr0 and sptbr1 for the user VA and the
+kernel VA. This means there is no need to change SPTBR when changing the
+privilege level, and should reduce code size.</li>
+<li>For more on the project, see the relevant <a href="https://wiki.freebsd.org/riscv">FreeBSD wiki
+page</a>.</li>
 </ul>
+
+<h2 id="building-the-risc-v-software-ecosystem-arun-thomas:404bdd89395af7de00a88d5e9af98f5d">Building the RISC-V software ecosystem: Arun Thomas</h2>
 
     </section>
     <footer>

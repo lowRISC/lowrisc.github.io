@@ -75,6 +75,16 @@ directly).&lt;/li&gt;
 tools and the RISC-V Foundation taking over the standards process.&lt;/li&gt;
 &lt;li&gt;SiFive has been founded by some of the lead RISC-V developers (Krste
 Asanovic, Yunsup Lee, Andrew Waterman). Sutter Hill Ventures have invested.&lt;/li&gt;
+&lt;li&gt;Most urgent outstanding issues: holes and ambiguities in the specification
+and the platform specification.&lt;/li&gt;
+&lt;li&gt;Holes in the spec: floating-point NaNs (resolved and updated), CSR
+read/write semantics (resolved, updated spec), memory model (far from
+resolved), Hypervisor support (no proposal). A formal spec of the whole ISA
+and memory model is desired.&lt;/li&gt;
+&lt;li&gt;Although RISC-V was designed in reusable layers, some concrete standards for
+hardware platforms are desirable e.g. memory maps, interrupt controller, power
+management. To what extent can platform specs be shared across
+microcontroller-class, application cores, and rack-scale designs?&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

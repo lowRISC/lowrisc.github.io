@@ -289,7 +289,7 @@ SMP capable on x86.</li>
 <li>Why doesn&rsquo;t Ron like persistent firmware? It&rsquo;s another attack vector,
 indistinguishable from a persistent embedded threat. Ron&rsquo;s preference is the
 platform management code run as a kernel thread. Minion cores are ideal for
-this (Ron&rsquo;s words, not mine!).</li>
+this (Ron&rsquo;s words rather than mine - I of course agree whole-heartedly).</li>
 <li>coreboot is a GPLv2 BIOS replacement (not a bootloader). It has multiple
 possible payloads including SeaBIOS and depthcharge (used for verified boot on
 Chromebooks).</li>
@@ -299,6 +299,24 @@ again. The most recent port runs on Spike but not QEMU (due to lack of support
 for the privileged spec).</li>
 <li>RISC-V is a first class citizen in coreboot, all commits must pass tests for
 the RISC-V buildbot.</li>
+<li>src/arch/riscv is 2685 LoC.</li>
+<li>The Federal Office for Information Security in Germany runs a hardware test
+station for coreboot. As soon as real hardware is running, they&rsquo;ve offered to
+integrate it into their system.</li>
+<li>Lessons learned
+
+<ul>
+<li>provide a boot time SRAM (make sure the address is fixed and not aliased
+by DRAM once DRAM is up).</li>
+<li>Provide a serial port.</li>
+<li>Ron reiterates that runtime functions belong in the kernel, not persistent
+firmware.</li>
+<li>Firmware tables always need translation by kernel, so make them text not
+binary.</li>
+<li>Keep the mask ROM as simple as possible.</li>
+<li>Don&rsquo;t cheap out on SPI or flash part size. Just plan a 64MiB part.</li>
+<li>Don&rsquo;t reset the chipset on IE device not present.</li>
+</ul></li>
 </ul>
 
     </section>

@@ -227,6 +227,12 @@ aligned.</li>
 design was performance/power competitive with Fermi. This had a 12x12 2D
 on-chip torus network with 676 compute cores, 33 supervisor cores, 1 PCI
 express interface, 8 Hybrid Memory Cube interfaces, &hellip;</li>
+<li>Proposed an FPGA-implemented SoC for HPC. This contains 4 Z-scale processors
+with a 2x2 concentrated mesh with 2 virtual channels. The Z-Scale was chosen
+for area-efficiency on FPGA.</li>
+<li>The network is implemented using the <a href="https://github.com/LBL-CoDEx/OpenSoCFabric">OpenSoC
+fabric</a> (open source and in
+chisel). AHB endpoints have now beed added and AXI is in-development.</li>
 </ul>
 
     </section>

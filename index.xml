@@ -161,6 +161,19 @@ chisel). AHB endpoints have now beed added and AXI is in-development.&lt;/li&gt;
 &lt;li&gt;A 96-core system was constructed using multiple FPGAs.&lt;/li&gt;
 &lt;li&gt;For more info, see &lt;a href=&#34;http://www.codexhpc.org/&#34;&gt;CoDEx HPC&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&#34;grvi-phalanx-a-massively-parallel-risc-v-fpga-accelerator-jan-gray:404bdd89395af7de00a88d5e9af98f5d&#34;&gt;GRVI Phalanx. A massively parallel RISC-V FPGA accelerator: Jan Gray&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;GRVI is pronounced &amp;lsquo;groovy&amp;rsquo;.&lt;/li&gt;
+&lt;li&gt;There&amp;rsquo;s lots of interest in FPGA accelerators right now (Altera acquisition,
+MSR&amp;rsquo;s catapult).&lt;/li&gt;
+&lt;li&gt;FPGAs are an interesting platform. Massively parallel. Specialized.&lt;br /&gt;
+Connected. High throughput. Low latency. The big barrier is of course porting
+your software. Jan argues OpenCL for FPGAs is a major breakthrough for this
+problem, if you&amp;rsquo;re lucky enough to have an application that can be expressed
+in OpenCL.&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

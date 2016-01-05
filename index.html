@@ -248,6 +248,13 @@ Connected. High throughput. Low latency. The big barrier is of course porting
 your software. Jan argues OpenCL for FPGAs is a major breakthrough for this
 problem, if you&rsquo;re lucky enough to have an application that can be expressed
 in OpenCL.</li>
+<li>Phalanx is an accelerator accelerator - an infrastructure making it easier
+to run you application on an FPGA and connect everything together. It is
+composed of processor+accelerator clusters+NoC.</li>
+<li>Jan&rsquo;s Razor: &ldquo;In a CMP, cut inessential resources from each CPU, to maximize
+CPUs per die.&rdquo;</li>
+<li>Jan has achieved an RV32I datapath in about 250 LUTs. This core can achieve
+300-375MHz, 1.3-1.6CPI. The &lsquo;GRVI&rsquo; core is ~320 6-LUTs so &ldquo;1 MIPS/LUT&rdquo;.</li>
 </ul>
 
     </section>

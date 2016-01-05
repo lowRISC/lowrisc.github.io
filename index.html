@@ -204,6 +204,29 @@ project with multiple partners.</li>
 desirable project in itself. The aim is to open up what is currently a fairly
 closed industry and lower barriers of entry to new players. There is an
 obvious parallel to the RISC-V and lowRISC projects.</li>
+<li>Chose the largest Zynq FPGA that had zero-cost tool support to maximise the
+number of people who can hack on the design.</li>
+<li>Using the Z-Scale as a soft-core for communication between the FPGA
+pre-processing board (Kintex-7) and the FPGA SoC main board with a dual-core
+Cortex-A9 (Zynq 7030).</li>
+<li>Long-term goals are to ensure the design can be reused through
+parameterisation, and look at broadening adoption of the Chisel design
+methodology.</li>
+<li>The Axiom Gamma project is almost half-way done. There will be an EU
+technical review in March at which point it should be working.</li>
+</ul>
+
+<h2 id="emulating-future-hpc-soc-architectures-using-risc-v-farzad-fatollahi-fard:404bdd89395af7de00a88d5e9af98f5d">Emulating future HPC SoC architectures using RISC-V: Farzad Fatollahi-Fard</h2>
+
+<ul>
+<li>Should HPC take inspiration from the embedded market?</li>
+<li>Is building an SoC for HPC a good idea? HPC is power limited
+(performance/Watt) which arguably means HPC and embedded requirements are
+aligned.</li>
+<li>From a previous project case study (Green Wave), they found an embedded SoC
+design was performance/power competitive with Fermi. This had a 12x12 2D
+on-chip torus network with 676 compute cores, 33 supervisor cores, 1 PCI
+express interface, 8 Hybrid Memory Cube interfaces, &hellip;</li>
 </ul>
 
     </section>

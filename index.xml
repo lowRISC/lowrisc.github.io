@@ -158,6 +158,8 @@ for area-efficiency on FPGA.&lt;/li&gt;
 &lt;li&gt;The network is implemented using the &lt;a href=&#34;https://github.com/LBL-CoDEx/OpenSoCFabric&#34;&gt;OpenSoC
 fabric&lt;/a&gt; (open source and in
 chisel). AHB endpoints have now beed added and AXI is in-development.&lt;/li&gt;
+&lt;li&gt;A 96-core system was constructed using multiple FPGAs.&lt;/li&gt;
+&lt;li&gt;For more info, see &lt;a href=&#34;http://www.codexhpc.org/&#34;&gt;CoDEx HPC&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

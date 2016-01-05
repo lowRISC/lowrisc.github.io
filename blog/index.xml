@@ -215,6 +215,15 @@ SMP capable on x86.&lt;/li&gt;
 indistinguishable from a persistent embedded threat. Ron&amp;rsquo;s preference is the
 platform management code run as a kernel thread. Minion cores are ideal for
 this (Ron&amp;rsquo;s words, not mine!).&lt;/li&gt;
+&lt;li&gt;coreboot is a GPLv2 BIOS replacement (not a bootloader). It has multiple
+possible payloads including SeaBIOS and depthcharge (used for verified boot on
+Chromebooks).&lt;/li&gt;
+&lt;li&gt;Port was started in October 2014 as a side project. The effort resumed in
+July 2015 with the privileged spec, and as-of September is up and running
+again. The most recent port runs on Spike but not QEMU (due to lack of support
+for the privileged spec).&lt;/li&gt;
+&lt;li&gt;RISC-V is a first class citizen in coreboot, all commits must pass tests for
+the RISC-V buildbot.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

@@ -197,6 +197,8 @@ MIMD, MP. All potentially accelerated by custom GRVI And cluster fucntion
 units, custom memory or interconnects, custom accelerators on the NOC.&lt;/li&gt;
 &lt;li&gt;Next steps: debug/trace over NoC, Hoplite/AXI4 bridges, OpenCL stack,
 potential bridge to Chisel RISC-V infrastructure?&lt;/li&gt;
+&lt;li&gt;Question: how do I get this? Not available yet, and not yet sure on the
+licensing model.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

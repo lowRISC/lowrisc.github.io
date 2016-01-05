@@ -28,6 +28,18 @@ blog of talks and announcements throughout the day.&lt;/p&gt;
 CSAIL/Stata Center.&lt;/li&gt;
 &lt;li&gt;In August 2015, articles of incorporation were filed to create a non-profit
 RISC-V Foundation to govern the ISA.&lt;/li&gt;
+&lt;li&gt;RISC-V Foundation mission statement: The RISC-V Foundation is a non-profit
+consortium chartered to standardize, protect, and promote the free and open
+RISC-V instruction set architecture together with its hardware and software
+ecosystem for use in all computing devices.&lt;/li&gt;
+&lt;li&gt;The RISC-V ISA and related standards shall remain open and license-free to
+all parties.&lt;/li&gt;
+&lt;li&gt;The compatibility test suites shall always be publicly available as a source
+code download.&lt;/li&gt;
+&lt;li&gt;To protect the standard, only members (with commercial RISC-V products) of
+the Foundation in good standing can use &amp;ldquo;RISC-V&amp;rdquo; and associated trandemarks,
+and only for devices that pass the tests in the open-source compatibility
+suites maintained by the Foundation.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

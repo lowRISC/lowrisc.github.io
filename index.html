@@ -162,7 +162,7 @@ management. To what extent can platform specs be shared across
 microcontroller-class, application cores, and rack-scale designs?</li>
 </ul>
 
-<h1 id="risc-v-external-debug-aka-jtag-debugging-tim-newsome:404bdd89395af7de00a88d5e9af98f5d">RISC-V External Debug (aka JTAG debugging): Tim Newsome</h1>
+<h2 id="risc-v-external-debug-aka-jtag-debugging-tim-newsome:404bdd89395af7de00a88d5e9af98f5d">RISC-V External Debug (aka JTAG debugging): Tim Newsome</h2>
 
 <ul>
 <li>Goals: a debug system that works for everybody with a working system done by
@@ -179,6 +179,9 @@ a message queue and optional authentication.</li>
 <li>New CSRs will be added and exposed on the system bus.</li>
 <li>The spec describes a small amount of debug memory (1KiB ROM) and 8-16 bytes
 of RAM. This memory is not cached and is shared between all cores.</li>
+<li>Up to 4095 hardware breakpoints supported (but 4 is more typical). Each may
+support exact address match, address range match, exact data match, data range
+match, &hellip;</li>
 </ul>
 
     </section>

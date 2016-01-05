@@ -115,6 +115,9 @@ of what gdb can do.&lt;/li&gt;
 &lt;li&gt;Question: how does the tracing scale? Hasn&amp;rsquo;t be investigated yet.&lt;/li&gt;
 &lt;li&gt;Question: will support be integrated into the BOOM codebase? Answer: not
 currently planned.&lt;/li&gt;
+&lt;li&gt;Question: there&amp;rsquo;s a wide spectrum of functionality that different
+implementations could implement. Is there a discovery mechanism for the
+functionality that is supported? Yes.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

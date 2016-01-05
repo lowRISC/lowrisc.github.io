@@ -107,6 +107,14 @@ of RAM. This memory is not cached and is shared between all cores.&lt;/li&gt;
 &lt;li&gt;Up to 4095 hardware breakpoints supported (but 4 is more typical). Each may
 support exact address match, address range match, exact data match, data range
 match, &amp;hellip;&lt;/li&gt;
+&lt;li&gt;The work-in-progress spec will be posted to the hw-dev RISC-V mailing list
+later today. Comments very welcome.&lt;/li&gt;
+&lt;li&gt;Question: how does this map to gdb&amp;rsquo;s capabilities? Are there things it can
+do but gdb can&amp;rsquo;t or vice-versa? It&amp;rsquo;s not a 1:1 match but should be a superset
+of what gdb can do.&lt;/li&gt;
+&lt;li&gt;Question: how does the tracing scale? Hasn&amp;rsquo;t be investigated yet.&lt;/li&gt;
+&lt;li&gt;Question: will support be integrated into the BOOM codebase? Answer: not
+currently planned.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

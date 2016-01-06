@@ -39,6 +39,14 @@ decode stage decides if the instruction sequence can be optimized.&lt;/li&gt;
 design, then transfer.&lt;/li&gt;
 &lt;li&gt;Achieved Fmax of 649MHz (32-bit core) on a nextreme-3, vs 114MHz on the customer&amp;rsquo;s
 current CYCLONE-V. Achieved a 70% power reduction.&lt;/li&gt;
+&lt;li&gt;Next steps are to improve resource utilization, increase offering of
+extensions, and add multi-threading and multi-issue.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;lowrisc-plans-for-risc-v-in-2016-alex-bradbury:541250aa31d27f4326ef7f42e9e3ae89&#34;&gt;lowRISC: plans for RISC-V in 2016: Alex Bradbury&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Slides to be posted soon! Apologies for not live-blogging my own talk.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

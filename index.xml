@@ -325,6 +325,10 @@ the next talk.&lt;/li&gt;
 &lt;li&gt;Current computer systems are insecure, and the processor architecture
 contributes by blinding running code and making the secure and safe thing
 expensive.&lt;/li&gt;
+&lt;li&gt;Add software defined metadata processing as implemented in PUMP.&lt;/li&gt;
+&lt;li&gt;Give each word a programmable tag. This is indivisible from a word and its
+interpretation is programmable.&lt;/li&gt;
+&lt;li&gt;PUMP is a function from (Opcode, PCtag, Instrtag, RS1tag, RS2tag, MRtag).&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

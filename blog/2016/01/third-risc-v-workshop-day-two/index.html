@@ -164,6 +164,12 @@ RISC-V core. The target frequency is 300MHz.</li>
 <li>The new SoC design aims to take the best ideas of the GPL-licensed grlib
 library (Gaisler Research) and will be written in VHDL.</li>
 <li>Current code can be found <a href="https://github.com/sergeykhbr/riscv_vhdl">here</a>.</li>
+<li>Plug and play approach taken from grlib to help quickly assemble a complex
+SoC design. Device ID, vendor ID, address and interrupt configuration,
+cacheability etc etc routed in sideband signals accessible via a dedicated
+slave device on a system bus.</li>
+<li>Some memory access optimizations have been implemented to allow access to
+AXI peripherals in one clock cycle.</li>
 </ul>
 
                     </section>

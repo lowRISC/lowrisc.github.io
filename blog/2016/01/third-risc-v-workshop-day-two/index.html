@@ -281,6 +281,22 @@ instructions and uses PC-indexed dispatch to improve performance.</li>
 <li>Pydgin is used in the Cornell research group to gain statistics for
 software-defined regions, experimentations with data-structure specialisation,
 control and memory divergence for SIMD, and more.</li>
+<li>Pydgin is <a href="https://github.com/cornell-brg/pydgin">online at Github</a>.</li>
+</ul>
+
+<h2 id="orca-fpga-optimized-risc-v-soft-processors-guy-lemieux:541250aa31d27f4326ef7f42e9e3ae89">ORCA, FPGA-optimized RISC-V soft processors: Guy Lemieux</h2>
+
+<ul>
+<li>ORCA is completely open-source. See it <a href="https://github.com/cornell-brg/pydgin">at
+Github</a>.</li>
+<li>Initially targeted the Lattice iCE40 (3.5kLUTs, under $5 in low quantities).</li>
+<li>RV32M implemented in 2kLUTs at around 20MHz on the iCE40.</li>
+<li>ORCA is highly parameterized, ideally suitable for FPGAs, portable across
+FPGA vendors, and BSD-licensed.</li>
+<li>Achieved 244MHz, 212MIPS on an Altera Stratix-V. Lots of room for further
+improvements.</li>
+<li>Clock speed is close to matching the picorv32 clock speed, but with higher
+DMIPS/MHz.</li>
 </ul>
 
                     </section>

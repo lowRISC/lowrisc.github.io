@@ -6,8 +6,29 @@
     <description>Recent content in Blogs on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 05 Jan 2016 17:35:57 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 06 Jan 2016 17:05:57 +0000</lastBuildDate>
     <atom:link href="http://www.lowrisc.org/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Third RISC-V Workshop: Day Two</title>
+      <link>http://www.lowrisc.org/blog/2016/01/third-risc-v-workshop-day-two</link>
+      <pubDate>Wed, 06 Jan 2016 17:05:57 +0000</pubDate>
+      
+      <guid>http://www.lowrisc.org/blog/2016/01/third-risc-v-workshop-day-two</guid>
+      <description>
+
+&lt;p&gt;Today is the second day of the &lt;a href=&#34;http://riscv.org/workshop-jan2016.html&#34;&gt;third RISC-V
+workshop&lt;/a&gt;. Again, I&amp;rsquo;ll be keeping a
+semi-live blog of talks and announcements throughout the day.&lt;/p&gt;
+
+&lt;h2 id=&#34;risc-v-asic-and-fpga-implementations-richard-herveille:541250aa31d27f4326ef7f42e9e3ae89&#34;&gt;RISC-V ASIC and FPGA implementations: Richard Herveille&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Look for freedom of design. Want to free migrate between FPGAs, structured
+ASICs, standard cell ASICs&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Third RISC-V Workshop: Day One</title>

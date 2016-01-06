@@ -429,6 +429,13 @@ accessible to user code. Good for self-protection safety but argue it&rsquo;s no
 adequate to enforce policies against malicious code (i.e. code actively trying
 to circumvent protection).</li>
 <li>Compare to Oracle M7. M7 has a limited number of colors and a fixed policy.</li>
+<li>Have some global tags and rules so they have the same meaning across
+different processes.</li>
+<li>Idiosyncrasies about RISC-V: one instruction uses RS3, sparse opcode space
+increases table size, multiple instructions per machine word (policies want
+tagged instructions)</li>
+<li>Added <code>instruction_properties.cpp</code> to Spike which includes information about
+what registers it reads, whether it&rsquo;s FP or Int etc.</li>
 </ul>
 
                     </section>

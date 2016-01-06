@@ -49,7 +49,7 @@ extensions, and add multi-threading and multi-issue.&lt;/li&gt;
 &lt;li&gt;Slides to be posted soon! Apologies for not live-blogging my own talk.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;a-32-bit-100mhz-risc-v-microcontroller-with-10-bit-sar-adc-in-130nm-gp-elkim-road:541250aa31d27f4326ef7f42e9e3ae89&#34;&gt;A 32-bit 100MHz RISC-V microcontroller with 10-bit SAR ADC in 130nm GP: Elkim Road&lt;/h2&gt;
+&lt;h2 id=&#34;a-32-bit-100mhz-risc-v-microcontroller-with-10-bit-sar-adc-in-130nm-gp-elkim-roa:541250aa31d27f4326ef7f42e9e3ae89&#34;&gt;A 32-bit 100MHz RISC-V microcontroller with 10-bit SAR ADC in 130nm GP: Elkim Roa&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Current goal: a low-footprint RISC-V microcontroller like EFM32 or SAMD11
@@ -304,6 +304,16 @@ finds a bug, it will minimise the program for you.&lt;/li&gt;
 &lt;li&gt;A design document is a work in progress up on github.com/ccelio (doesn&amp;rsquo;t
 seem to be published yet?)&lt;/li&gt;
 &lt;li&gt;Want to grow a community of &amp;ldquo;baby BOOMers&amp;rdquo; :)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;bluespec-s-risc-v-factory-rishiyur-nikhil:541250aa31d27f4326ef7f42e9e3ae89&#34;&gt;Bluespec&amp;rsquo;s &amp;ldquo;RISC-V Factory&amp;rdquo;: Rishiyur Nikhil&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Bluespec&amp;rsquo;s &amp;lsquo;RISC-V Factory&amp;rsquo; is aimed at organisations who want to create
+their own RISC-V based CPUs or SoCs without the usual learning curve, startup
+costs, and ownership costs.&lt;/li&gt;
+&lt;li&gt;Currently working with Draper on the DOVER project we&amp;rsquo;ll be hearing about
+next.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

@@ -167,6 +167,9 @@ do these interact with each other, and how do they influence the memory model?&l
 &lt;li&gt;Want simple operational definitions where legal behaviours can be observable
 on a smple abstract machine consisting of cores and a shared monolithic
 memory.&lt;/li&gt;
+&lt;li&gt;Looked at defining WMM, a new easy-to-specify weak consistency model.&lt;/li&gt;
+&lt;li&gt;Propose there should be a new instruction simular to sfence.vm, but going in
+the opposite direction.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

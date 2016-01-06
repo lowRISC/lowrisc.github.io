@@ -316,6 +316,8 @@ costs, and ownership costs.&lt;/li&gt;
 the next talk.&lt;/li&gt;
 &lt;li&gt;The Flute RISC-V CPU has interfaces for direct GDB control, an elastic
 (latency-insensitive) pipeline, hooks for optional tagged data.&lt;/li&gt;
+&lt;li&gt;Have components such as interconnect, memory controller, DMA engine,
+devices. Working on flash for booting and Ethernet.&lt;/li&gt;
 &lt;li&gt;Provide a complete development and verification environment.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -328,7 +330,16 @@ expensive.&lt;/li&gt;
 &lt;li&gt;Add software defined metadata processing as implemented in PUMP.&lt;/li&gt;
 &lt;li&gt;Give each word a programmable tag. This is indivisible from a word and its
 interpretation is programmable.&lt;/li&gt;
-&lt;li&gt;PUMP is a function from (Opcode, PCtag, Instrtag, RS1tag, RS2tag, MRtag).&lt;/li&gt;
+&lt;li&gt;PUMP is a function from (Opcode, PCtag, Instrtag, RS1tag, RS2tag, MRtag) to
+(Allowed?, PCtag, Resulttag).&lt;/li&gt;
+&lt;li&gt;Possible policies include access control, types, fine-grained instruction
+permissions, memory safety, control flow integrity, taint tracking and
+information flow control.&lt;/li&gt;
+&lt;li&gt;Rules are installed by software on PUMP misses. This demands metadata
+structures be immutable.&lt;/li&gt;
+&lt;li&gt;A metadata tag can be a pointer, meaning it can point to a data structure of
+arbitrary size.&lt;/li&gt;
+&lt;li&gt;Can support composite policies. i.e. no limit of only one policy at once.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

@@ -353,8 +353,6 @@ different processes.&lt;/li&gt;
 &lt;li&gt;Idiosyncrasies about RISC-V: one instruction uses RS3, sparse opcode space
 increases table size, multiple instructions per machine word (policies want
 tagged instructions)&lt;/li&gt;
-&lt;li&gt;Added &lt;code&gt;instruction_properties.cpp&lt;/code&gt; to Spike which includes information about
-what registers it reads, whether it&amp;rsquo;s FP or Int etc.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

@@ -128,7 +128,7 @@ extensions, and add multi-threading and multi-issue.</li>
 
 <ul>
 <li>Current goal: a low-footprint RISC-V microcontroller like EFM32 or SAMD11
-wiht USB low-speed PHY on-chip.</li>
+with USB low-speed PHY on-chip.</li>
 <li>Looked at picorv32 and vscale, but ultimately implemented their own
 implementation. Also adding in a 10-bit SAR ADC, DAC, PLL, GPIO.</li>
 <li>Implement RV32IM using a 3-stage pipeline. IRQ handling is adapted from the
@@ -213,7 +213,7 @@ bootloader. It starts multi-core, VM support, then loads and boots RISC-V
 Linux in a virtual address space.</li>
 <li>Currently the second stage bootloader stays resident to handle HTIF
 requests.</li>
-<li>Our code release contains a very detailed tutorail. Key features include
+<li>Our code release contains a very detailed tutorial. Key features include
 support for the Nexys4 as well as the more expensive KC705. You can also use
 Verilator for simulation and a free WebPACK Vivado license.</li>
 <li>The code release includes a rewritten TileLink/NASTI interface, DDR2/3
@@ -230,7 +230,7 @@ run-control debug (SiFive), platform spec.</li>
 It supports machine, supervisor, and user modes, boots Linux, and has been
 tandem-verified with Spike.</li>
 <li>Want to work on formal specification of the ISA, formally verified processor
-implementations, memory consistency models, acclerators, microarchitecture
+implementations, memory consistency models, accelerators, microarchitecture
 exploration, VLSI implementations using a standard ASIC flow.</li>
 <li>Philosophy: get a working processor first, figure out why it&rsquo;s slow, and
 make it faster without breaking it.</li>
@@ -240,12 +240,41 @@ page table entries should be set for speculatively accessed pages.</li>
 <li>A single instruction can result in up to 13 effective memory accesses - how
 do these interact with each other, and how do they influence the memory model?</li>
 <li>Want simple operational definitions where legal behaviours can be observable
-on a smple abstract machine consisting of cores and a shared monolithic
+on a simple abstract machine consisting of cores and a shared monolithic
 memory.</li>
 <li>Looked at defining WMM, a new easy-to-specify weak consistency model.</li>
-<li>Propose there should be a new instruction simular to sfence.vm, but going in
+<li>Propose there should be a new instruction similar to sfence.vm, but going in
 the opposite direction.</li>
 <li>See also <a href="http://csg.csail.mit.edu/riscy-e/">their website</a>.</li>
+<li>Question: will it be open source? Concerned currently because some aspects
+of the design are used as challenges for student projects and releasing it
+could compromise the projects.</li>
+</ul>
+
+<h2 id="pydgin-for-risc-v-a-fast-and-productive-instruction-set-simulator-berkin-ilbeyi:541250aa31d27f4326ef7f42e9e3ae89">Pydgin for RISC-V, a fast and productive instruction-set simulator: Berkin Ilbeyi</h2>
+
+<ul>
+<li>Simple interpreted instruction set simulators get 1-10MIPS of performance.
+Typical dynamic binary translation may achieve 100s of MIPS, with QEMU
+achieving up to 1000 MIPS.</li>
+<li>Another aspect worthy of consideration is productivity when working with the
+simulator, for instance when looking to extend it to explore new hardware
+features. Can you achieve high developer productivity and runtime performance?</li>
+<li>Observe there are similar productivity-performance challenges for building
+high performance language runtimes as for simulators. e.g. the PyPy project.</li>
+<li>Pydgin uses PyPy&rsquo;s RPython framework.</li>
+<li>Pydgin describes its own architectural description language (really a Python
+DSL).</li>
+<li>Pydgin running on a standard Python interpreter gives ~100KIPS. But when
+going through RPython this gives 10MIPS. When targeting the RPython JIT,
+adding extra RPython JIT hints are added achieved up to a 23x performance
+improvement over no annotations.</li>
+<li>Performs 2-3x better than Spike for many workloads. Spike caches decoded
+instructions and uses PC-indexed dispatch to improve performance.</li>
+<li>Achieved a 100MIPS+ RISC-V port after 9 days of development.</li>
+<li>Pydgin is used in the Cornell research group to gain statistics for
+software-defined regions, experimentations with data-structure specialisation,
+control and memory divergence for SIMD, and more.</li>
 </ul>
 
     </section>

@@ -53,7 +53,7 @@ extensions, and add multi-threading and multi-issue.&lt;/li&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Current goal: a low-footprint RISC-V microcontroller like EFM32 or SAMD11
-wiht USB low-speed PHY on-chip.&lt;/li&gt;
+with USB low-speed PHY on-chip.&lt;/li&gt;
 &lt;li&gt;Looked at picorv32 and vscale, but ultimately implemented their own
 implementation. Also adding in a 10-bit SAR ADC, DAC, PLL, GPIO.&lt;/li&gt;
 &lt;li&gt;Implement RV32IM using a 3-stage pipeline. IRQ handling is adapted from the
@@ -138,7 +138,7 @@ bootloader. It starts multi-core, VM support, then loads and boots RISC-V
 Linux in a virtual address space.&lt;/li&gt;
 &lt;li&gt;Currently the second stage bootloader stays resident to handle HTIF
 requests.&lt;/li&gt;
-&lt;li&gt;Our code release contains a very detailed tutorail. Key features include
+&lt;li&gt;Our code release contains a very detailed tutorial. Key features include
 support for the Nexys4 as well as the more expensive KC705. You can also use
 Verilator for simulation and a free WebPACK Vivado license.&lt;/li&gt;
 &lt;li&gt;The code release includes a rewritten TileLink/NASTI interface, DDR2/3
@@ -155,7 +155,7 @@ run-control debug (SiFive), platform spec.&lt;/li&gt;
 It supports machine, supervisor, and user modes, boots Linux, and has been
 tandem-verified with Spike.&lt;/li&gt;
 &lt;li&gt;Want to work on formal specification of the ISA, formally verified processor
-implementations, memory consistency models, acclerators, microarchitecture
+implementations, memory consistency models, accelerators, microarchitecture
 exploration, VLSI implementations using a standard ASIC flow.&lt;/li&gt;
 &lt;li&gt;Philosophy: get a working processor first, figure out why it&amp;rsquo;s slow, and
 make it faster without breaking it.&lt;/li&gt;
@@ -165,12 +165,41 @@ page table entries should be set for speculatively accessed pages.&lt;/li&gt;
 &lt;li&gt;A single instruction can result in up to 13 effective memory accesses - how
 do these interact with each other, and how do they influence the memory model?&lt;/li&gt;
 &lt;li&gt;Want simple operational definitions where legal behaviours can be observable
-on a smple abstract machine consisting of cores and a shared monolithic
+on a simple abstract machine consisting of cores and a shared monolithic
 memory.&lt;/li&gt;
 &lt;li&gt;Looked at defining WMM, a new easy-to-specify weak consistency model.&lt;/li&gt;
-&lt;li&gt;Propose there should be a new instruction simular to sfence.vm, but going in
+&lt;li&gt;Propose there should be a new instruction similar to sfence.vm, but going in
 the opposite direction.&lt;/li&gt;
 &lt;li&gt;See also &lt;a href=&#34;http://csg.csail.mit.edu/riscy-e/&#34;&gt;their website&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Question: will it be open source? Concerned currently because some aspects
+of the design are used as challenges for student projects and releasing it
+could compromise the projects.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;pydgin-for-risc-v-a-fast-and-productive-instruction-set-simulator-berkin-ilbeyi:541250aa31d27f4326ef7f42e9e3ae89&#34;&gt;Pydgin for RISC-V, a fast and productive instruction-set simulator: Berkin Ilbeyi&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Simple interpreted instruction set simulators get 1-10MIPS of performance.
+Typical dynamic binary translation may achieve 100s of MIPS, with QEMU
+achieving up to 1000 MIPS.&lt;/li&gt;
+&lt;li&gt;Another aspect worthy of consideration is productivity when working with the
+simulator, for instance when looking to extend it to explore new hardware
+features. Can you achieve high developer productivity and runtime performance?&lt;/li&gt;
+&lt;li&gt;Observe there are similar productivity-performance challenges for building
+high performance language runtimes as for simulators. e.g. the PyPy project.&lt;/li&gt;
+&lt;li&gt;Pydgin uses PyPy&amp;rsquo;s RPython framework.&lt;/li&gt;
+&lt;li&gt;Pydgin describes its own architectural description language (really a Python
+DSL).&lt;/li&gt;
+&lt;li&gt;Pydgin running on a standard Python interpreter gives ~100KIPS. But when
+going through RPython this gives 10MIPS. When targeting the RPython JIT,
+adding extra RPython JIT hints are added achieved up to a 23x performance
+improvement over no annotations.&lt;/li&gt;
+&lt;li&gt;Performs 2-3x better than Spike for many workloads. Spike caches decoded
+instructions and uses PC-indexed dispatch to improve performance.&lt;/li&gt;
+&lt;li&gt;Achieved a 100MIPS+ RISC-V port after 9 days of development.&lt;/li&gt;
+&lt;li&gt;Pydgin is used in the Cornell research group to gain statistics for
+software-defined regions, experimentations with data-structure specialisation,
+control and memory divergence for SIMD, and more.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

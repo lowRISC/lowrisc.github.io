@@ -216,6 +216,16 @@ FPGA vendors, and BSD-licensed.&lt;/li&gt;
 improvements.&lt;/li&gt;
 &lt;li&gt;Clock speed is close to matching the picorv32 clock speed, but with higher
 DMIPS/MHz.&lt;/li&gt;
+&lt;li&gt;Found 64-bit vs 32-bit counters added a lot of area.&lt;/li&gt;
+&lt;li&gt;A good FPGA implementation often leads to a good ASIC implementation, but a
+good ASIC implementation often leads to a poor FPGA implementation.&lt;/li&gt;
+&lt;li&gt;Use dual-ported block RAMS on the FPGA for the register file.&lt;/li&gt;
+&lt;li&gt;Observe that reduced register count in RV32E makes no difference for FPGAs.&lt;br /&gt;
+Divide is very expensive.&lt;/li&gt;
+&lt;li&gt;Beware when writing software, a shift could be as slow as 1b/cycle.&lt;/li&gt;
+&lt;li&gt;The privileged architecture spec contains too many CSRs and the 64bit
+counters are too big, putting pressure on multiplexers. For FPGAs, perhaps
+defined small/med/full versions.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

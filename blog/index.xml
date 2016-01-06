@@ -67,7 +67,14 @@ testbenches for AXI-4 and APB peripheral functionality. Would like to partner
 to get access to proven VIP.&lt;/li&gt;
 &lt;li&gt;Future work to be done on a USB PHY low-speed interface, DMA channels,
 watchdog timer, eNVM 1-poly ROM&lt;/li&gt;
-&lt;li&gt;Question: where and when can I download it? Soon!&lt;/li&gt;
+&lt;li&gt;Question: where and when can I download it? Soon! Still cleaning it up.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;soc-for-satelline-navigation-unit-based-on-the-risc-v-single-core-rocket-chip-sergei-khabarov:541250aa31d27f4326ef7f42e9e3ae89&#34;&gt;SoC for satelline navigation unit based on the RISC-V single-core Rocket chip: Sergei Khabarov&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Currently have an RF-mezzanine card for FPGA prototypes, and
+silicon-verified GNSS IP and ASIC development board with a LEON3 CPU inside.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

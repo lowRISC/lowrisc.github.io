@@ -200,6 +200,17 @@ our predictions!</li>
 is a <sup>5</sup>&frasl;<sub>6</sub> stage single-issue in-order processor.</li>
 <li>Previously an host-target interface was connected to the L2 bus which
 communicates with an ARM core on the Zynq to provide peripherals.</li>
+<li>The untethered Rocket chip adds a separate I/O bus. Currently uses Xilinx IP
+for peripherals. First stage bootloader is on FPGA block RAM, second stage
+bootloader is loaded from SD. I/O read and write are totally uncached.</li>
+<li>The top-level (including I/O devices) is all in System Verilog. There is a
+separate &lsquo;Chisel island&rsquo; containing the Rocket interface.</li>
+<li>The I/O and memory maps can be configured by CSRs.</li>
+<li>The first-stage bootloader copies the second stage to DRAM, performing an
+uncached copy. It then remaps the DRAM to memory address 0, resets Rocket and
+starts the second stage. The second stage uses a version of the Berkeley
+bootloader. It starts multi-core, VM support, then loads and boots RISC-V
+Linux in a virtual address space.</li>
 </ul>
 
     </section>

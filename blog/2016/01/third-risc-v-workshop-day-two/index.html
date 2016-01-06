@@ -360,6 +360,31 @@ exception flags, no integer side-effects (e.g. condition codes), no cmov or
 predication, no implicit register specifiers, rs1+rs2+rs3+rd are always in the
 same space allowing decode and rename to proceed in parallel.</li>
 <li>As Rocket-chip gets better, so does BOOM.</li>
+<li>The host-target interface is being removed from rocket-chip to provide an
+untethered system.</li>
+<li>BOOM has a unified physical register file (floating point and integer).</li>
+<li>Masses of parameters can be tweaked.</li>
+<li>2-wide BOOM with 16KiB L1 caches 1.2mm2 in TSMC 45nm. Can clock at 1.5GHz
+for two-wide.</li>
+<li>Currently designed for single-cycle SRAM access as the critical path.</li>
+<li>Planning on a tapeout later this year.</li>
+<li>Achieve 50MHz on an FPGA where the bottleneck is the FPGA tools can&rsquo;t
+register-rename the FPU.</li>
+<li>BOOM is 9kloc, plus 11kloc from Rocket.</li>
+<li>9% CoreMarks/MHz for ARM Cortex-A9 with similar architectural parameters and
+smaller (but lacking the NEON unit). Power is also similar based on public
+numbers.</li>
+<li>Don&rsquo;t yet have a SPEC score. Need more DRAM on the FPGA and DRAM emulation.
+With a cluster of FPGAs, this should only take about a day to run.</li>
+<li>BOOM-chip is currently a branch of rocket-chip. See the slides for how to
+get going.</li>
+<li>Currently test/verify using riscv-tests, coremark, spec, and the
+riscv-torture tool.</li>
+<li>riscv-torture, a randomised test generator was open-sourced yesterday. If it
+finds a bug, it will minimise the program for you.</li>
+<li>A design document is a work in progress up on github.com/ccelio (doesn&rsquo;t
+seem to be published yet?)</li>
+<li>Want to grow a community of &ldquo;baby BOOMers&rdquo; :)</li>
 </ul>
 
                     </section>

@@ -233,6 +233,16 @@ defined small/med/full versions.&lt;/li&gt;
 &lt;ul&gt;
 &lt;li&gt;PULP and PULPino developed at ETH Zurich and University of Bologna with many
 partners.&lt;/li&gt;
+&lt;li&gt;Develop an ultra low power processor for computing IoT. Explot parallelism
+using multiple small simple cores organised in clusters.&lt;/li&gt;
+&lt;li&gt;Share memory within the cluster.&lt;/li&gt;
+&lt;li&gt;Support near-threshold operation for very low power.&lt;/li&gt;
+&lt;li&gt;PULP has been taped out over a dozen times across multiple process
+technologies, down to 28nm.&lt;/li&gt;
+&lt;li&gt;PULP has a large number of IPs. To start with, open source PULPino as a
+starting point.&lt;/li&gt;
+&lt;li&gt;PULPino is a microcontroller-style platform. No caches, no memory hierarchy,
+no DMA. It re-uses IP from the PULP project and will be taped out in 65nm UMC.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

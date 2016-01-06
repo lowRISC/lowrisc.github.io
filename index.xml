@@ -316,6 +316,15 @@ costs, and ownership costs.&lt;/li&gt;
 the next talk.&lt;/li&gt;
 &lt;li&gt;The Flute RISC-V CPU has interfaces for direct GDB control, an elastic
 (latency-insensitive) pipeline, hooks for optional tagged data.&lt;/li&gt;
+&lt;li&gt;Provide a complete development and verification environment.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;dover-a-metadata-extended-risc-v-andre-dehon:541250aa31d27f4326ef7f42e9e3ae89&#34;&gt;DOVER, a metadata-extended RISC-V: Andre DeHon&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Current computer systems are insecure, and the processor architecture
+contributes by blinding running code and making the secure and safe thing
+expensive.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

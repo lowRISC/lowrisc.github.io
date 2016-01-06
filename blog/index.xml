@@ -100,6 +100,15 @@ supported by Trace32 (Lauterbach).&lt;/li&gt;
 we&amp;rsquo;ve had little improvement for moving data off-chip.&lt;/li&gt;
 &lt;li&gt;The I/O wall involves being both power and pin limited. Silicon photonics
 may help overcome this.&lt;/li&gt;
+&lt;li&gt;Started by tring to provide DRAM connected by photonics (as part of the
+DARPA POEM project).&lt;/li&gt;
+&lt;li&gt;What about the foundry? Do it without a foundry. How to connect electronics
+and photonics? Put them on the same chip. Where are you going to get a
+processor? RISC-V!&lt;/li&gt;
+&lt;li&gt;They produced it and it was published in Nature last month. Dual-core
+1.65GHz RISC-V. Manufactured in a commercial SOI process.&lt;/li&gt;
+&lt;li&gt;Build a waveguide with planar silicon processing. Silicon is the high-index
+core. Oxides form the low-index cladding.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

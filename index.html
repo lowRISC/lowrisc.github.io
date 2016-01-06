@@ -134,6 +134,15 @@ implementation. Also adding in a 10-bit SAR ADC, DAC, PLL, GPIO.</li>
 <li>Implement RV32IM using a 3-stage pipeline. IRQ handling is adapted from the
 picorv32 timer.</li>
 <li>Provides AXI-4 lite and an APB bridge.</li>
+<li>SAR ADC intends to be fully synthesizable, 10-bit 10MHz.</li>
+<li>The chip was taped out in October 2015 on 130nm TSMC GP. The core+interfaces
+area was 800um x 480um.</li>
+<li>Undertook a large effort on verification, implemented verification
+testbenches for AXI-4 and APB peripheral functionality. Would like to partner
+to get access to proven VIP.</li>
+<li>Future work to be done on a USB PHY low-speed interface, DMA channels,
+watchdog timer, eNVM 1-poly ROM</li>
+<li>Question: where and when can I download it? Soon!</li>
 </ul>
 
     </section>

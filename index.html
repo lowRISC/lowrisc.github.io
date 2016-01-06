@@ -295,7 +295,7 @@ DMIPS/MHz.</li>
 <li>A good FPGA implementation often leads to a good ASIC implementation, but a
 good ASIC implementation often leads to a poor FPGA implementation.</li>
 <li>Use dual-ported block RAMS on the FPGA for the register file.</li>
-<li>Observe that reduced register count in RV32E makes no difference for FPGAs.<br />
+<li>Observe that reduced register count in RV32E makes no difference for FPGAs.
 Divide is very expensive.</li>
 <li>Beware when writing software, a shift could be as slow as 1b/cycle.</li>
 <li>The privileged architecture spec contains too many CSRs and the 64bit
@@ -324,6 +324,10 @@ delay slot), compressed instructions, easily extensible.</li>
 <li>Looking to extend RISC-V with non-standard extensions for hardware loops,
 post-increment load+store, multiply-accumulate, ALU extensions (min, max
 absolute value).</li>
+<li>RI5CY core has full support for RV32I, implements just the mul from RV32M.
+It has a 4 stage pipeline.</li>
+<li>Performed a comparison based on published Cortex M4 numbers. RI5CY is a
+little faster and a little smaller.</li>
 </ul>
 
     </section>

@@ -211,6 +211,16 @@ uncached copy. It then remaps the DRAM to memory address 0, resets Rocket and
 starts the second stage. The second stage uses a version of the Berkeley
 bootloader. It starts multi-core, VM support, then loads and boots RISC-V
 Linux in a virtual address space.</li>
+<li>Currently the second stage bootloader stays resident to handle HTIF
+requests.</li>
+<li>Our code release contains a very detailed tutorail. Key features include
+support for the Nexys4 as well as the more expensive KC705. You can also use
+Verilator for simulation and a free WebPACK Vivado license.</li>
+<li>The code release includes a rewritten TileLink/NASTI interface, DDR2/3
+controller, SD, UART.</li>
+<li>Future work: re-integrate tagged memory, remove HTIF from Linux kernel (help
+wanted), interrupt controller, trace debugger (Stefan Wallentowitz),
+run-control debug (SiFive), platform spec.</li>
 </ul>
 
     </section>

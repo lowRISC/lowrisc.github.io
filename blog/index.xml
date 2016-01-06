@@ -89,6 +89,17 @@ cacheability etc etc routed in sideband signals accessible via a dedicated
 slave device on a system bus.&lt;/li&gt;
 &lt;li&gt;Some memory access optimizations have been implemented to allow access to
 AXI peripherals in one clock cycle.&lt;/li&gt;
+&lt;li&gt;Implemented (or implementing?) the multi-core debug protocol, potentially
+supported by Trace32 (Lauterbach).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;risc-v-photonic-processor-chen-sun:541250aa31d27f4326ef7f42e9e3ae89&#34;&gt;RISC-V photonic processor: Chen Sun&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Process scaling has helped massively for data transfer within a chip, but
+we&amp;rsquo;ve had little improvement for moving data off-chip.&lt;/li&gt;
+&lt;li&gt;The I/O wall involves being both power and pin limited. Silicon photonics
+may help overcome this.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

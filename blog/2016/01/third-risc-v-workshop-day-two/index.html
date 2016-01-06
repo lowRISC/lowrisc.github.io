@@ -421,6 +421,14 @@ structures be immutable.</li>
 <li>A metadata tag can be a pointer, meaning it can point to a data structure of
 arbitrary size.</li>
 <li>Can support composite policies. i.e. no limit of only one policy at once.</li>
+<li>There are no instructions to read or write metadata, i.e. no set-tag or read
+tag. All tag manipulation is done through the PUMP.</li>
+<li>In RISC-V use PUMP CSRs for rule inputs and outputs.</li>
+<li>Compared to lowRISC: lowRISC has a limited number of tag bits, tags are
+accessible to user code. Good for self-protection safety but argue it&rsquo;s not
+adequate to enforce policies against malicious code (i.e. code actively trying
+to circumvent protection).</li>
+<li>Compare to Oracle M7. M7 has a limited number of colors and a fixed policy.</li>
 </ul>
 
                     </section>

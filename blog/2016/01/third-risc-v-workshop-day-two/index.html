@@ -229,6 +229,27 @@ wanted), interrupt controller, trace debugger (Stefan Wallentowitz),
 run-control debug (SiFive), platform spec.</li>
 </ul>
 
+<h2 id="mit-s-riscy-expedition-andy-wright:541250aa31d27f4326ef7f42e9e3ae89">MIT&rsquo;s RISCY expedition: Andy Wright</h2>
+
+<ul>
+<li>MIT implemented an IMAFD 64-bit RISC-V processor in Bluespec System Verilog.
+It supports machine, supervisor, and user modes, boots Linux, and has been
+tandem-verified with Spike.</li>
+<li>Want to work on formal specification of the ISA, formally verified processor
+implementations, memory consistency models, acclerators, microarchitecture
+exploration, VLSI implementations using a standard ASIC flow.</li>
+<li>Philosophy: get a working processor first, figure out why it&rsquo;s slow, and
+make it faster without breaking it.</li>
+<li>Moving to work on formal verification, which requests a formal specification
+for RISC-V. Lots of questions to be answered, e.g. whether referenced bits in
+page table entries should be set for speculatively accessed pages.</li>
+<li>A single instruction can result in up to 13 effective memory accesses - how
+do these interact with each other, and how do they influence the memory model?</li>
+<li>Want simple operational definitions where legal behaviours can be observable
+on a smple abstract machine consisting of cores and a shared monolithic
+memory.</li>
+</ul>
+
                     </section>
                 </article>
 

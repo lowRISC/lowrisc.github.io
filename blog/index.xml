@@ -147,6 +147,27 @@ controller, SD, UART.&lt;/li&gt;
 wanted), interrupt controller, trace debugger (Stefan Wallentowitz),
 run-control debug (SiFive), platform spec.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&#34;mit-s-riscy-expedition-andy-wright:541250aa31d27f4326ef7f42e9e3ae89&#34;&gt;MIT&amp;rsquo;s RISCY expedition: Andy Wright&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;MIT implemented an IMAFD 64-bit RISC-V processor in Bluespec System Verilog.
+It supports machine, supervisor, and user modes, boots Linux, and has been
+tandem-verified with Spike.&lt;/li&gt;
+&lt;li&gt;Want to work on formal specification of the ISA, formally verified processor
+implementations, memory consistency models, acclerators, microarchitecture
+exploration, VLSI implementations using a standard ASIC flow.&lt;/li&gt;
+&lt;li&gt;Philosophy: get a working processor first, figure out why it&amp;rsquo;s slow, and
+make it faster without breaking it.&lt;/li&gt;
+&lt;li&gt;Moving to work on formal verification, which requests a formal specification
+for RISC-V. Lots of questions to be answered, e.g. whether referenced bits in
+page table entries should be set for speculatively accessed pages.&lt;/li&gt;
+&lt;li&gt;A single instruction can result in up to 13 effective memory accesses - how
+do these interact with each other, and how do they influence the memory model?&lt;/li&gt;
+&lt;li&gt;Want simple operational definitions where legal behaviours can be observable
+on a smple abstract machine consisting of cores and a shared monolithic
+memory.&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

@@ -227,6 +227,16 @@ Divide is very expensive.&lt;/li&gt;
 counters are too big, putting pressure on multiplexers. For FPGAs, perhaps
 defined small/med/full versions.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&#34;pulpino-a-small-single-core-risc-v-soc-andreas-traber:541250aa31d27f4326ef7f42e9e3ae89&#34;&gt;PULPino, a small single-core RISC-V SoC: Andreas Traber&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;PULP and PULPino developed at ETH Zurich and University of Bologna with many
+partners.&lt;/li&gt;
+&lt;li&gt;Develop an ultra low power processor for computing IoT. Explot parallelism
+using multiple small simple cores organised in clusters.&lt;/li&gt;
+&lt;li&gt;Share memory within the cluster.&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

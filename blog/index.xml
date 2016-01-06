@@ -109,6 +109,13 @@ processor? RISC-V!&lt;/li&gt;
 1.65GHz RISC-V. Manufactured in a commercial SOI process.&lt;/li&gt;
 &lt;li&gt;Build a waveguide with planar silicon processing. Silicon is the high-index
 core. Oxides form the low-index cladding.&lt;/li&gt;
+&lt;li&gt;Transmitter is driven by a CMOS logic inverter. 5Gb/s data rate at 30fj/b.&lt;/li&gt;
+&lt;li&gt;Issue with ring resonators is massive variation based on process and
+temperature variation. Need to stabilise this some-how. Add thermal tuning.&lt;/li&gt;
+&lt;li&gt;To demonstrate the optical memory system, had a second chip emulating a DRAM
+controller.&lt;/li&gt;
+&lt;li&gt;We proposed an architecture, built it, and got performance competitive to
+our predictions!&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

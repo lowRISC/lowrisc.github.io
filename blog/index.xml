@@ -170,6 +170,7 @@ memory.&lt;/li&gt;
 &lt;li&gt;Looked at defining WMM, a new easy-to-specify weak consistency model.&lt;/li&gt;
 &lt;li&gt;Propose there should be a new instruction simular to sfence.vm, but going in
 the opposite direction.&lt;/li&gt;
+&lt;li&gt;See also &lt;a href=&#34;http://csg.csail.mit.edu/riscy-e/&#34;&gt;their website&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

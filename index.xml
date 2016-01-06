@@ -75,6 +75,14 @@ watchdog timer, eNVM 1-poly ROM&lt;/li&gt;
 &lt;ul&gt;
 &lt;li&gt;Currently have an RF-mezzanine card for FPGA prototypes, and
 silicon-verified GNSS IP and ASIC development board with a LEON3 CPU inside.&lt;/li&gt;
+&lt;li&gt;On the software, have universal receive firmware and plug-and-play support
+for different targets. Plus a host application for data analysis. See
+gnss-snsor.com.&lt;/li&gt;
+&lt;li&gt;Now transitioning from the previous 180nm ASIC to a new 90nm chip with a
+RISC-V core. The target frequency is 300MHz.&lt;/li&gt;
+&lt;li&gt;The new SoC design aims to take the best ideas of the GPL-licensed grlib
+library (Gaisler Research) and will be written in VHDL.&lt;/li&gt;
+&lt;li&gt;Current code can be found &lt;a href=&#34;https://github.com/sergeykhbr/riscv_vhdl&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

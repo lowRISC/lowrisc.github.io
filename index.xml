@@ -312,8 +312,10 @@ seem to be published yet?)&lt;/li&gt;
 &lt;li&gt;Bluespec&amp;rsquo;s &amp;lsquo;RISC-V Factory&amp;rsquo; is aimed at organisations who want to create
 their own RISC-V based CPUs or SoCs without the usual learning curve, startup
 costs, and ownership costs.&lt;/li&gt;
-&lt;li&gt;Currently working with Draper on the DOVER project we&amp;rsquo;ll be hearing about
-next.&lt;/li&gt;
+&lt;li&gt;Currently working with Draper on the DOVER project we&amp;rsquo;ll be hearing about in
+the next talk.&lt;/li&gt;
+&lt;li&gt;The Flute RISC-V CPU has interfaces for direct GDB control, an elastic
+(latency-insensitive) pipeline, hooks for optional tagged data.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

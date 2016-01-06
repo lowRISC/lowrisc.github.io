@@ -130,6 +130,18 @@ extensions, and add multi-threading and multi-issue.</li>
 <li>Slides to be posted soon! Apologies for not live-blogging my own talk.</li>
 </ul>
 
+<h2 id="a-32-bit-100mhz-risc-v-microcontroller-with-10-bit-sar-adc-in-130nm-gp-elkim-road:541250aa31d27f4326ef7f42e9e3ae89">A 32-bit 100MHz RISC-V microcontroller with 10-bit SAR ADC in 130nm GP: Elkim Road</h2>
+
+<ul>
+<li>Current goal: a low-footprint RISC-V microcontroller like EFM32 or SAMD11
+wiht USB low-speed PHY on-chip.</li>
+<li>Looked at picorv32 and vscale, but ultimately implemented their own
+implementation. Also adding in a 10-bit SAR ADC, DAC, PLL, GPIO.</li>
+<li>Implement RV32IM using a 3-stage pipeline. IRQ handling is adapted from the
+picorv32 timer.</li>
+<li>Provides AXI-4 lite and an APB bridge.</li>
+</ul>
+
                     </section>
                 </article>
 

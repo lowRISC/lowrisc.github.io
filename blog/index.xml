@@ -19,7 +19,9 @@
 
 &lt;p&gt;Today is the second day of the &lt;a href=&#34;http://riscv.org/workshop-jan2016.html&#34;&gt;third RISC-V
 workshop&lt;/a&gt;. Again, I&amp;rsquo;ll be keeping a
-semi-live blog of talks and announcements throughout the day.&lt;/p&gt;
+semi-live blog of talks and announcements throughout the day. See
+&lt;a href=&#34;http://www.lowrisc.org/blog/2016/01/third-risc-v-workshop-day-one&#34;&gt;here&lt;/a&gt; for
+notes from the first day.&lt;/p&gt;
 
 &lt;h2 id=&#34;risc-v-asic-and-fpga-implementations-richard-herveille:541250aa31d27f4326ef7f42e9e3ae89&#34;&gt;RISC-V ASIC and FPGA implementations: Richard Herveille&lt;/h2&gt;
 
@@ -46,7 +48,9 @@ extensions, and add multi-threading and multi-issue.&lt;/li&gt;
 &lt;h2 id=&#34;lowrisc-plans-for-risc-v-in-2016-alex-bradbury:541250aa31d27f4326ef7f42e9e3ae89&#34;&gt;lowRISC: plans for RISC-V in 2016: Alex Bradbury&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Slides to be posted soon! Apologies for not live-blogging my own talk.&lt;/li&gt;
+&lt;li&gt;Find my slides
+&lt;a href=&#34;https://speakerdeck.com/asb/lowrisc-plans-for-risc-v-in-2016&#34;&gt;here&lt;/a&gt;.
+Apologies for not live-blogging my own talk.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;a-32-bit-100mhz-risc-v-microcontroller-with-10-bit-sar-adc-in-130nm-gp-elkim-roa:541250aa31d27f4326ef7f42e9e3ae89&#34;&gt;A 32-bit 100MHz RISC-V microcontroller with 10-bit SAR ADC in 130nm GP: Elkim Roa&lt;/h2&gt;
@@ -372,8 +376,10 @@ previous work, have 10% area overhead and twice the area, 60% energy overhead.&l
       <description>
 
 &lt;p&gt;The &lt;a href=&#34;http://riscv.org/workshop-jan2016.html&#34;&gt;third RISC-V workshop&lt;/a&gt; is going
-on today and tomorrow at the Oracle Conference Center, California. I&amp;rsquo;ll be keeping a semi-live
-blog of talks and announcements throughout the day.&lt;/p&gt;
+on today and tomorrow at the Oracle Conference Center, California. I&amp;rsquo;ll be
+keeping a semi-live blog of talks and announcements throughout the day. See
+&lt;a href=&#34;http://www.lowrisc.org/blog/2016/01/third-risc-v-workshop-day-two&#34;&gt;here&lt;/a&gt; for
+notes from the second day.&lt;/p&gt;
 
 &lt;h2 id=&#34;introductions-and-risc-v-foundation-overview-rick-o-connor:404bdd89395af7de00a88d5e9af98f5d&#34;&gt;Introductions and RISC-V Foundation Overview: Rick O&amp;rsquo;Connor&lt;/h2&gt;
 

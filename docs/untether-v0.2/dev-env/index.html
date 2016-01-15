@@ -107,7 +107,7 @@
 <p>The default simulator for RTL/Behavioural SystemVerilog simulation is <a href="http://www.veripool.org/wiki/verilator">Verilator</a>.
 Please download and install a latest version for the best SystemVerilog support.</p>
 
-<p>An FPGA demonstration is provided using either a <a href="http://www.xilinx.com/products/boards-and-kits/ek-k7-kc705-g.html">Xilinx Kintex-7 FPGA KC705 evaluation kit</a> or a low-end <a href="http://digilentinc.com/nexys4ddr/">Nexys™4 DDR Artix-7 FPGA Board</a>. The KC705 kit comes with a device and node locked license for <a href="http://www.xilinx.com/products/design-tools/vivado.html">Xilinx Vivado Design Suite</a>. The default version for FPGA demonstration project is Vivado 2015.3(64-bit). As for the users of the Nexys4-DDR boards, please acquire a free license and install the WebPACK edition of Vivado.</p>
+<p>An FPGA demonstration is provided using either a <a href="http://www.xilinx.com/products/boards-and-kits/ek-k7-kc705-g.html">Xilinx Kintex-7 FPGA KC705 evaluation kit</a> or a low-end <a href="http://store.digilentinc.com/nexys-4-ddr-artix-7-fpga-trainer-board-recommended-for-ece-curriculum/">Nexys™4 DDR Artix-7 FPGA Board</a>. The KC705 kit comes with a device and node locked license for <a href="http://www.xilinx.com/products/design-tools/vivado.html">Xilinx Vivado Design Suite</a>. The default version for FPGA demonstration project is Vivado 2015.3(64-bit). As for the users of the Nexys4-DDR boards, please acquire a free license and install the WebPACK edition of Vivado.</p>
 
 <p>By default, all simulations produce waveforms in the VCD format.<br />
 <a href="http://gtkwave.sourceforge.net/">GTKWave</a> can be used to view VCD files.</p>
@@ -153,7 +153,7 @@ to build the RISC-V tools:</p>
 
 <pre><code>sudo apt-get install autoconf automake autotools-dev curl \
   libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison \
-  flex texinfo gperf libncurses5-dev libusb-1.0-0
+  flex texinfo gperf libncurses5-dev libusb-1.0-0 libboost-dev
 </code></pre>
 
 <h2 id="download-the-code-release:332a00eb4e29c66523efb552bbd30a5d">Download the code release</h2>
@@ -186,10 +186,12 @@ developing new features, testing bugfixes, and experimenting with new ideas.</li
 found at <code>lowrisc-chip/set_riscv_env.sh</code>:</p>
 
 <pre><code># source this file
-echo &quot;Setting up RISC-V environment...&quot;
-# Variables for RISC-V
+echo &quot;Setting up lowRISC/RISC-V environment...&quot;
+echo &quot;Make sure you source this script at the top of lowrisc-chip.&quot;
+# Variables for lowRISC/RISC-V
 if [ &quot;$TOP&quot; == &quot;&quot; ]; then
-    echo &quot;\$TOP is not available. So set it to the current directory $PWD.&quot;
+    echo &quot;\$TOP is not available.&quot;
+    echo &quot;Set \$TOP to the top of lowrisc-chip which is the current directory.&quot;
     export TOP=$PWD
 fi
 export RISCV=$TOP/riscv

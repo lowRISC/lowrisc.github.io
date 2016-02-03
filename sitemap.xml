@@ -28,12 +28,32 @@
   </url>
   
   <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/dev-env/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/spike/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://www.lowrisc.org/docs/untether-v0.2/bootload/</loc>
     <lastmod>2015-12-17T17:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/dev-env/</loc>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/riscv_compile/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/linux_compile/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/parameter/</loc>
     <lastmod>2015-12-17T17:00:00+00:00</lastmod>
   </url>
   
@@ -48,12 +68,17 @@
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/</loc>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/verilator/</loc>
     <lastmod>2015-12-17T17:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/linux_compile/</loc>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/xilinx/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/pcr/</loc>
     <lastmod>2015-12-17T17:00:00+00:00</lastmod>
   </url>
   
@@ -68,7 +93,7 @@
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/parameter/</loc>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/vsim/</loc>
     <lastmod>2015-12-17T17:00:00+00:00</lastmod>
   </url>
   
@@ -78,22 +103,7 @@
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/riscv_compile/</loc>
-    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/pcr/</loc>
-    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://www.lowrisc.org/docs/untether-v0.2/rocket-core/</loc>
-    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/spike/</loc>
     <lastmod>2015-12-17T17:00:00+00:00</lastmod>
   </url>
   
@@ -103,17 +113,7 @@
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/vsim/</loc>
-    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/xilinx/</loc>
-    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/verilator/</loc>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/</loc>
     <lastmod>2015-12-17T17:00:00+00:00</lastmod>
   </url>
   

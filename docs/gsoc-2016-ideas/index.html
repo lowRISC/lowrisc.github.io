@@ -320,17 +320,26 @@ its quality.</p>
 
 <p><strong>Mentor:</strong> Wei Song <a href="mailto:ws327@cam.ac.uk">ws327@cam.ac.uk</a></p>
 
-<h2 id="implement-a-trusted-execution-environment:eb22b83c2d6e9df7cf3ac5c5b6d07977">Implement a trusted execution environment</h2>
+<h2 id="implement-a-trusted-execution-environment:eb22b83c2d6e9df7cf3ac5c5b6d07977">Implement a Trusted Execution Environment</h2>
 
-<p><strong>Summary:</strong> Port an existing open-source Trusted Execution environment to the
+<p><strong>Summary:</strong> Port an existing open-source Trusted Execution Environment to the
 lowRISC platform.</p>
 
-<p><a href="https://wiki.linaro.org/WorkingGroups/Security/OP-TEE">OP-TEE</a> is an
-open-source Trusted Execution Environment which seems like a good target for
-porting to RISC-V and the lowRISC minion cores. This project is potentially
-very large, so the key part of any proposal would be to break it down in to
-manageable chunks and to define sensible milestones and an achievable target
-for the end of the summer.</p>
+<p>A Trusted Execution Environment (TEE) runs in parallel to the general purpose
+OS (&lsquo;Rich OS&rsquo;) like Linux and executes security-sensitive tasks. Global
+Platform has standardized TEE and
+<a href="https://wiki.linaro.org/WorkingGroups/Security/OP-TEE">OP-TEE</a> is an
+open-source GP-compliant TEE, which seems like a good target for
+porting to RISC-V and the lowRISC minion cores. There are different
+options to implement the TEE and another important component is the
+trusted firmware to boot both the secure and the non-secure world. It
+is also thinkable to port OP-TEE as components running on an L4
+Microkernel, such as seL4 which
+<a href="http://heshamelmatary.blogspot.de/2015/10/a-talk-about-my-gsoc-project-with.html">has been ported in last years GSoC</a>.</p>
+
+<p>This project is potentially very large and it is important to discuss
+alternatives and define a good subset in the discussion with us before
+applying.</p>
 
 <p><strong>Links:</strong></p>
 
@@ -345,7 +354,7 @@ for the end of the summer.</p>
 
 <p><strong>Language:</strong> C</p>
 
-<p><strong>Mentor:</strong> Stefan Wallentowitz <a href="mailto:stefan@wallentowitz.de">stefan@wallentowitz.de</a></p>
+<p><strong>Mentor:</strong> Stefan Wallentowitz <a href="mailto:stefan@simless.com">stefan@simless.com</a></p>
 
 <h2 id="trace-debug-analysis-tool:eb22b83c2d6e9df7cf3ac5c5b6d07977">Trace-debug analysis tool</h2>
 
@@ -397,7 +406,7 @@ configured for different wireless standards.</p>
 
 <p><strong>Language:</strong> Verilog/VHDL/Chisel, C</p>
 
-<p><strong>Mentor:</strong> Stefan Wallentowitz <a href="mailto:stefan@wallentowitz.de">stefan@wallentowitz.de</a> and David May
+<p><strong>Mentor:</strong> Stefan Wallentowitz <a href="mailto:stefan@simless.com">stefan@simless.com</a> and David May
 <a href="mailto:david@simless.com">david@simless.com</a></p>
 
                     </section>

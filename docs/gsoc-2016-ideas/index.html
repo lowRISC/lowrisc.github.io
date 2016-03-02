@@ -409,6 +409,73 @@ configured for different wireless standards.</p>
 <p><strong>Mentor:</strong> Stefan Wallentowitz <a href="mailto:stefan@simless.com">stefan@simless.com</a> and David May
 <a href="mailto:david@simless.com">david@simless.com</a></p>
 
+<h2 id="implement-a-spir-v-front-end-for-nyuzi:eb22b83c2d6e9df7cf3ac5c5b6d07977">Implement a SPIR-V front end for Nyuzi</h2>
+
+<p><strong>Summary:</strong> Support the new SPIR-V intermediate language for the Nyuzi GPGPU.</p>
+
+<p><a href="https://www.khronos.org/spir">SPIR-V</a> is an intermediate language for
+parallel computation. Supporting SPIR-V on Nyuzi would allow a variety of
+parallel languages to target it. There is already an LLVM back-end for Nyuzi,
+so this task would consist of writing a front end that parses SPIR-V and
+converts it to the LLVM intermediate code form, using Nyuzi specific
+intrinsics for handling branch divergence.</p>
+
+<p><strong>Links:</strong></p>
+
+<ul>
+<li><a href="https://github.com/jbush001/NyuziProcessor">Nyuzi GPGPU</a></li>
+<li><a href="latchup.blogspot.com/2014/12/branch-divergence-in-parallel-kernels.html">A description of handling branch divergence using the Nyuzi LLVM
+backend</a></li>
+<li><a href="https://github.com/jbush001/NyuziToolchain/tree/master/tools/spmd-compile">Sample code for a parallel language front-end on
+Nyuzi</a></li>
+<li><a href="https://github.com/KhronosGroup/SPIRV-Tools">Source code for SPIR-V tools</a></li>
+</ul>
+
+<p><strong>Details:</strong></p>
+
+<p><strong>Skill level:</strong> advanced</p>
+
+<p><strong>Language:</strong> C++</p>
+
+<p><strong>Mentor:</strong> Jeff Bush <a href="mailto:jeffbush001@gmail.com">jeffbush001@gmail.com</a></p>
+
+<h2 id="port-an-operating-system-kernel-to-nyuzi:eb22b83c2d6e9df7cf3ac5c5b6d07977">Port an operating system kernel to Nyuzi</h2>
+
+<p><strong>Summary:</strong> Port an OS kernel of your choice to the Nyuzi GPGPU to put the
+recently added MMU and supervisor mode through its paces.</p>
+
+<p>Nyuzi currently runs programs on bare metal and doesn&rsquo;t have a real operating
+system. Supervisor mode and MMU support have recently been implemented in
+hardware. Porting an operating system would be useful both to test the
+hardware implementation and to enable more complex use cases.</p>
+
+<p>This project would consist of:</p>
+
+<ul>
+<li>Selecting an operating system such as FreeBSD or L4, or potentially creating
+a custom OS (Linux may be challenging because of its size and because it is
+heavily GCC dependent and Nyuzi uses an LLVM based toolchain). Ideally, the
+kernel should support virtual memory, multiple processes, and system/user
+mode.</li>
+<li>Writing Nyuzi specific drivers and BSP code for it, - Bring up and debugging
+it in the emulator and Verilog simulation (or, as a bonus, on FPGA)</li>
+<li>Potentially fixing hardware bugs and adding new hardware features if needed</li>
+</ul>
+
+<p><strong>Links:</strong></p>
+
+<ul>
+<li><a href="https://github.com/jbush001/NyuziProcessor">Nyuzi GPGPU</a></li>
+</ul>
+
+<p><strong>Details:</strong></p>
+
+<p><strong>Skill level:</strong> advanced</p>
+
+<p><strong>Language:</strong> C</p>
+
+<p><strong>Mentor:</strong> Jeff Bush <a href="mailto:jeffbush001@gmail.com">jeffbush001@gmail.com</a></p>
+
                     </section>
                 </article>
 

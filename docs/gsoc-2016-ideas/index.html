@@ -455,6 +455,96 @@ it in the emulator and Verilog simulation (or, as a bonus, on FPGA)</li>
 
 <p><strong>Mentor:</strong> Jeff Bush <a href="mailto:jeffbush001@gmail.com">jeffbush001@gmail.com</a></p>
 
+<h2 id="cmsis-dsp-on-pulpino:eb22b83c2d6e9df7cf3ac5c5b6d07977">CMSIS-DSP on PULPino</h2>
+
+<p><strong>Summary:</strong> Implement a subset of the ARM CMSIS DSP library on the Pulpino
+platform</p>
+
+<p>Pulpino is an open-source design containing a 32-bit RISC-V implementation
+enhanced with DSP extensions. The ARM CMSIS DSP library is a set of common
+signal processing functions. The implementation will consist in selecting a
+reasonable subset of the library, implementing it on Pulpino, finely optimizing
+it to take advantage of PULP&rsquo;s DSP extensions, and benchmarking it against
+an ARM implementation on a Cortex M4. This will help measuring the impact of
+the existing extensions and drive future extensions. The work could also be
+extended to the parallelization of this subset on the Pulp platform.</p>
+
+<p><strong>Links:</strong></p>
+
+<ul>
+<li><a href="http://www.pulp-platform.org">PULP</a></li>
+<li><a href="http://www.keil.com/pack/doc/CMSIS/DSP/html/index.html">CMSIS-DSP</a></li>
+</ul>
+
+<p><strong>Details:</strong></p>
+
+<p><strong>Skill level:</strong> intermediate</p>
+
+<p><strong>Language:</strong> C</p>
+
+<p><strong>Mentor:</strong> Germain Haugou <a href="mailto:haugoug@iis.ee.ethz.ch">haugoug@iis.ee.ethz.ch</a></p>
+
+<h2 id="doom-on-pulpino:eb22b83c2d6e9df7cf3ac5c5b6d07977">Doom on PULPino</h2>
+
+<p><strong>Summary:</strong> Porting DOOM on the PULPino platform</p>
+
+<p>In this project, we set the challenging objective of porting the DOOM game to
+PULPino - an open-source microcontroller platform based on a 32-bit RISC-V
+implementation with DSP extensions. The project will consist in 1) porting the
+main game engine on RISC-V, optimizing it by means of the PULPino DSP
+extensions; 2) test it using an artificial set of inputs, such as mouse data
+collected from running DOOM on a normal workstation, and check consistency with
+the expected outputs, 3) design of a simple interface for the Zedboard version
+of PULPino in Vivado, to enable using simple buttons for the input and a
+compatible HDMI display for the output.</p>
+
+<p>The project could easily be extended to provide a more advanced interface (e.g.
+a mouse) if you are interested in HW design.</p>
+
+<p><strong>Links:</strong></p>
+
+<ul>
+<li><a href="http://www.pulp-platform.org">PULP</a></li>
+<li><a href="https://github.com/id-Software/DOOM">DOOM</a></li>
+</ul>
+
+<p><strong>Details:</strong></p>
+
+<p><strong>Skill level:</strong> intermediate/high</p>
+
+<p><strong>Language:</strong> C, some Vivado FPGA work (no or very small amount of RTL coding)</p>
+
+<p><strong>Mentor:</strong> Francesco Conti <a href="mailto:f.conti@unibo.it">f.conti@unibo.it</a></p>
+
+<h2 id="arduino-to-pulpino-library-porting:eb22b83c2d6e9df7cf3ac5c5b6d07977">Arduino to Pulpino library porting</h2>
+
+<p><strong>Summary:</strong> Porting the Arduino software libraries to PULPino.</p>
+
+<p>PULPino is a small RISC-V based platform that has been published as open-source
+recently. The platform is using a highly optimized RISC-V core and contains all
+the necessary peripherals usually found on modern microcontrollers including
+SPI, I2C, GPIO and UART. PULPino is currently available for RTL simulation,
+FPGA (ZedBoard) and a first low-volume test chip was taped out in January. The
+goal of this project is to make PULPino compatible with the Arduino ecosystem
+and port the required libraries to the PULPino RISC-V  platform. If time
+permits a PCB for the test-chip can be created durig the project and/or some
+applications using the Arduino compatiblity layer can be developed.</p>
+
+<p><strong>Links:</strong></p>
+
+<ul>
+<li><a href="http://www.pulp-platform.org">PULP</a></li>
+<li><a href="https://www.arduino.cc/en/Main/Software">Arduino software</a></li>
+</ul>
+
+<p><strong>Details:</strong></p>
+
+<p><strong>Skill level:</strong> intermediate</p>
+
+<p><strong>Language:</strong> C/C++</p>
+
+<p><strong>Mentor:</strong> Andreas Traber <a href="mailto:atraber@iis.ee.ethz.ch">atraber@iis.ee.ethz.ch</a></p>
+
                     </section>
                 </article>
 

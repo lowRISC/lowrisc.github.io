@@ -3,8 +3,13 @@
   
   <url>
     <loc>http://www.lowrisc.org/</loc>
-    <lastmod>2016-06-03T12:12:49+01:00</lastmod>
+    <lastmod>2016-06-10T16:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/linux_compile/</loc>
+    <lastmod>2016-06-10T16:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -43,32 +48,17 @@
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/dev-env/</loc>
-    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/spike/</loc>
-    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://www.lowrisc.org/docs/untether-v0.2/bootload/</loc>
     <lastmod>2015-12-17T17:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/riscv_compile/</loc>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/dev-env/</loc>
     <lastmod>2015-12-17T17:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/linux_compile/</loc>
-    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/parameter/</loc>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/fpga-sim/</loc>
     <lastmod>2015-12-17T17:00:00+00:00</lastmod>
   </url>
   
@@ -78,7 +68,57 @@
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/fpga-sim/</loc>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/parameter/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/overview/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/mmio/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/pcr/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/release/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/simulation/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/rocket-core/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/riscv_compile/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/spike/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/vsim/</loc>
     <lastmod>2015-12-17T17:00:00+00:00</lastmod>
   </url>
   
@@ -89,46 +129,6 @@
   
   <url>
     <loc>http://www.lowrisc.org/docs/untether-v0.2/xilinx/</loc>
-    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/pcr/</loc>
-    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/mmio/</loc>
-    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/overview/</loc>
-    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/vsim/</loc>
-    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/release/</loc>
-    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/rocket-core/</loc>
-    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/simulation/</loc>
-    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/</loc>
     <lastmod>2015-12-17T17:00:00+00:00</lastmod>
   </url>
   

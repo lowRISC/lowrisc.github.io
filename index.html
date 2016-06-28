@@ -87,6 +87,62 @@
 		    <div class="li-article">
 			    <article>
     <header>
+        <h2><a href="http://www.lowrisc.org/blog/2016/06/announcing-the-librecores-design-contest-and-orconf-2016">Announcing the LibreCores design contest and ORConf 2016 </a></h2>
+        <time class="li-article-date">Tuesday, June 28, 2016</time>
+    </header>
+    <section class="li-article-section">
+        <p>Our friends and collaborators at the <a href="http://fossi-foundation.org/">Free and Open Source Silicon
+Foundation</a> have launched the <a href="http://librecores.org/designcontest">LibreCores design
+contest</a>. This is a student design
+contest which aims to recognise and reward contributions to the open source
+hardware ecosystem. The main evaluation criteria are:</p>
+
+<ul>
+<li>Openness. Your work must be published under an established Open Source
+license.</li>
+<li>Reusability. How easily can your work be used and modified by someone else?
+Is it well documented? Do you plan to continue to work on your project and help
+others to get started?</li>
+<li>Usefulness. Is your work filling a much-needed gap in the world of Open
+Source hardware design? Something that was not there before?</li>
+</ul>
+
+<p>See the <a href="http://librecores.org/designcontest">design contest site</a> for full
+details. The deadline for submission is August 31st, 2016. Entrants will have
+the opportunity to present their work at <a href="http://openrisc.io/orconf/">ORConf</a>,
+with some travel funding available thanks to the sponsors.</p>
+
+<p>This neatly leads me to the next activity I wanted to highlight in this post.
+Again, thanks to the hard work of our friends at FOSSi, registration is <a href="http://openrisc.io/orconf/">now
+open for ORConf 2016</a>. To quote that page: &ldquo;ORCONF
+is an open source digital design and embedded systems conference, covering
+areas of electronics from the transistor level up to Linux user space and
+beyond.  Expect presentations and discussion on free and open source IP
+projects, implementations on FPGA and in silicon, verification, EDA tools,
+licensing and embedded software&rdquo;.</p>
+
+<p><a href="http://openrisc.io/orconf/2015/">Last year&rsquo;s ORConf</a> was the biggest and most
+enthusiastic event focused on open source digital design I&rsquo;ve ever been to,
+and saw the birth of the FOSSi Foundation. Please do register to attend and
+submit talks. With the growing interest in open source hardware and open
+source digital logic design, I expect it will be even bigger and better than
+last year. ORConf 2016 will be held at the University of Bologna in Italy
+between October 7th and October 9th. <a href="http://openrisc.io/orconf/">Register
+now</a>.</p>
+
+<p><em>Alex Bradbury</em></p>
+
+    </section>
+    <footer>
+        <a href='http://www.lowrisc.org/blog/2016/06/announcing-the-librecores-design-contest-and-orconf-2016'>More</a>
+    </footer>
+</article>
+
+		    </div>
+		    
+		    <div class="li-article">
+			    <article>
+    <header>
         <h2><a href="http://www.lowrisc.org/blog/2016/06/lowriscs-2016-google-summer-of-code-students">lowRISC&#39;s 2016 Google Summer of Code Students </a></h2>
         <time class="li-article-date">Friday, June 3, 2016</time>
     </header>
@@ -1538,55 +1594,6 @@ please do leave them in the comments.</p>
     </section>
     <footer>
         <a href='http://www.lowrisc.org/blog/2015/05/summer-of-code-students-for-lowrisc'>More</a>
-    </footer>
-</article>
-
-		    </div>
-		    
-		    <div class="li-article">
-			    <article>
-    <header>
-        <h2><a href="http://www.lowrisc.org/blog/2015/04/lowrisc-tagged-memory-preview-release">lowRISC tagged memory preview release </a></h2>
-        <time class="li-article-date">Monday, April 13, 2015</time>
-    </header>
-    <section class="li-article-section">
-        <p>We&rsquo;re pleased to announce the <a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/">first lowRISC preview release</a>, demonstrating support for tagged memory as
-described in <a href="http://www.lowrisc.org/docs/memo-2014-001-tagged-memory-and-minion-cores/">our memo</a>. Our ambition with lowRISC is to provide an open-source System-on-Chip
-platform for others to build on, along with low-cost development boards
-featuring a reference implementation. Although there&rsquo;s more work to be done on
-the tagged memory implementation, now seemed a good time to document what
-we&rsquo;ve done in order for the wider community to take a look. Please see our
-<a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/">full tutorial</a> which describes in some
-detail the changes we&rsquo;ve made to the Berkeley <a href="https://github.com/ucb-bar/rocket">Rocket
-core</a>, as well as how you can build and try
-it out for yourself (either in simulation, or on an FPGA). We&rsquo;ve gone to some
-effort to produce this documentation, both to document our work, and to share
-our experiences building upon the Berkeley RISC-V code releases in the hopes
-they&rsquo;ll be useful to other groups.</p>
-
-<p>The initial motivation for tagged memory was to prevent control-flow hijacking
-attacks, though there are a range of other potential uses including
-fine-grained memory synchronisation, garbage collection, and debug tools.<br />
-Please note that the instructions used to manipulate tagged memory in this
-release (<code>ltag</code> and <code>stag</code>) are only temporary and chosen simply because they
-require minimal changes to the core pipeline. Future work will include
-exploring better ISA support, collecting performance numbers across a range of
-tagged memory uses and tuning the tag cache. We are also working on developing
-an &lsquo;untethered&rsquo; version of the SoC with the necessary peripherals integrated
-for standalone operation.</p>
-
-<p>If you&rsquo;ve visited lowrisc.org before, you&rsquo;ll have noticed we&rsquo;ve changed a few
-things around. Keep an eye on this blog (and its <a href="http://www.lowrisc.org/index.xml">RSS
-feed</a>) to keep an eye on developments - we
-expect to be updating at least every couple of weeks. We&rsquo;re very grateful to
-the RISC-V team at Berkeley for all their support and guidance. A large
-portion of the credit for this initial code release goes to <a href="http://wsong83.github.io/">Wei
-Song</a>, who&rsquo;s been working tirelessly on the HDL
-implementation.</p>
-
-    </section>
-    <footer>
-        <a href='http://www.lowrisc.org/blog/2015/04/lowrisc-tagged-memory-preview-release'>More</a>
     </footer>
 </article>
 

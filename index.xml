@@ -6,8 +6,57 @@
     <description>Recent content on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 10 Jun 2016 16:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jun 2016 15:39:34 +0100</lastBuildDate>
     <atom:link href="http://www.lowrisc.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Announcing the LibreCores design contest and ORConf 2016</title>
+      <link>http://www.lowrisc.org/blog/2016/06/announcing-the-librecores-design-contest-and-orconf-2016</link>
+      <pubDate>Tue, 28 Jun 2016 15:39:34 +0100</pubDate>
+      
+      <guid>http://www.lowrisc.org/blog/2016/06/announcing-the-librecores-design-contest-and-orconf-2016</guid>
+      <description>&lt;p&gt;Our friends and collaborators at the &lt;a href=&#34;http://fossi-foundation.org/&#34;&gt;Free and Open Source Silicon
+Foundation&lt;/a&gt; have launched the &lt;a href=&#34;http://librecores.org/designcontest&#34;&gt;LibreCores design
+contest&lt;/a&gt;. This is a student design
+contest which aims to recognise and reward contributions to the open source
+hardware ecosystem. The main evaluation criteria are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Openness. Your work must be published under an established Open Source
+license.&lt;/li&gt;
+&lt;li&gt;Reusability. How easily can your work be used and modified by someone else?
+Is it well documented? Do you plan to continue to work on your project and help
+others to get started?&lt;/li&gt;
+&lt;li&gt;Usefulness. Is your work filling a much-needed gap in the world of Open
+Source hardware design? Something that was not there before?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See the &lt;a href=&#34;http://librecores.org/designcontest&#34;&gt;design contest site&lt;/a&gt; for full
+details. The deadline for submission is August 31st, 2016. Entrants will have
+the opportunity to present their work at &lt;a href=&#34;http://openrisc.io/orconf/&#34;&gt;ORConf&lt;/a&gt;,
+with some travel funding available thanks to the sponsors.&lt;/p&gt;
+
+&lt;p&gt;This neatly leads me to the next activity I wanted to highlight in this post.
+Again, thanks to the hard work of our friends at FOSSi, registration is &lt;a href=&#34;http://openrisc.io/orconf/&#34;&gt;now
+open for ORConf 2016&lt;/a&gt;. To quote that page: &amp;ldquo;ORCONF
+is an open source digital design and embedded systems conference, covering
+areas of electronics from the transistor level up to Linux user space and
+beyond.  Expect presentations and discussion on free and open source IP
+projects, implementations on FPGA and in silicon, verification, EDA tools,
+licensing and embedded software&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://openrisc.io/orconf/2015/&#34;&gt;Last year&amp;rsquo;s ORConf&lt;/a&gt; was the biggest and most
+enthusiastic event focused on open source digital design I&amp;rsquo;ve ever been to,
+and saw the birth of the FOSSi Foundation. Please do register to attend and
+submit talks. With the growing interest in open source hardware and open
+source digital logic design, I expect it will be even bigger and better than
+last year. ORConf 2016 will be held at the University of Bologna in Italy
+between October 7th and October 9th. &lt;a href=&#34;http://openrisc.io/orconf/&#34;&gt;Register
+now&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>lowRISC&#39;s 2016 Google Summer of Code Students</title>

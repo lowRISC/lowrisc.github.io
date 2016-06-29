@@ -169,7 +169,7 @@ accordingly.</p>
 <p>To run a regression test:</p>
 
 <pre><code>cd $TOP/vsim
-make -j run-asm-tests
+make -j$(nproc) run-asm-tests
 </code></pre>
 
 <p>If any test case ever failed, again using <code>rv64ui-p-add</code> as an example, a VCD for this test case can be generated:</p>

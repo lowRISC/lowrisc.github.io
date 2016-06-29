@@ -109,7 +109,7 @@ cd $TOP/riscv-tools/riscv-fesvr
 mkdir build_fpga
 cd build_fpga
 ../configure --host=arm-xilinx-linux-gnueabi
-make -j
+make -j$(nproc)
 </code></pre>
 
 <p>Once compilation has completed, you should find the following files:</p>

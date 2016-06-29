@@ -176,7 +176,7 @@ cd $TOP/riscv-tools/riscv-isa-sim
 mkdir build
 cd build
 ../configure --prefix=$RISCV --with-fesvr=$RISCV --enable-histogram
-make -j
+make -j$(nproc)
 make install
 </code></pre>
 

@@ -116,7 +116,7 @@ cd linux-3.14.41
 git init
 git remote add origin https://github.com/lowrisc/riscv-linux.git
 git fetch
-git checkout -f -t origin/master
+git checkout -f -t origin/untether-v0.2
 make ARCH=riscv defconfig
 make ARCH=riscv -j vmlinux
 </code></pre>
@@ -139,7 +139,7 @@ cd $TOP/riscv-tools
 curl -L http://busybox.net/downloads/busybox-1.21.1.tar.bz2 | tar -xj
 cd busybox-1.21.1
 cp $TOP/riscv-tools/busybox_config .config
-make -j
+make -j$(nproc)
 </code></pre>
 
 <p>If the compilation finishes successfully, the BusyBox binary is generated in the same directory.</p>

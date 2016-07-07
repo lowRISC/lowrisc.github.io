@@ -5,7 +5,7 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
 
-        <title>Untethered lowRISC release &middot; lowRISC</title>
+        <title>lowRISC / IMC internship week one - VGA output &middot; lowRISC</title>
         <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' type='text/css'>
         <link rel="stylesheet" href="http://www.lowrisc.org/libraries/normalize.3.0.1.css" />
         <link rel="stylesheet" href="http://www.lowrisc.org/css/liquorice.css" />
@@ -84,7 +84,7 @@
                 <article class="li-article">
                 
                     <header class="li-article-header">
-                        <h1 class="li-article-title">Untethered lowRISC release</h1>
+                        <h1 class="li-article-title">lowRISC / IMC internship week one - VGA output</h1>
                         <span class="li-article-taxonomies">
                             
 
@@ -92,56 +92,53 @@
                         </span>
                         
                         
-                        <time class="li-article-date">Friday, December 18, 2015</time>
+                        <time class="li-article-date">Thursday, July 7, 2016</time>
                         
                     </header>
                     <section>
-                        <p>Over the past several months, we&rsquo;ve been working to provide a standalone or
-&lsquo;untethered&rsquo; SoC. Cores in the original <a href="https://github.com/ucb-bar/rocket-chip">Rocket
-chip</a> rely on communicating with a
-companion processor via the host-target interface (HTIF) to access peripherals
-and I/O. This release removes this requirement, adding an I/O bus and
-instantiating FPGA peripherals. The accompanying <a href="http://www.lowrisc.org/docs/untether-v0.2/">tutorial</a>, written by Wei Song, describes how to
-build this code release and explains the underlying structural changes. We
-support both the <a href="http://www.xilinx.com/products/boards-and-kits/ek-k7-kc705-g.html">Xilinx
-KC705</a> and
-the lower-priced <a href="http://store.digilentinc.com/nexys-4-ddr-artix-7-fpga-trainer-board-recommended-for-ece-curriculum/">Nexys4
-DDR</a>
-development boards. We would gladly welcome assistance in supporting other
-boards.</p>
+                        <p><em>Begnning on Monday, June 27th, we had a team of four University of
+Cambridge undergrads begin a 10 week
+internship working on the lowRISC project at the Computer Laboratory,
+kindly sponsored by <a href="http://www.imc.nl/">IMC Financial Markets</a> (who are also
+helping to advise this project). The team will be blogging regularly over the
+course of the summer - I&rsquo;ll pass over to them to introduce
+themselves.</em></p>
 
-<p>Please note that the codebase temporarily lacks support for tagged memory
-included in the <a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/">previous release</a>. We plan to re-integrate tagged memory support
-with additional optimisations early next year. You can find a detailed list of
-changes in the <a href="http://www.lowrisc.org/docs/untether-v0.2/release/">release notes</a>.
-One highlight is support for <a href="http://www.lowrisc.org/docs/untether-v0.2/vsim/">RTL simulation using the open-source Verilator
-tool</a>.</p>
+<p>After some initial brainstorming, we decided to aim to extend the
+current lowRISC SoC design to enable video output, with the final goal of
+playing video smoothly at a resolution of 640x480 on FPGA. The photo below
+shows the four of us (left to right: Gary Guo, Profir-Petru Pârțachi, Alistair Fisher,
+Nathanael Davison).</p>
 
-<p>This development milestone should make it easier for others to contribute. If
-you&rsquo;re looking to get stuck in, you might want to consider looking at tasks
-such as:</p>
+<p><img src="/blog/2016/imc_lowrisc_interns_potatocam.jpg" alt="2016 lowRISC/IMC 
+internship team" style="width: 450px;"/></p>
 
-<ul>
-<li>Cleaning up the <a href="https://github.com/lowRISC/riscv-linux">RISC-V Linux port</a>,
-improving devicetree support and removing the host-target interface.</li>
-<li>Replacing use of proprietary peripheral IP with open-source IP cores.</li>
-<li>Adding support for different FPGA development boards, including Altera
-boards.</li>
-<li>Implementing the <a href="http://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-852.pdf">BERI Programmable Interrupt
-Controller</a> (p73), and
-adding necessary Linux support.</li>
-</ul>
+<p>The final goal has been decomposed into several milestones: adding VGA
+functionality to lowRISC, adding an in-memory framebuffer, implementing a
+video codec for RISC-V and designing and creating a 2D accelerator to speed
+up video decoding. Our plan for the augmented SoC architecture is
+shown the in the diagram below:</p>
 
-<p>Our next development priorities are the re-integration of tagged memory
-support and an initial integration of a minion core design. We also expect to
-put out a job advert in the next few weeks for a new member of the lowRISC
-development team at the University of Cambridge Computer Laboratory.
-Interested applicants are encouraged to make informal enquiries about the post
-to Rob Mullins <a href="mailto:Robert.Mullins@cl.cam.ac.uk">Robert.Mullins@cl.cam.ac.uk</a>.</p>
+<p><img src="/blog/2016/imc_lowrisc_vga_diagram_week1.png" alt="Drawing" style="width: 650px;"/></p>
 
-<p>We hope to see many of you at the <a href="https://riscv.org/2015/12/prelim-agenda-3rd-risc-v-workshop/">3rd RISC-V
-Workshop</a> in January, where Wei Song
-and Alex Bradbury will be presenting about lowRISC.</p>
+<p>In our first week, we&rsquo;ve succeeded in adding VGA output to lowRISC, a
+demonstration of this is shown in the video below. The demo shows lowRISC
+instantiated on a Nexys4 DDR board (Artix-7) displaying a static image
+that has been loaded into its BRAM. This image is read from SD card by a
+bare-metal program on the RISC-V application core, which then loads it in to
+the memory-mapped BRAM we hooked up to the AXI-Lite bus. The on-chip BRAM
+is obviously a very limited resource, so our next step is to use the
+board&rsquo;s DRAM to hold the framebuffer and make use of the BRAM for a
+line-buffer.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/256wh1QOuH0" frameborder="0" allowfullscreen></iframe>
+
+<p>We aim to publish something every week, either in the form of a blog post
+like this or as a more detailed guide showing how to repeat our work. Next
+week we&rsquo;ll share a guide on how to enable VGA in lowRISC. By the end
+of the summer, as well as a working technical demo, we will also have
+produced detailed documentation on the whole process of adding a
+customised accelerator to lowRISC.</p>
 
                     </section>
                 </article>
@@ -157,9 +154,9 @@ and Alex Bradbury will be presenting about lowRISC.</p>
             <script type="text/javascript">
                  
                 var disqus_shortname = 'lowrisc'; 
-                var disqus_identifier = "/" + "blog/2015/12/untethered-lowrisc-release";
-                var disqus_title = "Untethered lowRISC release";
-                var disqus_url = "http://www.lowrisc.org" + "blog/2015/12/untethered-lowrisc-release";
+                var disqus_identifier = "/" + "blog/2016/07/lowrisc-/-imc-internship-week-one---vga-output";
+                var disqus_title = "lowRISC / IMC internship week one - VGA output";
+                var disqus_url = "http://www.lowrisc.org" + "blog/2016/07/lowrisc-/-imc-internship-week-one---vga-output";
 
                  
                 (function() {

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+    <head>
+        
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+        <title>Overview of the debug infrastructure &middot; lowRISC</title>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' type='text/css'>
+        <link rel="stylesheet" href="http://www.lowrisc.org/libraries/normalize.3.0.1.css" />
+        <link rel="stylesheet" href="http://www.lowrisc.org/css/liquorice.css" />
+        <link rel="shortcut icon" href="http://www.lowrisc.org/favicon.ico" />
+        <link rel="alternate" href="http://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-53520714-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+  </head>
+    <body class="li-body">
+
+<header class="li-page-header">
+  <div class="li-header-top">
+  </div>
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <div class="li-brand li-left">
+                
+                <a href="http://www.lowrisc.org"><img src="http://www.lowrisc.org/img/lowrisc_header_logo.png"/></a></div>
+                <div class="li-menu li-left">
+                    <span class="li-menu-icon" onclick="javascript:toggle('menu');">&#9776;</span>
+                    <ul id="menu2" class="li-menu-items">
+                        
+                            <li><a href="/"> Home </a></li>
+                        
+                            <li><a href="/about/"> About </a></li>
+                        
+                            <li><a href="/faq/"> FAQ </a></li>
+                        
+                            <li><a href="/docs/"> Docs </a></li>
+                        
+                            <li><a href="/community/"> Community </a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sixteen columns">
+                <ul id="menu" class="li-menu-items li-menu-mobile">
+                    
+                        <li><a href="/"> Home </a></li>
+                    
+                        <li><a href="/about/"> About </a></li>
+                    
+                        <li><a href="/faq/"> FAQ </a></li>
+                    
+                        <li><a href="/docs/"> Docs </a></li>
+                    
+                        <li><a href="/community/"> Community </a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <article class="li-article">
+                
+                  <p>
+                    <a href="http://www.lowrisc.org/docs/debug-v0.3/">⇡ Tutorial for the debug preview of lowRISC</a>
+                  </p>
+                
+                    <header class="li-article-header">
+                        <h1 class="li-article-title">Overview of the debug infrastructure</h1>
+                        <span class="li-article-taxonomies">
+                            
+
+                            
+                        </span>
+                        
+                        
+                    </header>
+                    <section>
+                        <p>For this release we have set the goal to create the basic debug
+infrastructure for lowRISC. Before we go into the details, we want to
+give you an overview about where we are heading with the debug
+infrastructure. Essentially, there are two methods to debug a
+processor:</p>
+
+<ul>
+<li><p>With <em>run-control debugging</em> the developer controls the processor
+core by setting breakpoints and stepping through instructions. This
+is what most people understand as debugging and <code>gdb</code> is probably
+the dominant tool for it.</p></li>
+
+<li><p><em>Trace debugging</em> differs from that by sampling the processor
+execution (program counter etc.) and generating a &ldquo;trace&rdquo; of the
+program execution. Most importantly that happens non-intrusively,
+meaning there is no impact on the program execution. Especially for
+multicore system-on-chip that enables debugging of concurrency
+issues or performance bottlenecks. Finally, also other hardware
+elements like a DMA or memory controller can be easily extended to
+generate traces.</p></li>
+</ul>
+
+<p>While we have support for run-control debugging in the roadmap, we
+currently focus on trace debugging. So for our first release we have
+defined the following functionalities we want to support:</p>
+
+<ul>
+<li><p>Generate a function trace (enter and leave functions) for the
+program</p></li>
+
+<li><p>Allow minimally intrusive software instrumentation with trace
+events</p></li>
+
+<li><p>Memory access and initialization</p></li>
+
+<li><p>Reset the system and cores remotely</p></li>
+
+<li><p>Serial communication (console) via the debug system</p></li>
+</ul>
+
+<p>In the picture below you can find an updated overview of the lowRISC
+system architecture. If you compare it to the
+<a href="http://www.lowrisc.org/docs/untether-v0.2/overview/">previous SoC overview</a> you
+can see that the major change and main topic of this tutorial is the
+new debug infrastructure.</p>
+
+<p><a name="figure-overview"></a>
+<img src="../figures/lowRISC_soc.png" alt="Drawing" style="width: 600px; padding: 20px 0px;"/></p>
+
+<p>You can find the functionalities covered by modules throughout the
+system. For best scalability and modularity we decided to connect the
+debug modules with a separate network. Currently we use one debug ring
+as a compromise between throughput and resource utilization. The
+following figure focuses on the debug system.</p>
+
+<p><a name="figure-debugsystem"></a>
+<img src="../figures/debug_system.png" alt="Drawing" style="width: 600px; padding: 20px 0px;"/></p>
+
+<p>The figure also shows the connection to the host PC that communicates
+with the debug modules with <em>debug packets</em>. The actual data transport
+between the host and the debug system is abstracted by using the
+<em>Generic Logic Interface Project (glip)</em> which provides a simple
+bi-directional FIFO interface and different physical interfaces like
+UART, USB and JTAG.</p>
+
+<p>We take out the work on the debug infrastructure as part of the
+<a href="http://www.opensocdebug.org">Open SoC Debug</a> project, where you can
+also find a
+<a href="http://opensocdebug.org/docs/overview/">broader introduction</a>. The
+debug infrastructure presented in this tutorial is just the first
+step. Before we jump into the details and get some hands-on
+experience, we want to briefly outline where the debug subsystem is
+headed:</p>
+
+<ul>
+<li><p>Once a <em>run-control interface</em> is available for the Rocket core we
+will include it as a debug module.</p></li>
+
+<li><p>Full system traces fastly blow up to multiple gigabyte per
+second. <em>(Cross-)Triggers and filters</em> help reducing the trace size
+and focus on the problem.</p></li>
+
+<li><p><em>On-chip trace processing</em> with a (dedicated) minion core can be
+used to aggregate and process basic trace information to high level
+information (knowledge).</p></li>
+
+<li><p><em>Trace buffering and output</em> on a separate high speed port or to
+DRAM broadens the use cases of the debug system.</p></li>
+</ul>
+
+<p>Please <a href="http://www.lowrisc.org/community/">get in touch with us</a> if you want
+have ideas and opinions about future directions we should take. Now
+its time to learn more about the debug system or jump into using it:</p>
+
+<ul>
+<li><p>More details</p>
+
+<ul>
+<li><a href="http://www.lowrisc.org/docs/debug-v0.3/interface/">Debug interface</a></li>
+<li><a href="http://www.lowrisc.org/docs/debug-v0.3/debugmodules/">Debug modules</a></li>
+<li><a href="http://www.lowrisc.org/docs/debug-v0.3/softwaremethodology/">Debug software and methodology</a></li>
+</ul></li>
+
+<li><p><a href="http://www.lowrisc.org/docs/debug-v0.3/environment/">Prepare the environment and get started</a></p></li>
+</ul>
+
+                    </section>
+                </article>
+
+        </div>
+    </div>
+    
+    <div class="row li-pagination">
+      <div class="eight columns">
+        <div class="li-pagination-previous">
+          &nbsp;
+          
+        </div>
+      </div>
+      <div class="eight columns">
+        <div class="li-pagination-next">
+          &nbsp;
+          
+          Next<br />
+          &nbsp;
+          <a href="http://www.lowrisc.org/docs/debug-v0.3/interface/"> Debug interface</a>
+          
+        </div>
+      </div>
+    </div>
+    
+
+
+                
+
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                 
+                var disqus_shortname = 'lowrisc'; 
+                var disqus_identifier = "/" + "docs/debug-v0.3/overview";
+                var disqus_title = "Overview of the debug infrastructure";
+                var disqus_url = "http://www.lowrisc.org" + "docs/debug-v0.3/overview";
+
+                 
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+            
+
+<footer class="li-page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script type="text/javascript">
+    function toggle(id) {
+        var e = document.getElementById(id);
+        e.style.display == 'block' ? e.style.display = 'none' : e.style.display = 'block';
+    }
+    </script>
+    </body>
+</html>
+

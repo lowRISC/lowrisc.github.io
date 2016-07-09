@@ -5,7 +5,7 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
 
-        <title>Install Xilinx Vivado &middot; lowRISC</title>
+        <title>Connecting to RTL simulation and enumeration &middot; lowRISC</title>
         <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' type='text/css'>
         <link rel="stylesheet" href="http://www.lowrisc.org/libraries/normalize.3.0.1.css" />
         <link rel="stylesheet" href="http://www.lowrisc.org/css/liquorice.css" />
@@ -84,11 +84,11 @@
                 <article class="li-article">
                 
                   <p>
-                    <a href="http://www.lowrisc.org/docs/untether-v0.2/dev-env/">⇡ A guide to the development environment</a>
+                    <a href="http://www.lowrisc.org/docs/debug-v0.3/walkthrough/">⇡ Debug walkthrough</a>
                   </p>
                 
                     <header class="li-article-header">
-                        <h1 class="li-article-title">Install Xilinx Vivado</h1>
+                        <h1 class="li-article-title">Connecting to RTL simulation and enumeration</h1>
                         <span class="li-article-taxonomies">
                             
 
@@ -100,80 +100,95 @@
                     <section>
                         
 
-<h3 id="download-and-install-xilinx-vivado:2105b1c254507869daddae6ab7f61853">Download and install Xilinx Vivado</h3>
+<h3 id="build-the-rtl-simulation:1309ac1f454c83e64e4e39116137b6b5">Build the RTL simulation</h3>
 
-<p>The Xilinx Vivado design suite can be downloaded from <a href="http://www.xilinx.com/support/download.html">http://www.xilinx.com/support/download.html</a> free of charge for registered users (registration is also free). For Ubuntu Linux, we recommend Vivado 2015.4.
-During the installation process, when asked for &ldquo;Select Edition to Install&rdquo;,
-please choose &ldquo;Vivado Design Edition&rdquo;. When choosing which packages to
-install, please add &ldquo;Software Development Kit&rdquo;. It is not required to install
-Xilinx Vivado in system directories, so choose any installation directory
-preferred. The installation requires around 21 GB of disk space.</p>
+<p>The RTL simulation is a compiled simulation of the entire system with
+cycle accuracy. You can generate the sources and build the simulation
+using:</p>
 
-<h3 id="license:2105b1c254507869daddae6ab7f61853">License</h3>
-
-<p>A license is required to use the Xilinx Vivado suite. For users who bought an
-FPGA developement kit, such as the KC705 kit, a voucher may be enclosed. This
-voucher will allow the user to generate a site and device locked license
-(version limited as well). Such a license will allow a user to implement
-designs targeting the sepecific FPGA used in the developement kit, such as
-Kintex-7 FPGAs for the KC705 kit. This license is a version limited one. Users
-are allowed to install and update the Xilinx Vivado suite for one year. Once
-the license is expired, the old Xilinx Vivado is still usable but not
-updateable.</p>
-
-<p>For users of low-end boards, such as the NEXYS4-DDR, you can apply a free
-WebPACK license which allows implementations targeting certain Artix-7,
-Kintex-7 and Zynq-7000 FPGAs
-[<a href="http://www.xilinx.com/products/design-tools/vivado/vivado-webpack.html">vivado-webpack</a>].</p>
-
-<p>To generate a license using a voucher or a WebPACK license, login to Xilinx
-and visit
-<a href="http://www.xilinx.com/getlicense">http://www.xilinx.com/getlicense</a>.</p>
-
-<h3 id="enviroment-settings:2105b1c254507869daddae6ab7f61853">Enviroment settings</h3>
-
-<p>Here is an example script for setting up the Xilinx Vivado suite.</p>
-
-<pre><code>#!/bin/bash
-# source the prepared script, assume Xilinx is installed to
-# /local/tool/Xilinx
-source /local/tool/Xilinx/Vivado/2015.4/settings64.sh
-# exporting XILINX_VIVADO is required for FPGA simulation
-export XILINX_VIVADO
-# setup the license
-export XILINXD_LICENSE_FILE=/PATH/TO/LICENSE/FILE
+<pre><code>CONFIG=DebugConfig make -C $TOP/vsim sim
 </code></pre>
 
-<p>Note to export the <code>XILINX_VIVADO</code> variable which is required by FPGA simulation.</p>
+<p>The build will take a few minutes.</p>
 
-<h3 id="usb-jtag-installation:2105b1c254507869daddae6ab7f61853">USB-JTAG installation</h3>
+<h3 id="start-the-rtl-simulation:1309ac1f454c83e64e4e39116137b6b5">Start the RTL simulation</h3>
 
-<p>The default JTAG and configuration method for the KC705 kit is the UART-JTAG cable. A driver is needed for Vivado to utilize this cable. We recommend to use the driver packages provided by Digilent: <a href="https://www.digilentinc.com/Products/Detail.cfm?Prod=ADEPT2">https://www.digilentinc.com/Products/Detail.cfm?Prod=ADEPT2</a>. For 64-bit Ubuntu, please download and install the following two deb packages:</p>
+<p>Next you can launch the RTL simulation and wait for the debug tool to
+connect:</p>
 
-<ul>
-<li>Adept 2.16.1 Runtime, X64 DEB</li>
-<li>Adept 2.2.1 Utilities, X64 DEB</li>
-</ul>
-
-<h3 id="usb-uart-installation:2105b1c254507869daddae6ab7f61853">USB-UART installation</h3>
-
-<p>The KC705 has a Silicon Labs CP2103GM USB-to-UART bridge. To utilize this
-bridge, please download the driver from
-<a href="http://www.silabs.com/Support%20Documents/Software/Linux_3.x.x_VCP_Driver_Source.zip">http://www.silabs.com/Support%20Documents/Software/Linux_3.x.x_VCP_Driver_Source.zip</a>.<br />
-Follow the instructions in the &ldquo;CP210x_VCP_Linux_3.13.x_Release_Notes.txt&rdquo;
-enclosed in the driver package.</p>
-
-<p>The FTDI USB-UART bridge chip used on NEXYS4-DDR is supported in Ubuntu 14.04 and does not require extra driver installation.</p>
-
-<p>The USB-UART bridge is normally shown in Ubuntu as /dev/ttyUSB0 ~ /dev/ttyUSB3. <a href="http://manpages.ubuntu.com/manpages/lucid/man1/microcom.1.html">Microcom</a>, <a href="http://cutecom.sourceforge.net/">CuteCom</a> or <a href="https://wiki.archlinux.org/index.php/Working_with_the_serial_console#Screen">Screen</a> can be used to connect to this console.</p>
-
-<pre><code>microcom -p /dev/ttyUSB0 -s 115200
+<pre><code>$TOP/vsim/DebugConfig-sim +waitdebug
 </code></pre>
 
-<p>By default, users are not allowed to connect to /dev/ttyUSB0 due to the lack of permission. The easiest way of resolving this issue is to add yourself to the dialout group.</p>
+<p>You will see the following output:</p>
 
-<pre><code>sudo adduser &lt;username&gt; dialout
+<pre><code>Glip TCP DPI listening on port 23000 and 23001
 </code></pre>
+
+<p>The simulation waits for the Open SoC Debug software to connect.</p>
+
+<p>You may want to debug the system with a waveform (vcd), which you need to
+compile a debug simulator and add the <code>+vcd</code> parameters.</p>
+
+<pre><code># compile a debug simulator
+CONFIG=DebugConfig make -C $TOP/vsim sim-debug
+# run simulation
+$TOP/vsim/DebugConfig-sim-debug +vcd +vcd_name=sim.vcd
+</code></pre>
+
+<p>The debugger allows you to load a program at run-time but you may want to
+pre-load a program using the <code>+load</code> parameter.</p>
+
+<pre><code>$TOP/vsim/DebugConfig-sim +load=program
+</code></pre>
+
+<h3 id="connect-the-debug-daemon:1309ac1f454c83e64e4e39116137b6b5">Connect the debug daemon</h3>
+
+<p>In a second terminal you can now start the daemon (don&rsquo;t forget to set
+up the environment in the second terminal):</p>
+
+<pre><code>opensocdebugd tcp
+</code></pre>
+
+<p>The daemon will connect using a local TCP connection and run the
+enumeration of the system, which leads to following output:</p>
+
+<pre><code>Open SoC Debug Daemon
+Backend: tcp
+System ID: dead
+6 debug modules found:
+ [0]: HOST
+   version: 0000
+ [1]: SCM
+   version: 0000
+ [2]: DEM-UART
+   version: 0000
+ [3]: MAM
+   version: 0000
+   data width: 16, address width: 32
+   number of regions: 1
+     [0] base address: 0x0000000040000000, memory size: 65536 Bytes
+     [1] base address: 0x0000000080000000, memory size: 134217728 Bytes
+ [4]: CTM
+   version: 0000
+ [5]: STM
+   version: 0000
+Wait for connection
+</code></pre>
+
+<p>You can see the system identifier (<code>dead</code>) and that six modules were
+found. Each module is listed by the type and the version. For the
+Memory Access Module (MAM) extra information is available, namely the
+data and address width and the available memory regions. Thats all the
+daemon does, it then waits for a tool to connect.</p>
+
+<p>On the first terminal (simulation) you can see that the daemon has
+connected:</p>
+
+<pre><code>Client connected
+</code></pre>
+
+<p>You are now ready to actually debug the system and software running in
+it.</p>
 
                     </section>
                 </article>
@@ -186,6 +201,10 @@ enclosed in the driver package.</p>
         <div class="li-pagination-previous">
           &nbsp;
           
+          Previous<br />
+          &nbsp;
+          <a href="http://www.lowrisc.org/docs/debug-v0.3/walkthrough/"> Debug walkthrough</a>
+          
         </div>
       </div>
       <div class="eight columns">
@@ -194,7 +213,7 @@ enclosed in the driver package.</p>
           
           Next<br />
           &nbsp;
-          <a href="http://www.lowrisc.org/docs/untether-v0.2/verilator/"> Install Verilator</a>
+          <a href="http://www.lowrisc.org/docs/debug-v0.3/debugsession/"> A debug session</a>
           
         </div>
       </div>
@@ -208,9 +227,9 @@ enclosed in the driver package.</p>
             <script type="text/javascript">
                  
                 var disqus_shortname = 'lowrisc'; 
-                var disqus_identifier = "/" + "docs/untether-v0.2/xilinx";
-                var disqus_title = "Install Xilinx Vivado";
-                var disqus_url = "http://www.lowrisc.org" + "docs/untether-v0.2/xilinx";
+                var disqus_identifier = "/" + "docs/debug-v0.3/simulation";
+                var disqus_title = "Connecting to RTL simulation and enumeration";
+                var disqus_url = "http://www.lowrisc.org" + "docs/debug-v0.3/simulation";
 
                  
                 (function() {

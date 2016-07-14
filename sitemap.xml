@@ -3,17 +3,22 @@
   
   <url>
     <loc>http://www.lowrisc.org/</loc>
-    <lastmod>2016-07-08T11:00:00+00:00</lastmod>
+    <lastmod>2016-07-14T16:08:07+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/debug-v0.3/add_device/</loc>
-    <lastmod>2016-07-08T11:00:00+00:00</lastmod>
+    <loc>http://www.lowrisc.org/blog/2016/07/notes-from-the-fourth-risc-v-workshop</loc>
+    <lastmod>2016-07-14T16:08:07+01:00</lastmod>
   </url>
   
   <url>
     <loc>http://www.lowrisc.org/docs/debug-v0.3/addrmap/</loc>
+    <lastmod>2016-07-08T11:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/debug-v0.3/add_device/</loc>
     <lastmod>2016-07-08T11:00:00+00:00</lastmod>
   </url>
   
@@ -43,42 +48,7 @@
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/debug-v0.3/debugmodules/</loc>
-    <lastmod>2016-05-16T12:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://www.lowrisc.org/docs/debug-v0.3/debugsession/</loc>
-    <lastmod>2016-05-16T12:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.lowrisc.org/docs/debug-v0.3/environment/</loc>
-    <lastmod>2016-05-16T12:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.lowrisc.org/docs/debug-v0.3/fpga/</loc>
-    <lastmod>2016-05-16T12:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.lowrisc.org/docs/debug-v0.3/lowriscsetup/</loc>
-    <lastmod>2016-05-16T12:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.lowrisc.org/docs/debug-v0.3/</loc>
-    <lastmod>2016-05-16T12:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.lowrisc.org/docs/debug-v0.3/osdsoftware/</loc>
-    <lastmod>2016-05-16T12:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.lowrisc.org/docs/debug-v0.3/release/</loc>
     <lastmod>2016-05-16T12:00:00+00:00</lastmod>
   </url>
   
@@ -88,7 +58,12 @@
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/debug-v0.3/overview/</loc>
+    <loc>http://www.lowrisc.org/docs/debug-v0.3/interface/</loc>
+    <lastmod>2016-05-16T12:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/debug-v0.3/debugmodules/</loc>
     <lastmod>2016-05-16T12:00:00+00:00</lastmod>
   </url>
   
@@ -103,7 +78,37 @@
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/debug-v0.3/interface/</loc>
+    <loc>http://www.lowrisc.org/docs/debug-v0.3/lowriscsetup/</loc>
+    <lastmod>2016-05-16T12:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/debug-v0.3/osdsoftware/</loc>
+    <lastmod>2016-05-16T12:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/debug-v0.3/overview/</loc>
+    <lastmod>2016-05-16T12:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/debug-v0.3/environment/</loc>
+    <lastmod>2016-05-16T12:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/debug-v0.3/release/</loc>
+    <lastmod>2016-05-16T12:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/debug-v0.3/fpga/</loc>
+    <lastmod>2016-05-16T12:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/debug-v0.3/</loc>
     <lastmod>2016-05-16T12:00:00+00:00</lastmod>
   </url>
   
@@ -143,7 +148,22 @@
   </url>
   
   <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/spike/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://www.lowrisc.org/docs/untether-v0.2/bootload/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/riscv_compile/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/parameter/</loc>
     <lastmod>2015-12-17T17:00:00+00:00</lastmod>
   </url>
   
@@ -158,32 +178,12 @@
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/</loc>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/verilator/</loc>
     <lastmod>2015-12-17T17:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/mmio/</loc>
-    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/parameter/</loc>
-    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/overview/</loc>
-    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/rocket-core/</loc>
-    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/riscv_compile/</loc>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/xilinx/</loc>
     <lastmod>2015-12-17T17:00:00+00:00</lastmod>
   </url>
   
@@ -193,12 +193,12 @@
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/simulation/</loc>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/mmio/</loc>
     <lastmod>2015-12-17T17:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/release/</loc>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/overview/</loc>
     <lastmod>2015-12-17T17:00:00+00:00</lastmod>
   </url>
   
@@ -208,17 +208,22 @@
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/spike/</loc>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/release/</loc>
     <lastmod>2015-12-17T17:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/verilator/</loc>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/rocket-core/</loc>
     <lastmod>2015-12-17T17:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.lowrisc.org/docs/untether-v0.2/xilinx/</loc>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/simulation/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/untether-v0.2/</loc>
     <lastmod>2015-12-17T17:00:00+00:00</lastmod>
   </url>
   

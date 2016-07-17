@@ -98,20 +98,55 @@
                         
                     </header>
                     <section>
-                        <p>Thanks to the continuous development from the RISC-V group in Berkeley, there are a lot of structure reshuffle and extra features incorporated in this release.</p>
+                        <p>Thanks to the continuous development from the RISC-V group at UC Berkeley, there are a lot of structure reshuffle and extra features incorporated in this release.</p>
 
 <p><a name="figure-overview"></a>
 <img src="../figures/lowRISC_soc.png" alt="Drawing" style="width: 500px; padding: 20px 0px;"/></p>
 
 <ul>
 <li><p><strong>Shared TileLink MEM network for both cached (memory) accesses and uncached (IO) accesses.</strong>
-<br>In the previous untethered release, cached memory accesses and uncached IO accesses are separated early in the L1 D$, which has the benefit of small on-chip interconnects and less interference to the memory interconnect from IO transactions. However, this leads to troubles when a peripheral, such as a DMA, need to access the memory (L2 cache). This release follows the choice from RISC-V that separate uncached IO transactions from cached memory accesses at the coherent TileLink MEM network. As a result, the debug MAM module can access memory as well as all IO space by a single access point to the MEM network.</p></li>
+<br>In the previous untethered release, cached memory accesses and uncached IO accesses are separated early in the L1 D$, which has the benefit of small on-chip interconnects and less interference to the memory interconnect from IO transactions. However, this leads to troubles when a peripheral, such as a DMA, needs to access the memory (L2 cache). This release follows the choice from RISC-V that separates uncached IO transactions from cached memory accesses at the coherent TileLink MEM network. As a result, the debug MAM module can access memory as well as all IO space by a single access point to the MEM network.</p></li>
 
 <li><p><strong>A global memory space regulator: address map</strong>
-<br>A static data structure is added into the Rocket-chip</p></li>
-</ul>
+<br>A static data structure is added into the Rocket-chip to regulate the size and the R/W/X permission of all memory sections. It uses a hierarchical map to store all memory sections. For the standalone FPGA demo, the map should look like:<br><br>
+&nbsp;&nbsp;<code>&lt;&quot;io&quot;, 0x00000000-0x7fffffff&gt;</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;&quot;int&quot;, 0x00000000-0x3fffffff&gt;</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;&quot;bootrom&quot;, 0x00000000-0x00001fff, RX&gt;</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;&quot;rtc&quot;, 0x00002000-0x00002fff, RW&gt;</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;&quot;prci0&quot;, 0x00003000-0x00003fff, RW&gt;</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;&quot;ext&quot;, 0x40000000-0x7fffffff&gt;</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;&quot;bram&quot;, 0x40000000-0x4000ffff, RWX&gt;</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;&quot;uart&quot;, 0x40010000-0x40011fff, RW&gt;</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;&quot;spi&quot;, 0x40012000-0x40013fff, RW&gt;</code><br>
+&nbsp;&nbsp;<code>&lt;&quot;mem&quot;, 0x80000000-0xffffffff, RWX&gt;</code><br>
+<br>Note that the base address of each memory section is calculated automatically during the Chisel compilation. For a detail look of the address map, please read the related part in <code>$TOP/src/main/scala/Configs.scala</code> (initialization of the address map) and <code>$TOP/junctions/src/main/scala/addrmap.scala</code> (implementation of the address map).</p></li>
 
-<p><em>To be finished soon.</em></p>
+<li><p><strong>Boot ROM</strong>
+<br>A boot ROM is added into the SoC, which should always located at the reset address (0x00000000 by default). The current boot ROM has two parts: The first several instructions redirect PC to the on-chip BRAM if it is enabled or to the DDR RAM. The reset of the ROM has a configuration string, which stores a simplified device tree. This configuration string identifies the number and types of processors on chip along with the address map. For the standalone FPGA demo, the configuration string should read as:<br><br>
+&nbsp;&nbsp;<code>platform {</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>vendor lowRISC;</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>arch rocket;</code><br>
+&nbsp;&nbsp;<code>};</code><br>
+&nbsp;&nbsp;<code>rtc {</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>addr 0x2000;</code><br>
+&nbsp;&nbsp;<code>};</code><br>
+&nbsp;&nbsp;<code>ram {</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>0 {</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>addr 0x80000000;</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>size 0x8000000;</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>};</code><br>
+&nbsp;&nbsp;<code>};</code><br>
+&nbsp;&nbsp;<code>core {</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>0 {</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>0 {</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>isa rv64imafd;</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>timecmp 0x2008;</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>ipi 0x3000;</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>};</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>};</code><br>
+&nbsp;&nbsp;<code>};</code><br>
+<br>This configuration string is automatically generated by <code>makeBootROM()</code> in <code>$TOP/src/main/scala/LowRISCChip.scala</code> Note that not all sections in address map is recorded in the configuration string. We will rectify this soon. With this configuration string in the boot ROM, bootloaders and the Linux kernel are able to probe the SoC structure without external device tree files.</p></li>
+</ul>
 
                     </section>
                 </article>

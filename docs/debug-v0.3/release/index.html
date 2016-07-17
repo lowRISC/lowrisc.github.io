@@ -98,7 +98,49 @@
                         
                     </header>
                     <section>
-                        <p>To be finished soon.</p>
+                        
+
+<h3 id="release-notes:6cd007d62737e5a12b005b4414d7b899">Release notes</h3>
+
+<ul>
+<li>Rocket-core (Chisel)
+
+<ul>
+<li>Add core trace and software trace modules in each Rocket cores using Chisel black-boxes.</li>
+<li>Add Chisel debug network in Rocket-chip to connect the debug modules in cores.</li>
+<li>Add a trace CSR (swtrace) for software trace triggering.</li>
+<li>Merge the latest (05-2016) updates from RISC-V.</li>
+<li>Use the shared TileLink MEM network and reduce code discrepancy with the upstream RISC-V to the minimal.</li>
+<li>Updated <code>Configs.scala</code> and <code>LowRISCChip.scala</code> to utilize new features from the upstream RISC-V.</li>
+</ul></li>
+<li>lowRISC-chip
+
+<ul>
+<li>Add trace debugger from Open SoC Debug.</li>
+<li>Upgrade the IO side NASTI to a full NASTI interface.</li>
+<li>Rewrite the NASTI to NASTI-Lite interface in socip.</li>
+<li>Re-struct the SystemVerilog top level to use macros from Chisel compiler.</li>
+</ul></li>
+<li>Design environment
+
+<ul>
+<li>A NEXYS4-DDR FPGA demo.</li>
+<li>Better Makefile supports.</li>
+</ul></li>
+<li>Missing from this release vs the previous
+
+<ul>
+<li>No tagged memory support (will be added back soon).</li>
+<li>No support for ZedBoard and KC705.</li>
+</ul></li>
+</ul>
+
+<h3 id="previous-releases:6cd007d62737e5a12b005b4414d7b899">Previous releases</h3>
+
+<ul>
+<li><a href="http://www.lowrisc.org/docs/untether-v0.2/"><strong>Version 0.2</strong>: untethered lowRISC (12-2015)</a></li>
+<li><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/"><strong>Version 0.1</strong>: tagged memory (04-2015)</a></li>
+</ul>
 
                     </section>
                 </article>
@@ -113,7 +155,7 @@
           
           Previous<br />
           &nbsp;
-          <a href="http://www.lowrisc.org/docs/debug-v0.3/fpga/"> Running on the FPGA</a>
+          <a href="http://www.lowrisc.org/docs/debug-v0.3/add_device/"> How to add a new peripherial</a>
           
         </div>
       </div>

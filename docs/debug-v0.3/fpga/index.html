@@ -104,7 +104,7 @@
 debug system will use the UART connection at 3 MBaud to communicate
 with the debug system.</p>
 
-<h2 id="run-the-pre-built-fpga-demo-with-trace-debugger:2b37e9ffd044e2f81b36b8d798aa8a19">Run the pre-built FPGA demo with trace debugger</h2>
+<h2 id="run-the-pre-built-fpga-demo-with-a-trace-debugger:2b37e9ffd044e2f81b36b8d798aa8a19">Run the pre-built FPGA demo with a trace debugger</h2>
 
 <p>The files you may needed:</p>
 
@@ -198,20 +198,25 @@ curl -L https://github.com/lowRISC/lowrisc-chip/releases/download/v0.3/boot.bin 
 
 <h3 id="generate-the-bitstream:2b37e9ffd044e2f81b36b8d798aa8a19">Generate the bitstream</h3>
 
-<p>To generate a bitstream change to the FPGA directory and use <code>make</code> to
-build it:</p>
+<h4 id="fpga-demo-with-a-trace-debugger:2b37e9ffd044e2f81b36b8d798aa8a19">FPGA demo with a trace debugger</h4>
 
 <pre><code>cd $TOP/fpga/board/nexys4_ddr
-make bitstream
+make cleanall
+CONFIG=Nexys4DebugConfig make jump
 </code></pre>
 
-<p>The generated bitstream is located at <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code>.
-This will take some time (20-60 minutes depending on your
-computer). By default a debug enabled bitstream is generated. To generate a standalone bitstream, change the <code>CONFIG</code> target in Makefile to Nexys4Config and rerun the steps:</p>
+<p>The generated bitstream is located at <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code>.
+This will take some time (20-60 minutes depending on your computer).</p>
 
-<pre><code>make cleanall
-make bitstream
+<h4 id="standalone-fpga-demo-without-a-trace-debugger:2b37e9ffd044e2f81b36b8d798aa8a19">standalone FPGA demo without a trace debugger</h4>
+
+<pre><code>cd $TOP/fpga/board/nexys4_ddr
+make cleanall
+CONFIG=Nexys4Config make boot
 </code></pre>
+
+<p>The generated bitstream is located at <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code>.
+This will take some time (20-60 minutes depending on your computer).</p>
 
 <h3 id="program-the-fpga:2b37e9ffd044e2f81b36b8d798aa8a19">Program the FPGA</h3>
 
@@ -237,21 +242,46 @@ $TOP/riscv-tools/make_root.sh
 
 <p>If everything runs OK, you should have a boot.bin file.</p>
 
-<h3 id="bootloader-variants:2b37e9ffd044e2f81b36b8d798aa8a19">Bootloader variants</h3>
+<h2 id="useful-makefile-targets:2b37e9ffd044e2f81b36b8d798aa8a19">Useful Makefile targets</h2>
 
-<p>You can regenerate the 1st bootloader and put it into the FPGA bitstream.</p>
+<h4 id="make-project:2b37e9ffd044e2f81b36b8d798aa8a19"><code>make project</code></h4>
 
-<p>To generate <code>nexys4ddr_bram_jump.riscv</code>:</p>
+<p>Generate a Vivado project.</p>
 
-<pre><code>make jump
-</code></pre>
+<h4 id="make-verilog:2b37e9ffd044e2f81b36b8d798aa8a19"><code>make verilog</code></h4>
 
-<p>The bootloader is generated as <code>$TOP/fpga/bare_metal/examples/jump.riscv</code>, and it is automatically loaded in a new bitstream at</p>
+<p>Run Chisel compiler and generate the Verilog files for Rocket chip.</p>
 
-<pre><code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit
-</code></pre>
+<h4 id="make-vivado:2b37e9ffd044e2f81b36b8d798aa8a19"><code>make vivado</code></h4>
 
-<p>To have the <code>nexys4ddr_bram_boot.riscv</code>, change the make target to boot. Similarly it is automatically loaded to the &ldquo;new&rdquo; bitstream.</p>
+<p>Open the Vivdao GUI using the current project.</p>
+
+<h4 id="make-bitstream:2b37e9ffd044e2f81b36b8d798aa8a19"><code>make bitstream</code></h4>
+
+<p>Generate the default bitstream according to the <code>CONFIG</code> in Makefile and the program loaded in <code>src/boot.mem</code>. The default bitstream is generated at <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code></p>
+
+<h4 id="make-hello-dram-sdcard-boot-jump-trace:2b37e9ffd044e2f81b36b8d798aa8a19"><code>make &lt;hello|dram|sdcard|boot|jump|trace&gt;</code></h4>
+
+<p>Generate botstreams for bare-metal tests:</p>
+
+<ul>
+<li><strong>hello</strong> A hello world program.</li>
+<li><strong>dram</strong> A DDR RAM test.</li>
+<li><strong>sdcard</strong> A SD card read/write test.</li>
+<li><strong>boot</strong> A 1st bootloader that loads <code>boot.bin</code> from SD to DDR RAM and executes <code>boot.bin</code> afterwards.</li>
+<li><strong>jump</strong> A 1st stage booloader that directly jumps to DDR RAM.</li>
+<li><strong>trace</strong> A software trace demo.</li>
+</ul>
+
+<p>For each bare-metal test <code>&lt;test&gt;</code>, the executable is generated to <code>$TOP/fpga/bare_metal/examples/&lt;test&gt;.riscv</code>. It is also converted into a hex file and copied to <code>src/boot.mem</code>, which then changes the default program for <code>make bitstream</code> and <code>make simulation</code>. The updated bitstream is generated at <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code></p>
+
+<h4 id="make-program-program-updated:2b37e9ffd044e2f81b36b8d798aa8a19"><code>make &lt;program|program-updated&gt;</code></h4>
+
+<p>Download a bitstream to FPGA. Use <code>program</code> for <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code> and <code>program-updated</code> for <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code></p>
+
+<h4 id="make-clean-cleanall:2b37e9ffd044e2f81b36b8d798aa8a19"><code>make &lt;clean|cleanall&gt;</code></h4>
+
+<p><code>make clean</code> will remove all generated code without removing the Vivdao project files. To remove all files including the Vivdao project, use <code>make cleanall</code>.</p>
 
                     </section>
                 </article>

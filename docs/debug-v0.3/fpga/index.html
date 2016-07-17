@@ -127,6 +127,9 @@ vivado -mode batch -source $TOP/fpga/common/script/program.tcl -tclargs &quot;xc
 
 <p>There are two ways to boot a RISC-V Linux. For both cases, we need to open the debug daemon to load programs and connect to the UART console.</p>
 
+<pre><code>opensocdebugd uart device=/dev/ttyUSB0 speed=3000000
+</code></pre>
+
 <h4 id="directly-load-linux-to-ddr-ram:2b37e9ffd044e2f81b36b8d798aa8a19">Directly load Linux to DDR RAM</h4>
 
 <p>The pre-built FPGA bitstream has a jump program as the 1st stage bootloader (in an on-chip BRAM) which just jump to DDR RAM.

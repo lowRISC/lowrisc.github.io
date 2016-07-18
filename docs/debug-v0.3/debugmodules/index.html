@@ -101,8 +101,8 @@
                         
 
 <p>In the following we will give you a brief overview of the debug
-modules employed in this release. They are all at the first
-implementation state, but contain the basic functionality we will
+modules employed in this release. They are all at a relatively early stage of
+implementation, but contain the basic functionality we will
 extend over the next months. Please find more details about the
 modules at <a href="http://opensocdebug.org">Open SoC Debug</a>.</p>
 
@@ -126,8 +126,8 @@ e.g., the information about the memory layout, the reset control, etc.</p>
 
 <h3 id="system-control-module-scm:6678bd0c1462a153f54fc674dbdff1d5">System Control Module (SCM)</h3>
 
-<p>The SCM is the only mandatory module. On the one hand it provides the
-<em>system information</em>:</p>
+<p>The SCM is the only mandatory module. One of its main functions is to
+provide the <em>system information</em>:</p>
 
 <ul>
 <li><p>A system ID, which can be used by debug tools to identify the
@@ -158,7 +158,7 @@ incoherent to the caches. The host can read and write single words
 with a byte strobe or read and write bursts of words.</p>
 
 <p>In this tutorial we use the MAM to initialize the memory, but the use
-cases are by far not limited to this.</p>
+cases are not limited to this.</p>
 
 <p><a name="figure-mam"></a>
 <img src="../figures/debug_module_mam.png" alt="MAM" style="padding: 20px 0px;"/></p>
@@ -205,9 +205,9 @@ assembly), but still this is speculative and the ELF is needed to
 determine which of the jumps were actually related.</p></li>
 </ul>
 
-<p>This already generates a good amount of trace events and with
-increasing information to gain from core trace better filtering and
-compression will be mandatory.</p>
+<p>This already generates a high volume of trace events and with
+increasing information, better filtering and
+compression will be mandatory to take full advantage of tracing.</p>
 
 <p><a name="figure-ctm"></a>
 <img src="../figures/debug_module_ctm.png" alt="CTM" style="padding: 20px 0px;"/></p>
@@ -217,7 +217,7 @@ compression will be mandatory.</p>
 <p>We introduce another kind of trace beside the core trace. The latter
 is generated independently from the actual software and is thereby
 non-intrusive. A better directed approach is to instrument the
-software with trace events, for example you could instrument your dma
+software with trace events, for example you could instrument your DMA
 driver like this:</p>
 
 <pre><code>uint8_t *buffer = malloc(42);

@@ -98,17 +98,30 @@
                         
                     </header>
                     <section>
-                        <p>Thanks to the continuous development from the RISC-V group at UC Berkeley, there are a lot of structure reshuffle and extra features incorporated in this release.</p>
+                        <p>Thanks to the continuous development from the RISC-V group at UC Berkeley,
+there are a lot of structure changes and extra features incorporated in this
+release.</p>
 
 <p><a name="figure-overview"></a>
 <img src="../figures/lowRISC_soc.png" alt="Drawing" style="width: 500px; padding: 20px 0px;"/></p>
 
 <ul>
 <li><p><strong>Shared TileLink MEM network for both cached (memory) accesses and uncached (IO) accesses.</strong>
-<br>In the previous untethered release, cached memory accesses and uncached IO accesses are separated early in the L1 D$, which has the benefit of small on-chip interconnects and less interference to the memory interconnect from IO transactions. However, this leads to troubles when a peripheral, such as a DMA, needs to access the memory (L2 cache). This release follows the choice from RISC-V that separates uncached IO transactions from cached memory accesses at the coherent TileLink MEM network. As a result, the debug MAM module can access memory as well as all IO space by a single access point to the MEM network.</p></li>
+<br>In the previous untethered release, cached memory accesses and uncached IO
+accesses are separated early in the L1 D$, which has the benefit of small
+on-chip interconnects and less interference to the memory interconnect from IO
+transactions. However, this leads to troubles when a peripheral, such as a
+DMA, needs to access the memory (L2 cache). This release follows the choice
+from the upstream Rocket design that separates uncached IO transactions from
+cached memory accesses at the coherent TileLink MEM network. As a result, the
+debug MAM module can access memory as well as all IO space by a single access
+point to the MEM network.</p></li>
 
 <li><p><strong>A global memory space regulator: address map</strong>
-<br>A static data structure is added into the Rocket-chip to regulate the size and the R/W/X permission of all memory sections. It uses a hierarchical map to store all memory sections. For the standalone FPGA demo, the map should look like:<br><br>
+<br>A static data structure is added into the Rocket-chip to regulate the size
+and the R/W/X permission of all memory sections. It uses a hierarchical map to
+store all memory sections. For the standalone FPGA demo, the map should look
+like:<br><br>
 &nbsp;&nbsp;<code>&lt;&quot;io&quot;, 0x00000000-0x7fffffff&gt;</code><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;&quot;int&quot;, 0x00000000-0x3fffffff&gt;</code><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;&quot;bootrom&quot;, 0x00000000-0x00001fff, RX&gt;</code><br>

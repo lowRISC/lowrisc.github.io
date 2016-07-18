@@ -102,17 +102,17 @@
 (<a href="http://www.glip.io/modules.html">glip API</a>) to communicate with the
 target. On top of the basic access functions the Open SoC Debug
 library (<code>libopensocdebug</code>) provides the API to abstract from basic
-I/O functions. It covers low level packetization, the proper handling
+I/O functions. It covers low-level packetization, the proper handling
 of debug packets like register accesses and provides the convenience
-functions for the different types of modules. The following figures
+functions for the different types of modules. The following figure
 sketches the different API components.</p>
 
 <p><a name="figure-softwarelayers"></a>
 <img src="../figures/software_layers.png" alt="Software layers" style="padding: 20px 0px;"/></p>
 
-<p>Debug tools can either use the debug by linking to the
-library. Another option is to use the debug daemon, which allows
-different tools to use the debug system in parallel. For example a gdb
+<p>Debug tools can either use debug by linking to the
+library or by using the debug daemon, which allows
+different tools to use the debug system in parallel. For example, a gdb
 session may be used while a trace user interface is used for plotting
 the trace events. The daemon spawns a socket for each tool on request
 and the tools can claim debug features exclusively. The tools also

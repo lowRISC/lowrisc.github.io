@@ -100,13 +100,13 @@
                     <section>
                         
 
-<p>In this final step, we want to test the debug on the FPGA board. The
-debug system will use the UART connection at 3 MBaud to communicate
-with the debug system.</p>
+<p>In this final step, we want to test the debug functionality on an FPGA board.
+The debug system will use the UART connection at 3 MBaud to communicate with
+the debug system.</p>
 
 <h2 id="run-the-pre-built-fpga-demo-with-a-trace-debugger:2b37e9ffd044e2f81b36b8d798aa8a19">Run the pre-built FPGA demo with a trace debugger</h2>
 
-<p>The files you may needed:</p>
+<p>The files you may need:</p>
 
 <ul>
 <li><a href="https://github.com/lowRISC/lowrisc-chip/releases/download/v0.3/nexys4ddr_fpga_debug.bit">nexys4ddr_fpga_debug.bit</a>:
@@ -114,7 +114,7 @@ The debug enabled FPGA bitstream</li>
 <li><a href="https://github.com/lowRISC/lowrisc-chip/releases/download/v0.3/boot.bin">boot.bin</a>:
 Linux, Busybox and bootloader packaged in one image.</li>
 <li><a href="https://github.com/lowRISC/lowrisc-chip/releases/download/v0.3/nexys4ddr_bram_boot.riscv">nexys4ddr_bram_boot.riscv</a>:
-A 1st bootloader to copy a program from SD to DDR RAM.</li>
+A 1st stage bootloader to copy a program from SD to DDR RAM.</li>
 </ul>
 
 <p>Download and write the bitstream</p>
@@ -132,8 +132,9 @@ vivado -mode batch -source $TOP/fpga/common/script/program.tcl -tclargs &quot;xc
 
 <h4 id="directly-load-linux-to-ddr-ram:2b37e9ffd044e2f81b36b8d798aa8a19">Directly load Linux to DDR RAM</h4>
 
-<p>The pre-built FPGA bitstream has a jump program as the 1st stage bootloader (in an on-chip BRAM) which just jump to DDR RAM.
- We need to load the Linux image to the DDR RAM.</p>
+<p>The pre-built FPGA bitstream has a jump program as the 1st stage bootloader
+(in an on-chip BRAM) which just jumps to DDR RAM. We need to load the Linux
+image to the DDR RAM.</p>
 
 <pre><code>osd-cli
 osd&gt; reset -halt
@@ -165,7 +166,7 @@ osd&gt; start
 
 <p>We still keep the option to build a fully standalone implementation that does not rely on a debugger.</p>
 
-<p>You need two download two files:</p>
+<p>You need to download two files:</p>
 
 <ul>
 <li><a href="https://github.com/lowRISC/lowrisc-chip/releases/download/v0.3/nexys4ddr_fpga_standalone.bit">nexys4ddr_fpga_standalone.bit</a>:
@@ -185,7 +186,7 @@ curl -L https://github.com/lowRISC/lowrisc-chip/releases/download/v0.3/boot.bin 
 <pre><code>microcom -p /dev/ttyUSB0 -s 115200
 </code></pre>
 
-<p>You should be able to see the Linux boots from SD card.</p>
+<p>You should be able to see that Linux boots from SD card.</p>
 
 <p>A script is provided to load your SD card without manually downloading the binary files:</p>
 
@@ -257,7 +258,7 @@ $TOP/riscv-tools/make_root.sh
 
 <h4 id="make-vivado:2b37e9ffd044e2f81b36b8d798aa8a19"><code>make vivado</code></h4>
 
-<p>Open the Vivdao GUI using the current project.</p>
+<p>Open the Vivado GUI using the current project.</p>
 
 <h4 id="make-bitstream:2b37e9ffd044e2f81b36b8d798aa8a19"><code>make bitstream</code></h4>
 
@@ -265,7 +266,7 @@ $TOP/riscv-tools/make_root.sh
 
 <h4 id="make-hello-dram-sdcard-boot-jump-trace:2b37e9ffd044e2f81b36b8d798aa8a19"><code>make &lt;hello|dram|sdcard|boot|jump|trace&gt;</code></h4>
 
-<p>Generate botstreams for bare-metal tests:</p>
+<p>Generate bitstreams for bare-metal tests:</p>
 
 <ul>
 <li><strong>hello</strong> A hello world program.</li>
@@ -276,15 +277,24 @@ $TOP/riscv-tools/make_root.sh
 <li><strong>trace</strong> A software trace demo.</li>
 </ul>
 
-<p>For each bare-metal test <code>&lt;test&gt;</code>, the executable is generated to <code>$TOP/fpga/bare_metal/examples/&lt;test&gt;.riscv</code>. It is also converted into a hex file and copied to <code>src/boot.mem</code>, which then changes the default program for <code>make bitstream</code> and <code>make simulation</code>. The updated bitstream is generated at <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code></p>
+<p>For each bare-metal test <code>&lt;test&gt;</code>, the executable is generated to
+<code>examples/&lt;test&gt;.riscv</code>. It is also converted into a hex
+file and copied to <code>src/boot.mem</code>, which then changes the default program for
+<code>make bitstream</code> and <code>make simulation</code>. The updated bitstream is generated at
+<code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code></p>
 
 <h4 id="make-program-program-updated:2b37e9ffd044e2f81b36b8d798aa8a19"><code>make &lt;program|program-updated&gt;</code></h4>
 
-<p>Download a bitstream to FPGA. Use <code>program</code> for <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code> and <code>program-updated</code> for <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code></p>
+<p>Download a bitstream to FPGA. Use <code>program</code> for
+<code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code> and
+<code>program-updated</code> for
+<code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code></p>
 
 <h4 id="make-clean-cleanall:2b37e9ffd044e2f81b36b8d798aa8a19"><code>make &lt;clean|cleanall&gt;</code></h4>
 
-<p><code>make clean</code> will remove all generated code without removing the Vivdao project files. To remove all files including the Vivdao project, use <code>make cleanall</code>.</p>
+<p><code>make clean</code> will remove all generated code without removing the Vivado
+project files. To remove all files including the Vivado project, use <code>make 
+cleanall</code>.</p>
 
                     </section>
                 </article>

@@ -101,21 +101,21 @@
                         
 
 <p>Once you have an Open SoC Debug daemon running and it connected to a
-target system, you can do debug session. In the following you will
+target system, you can initiate a debug session. In the following you will
 learn the different basic features to interact with the system.</p>
 
-<p>Before you begin, you should be example programs:</p>
+<p>Before you begin, you should build the example programs:</p>
 
-<pre><code>FPGA_DIR=$TOP/vsim make -C $TOP/fpga/bare_metal/examples hello.riscv trace.riscv
+<pre><code>make -C $TOP/fpga/bare_metal/examples hello.riscv trace.riscv
 </code></pre>
 
 <h3 id="resetting-the-system:f87265c0cc81de64e78ce35c1598ac70">Resetting the system</h3>
 
 <p>In the first step we will start the command line interface and reset
-the system. With starting the command line interface it automatically
+the system. When starting the command line interface it automatically
 connects to the daemon.</p>
 
-<p>So the steps to connect to the verilated RTL simulation are based on
+<p>The steps to connect to the verilated RTL simulation are based on
 what you learned before:</p>
 
 <ul>
@@ -145,11 +145,10 @@ osd&gt; quit
 
 <p>The command has reset the entire system. If you run the simulation
 with vcd output (add <code>+vcd</code> to the parameters) you can see how it is
-reset. <code>reset</code> actually controls the CPU and a different system
-reset. With the parameter <code>-halt</code> you can keep the CPU reset asserted
-and inactive while you load a program to the memory or
-configure the debug modules. Running <code>start</code> de-asserts the CPU reset
-then:</p>
+reset. <code>reset</code> asserts both reset signals for CPU and the rest of the SoC.
+With the parameter <code>-halt</code>, the CPU reset remains asserted to allow loading
+programs to memory or configuring debug modules.
+Running <code>start</code> de-asserts the CPU reset then:</p>
 
 <pre><code>osd&gt; reset -halt
 osd&gt; [.. some other commands ..]
@@ -160,7 +159,7 @@ osd&gt; start
 
 <h3 id="capturing-uart-output:f87265c0cc81de64e78ce35c1598ac70">Capturing UART output</h3>
 
-<p>As described before, the UART controller has been replaces with an
+<p>As described before, the UART controller has been replaced with an
 emulation module that has the same physical interface, but transports
 the characters over the debug infrastructure.</p>
 
@@ -179,7 +178,7 @@ osd&gt; start
 osd&gt; reset
 </code></pre>
 
-<p>So, now you can run the programs as before and reset the system
+<p>Now you can run the programs as before and reset the system
 without touching a board, but the real power comes with the other
 modules.</p>
 
@@ -257,7 +256,7 @@ Overflow, missed 4 events
 <h3 id="minimally-invasive-software-debugging:f87265c0cc81de64e78ce35c1598ac70">Minimally-invasive software debugging</h3>
 
 <p>As introduced, lowRISC adds a software trace debugging technique that
-is minimally invasive by only adding a few cycles each time called
+is minimally invasive by only adding a few cycles each time it is called
 without stalling the system.</p>
 
 <p>The code <code>trace.c</code> from the examples emits four of such events:</p>
@@ -399,10 +398,10 @@ osd.wait(10)
 </code></pre>
 
 <p>You can see that it does pretty much what we did here in the
-tutorial. But it is more flexible as it works with other systems too
+tutorial. However it is more flexible as it works with other systems too
 and is more powerful when integrated with your testing environment.</p>
 
-<p>Just run:</p>
+<p>To try this example, just run:</p>
 
 <pre><code>python $TOP/tools/share/opensocdebug/examples/runelf.py path/to/hello.riscv
 </code></pre>

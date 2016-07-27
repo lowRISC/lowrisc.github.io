@@ -6,8 +6,59 @@
     <description>Recent content on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 14 Jul 2016 16:08:07 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 27 Jul 2016 14:23:34 +0100</lastBuildDate>
     <atom:link href="http://www.lowrisc.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>lowRISC&#43;IMC internship: second update</title>
+      <link>http://www.lowrisc.org/blog/2016/07/lowriscimc-internship-second-update</link>
+      <pubDate>Wed, 27 Jul 2016 14:23:34 +0100</pubDate>
+      
+      <guid>http://www.lowrisc.org/blog/2016/07/lowriscimc-internship-second-update</guid>
+      <description>&lt;p&gt;&lt;em&gt;This is the second update from our team of interns, comprised of four
+University of Cambridge undergrads. Their work is kindly sponsored by &lt;a href=&#34;http://www.imc.nl/&#34;&gt;IMC
+Financial Markets&lt;/a&gt; who are also helping to advise this
+summer project.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;At the time of our &lt;a href=&#34;http://www.lowrisc.org/blog/2016/07/lowriscimc-internship-second-update&#34;&gt;last blog post&lt;/a&gt;, we had just finished VGA and
+were working on implementing the frame buffer. Over the last 2 weeks, we have
+made significant progress, completing the frame buffer and starting video decode.&lt;/p&gt;
+
+&lt;p&gt;The frame buffer was developed iteratively. Initially, it was a small Block RAM
+attached to the SoC&amp;rsquo;s AXI-Lite bus. This was useful for creating a prototype,
+but its limited size lead to it being replaced with an in-memory frame buffer,
+supplemented with a BRAM line buffer. The end result is shown below, the
+component is connected to the TileLink bus.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.lowrisc.org/blog/2016/imc_2ndupd_framebuffer.png&#34; alt=&#34;Framebuffer diagram&#34; style=&#34;width: 300px;&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;This component builds on the VGA controller, for which documentation will be
+added shortly. We have added a data mover (a unidirectional DMA), to move data
+from the in memory frame buffer into the local video memory. The video memory
+acts as a line buffer, the data mover (DM) moves one line from the in-memory frame
+buffer at a time. Meanwhile the VGA controller flushes the new lines to the
+screen, displaying the image from memory.  The DM obeys the state machine shown
+in the diagram below. The DM Controller is memory mapped, allowing the CPU to
+communicate with it. Currently, it can only accept one request at a time,
+further requests are ignored until the component moves back to the IDLE step.
+Requests consist of source and destination addresses, and a length. A planned
+extension is adding a FIFO queue to the controller to allow multiple requests
+to be supported.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.lowrisc.org/blog/2016/imc_2ndupd_dm_states.png&#34; alt=&#34;Data mover state diagram&#34; style=&#34;width: 400px;&#34;/&gt;&lt;/p&gt;
+
+&lt;p&gt;The decision was made to implement a unidirectional data mover over a more
+complex and capable bidirectional DMA component as only unidirectional movement
+was needed for now. Later on, we will need bidirectional access as the
+video accelerator will need to write back to memory. We hope to enable
+bidirectionality by simply duplicating the existing unidirectional design.&lt;/p&gt;
+
+&lt;p&gt;Our next tasks relate to video decoding. We will be adapting a reference
+MPEG-2 codec to decode video on the FPGA and adding extra components to the
+SoC design to improve the performance of the codec, such as DCT and iDCT
+accelerators.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Notes from the fourth RISC-V workshop</title>

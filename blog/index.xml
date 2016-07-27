@@ -20,7 +20,7 @@ University of Cambridge undergrads. Their work is kindly sponsored by &lt;a href
 Financial Markets&lt;/a&gt; who are also helping to advise this
 summer project.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;At the time of our &lt;a href=&#34;http://www.lowrisc.org/blog/2016/07/lowriscimc-internship-second-update&#34;&gt;last blog post&lt;/a&gt;, we had just finished VGA and
+&lt;p&gt;At the time of our &lt;a href=&#34;http://www.lowrisc.org/blog/2016/07/lowrisc-/-imc-internship-week-one---vga-output&#34;&gt;last blog post&lt;/a&gt;, we had just finished VGA and
 were working on implementing the frame buffer. Over the last 2 weeks, we have
 made significant progress, completing the frame buffer and starting video decode.&lt;/p&gt;
 

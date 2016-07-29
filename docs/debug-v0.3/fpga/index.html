@@ -198,6 +198,31 @@ curl -L https://github.com/lowRISC/lowrisc-chip/releases/download/v0.3/boot.bin 
 <pre><code>vivado -mode batch -source $TOP/fpga/common/script/program.tcl -tclargs &quot;xc7a100t_0&quot; fpga.bit
 </code></pre>
 
+<h2 id="mount-an-sd-card-inside-risc-v-linux:2b37e9ffd044e2f81b36b8d798aa8a19">Mount an SD card inside RISC-V Linux</h2>
+
+<p>To discover whether an SD is recognized by the kernel:</p>
+
+<pre><code>cat /proc/partitions
+</code></pre>
+
+<p>If an SD card is formated in FAT32 and inserted, it should look like:</p>
+
+<pre><code> 179        0    7707648 mmcblk0
+ 179        1    7706624 mmcblk0p1
+</code></pre>
+
+<p>To mount this card:</p>
+
+<pre><code>mknod /dev/mmcblk0p1 b 179 1
+mkdir /mnt
+mount /dev/mmcblk0p1 /mnt
+</code></pre>
+
+<p>After you finished with the SD card, remember to unmount it.</p>
+
+<pre><code>umount /mnt
+</code></pre>
+
 <h2 id="build-your-own-bitstream-and-images:2b37e9ffd044e2f81b36b8d798aa8a19">Build your own bitstream and images</h2>
 
 <h3 id="generate-the-bitstream:2b37e9ffd044e2f81b36b8d798aa8a19">Generate the bitstream</h3>
@@ -233,13 +258,15 @@ download the bitstream to the FPGA:</p>
 <h3 id="build-linux:2b37e9ffd044e2f81b36b8d798aa8a19">Build Linux</h3>
 
 <pre><code>cd $TOP/riscv-tools
-curl https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.1.25.tar.xz| tar -xJ
-curl -L http://busybox.net/downloads/busybox-1.21.1.tar.bz2| tar -xj
-cd linux-4.1.25
+curl https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.6.2.tar.xz | tar -xJ
+curl -L http://busybox.net/downloads/busybox-1.21.1.tar.bz2 | tar -xj
+cd linux-4.6.2
 git init
 git remote add origin https://github.com/lowrisc/riscv-linux.git
 git fetch
 git checkout -f -t origin/debug-v0.3
+# lowRISC-specific hack for enabling power pin for SD card
+patch -p1 &lt; spi_sd_power_hack.patch
 cd $TOP/fpga/board/nexys4_ddr
 $TOP/riscv-tools/make_root.sh
 </code></pre>
@@ -264,7 +291,7 @@ $TOP/riscv-tools/make_root.sh
 
 <p>Generate the default bitstream according to the <code>CONFIG</code> in Makefile and the program loaded in <code>src/boot.mem</code>. The default bitstream is generated at <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code></p>
 
-<h4 id="make-hello-dram-sdcard-boot-jump-trace:2b37e9ffd044e2f81b36b8d798aa8a19"><code>make &lt;hello|dram|sdcard|boot|jump|trace&gt;</code></h4>
+<h4 id="make-hello-dram-sdcard-boot-jump-trace-flash:2b37e9ffd044e2f81b36b8d798aa8a19"><code>make &lt;hello|dram|sdcard|boot|jump|trace|flash&gt;</code></h4>
 
 <p>Generate bitstreams for bare-metal tests:</p>
 
@@ -275,6 +302,7 @@ $TOP/riscv-tools/make_root.sh
 <li><strong>boot</strong> A 1st bootloader that loads <code>boot.bin</code> from SD to DDR RAM and executes <code>boot.bin</code> afterwards.</li>
 <li><strong>jump</strong> A 1st stage booloader that directly jumps to DDR RAM.</li>
 <li><strong>trace</strong> A software trace demo.</li>
+<li><strong>flash</strong> Read the content of the on-board Flash.</li>
 </ul>
 
 <p>For each bare-metal test <code>&lt;test&gt;</code>, the executable is generated to

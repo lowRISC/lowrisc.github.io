@@ -129,8 +129,9 @@ like:<br><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;&quot;prci0&quot;, 0x00003000-0x00003fff, RW&gt;</code><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;&quot;ext&quot;, 0x40000000-0x7fffffff&gt;</code><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;&quot;bram&quot;, 0x40000000-0x4000ffff, RWX&gt;</code><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;&quot;uart&quot;, 0x40010000-0x40011fff, RW&gt;</code><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;&quot;spi&quot;, 0x40012000-0x40013fff, RW&gt;</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;&quot;flash&quot;, 0x41000000-0x40ffffff, RWX&gt;</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;&quot;uart&quot;, 0x42000000-0x42001fff, RW&gt;</code><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>&lt;&quot;spi&quot;, 0x42002000-0x42003fff, RW&gt;</code><br>
 &nbsp;&nbsp;<code>&lt;&quot;mem&quot;, 0x80000000-0xffffffff, RWX&gt;</code><br>
 <br>Note that the base address of each memory section is calculated automatically during the Chisel compilation. For a detail look of the address map, please read the related part in <code>$TOP/src/main/scala/Configs.scala</code> (initialization of the address map) and <code>$TOP/junctions/src/main/scala/addrmap.scala</code> (implementation of the address map).</p></li>
 

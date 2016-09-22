@@ -368,20 +368,21 @@ Stream Pipelined Accelerator (SPA).</p>
 
 <h3 id="7-1-concept:0008bd64bca3cf32304ab7293617d71c">7.1 Concept</h3>
 
-<p>The infrastructure is changed a few times and it is changed from a specific
-video accelerator to an general purpose accelerator infrastructure supporting
-all kinds of AXI4-Stream compatible processors.</p>
+<p>Over the course of development the design has evolved. We started with a much
+more specialised video accelerator, but have ultimately arrived at a more
+purpose accelerator infrastructure supporting all kinds of AXI4-Stream
+compatible processors.</p>
 
 <p>The fundamental idea behind this accelerator idea is streams. In our case,
-most data comes independently with other data, so they can be abstracted as
-streams. For streams, we can make use of pipelining the reduce number of clock
-cycles needed to process data. All accelerators in this infrastructure have a
-pair of AXI4-Stream interface as their only I/O. Data is piped into the
-accelerator by AXI4-Stream slave port on the accelerator, and piped out from
-AXI4-Stream master port. Our infrastructure has no direct communication with
-the accelerators, but uses packet concept in AXI4-Stream as the boundary
-between data. The infrastructure is only responsible for packet routing and
-data moving.</p>
+most data can be processed independently, so can be abstracted as separate
+streams streams. For streams, we can make use of pipelining the reduce number
+of clock cycles needed to process data. All accelerators in this
+infrastructure have a pair of AXI4-Stream interface as their only I/O.  Data
+is piped into the accelerator by AXI4-Stream slave port on the accelerator,
+and piped out from AXI4-Stream master port. Our infrastructure has no direct
+communication with the accelerators, but uses packet concept in AXI4-Stream as
+the boundary between data. The infrastructure is only responsible for packet
+routing and data moving.</p>
 
 <h3 id="7-2-architecture:0008bd64bca3cf32304ab7293617d71c">7.2 Architecture</h3>
 
@@ -939,7 +940,15 @@ set up some independent FPGA based tests.</p>
 <li><em>Decoding MPEG-2 encoded video at a resolution of 640x480, and playing at a rate of 8 frames-per-second</em></li>
 </ul>
 
-<p>This objective was not met. Once integrated into lowRISC and synthesised on our Naxys4 DDR FPGAs, our accelerators allowed us to decode 320x480 video at a rate of approximately 2.5 frames-per-second. The limiting factor on decoding proved to be the speed we were able to access memory through the TileLink bus. This problem was further compounded by the lack of an L2 cache. The speed of the bus had been reduced to 25MHz due to the floating point unit, and so more effort could have been expended on removing the FPU, and increasing the speed of the bus.</p>
+<p>This objective was not met. Once integrated into lowRISC and synthesised on
+our Naxys4 DDR FPGAs, our accelerators allowed us to decode 320x480 video at a
+rate of approximately 2.5 frames-per-second. The limiting factor on decoding
+proved to be the speed we were able to access memory through the TileLink bus.
+This problem was further compounded by the fact that a bug forced us to
+disable the L2 cache, and we were unable to resolve it before the end of the
+project. The speed of the bus had been reduced to 25MHz due to the floating
+point unit, and so more effort could have been expended on removing the FPU,
+and increasing the speed of the bus.</p>
 
 <ul>
 <li><em>Tutorials describing</em>
@@ -967,7 +976,12 @@ set up some independent FPGA based tests.</p>
 
 <h3 id="10-2-comparison-of-video-with-and-without-acceleration:0008bd64bca3cf32304ab7293617d71c">10.2 Comparison of Video with and without Acceleration</h3>
 
-<p>In order to compare the performance with and without acceleration, we introduced a statements into the codec before and after the functions for interacting with the accelerator. In this way we were able to capture the time taken to perform these functions with and without the accelerators. The data was gathered over a video of 658 frames and the values presented an average over all frames in the video.</p>
+<p>In order to compare the performance with and without acceleration, we
+introduced instrumentation into the codec before and after the functions for
+interacting with the accelerator. In this way we were able to capture the time
+taken to perform these functions with and without the accelerators. The data
+was gathered over a video of 658 frames and the values presented an average
+over all frames in the video.</p>
 
 <table>
 <thead>
@@ -982,30 +996,30 @@ set up some independent FPGA based tests.</p>
 <tbody>
 <tr>
 <td>Y&rsquo;UV 422 to 444</td>
-<td align="right">725.91ms</td>
-<td align="right">20.906ms</td>
-<td align="right"><em>3.47212</em></td>
+<td align="right">726ms</td>
+<td align="right">20.9ms</td>
+<td align="right"><em>34.7</em></td>
 </tr>
 
 <tr>
 <td>Y&rsquo;UV 444 to RGB</td>
-<td align="right">215.816ms</td>
-<td align="right">26.721ms</td>
-<td align="right"><em>8.07660</em></td>
+<td align="right">216ms</td>
+<td align="right">26.7ms</td>
+<td align="right"><em>8.08</em></td>
 </tr>
 
 <tr>
 <td>RGB 32 to 16</td>
-<td align="right">59.706ms</td>
-<td align="right">10.447ms</td>
-<td align="right"><em>5.71494</em></td>
+<td align="right">59.7ms</td>
+<td align="right">10.4ms</td>
+<td align="right"><em>5.71</em></td>
 </tr>
 
 <tr>
 <td>Total for Frame</td>
-<td align="right">447.775ms</td>
-<td align="right">159.936ms</td>
-<td align="right"><em>2.79971</em></td>
+<td align="right">448ms</td>
+<td align="right">160ms</td>
+<td align="right"><em>2.80</em></td>
 </tr>
 </tbody>
 </table>
@@ -1028,20 +1042,20 @@ set up some independent FPGA based tests.</p>
 <tbody>
 <tr>
 <td>Software</td>
-<td align="right">447.775ms</td>
+<td align="right">448ms</td>
 <td align="right">-</td>
 </tr>
 
 <tr>
 <td>Hardware (Unpipelined)</td>
-<td align="right">159.936ms</td>
-<td align="right"><em>2.79971</em></td>
+<td align="right">160ms</td>
+<td align="right"><em>2.80</em></td>
 </tr>
 
 <tr>
 <td>Hardware (Pipelined)</td>
-<td align="right">103.437ms</td>
-<td align="right"><em>4.32895</em></td>
+<td align="right">103ms</td>
+<td align="right"><em>4.33</em></td>
 </tr>
 </tbody>
 </table>
@@ -1076,20 +1090,18 @@ set up some independent FPGA based tests.</p>
 cache. The exact cause of the deadlock proved to be difficult to reproduce
 quickly, and so did not arise in simulation at all. The cause seemed to be
 some interaction between cached and uncached transactions on the TileLink bus.
-This was likely caused by a bug in the TileLink bus protocol supplied by UC
-Berkeley. Due to the limited time of our internship, and our lack of knowledge
-of the Chisel language we avoided this problem by removing the L2 cache
-entirely. As one might expect, this  significantly impacted the performance of
-the codec.</p>
-
-<p>Part way through the internship an <a href="https://github.com/ucb-bar/uncore/commit/ad95aa79ce2aa694fa628c5f1cab101676581f0e">update to the TileLink github
+This may be a bug in Rocket&rsquo;s TileLink implementation, but we were unable to
+fully confirm. Due to the limited time of our internship, and our lack of
+knowledge of the Chisel language we avoided this problem by removing the L2
+cache entirely. As one might expect, this significantly impacted the
+performance of the codec. Part way through the internship an <a href="https://github.com/ucb-bar/uncore/commit/ad95aa79ce2aa694fa628c5f1cab101676581f0e">update to the
+TileLink github
 repository</a>
-made reference to a fix for a &lsquo;L2 Writeback deadlock issue&rsquo;.  Therefore a
-future development would be to integrate these updates into the lowRISC
-repository, and see if this is the same deadlock condition we encountered. If
-this is not the case, then it would be necessary to develop a way of reliably
-reproducing the deadlock, and resolving it while in communication with the
-team at UC Berkeley.</p>
+made reference to a fix for a &lsquo;L2 Writeback deadlock issue&rsquo;. Therefore a
+future development would be to further evaluate this patch to determine if
+this reflects the issue we encountered, and look to integrate these updates
+into the lowRISC repository. If not, more work must be done to further isolate
+the issue.</p>
 
 <h3 id="11-2-driver-scatter-gather-support:0008bd64bca3cf32304ab7293617d71c">11.2 Driver Scatter-Gather Support</h3>
 

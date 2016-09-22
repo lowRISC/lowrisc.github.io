@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+    <head>
+        
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+        <title>End-to-end video decoding tutorial &middot; lowRISC</title>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' type='text/css'>
+        <link rel="stylesheet" href="http://www.lowrisc.org/libraries/normalize.3.0.1.css" />
+        <link rel="stylesheet" href="http://www.lowrisc.org/css/liquorice.css" />
+        <link rel="shortcut icon" href="http://www.lowrisc.org/favicon.ico" />
+        <link rel="alternate" href="http://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-53520714-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+  </head>
+    <body class="li-body">
+
+<header class="li-page-header">
+  <div class="li-header-top">
+  </div>
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <div class="li-brand li-left">
+                
+                <a href="http://www.lowrisc.org"><img src="http://www.lowrisc.org/img/lowrisc_header_logo.png"/></a></div>
+                <div class="li-menu li-left">
+                    <span class="li-menu-icon" onclick="javascript:toggle('menu');">&#9776;</span>
+                    <ul id="menu2" class="li-menu-items">
+                        
+                            <li><a href="/"> Home </a></li>
+                        
+                            <li><a href="/about/"> About </a></li>
+                        
+                            <li><a href="/faq/"> FAQ </a></li>
+                        
+                            <li><a href="/docs/"> Docs </a></li>
+                        
+                            <li><a href="/community/"> Community </a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sixteen columns">
+                <ul id="menu" class="li-menu-items li-menu-mobile">
+                    
+                        <li><a href="/"> Home </a></li>
+                    
+                        <li><a href="/about/"> About </a></li>
+                    
+                        <li><a href="/faq/"> FAQ </a></li>
+                    
+                        <li><a href="/docs/"> Docs </a></li>
+                    
+                        <li><a href="/community/"> Community </a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <article class="li-article">
+                
+                    <header class="li-article-header">
+                        <h1 class="li-article-title">End-to-end video decoding tutorial</h1>
+                        <span class="li-article-taxonomies">
+                            
+
+                            
+                        </span>
+                        
+                        
+                    </header>
+                    <section>
+                        
+
+<h2 id="introduction:6d907b42703d9fbc2a7b4aaed6942c4f">Introduction</h2>
+
+<p>The purpose of this tutorial is to give a simple list of steps to decode a single video on a Nexys4 DDR FPGA using lowRISC.</p>
+
+<p>The extension describes how to use the accelerators.</p>
+
+<h2 id="step-1-the-generic-lowrisc-setup:6d907b42703d9fbc2a7b4aaed6942c4f">Step 1: The Generic lowRISC setup</h2>
+
+<p>Start by cloning our version of the lowRISC repository and running the typical set up commands:</p>
+
+<pre><code>git clone https://github.com/nbdd0121/lowrisc-chip.git
+cd lowrisc-chip
+git checkout vga
+./setup_env.sh
+git submodule update --init --recursive....
+</code></pre>
+
+<p>This tutorial relies heavily on two tools (Vivado and the RISC-V cross compiler) and requires a host of other packages. Wei Song has provided a <a href="http://www.lowrisc.org/docs/debug-v0.3/environment/">tutorial</a> for setting up the environment. Install the packages on the linked page, then go to the next page (&rsquo;<a href="http://www.lowrisc.org/docs/debug-v0.3/lowriscsetup/">Generic lowRISC setup</a>&rsquo;) and follow the tutorials for <a href="http://www.lowrisc.org/docs/untether-v0.2/xilinx/">Vivado</a> and the <a href="http://www.lowrisc.org/docs/untether-v0.2/riscv_compile/">cross-compiler</a>.</p>
+
+<h2 id="step-2-building-the-mpeg-2-codec:6d907b42703d9fbc2a7b4aaed6942c4f">Step 2: Building the MPEG-2 Codec</h2>
+
+<p>We&rsquo;re using a modified version of a reference MPEG-2 implementation. Start by pulling that and cross compiling it for RISC-V.</p>
+
+<pre><code class="language-bash">git clone https://github.com/ndavison21/lowrisc-mpeg2decode.git
+cd lowrisc-mpeg2decode
+make mpeg2decode-riscv
+</code></pre>
+
+<p>This results in an executable, located in src/mpeg2decode, called mpeg2decode. We will be using this later on.
+The Makefile uses the gcc RISC-V cross compiler, if you get an error message such as:</p>
+
+<pre><code class="language-bash">riscv64-unknown-linux-gnu-gcc: Command not found
+</code></pre>
+
+<p>ensure that:</p>
+
+<ul>
+<li>The RISC-V cross compiler has been built</li>
+<li>The RISCV environment variable has been set and points to $TOP/tools/riscv/debug-v0.3</li>
+<li>The cross compiler has been added to the PATH environment variable: if in doubt, run:
+<code>
+export PATH=$PATH:$RISCV/bin
+</code></li>
+</ul>
+
+<h2 id="step-3-setting-up-the-vivado-project:6d907b42703d9fbc2a7b4aaed6942c4f">Step 3: Setting up the Vivado project</h2>
+
+<p>The next steps use Vivado, which requires a few more environment variables. Customise the instructions below for your setup, and then run it.</p>
+
+<pre><code class="language-bash">export FPGA_BOARD=nexys4_ddr
+export XILINXD_LICENSE_FILE=PATH/TO/LICENSE/FILE
+source [path to vivado]/xilinx/Vivado/2015.4/settings64.sh
+export XILINX_VIVADO
+</code></pre>
+
+<p>Switch to the fpga directory in the lowRISC repository to set up the Vivado project and generate the boot program:</p>
+
+<pre><code class="language-bash">cd $TOP/fpga/board/nexys4ddr
+make project
+make boot
+</code></pre>
+
+<p>NOTE: The first time you run <code>make boot</code>, it will take a while time to run, and will use a large amount of memory. It may be necessary to close other programs while this is running.</p>
+
+<h2 id="step-4-building-the-boot-image:6d907b42703d9fbc2a7b4aaed6942c4f">Step 4: Building the boot image</h2>
+
+<p>The decoder runs on Linux, so it&rsquo;s necessary to download and compile the Linux kernel (we&rsquo;re using version 4.6.2) as well as BusyBox.</p>
+
+<p>First move the cross compiled MPEG-2 decoder built in Step 2 to the directory $TOP/riscv-tools/ramfs-merge, along with the .mpg file you wish to play on the FPGA. The video MUST be less than 10 MB in size.
+The decoder relies on several library files, for ease of use these are already present in the ramfs-merge directory in this branch.</p>
+
+<p>Once this is done, run the below script.</p>
+
+<pre><code class="language-bash">cd $TOP/riscv-tools
+curl https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.6.2.tar.xz \
+  | tar -xJ
+cd linux-4.6.2
+git init
+git remote add origin https://github.com/lowrisc/riscv-linux.git
+git fetch
+git checkout -f -t origin/debug-v0.3
+cd $TOP/riscv-tools
+curl -L http://busybox.net/downloads/busybox-1.21.1.tar.bz2 | tar -xj
+cd busybox-1.21.1
+cp $TOP/riscv-tools/busybox_config .config
+make -j$(nproc)
+cd $TOP/riscv-tools
+./make_root.sh
+</code></pre>
+
+<p><code>make_root.sh</code> builds both BusyBox and Linux. Due to an issue with Vivado, the build of Linux may fail with an error message that looks something like this:</p>
+
+<pre><code class="language-bash">awk: symbol lookup error: awk: undefined symbol: mpfr_z_sub
+</code></pre>
+
+<p>This occurs because of a conflict between Vivado and awk, detailed <a href="http://www.xilinx.com/support/answers/66998.html">here</a>. Since Vivado is not needed for these steps, an easy solution is starting a fresh terminal and only repeating the following steps before reattempting the above script:
+* ./setup_env.sh, this script is located in the top level directory
+* Setting up RISCV and PATH as discussed at the end of Step 2.</p>
+
+<p>Once this has successfully completed, a file called <code>boot.bin</code> appears in the current directory ($TOP/riscv-tools). This must be copied onto the sd card, which is then to be placed into the FPGA.</p>
+
+<h2 id="step-5-programming-the-fpga:6d907b42703d9fbc2a7b4aaed6942c4f">Step 5: Programming the FPGA</h2>
+
+<p>Now, it&rsquo;s finally time to program the FPGA. First, a hardware server needs to be started, TODO (source xilinx_env, run hw_server)</p>
+
+<p>You can interact with the FPGA using microcom, as shown below:</p>
+
+<pre><code class="language-bash">microcom -p /dev/ttyUSB1 -s 115200
+</code></pre>
+
+<p>Switch to the nexys4_ddr directory, plug in the FPGA and run <code>make program-updated</code>.</p>
+
+<pre><code>cd $TOP/fpga/board/nexys4ddr
+make program-updated
+</code></pre>
+
+<p>The following should appear, if nothing appears, press the <code>CPU Reset</code> button on the FPGA. :</p>
+
+<pre><code>Load boot.bin into memory
+</code></pre>
+
+<p>This will take a while as the boot program is copied to memory and linux boots up. The end of the process is not obvious - it&rsquo;s finished when the following output appears:</p>
+
+<pre><code>[    0.410000] mmcblk0: p1
+</code></pre>
+
+<p>Now, a somewhat barebones terminal is available (familiar shortcuts such as tab-completion and usage of the arrow keys aren&rsquo;t present). Connect the FPGA to a VGA monitor and run:</p>
+
+<pre><code class="language-bash">./mpeg2decode -f -b video.mpg -o6
+</code></pre>
+
+<p>Where video.mpg is the video file loaded earlier. The video should now play on the monitor from the FPGA.</p>
+
+<h2 id="extension-using-accelerators:6d907b42703d9fbc2a7b4aaed6942c4f">Extension: Using accelerators</h2>
+
+<p>It is possible to use the accelerators we have created with a slight
+alteration to <strong>Step 1</strong> described above. In order to include the accelerators
+in the synthesis, replace <code>git checkout vga</code> with <code>git checkout acc</code>, and the
+run the other instructions as before.</p>
+
+<p>When it comes to running the codec, a final option specifying the accelerator to use is needed. To run all the accelerators the command is</p>
+
+<pre><code class="language-bash">./mpeg2decode -f -b video.mpg -o6 -a15
+</code></pre>
+
+<p>To run individual accelerators, replace <code>15</code> with the following values</p>
+
+<table>
+<thead>
+<tr>
+<th>Accelerator</th>
+<th>Binary</th>
+<th>Decimal</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Y&rsquo;UV 422 to 444</td>
+<td>0001</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>Y&rsquo;UV 444 to RGB</td>
+<td>0010</td>
+<td>2</td>
+</tr>
+
+<tr>
+<td>RGB 32 to 16</td>
+<td>0100</td>
+<td>4</td>
+</tr>
+
+<tr>
+<td>IDCT</td>
+<td>1000</td>
+<td>8</td>
+</tr>
+
+<tr>
+<td>ALL</td>
+<td>1111</td>
+<td>15</td>
+</tr>
+</tbody>
+</table>
+
+<p>(each bit indicates the presence or absence of a specific accelerator, as indicated above)</p>
+
+                    </section>
+                </article>
+
+        </div>
+    </div>
+    
+
+
+                
+
+<footer class="li-page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script type="text/javascript">
+    function toggle(id) {
+        var e = document.getElementById(id);
+        e.style.display == 'block' ? e.style.display = 'none' : e.style.display = 'block';
+    }
+    </script>
+    </body>
+</html>
+

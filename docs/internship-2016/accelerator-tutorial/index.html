@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+    <head>
+        
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+        <title>Extending the video accelerator to add custom stream processors &middot; lowRISC</title>
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' type='text/css'>
+        <link rel="stylesheet" href="http://www.lowrisc.org/libraries/normalize.3.0.1.css" />
+        <link rel="stylesheet" href="http://www.lowrisc.org/css/liquorice.css" />
+        <link rel="shortcut icon" href="http://www.lowrisc.org/favicon.ico" />
+        <link rel="alternate" href="http://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-53520714-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+  </head>
+    <body class="li-body">
+
+<header class="li-page-header">
+  <div class="li-header-top">
+  </div>
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <div class="li-brand li-left">
+                
+                <a href="http://www.lowrisc.org"><img src="http://www.lowrisc.org/img/lowrisc_header_logo.png"/></a></div>
+                <div class="li-menu li-left">
+                    <span class="li-menu-icon" onclick="javascript:toggle('menu');">&#9776;</span>
+                    <ul id="menu2" class="li-menu-items">
+                        
+                            <li><a href="/"> Home </a></li>
+                        
+                            <li><a href="/about/"> About </a></li>
+                        
+                            <li><a href="/faq/"> FAQ </a></li>
+                        
+                            <li><a href="/docs/"> Docs </a></li>
+                        
+                            <li><a href="/community/"> Community </a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sixteen columns">
+                <ul id="menu" class="li-menu-items li-menu-mobile">
+                    
+                        <li><a href="/"> Home </a></li>
+                    
+                        <li><a href="/about/"> About </a></li>
+                    
+                        <li><a href="/faq/"> FAQ </a></li>
+                    
+                        <li><a href="/docs/"> Docs </a></li>
+                    
+                        <li><a href="/community/"> Community </a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <article class="li-article">
+                
+                    <header class="li-article-header">
+                        <h1 class="li-article-title">Extending the video accelerator to add custom stream processors</h1>
+                        <span class="li-article-taxonomies">
+                            
+
+                            
+                        </span>
+                        
+                        
+                    </header>
+                    <section>
+                        
+
+<p>This tutorial will cover:</p>
+
+<ul>
+<li>Adding a new stream processor to the Video Accelerator infrastructure.</li>
+<li>Exposing the new instruction to the user.</li>
+</ul>
+
+<h2 id="adding-a-new-stream-processor:5c05b8629f650b17b3806d26e37eed2b">Adding a new stream processor</h2>
+
+<p>A stream processor has to be able to take a AXI4-Stream channel as input, process the data and output back to a AXI4-Stream channel as these are the only Input/Output options provided to it within the Video Accelerator infrastructure.</p>
+
+<p>Let us assume that we wish to add</p>
+
+<pre><code class="language-sv">stream_processor processor(
+   .aclk(aclk),
+   .aresetn(aresetn),
+
+   .in_ch(to_processor_ch),
+   .out_ch(from_processor_ch)
+);
+</code></pre>
+
+<p>Open the Accelerator System Verilog file: video_acc.sv.
+This snippet will be added at the end of the module.</p>
+
+<p>However, it is missing the input/output. For that we need to declare the input and output channels:</p>
+
+<pre><code class="language-sv">// Make sure to add at the top of the file
+nasti_stream_channel # (
+   .DATA_WIDTH(DATA_WIDTH),
+   .DEST_WIDTH(DEST_WIDTH)
+) to_processor_ch(), from_processor_ch();
+</code></pre>
+
+<p>And add them to the mux and demux</p>
+
+<pre><code class="language-sv">nasti_stream_combiner #(
+   .N_PORT(NR_FUN_UNITS + 1)
+) glue(
+   .slave(out_vein_ch),
+   .master_0(routed_ch),
+   .master_1(from_dct_ch),
+   .master_2(from_idct_ch),
+   .master_3(from_yuv422to444_ch),
+   .master_4(from_yuv444toRGB_ch),
+   .master_5(from_processor_ch),// Change a dummy_ch to your 'from' channel
+   .master_6(dummy_ch),
+   .master_7(dummy_ch)
+);
+
+nasti_stream_slicer #(
+      .N_PORT(NR_FUN_UNITS + 1)
+)  unglue(
+   .master(in_vein_ch),
+   .slave_0(output_buf_ch),
+   .slave_1(to_dct_ch),
+   .slave_2(to_idct_ch),
+   .slave_3(to_yuv422to444_ch),
+   .slave_4(to_yuv444toRGB_ch),
+   .slave_5(to_processor_ch),// Change a dummy_ch to your 'to' channel
+   .slave_6(dummy_ch),
+   .slave_7(dummy_ch)
+ );
+</code></pre>
+
+<p><strong>Make a note of which master/slave you add your channels to as you will need this later.</strong></p>
+
+<p>Your accelerator will receive an 8-bit <em>t_user</em>. The format of these bits depends on yourself, but a common use is to have 1-bit as the &ldquo;chain&rdquo; bit. If the bit is high, you can set <em>t_dest</em> to a non-zero value which matches the number of stream processor you wish to chain to.</p>
+
+<p>You need to increase NR_FUN_UNITS by one after wiring, and now your stream processor can be utilized via our SPA infrastructure.</p>
+
+<h2 id="exposing-the-new-instruction-to-the-user:5c05b8629f650b17b3806d26e37eed2b">Exposing the new instruction to the user</h2>
+
+<h3 id="bare-metal:5c05b8629f650b17b3806d26e37eed2b">Bare metal</h3>
+
+<p>To expose the instruction to the user in bare metal we need to:
+Open videox.c and update</p>
+
+<pre><code class="language-C">#define FUNC_MAX 3
+</code></pre>
+
+<p>to the value of NR_FUN_UNITS.</p>
+
+<p>Then we need to open videox.h and add</p>
+
+<pre><code class="language-C">#define FUNC_YOUR_OP 5
+</code></pre>
+
+<p>to allow easier use of the new operation.</p>
+
+<p>Now you can use your accelerator using our provided <em>videox.h</em> interface.</p>
+
+<h3 id="linux-driver:5c05b8629f650b17b3806d26e37eed2b">Linux Driver</h3>
+
+<p>Open videox.c and update</p>
+
+<pre><code class="language-c">#define NR_FUN_UNITS 3
+</code></pre>
+
+<p>to the value of NR_FUN_UNITS.</p>
+
+                    </section>
+                </article>
+
+        </div>
+    </div>
+    
+
+
+                
+
+<footer class="li-page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script type="text/javascript">
+    function toggle(id) {
+        var e = document.getElementById(id);
+        e.style.display == 'block' ? e.style.display = 'none' : e.style.display = 'block';
+    }
+    </script>
+    </body>
+</html>
+

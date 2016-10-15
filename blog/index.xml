@@ -6,8 +6,91 @@
     <description>Recent content in Blogs on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Jul 2016 14:23:34 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 15 Oct 2016 10:00:00 +0100</lastBuildDate>
     <atom:link href="http://www.lowrisc.org/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Generating a Gantt chart from HJSON input</title>
+      <link>http://www.lowrisc.org/blog/2016/10/generating-a-gantt-chart-from-hjson-input</link>
+      <pubDate>Sat, 15 Oct 2016 10:00:00 +0100</pubDate>
+      
+      <guid>http://www.lowrisc.org/blog/2016/10/generating-a-gantt-chart-from-hjson-input</guid>
+      <description>&lt;p&gt;This blog post is a slight departure from the normal topics here. Worry not,
+we&amp;rsquo;ll return to discussing Verilog, Chisel, and low-level software work soon.
+I wrote a quick script to help serve a need (producing a Gantt chart) and
+thought perhaps others would find it useful.&lt;/p&gt;
+
+&lt;p&gt;There are a wide range of online services to help produce and maintain Gantt
+charts, but none quite offered what I was looking for. I want something open
+source, easy to use, and where the underlying data is human readable and can
+be version controlled. The
+&lt;a href=&#34;http://xael.org/pages/python-gantt-en.html&#34;&gt;python-gantt&lt;/a&gt; library formed an
+excellent starting point for generating a Gantt chart in SVG, but I thought it
+was worth trying to support a slightly less verbose input format.&lt;/p&gt;
+
+&lt;p&gt;Enter &lt;a href=&#34;http://hjson.org/&#34;&gt;hjson&lt;/a&gt;, which aims to be a superset of json with
+much more forgiving syntax. This has its disadvantages, but it does seem to
+work well as a concise and easy to edit data format. A quick python script to
+parse an hjson input to produce a Gantt chart and we&amp;rsquo;re away. One feature I do
+like is the use of &lt;a href=&#34;https://github.com/amjith/fuzzyfinder&#34;&gt;fuzzy matching&lt;/a&gt; for
+project references and dependencies. Again, this makes it easy to hack on by
+hand. In the example below, I&amp;rsquo;m able to use &amp;ldquo;mftr widgets&amp;rdquo; to refer to the
+&amp;ldquo;Manufacture widgets&amp;rdquo; task.&lt;/p&gt;
+
+&lt;p&gt;Example input:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    {
+        projects: [
+            {
+                name: Project Alpha
+                color: green
+            }
+        ]
+
+        tasks: [
+            {
+                name: Design widget
+                begin: 2016-10-14
+                duration: 7,
+                people: Farquaad
+                project: alpha
+            }
+            {
+                name: Set up widget production line
+                begin: 2016-10-19
+                duration: 6
+                people: Zack
+                project: alpha
+            }
+            {
+                name: Manufacture widgets
+                duration: 7
+                people: Carrie
+                deps: [&amp;quot;design widget&amp;quot;, &amp;quot;widget prod line&amp;quot;]
+                project: alpha
+            }
+        ]
+
+        milestones: [
+            {
+                name: Widgets start shipping
+                start: 2016-10-30
+                deps: [&amp;quot;mftr widgets&amp;quot;]
+                project: alpha
+            }
+        ]
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Example output (&lt;code&gt;./hjson_to_gantt --begin-date 2016-10-10 --end-date 2016-11-13 example.hjson --name example&lt;/code&gt;):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.lowrisc.org/blog/2016/gantt_example_weekly.png&#34; alt=&#34;Example Gantt chart&#34; style=&#34;width: 900px&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/lowRISC/hjson_to_gantt&#34;&gt;hjson_to_gantt is available on Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>lowRISC&#43;IMC internship: second update</title>

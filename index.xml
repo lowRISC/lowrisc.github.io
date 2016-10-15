@@ -6,8 +6,91 @@
     <description>Recent content on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 22 Sep 2016 13:26:41 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 15 Oct 2016 10:00:00 +0100</lastBuildDate>
     <atom:link href="http://www.lowrisc.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Generating a Gantt chart from HJSON input</title>
+      <link>http://www.lowrisc.org/blog/2016/10/generating-a-gantt-chart-from-hjson-input</link>
+      <pubDate>Sat, 15 Oct 2016 10:00:00 +0100</pubDate>
+      
+      <guid>http://www.lowrisc.org/blog/2016/10/generating-a-gantt-chart-from-hjson-input</guid>
+      <description>&lt;p&gt;This blog post is a slight departure from the normal topics here. Worry not,
+we&amp;rsquo;ll return to discussing Verilog, Chisel, and low-level software work soon.
+I wrote a quick script to help serve a need (producing a Gantt chart) and
+thought perhaps others would find it useful.&lt;/p&gt;
+
+&lt;p&gt;There are a wide range of online services to help produce and maintain Gantt
+charts, but none quite offered what I was looking for. I want something open
+source, easy to use, and where the underlying data is human readable and can
+be version controlled. The
+&lt;a href=&#34;http://xael.org/pages/python-gantt-en.html&#34;&gt;python-gantt&lt;/a&gt; library formed an
+excellent starting point for generating a Gantt chart in SVG, but I thought it
+was worth trying to support a slightly less verbose input format.&lt;/p&gt;
+
+&lt;p&gt;Enter &lt;a href=&#34;http://hjson.org/&#34;&gt;hjson&lt;/a&gt;, which aims to be a superset of json with
+much more forgiving syntax. This has its disadvantages, but it does seem to
+work well as a concise and easy to edit data format. A quick python script to
+parse an hjson input to produce a Gantt chart and we&amp;rsquo;re away. One feature I do
+like is the use of &lt;a href=&#34;https://github.com/amjith/fuzzyfinder&#34;&gt;fuzzy matching&lt;/a&gt; for
+project references and dependencies. Again, this makes it easy to hack on by
+hand. In the example below, I&amp;rsquo;m able to use &amp;ldquo;mftr widgets&amp;rdquo; to refer to the
+&amp;ldquo;Manufacture widgets&amp;rdquo; task.&lt;/p&gt;
+
+&lt;p&gt;Example input:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    {
+        projects: [
+            {
+                name: Project Alpha
+                color: green
+            }
+        ]
+
+        tasks: [
+            {
+                name: Design widget
+                begin: 2016-10-14
+                duration: 7,
+                people: Farquaad
+                project: alpha
+            }
+            {
+                name: Set up widget production line
+                begin: 2016-10-19
+                duration: 6
+                people: Zack
+                project: alpha
+            }
+            {
+                name: Manufacture widgets
+                duration: 7
+                people: Carrie
+                deps: [&amp;quot;design widget&amp;quot;, &amp;quot;widget prod line&amp;quot;]
+                project: alpha
+            }
+        ]
+
+        milestones: [
+            {
+                name: Widgets start shipping
+                start: 2016-10-30
+                deps: [&amp;quot;mftr widgets&amp;quot;]
+                project: alpha
+            }
+        ]
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Example output (&lt;code&gt;./hjson_to_gantt --begin-date 2016-10-10 --end-date 2016-11-13 example.hjson --name example&lt;/code&gt;):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.lowrisc.org/blog/2016/gantt_example_weekly.png&#34; alt=&#34;Example Gantt chart&#34; style=&#34;width: 900px&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/lowRISC/hjson_to_gantt&#34;&gt;hjson_to_gantt is available on Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>lowRISC&#43;IMC internship: second update</title>
@@ -1501,201 +1584,6 @@ do submit a proposal either via the link at the &lt;a href=&#34;http://openrisc.
 website&lt;/a&gt; or to me at asb@lowrisc.org. We hope to
 see many of you there - please &lt;a href=&#34;http://goo.gl/forms/KRZux8vnyO&#34;&gt;register
 here&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Second RISC-V Workshop: Day Two</title>
-      <link>http://www.lowrisc.org/blog/2015/06/second-risc-v-workshop-day-two</link>
-      <pubDate>Tue, 30 Jun 2015 17:00:45 +0100</pubDate>
-      
-      <guid>http://www.lowrisc.org/blog/2015/06/second-risc-v-workshop-day-two</guid>
-      <description>
-
-&lt;p&gt;It&amp;rsquo;s the second day of the &lt;a href=&#34;https://riscv.org/2015/06/preliminary-agenda-for-the-2nd-risc-v-workshop-is-posted/&#34;&gt;second RISC-V
-workshop&lt;/a&gt; today in Berkeley,
-California.  I&amp;rsquo;ll be keeping a semi-live blog of talks and announcements
-throughout the day.&lt;/p&gt;
-
-&lt;h2 id=&#34;z-scale-tiny-32-bit-risc-v-systems-yunsup-lee:1ef1186fa93d1e56b496df4f0f6ee20f&#34;&gt;Z-scale. Tiny 32-bit RISC-V Systems: Yunsup Lee&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Z-Scale is a family of tiny cores, similar in spirit to the ARM Cortex-M
-family. It integrates with the AHB-Lite interconnect.&lt;/li&gt;
-&lt;li&gt;Contrast to Rocket (in-order cores, 64-bit, 32-bit, dual-issue options), and
-BOOM (a family of out-of-order cores).&lt;/li&gt;
-&lt;li&gt;Z-Scale is a 32-bit 3-stage single-issue in-order pipeline executing the
-RV32IM ISA.&lt;/li&gt;
-&lt;li&gt;The instruction bus and data base are 32-bit AHB-Lite buses&lt;/li&gt;
-&lt;li&gt;There is a plan to publish a microarchitecture specification to make it easy
-for others to implement an equivalent design in the language of their choice.&lt;/li&gt;
-&lt;li&gt;The Zscale is slightly larger than the Cortex-M0 due to having 32 vs 16
-registers, 64-bit performance counters, and a fast multiply and divide. The
-plan is to add an option to generate a Zscale implementing RV32E (i.e. only
-having 16 registers).&lt;/li&gt;
-&lt;li&gt;Zscale is only 604 loc in Chisel. 274 lines for control, 267 for the
-datapath, and 63 for the top-level. Combine with 983loc borrowed from Rocket.&lt;/li&gt;
-&lt;li&gt;A Verilog implementation of Z-scale is being implemented. It&amp;rsquo;s currently
-1215 lines of code.&lt;/li&gt;
-&lt;li&gt;The repo is &lt;a href=&#34;https://github.com/ucb-bar/zscale&#34;&gt;here&lt;/a&gt;, but Yunsup needs to
-do a little more work to make it easily buildable. There will be a blog post
-on the RISC-V site soon.&lt;/li&gt;
-&lt;li&gt;All future Rocket development will move to the public
-&lt;a href=&#34;https://github.com/ucb-bar/rocket-chip&#34;&gt;rocket-chip&lt;/a&gt; repo!&lt;/li&gt;
-&lt;li&gt;Memory interfaces:
-
-&lt;ul&gt;
-&lt;li&gt;TileLink is the Berkeley cache-coherent interconnect&lt;/li&gt;
-&lt;li&gt;NASTI (Berkeley implementation of AXI4)&lt;/li&gt;
-&lt;li&gt;HASTI (implementation of AHB-lite)&lt;/li&gt;
-&lt;li&gt;POCI (implementation of APB)&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;The plan is to dump HTIF in Rocket, and add a standard JTAG debug interface.&lt;/li&gt;
-&lt;li&gt;Future work for Z-Scale includes a microarchitecture document, improving
-performance, implementing the C extensions, adding an MMU option, and adding
-more devices.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;boom-berkeley-out-of-order-machine-chris-celio:1ef1186fa93d1e56b496df4f0f6ee20f&#34;&gt;BOOM. Berkeley Out-of-order-Machine: Chris Celio&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;BOOM is a (work in progress) superscalar, out-of-order RISC-V processor
-written in Chisel.&lt;/li&gt;
-&lt;li&gt;Chris argues there&amp;rsquo;s been a general lack of effort in academia to build and
-evaluate out-of-order designs. As he points out, much research relies on
-software simulators with no area or power numbers.&lt;/li&gt;
-&lt;li&gt;Some of the difficult questions for BOOM are which benchmarks to use, and
-how many cycles you need to run. He points out that mapping to FPGA running at
-50MHz, it would take around a day for the SPEC benchmarks for a cluster of
-FPGAs.&lt;/li&gt;
-&lt;li&gt;The fact that rs1, rs2, rs3 and rd are always in the same space in the
-RISC-V ISA allows decode and rename to proceed in parallel.&lt;/li&gt;
-&lt;li&gt;BOOM supports the full RV64G standard. It benefits from reusing Rocket as a
-library of components.&lt;/li&gt;
-&lt;li&gt;BOOM uses explicit renaming, with a unified register file holding both
-x-regs and f-regs (floating point). A unified issue window holds all
-instructions.&lt;/li&gt;
-&lt;li&gt;BOOM is synthesisable and hits 2GHz (30 FO4) in TSMC 45nm.&lt;/li&gt;
-&lt;li&gt;BOOM is 9kloc of its own code, and pulls in 11.5kloc from other libraries
-(rocket, uncore, floating poing)&lt;/li&gt;
-&lt;li&gt;BOOM compares well to an ARM Cortex-A9 and A15 in terms of CoreMark/MHz. A
-4-wide BOOM gives a similar CoreMark/MHz to the A15.&lt;/li&gt;
-&lt;li&gt;Future work will look at new applications, a ROCC interface, new
-microarchitecture designs. The plan is to open source by this winter.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;fabscalar-risc-v-rangeen-basu-roy-chowdhury:1ef1186fa93d1e56b496df4f0f6ee20f&#34;&gt;Fabscalar RISC-V: Rangeen Basu Roy Chowdhury&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;A FabScalar RISC-V version should be released in the next few days&lt;/li&gt;
-&lt;li&gt;FabScalar generates synthesisable RTL for arbitrary superscalar cores with a
-canonical superscalar template.&lt;/li&gt;
-&lt;li&gt;FabScalar uses a library of pipeline stages, providing many different
-designs for each canonical pipeline stage.&lt;/li&gt;
-&lt;li&gt;Two chips have been built with FabScalar so far (using PISA).&lt;/li&gt;
-&lt;li&gt;The RISC-V port was built on the previous PIA &amp;lsquo;Superset Core&amp;rsquo;. This had
-64-bit instructions and 32-bit address and data.&lt;/li&gt;
-&lt;li&gt;For RISC-V FabScalar they have a unified physical register file and unified
-issue queue for floating point (so the FP ALU is treated like just another
-functional unit).&lt;/li&gt;
-&lt;li&gt;FabScalar RISC-V will be released as an open source tool complete with
-uncore components and verification infrastructure. It will be available on
-GitHub in the fall.&lt;/li&gt;
-&lt;li&gt;The license isn&amp;rsquo;t yet decided, but there&amp;rsquo;s a good chance it will be BSD.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;aristotle-a-logically-determined-clockless-risc-v-rv32i-matthew-kim:1ef1186fa93d1e56b496df4f0f6ee20f&#34;&gt;Aristotle. A Logically Determined (Clockless) RISC-V RV32I: Matthew Kim&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Two logical values are defined. Data and null (not data). Then define
-threshold operators to produce &amp;lsquo;null convention logic&amp;rsquo;.&lt;/li&gt;
-&lt;li&gt;See &lt;a href=&#34;https://users.soe.ucsc.edu/~scott/papers/NCL2.pdf&#34;&gt;here&lt;/a&gt; for more on
-Null Convention Logic&lt;/li&gt;
-&lt;li&gt;This results in a system built entirely of combinational logic. I couldn&amp;rsquo;t
-hope to accurately summarise the work here. I&amp;rsquo;m afraid you might be best off
-waiting for the recording.&lt;/li&gt;
-&lt;li&gt;Current executing compiled quicksort at approximately 400mips (without
-serious optimisation).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;risc-v-erification-prashanth-mundkur:1ef1186fa93d1e56b496df4f0f6ee20f&#34;&gt;RISC-V(erification): Prashanth Mundkur&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Current architectures e.g. those from Intel and ARM have large errata sheets
-published semi-regularly. Can we do better for RISC-V?&lt;/li&gt;
-&lt;li&gt;Need an unambiguous formal ISA specification which should be coupled to a
-processor implementation amenable to the two, with a formal link between the
-two.&lt;/li&gt;
-&lt;li&gt;Currently specifying RISC-V in the &lt;a href=&#34;http://www.cl.cam.ac.uk/~acjf3/l3/&#34;&gt;L3
-DSL&lt;/a&gt;. The interpreter is used as a
-reference oracle for processor implementations.&lt;/li&gt;
-&lt;li&gt;The current state of the spec is &lt;a href=&#34;https://github.com/pmundkur/l3riscv&#34;&gt;available on
-Github&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;The work has already helped to highlight some areas where clarification is
-needed in the written specification&lt;/li&gt;
-&lt;li&gt;Next steps would involve support for the compressed instruction set and
-floating point, booting Linux, and using for tandem-verification (e.g. with
-Flue from Bluespec).&lt;/li&gt;
-&lt;li&gt;Hope to export usable HOL4 formal definitions, and use that to prove
-information properties (e.g. non-interference and information flow in
-low-level privileged code).&lt;/li&gt;
-&lt;li&gt;The talk is now moving to the second half, where Prashanth is presenting
-Nirav Dave&amp;rsquo;s work&lt;/li&gt;
-&lt;li&gt;This work is looking at rapidly verifying architectural and
-micro-architectural variants of RISC-V. Rely on translating between
-microarchitectural-states and ISA-level states.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;towards-general-purpose-tagged-memory-wei-song:1ef1186fa93d1e56b496df4f0f6ee20f&#34;&gt;Towards General-Purpose Tagged Memory: Wei Song&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Wei Song is presenting his &lt;a href=&#34;http://www.lowrisc.org/blog/2015/04/lowrisc-tagged-memory-preview-release/&#34;&gt;work on tagged memory support in
-lowRISC&lt;/a&gt;.&lt;br /&gt;
-I&amp;rsquo;ll post the slides shortly.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;raven3-a-28nm-risc-v-vector-processor-with-on-chip-dc-dc-convertors-brian-zimmer:1ef1186fa93d1e56b496df4f0f6ee20f&#34;&gt;Raven3, a 28nm RISC-V Vector Processor with On-Chip DC/DC Convertors: Brian Zimmer&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Support dynamic voltage and frequency scaling on-chip with no off-chip
-components.&lt;/li&gt;
-&lt;li&gt;Want to switch all converters simultaneously to avoid charge sharing. The
-clock frequency adapts to track the voltage ripple.&lt;/li&gt;
-&lt;li&gt;Raven has a RISC-V scalar core, vector accelerator. 16KB scalar instruction
-cache, 32KB shared data cache, and 8KB instruction cache. This has a 1.19mm^2
-area.&lt;/li&gt;
-&lt;li&gt;The converter area is 0.19mm^2&lt;/li&gt;
-&lt;li&gt;The chip was wire-bonded on to a daughter-board, which was then connected to
-a larger motherboard connected to a Zedboard&lt;/li&gt;
-&lt;li&gt;Converter transitions are less than 20ns, which allows extremely
-fine-grained DVFS.&lt;/li&gt;
-&lt;li&gt;Raven3 showed 80% efficiency across a wide voltage range and achieved
-26GFLOPS/W using the on-chip conversion.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;evaluating-risc-v-cores-for-pulp-an-open-parallel-ultra-low-power-platform-sven-stucki:1ef1186fa93d1e56b496df4f0f6ee20f&#34;&gt;Evaluating RISC-V Cores for PULP. An Open Parallel Ultra-Low-Power Platform : Sven Stucki&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Approximately 40 people working on PULP in some way&lt;/li&gt;
-&lt;li&gt;Ultimate (ambitious) goal is one 1GOPS/mW (or 1pJ/op). Also hope to achieve
-energy proportionality.&lt;/li&gt;
-&lt;li&gt;Plan is to be open source on GitHub&lt;/li&gt;
-&lt;li&gt;PULP has been silicon-proven in 28nm, 65nm, 130nm and 180nm. The team have
-tape-outs planned through to 2016.&lt;/li&gt;
-&lt;li&gt;Sven has replaced the OpenRISC frontend with a RISC-V decoder, hoping to
-take advantage of the more active community and compressed instruction set
-support.&lt;/li&gt;
-&lt;li&gt;PULP is a simple 4-stage design supporting RV32IC as well as the mul
-instruction from the M extension.&lt;/li&gt;
-&lt;li&gt;Synthesising for UMC65, they see 22kilo-gate equivalent per core&lt;/li&gt;
-&lt;li&gt;The OR10N core was a new OpenRISC implementation with support for hardware
-loops, pre/postincrement memory access and vector instructions.&lt;/li&gt;
-&lt;li&gt;Heading for a GlobalFoundries 28nm tapeout in Q4 2015&lt;/li&gt;
-&lt;li&gt;See more on PULP &lt;a href=&#34;http://iis-projects.ee.ethz.ch/index.php/PULP&#34;&gt;at the
-website&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>
     

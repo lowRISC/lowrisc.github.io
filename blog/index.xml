@@ -284,6 +284,21 @@ fixed and documented, ELF format fixed and documented, priv-1.10.0&lt;/li&gt;
 &lt;li&gt;Formal specification task group: Formal models written in L3, BSV and in Coq&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;free-chips-project-yunsup-lee:c4d57dfb69fe6b8ac7fe4d23269f06fb&#34;&gt;Free Chips Project: Yunsup Lee&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A plan to launch a not-for-profit for hosting open-source RISC-V
+implementations, tools, and code&lt;/li&gt;
+&lt;li&gt;SiFive loves open source, believes it is essential to their mission.&lt;/li&gt;
+&lt;li&gt;The rocket-chip generator has had almost 4000 commits. 40% of all commits so
+far come from SiFive&lt;/li&gt;
+&lt;li&gt;SiFive contributions to the rocket-chip repository are made under the Apache
+v2 license.&lt;/li&gt;
+&lt;li&gt;SiFive added RV32I+M/A/F support, compressed support, blocking data cache,
+and data SRAM options&lt;/li&gt;
+&lt;li&gt;SiFive will publish a TileLink specification&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

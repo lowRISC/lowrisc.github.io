@@ -268,6 +268,16 @@ conformance&lt;/li&gt;
 &lt;li&gt;To maintain and update a list of hardware implementations of the
 architecture&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Longer term goals
+
+&lt;ul&gt;
+&lt;li&gt;Establish processes to define and standardise future ISA extensions&lt;/li&gt;
+&lt;li&gt;Provide guidelines for platform integration&lt;/li&gt;
+&lt;li&gt;Set up program committees for future RISC-V workshops&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Task groups: opcode space management, privileged ISA specification, formal
+specification, debug specification, security, vector extensions, software
+toolchain&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

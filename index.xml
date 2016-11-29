@@ -278,6 +278,10 @@ architecture&lt;/li&gt;
 &lt;li&gt;Task groups: opcode space management, privileged ISA specification, formal
 specification, debug specification, security, vector extensions, software
 toolchain&lt;/li&gt;
+&lt;li&gt;By Feb, debug spec will be ratified by the foundation, calling convention
+fixed and documented, ELF format fixed and documented, priv-1.10.0&lt;/li&gt;
+&lt;li&gt;By November, ratify vector extension&lt;/li&gt;
+&lt;li&gt;Formal specification task group: Formal models written in L3, BSV and in Coq&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

@@ -90,6 +90,12 @@ committed to updating the open source rocket-chip implementation.&lt;/li&gt;
 power domains (supports low power standby). Comes in a 6x6 48-pin QFN&lt;/li&gt;
 &lt;li&gt;Claim to be 9x more power efficient than Intel Quark and 2x more power
 efficient than the ARM Cortex M0+.&lt;/li&gt;
+&lt;li&gt;The HiFive 1 is an Arduino compatible board for this chip. The board design
+and SDK is/will be open source. It&amp;rsquo;s now up on
+&lt;a href=&#34;https://www.crowdsupply.com/sifive/hifive1&#34;&gt;CrowdSupply&lt;/a&gt;. $59 will get you
+one board.&lt;/li&gt;
+&lt;li&gt;The RTL for their implementations presented at the last RISC-V workshop are
+now open source and &lt;a href=&#34;https://github.com/sifive/freedom&#34;&gt;up at GitHub&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

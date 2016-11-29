@@ -42,6 +42,12 @@ packages, PCB design, firmware etc&lt;/li&gt;
 includes a standard library of components, an open soruce package design, and
 an open source motherboard&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;bsg_ip_cores&lt;/code&gt; aims to be like C++ STL, but for SystemVerilog&lt;/li&gt;
+&lt;li&gt;BSG Ten is a recent design featuring 10 RISC-V cores that hopes to tape out
+soon.  Aim for 100% of the the design will be open, including design files for
+the chip, PCB, BGA package, firmware.&lt;/li&gt;
+&lt;li&gt;BSGTen has its own 5-stage RV32IM pipeline&lt;/li&gt;
+&lt;li&gt;Also working on &amp;lsquo;Certus&amp;rsquo;, a 16nm TSMC design featuring Rocket cores, a
+neural network accelerator, and the BSG I/O infrastructure.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

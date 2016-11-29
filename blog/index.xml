@@ -34,20 +34,24 @@ keeping a semi-live blog of talks and announcements throughout the day.&lt;/p&gt
 &lt;ul&gt;
 &lt;li&gt;Startup software stacks today look a light like an iceberg. A small amount
 of &amp;lsquo;value-add&amp;rsquo; at the top, and a huge stack of open source underneath.&lt;/li&gt;
-&lt;li&gt;How do we build the equivalent for hardware, the fully open soruce ASIC
+&lt;li&gt;How do we build the equivalent for hardware, the fully open source ASIC
 stack?&lt;/li&gt;
 &lt;li&gt;Need core IP, IO pads, standard cells, PLLs, high speed I/O, tools, BGA
 packages, PCB design, firmware etc&lt;/li&gt;
 &lt;li&gt;basejump aims to provide a &amp;lsquo;base class&amp;rsquo; for cheap hardware development. It
-includes a standard library of components, an open soruce package design, and
+includes a standard library of components, an open source package design, and
 an open source motherboard&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;bsg_ip_cores&lt;/code&gt; aims to be like C++ STL, but for SystemVerilog&lt;/li&gt;
 &lt;li&gt;BSG Ten is a recent design featuring 10 RISC-V cores that hopes to tape out
-soon.  Aim for 100% of the the design will be open, including design files for
-the chip, PCB, BGA package, firmware.&lt;/li&gt;
-&lt;li&gt;BSGTen has its own 5-stage RV32IM pipeline&lt;/li&gt;
+soon.  Aim for 100% of the design will be open, including design files for the
+chip, PCB, BGA package, firmware.&lt;/li&gt;
+&lt;li&gt;BSG Ten has its own 5-stage RV32IM pipeline&lt;/li&gt;
 &lt;li&gt;Also working on &amp;lsquo;Certus&amp;rsquo;, a 16nm TSMC design featuring Rocket cores, a
 neural network accelerator, and the BSG I/O infrastructure.&lt;/li&gt;
+&lt;li&gt;Suggestion: RoCC interface should be wired to the toplevel of the Rocket
+hierarchy&lt;/li&gt;
+&lt;li&gt;Suggestion: The RISC-V community should have at least yearly stable
+end-to-end releases of full RISC-V stacks (Linux to Verilog)&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

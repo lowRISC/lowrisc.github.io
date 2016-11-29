@@ -63,6 +63,17 @@ Speed: 500MHz.&lt;/li&gt;
 &lt;li&gt;What is PULP? Parallel Ultra Low Power (platform).&lt;/li&gt;
 &lt;li&gt;PULPino is a much simplified version of PULP, featuring just 1 core, reduced
 interconnect and simplified cache design.&lt;/li&gt;
+&lt;li&gt;Have hardware loops, post-incrementing loads and stores and SIMD instruction
+extensions.&lt;/li&gt;
+&lt;li&gt;Over 20 companies and research institutes are using PULPino&lt;/li&gt;
+&lt;li&gt;PULPinov2 is targeted for Q12017. This features support for Verilator
+simulation, IP-XACT description, new peripherals (uDMA), new streamlined event
+unit, SDK, updated compiler, and improved documentation and tutorials&lt;/li&gt;
+&lt;li&gt;In the future, want to work on a secure PULPino capable of running SeL4&lt;/li&gt;
+&lt;li&gt;Working on a 10kGE or less RISC-V core. Evaluating 1 and 3-stage pipeline
+designs.&lt;/li&gt;
+&lt;li&gt;Want to explore heterogeneous configurations, featuring FPU and
+accelerators.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

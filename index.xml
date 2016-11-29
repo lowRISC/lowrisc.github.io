@@ -54,6 +54,17 @@ hierarchy&lt;/li&gt;
 end-to-end releases of full RISC-V stacks (Linux to Verilog)&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;updates-on-pulpino-florian-zaruba:c4d57dfb69fe6b8ac7fe4d23269f06fb&#34;&gt;Updates on PULPino: Florian Zaruba&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Imperio is the first ASIC implementation of PULPino, done in UMC 65nm.&lt;br /&gt;
+Speed: 500MHz.&lt;/li&gt;
+&lt;li&gt;Area is 700kGE for the SoC and 40kGE for the core (1kGE = 1.44um2).&lt;/li&gt;
+&lt;li&gt;What is PULP? Parallel Ultra Low Power (platform).&lt;/li&gt;
+&lt;li&gt;PULPino is a much simplified version of PULP, featuring just 1 core, reduced
+interconnect and simplified cache design.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

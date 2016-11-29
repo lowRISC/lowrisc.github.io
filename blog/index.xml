@@ -77,6 +77,21 @@ accelerators.&lt;/li&gt;
 &lt;li&gt;Find out more at the &lt;a href=&#34;http://www.pulp-platform.org&#34;&gt;PULP website&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;sifive-fe310-and-low-cost-hifive1-development-board-jack-kang:c4d57dfb69fe6b8ac7fe4d23269f06fb&#34;&gt;SiFive FE310 and low-cost HiFive1 development board: Jack Kang&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;SiFive is a fabless semiconductor company. Their business model is to build
+custom SoC designs for their customers. Customers give specs and/or IP and
+SiFive deliver packaged, tested chips.&lt;/li&gt;
+&lt;li&gt;Although a commercial company who may offer commercial licenses, they are
+committed to updating the open source rocket-chip implementation.&lt;/li&gt;
+&lt;li&gt;RISC-V chips are here: the Freedom E310. This features an RV32IMAC core.&lt;br /&gt;
+320MHz+ on TSMC180G. 1.61DMIPS/MHz, 16K L1 I$, 16K data scratchpad, multiple
+power domains (supports low power standby). Comes in a 6x6 48-pin QFN&lt;/li&gt;
+&lt;li&gt;Claim to be 9x more power efficient than Intel Quark and 2x more power
+efficient than the ARM Cortex M0+.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

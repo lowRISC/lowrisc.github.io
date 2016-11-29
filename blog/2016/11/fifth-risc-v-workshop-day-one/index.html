@@ -213,6 +213,19 @@ the original baseline).</li>
 code size by 8% and cycle count by 18% vs the previous result.</li>
 </ul>
 
+<h1 id="a-memory-model-for-risc-v-muralidaran-vijayaraghavan:c4d57dfb69fe6b8ac7fe4d23269f06fb">A memory model for RISC-V: Muralidaran Vijayaraghavan</h1>
+
+<ul>
+<li>Why not SC/TSO? Simple implementations have low performance.</li>
+<li>Why not the POWER/ARM models? Expose too many microarchitectural details and
+their axiomatic models are too complex</li>
+<li>Why not RMO? The dependency requirements are too strict</li>
+<li>Want a simple specification with the inclusion of sufficient fences to force
+sequential consistency behaviour when necessary</li>
+<li>Which is why they&rsquo;ve introduced WMM: which has a simple operational
+specification like SC, TSO.</li>
+</ul>
+
 <p><em>Alex Bradbury</em></p>
 
                     </section>

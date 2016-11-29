@@ -256,6 +256,10 @@ atomicity (defines the order in which stores become visible to cores).</li>
 <li>Why allow non-multiple-copy atomic stores? Commercial ISAs e.g. ARM, Power
 allow this, and RISC-V is intended to be integrated with other vendor ISAs on
 a shared memory system.</li>
+<li>Want preserved program order to require same address read-read ordering</li>
+<li>Want PPO to maintain order between dependent instructions</li>
+<li>TriCheck compares high level language outcomes to ISA-level outcomes for a
+spectrum of legal ISA microarchitectures</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

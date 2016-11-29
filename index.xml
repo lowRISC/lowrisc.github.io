@@ -127,6 +127,15 @@ availability for a dev-board&lt;/li&gt;
 non-copyleft license.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;extending-risc-v-for-application-specific-requirements-steve-cox:c4d57dfb69fe6b8ac7fe4d23269f06fb&#34;&gt;Extending RISC-V for application-specific requirements: Steve Cox&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Sometimes a pre-defined ISA is insufficient. May require an
+application-optimised ISA. e.g. the Google TPU&lt;/li&gt;
+&lt;li&gt;ASIP designer is a tool for automating ASIP design. The process can start
+with a pre-existing example model, e..g RISC-V&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

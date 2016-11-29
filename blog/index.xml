@@ -245,6 +245,29 @@ marketing committees were formed in Q3 2016.&lt;/li&gt;
 community&lt;/li&gt;
 &lt;li&gt;Activities include organising RISC-V workshops and tutorials, and RISC-V
 participation at industry events&lt;/li&gt;
+&lt;li&gt;Want to help create RISC-V educational materials for industry practitioners,
+researchers, and university students&lt;/li&gt;
+&lt;li&gt;The marketing committee has several task groups: RISC-V workshops, outreach,
+RISC-V content (creating riscv.org content and educational and marketing
+materials), and member content (promoting content from RISC-V Foundation
+members)&lt;/li&gt;
+&lt;li&gt;David Patterson announces both of his textbooks will have RISC-V editions&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;risc-v-technical-committee-update-yunsup-lee:c4d57dfb69fe6b8ac7fe4d23269f06fb&#34;&gt;RISC-V Technical Committee update: Yunsup Lee&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Immediate goals:
+
+&lt;ul&gt;
+&lt;li&gt;Maintain a roadmap of the RISC-V ISA&lt;/li&gt;
+&lt;li&gt;Provide and maintain a golden simulator for the RISC-V ISA&lt;/li&gt;
+&lt;li&gt;Provide and maintain a set of verification/validation tests to ensure
+conformance&lt;/li&gt;
+&lt;li&gt;To upstream software development tools (compiler, debugger etc)&lt;/li&gt;
+&lt;li&gt;To maintain and update a list of hardware implementations of the
+architecture&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

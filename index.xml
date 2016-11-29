@@ -105,6 +105,16 @@ with custom instructions, custom accelerators etc. The ability to customise
 will result in better performance/watt than any off the shelf solution.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;rapid-silicon-prototyping-and-production-for-risc-v-socs-neil-hand:c4d57dfb69fe6b8ac7fe4d23269f06fb&#34;&gt;Rapid silicon prototyping and production for RISC-V SoCs: Neil Hand&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Need to support rapid evolution of IoT designs.&lt;/li&gt;
+&lt;li&gt;IoT class designs can be achieved in tens of k$.&lt;/li&gt;
+&lt;li&gt;All standards based, but not open source&lt;/li&gt;
+&lt;li&gt;A standard cell ASIC is typically 52-78 weeks, compared to 10 weeks for a
+Baysand Metal configurable standard cell.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

@@ -221,7 +221,15 @@ undocumented.&lt;/li&gt;
 u-root on Asus KGPE-D16 motherboard&lt;/li&gt;
 &lt;li&gt;For RISC-V, you have the critical advantage of openness - be sure to keep
 it. Please resist adding features lightly, or else consider removing others in
-compensation. Also consider a CHERI security extension?&lt;/li&gt;
+compensation. Also consider a CHERI security extension, or tagged memory&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;risc-v-foundation-update-rick-o-connor:c4d57dfb69fe6b8ac7fe4d23269f06fb&#34;&gt;RISC-V Foundation update: Rick O&amp;rsquo;Connor&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Rick gives another overview of the RISC-V Foundation, and reiterates that
+RISC-V is not an open source processor core but an open ISA specification. The
+Foundation will encourage both open source and proprietary implementations&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

@@ -194,6 +194,10 @@ a shared memory system.&lt;/li&gt;
 &lt;li&gt;Want PPO to maintain order between dependent instructions&lt;/li&gt;
 &lt;li&gt;TriCheck compares high level language outcomes to ISA-level outcomes for a
 spectrum of legal ISA microarchitectures&lt;/li&gt;
+&lt;li&gt;The currently document RISC-V memory model lacks cumulative fences, which
+are needed for C/C++ acquire/release synchronisation&lt;/li&gt;
+&lt;li&gt;They have formulated an english language diff of the current spec with
+proposed changes, but are also working on a formal model.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

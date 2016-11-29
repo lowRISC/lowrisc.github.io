@@ -224,6 +224,15 @@ their axiomatic models are too complex</li>
 sequential consistency behaviour when necessary</li>
 <li>Which is why they&rsquo;ve introduced WMM: which has a simple operational
 specification like SC, TSO.</li>
+<li>WMM introduces the conceptual device of an invalidation buffer. This holds
+stale values that may be read by a future load.</li>
+<li>WMM has reconcile fences (clears the invalidation buffer) and commit fences
+(flushes the store buffer).</li>
+<li>All instructions are committed in order, so stores cannot overtake loads.
+This prevents &lsquo;out of thin air&rsquo; generation of values</li>
+<li>A write -back coherent cache hierarchy is typically global store atomic. SMT
+cores with L1 write-through caches aren&rsquo;t, so don&rsquo;t do it.</li>
+<li>Mapping C++11 to WMM is straight forward</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

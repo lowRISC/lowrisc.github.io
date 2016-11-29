@@ -213,7 +213,7 @@ the original baseline).</li>
 code size by 8% and cycle count by 18% vs the previous result.</li>
 </ul>
 
-<h1 id="a-memory-model-for-risc-v-muralidaran-vijayaraghavan:c4d57dfb69fe6b8ac7fe4d23269f06fb">A memory model for RISC-V: Muralidaran Vijayaraghavan</h1>
+<h2 id="a-memory-model-for-risc-v-muralidaran-vijayaraghavan:c4d57dfb69fe6b8ac7fe4d23269f06fb">A memory model for RISC-V: Muralidaran Vijayaraghavan</h2>
 
 <ul>
 <li>Why not SC/TSO? Simple implementations have low performance.</li>
@@ -232,7 +232,23 @@ stale values that may be read by a future load.</li>
 This prevents &lsquo;out of thin air&rsquo; generation of values</li>
 <li>A write -back coherent cache hierarchy is typically global store atomic. SMT
 cores with L1 write-through caches aren&rsquo;t, so don&rsquo;t do it.</li>
-<li>Mapping C++11 to WMM is straight forward</li>
+<li>Mapping C++11 atomic operations to WMM is straight forward</li>
+<li>Question: what is the difference to the programmer vs TSO? Answer: you would
+have to put a reconcile fence whenever you require load/load ordering</li>
+</ul>
+
+<h2 id="a-memory-consistency-model-for-risc-v-caroline-trippel:c4d57dfb69fe6b8ac7fe4d23269f06fb">A Memory Consistency Model for RISC-V: Caroline Trippel</h2>
+
+<ul>
+<li>Princeton have been working on memory consistency model verification. This
+resulted in PipeCheck and CCICheck. Then implemented ArMOR, which worked to
+more precisely define memory models. COATCheck looks at how e.g. instructions
+that are executed as a result of page table walks interact with the memory
+model. Finally, TriCheck helps to verify the lowering of e.g. C++11 atomic
+constructs to the ISA level, as well as checking the ISA memory model and
+hardware memory model.</li>
+<li>Have identified and characterised flaws in the current RISC-V memory model
+(ASPLOS&rsquo;17).</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

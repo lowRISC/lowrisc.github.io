@@ -147,7 +147,7 @@ the original baseline).&lt;/li&gt;
 code size by 8% and cycle count by 18% vs the previous result.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&#34;a-memory-model-for-risc-v-muralidaran-vijayaraghavan:c4d57dfb69fe6b8ac7fe4d23269f06fb&#34;&gt;A memory model for RISC-V: Muralidaran Vijayaraghavan&lt;/h1&gt;
+&lt;h2 id=&#34;a-memory-model-for-risc-v-muralidaran-vijayaraghavan:c4d57dfb69fe6b8ac7fe4d23269f06fb&#34;&gt;A memory model for RISC-V: Muralidaran Vijayaraghavan&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Why not SC/TSO? Simple implementations have low performance.&lt;/li&gt;
@@ -166,7 +166,23 @@ stale values that may be read by a future load.&lt;/li&gt;
 This prevents &amp;lsquo;out of thin air&amp;rsquo; generation of values&lt;/li&gt;
 &lt;li&gt;A write -back coherent cache hierarchy is typically global store atomic. SMT
 cores with L1 write-through caches aren&amp;rsquo;t, so don&amp;rsquo;t do it.&lt;/li&gt;
-&lt;li&gt;Mapping C++11 to WMM is straight forward&lt;/li&gt;
+&lt;li&gt;Mapping C++11 atomic operations to WMM is straight forward&lt;/li&gt;
+&lt;li&gt;Question: what is the difference to the programmer vs TSO? Answer: you would
+have to put a reconcile fence whenever you require load/load ordering&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;a-memory-consistency-model-for-risc-v-caroline-trippel:c4d57dfb69fe6b8ac7fe4d23269f06fb&#34;&gt;A Memory Consistency Model for RISC-V: Caroline Trippel&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Princeton have been working on memory consistency model verification. This
+resulted in PipeCheck and CCICheck. Then implemented ArMOR, which worked to
+more precisely define memory models. COATCheck looks at how e.g. instructions
+that are executed as a result of page table walks interact with the memory
+model. Finally, TriCheck helps to verify the lowering of e.g. C++11 atomic
+constructs to the ISA level, as well as checking the ISA memory model and
+hardware memory model.&lt;/li&gt;
+&lt;li&gt;Have identified and characterised flaws in the current RISC-V memory model
+(ASPLOS&amp;rsquo;17).&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

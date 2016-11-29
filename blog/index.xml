@@ -134,6 +134,15 @@ non-copyleft license.&lt;/li&gt;
 application-optimised ISA. e.g. the Google TPU&lt;/li&gt;
 &lt;li&gt;ASIP designer is a tool for automating ASIP design. The process can start
 with a pre-existing example model, e..g RISC-V&lt;/li&gt;
+&lt;li&gt;ASIP designer has been used in more than 250 unique SoC products&lt;/li&gt;
+&lt;li&gt;The speaker gives an example of a header compression accelerator. Start with
+a simple 3-stage RV32IM core. This is 24.5k gates on TSMC 28HPM at 500MHz and
+32GPRs.&lt;/li&gt;
+&lt;li&gt;First, consider instruction level parallelism. e.g. switching to a 2-slot
+VLIW. This reduced cycle could by 21% and increased gate count by 31%.&lt;/li&gt;
+&lt;li&gt;Next, try adding application-specific instructions. This reduced the code
+size by 56%, cycle count by 67%, and added 9% to the gate count (compared to
+the original baseline).&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

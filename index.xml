@@ -297,6 +297,11 @@ v2 license.&lt;/li&gt;
 &lt;li&gt;SiFive added RV32I+M/A/F support, compressed support, blocking data cache,
 and data SRAM options&lt;/li&gt;
 &lt;li&gt;SiFive will publish a TileLink specification&lt;/li&gt;
+&lt;li&gt;SiFive recently implemented a library &amp;lsquo;Diplomacy&amp;rsquo; for parameter negotiation.
+Also added multi-clock support, clock crossings, and asynchronous reset flops&lt;/li&gt;
+&lt;li&gt;The SiFive blocks repository contains low-speed peripherals like SPI, UART,
+PWM, GPIO, PMU. These are written in Chisel with TileLink interfaces. It also
+includes wrappers for high-speed Xilinx FPGA peripherals&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

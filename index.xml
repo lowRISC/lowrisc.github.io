@@ -208,6 +208,20 @@ proposed changes, but are also working on a formal model.&lt;/li&gt;
 your adversary (e.g. state actors). Notably, seems to be fairly little in the
 way of advanced corporate espionage from other companies.&lt;/li&gt;
 &lt;li&gt;Fix 1: secure communications. SSL, PGP etc&lt;/li&gt;
+&lt;li&gt;Fix 2: authentication. e.g. two-step authentication, hardware security
+devices&lt;/li&gt;
+&lt;li&gt;Fix 3: stay up to date with patches&lt;/li&gt;
+&lt;li&gt;The disclosure process in the hardware community is dramatically different
+than software. e.g. rowhammer was known to some hardware vendors well before
+the public disclosure.&lt;/li&gt;
+&lt;li&gt;Long standing practitioners&amp;rsquo; wisdom: &amp;ldquo;Complexity is the enemy of security&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Modern systems aren&amp;rsquo;t just incredibly complex, they&amp;rsquo;re also largely
+undocumented.&lt;/li&gt;
+&lt;li&gt;A paranoid&amp;rsquo;s choice of CPU? x86 with Qubes-OS on a NUC kit. Or Coreboot,
+u-root on Asus KGPE-D16 motherboard&lt;/li&gt;
+&lt;li&gt;For RISC-V, you have the critical advantage of openness - be sure to keep
+it. Please resist adding features lightly, or else consider removing others in
+compensation. Also consider a CHERI security extension?&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

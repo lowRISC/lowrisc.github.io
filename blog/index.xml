@@ -143,6 +143,8 @@ VLIW. This reduced cycle could by 21% and increased gate count by 31%.&lt;/li&gt
 &lt;li&gt;Next, try adding application-specific instructions. This reduced the code
 size by 56%, cycle count by 67%, and added 9% to the gate count (compared to
 the original baseline).&lt;/li&gt;
+&lt;li&gt;Next, try adding a compare immediate and branch instruction. This reduces
+code size by 8% and cycle count by 18% vs the previous result.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

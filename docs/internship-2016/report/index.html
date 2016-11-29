@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
     <head>
-        
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <title>Technical report from the lowRISC Summer Internship 2016 &middot; lowRISC</title>
-        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' type='text/css'>
-        <link rel="stylesheet" href="http://www.lowrisc.org/libraries/normalize.3.0.1.css" />
-        <link rel="stylesheet" href="http://www.lowrisc.org/css/liquorice.css" />
+        <link rel="stylesheet" href="http://www.lowrisc.org/css/styles.combined.min.css" />
         <link rel="shortcut icon" href="http://www.lowrisc.org/favicon.ico" />
         <link rel="alternate" href="http://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' type='text/css'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Exo+2' type='text/css'>
         <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -21,54 +22,37 @@
         ga('send', 'pageview');
       </script>
   </head>
-    <body class="li-body">
 
-<header class="li-page-header">
-  <div class="li-header-top">
-  </div>
-    <div class="container">
-        <div class="row">
-            <div class="sixteen columns">
-                <div class="li-brand li-left">
-                
-                <a href="http://www.lowrisc.org"><img src="http://www.lowrisc.org/img/lowrisc_header_logo.png"/></a></div>
-                <div class="li-menu li-left">
-                    <span class="li-menu-icon" onclick="javascript:toggle('menu');">&#9776;</span>
-                    <ul id="menu2" class="li-menu-items">
-                        
-                            <li><a href="/"> Home </a></li>
-                        
-                            <li><a href="/about/"> About </a></li>
-                        
-                            <li><a href="/faq/"> FAQ </a></li>
-                        
-                            <li><a href="/docs/"> Docs </a></li>
-                        
-                            <li><a href="/community/"> Community </a></li>
-                        
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="sixteen columns">
-                <ul id="menu" class="li-menu-items li-menu-mobile">
-                    
-                        <li><a href="/"> Home </a></li>
-                    
-                        <li><a href="/about/"> About </a></li>
-                    
-                        <li><a href="/faq/"> FAQ </a></li>
-                    
-                        <li><a href="/docs/"> Docs </a></li>
-                    
-                        <li><a href="/community/"> Community </a></li>
-                    
-                </ul>
-            </div>
-        </div>
-    </div>
-</header>
+  <body data-page="article">
+<div class="header">
+  <header data-component="menu">
+
+    <section class="outer-container">
+      <div class="image">
+        <a href="http://www.lowrisc.org"><img src="http://www.lowrisc.org/img/logo.svg"></a>
+      </div>
+
+      <div class="menu">
+        <ul>
+          
+          <li><a href="/"> Home </a></li>
+          
+          <li><a href="/about/"> About </a></li>
+          
+          <li><a href="/blog/"> Blog </a></li>
+          
+          <li><a href="/faq/"> FAQ </a></li>
+          
+          <li><a href="/docs/"> Docs </a></li>
+          
+          <li><a href="/community/"> Community </a></li>
+          
+        </ul>
+      </div>
+    </section>
+
+  </header>
+</div>
 
 
 
@@ -78,7 +62,8 @@
 
 
 
-    <div class="container">
+    <div class="article">
+      <section class="outer-container">
         <div class="row">
             <div class="sixteen columns">
                 <article class="li-article">
@@ -99,6 +84,23 @@
 <p>Friday, 2nd September, 2016</p>
 
 <p><em>Xuan Guo,  Nathanael Davison, Profir-Petru Partachi, Alistair Fisher</em></p>
+
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
 
 <h2 id="contents:0008bd64bca3cf32304ab7293617d71c">Contents</h2>
 
@@ -196,8 +198,8 @@ decoding, with the majority of the work being in the development of the
 accelerators. The planned architecture for the augmented SoC is shown in the
 the diagram below, with the new elements being the Video Accelerator and the
 Video controller. Communication is performed over the AXI protocol. The
-implementation of AXI we used is referred to as NASTI (&lsquo;Not A STandard
-Interface&rsquo;). All future references to AXI use the NASTI name.</p>
+implementation of AXI we used was called NASTI (&lsquo;Not A STandard
+Interface&rsquo;) by its authors. All future references to AXI use the NASTI name.</p>
 
 <p><img src="../augmented_arch.png" style="width: 600px"/></p>
 
@@ -214,8 +216,15 @@ describing the details of the devices produced.</p>
 
 <h3 id="4-1-codec-discussion:0008bd64bca3cf32304ab7293617d71c">4.1 Codec Discussion</h3>
 
-<p>We quickly decided we&rsquo;d follow an existing video codec standard and either implement it ourselves or fork an existing free implementation. A myriad of possibilities are available due to the wide range of existing video formats. The limitations of the FPGAs we were working with narrowed the selection considerably as options such as H.265 were just too computationally taxing to work with.
-We ended up with a shortlist of three: VP8 (WebM), MPEG-2 (H.262) and MPEG-4 AVC (H.264). Ultimately, we decided on MPEG-2 because of a readily available reference implementation (under a BSD-like license) and its relatively low computational complexity compared to the other options.</p>
+<p>We quickly decided we&rsquo;d follow an existing video codec standard and either
+implement it ourselves or fork an existing free implementation. A myriad of
+possibilities are available due to the wide range of existing video formats.
+The limitations of the FPGAs we were working with narrowed the selection
+considerably as options such as H.265 were just too computationally taxing to
+work with.  We ended up with a shortlist of three: VP8 (WebM), MPEG-2 (H.262)
+and MPEG-4 AVC (H.264). Ultimately, we decided on MPEG-2 because of a readily
+available reference implementation (under a BSD-like license) and its
+relatively low computational complexity compared to the other options.</p>
 
 <h3 id="4-2-specific-objectives:0008bd64bca3cf32304ab7293617d71c">4.2 Specific Objectives</h3>
 
@@ -254,7 +263,7 @@ consumes 50,859 logic cells, and provides a 64-bit RISC-V core running at
 <p>Started in early 2015, lowRISC is a not-for-profit organisation working
 closely with the University of Cambridge and the open-source community.
 lowRISC is creating a fully open-source, Linux-capable, RISC-V-based System on
-Chip with the goal of being a low-cost development board - supporting the
+Chip with the goal of producing a low-cost development board - supporting the
 open-source hardware community. Other goals are to explore and promote novel
 security features, to make it simple for companies to make derivative designs,
 and to create a benchmark design to aid academic research.</p>
@@ -264,7 +273,7 @@ and to create a benchmark design to aid academic research.</p>
 <p>The MPEG-2 codec was defined to resolve the shortcomings on the MPEG-1 codec,
 and was standardised in 2000. As such many implementations have been produced.
 Our starting point for getting video running on lowRISC was the reference
-implementation distributed on
+implementation distributed at
 <a href="http://www.mpeg.org/MPEG/video/mssg-free-mpeg-software.html">mpeg.org</a> (note:
 part way through the internship the mpeg.org website went down. An archive of
 the page can be found
@@ -315,7 +324,9 @@ registers. Currently only 18 of them are used.</p>
 above registers by yourself. A helper header <em>video.h</em> is provided with macro
 defined.</p>
 
-<p>In Linux, a driver is provided to register the video controller as a framebuffer, so you can use standard framebuffer operation to deal with this device.</p>
+<p>In Linux, a driver is provided to register the video controller as a
+framebuffer, so you can use standard framebuffer operation to deal with this
+device.</p>
 
 <hr />
 
@@ -411,11 +422,19 @@ embracing AXI4-Stream specification.</p>
 
 <h3 id="7-3-scatter-gather:0008bd64bca3cf32304ab7293617d71c">7.3 Scatter-Gather</h3>
 
-<p>During development, we&rsquo;ve found that we need scatter-gather support to speed things up. Due to existence of the MMU, we can only guarantee physical address continuity within the page, which obviously limits the use case of our accelerator. We address this issue by adding scatter-gather support to the data movers, and use a last bit in the every data move command to identify if this command is the last one in the packet.</p>
+<p>During development, we&rsquo;ve found that we need scatter-gather support to speed
+things up. Due to existence of the MMU, we can only guarantee physical address
+continuity within the page, which obviously limits the use case of our
+accelerator. We address this issue by adding scatter-gather support to the
+data movers, and use a last bit in the every data move command to identify if
+this command is the last one in the packet.</p>
 
 <h3 id="7-4-accelerator-instruction:0008bd64bca3cf32304ab7293617d71c">7.4 Accelerator Instruction</h3>
 
-<p>The accelerator has two FIFOs: input command FIFO and output command FIFO. The first one controls the data mover moving data into the accelerator and the other one controls the opposite direction. Routing will take place automatically by internal crossbar.</p>
+<p>The accelerator has two FIFOs: input command FIFO and output command FIFO. The
+first one controls the data mover moving data into the accelerator and the
+other one controls the opposite direction. Routing will take place
+automatically by internal crossbar.</p>
 
 <table>
 <thead>
@@ -449,9 +468,12 @@ contains 6th to 38th bit of actual length with lower 6-bit padded with 0. This
 design supports 39-bit physical address, which is the same as what lowRISC
 current supports.</p>
 
-<p>Data movers in both direction use the same format, however attributes, last, and opcode fields are ignored by data moving which moves data back to the memory.</p>
+<p>Data movers in both direction use the same format, however attributes, last,
+and opcode fields are ignored by data moving which moves data back to the
+memory.</p>
 
-<p>The last field is the critical field for scatter-gather support: A stream is terminated if last is set to high.</p>
+<p>The last field is the critical field for scatter-gather support: A stream is
+terminated if last is set to high.</p>
 
 <h3 id="7-5-driver:0008bd64bca3cf32304ab7293617d71c">7.5 Driver</h3>
 
@@ -459,7 +481,9 @@ current supports.</p>
 
 <h4 id="7-5-1-bare-metal-driver:0008bd64bca3cf32304ab7293617d71c">7.5.1 Bare-metal Driver</h4>
 
-<p>This is a very basic driver provided without scatter-gather support. In bare metal without MMU enabled, blocks are physically continuous so scatter-gather is not supported.</p>
+<p>This is a very basic driver provided without scatter-gather support. In bare
+metal without MMU enabled, blocks are physically contiguous so scatter-gather
+is not supported.</p>
 
 <p>Three functions are provided in bare-metal:</p>
 
@@ -529,7 +553,9 @@ perceptual impact, it is possible to reproduce, after a DCT -&gt; Quantization
 -&gt; Inverse Quantization -&gt; IDCT phase, an image that is very much similar to
 the original.</p>
 
-<p>DCT is performed when encoding data, and when using a differential coder or motion compensation, IDCT is used in encoding as well. This is why DCT is usually left unoptimized as it is seen as an offline task.</p>
+<p>DCT is performed when encoding data, and when using a differential coder or
+motion compensation, IDCT is used in encoding as well. This is why DCT is
+usually left unoptimized as it is seen as an offline task.</p>
 
 <p>IDCT is performed during decoding and hence must be able to run on lower end
 machines than DCT and be performed online/real-time.  In our implementation,
@@ -762,11 +788,20 @@ the state of <code>in_ch</code> and <code>out_ch</code>.</p>
 since it is a stream, we do not concern ourselves with the length as its end
 will be denoted by a last signal.</p>
 
-<p>Do note that incomplete inputs cause unexpected numeric results by padding zero rows required so that the output is guaranteed to form an integer number of $8\times8$ blocks.</p>
+<p>Do note that incomplete inputs cause unexpected numeric results by padding
+zero rows required so that the output is guaranteed to form an integer number
+of $8\times8$ blocks.</p>
 
 <h3 id="8-3-y-uv-422-to-444:0008bd64bca3cf32304ab7293617d71c">8.3 Y&rsquo;UV 422 to 444</h3>
 
-<p>Chroma sub-sampling is a common compression technique in image encoding which implements less resolution for colour (UV) than for brightness (Y&rsquo;) information. In Y&rsquo;UV422 the colour values are sampled at half the rate of the brightness. In order to convert to RGB, we need to reintroduce this resolution somehow. The accelerator we developed does this by simply repeating every colour value twice. A more advanced system would be to interpolate the value of the colour from the surrounding pixels, however this is left as an extension.</p>
+<p>Chroma sub-sampling is a common compression technique in image encoding which
+implements less resolution for colour (UV) than for brightness (Y&rsquo;)
+information. In Y&rsquo;UV422 the colour values are sampled at half the rate of the
+brightness. In order to convert to RGB, we need to reintroduce this resolution
+somehow. The accelerator we developed does this by simply repeating every
+colour value twice. A more advanced system would be to interpolate the value
+of the colour from the surrounding pixels, however this is left as an
+extension.</p>
 
 <p>The input to the processor is the standard Y&rsquo;UV422 packed format, shown below.</p>
 
@@ -920,13 +955,26 @@ set up some independent FPGA based tests.</p>
 
 <h3 id="9-1-travis-and-linting:0008bd64bca3cf32304ab7293617d71c">9.1 Travis and Linting</h3>
 
-<p>Linting is the process of analysing source code to flag potential issues. During the build process, Verilator lints the input Verilog files and displays warnings. Unfortunately, many of these are spurious, so we&rsquo;ve written a short script that attempts to refine them (identifying important warnings using regular expressions). This script is run during the automated testing, if there are any remaining warnings after it has run, the build is considered a failure.</p>
+<p>Linting is the process of analysing source code to flag potential issues.
+During the build process, Verilator lints the input Verilog files and displays
+warnings. Unfortunately, many of these are spurious, so we&rsquo;ve written a short
+script that attempts to refine them (identifying important warnings using
+regular expressions). This script is run during the automated testing, if
+there are any remaining warnings after it has run, the build is considered a
+failure.</p>
 
 <h3 id="9-2-synthesis-and-scripts:0008bd64bca3cf32304ab7293617d71c">9.2 Synthesis and Scripts</h3>
 
-<p>Travis CI is cloud based, which has many benefits, but a significant downside is that HDL code can only be tested via simulation. We found that several errors only manifest when running on the FPGA, so it was desirable to automate some FPGA tests to run alongside Travis.</p>
+<p>Travis CI is cloud based, which has many benefits, but a significant downside
+is that HDL code can only be tested via simulation. We found that several
+errors only manifest when running on the FPGA, so it was desirable to automate
+some FPGA tests to run alongside Travis.</p>
 
-<p>We did this by having a local machine (with an FPGA turned on and plugged in) periodically poll our main Github repository, when it discovered a new commit, it pulled it and ran some FPGA tests using the new code. It reported the result back to Github once it was finished, typically about half an hour later.</p>
+<p>We did this by having a local machine (with an FPGA turned on and plugged in)
+periodically poll our main Github repository, when it discovered a new commit,
+it pulled it and ran some FPGA tests using the new code. It reported the
+result back to Github once it was finished, typically about half an hour
+later.</p>
 
 <hr />
 
@@ -1179,27 +1227,33 @@ clock rate to 50 MHz.</p>
                 </article>
 
         </div>
+      </section>
     </div>
     
 
 
                 
 
-<footer class="li-page-footer">
-    <div class="container">
-        <div class="row">
-            <div class="sixteen columns">
-            </div>
-        </div>
-    </div>
-</footer>
+        <footer>
 
-    <script type="text/javascript">
-    function toggle(id) {
-        var e = document.getElementById(id);
-        e.style.display == 'block' ? e.style.display = 'none' : e.style.display = 'block';
-    }
-    </script>
+          <section class="outer-container">
+
+            <div>
+              <div class="link-container">
+              </div>
+            </div>
+
+            <p>
+              Unless otherwise noted, content on this site is licensed under a Creative Commons Attribution ShareAlike 4.0 International License
+            </p>
+
+          </section>
+
+        </footer>
+    </body>
+</html>
+
+
     </body>
 </html>
 

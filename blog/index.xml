@@ -36,6 +36,12 @@ keeping a semi-live blog of talks and announcements throughout the day.&lt;/p&gt
 of &amp;lsquo;value-add&amp;rsquo; at the top, and a huge stack of open source underneath.&lt;/li&gt;
 &lt;li&gt;How do we build the equivalent for hardware, the fully open soruce ASIC
 stack?&lt;/li&gt;
+&lt;li&gt;Need core IP, IO pads, standard cells, PLLs, high speed I/O, tools, BGA
+packages, PCB design, firmware etc&lt;/li&gt;
+&lt;li&gt;basejump aims to provide a &amp;lsquo;base class&amp;rsquo; for cheap hardware development. It
+includes a standard library of components, an open soruce package design, and
+an open source motherboard&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;bsg_ip_cores&lt;/code&gt; aims to be like C++ STL, but for SystemVerilog&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

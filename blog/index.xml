@@ -182,7 +182,14 @@ model. Finally, TriCheck helps to verify the lowering of e.g. C++11 atomic
 constructs to the ISA level, as well as checking the ISA memory model and
 hardware memory model.&lt;/li&gt;
 &lt;li&gt;Have identified and characterised flaws in the current RISC-V memory model
-(ASPLOS&amp;rsquo;17).&lt;/li&gt;
+specification (ASPLOS&amp;rsquo;17).&lt;/li&gt;
+&lt;li&gt;Two broad categories of memory model relaxation. Preserved program order
+(defines program orderings that hardware must preserve by default) and store
+atomicity (defines the order in which stores become visible to cores).&lt;/li&gt;
+&lt;li&gt;Propose tighter preserved program order and non-multi-copy store atomicity.&lt;/li&gt;
+&lt;li&gt;Why allow non-multiple-copy atomic stores? Commercial ISAs e.g. ARM, Power
+allow this, and RISC-V is intended to be integrated with other vendor ISAs on
+a shared memory system.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

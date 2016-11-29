@@ -312,6 +312,21 @@ will manage publicly accessible, online repositories of source code,
 documentation and issues&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;128-bit-addressing-in-risc-v-and-security-steve-wallach:c4d57dfb69fe6b8ac7fe4d23269f06fb&#34;&gt;128-bit addressing in RISC-V and security: Steve Wallach&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Aim for programming generality. Might have to recompile, but don&amp;rsquo;t want to
+have to restructure your software.&lt;/li&gt;
+&lt;li&gt;Computer virtual addresses span to local disk only, while other identifiers
+such as MACs, URLs, IPv6 are globally unique. What if one unified name
+structure could be developed?&lt;/li&gt;
+&lt;li&gt;RV128I strawman. 64-bits are used for an object ID, and the other 64 bits
+used for a byte offset.&lt;/li&gt;
+&lt;li&gt;The object ID is a software or hardware structure considered to be worthy of
+a distinct name&lt;/li&gt;
+&lt;li&gt;Protection and memory management are independent&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

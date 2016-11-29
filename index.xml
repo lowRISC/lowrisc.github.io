@@ -113,6 +113,14 @@ will result in better performance/watt than any off the shelf solution.&lt;/li&g
 &lt;li&gt;All standards based, but not open source&lt;/li&gt;
 &lt;li&gt;A standard cell ASIC is typically 52-78 weeks, compared to 10 weeks for a
 Baysand Metal configurable standard cell.&lt;/li&gt;
+&lt;li&gt;Codasip have 3-stage and 5-stage implementations RISC-V implementations. The
+slide compares gate count and frequency vs Rocket and ZScale (watch out for
+the slides to be posted, I didn&amp;rsquo;t get a chance to jot down the numbers)&lt;/li&gt;
+&lt;li&gt;Have a story for easy extensibility, adding new instructions and having a
+new SDK etc generated.&lt;/li&gt;
+&lt;li&gt;UltraSoC provides debug&lt;/li&gt;
+&lt;li&gt;LLVM is the glue that holds the solution together. They generate an LLVM
+compiler based on their processor model and any customer-defined extensions.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

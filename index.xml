@@ -302,6 +302,14 @@ Also added multi-clock support, clock crossings, and asynchronous reset flops&lt
 &lt;li&gt;The SiFive blocks repository contains low-speed peripherals like SPI, UART,
 PWM, GPIO, PMU. These are written in Chisel with TileLink interfaces. It also
 includes wrappers for high-speed Xilinx FPGA peripherals&lt;/li&gt;
+&lt;li&gt;The SiFive Freedom repository has submodules for rocket-chip and
+sifive-blocks and top-level SoC integration glue code&lt;/li&gt;
+&lt;li&gt;The Free Chips project has a mission to be a home for open-soruce codebases
+to enable faster, better, cheaper chips. It will sustain and evolve
+open-source software tools and HDL code for SoC design. It will ensure free
+and open contributions are available to all of the SoC design community. It
+will manage publicly accessible, online repositories of source code,
+documentation and issues&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

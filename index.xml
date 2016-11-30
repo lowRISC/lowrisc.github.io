@@ -372,7 +372,7 @@ privileged software adversary. It also protects against some physical attacks,
 or instance by encrypting DRAM contents&lt;/li&gt;
 &lt;li&gt;There have been a number of side channel attacks demonstrated against SGX.&lt;br /&gt;
 e.g. dirty bits on page tables, or cache timing attacks&lt;/li&gt;
-&lt;li&gt;Sanctum aims to protect against indicrect tacks (such as cache timing
+&lt;li&gt;Sanctum aims to protect against indirect tacks (such as cache timing
 attacks) as well as the direct attacks covered by SGX. It does not protect
 against physical access or fault injection&lt;/li&gt;
 &lt;li&gt;With Sanctum, the device manufacturer acts as a certificate authority&lt;/li&gt;
@@ -386,6 +386,12 @@ non-overlapping regions of memory assigned to certain enclaves&lt;/li&gt;
 &lt;li&gt;To isolate enclaves in the last level cache, allocate exclusively at a
 region granularity (see the slides and/or the Sanctum paper for a description
 of exactly how this works)&lt;/li&gt;
+&lt;li&gt;To provide hardware-assisted isolation, always maintain the invariant that
+entries in the TLB are safe and necessary invariants were checked while
+performing the page walk&lt;/li&gt;
+&lt;li&gt;Very small hardware overhead (50 gates for LLC address rotation, 600 gates
+for DMA whitelist). Roughly 2% area increase in total. Roughly 6% performance
+overhead in measurements&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

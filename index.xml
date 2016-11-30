@@ -6,8 +6,24 @@
     <description>Recent content on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 29 Nov 2016 15:10:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 30 Nov 2016 17:00:00 +0000</lastBuildDate>
     <atom:link href="http://www.lowrisc.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Fifth RISC-V Workshop: Day Two</title>
+      <link>http://www.lowrisc.org/blog/2016/11/fifth-risc-v-workshop-day-two</link>
+      <pubDate>Wed, 30 Nov 2016 17:00:00 +0000</pubDate>
+      
+      <guid>http://www.lowrisc.org/blog/2016/11/fifth-risc-v-workshop-day-two</guid>
+      <description>
+
+&lt;p&gt;Today is the second day of the &lt;a href=&#34;https://riscv.org/2016/10/5th-risc-v-workshop-agenda/&#34;&gt;fifth RISC-V
+workshop&lt;/a&gt;. I&amp;rsquo;ll be
+keeping a semi-live blog of talks and announcements throughout the day.&lt;/p&gt;
+
+&lt;h2 id=&#34;opensoc-system-architect-farzad-fatollahi-fard:529e3037a37627249629f6513082618e&#34;&gt;OpenSoC System Architect: Farzad Fatollahi-Fard&lt;/h2&gt;
+</description>
+    </item>
     
     <item>
       <title>Fifth RISC-V Workshop: Day One</title>
@@ -304,7 +320,7 @@ PWM, GPIO, PMU. These are written in Chisel with TileLink interfaces. It also
 includes wrappers for high-speed Xilinx FPGA peripherals&lt;/li&gt;
 &lt;li&gt;The SiFive Freedom repository has submodules for rocket-chip and
 sifive-blocks and top-level SoC integration glue code&lt;/li&gt;
-&lt;li&gt;The Free Chips project has a mission to be a home for open-soruce codebases
+&lt;li&gt;The Free Chips project has a mission to be a home for open-source codebases
 to enable faster, better, cheaper chips. It will sustain and evolve
 open-source software tools and HDL code for SoC design. It will ensure free
 and open contributions are available to all of the SoC design community. It
@@ -343,7 +359,7 @@ cores is 233-1089ms. Implementations range in 8-30KB of ROM and require
 gates. RSA and Diffie-Hellman are larger and take longer&lt;/li&gt;
 &lt;li&gt;Fundamentally these overheads are there because a large number of 4086 bit
 numbers are multiplied&lt;/li&gt;
-&lt;li&gt;Group theoretic cryptograph (GTC) offers a potential answer. Complexity
+&lt;li&gt;Group theoretic cryptography (GTC) offers a potential answer. Complexity
 scales linearly with security instead of quadratically like RSA, ECC etc&lt;/li&gt;
 &lt;li&gt;GTC can work with just 6-8 bit math&lt;/li&gt;
 &lt;li&gt;The Ironwood Key Agreement Protocol enables two endpoints to generated a
@@ -362,7 +378,7 @@ microECC. 4.9ms run-time vs 2110ms (458ms with multiply/divide).&lt;/li&gt;
 be trusted). Sanctum decouples hardware protection from trust&lt;/li&gt;
 &lt;li&gt;Sanctum uses hardware-assisted isolation, offering strong privacy and
 integrity with low overhead&lt;/li&gt;
-&lt;li&gt;In remote software attestation, a trusted remote piece of hardare might
+&lt;li&gt;In remote software attestation, a trusted remote piece of hardware might
 measure (hash) and sign the software that is running. The remote user can then
 decides where to trust the certificate or not. Claim that prior work included
 too much software in their attestation&lt;/li&gt;

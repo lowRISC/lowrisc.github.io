@@ -29,6 +29,11 @@ to computation.&lt;/li&gt;
 &lt;li&gt;For both GoblinCore and OpenHPC, ended up doing a lot of similar work to
 achieve only a point design. Why not make a generator to avoid repeating the
 same steps?&lt;/li&gt;
+&lt;li&gt;OpenSoC System Architect is a combination of multiple tools to form a
+well-defined development flow for complex RISC-V SoCs&lt;/li&gt;
+&lt;li&gt;Supports standard RISC-V modules and custom extensions&lt;/li&gt;
+&lt;li&gt;It outputs pre-verified Chisel for the SoC, synthesisable Verilog, and an
+LLVM compiler for the SoC&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

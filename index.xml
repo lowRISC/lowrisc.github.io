@@ -185,6 +185,13 @@ of a middle ground&lt;/li&gt;
 &lt;li&gt;For a previous project, produced a mobile-like GUI experience targeting an
 MCU (STM32F4).&lt;/li&gt;
 &lt;li&gt;With the right approach and tools, embedded GUIs can be beautiful too&lt;/li&gt;
+&lt;li&gt;Their library was written in C++, with support for layers+formats. It has
+its own font engine for kerning, anti-aliasing etc.&lt;/li&gt;
+&lt;li&gt;The GUI is specified in XML and has its own minimal CSS&lt;/li&gt;
+&lt;li&gt;Initially developed for eCos RTOS, and has an initial port for FreeRTOS. Can
+also run on Linux.&lt;/li&gt;
+&lt;li&gt;To prototype on a Zynq, implemented &amp;lsquo;micro blender&amp;rsquo; for blending, filling,
+scaling etc. This was written in Chisel.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

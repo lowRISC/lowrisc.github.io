@@ -64,7 +64,15 @@ There are also a configurable number of predicate registers. The maximum
 vector length is a function of configuration, physical register storage, and
 microarchitecture&lt;/li&gt;
 &lt;li&gt;There are a number of mandatory supported types. e.g. an RV32IF system must
-support X8, X16, X32, F16, F32&lt;/li&gt;
+support X8, X16, X32, F16, F32. This means that scalar and vector half
+precision floating point is a requirement if you are supporting floating
+point.&lt;/li&gt;
+&lt;li&gt;Each vector data register has a 4-bit field in a CSR (or multiple CSRs)
+indicating its width, and another for its type.&lt;/li&gt;
+&lt;li&gt;A vcfgd CSR alias is defined to allow faster writes of common vector data
+configurations.&lt;/li&gt;
+&lt;li&gt;Most user code would use the setvl instruction (which is actually setting a
+CSR).&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

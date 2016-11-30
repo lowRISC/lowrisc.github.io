@@ -279,6 +279,16 @@ on CMOS&lt;/li&gt;
 &lt;li&gt;Suggestion: have a common listing of recommended IP (e.g. SPI, I2C, USB PHY
 etc).&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&#34;sub-microsecond-adaptive-voltage-scaling-in-a-28nm-risc-v-socs-ben-keller:529e3037a37627249629f6513082618e&#34;&gt;Sub-microsecond Adaptive Voltage Scaling in a 28nm RISC-V SoCs: Ben Keller&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Energy efficiency is critical in mobile applications&lt;/li&gt;
+&lt;li&gt;Faster adaptive voltage scaling (AVS) saves more energy, especially for
+bursty workloads&lt;/li&gt;
+&lt;li&gt;State of the art SoCs cannot achieve fine-grained AVS because they use
+off-chip regulators&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

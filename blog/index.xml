@@ -355,6 +355,15 @@ microECC. 4.9ms run-time vs 2110ms (458ms with multiply/divide).&lt;/li&gt;
 &lt;li&gt;The C implementation currently runs faster on the ARM Cortex-M3&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;risc-v-with-sanctum-enclaves-ilia-lebedev:c4d57dfb69fe6b8ac7fe4d23269f06fb&#34;&gt;RISC-V with Sanctum Enclaves: Ilia Lebedev&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Today privilege implies trust (e.g. a hypervisor is privileged and so must
+be trusted). Sanctum decouples hardware protection from trust&lt;/li&gt;
+&lt;li&gt;Sanctum uses hardware-assisted isolation, offering strong privacy and
+integrity with low overhead&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

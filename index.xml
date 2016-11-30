@@ -288,6 +288,10 @@ etc).&lt;/li&gt;
 bursty workloads&lt;/li&gt;
 &lt;li&gt;State of the art SoCs cannot achieve fine-grained AVS because they use
 off-chip regulators&lt;/li&gt;
+&lt;li&gt;Integrate switch-cap regulators entirely on-die.&lt;/li&gt;
+&lt;li&gt;Need adaptive clock generation&lt;/li&gt;
+&lt;li&gt;The tape-out (~2 years ago) featured a version of Rocket. 16K I$, 32K D$, no
+L2. It also feature a version of Hwacha&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

@@ -192,6 +192,7 @@ its own font engine for kerning, anti-aliasing etc.&lt;/li&gt;
 also run on Linux.&lt;/li&gt;
 &lt;li&gt;To prototype on a Zynq, implemented &amp;lsquo;micro blender&amp;rsquo; for blending, filling,
 scaling etc. This was written in Chisel.&lt;/li&gt;
+&lt;li&gt;Software-driven IP (silicon) is possible (and advisable!)&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

@@ -43,6 +43,16 @@ the SoC and any extensions.&lt;/li&gt;
 &lt;li&gt;What&amp;rsquo;s next? Better support for Chisel3, more integration with existing
 RISC-V tools and environment, frontend support to import existing
 Chisel/Verilog/SystemVerilog. Also want CoreGen as a standalone IR&lt;/li&gt;
+&lt;li&gt;See the website at &lt;a href=&#34;http://www.opensoc.community/&#34;&gt;http://www.opensoc.community/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;v-vector-extension-proposal-krste-asanovic:529e3037a37627249629f6513082618e&#34;&gt;V Vector Extension Proposal: Krste Asanovic&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The vector extension intends to scale to all reasonable design points
+(low-cost microcontroller or high-performance supercomputer). Support both
+implicit auto-vectorisation and explicit SPMD&lt;/li&gt;
+&lt;li&gt;Fit into the 32-bit encoding space&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

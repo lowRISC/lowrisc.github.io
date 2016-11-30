@@ -137,6 +137,17 @@ debug&lt;/li&gt;
 slides
 &lt;a href=&#34;https://speakerdeck.com/asb/software-co-design-with-risc-v-and-llvm&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&#34;vm-threads-an-alternative-model-for-virtual-machines-on-risc-vm-ron-minnich:529e3037a37627249629f6513082618e&#34;&gt;VM threads: an alternative model for virtual machines on RISC-VM: Ron Minnich&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Akaros is a research kernel originally from UC Berkeley.&lt;/li&gt;
+&lt;li&gt;One core idea is the &amp;lsquo;multi core process&amp;rsquo;. This can be thought of as a set
+of cores assigned an entity to a program.&lt;/li&gt;
+&lt;li&gt;How do VMs fit into the Akaros model. A VM could be kind of a process.&lt;/li&gt;
+&lt;li&gt;Look back at how we start a process. With the introduction of fork(), it
+became easy and clean. But its introduction was controversional.&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

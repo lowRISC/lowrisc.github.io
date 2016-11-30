@@ -139,6 +139,13 @@ indicating its width, and another for its type.</li>
 configurations.</li>
 <li>Most user code would use the setvl instruction (which is actually setting a
 CSR).</li>
+<li>A 16-bit+32-bit vector addition is pleasingly straight forward to specify in
+assembly</li>
+<li>The architecture guarantees a minimum vector length of four regardless of
+configuration. This means 1KB SRAM is required as a minimum</li>
+<li>A polymorphic instruction encoding is used. A single signed integer ADD
+opcode works on different size inputs and outputs, depending on the
+configuration of its inputs.</li>
 </ul>
 
                     </section>

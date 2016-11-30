@@ -171,6 +171,20 @@ point.&lt;/li&gt;
 &lt;li&gt;There are a variety of implications and questions for RISC-V. How will
 RISC-V handle nested paging? Can we avoid massive shadow state. How about
 injecting interrupts without a vmexit?&lt;/li&gt;
+&lt;li&gt;RISC-V is a chance to enable software innovation. We shouldn&amp;rsquo;t get locked
+into &amp;ldquo;but we&amp;rsquo;ve always done it this way&amp;rdquo;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;enabling-low-power-smartphone-like-graphical-uis-for-risc-v-socs-michael-gielda:529e3037a37627249629f6513082618e&#34;&gt;Enabling low-power, smartphone-like graphical UIs for RISC-V SoCs: Michael Gielda&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Industrial/embedded UIs mostly look bad, but also have terribly user
+experience&lt;/li&gt;
+&lt;li&gt;For better UIs you mostly have to jump to Android or Linux - there&amp;rsquo;s a lack
+of a middle ground&lt;/li&gt;
+&lt;li&gt;For a previous project, produced a mobile-like GUI experience targeting an
+MCU (STM32F4).&lt;/li&gt;
+&lt;li&gt;With the right approach and tools, embedded GUIs can be beautiful too&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

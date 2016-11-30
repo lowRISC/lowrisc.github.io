@@ -239,6 +239,21 @@ hello world)&lt;/li&gt;
 &lt;li&gt;The non-optimising JIT compiler is mostly feature-complete. Passes &lt;sup&gt;65&lt;/sup&gt;&amp;frasl;&lt;sub&gt;68&lt;/sub&gt;
 core tests. Targets RV64G&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&#34;yopuzzle-an-open-v-development-platform-the-next-generation-elkim-roa:529e3037a37627249629f6513082618e&#34;&gt;YoPuzzle - an Open-V development platform the next generation: Elkim Roa&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&amp;lsquo;Open source&amp;rsquo; hardware. Raspberry Pi have sold 10 million boards, Arduino
+sold 4.5 million boards (estimated). Some predictions indicate the market will
+be worth over $1B within the next four years. These are based on commercial,
+closed-source silicon&lt;/li&gt;
+&lt;li&gt;OnChip UIS have developed an open 32-bit RISC-V based microcontroller. To
+test the initial silicon, used chip-on-board&lt;/li&gt;
+&lt;li&gt;RV32IM with a 3-stage pipeline. On TSMC 130nm GP. Die area 2.1mm x 2.1mm.&lt;/li&gt;
+&lt;li&gt;The Microprocessor core is 0.12mm2, max freq 200MHz, core voltage 1.2V, core
+dynamic power at 100MHz is 167uW/MHz (all peripheral clocks disabled)&lt;/li&gt;
+&lt;li&gt;Arduino is mostly aimed at children in secondary schools.&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

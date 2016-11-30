@@ -52,7 +52,19 @@ Chisel/Verilog/SystemVerilog. Also want CoreGen as a standalone IR&lt;/li&gt;
 &lt;li&gt;The vector extension intends to scale to all reasonable design points
 (low-cost microcontroller or high-performance supercomputer). Support both
 implicit auto-vectorisation and explicit SPMD&lt;/li&gt;
-&lt;li&gt;Fit into the 32-bit encoding space&lt;/li&gt;
+&lt;li&gt;Fit into the 32-bit encoding space, but be a base for future vector
+extensions (e.g. crypto algorithms)&lt;/li&gt;
+&lt;li&gt;The goal is to ratify a proposal 12 months from now, at the 7th workshop&lt;/li&gt;
+&lt;li&gt;Cray-style vectors. &amp;ldquo;The right way&amp;rdquo; to exploit SIMD parallelism (as opposed
+to the wrong way: GPUs or packed SIMD)&lt;/li&gt;
+&lt;li&gt;V has an implementation-dependent vector length, meaning the same code runs
+across different hardware without recompiling&lt;/li&gt;
+&lt;li&gt;Each vector data register is configured with a width and type, or disabled.&lt;br /&gt;
+There are also a configurable number of predicate registers. The maximum
+vector length is a function of configuration, physical register storage, and
+microarchitecture&lt;/li&gt;
+&lt;li&gt;There are a number of mandatory supported types. e.g. an RV32IF system must
+support X8, X16, X32, F16, F32&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

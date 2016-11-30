@@ -325,6 +325,14 @@ used for a byte offset.&lt;/li&gt;
 &lt;li&gt;The object ID is a software or hardware structure considered to be worthy of
 a distinct name&lt;/li&gt;
 &lt;li&gt;Protection and memory management are independent&lt;/li&gt;
+&lt;li&gt;The machine that is simplest to program wins. User cycles are more important
+than CPU cycles&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;the-challenges-of-securing-and-authenticating-embedded-devices-derek-atkins:c4d57dfb69fe6b8ac7fe4d23269f06fb&#34;&gt;The challenges of securing and authenticating embedded devices: Derek Atkins&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Why not just use symmetric encryption e.g. AES to secure your devices?&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

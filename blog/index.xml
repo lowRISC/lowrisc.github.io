@@ -146,7 +146,18 @@ slides
 of cores assigned an entity to a program.&lt;/li&gt;
 &lt;li&gt;How do VMs fit into the Akaros model. A VM could be kind of a process.&lt;/li&gt;
 &lt;li&gt;Look back at how we start a process. With the introduction of fork(), it
-became easy and clean. But its introduction was controversional.&lt;/li&gt;
+became easy and clean. But its introduction was controversial.&lt;/li&gt;
+&lt;li&gt;Virtualisation on Linux/BSD/Unix requires a device (e.g. /dev/kvm). This
+typically requires daemons who are used to interact with the device. In
+Akaros, they did not want to recreate this.&lt;/li&gt;
+&lt;li&gt;Can we just run a virtual machine like we do a thread? Introduce
+&lt;code&gt;vthread_create&lt;/code&gt;. In Akaros, they have extended the thread model to include
+virtual machine threads.&lt;/li&gt;
+&lt;li&gt;Virtual machine threads (vthreads) can run Linux 4.8 (with 12 lines of
+patches) and any code that shares the host ring 3 address space.&lt;/li&gt;
+&lt;li&gt;Ring 3 and Ring V share and address space. Ring V is limited to 2^46 bytes,
+while ring 3 is in a 2^47 byte address space.&lt;/li&gt;
+&lt;li&gt;VM threads are integrated tightly into the kernel.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

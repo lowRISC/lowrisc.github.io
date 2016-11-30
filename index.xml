@@ -218,6 +218,16 @@ in the next few months.&lt;/li&gt;
 &lt;li&gt;It&amp;rsquo;s been mostly good. One pain-point has been that other Go ports don&amp;rsquo;t
 target architectures with good conditional branches so had to emulate a flag
 register. Another gripe is that loading 64-bit constants is a pain.&lt;/li&gt;
+&lt;li&gt;Within a couple of months you should be able to compile real Go programs and
+have them run on RISC-V&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;a-java-virtual-machine-for-risc-v-porting-the-jikes-rvm-martin-maas:529e3037a37627249629f6513082618e&#34;&gt;A Java Virtual Machine for RISC-V: Porting the Jikes RVM: Martin Maas&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Why do a JVM port? Both to run interesting applications, and for research
+(e.g. hardware support for GCed languages)&lt;/li&gt;
+&lt;li&gt;Porting OpenJDK/Hotspot for high performance, and the Jikes research VM&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

@@ -274,6 +274,10 @@ switching speed, current drive) with a standard interface.&lt;/li&gt;
 &lt;li&gt;Are working on USB 3.1 gen 2, including the analog frontend.&lt;/li&gt;
 &lt;li&gt;Have also been working on &amp;lsquo;chipscope&amp;rsquo; and offset correction&lt;/li&gt;
 &lt;li&gt;Also working on LPDDR3. PCS is done, working on UVM IP&lt;/li&gt;
+&lt;li&gt;Have a fully synthesised true-random noise generator, and working on NVRAM
+on CMOS&lt;/li&gt;
+&lt;li&gt;Suggestion: have a common listing of recommended IP (e.g. SPI, I2C, USB PHY
+etc).&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

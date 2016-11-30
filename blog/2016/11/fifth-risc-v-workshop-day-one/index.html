@@ -428,6 +428,16 @@ microECC. 4.9ms run-time vs 2110ms (458ms with multiply/divide).</li>
 be trusted). Sanctum decouples hardware protection from trust</li>
 <li>Sanctum uses hardware-assisted isolation, offering strong privacy and
 integrity with low overhead</li>
+<li>In remote software attestation, a trusted remote piece of hardare might
+measure (hash) and sign the software that is running. The remote user can then
+decides where to trust the certificate or not. Claim that prior work included
+too much software in their attestation</li>
+<li>Intel recently introduced SGX, which allowed a process to be placed in an
+enclave. It aims to protect privacy and integrity of an enclave against a
+privileged software adversary. It also protects against some physical attacks,
+or instance by encrypting DRAM contents</li>
+<li>There have been a number of side channel attacks demonstrated against SGX.<br />
+e.g. dirty bits on page tables, or cache timing attacks</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

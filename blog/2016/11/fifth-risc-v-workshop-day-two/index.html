@@ -100,6 +100,15 @@ well-defined development flow for complex RISC-V SoCs</li>
 <li>Supports standard RISC-V modules and custom extensions</li>
 <li>It outputs pre-verified Chisel for the SoC, synthesisable Verilog, and an
 LLVM compiler for the SoC</li>
+<li>OpenSoC Fabric is an open-source, flexible, parameterised NoC generator. It
+integrates with a wide variety of existing processors, as well as IO devices.</li>
+<li>Created a &lsquo;CoreGen&rsquo; IR. It allows automatic generation of HDL
+representations of the SoC and build LLVM compiler backend implementations of
+the SoC and any extensions.</li>
+<li>The IR is stored on disk in well-formed XML</li>
+<li>What&rsquo;s next? Better support for Chisel3, more integration with existing
+RISC-V tools and environment, frontend support to import existing
+Chisel/Verilog/SystemVerilog. Also want CoreGen as a standalone IR</li>
 </ul>
 
                     </section>

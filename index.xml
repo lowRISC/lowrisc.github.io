@@ -394,6 +394,16 @@ for DMA whitelist). Roughly 2% area increase in total. Roughly 6% performance
 overhead in measurements&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;joined-up-debugging-and-analysis-in-the-risc-v-world-gajinder-panesar:c4d57dfb69fe6b8ac7fe4d23269f06fb&#34;&gt;Joined up debugging and analysis in the RISC-V world: Gajinder Panesar&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Need a vendor-neutral debug infrastructure, enabling access to different
+proprietary debug schemes used today by various cores&lt;/li&gt;
+&lt;li&gt;Need monitors into interconnects, interfaces, and custom logic which are
+run-time configurable with support for cross-triggering&lt;/li&gt;
+&lt;li&gt;UltraSoC provides silicon IP and tools for on-chip debug&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

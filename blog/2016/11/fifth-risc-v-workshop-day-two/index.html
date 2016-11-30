@@ -293,7 +293,17 @@ have them run on RISC-V</li>
 <ul>
 <li>Why do a JVM port? Both to run interesting applications, and for research
 (e.g. hardware support for GCed languages)</li>
-<li>Porting OpenJDK/Hotspot for high performance, and the Jikes research VM</li>
+<li>Porting OpenJDK/Hotspot for high performance, and the Jikes research VM for
+academic work. This talk will focus on Jikes</li>
+<li>Jikes is itself written in Java</li>
+<li>JVMs have a large number of dependencies, so use the riscv-poky Linux
+distribution generator to build a cross-compiled SDK and Linux image.</li>
+<li>While developing, add assertions everywhere to fail as early as possible</li>
+<li>Allowed the JIT to selectively emit instructions that dump trace output</li>
+<li>Booting JikesRVM is no easy task (there a <em>lot</em> to do in order to get to
+hello world)</li>
+<li>The non-optimising JIT compiler is mostly feature-complete. Passes <sup>65</sup>&frasl;<sub>68</sub>
+core tests. Targets RV64G</li>
 </ul>
 
                     </section>

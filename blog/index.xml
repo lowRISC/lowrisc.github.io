@@ -252,7 +252,13 @@ test the initial silicon, used chip-on-board&lt;/li&gt;
 &lt;li&gt;RV32IM with a 3-stage pipeline. On TSMC 130nm GP. Die area 2.1mm x 2.1mm.&lt;/li&gt;
 &lt;li&gt;The Microprocessor core is 0.12mm2, max freq 200MHz, core voltage 1.2V, core
 dynamic power at 100MHz is 167uW/MHz (all peripheral clocks disabled)&lt;/li&gt;
-&lt;li&gt;Arduino is mostly aimed at children in secondary schools.&lt;/li&gt;
+&lt;li&gt;Arduino is mostly aimed at children in secondary schools. But what about
+1-10 year olds?&lt;/li&gt;
+&lt;li&gt;The Open-V microcontroller is up on crowdsupply, trying to raise funds to
+produce 70k chips. Aim to do the second tapeout in Q1 2017, and produce puzzle
+boards in Q2 2018.&lt;/li&gt;
+&lt;li&gt;Elkim showed a neat live demo of the OnChip prototype along with a
+browser-based programming environment&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

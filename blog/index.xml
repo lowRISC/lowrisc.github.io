@@ -210,6 +210,14 @@ with minimal slowdown&lt;/li&gt;
 &lt;ul&gt;
 &lt;li&gt;Why RISC-V? Better architecture, lower power, faster processing, easier
 accelerator development. RISC-V is not going away&lt;/li&gt;
+&lt;li&gt;The Go toolchain is complex. It has its own compiler, assembler (and
+assembly language), and linker&lt;/li&gt;
+&lt;li&gt;Getting close, but the runtime doesn&amp;rsquo;t quite compile. Hope to get it working
+in the next few months.&lt;/li&gt;
+&lt;li&gt;In the mean time, relatively simple go programs will compile and run&lt;/li&gt;
+&lt;li&gt;It&amp;rsquo;s been mostly good. One pain-point has been that other Go ports don&amp;rsquo;t
+target architectures with good conditional branches so had to emulate a flag
+register. Another gripe is that loading 64-bit constants is a pain.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

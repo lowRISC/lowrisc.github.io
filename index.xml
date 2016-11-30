@@ -379,6 +379,13 @@ against physical access or fault injection&lt;/li&gt;
 &lt;li&gt;Sanctum has a small software TCB, a ~5KLoC machine-mode security monitor&lt;/li&gt;
 &lt;li&gt;The reference Sanctum implementation was built on the Rocket RISC-V
 implementation&lt;/li&gt;
+&lt;li&gt;Enclaves execute on private cores. i.e. it will never share L1 caches,
+register, branch target buffer, TLB&lt;/li&gt;
+&lt;li&gt;Sanctum also isolates physical memory. DRAM regions are defined, which are
+non-overlapping regions of memory assigned to certain enclaves&lt;/li&gt;
+&lt;li&gt;To isolate enclaves in the last level cache, allocate exclusively at a
+region granularity (see the slides and/or the Sanctum paper for a description
+of exactly how this works)&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

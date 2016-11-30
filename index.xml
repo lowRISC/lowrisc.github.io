@@ -402,6 +402,11 @@ proprietary debug schemes used today by various cores&lt;/li&gt;
 &lt;li&gt;Need monitors into interconnects, interfaces, and custom logic which are
 run-time configurable with support for cross-triggering&lt;/li&gt;
 &lt;li&gt;UltraSoC provides silicon IP and tools for on-chip debug&lt;/li&gt;
+&lt;li&gt;As an example, consider a software-defined radio chip. Might want to track
+CPU cycles spent on compute vs cache stalls. Or you might track utilised DDR
+bandwidth over time.&lt;/li&gt;
+&lt;li&gt;UltraSoC monitors are non-intrusive by default&lt;/li&gt;
+&lt;li&gt;Has a portfolio of 30 modules. e.g. bus monitors, communications&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

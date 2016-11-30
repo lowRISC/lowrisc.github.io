@@ -22,6 +22,11 @@ workshop&lt;/a&gt;. I&amp;rsquo;ll be
 keeping a semi-live blog of talks and announcements throughout the day.&lt;/p&gt;
 
 &lt;h2 id=&#34;opensoc-system-architect-farzad-fatollahi-fard:529e3037a37627249629f6513082618e&#34;&gt;OpenSoC System Architect: Farzad Fatollahi-Fard&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Current architectures are wasteful. Only a small fraction of chip area goes
+to computation.&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

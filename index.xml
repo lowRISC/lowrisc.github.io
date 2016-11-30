@@ -341,8 +341,17 @@ slow, or too power hungry.&lt;/li&gt;
 cores is 233-1089ms. Implementations range in 8-30KB of ROM and require
 800-3000B of RAM. Hardware implementations are faster, but take a lot of
 gates. RSA and Diffie-Hellman are larger and take longer&lt;/li&gt;
-&lt;li&gt;Fundamentally these overheads are because a large number of 4086 bit numbers
-are multiplied&lt;/li&gt;
+&lt;li&gt;Fundamentally these overheads are there because a large number of 4086 bit
+numbers are multiplied&lt;/li&gt;
+&lt;li&gt;Group theoretic cryptograph (GTC) offers a potential answer. Complexity
+scales linearly with security instead of quadratically like RSA, ECC etc&lt;/li&gt;
+&lt;li&gt;GTC can work with just 6-8 bit math&lt;/li&gt;
+&lt;li&gt;The Ironwood Key Agreement Protocol enables two endpoints to generated a
+shared secret over an open channel. The Walnut digital signature algorithm
+allows one device to generate a document that is verified by another.&lt;/li&gt;
+&lt;li&gt;When comparing WalnutDSA on a Rocket core, it compared very favourable to
+microECC. 4.9ms run-time vs 2110ms (458ms with multiply/divide).&lt;/li&gt;
+&lt;li&gt;WaltnutDSA in RISC-V assembly achieved a 3.0ms run time&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

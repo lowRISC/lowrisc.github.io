@@ -201,9 +201,16 @@ scaling etc. This was written in Chisel.&lt;/li&gt;
 &lt;li&gt;Esperanto is a stealth mode startup designing chips with RISC-V&lt;/li&gt;
 &lt;li&gt;Wanted a fast RISC-V ISA simulator capable of running large applications
 with minimal slowdown&lt;/li&gt;
+&lt;li&gt;[Sorry folks, I had to duck out for a quick discussion - see the
+&lt;a href=&#34;https://riscv.org/wp-content/uploads/2016/11/Wed1330-Fast-ISA-Simulator-for-RISC-V-Maslov-Esperanto.pdf&#34;&gt;slides&lt;/a&gt;]&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;go-on-rv64g-benjamin-barenblat-and-michael-pratt:529e3037a37627249629f6513082618e&#34;&gt;Go on RV64G: Benjamin Barenblat and Michael Pratt&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Why RISC-V? Better architecture, lower power, faster processing, easier
+accelerator development. RISC-V is not going away&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

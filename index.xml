@@ -26,6 +26,9 @@ keeping a semi-live blog of talks and announcements throughout the day.&lt;/p&gt
 &lt;ul&gt;
 &lt;li&gt;Current architectures are wasteful. Only a small fraction of chip area goes
 to computation.&lt;/li&gt;
+&lt;li&gt;For both GoblinCore and OpenHPC, ended up doing a lot of similar work to
+achieve only a point design. Why not make a generator to avoid repeating the
+same steps?&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

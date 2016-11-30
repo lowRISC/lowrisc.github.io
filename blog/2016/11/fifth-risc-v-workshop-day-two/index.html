@@ -125,7 +125,7 @@ extensions (e.g. crypto algorithms)</li>
 to the wrong way: GPUs or packed SIMD)</li>
 <li>V has an implementation-dependent vector length, meaning the same code runs
 across different hardware without recompiling</li>
-<li>Each vector data register is configured with a width and type, or disabled.<br />
+<li>Each vector data register is configured with a width and type, or disabled.
 There are also a configurable number of predicate registers. The maximum
 vector length is a function of configuration, physical register storage, and
 microarchitecture</li>
@@ -148,7 +148,7 @@ opcode works on different size inputs and outputs, depending on the
 configuration of its inputs.</li>
 <li>There is support for vector atomics (e.g. vector fetch-and-add).</li>
 <li>For vector function calls (e.g. in auto-vectorised code) you want to make
-vector calls to a function library with separate vector calling convention.<br />
+vector calls to a function library with separate vector calling convention.
 The caller has to allocate registers for the callee to use. It sets the
 maximum width, allowing the callee to change the vctype as needed.</li>
 <li>For OpenCL/CUDA/SPMD, the configuration must be set at kernel launch to the
@@ -173,6 +173,27 @@ only O(log N) storage. No broadcast invalidations, and timestamps aren&rsquo;t t
 to the core count. There is no need for synchronised real-time clocks</li>
 <li>They are building a thousand-core prototype. Fit as many cores as possible
 on a ZC706 FPGA, the connect in a 3D mesh to demonstrate at scale.</li>
+<li>Want to adapt Tardis for release consistency (rather than sequential
+consistency), and Quan introduces how they have started to do this by
+introducing new timestamps</li>
+</ul>
+
+<h2 id="scrx-a-family-of-state-of-the-art-risc-v-synthesizable-cores-alexander-redkin:529e3037a37627249629f6513082618e">SCRx: a family of state-of-the art RISC-V synthesizable cores: Alexander Redkin</h2>
+
+<ul>
+<li>Syntacore develops and licenses energy-efficient programmable cores
+implementing the RISC-V ISA</li>
+<li>SCRx is the family of RISC-V implementations, now available for evaluation.
+Each core can be extended and customised</li>
+<li>The smallest core, SCR1 is less than 20kgates in a basic untethered
+configuration.</li>
+<li>SCR3 is a high-performance MCU core with up to 1.7DMIPS/MHz,
+3.16CoreMark/MHz.</li>
+<li>SCR4 is an MCU core with a high-performance FPU.</li>
+<li>SCR5 is an efficient mid-range embedded core. Full MMU with Linux support.
+1GHz+ at 28nm, and 1.5+DMIPS/MHz per core.</li>
+<li>In the near term, want to support hte latest privleged spec, adding trace
+debug</li>
 </ul>
 
                     </section>

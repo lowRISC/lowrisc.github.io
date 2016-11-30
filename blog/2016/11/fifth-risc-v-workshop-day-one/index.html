@@ -398,7 +398,17 @@ than CPU cycles</li>
 <h2 id="the-challenges-of-securing-and-authenticating-embedded-devices-derek-atkins:c4d57dfb69fe6b8ac7fe4d23269f06fb">The challenges of securing and authenticating embedded devices: Derek Atkins</h2>
 
 <ul>
-<li>Why not just use symmetric encryption e.g. AES to secure your devices?</li>
+<li>Why not just use symmetric encryption e.g. AES to secure your devices? It&rsquo;s
+hard to deploy and it doesn&rsquo;t scale (either have one key for many devices or a
+database of a huge number of keys)</li>
+<li>Why do people think public key won&rsquo;t work? They think it&rsquo;s too big, too
+slow, or too power hungry.</li>
+<li>Many of these beliefs are true, e.g. ECC execution time on Cortex-M ARM
+cores is 233-1089ms. Implementations range in 8-30KB of ROM and require
+800-3000B of RAM. Hardware implementations are faster, but take a lot of
+gates. RSA and Diffie-Hellman are larger and take longer</li>
+<li>Fundamentally these overheads are because a large number of 4086 bit numbers
+are multiplied</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

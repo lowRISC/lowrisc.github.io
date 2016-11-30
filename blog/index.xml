@@ -260,6 +260,21 @@ boards in Q2 2018.&lt;/li&gt;
 &lt;li&gt;Elkim showed a neat live demo of the OnChip prototype along with a
 browser-based programming environment&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&#34;the-risc-v-community-needs-peripheral-cores-elkim-roa:529e3037a37627249629f6513082618e&#34;&gt;The RISC-V community needs peripheral cores: Elkim Roa&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;It&amp;rsquo;s good to have an open ISA, but what about the peripherals? e.g. PHYs,
+bus IP, clocking circuitry, GPIO&lt;/li&gt;
+&lt;li&gt;Open hardware would translate into quality (Linux) drivers&lt;/li&gt;
+&lt;li&gt;There is no standard for GPIO. Want to have standard features (e.g.
+switching speed, current drive) with a standard interface.&lt;/li&gt;
+&lt;li&gt;The OnChip peripherals use AMBA buses&lt;/li&gt;
+&lt;li&gt;Have a synthesizable CDR and PLL&lt;/li&gt;
+&lt;li&gt;Are working on USB 3.1 gen 2, including the analog frontend.&lt;/li&gt;
+&lt;li&gt;Have also been working on &amp;lsquo;chipscope&amp;rsquo; and offset correction&lt;/li&gt;
+&lt;li&gt;Also working on LPDDR3. PCS is done, working on UVM IP&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

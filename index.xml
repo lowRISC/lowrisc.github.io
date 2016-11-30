@@ -194,6 +194,16 @@ also run on Linux.&lt;/li&gt;
 scaling etc. This was written in Chisel.&lt;/li&gt;
 &lt;li&gt;Software-driven IP (silicon) is possible (and advisable!)&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&#34;a-fast-instruction-set-simulator-for-risc-v-maxim-maslov:529e3037a37627249629f6513082618e&#34;&gt;A Fast Instruction Set Simulator for RISC-V: Maxim Maslov&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Esperanto is a stealth mode startup designing chips with RISC-V&lt;/li&gt;
+&lt;li&gt;Wanted a fast RISC-V ISA simulator capable of running large applications
+with minimal slowdown&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;go-on-rv64g-benjamin-barenblat-and-michael-pratt:529e3037a37627249629f6513082618e&#34;&gt;Go on RV64G: Benjamin Barenblat and Michael Pratt&lt;/h2&gt;
 </description>
     </item>
     

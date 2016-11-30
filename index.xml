@@ -126,8 +126,16 @@ configuration.&lt;/li&gt;
 &lt;li&gt;SCR4 is an MCU core with a high-performance FPU.&lt;/li&gt;
 &lt;li&gt;SCR5 is an efficient mid-range embedded core. Full MMU with Linux support.
 1GHz+ at 28nm, and 1.5+DMIPS/MHz per core.&lt;/li&gt;
-&lt;li&gt;In the near term, want to support hte latest privleged spec, adding trace
+&lt;li&gt;In the near term, want to support the latest privileged spec, adding trace
 debug&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;enabling-hardware-software-co-design-with-risc-v-and-llvm-alex-bradbury:529e3037a37627249629f6513082618e&#34;&gt;Enabling hardware/software co-design with RISC-V and LLVM: Alex Bradbury&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;I&amp;rsquo;ll try and write something up for the blog later, but for now see my
+slides
+&lt;a href=&#34;https://speakerdeck.com/asb/software-co-design-with-risc-v-and-llvm&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

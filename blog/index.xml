@@ -158,6 +158,9 @@ patches) and any code that shares the host ring 3 address space.&lt;/li&gt;
 &lt;li&gt;Ring 3 and Ring V share and address space. Ring V is limited to 2^46 bytes,
 while ring 3 is in a 2^47 byte address space.&lt;/li&gt;
 &lt;li&gt;VM threads are integrated tightly into the kernel.&lt;/li&gt;
+&lt;li&gt;On x86, Akaros pairs page table roots and page table pages. Page table pages
+are 2x4k pages, with the process PTP in the lower 4K and the VM PTP in the
+upper 4K. This makes it trivial to convert the two.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

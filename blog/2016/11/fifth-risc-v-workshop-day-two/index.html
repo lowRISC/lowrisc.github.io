@@ -234,6 +234,9 @@ VM to being a host thread</li>
 <li>Kernels also look like threads, and spinning up a core looks like CPU
 hotplug, accomplished by spinning up a vthread with IP at the 64-bit entry
 point.</li>
+<li>There are a variety of implications and questions for RISC-V. How will
+RISC-V handle nested paging? Can we avoid massive shadow state. How about
+injecting interrupts without a vmexit?</li>
 </ul>
 
                     </section>

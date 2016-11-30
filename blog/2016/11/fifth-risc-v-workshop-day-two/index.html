@@ -168,6 +168,11 @@ scalar ABI is unmodified</li>
 <li>Tardis is a new cache coherency protocol with greater scalability than
 traditional directory coherence protocols.</li>
 <li>Tardis enforces consistency through timestamps, using logical leases</li>
+<li>It only tracks the exclusive owner of any particular cache line, requiring
+only O(log N) storage. No broadcast invalidations, and timestamps aren&rsquo;t tied
+to the core count. There is no need for synchronised real-time clocks</li>
+<li>They are building a thousand-core prototype. Fit as many cores as possible
+on a ZC706 FPGA, the connect in a 3D mesh to demonstrate at scale.</li>
 </ul>
 
                     </section>

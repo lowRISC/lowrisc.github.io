@@ -161,6 +161,13 @@ while ring 3 is in a 2^47 byte address space.&lt;/li&gt;
 &lt;li&gt;On x86, Akaros pairs page table roots and page table pages. Page table pages
 are 2x4k pages, with the process PTP in the lower 4K and the VM PTP in the
 upper 4K. This makes it trivial to convert the two.&lt;/li&gt;
+&lt;li&gt;It is significantly easier to write virtual machine managers in Akaros than
+with the Linux model&lt;/li&gt;
+&lt;li&gt;Akaros VMS are unlike any other VMs - threads can easily switch from being a
+VM to being a host thread&lt;/li&gt;
+&lt;li&gt;Kernels also look like threads, and spinning up a core looks like CPU
+hotplug, accomplished by spinning up a vthread with IP at the 64-bit entry
+point.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

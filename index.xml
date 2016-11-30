@@ -89,6 +89,10 @@ maximum width, allowing the callee to change the vctype as needed.&lt;/li&gt;
 maximum width used anywhere in the call tree. It needs a general vector
 function call capability with standard callee/caller save protocol&lt;/li&gt;
 &lt;li&gt;Krste argues autovectorisation is much preferable to OpenCL or CUDA.&lt;/li&gt;
+&lt;li&gt;Question: are you interested in smaller types (e.g. 4-bit). Answer: yes,
+also interested in non-power-of-two types&lt;/li&gt;
+&lt;li&gt;Question about the calling convention: the vector configuration state is
+assumed to be caller-saved, meaning the scalar ABI is unmodified&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

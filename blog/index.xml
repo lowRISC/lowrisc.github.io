@@ -80,6 +80,15 @@ configuration. This means 1KB SRAM is required as a minimum&lt;/li&gt;
 &lt;li&gt;A polymorphic instruction encoding is used. A single signed integer ADD
 opcode works on different size inputs and outputs, depending on the
 configuration of its inputs.&lt;/li&gt;
+&lt;li&gt;There is support for vector atomics (e.g. vector fetch-and-add).&lt;/li&gt;
+&lt;li&gt;For vector function calls (e.g. in auto-vectorised code) you want to make
+vector calls to a function library with separate vector calling convention.&lt;br /&gt;
+The caller has to allocate registers for the callee to use. It sets the
+maximum width, allowing the callee to change the vctype as needed.&lt;/li&gt;
+&lt;li&gt;For OpenCL/CUDA/SPMD, the configuration must be set at kernel launch to the
+maximum width used anywhere in the call tree. It needs a general vector
+function call capability with standard callee/caller save protocol&lt;/li&gt;
+&lt;li&gt;Krste argues autovectorisation is much preferable to OpenCL or CUDA.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

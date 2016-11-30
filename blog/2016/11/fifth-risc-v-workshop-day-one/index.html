@@ -417,7 +417,8 @@ shared secret over an open channel. The Walnut digital signature algorithm
 allows one device to generate a document that is verified by another.</li>
 <li>When comparing WalnutDSA on a Rocket core, it compared very favourable to
 microECC. 4.9ms run-time vs 2110ms (458ms with multiply/divide).</li>
-<li>WaltnutDSA in RISC-V assembly achieved a 3.0ms run time</li>
+<li>WaltnutDSA written in RISC-V assembly achieved a 3.0ms run time</li>
+<li>The C implementation currently runs faster on the ARM Cortex-M3</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

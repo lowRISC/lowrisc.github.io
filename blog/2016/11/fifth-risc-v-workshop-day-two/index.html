@@ -389,6 +389,16 @@ the architectural level for tolerating errors</li>
 tolerating a reasonable number of failing bitcells</li>
 <li>Built on Rocket and modified caches to add reprogrammable redundancy, ECC,
 and BIST</li>
+<li>Implemented three techniques: dynamic column redundancy (avoid single-bit
+errors in data SRAM), line disable (avoid <code>&gt;=</code> 2 bit errors in data SRAM), and
+bit bypass (avoid all errors in tag SRAM)</li>
+<li>The system architecture involves three voltage domains. One for the uncore,
+one for the core, and another for the L2 cache</li>
+<li>Reprogrammable redundancy is fairly straight-forward to add to the L1, but
+ECC is more difficult. The ECC decoding is pipelined. If an error is detected,
+the operation is recycled</li>
+<li>There is a 2% area overhead for the L2.</li>
+<li>Fabricated prototype is TSMC 28nm HPM.</li>
 </ul>
 
                     </section>

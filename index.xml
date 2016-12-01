@@ -311,6 +311,19 @@ the issues with the VLSI flow. Then iteratively add features.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;reprogrammable-redundancy-for-cache-vmin-reduction-in-a-28nm-risc-v-processor-brian-zimmer:529e3037a37627249629f6513082618e&#34;&gt;Reprogrammable Redundancy for Cache Vmin Reduction in a 28nm RISC-V Processor: Brian Zimmer&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Voltage scaling is effective in reducing energy consumption, and SRAM limits
+the minimum operating voltage&lt;/li&gt;
+&lt;li&gt;Instead of preventing errors, tolerate errors. A significant reduction in
+the minimum voltage is possibly by tolerating 1000s of errors per MB of SRAM&lt;/li&gt;
+&lt;li&gt;There&amp;rsquo;s been lots of work on the circuit-level for preventing errors, and at
+the architectural level for tolerating errors&lt;/li&gt;
+&lt;li&gt;Goal for the chip is to prove that SRAM Vmin can be effectively lowered by
+tolerating a reasonable number of failing bitcells&lt;/li&gt;
+&lt;li&gt;Built on Rocket and modified caches to add reprogrammable redundancy, ECC,
+and BIST&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

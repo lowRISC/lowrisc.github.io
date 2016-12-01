@@ -333,6 +333,8 @@ ECC is more difficult. The ECC decoding is pipelined. If an error is detected,
 the operation is recycled&lt;/li&gt;
 &lt;li&gt;There is a 2% area overhead for the L2.&lt;/li&gt;
 &lt;li&gt;Fabricated prototype is TSMC 28nm HPM.&lt;/li&gt;
+&lt;li&gt;The proposed techniques achieve 25% average Vmin reduction in the L2 for a
+2% area overhead&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

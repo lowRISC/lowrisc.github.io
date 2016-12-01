@@ -297,7 +297,20 @@ L2. It also feature a version of Hwacha&lt;/li&gt;
 standard cells&lt;/li&gt;
 &lt;li&gt;Achieved 41.8 DP GFLOPS/W&lt;/li&gt;
 &lt;li&gt;Body bias can be tuned to optimise efficiency for different workloads&lt;/li&gt;
+&lt;li&gt;Integrated voltage regulation provided 82-89% system efficiency with
+adaptive clocking&lt;/li&gt;
+&lt;li&gt;Sub-microsecond adaptive voltage scaling provided up to 40% energy savings
+with negligible performance loss&lt;/li&gt;
+&lt;li&gt;Will now talk about the Berkeley interpretation of &amp;lsquo;agile&amp;rsquo; hardware
+development. See &amp;ldquo;An Agile Approach to Building RISC-V Microprocessors&amp;rdquo;, MICRO
+2016.&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;Tape-ins&amp;rsquo; before &amp;lsquo;tape-outs&amp;rsquo;. Sprint to an initial design that is
+feature-incomplete but functional, put it through the tools etc and shake out
+the issues with the VLSI flow. Then iteratively add features.&lt;/li&gt;
+&lt;li&gt;There have been 13 Berkeley RISC-V tapeouts in the last 5 years&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&#34;reprogrammable-redundancy-for-cache-vmin-reduction-in-a-28nm-risc-v-processor-brian-zimmer:529e3037a37627249629f6513082618e&#34;&gt;Reprogrammable Redundancy for Cache Vmin Reduction in a 28nm RISC-V Processor: Brian Zimmer&lt;/h2&gt;
 </description>
     </item>
     

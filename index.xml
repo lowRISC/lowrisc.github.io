@@ -6,8 +6,26 @@
     <description>Recent content on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Nov 2016 17:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 09 Dec 2016 17:00:00 +0000</lastBuildDate>
     <atom:link href="http://www.lowrisc.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>lowRISC Q&#43;A</title>
+      <link>http://www.lowrisc.org/blog/2016/12/lowrisc-qa</link>
+      <pubDate>Fri, 09 Dec 2016 17:00:00 +0000</pubDate>
+      
+      <guid>http://www.lowrisc.org/blog/2016/12/lowrisc-qa</guid>
+      <description>&lt;p&gt;Yesterday, lowRISC triggered a lot of discussion when someone submitted it to
+Hacker News. The &lt;a href=&#34;https://news.ycombinator.com/item?id=13129076&#34;&gt;comment
+thread&lt;/a&gt; became something of an
+impromptu Q+A about our project direction and status. I thought it was worth
+linking to it here and highlighting the discussion for a wider audience. If
+you have any additional questions, then feel free to comment on this blog post
+or else, as always, drop by our &lt;a href=&#34;http://www.lowrisc.org/community/&#34;&gt;mailing list&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Fifth RISC-V Workshop: Day Two</title>

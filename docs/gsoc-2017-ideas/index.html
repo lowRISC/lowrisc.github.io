@@ -376,6 +376,95 @@ a mouse) if you are interested in HW design.</p>
 
 <p><strong>Language:</strong> C, some Vivado FPGA work (no or very small amount of RTL coding)</p>
 
+<h3 id="open-soc-debug-nexus-trace-format:e03b7e0a9d8fef1be443f47dc1b55ea7">Open SoC Debug: Nexus Trace Format</h3>
+
+<p>Trace debugging is the method to observe the execution of a
+system-on-chip. lowRISC is based on the
+<a href="http://opensocdebug.org">Open SoC Debug</a> project that creates open
+source building blocks for a debug infrastructure, with a strong focus
+on efficient trace debugging.</p>
+
+<p>One of the main challenges is the transfer of trace events to the
+host. On the one for efficiency and on the other hand for
+compatibility.</p>
+
+<p>The goal of this project is to adopt the Open SoC Debug infrastructure
+to packatize traces in the popular
+<a href="http://nexus5001.org/">Nexus (IEEE 5001)</a> format.</p>
+
+<p><em>Skill Level</em>: Intermediate</p>
+
+<p><em>Language/Tools:</em> SystemVerilog</p>
+
+<p><em>Mentor:</em> <a href="mailto:stefan@wallentowitz.de">Stefan Wallentowitz</a></p>
+
+<h3 id="open-soc-debug-trace-visualization-and-configuration:e03b7e0a9d8fef1be443f47dc1b55ea7">Open SoC Debug: Trace Visualization and Configuration</h3>
+
+<p>The <a href="http://opensocdebug.org">Open SoC Debug</a> project creates open
+source building blocks for a debug infrastructure, with a strong focus
+on efficient trace debugging. The lowRISC debug infrastructure builds
+on those. Currently we focus on the target (hardware) side of the
+infrastructure, but want to improve the host software, especially
+visualization of traces and configuration of the debug hardware.</p>
+
+<p>In this project you should not reinvent the wheel, but build around
+existing infrastructure. For example the
+<a href="https://silc.zih.tu-dresden.de/otf2-current/html/">Open Trace Format 2</a>
+and the
+<a href="http://www.vi-hps.org/projects/score-p/">SCORE-P infrastructure</a> are
+good starting points. For the visualization and interface building we
+suggest having a look at state of the visualization tools like
+<a href="https://github.com/LLNL/ravel">ravel</a> to integrate with or build a
+new framework for example on <a href="http://electron.atom.io/">electron</a>.</p>
+
+<p><em>Skill Level</em>: Beginner, Intermediate</p>
+
+<p><em>Language/Tools</em>: C++/Java/JS</p>
+
+<p><em>Mentor:</em> <a href="mailto:mail@philipp-wagner.com">Philipp Wagner</a>,
+ <a href="mailto:stefan@wallentowitz.de">Stefan Wallentowitz</a></p>
+
+<h3 id="open-soc-debug-trace-logging-to-memory:e03b7e0a9d8fef1be443f47dc1b55ea7">Open SoC Debug: Trace Logging to Memory</h3>
+
+<p>In the lowRISC (which use <a href="http://opensocdebug.org">Open SoC Debug</a>)
+we currently transfer traces from the debug target to the host for
+on-line visualization or offline processing. But low level traces may
+be interesting even while the system-on-chip is in the field, similar
+to system traces, e.g. from Linux. The idea is to write the traces to
+a reserved space in the system memory and read them from the running
+software.</p>
+
+<p>Basically this idea involves two hardware tasks: A configuration
+interface for trace logging and the interface between the debug
+interconnect and the system memory. Ideally your proof-of-concept
+includes a simple software. This setup can be optimized for example
+with trace compression and circular buffering.</p>
+
+<p><em>Skill Level</em>: Intermediate</p>
+
+<p><em>Language/Tools</em>: System Verilog</p>
+
+<p><em>Mentor:</em> <a href="mailto:stefan@wallentowitz.de">Stefan Wallentowitz</a></p>
+
+<h3 id="port-lowrisc-to-limesdr:e03b7e0a9d8fef1be443f47dc1b55ea7">Port lowRISC to LimeSDR</h3>
+
+<p><a href="https://myriadrf.org/projects/limesdr/">LimeSDR</a> is a flexible
+software-defined radio platform that integrates an FPGA and a Lime
+Microsystems LMS7002 field-programmable RF frontend.</p>
+
+<p>The idea of this project is to port lowRISC to the FPGA of the LimeSDR
+board. The major challenges are porting the most important I/O and
+memory interfaces and bringing up the communication to the signal
+processing blocks. If time permits, a simple wireless algorithm may be
+implemented on the lowRISC-limeSDR platform.</p>
+
+<p><em>Skill level</em>: Intermediate</p>
+
+<p><em>Language/Tools</em>: HDL, FPGA synthesis</p>
+
+<p><em>Mentor:</em> <a href="andrew@abopen.com">Andrew Back</a>,
+ <a href="mailto:stefan@wallentowitz.de">Stefan Wallentowitz</a></p>
+
                     </section>
                 </article>
 

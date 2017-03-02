@@ -204,92 +204,43 @@ its quality.</p>
 
 <p><strong>Mentor:</strong> Wei Song <a href="mailto:ws327@cam.ac.uk">ws327@cam.ac.uk</a></p>
 
-<h2 id="implement-a-trusted-execution-environment:e03b7e0a9d8fef1be443f47dc1b55ea7">Implement a Trusted Execution Environment</h2>
+<h2 id="building-a-basic-embedded-security-module:e03b7e0a9d8fef1be443f47dc1b55ea7">Building a Basic Embedded Security Module</h2>
 
-<p><strong>Summary:</strong> Port an existing open-source Trusted Execution Environment to the
-lowRISC platform.</p>
+<p><strong>Summary:</strong> Extend a basic microcontroller subsystems with security
+extensions.</p>
 
-<p>A Trusted Execution Environment (TEE) runs in parallel to the general purpose
-OS (&lsquo;Rich OS&rsquo;) like Linux and executes security-sensitive tasks. Global
-Platform has standardized TEE and
-<a href="https://wiki.linaro.org/WorkingGroups/Security/OP-TEE">OP-TEE</a> is an
-open-source GP-compliant TEE, which seems like a good target for
-porting to RISC-V and the lowRISC minion cores. There are different
-options to implement the TEE and another important component is the
-trusted firmware to boot both the secure and the non-secure world. It
-is also thinkable to port OP-TEE as components running on an L4
-Microkernel, such as seL4 which
-<a href="http://heshamelmatary.blogspot.de/2015/10/a-talk-about-my-gsoc-project-with.html">has been ported in last years GSoC</a>.</p>
+<p>We want to explore the applicability of a secure subsystem inside the
+lowRISC system-on-chip for security related tasks. The basic idea is
+to have a flexible playground for security research. For example this
+subsystem can be used to securely boot the system, remote attestation,
+or even to provide a Trusted Execution Environment (TEE) to the user
+software.</p>
 
-<p>This project is potentially very large and it is important to discuss
-alternatives and define a good subset in the discussion with us before
-applying.</p>
-
-<p><strong>Links:</strong></p>
+<p>For that subsystem we start with a simple 32-bit microcontroller with
+(at least) two privilege levels. The goal of this idea is to add one
+of the following:</p>
 
 <ul>
-<li><a href="http://www.globalplatform.org/specificationsdevice.asp">TEE spec</a></li>
-<li><a href="https://wiki.linaro.org/WorkingGroups/Security/OP-TEE">OP-TEE</a></li>
+<li><p>A model for non-volatile memory and one-time programmable memory</p></li>
+
+<li><p>The interfaces to other system resources: Secure communication
+channel and system control interface</p></li>
+
+<li><p>Integration and drivers for cryptographic accelerators</p></li>
+
+<li><p>An interface that transparently encrypts bus access data</p></li>
 </ul>
+
+<p>Those are just the apparent ideas for a secure subsystem, we are open
+to your own ideas!</p>
 
 <p><strong>Details:</strong></p>
 
-<p><strong>Skill level:</strong> advanced</p>
+<p><strong>Skill level:</strong> intermediate/advanced</p>
 
-<p><strong>Language:</strong> C</p>
+<p><strong>Language:</strong> (System) Verilog or Chisel, C</p>
 
-<h2 id="trace-debug-analysis-tool:e03b7e0a9d8fef1be443f47dc1b55ea7">Trace-debug analysis tool</h2>
-
-<p><strong>Summary:</strong> Implement a client program to usefully analyse trace debug data.</p>
-
-<p>We are currently working on implementing <a href="http://opensocdebug.org/">trace debug
-support</a> in to the lowRISC SoC. This provides a
-powerful way to debug complicated multi-threaded applications as well as to
-help diagnose hardware implementation issues. This project would involve
-implementing a program on Linux to parse this data and present it in a useful
-way to aid debugging. We&rsquo;re open to proposals using the
-language and UI toolkit of your preference, but think TypeScript
-and <a href="http://electron.atom.io/">Electron</a> would form a particularly interesting
-starting point.</p>
-
-<p><strong>Links:</strong></p>
-
-<ul>
-<li><a href="http://opensocdebug.org/">OpenSoC debug</a></li>
-</ul>
-
-<p><strong>Details:</strong></p>
-
-<p><strong>Skill level:</strong> intermediate</p>
-
-<p><strong>Language:</strong> Your choice (C++, Python, TypeScript, ..?)</p>
-
-<p><strong>Mentor:</strong> Stefan Wallentowitz <a href="mailto:stefan@wallentowitz.de">stefan@wallentowitz.de</a> and Bruce Mitchener
-<a href="mailto:bruce.mitchener@gmail.com">bruce.mitchener@gmail.com</a></p>
-
-<h2 id="generic-hardware-software-interface-for-software-defined-radio:e03b7e0a9d8fef1be443f47dc1b55ea7">Generic hardware/software interface for software-defined radio</h2>
-
-<p><strong>Summary:</strong> Identify and implement useful hardware blocks to support
-software-defined radio.</p>
-
-<p>The lowRISC project employs a configurable I/O-Subsystem for low speed I/O.
-This project hops to provide something similar for wireless connectivity
-(2.5G, Wifi, Bluetooth, ZigBee, etc.). The goal is to define a minimal subset
-of hardware elements as building blocks, so that they can be controlled and
-configured for different wireless standards.</p>
-
-<p><strong>Links:</strong></p>
-
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Software-defined_radio">Software-defined radio</a></li>
-<li><a href="https://myriadrf.org/">Myriad RF</a></li>
-</ul>
-
-<p><strong>Details:</strong></p>
-
-<p><strong>Skill level:</strong> advanced</p>
-
-<p><strong>Language:</strong> Verilog/VHDL/Chisel, C</p>
+<p><strong>Mentor:</strong> Stefan Wallentowitz <a href="mailto:stefan@wallentowitz.de">stefan@wallentowitz.de</a></p>
 
 <h2 id="implement-a-spir-v-front-end-for-nyuzi:e03b7e0a9d8fef1be443f47dc1b55ea7">Implement a SPIR-V front end for Nyuzi</h2>
 

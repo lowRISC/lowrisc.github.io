@@ -6,8 +6,29 @@
     <description>Recent content in Blogs on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Feb 2017 14:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 Mar 2017 09:35:57 +0000</lastBuildDate>
     <atom:link href="http://www.lowrisc.org/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Apply now for GSoC 2017</title>
+      <link>http://www.lowrisc.org/blog/2017/03/apply-now-for-gsoc-2017</link>
+      <pubDate>Mon, 27 Mar 2017 09:35:57 +0000</pubDate>
+      
+      <guid>http://www.lowrisc.org/blog/2017/03/apply-now-for-gsoc-2017</guid>
+      <description>&lt;p&gt;We are very grateful for being selected again to take part as a mentoring
+organisation in the &lt;a href=&#34;https://summerofcode.withgoogle.com/&#34;&gt;Google Summer of
+Code&lt;/a&gt;, now for the third year running.
+If you are a student who would like to be paid to work on open source during
+the summer, then take a look at &lt;a href=&#34;http://www.lowrisc.org/docs/gsoc-2017-ideas/&#34;&gt;the lowRISC ideas
+list&lt;/a&gt; and
+&lt;a href=&#34;https://summerofcode.withgoogle.com/organizations/6271463900315648/&#34;&gt;apply&lt;/a&gt;.
+The deadline for applications is 4pm UTC on April 3rd. We&amp;rsquo;re always very interested in
+ideas suggested by students, and encourage you to share them &lt;a href=&#34;https://listmaster.pepperfish.net/cgi-bin/mailman/listinfo/lowrisc-dev-lists.lowrisc.org&#34;&gt;on our
+discussion
+list&lt;/a&gt;
+for feedback before making a proposal.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2017 NetFPGA Design Challenge</title>
@@ -2365,36 +2386,6 @@ to Rob Mullins &lt;a href=&#34;mailto:Robert.Mullins@cl.cam.ac.uk&#34;&gt;Robert
 &lt;p&gt;We hope to see many of you at the &lt;a href=&#34;https://riscv.org/2015/12/prelim-agenda-3rd-risc-v-workshop/&#34;&gt;3rd RISC-V
 Workshop&lt;/a&gt; in January, where Wei Song
 and Alex Bradbury will be presenting about lowRISC.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>lowRISC at ORConf 2015</title>
-      <link>http://www.lowrisc.org/blog/2015/08/lowrisc-at-orconf-2015</link>
-      <pubDate>Sun, 16 Aug 2015 10:51:14 +0100</pubDate>
-      
-      <guid>http://www.lowrisc.org/blog/2015/08/lowrisc-at-orconf-2015</guid>
-      <description>&lt;p&gt;Please join us October 9th-11th in Geneva, Switzerland for &lt;a href=&#34;http://openrisc.io/orconf/&#34;&gt;ORConf
-2015&lt;/a&gt;. The event is kindly being hosted by CERN at
-the &lt;a href=&#34;http://knowledgetransfer.web.cern.ch/ideasquare/about&#34;&gt;IdeaSquare&lt;/a&gt;.
-Last year&amp;rsquo;s ORConf was home to the first public talk on lowRISC and we&amp;rsquo;re
-delighted this year it will also be hosting a
-series of lowRISC and RISC-V discussions, serving as a European lowRISC and
-RISC-V workshop. ORConf has in recent years grown to cover a range of open
-source hardware topics beyond the original OpenRISC focus. Expect
-presentations and discussion on free and open source IP projects,
-implementations on FPGA and in silicon, verification, EDA tools, licensing and
-embedded software, to name a few.&lt;/p&gt;
-
-&lt;p&gt;The event will run from 13:00 until 18:30 on Friday, 09:30 until 19:30 on
-Saturday, and from 09:30 until 15:30 on Sunday. Friday will consist primarily
-of breakout sessions, planning, and discussion regarding lowRISC. If you are
-already contributing or your are thinking of getting involved and want to
-learn more, you are very welcome to join us. If you would like to present,
-do submit a proposal either via the link at the &lt;a href=&#34;http://openrisc.io/orconf/&#34;&gt;ORConf
-website&lt;/a&gt; or to me at asb@lowrisc.org. We hope to
-see many of you there - please &lt;a href=&#34;http://goo.gl/forms/KRZux8vnyO&#34;&gt;register
-here&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

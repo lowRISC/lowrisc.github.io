@@ -81,15 +81,16 @@
                     <section>
                         
 
-<p>lowRISC is hoping to take part in the <a href="https://developers.google.com/open-source/gsoc/">2017 Google Summer of
+<p>lowRISC is taking part in the <a href="https://developers.google.com/open-source/gsoc/">2017 Google Summer of
 Code</a> as a mentoring
 organisation. See the <a href="https://developers.google.com/open-source/gsoc/timeline">full program
 timeline</a> for a
-run-down of key dates. Notably, we&rsquo;ll find out whether we have been accepted
-or not on February 27th.</p>
+run-down of key dates. Student applications are due by 4pm UTC on April 3rd.</p>
 
 <p>See the <a href="http://www.lowrisc.org/docs/gsoc-2015-ideas/">2015</a> and <a href="http://www.lowrisc.org/docs/gsoc-2016-ideas/">2016</a> ideas pages for more
-potential projects. Note this ideas list is currently being updated.</p>
+potential projects. If you want feedback on ideas, you&rsquo;re best posting to the
+<a href="http://listmaster.pepperfish.net/cgi-bin/mailman/listinfo/lowrisc-dev-lists.lowrisc.org">lowrisc-dev mailing
+list</a>.</p>
 
 <h1 id="project-ideas-in-no-particular-order:e03b7e0a9d8fef1be443f47dc1b55ea7">Project ideas (in no particular order)</h1>
 
@@ -103,32 +104,88 @@ projects might be better handled under a different mentoring organisation,
 e.g. a PyPy port to RISC-V would make more sense under the Python Software
 Foundation.</p>
 
-<h2 id="improve-device-tree-support-for-the-linux-risc-v-port:e03b7e0a9d8fef1be443f47dc1b55ea7">Improve device-tree support for the Linux RISC-V port</h2>
+<h2 id="contributions-to-compiler-testing:e03b7e0a9d8fef1be443f47dc1b55ea7">Contributions to compiler testing</h2>
 
-<p><strong>Summary:</strong> Implement solid, well-tested device-tree support for the Linux
-RISC-V port.</p>
+<p><strong>Summary:</strong> Improve the state of the art in RISC-V compiler testing.</p>
 
-<p>The <a href="https://github.com/riscv/riscv-linux">Linux RISC-V port</a> is currently
-fairly barebones, and makes use of the host-target interface (HTIF) for most
-I/O. This project would involve cleaning it up, ensuring there is good support
-for instantiating devices using device-tree, and thoroughly testing this
-through modifications to the bootloader and to
-<a href="https://github.com/riscv/riscv-qemu">QEMU</a>.</p>
-
-<p><strong>Links:</strong></p>
-
-<ul>
-<li><a href="https://events.linuxfoundation.org/sites/events/files/slides/petazzoni-device-tree-dummies.pdf">Device tree for
-dummies</a></li>
-<li><a href="https://github.com/riscv/riscv-linux">RISC-V Linux</a></li>
-<li><a href="https://github.com/riscv/riscv-qemu">RISC-V QEMU</a></li>
-</ul>
+<p>LLVM compiler tests typically involve verifying certain instruction sequences
+are present in the output, i.e. don&rsquo;t involve program execution. This has
+advantages, but it has the disadvantage of relying on test author writing the
+test correctly in the first place. A highly ambitious way of ensuring the
+generated RISC-V instructions correctly implement the semantics of the LLVM IR
+would be to perform an equivalence check where feasible. A more
+straight-forward approach might be to test the behaviour of the function both
+<a href="https://github.com/andoma/vmir">when interpreting LLVM IR</a> and when executing
+the generated RISC-V code. There is also interesting work around testing ABI
+conformance, with the <a href="https://github.com/lowRISC/riscv-calling-conv-model">calling convention golden
+model</a> being a first step
+towards this. We would be interested in extending this work.</p>
 
 <p><strong>Details:</strong></p>
 
 <p><strong>Skill level:</strong> intermediate/advanced</p>
 
-<p><strong>Language:</strong> C</p>
+<p><strong>Language:</strong> C++, Python</p>
+
+<p><strong>Mentor:</strong> Alex Bradbury <a href="mailto:asb@lowrisc.org">asb@lowrisc.org</a></p>
+
+<h2 id="lowrisc-risc-v-in-education:e03b7e0a9d8fef1be443f47dc1b55ea7">lowRISC/RISC-V in education</h2>
+
+<p><strong>Summary:</strong> Produce a simulator tool with output useful for those learning
+computer architecture.</p>
+
+<p>Tools like the <a href="http://courses.missouristate.edu/KenVollmar/MARS/">MARS MIPS
+simulator</a> are very popular
+for university-level education, giving the ability to experiment with simple
+assembly programs, single step, view register values and so on. This project
+would look at providing something with similar functionality for the RISC-V
+ecosystem. A potential extension would be to support features unique to
+lowRISC such as tagged memory. The RISC-V support in
+<a href="https://github.com/s-macke/jor1k">jor1k</a> could be a starting point for a
+Javascript implementation of this idea.</p>
+
+<p><strong>Details:</strong></p>
+
+<p><strong>Skill level:</strong> intermediate/advanced</p>
+
+<p><strong>Language:</strong> Javascript, language of your choice</p>
+
+<p><strong>Mentor:</strong> Alex Bradbury <a href="mailto:asb@lowrisc.org">asb@lowrisc.org</a></p>
+
+<h2 id="simulated-memory-controller:e03b7e0a9d8fef1be443f47dc1b55ea7">&ldquo;Simulated&rdquo; memory controller</h2>
+
+<p><strong>Summary:</strong> Provide a way to produce realistic performance numbers from FPGA.</p>
+
+<p>It is a common pitfall to misinterpret or incorrectly scale performance
+numbers derived from benchmarks run on an FPGA-based SoC design. The problem
+is that your external memory interface is running at a very high speed
+compared to the core CPU (e.g. a 25MHz core clock speed but external memory
+running a several hundred MHz). This can be misleading when trying to consider
+what the performance would be on an ASIC, as the CPU clock speed could be many
+times higher but the memory frequency be the same or increase by a much
+smaller amount. The solution is to have a simulation-ready memory controller
+that will produce delays much closer to a system where the memory interface is
+running at a much slower speed.</p>
+
+<p><strong>Details:</strong></p>
+
+<p><strong>Skill level:</strong> advanced</p>
+
+<p><strong>Language:</strong> SystemVerilog or Chisel</p>
+
+<h2 id="programmable-dma-engine:e03b7e0a9d8fef1be443f47dc1b55ea7">Programmable DMA engine</h2>
+
+<p><strong>Summary:</strong> Implement a DMA engine using a small RISC-V core.</p>
+
+<p>This project would involve looking at the feasibility of implementing a DMA
+engine that executes the RISC-V instruction set. What instruction set
+extensions would increase its efficiency and reduce overhead?</p>
+
+<p><strong>Details:</strong></p>
+
+<p><strong>Skill level:</strong> advanced</p>
+
+<p><strong>Language:</strong> SystemVerilog or Chisel</p>
 
 <h2 id="contributions-to-the-yosys-ecosystem:e03b7e0a9d8fef1be443f47dc1b55ea7">Contributions to the Yosys ecosystem</h2>
 
@@ -202,7 +259,7 @@ its quality.</p>
 
 <p><strong>Language:</strong> Verilog/VHDL and Chisel</p>
 
-<p><strong>Mentor:</strong> </p>
+<p><strong>Mentor:</strong></p>
 
 <h2 id="building-a-basic-embedded-security-module:e03b7e0a9d8fef1be443f47dc1b55ea7">Building a Basic Embedded Security Module</h2>
 
@@ -296,36 +353,6 @@ extended to the parallelization of this subset on the Pulp platform.</p>
 <p><strong>Skill level:</strong> intermediate</p>
 
 <p><strong>Language:</strong> C</p>
-
-<h2 id="doom-on-pulpino:e03b7e0a9d8fef1be443f47dc1b55ea7">Doom on PULPino</h2>
-
-<p><strong>Summary:</strong> Porting DOOM on the PULPino platform</p>
-
-<p>In this project, we set the challenging objective of porting the DOOM game to
-PULPino - an open-source microcontroller platform based on a 32-bit RISC-V
-implementation with DSP extensions. The project will consist in 1) porting the
-main game engine on RISC-V, optimizing it by means of the PULPino DSP
-extensions; 2) test it using an artificial set of inputs, such as mouse data
-collected from running DOOM on a normal workstation, and check consistency with
-the expected outputs, 3) design of a simple interface for the Zedboard version
-of PULPino in Vivado, to enable using simple buttons for the input and a
-compatible HDMI display for the output.</p>
-
-<p>The project could easily be extended to provide a more advanced interface (e.g.
-a mouse) if you are interested in HW design.</p>
-
-<p><strong>Links:</strong></p>
-
-<ul>
-<li><a href="http://www.pulp-platform.org">PULP</a></li>
-<li><a href="https://github.com/id-Software/DOOM">DOOM</a></li>
-</ul>
-
-<p><strong>Details:</strong></p>
-
-<p><strong>Skill level:</strong> intermediate/high</p>
-
-<p><strong>Language:</strong> C, some Vivado FPGA work (no or very small amount of RTL coding)</p>
 
 <h3 id="open-soc-debug-nexus-trace-format:e03b7e0a9d8fef1be443f47dc1b55ea7">Open SoC Debug: Nexus Trace Format</h3>
 

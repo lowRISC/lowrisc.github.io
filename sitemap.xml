@@ -13,6 +13,11 @@
   </url>
   
   <url>
+    <loc>http://www.lowrisc.org/docs/debug-v0.3/zedboard/</loc>
+    <lastmod>2017-03-12T12:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://www.lowrisc.org/docs/gsoc-2017-ideas/</loc>
     <lastmod>2017-02-09T15:12:36+00:00</lastmod>
   </url>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Working with Zedboard &middot; lowRISC</title>
+        <link rel="stylesheet" href="http://www.lowrisc.org/css/styles.combined.min.css" />
+        <link rel="shortcut icon" href="http://www.lowrisc.org/favicon.ico" />
+        <link rel="alternate" href="http://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' type='text/css'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Exo+2' type='text/css'>
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-53520714-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+  </head>
+
+  <body data-page="article">
+<div class="header">
+  <header data-component="menu">
+
+    <section class="outer-container">
+      <div class="image">
+        <a href="http://www.lowrisc.org"><img src="http://www.lowrisc.org/img/logo.svg"></a>
+      </div>
+
+      <div class="menu">
+        <ul>
+          
+          <li><a href="/"> Home </a></li>
+          
+          <li><a href="/about/"> About </a></li>
+          
+          <li><a href="/blog/"> Blog </a></li>
+          
+          <li><a href="/faq/"> FAQ </a></li>
+          
+          <li><a href="/docs/"> Docs </a></li>
+          
+          <li><a href="/community/"> Community </a></li>
+          
+        </ul>
+      </div>
+    </section>
+
+  </header>
+</div>
+
+
+
+
+
+
+
+
+
+    <div class="article">
+      <section class="outer-container">
+        <div class="row">
+            <div class="sixteen columns">
+                <article class="li-article">
+                
+                  <p>
+                    <a href="http://www.lowrisc.org/docs/debug-v0.3/">⇡ Tutorial for the debug preview of lowRISC</a>
+                  </p>
+                
+                    <header class="li-article-header">
+                        <h1 class="li-article-title">Working with Zedboard</h1>
+                        <span class="li-article-taxonomies">
+                            
+
+                            
+                        </span>
+                        
+                        
+                    </header>
+                    <section>
+                        
+
+<p><em>lowRISC was ported to Zedboard in <a href="https://www.cosic.esat.kuleuven.be">KU Leuven - COSIC</a> to design and verify trusted computing hardware extensions</em></p>
+
+<h2 id="porting-lowrisc-to-zedboard:f0ade2faa8eba584c140d8b0a53066ba">Porting lowRISC to Zedboard</h2>
+
+<p>Zedboard is versatile development board utilising Zynq SoC. It has been used in several implementations of RISC-V; hosting it as a neighbour to the Zynq’s hard-coded ARM cores. However, in Zedboard the ARM cores of the Zynq are dominant: almost all peripherals or ports connect to the ARM Processing System (PS), and they are not directly reachable from Programmable Logic (PL). That makes the RISC-V, implementated in PL, inaccessible without passing through the ARM PS. Therefore, the RISC-V implementations for Zynq (including the original release by Berkeley or the earliest lowRISC design) use so called Host/Target Interface (HTIF), which has the front-end server running on PS and communicating with the target RISC-V implemented in PL, which is the tethering of RISC-V to ARM.</p>
+
+<p>Compared to the other RISC-V implementations, lowRISC&rsquo;s achievement of offering an untethered RISC-V implementation is great; however, made the design leave the Zynq devices initially. However, with the implementation described in this page, the Zedboard support is added again. Zedboard’s SD Card and UART ports are connected directly to ARM; therefore, the port of lowRISC to Zedboard requires obtaining two low-cost PMOD modules to provide RISC-V with dedicated IO, and continue working untethered.</p>
+
+<ul>
+<li>For SD Card: <a href="http://store.digilentinc.com/pmod-sd-full-sized-sd-card-slot/">Pmod SD</a></li>
+<li>For UART: <a href="http://store.digilentinc.com/pmod-rs232-serial-converter-and-interface-standard/">Pmod RS232</a> or <a href="http://store.digilentinc.com/pmod-usbuart-usb-to-uart-interface/">Pmod USBUART</a></li>
+</ul>
+
+<p>Together with the PMODs, the board looks like it is in the image below:</p>
+
+<p><a name="Zedboard with PMODs"></a>
+<img src="https://github.com/furkanturan/lowrisc-zed/blob/master/boardimage.jpg?raw=true" alt="Zedboard with PMODs" style="padding: 20px 0px;"/></p>
+
+<p>Dedicated IO is provided to RISC-V with PMODs; however, the Zedboard has a single DDR RAM, and it is connected to the Zynq SoC through the memory controller of ARM PS. Therefore, in this Zedboard port of lowRISC, the RISC-V accesses to memory through the ARM PS. In other words, the memory is shared between the ARM and RISC-V cores. The <code>chip-top.v</code> file is expanded to make nasti memory port of RISC-V accessible as module IO, instead of connecting it to MIG IP Core as other board implementations do. On top of this, a block diagram is provided which instantiates the ARM PS7. Finally, <code>Wrapper.v</code> is provided as the top-design file, which connects the ARM PS7 and RISC-V. This connection manages clock and reset signals, and connects the RISC-V nasti memory port to the PS7’s memory controller through HP0 AXI port.</p>
+
+<p>A great outcome of this port is one board with two systems on same chip; one of which is ARM, the most accepted architecture for embedded devices, and the other is RISC-V, the most promising. Once can configure to run them independent of each other, and establish shared memory communication as they physically share the memory.</p>
+
+<hr />
+
+<h2 id="the-tutorial-on-working-with-zedboard:f0ade2faa8eba584c140d8b0a53066ba">The Tutorial on Working with Zedboard</h2>
+
+<h3 id="preparation:f0ade2faa8eba584c140d8b0a53066ba">Preparation</h3>
+
+<p>Get the lowRISC development environment.</p>
+
+<pre><code>git clone -b debug-v0.3 --recursive https://github.com/lowrisc/lowrisc-chip.git
+cd lowrisc-chip
+</code></pre>
+
+<p>Now you need to <a href="http://www.lowrisc.org/docs/debug-v0.3/environment/">prepare the environment as described here</a></p>
+
+<ul>
+<li>If you haven’t before, <a href="http://www.lowrisc.org/docs/untether-v0.2/riscv_compile.md">compile and install RISC-V cross compiler</a></li>
+
+<li><p>If you haven’t before, <a href="http://www.lowrisc.org/docs/untether-v0.2/xilinx.md">install Vivado and set your environment</a> <em>Note: The Zedboard port is implemented with Vivado 2016.2</em></p></li>
+
+<li><p>Set environment variables:</p></li>
+</ul>
+
+<pre><code>export FPGA_BOARD=zed
+source set_env.sh
+</code></pre>
+
+<h3 id="implement-the-fpga-project:f0ade2faa8eba584c140d8b0a53066ba">Implement the FPGA Project</h3>
+
+<p>Go to the Zedboard submodule.</p>
+
+<pre><code>cd $TOP/fpga/board/zed
+</code></pre>
+
+<p>Before continuing, make sure that you have the correct pin mapping of your PMOD connections in the <code>$TOP/fpga/board/zed/constraint/pin_plan.xdc</code> file. In the default configuration (above image), PMOD SD is connected to JB headers of the Zedboard, and PMOD RS232 is connected to the (upper pins of) JC headers. If PMOD USBUART is preferred, as it is not pin-to-pin compatible with the RS232, comment the RS232 mapping lines on the <code>pin_plan.xdc</code> file, and uncomment the lines for USBUART.</p>
+
+<p>As the work environment is ready, you can work with <em>make</em> targets:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">make target</th>
+<th align="left">description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>make verilog</code></td>
+<td align="left">generates the FPGA backend Verilog files</td>
+</tr>
+
+<tr>
+<td align="left"><code>make project</code></td>
+<td align="left">generates the Vivado project</td>
+</tr>
+
+<tr>
+<td align="left"><code>make vivado</code></td>
+<td align="left">opens the project in Vivado GUI</td>
+</tr>
+
+<tr>
+<td align="left"><code>make bitstream</code></td>
+<td align="left">generates bit-stream for programming.</td>
+</tr>
+
+<tr>
+<td align="left"><code>make program</code></td>
+<td align="left">programs device.</td>
+</tr>
+
+<tr>
+<td align="left"><code>make search-ramb</code></td>
+<td align="left">finds out the boot BRAMs’ name and position (for updating src/boot.bmm).</td>
+</tr>
+
+<tr>
+<td align="left"><code>make bit-update</code></td>
+<td align="left">replaces the content of boot BRAM with a new src/boot.mem (must update src/boot.bmm first).</td>
+</tr>
+
+<tr>
+<td align="left"><code>make program-update</code></td>
+<td align="left">programs the device with updated bitstream.</td>
+</tr>
+
+<tr>
+<td align="left"><code>make boot</code>, <code>make hello</code>, <code>...</code></td>
+<td align="left">compiles the example codes in <code>$TOP/fpga/bare_metal/examples</code>, and automatically executes <code>make bit-update</code> for the compiled.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="hello-world-from-risc-v:f0ade2faa8eba584c140d8b0a53066ba">“Hello World!” from RISC-V</h3>
+
+<p>To receive the friendly welcome message, execute <em>hello</em> and <em>program</em> make targets sequentially. The first make target will compile the <em>hello</em> code in <code>$TOP/fpga/bare_metal/examples/</code> for RISC-V ISA, then load it to BRAM of the design which stores the user code that will be executed first. Next, the design will be synthesized, implemented and corresponding bitstream will be generated. The second make target is to program the device with the generated bitstream.</p>
+
+<pre><code>make hello
+make program
+</code></pre>
+
+<p>To receive RISC-V’s terminal dump, a serial terminal should be running for the UART port associated with the PMOD module. You can use <em>microcom</em>, which is the recommended serial terminal application:</p>
+
+<pre><code>microcom -p /dev/ttyUSB0 -s 115200
+</code></pre>
+
+<h3 id="booting-linux-on-risc-v:f0ade2faa8eba584c140d8b0a53066ba">Booting Linux on RISC-V</h3>
+
+<p>Above this subtitle, setting the environment, generating hardware, and programming the device were introduced. For booting Linux, the same procedure will be followed, except the change in the target RISC-V application. Instead of <em>hello</em>, the <em>boot</em> target will be used. This target sets the BRAM with bootloader as the first user application. The bootloader opens SD Card (from the PMOD), reads Linux image from there, copies it to memory and hands over hardware’s control to it.</p>
+
+<p>Before jumping to program RISC-V for booting Linux, prepare the SD Card with the Linux image.</p>
+
+<h4 id="build-linux:f0ade2faa8eba584c140d8b0a53066ba">Build Linux</h4>
+
+<p>Build the port of Linux kernel for the RISC-V instruction set architecture <a href="http://www.lowrisc.org/docs/debug-v0.3/fpga">as described here</a>:</p>
+
+<pre><code>cd $TOP/riscv-tools
+curl https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.6.2.tar.xz | tar -xJ
+curl -L http://busybox.net/downloads/busybox-1.21.1.tar.bz2 | tar -xj
+cd linux-4.6.2
+git init
+git remote add origin https://github.com/lowrisc/riscv-linux.git
+git fetch
+git checkout -f -t origin/debug-v0.3
+# lowRISC-specific hack for enabling power pin for SD card
+patch -p1 &lt; spi_sd_power_hack.patch
+cd $TOP/fpga/board/zed
+$TOP/riscv-tools/make_root.sh
+</code></pre>
+
+<p>Copy the generated <code>$TOP/fpga/board/zed/boot.bin</code> to SD Card.</p>
+
+<h4 id="program-risc-v-with-bootloader:f0ade2faa8eba584c140d8b0a53066ba">Program RISC-V with Bootloader</h4>
+
+<p>As it was for the <em>hello</em>, execute <em>boot</em> and <em>program</em> make targets sequentially.</p>
+
+<pre><code>make boot
+make program-updated
+</code></pre>
+
+<p>Finally, you will see Linux initialise with the dump like:</p>
+
+<pre><code>lowRISC boot program
+=====================================
+Load boot.bin into memory
+Load 5563024 bytes to memory address 87000000 from boot.bin of 5563024 bytes.
+load elf to DDR memory
+Boot the loaded program...
+              vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+                  vvvvvvvvvvvvvvvvvvvvvvvvvvvv
+rrrrrrrrrrrrr       vvvvvvvvvvvvvvvvvvvvvvvvvv
+rrrrrrrrrrrrrrrr      vvvvvvvvvvvvvvvvvvvvvvvv
+rrrrrrrrrrrrrrrrrr    vvvvvvvvvvvvvvvvvvvvvvvv
+rrrrrrrrrrrrrrrrrr    vvvvvvvvvvvvvvvvvvvvvvvv
+rrrrrrrrrrrrrrrrrr    vvvvvvvvvvvvvvvvvvvvvvvv
+rrrrrrrrrrrrrrrr      vvvvvvvvvvvvvvvvvvvvvv  
+rrrrrrrrrrrrr       vvvvvvvvvvvvvvvvvvvvvv    
+rr                vvvvvvvvvvvvvvvvvvvvvv      
+rr            vvvvvvvvvvvvvvvvvvvvvvvv      rr
+rrrr      vvvvvvvvvvvvvvvvvvvvvvvvvv      rrrr
+rrrrrr      vvvvvvvvvvvvvvvvvvvvvv      rrrrrr
+rrrrrrrr      vvvvvvvvvvvvvvvvvv      rrrrrrrr
+rrrrrrrrrr      vvvvvvvvvvvvvv      rrrrrrrrrr
+rrrrrrrrrrrr      vvvvvvvvvv      rrrrrrrrrrrr
+rrrrrrrrrrrrrr      vvvvvv      rrrrrrrrrrrrrr
+rrrrrrrrrrrrrrrr      vv      rrrrrrrrrrrrrrrr
+rrrrrrrrrrrrrrrrrr          rrrrrrrrrrrrrrrrrr
+rrrrrrrrrrrrrrrrrrrr      rrrrrrrrrrrrrrrrrrrr
+rrrrrrrrrrrrrrrrrrrrrr  rrrrrrrrrrrrrrrrrrrrrr
+
+       INSTRUCTION SETS WANT TO BE FREE
+[    0.000000] Linux version 4.6.2-gb370a4b (fturan@soorske.esat.kuleuven.be) (gcc version 6.1.0 (GCC) ) #27 Tue Mar 7 10:29:24 CET 2017
+[    0.000000] Available physical memory: 122MB
+[    0.000000] Initial ramdisk at: 0xffffffff800172c0 (759029 bytes)
+[    0.000000] Zone ranges:
+...
+...
+...
+# 
+</code></pre>
+
+<p>You can continue with working on Linux by <a href="http://www.lowrisc.org/docs/debug-v0.3/fpga">mounting SD Card as it is described here</a>.</p>
+
+<hr />
+
+<h2 id="remarks-on-programming:f0ade2faa8eba584c140d8b0a53066ba">Remarks on Programming</h2>
+
+<p>It is important to understand that the Zedboard consists of two parts; ARM Processing System (PS) and Programmable Logic (PL). Programming only the PL with the lowRISC implementation is not enough since the implementation depends on PS for the clock, reset and the memory controller; therefore, the PL needs PS to be initialised. To solve this problem, <code>make program</code> initialises the PS using a pre-set file <code>$TOP/fpga/board/zed/helperscript/ps7_init.tcl</code>. This file is an SDK generated file for its the default <em>Hello World</em> application project. Of course, one may prefer to run his/her own code on ARM instead of just initialising it, and program the PS according to. In such a case, it is possible to program both the PL and PS using SDK either at design-time, or automatically from SD card (not from the PMOD, but Zedboard’s built-in socket) at power-on.</p>
+
+                    </section>
+                </article>
+
+        </div>
+      </section>
+    </div>
+    
+
+
+                
+
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                 
+                var disqus_shortname = 'lowrisc'; 
+                var disqus_identifier = "/" + "docs/debug-v0.3/zedboard";
+                var disqus_title = "Working with Zedboard";
+                var disqus_url = "http://www.lowrisc.org" + "docs/debug-v0.3/zedboard";
+
+                 
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+            
+
+        <footer>
+
+          <section class="outer-container">
+
+            <div>
+              <div class="link-container">
+              </div>
+            </div>
+
+            <p>
+              Unless otherwise noted, content on this site is licensed under a Creative Commons Attribution ShareAlike 4.0 International License
+            </p>
+
+          </section>
+
+        </footer>
+    </body>
+</html>
+
+
+    </body>
+</html>
+

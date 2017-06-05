@@ -3,8 +3,62 @@
   
   <url>
     <loc>http://www.lowrisc.org/</loc>
-    <lastmod>2017-03-27T09:35:57+00:00</lastmod>
-    <priority>0</priority>
+    <lastmod>2017-04-18T15:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/minion-v0.4/tag_lowrisc/</loc>
+    <lastmod>2017-04-18T15:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/minion-v0.4/minion/</loc>
+    <lastmod>2017-04-18T15:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/minion-v0.4/walkthrough/</loc>
+    <lastmod>2017-04-14T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/minion-v0.4/installtools/</loc>
+    <lastmod>2017-04-14T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/minion-v0.4/overview/</loc>
+    <lastmod>2017-04-14T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/minion-v0.4/environment/</loc>
+    <lastmod>2017-04-14T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/minion-v0.4/release/</loc>
+    <lastmod>2017-04-14T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/minion-v0.4/fpga/</loc>
+    <lastmod>2017-04-14T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/minion-v0.4/</loc>
+    <lastmod>2017-04-14T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/minion-v0.4/tag_core/</loc>
+    <lastmod>2017-04-11T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/minion-v0.4/tag_cache/</loc>
+    <lastmod>2017-04-04T16:00:00+00:00</lastmod>
   </url>
   
   <url>

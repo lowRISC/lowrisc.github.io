@@ -6,7 +6,7 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>Prepare the environment &middot; lowRISC</title>
+        <title>Release notes &middot; lowRISC</title>
         <link rel="stylesheet" href="http://www.lowrisc.org/css/styles.combined.min.css" />
         <link rel="shortcut icon" href="http://www.lowrisc.org/favicon.ico" />
         <link rel="alternate" href="http://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
@@ -69,11 +69,11 @@
                 <article class="li-article">
                 
                   <p>
-                    <a href="http://www.lowrisc.org/docs/debug-v0.3/">⇡ Tutorial for the debug preview of lowRISC</a>
+                    <a href="http://www.lowrisc.org/docs/minion-v0.4/">⇡ Tutorial for the v0.4 lowRISC release</a>
                   </p>
                 
                     <header class="li-article-header">
-                        <h1 class="li-article-title">Prepare the environment</h1>
+                        <h1 class="li-article-title">Release notes</h1>
                         <span class="li-article-taxonomies">
                             
 
@@ -85,70 +85,50 @@
                     <section>
                         
 
-<p>We still recommend you work with a 64-bit Ubuntu (14.04 LTS).
-Everything except using the FPGA boards should also work
-out-of-box in a virtual machine.</p>
-
-<p>For more details follow the
-<a href="/docs/untether-v0.2/dev-env">instructions of the previous tutorial</a>.</p>
-
-<p>Ensure you have all the necessary packages installed:</p>
-
-<pre><code>sudo apt-get install autoconf automake autotools-dev curl \
-libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison \
-flex texinfo gperf libncurses5-dev libusb-1.0-0 libboost-dev \
-swig git libtool libreadline-dev libelf-dev python-dev
-</code></pre>
-
-<h3 id="download-the-code:1c6c8021bf90a0f894bf2ef30de55548">Download the code</h3>
-
-<p>The code is hosted in the
-<a href="https://github.com/lowrisc/lowrisc-chip">lowRISC chip git repository</a>. All
-external repositories are fetched as submodules. You need to clone the
-proper branch (<code>debug-v0.3</code>):</p>
-
-<pre><code>git clone -b debug-v0.3 --recursive https://github.com/lowrisc/lowrisc-chip.git
-cd lowrisc-chip
-</code></pre>
-
-<h3 id="structure-of-the-git-repository:1c6c8021bf90a0f894bf2ef30de55548">Structure of the git repository</h3>
-
-<p>The structure is similar to the one described
-<a href="/docs/untether-v0.2/dev-env/#gitstruct">here</a>. Essentially
-one folder was added that contains the Open SoC Debug repositories:</p>
+<h3 id="release-notes:6cd007d62737e5a12b005b4414d7b899">Release notes</h3>
 
 <ul>
-<li><code>opensocdebug</code>: Open SoC Debug and dependencies
+<li>Rocket-core (Chisel)
 
 <ul>
-<li><code>glip</code>: The <a href="http://glip.io">generic logic interface project</a></li>
-<li><code>hardware</code>: Hardware modules of Open SoC Debug</li>
-<li><code>software</code>: The Open SoC Debug software</li>
+<li>Add tag cache and improved security features.</li>
+</ul></li>
+<li>Software environment
+
+<ul>
+<li>Most of the previous bare-metal program functionality integrated into one 64K executable</li>
+<li>Implement 4-bit read/write SD-mode access to memory cards in Linux.</li>
+<li>Console output appears on serial port and VGA screen in parallel.</li>
+<li>Bare metal booting kernel in 4-bit SD-mode supported.</li>
+</ul></li>
+<li>lowRISC-chip
+
+<ul>
+<li>Add Minion core (Pulpino based) to control SD-card, keyboard, and VGA display.</li>
+<li>Standalone operation (without personal computer) possible.</li>
+<li>VGA-compatible text display.</li>
+<li>USB-keyboard (PS/2 compatible)</li>
+</ul></li>
+<li>Design environment
+
+<ul>
+<li>Updated demo images for NEXYS4-DDR FPGA.</li>
+<li>Add cfgmem and program-cfgmem targets to fpga Makefile.</li>
+</ul></li>
+<li>Missing from this release vs the previous
+
+<ul>
+<li>Bitstream configuration from SD-card is no longer convenient.</li>
+<li>Quad SPI memory execute-in-place is missing from initial demo images.</li>
 </ul></li>
 </ul>
 
-<h3 id="next-steps:1c6c8021bf90a0f894bf2ef30de55548">Next steps</h3>
-
-<p>To set the correct environment variables for running lowRISC, you need to
-source the script <code>set_env.sh</code> (formerly <code>set_riscv_env.sh</code>) in the base directory:</p>
-
-<pre><code>source set_env.sh
-</code></pre>
-
-<p>It is possible to override the default values by exporting variables before sourcing the script.
-The following variables are overridable:</p>
-
-<pre><code>$TOP                Path to the lowrisc-chip directory ($PWD).
-$RISCV              Path to the riscv toolchain ($TOP/riscv).
-$OSD_ROOT           Path to the Open SoC Debug tools ($TOP/tools).
-$FPGA_BOARD         The tager FPGA board (nexys4_ddr).
-</code></pre>
-
-<p>Next, you should follow the following steps:</p>
+<h3 id="previous-releases:6cd007d62737e5a12b005b4414d7b899">Previous releases</h3>
 
 <ul>
-<li><a href="/docs/debug-v0.3/lowriscsetup">Build the generic lowRISC setup</a></li>
-<li><a href="/docs/debug-v0.3/osdsoftware">Build the osd software</a></li>
+<li><a href="http://www.lowrisc.org/docs/debug-v0.3/"><strong>Version 0.3</strong>: core trace lowRISC (06-2016)</a></li>
+<li><a href="http://www.lowrisc.org/docs/untether-v0.2/"><strong>Version 0.2</strong>: untethered lowRISC (12-2015)</a></li>
+<li><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/"><strong>Version 0.1</strong>: tagged memory (04-2015)</a></li>
 </ul>
 
                     </section>
@@ -156,29 +136,6 @@ $FPGA_BOARD         The tager FPGA board (nexys4_ddr).
 
         </div>
       </section>
-    </div>
-    
-    <div class="row li-pagination article">
-      <div class="eight columns">
-        <div class="li-pagination-previous">
-          &nbsp;
-          
-          Previous<br />
-          &nbsp;
-          <a href="http://www.lowrisc.org/docs/debug-v0.3/softwaremethodology/"> Debug software and methodology</a>
-          
-        </div>
-      </div>
-      <div class="eight columns">
-        <div class="li-pagination-next">
-          &nbsp;
-          
-          Next<br />
-          &nbsp;
-          <a href="http://www.lowrisc.org/docs/debug-v0.3/lowriscsetup/"> Generic lowRISC setup</a>
-          
-        </div>
-      </div>
     </div>
     
 
@@ -189,9 +146,9 @@ $FPGA_BOARD         The tager FPGA board (nexys4_ddr).
             <script type="text/javascript">
                  
                 var disqus_shortname = 'lowrisc'; 
-                var disqus_identifier = "/" + "docs/debug-v0.3/environment";
-                var disqus_title = "Prepare the environment";
-                var disqus_url = "http://www.lowrisc.org" + "docs/debug-v0.3/environment";
+                var disqus_identifier = "/" + "docs/minion-v0.4/release";
+                var disqus_title = "Release notes";
+                var disqus_url = "http://www.lowrisc.org" + "docs/minion-v0.4/release";
 
                  
                 (function() {

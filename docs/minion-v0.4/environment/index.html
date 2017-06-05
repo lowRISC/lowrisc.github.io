@@ -69,7 +69,7 @@
                 <article class="li-article">
                 
                   <p>
-                    <a href="http://www.lowrisc.org/docs/debug-v0.3/">⇡ Tutorial for the debug preview of lowRISC</a>
+                    <a href="http://www.lowrisc.org/docs/minion-v0.4/">⇡ Tutorial for the v0.4 lowRISC release</a>
                   </p>
                 
                     <header class="li-article-header">
@@ -85,12 +85,20 @@
                     <section>
                         
 
-<p>We still recommend you work with a 64-bit Ubuntu (14.04 LTS).
-Everything except using the FPGA boards should also work
+<p>lowRISC tools and source code are robust between versions of Linux, but it has been
+found that
+Vivado (the Xilinx FPGA implementation suite) <a href="https://www.xilinx.com/support/answers/54242.html">is particular about the O/S</a></p>
+
+<p>All builds were completed with Vivado 2015.4. If a newer version is attempted there could be script incompatibilities to fix and/or incompatible upgrades to internal Xilinx IP. We have no evidence that newer versions do not work, however IP changes to support newer chip families can cause obscure error messages which are offputting for the first-time user.</p>
+
+<p>For this version the recommended O/S 64-bit Ubuntu (14.04 LTS). However, this is not stable on newer Intel chip sets, where 16.04 LTS should be used instead. If an unstable choice is made, the most likely result is LD_LIBRARY_PATH conflicts and/or synthesis crashes. It should be safe to unset LD_LIBRARY_PATH in your shell. This will prevent conflicts with the obsolete libstc++ build-in to Vivado.</p>
+
+<p>Everything except using the FPGA boards should also work
 out-of-box in a virtual machine.</p>
 
-<p>For more details follow the
-<a href="/docs/untether-v0.2/dev-env">instructions of the previous tutorial</a>.</p>
+<p>The following instructions are identical to the previous release, apart from the release name.
+For a more detailed explanation follow the
+<a href="/docs/untether-v0.2/dev-env">instructions of a previous tutorial</a>.</p>
 
 <p>Ensure you have all the necessary packages installed:</p>
 
@@ -105,9 +113,9 @@ swig git libtool libreadline-dev libelf-dev python-dev
 <p>The code is hosted in the
 <a href="https://github.com/lowrisc/lowrisc-chip">lowRISC chip git repository</a>. All
 external repositories are fetched as submodules. You need to clone the
-proper branch (<code>debug-v0.3</code>):</p>
+proper branch (<code>minion-v0.4</code>):</p>
 
-<pre><code>git clone -b debug-v0.3 --recursive https://github.com/lowrisc/lowrisc-chip.git
+<pre><code>git clone -b minion-v0.4 --recursive https://github.com/lowrisc/lowrisc-chip.git
 cd lowrisc-chip
 </code></pre>
 
@@ -115,16 +123,10 @@ cd lowrisc-chip
 
 <p>The structure is similar to the one described
 <a href="/docs/untether-v0.2/dev-env/#gitstruct">here</a>. Essentially
-one folder was added that contains the Open SoC Debug repositories:</p>
+one folder was added that contains the Minion repository:</p>
 
 <ul>
-<li><code>opensocdebug</code>: Open SoC Debug and dependencies
-
-<ul>
-<li><code>glip</code>: The <a href="http://glip.io">generic logic interface project</a></li>
-<li><code>hardware</code>: Hardware modules of Open SoC Debug</li>
-<li><code>software</code>: The Open SoC Debug software</li>
-</ul></li>
+<li><code>minion_subsystem</code>: Minion (Pulpino) subsystem and peripherals</li>
 </ul>
 
 <h3 id="next-steps:1c6c8021bf90a0f894bf2ef30de55548">Next steps</h3>
@@ -141,13 +143,22 @@ The following variables are overridable:</p>
 <pre><code>$TOP                Path to the lowrisc-chip directory ($PWD).
 $RISCV              Path to the riscv toolchain ($TOP/riscv).
 $OSD_ROOT           Path to the Open SoC Debug tools ($TOP/tools).
-$FPGA_BOARD         The tager FPGA board (nexys4_ddr).
+$FPGA_BOARD         The target FPGA board (nexys4_ddr).
 </code></pre>
 
-<p>Next, you should follow the following steps:</p>
+<p>Next steps:</p>
 
 <ul>
-<li><a href="/docs/debug-v0.3/lowriscsetup">Build the generic lowRISC setup</a></li>
+<li><a href="/docs/minion-v0.4/installtools">Install FPGA and simulation tools</a></li>
+</ul>
+
+<p>The built-in hardware <a href="http://opensocdebug.org">Open SystemOnChip Debug</a> trace debugger is enabled by default.
+It needs the following software installation instructions to be followed, in order to enable host communications. As well as trace debugging it
+allows Linux kernels to be loaded from the PC for debugging purposes. However the lowRISC can also run standalone, if desired.</p>
+
+<p>Follow these instructions <em>(caution: from a previous release)</em> and then use the browser back button:</p>
+
+<ul>
 <li><a href="/docs/debug-v0.3/osdsoftware">Build the osd software</a></li>
 </ul>
 
@@ -163,10 +174,6 @@ $FPGA_BOARD         The tager FPGA board (nexys4_ddr).
         <div class="li-pagination-previous">
           &nbsp;
           
-          Previous<br />
-          &nbsp;
-          <a href="http://www.lowrisc.org/docs/debug-v0.3/softwaremethodology/"> Debug software and methodology</a>
-          
         </div>
       </div>
       <div class="eight columns">
@@ -175,7 +182,7 @@ $FPGA_BOARD         The tager FPGA board (nexys4_ddr).
           
           Next<br />
           &nbsp;
-          <a href="http://www.lowrisc.org/docs/debug-v0.3/lowriscsetup/"> Generic lowRISC setup</a>
+          <a href="http://www.lowrisc.org/docs/minion-v0.4/installtools/"> Install FPGA and simulation tools</a>
           
         </div>
       </div>
@@ -189,9 +196,9 @@ $FPGA_BOARD         The tager FPGA board (nexys4_ddr).
             <script type="text/javascript">
                  
                 var disqus_shortname = 'lowrisc'; 
-                var disqus_identifier = "/" + "docs/debug-v0.3/environment";
+                var disqus_identifier = "/" + "docs/minion-v0.4/environment";
                 var disqus_title = "Prepare the environment";
-                var disqus_url = "http://www.lowrisc.org" + "docs/debug-v0.3/environment";
+                var disqus_url = "http://www.lowrisc.org" + "docs/minion-v0.4/environment";
 
                  
                 (function() {

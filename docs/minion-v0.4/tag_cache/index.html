@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Hierarchical tag cache &middot; lowRISC</title>
+        <link rel="stylesheet" href="http://www.lowrisc.org/css/styles.combined.min.css" />
+        <link rel="shortcut icon" href="http://www.lowrisc.org/favicon.ico" />
+        <link rel="alternate" href="http://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' type='text/css'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Exo+2' type='text/css'>
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-53520714-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+  </head>
+
+  <body data-page="article">
+<div class="header">
+  <header data-component="menu">
+
+    <section class="outer-container">
+      <div class="image">
+        <a href="http://www.lowrisc.org"><img src="http://www.lowrisc.org/img/logo.svg"></a>
+      </div>
+
+      <div class="menu">
+        <ul>
+          
+          <li><a href="/"> Home </a></li>
+          
+          <li><a href="/about/"> About </a></li>
+          
+          <li><a href="/blog/"> Blog </a></li>
+          
+          <li><a href="/faq/"> FAQ </a></li>
+          
+          <li><a href="/docs/"> Docs </a></li>
+          
+          <li><a href="/community/"> Community </a></li>
+          
+        </ul>
+      </div>
+    </section>
+
+  </header>
+</div>
+
+
+
+
+
+
+
+
+
+    <div class="article">
+      <section class="outer-container">
+        <div class="row">
+            <div class="sixteen columns">
+                <article class="li-article">
+                
+                  <p>
+                    <a href="http://www.lowrisc.org/docs/minion-v0.4/">⇡ Tutorial for the v0.4 lowRISC release</a>
+                  </p>
+                
+                    <header class="li-article-header">
+                        <h1 class="li-article-title">Hierarchical tag cache</h1>
+                        <span class="li-article-taxonomies">
+                            
+
+                            
+                        </span>
+                        
+                        
+                    </header>
+                    <section>
+                        
+
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<h2 id="motivation:58ab57706fde04d7ca84e2f0a3417083">Motivation</h2>
+
+<p>The tagged memory mechanism augments each data word in memory with a small
+piece of extra metadata, a <em>tag</em>.
+A separate area in high memory is dedicated to the tags, which is hidden to software.
+As a result, each memory access to the memory is converted into two separate accesses,
+one for the actual data word and another one for the tag.
+For a naive design, the speed/throughput overhead of supporting tagged memory
+is 100%! The overhead can be reduced to a small fraction of that through the
+use of an additional tag cache.</p>
+
+<p>A small tag cache was used in our previous <a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/tags/">tagged-memory release</a>.
+That tag cache was a conventional write-back set-associative cache.
+We had run the SPECInt 2006 benchmark suite using this tag cache.
+It was found that if the tag cache is large enough,
+most of the extra traffic accessing tags can be avoided.
+However, the size of the tag cache is significant compared with the size of L2$.
+We would like to further reduce the size of the tag cache while maintaining a low traffic overhead.</p>
+
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="center">I$<br>8KiB<br>(MPKI)&nbsp;</th>
+<th align="center">D$<br>16KiB<br>(MPKI)&nbsp;</th>
+<th align="center">L2<br>256KiB<br>(MPKI)&nbsp;</th>
+<th align="center">Mem traffic&nbsp;<br>without tag<br>(TPKI)</th>
+<th>&nbsp;&nbsp;</th>
+<th align="center">Tag$<br>16KiB<br>(MPKI)&nbsp;</th>
+<th align="center">Traffic&nbsp;<br>Ratio<br>&nbsp;</th>
+<th>&nbsp;&nbsp;</th>
+<th align="center">Tag$<br>32KiB<br>(MPKI)&nbsp;</th>
+<th align="center">Traffic&nbsp;<br>Ratio<br>&nbsp;</th>
+<th>&nbsp;&nbsp;</th>
+<th align="center">Tag$<br>64KiB<br>(MPKI)&nbsp;</th>
+<th align="center">Traffic&nbsp;<br>Ratio<br>&nbsp;</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="right">perlbench</td>
+<td align="center">20</td>
+<td align="center">5</td>
+<td align="center">&lt;1</td>
+<td align="center">2</td>
+<td></td>
+<td align="center">&lt;1</td>
+<td align="center">1.289</td>
+<td></td>
+<td align="center">&lt;1</td>
+<td align="center">1.089</td>
+<td></td>
+<td align="center">&lt;1</td>
+<td align="center">1.025</td>
+</tr>
+
+<tr>
+<td align="right">bzip2</td>
+<td align="center">&lt;1</td>
+<td align="center">14</td>
+<td align="center">10</td>
+<td align="center">16</td>
+<td></td>
+<td align="center">10</td>
+<td align="center">1.941</td>
+<td></td>
+<td align="center">7</td>
+<td align="center">1.688</td>
+<td></td>
+<td align="center">3</td>
+<td align="center">1.281</td>
+</tr>
+
+<tr>
+<td align="right">gcc</td>
+<td align="center">15</td>
+<td align="center">11</td>
+<td align="center">4</td>
+<td align="center">6</td>
+<td></td>
+<td align="center">2</td>
+<td align="center">1.497</td>
+<td></td>
+<td align="center">&lt;1</td>
+<td align="center">1.240</td>
+<td></td>
+<td align="center">&lt;1</td>
+<td align="center">1.072</td>
+</tr>
+
+<tr>
+<td align="right">mcf</td>
+<td align="center">&lt;1</td>
+<td align="center">168</td>
+<td align="center">104</td>
+<td align="center">136</td>
+<td></td>
+<td align="center">67</td>
+<td align="center">1.651</td>
+<td></td>
+<td align="center">40</td>
+<td align="center">1.409</td>
+<td></td>
+<td align="center">11</td>
+<td align="center">1.128</td>
+</tr>
+
+<tr>
+<td align="right">gobmk</td>
+<td align="center">24</td>
+<td align="center">8</td>
+<td align="center">3</td>
+<td align="center">6</td>
+<td></td>
+<td align="center">1</td>
+<td align="center">1.368</td>
+<td></td>
+<td align="center">&lt;1</td>
+<td align="center">1.146</td>
+<td></td>
+<td align="center">&lt;1</td>
+<td align="center">1.073</td>
+</tr>
+
+<tr>
+<td align="right">sjeng</td>
+<td align="center">11</td>
+<td align="center">5</td>
+<td align="center">1</td>
+<td align="center">3</td>
+<td></td>
+<td align="center">1</td>
+<td align="center">1.673</td>
+<td></td>
+<td align="center">&lt;1</td>
+<td align="center">1.482</td>
+<td></td>
+<td align="center">&lt;1</td>
+<td align="center">1.383</td>
+</tr>
+
+<tr>
+<td align="right">h264ref</td>
+<td align="center">1</td>
+<td align="center">3</td>
+<td align="center">2</td>
+<td align="center">3</td>
+<td></td>
+<td align="center">&lt;1</td>
+<td align="center">1.480</td>
+<td></td>
+<td align="center">&lt;1</td>
+<td align="center">1.265</td>
+<td></td>
+<td align="center">&lt;1</td>
+<td align="center">1.109</td>
+</tr>
+
+<tr>
+<td align="right">omnetpp</td>
+<td align="center">40</td>
+<td align="center">5</td>
+<td align="center">&lt;1</td>
+<td align="center">&lt;1</td>
+<td></td>
+<td align="center">&lt;1</td>
+<td align="center">1.653</td>
+<td></td>
+<td align="center">&lt;1</td>
+<td align="center">1.415</td>
+<td></td>
+<td align="center">&lt;1</td>
+<td align="center">1.190</td>
+</tr>
+
+<tr>
+<td align="right">astar</td>
+<td align="center">&lt;1</td>
+<td align="center">21</td>
+<td align="center">5</td>
+<td align="center">9</td>
+<td></td>
+<td align="center">4</td>
+<td align="center">1.750</td>
+<td></td>
+<td align="center">2</td>
+<td align="center">1.471</td>
+<td></td>
+<td align="center">&lt;1</td>
+<td align="center">1.173</td>
+</tr>
+
+<tr>
+<td align="right"><strong>average</strong></td>
+<td align="center"><strong>12</strong></td>
+<td align="center"><strong>27</strong></td>
+<td align="center"><strong>14</strong></td>
+<td align="center"><strong>20</strong></td>
+<td></td>
+<td align="center"><strong>10</strong></td>
+<td align="center"><strong>1.589</strong></td>
+<td></td>
+<td align="center"><strong>6</strong></td>
+<td align="center"><strong>1.356</strong></td>
+<td></td>
+<td align="center"><strong>2</strong></td>
+<td align="center"><strong>1.159</strong></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="general-concept-of-a-hierarchical-tag-cache:58ab57706fde04d7ca84e2f0a3417083">General concept of a hierarchical tag cache</h2>
+
+<p>In this release, we observe that most of the memory is not tagged for most use cases.
+Therefore, we can implement optimisation based on an hierarchical tag cache to
+compress the unset tags cached in the tag cache.
+It is likely that most of the tags cached are unset in normal operation condition.
+By analogy with the cache lines of recently used data, tag cache lines contain recently used tags.
+A tag cache line is just a normal cache line in the tag cache; however, this cache line stores tags rather than data.
+To utilise this pattern, a hierarchical cache uses bit-maps to record the tag cache lines containing tags.
+When a whole tag cache line is unset, the bit-map is enough to fully represent the cache line;
+therefore, the actual unused line is no long needed to be cached (no need to access it from memory as well).
+As a result, a small tag cache is able to describe the tag state of a much
+larger region of memory, provided that memory has significant areas where no tags are set.</p>
+
+<p>The logical view of the hierarchical tag cache is depicted below.
+It adopts a multi-tree structure where leaf nodes at <em>tag table</em> level hold the actual tags
+while the nodes in higher levels (<em>tag map 0</em> and <em>tag map 1</em>) hold bitmaps
+identifying the used lower level nodes.</p>
+
+<p style="text-align:center;"><img src="../figures/tag_map.png" alt="Drawing" style="width: 700px; padding: 20px 0px;"/></p>
+
+<p>All levels of the hierarchical tag cache are backed by the memory;
+therefore, all nodes in the tree can be safely written back to memory when necessary.
+Fortunately, tag maps do not increase the actual memory requirement compared
+with using a plain tag cache.
+The spare space available in the reserved tag partition in memory is large enough to store the maps.</p>
+
+<blockquote>
+<p>For a tagged memory that attaches \(N\) bits for each 64-bit word, \(\frac{N}{64}\) memory space is reserved for the tags.
+As a result, this reserved \(\frac{N}{64}\) memory space is not tagged and its associated tag space is never accessed,
+which is the upper \((\frac{N}{64})^2\) of the memory space.
+Each lower level node is mapped to 1-bit in a higher level node.
+Assuming a node is 64 bytes, the required memory for <em>tag map 0</em> is \(\frac{N}{64 \cdot 64 \cdot 8}\).
+Since \((\frac{N}{64})^2 \ge \frac{N}{64 \cdot 64 \cdot 8}\), <em>tag map 0</em> does not need extra memory space.
+Similarly it can be proved that <em>tag map 1</em> is smaller than the spare space made available by <em>tag map 0</em>.\(\Box\)</p>
+</blockquote>
+
+<p>The following graph shows the physical arrangement of data, tags and tag maps in a 1 GB memory.
+The tags of the 1 GB memory (nodes of the <em>tag table</em>) are located in the
+upper 64 MB of the address space.
+This area is then hidden and direct access from software is prohibited.
+The upper 128 KB of the <em>tag table</em> area is reserved for <em>tag map 0</em>,
+and the upper 256 bytes of the <em>tag map 0</em> space is reserved for <em>tag map 1</em>.
+For normal SoC systems, two levels of tag maps are enough to reduce the top
+map to around 1KB.
+Observe that only the nodes of the top map need to be reset after powering up,
+this significantly reduces the system initialisation delay.
+When the software makes no use of tags, a tag cache as small as 1KB is enough
+to eliminate all throughput overhead related to tagged memory.</p>
+
+<p style="text-align:center;"><img src="../figures/memory_map.png" alt="Drawing" style="width: 700px; padding: 20px 0px;"/></p>
+
+<p>As a summary, the benefits of using a hierarchical tag cache compared with the
+previous tag cache design include:</p>
+
+<ul>
+<li>Increased cache capacity when a large portion of memory words are not tagged.</li>
+<li>Reduced memory overhead by avoiding the fetching of empty tags (empty <em>tag table</em> or even <em>tag map 0</em> nodes) from memory.</li>
+<li>Fast tag initialisation as only the top map nodes (<em>tag map 1</em> nodes) need to be reset after powering up.</li>
+</ul>
+
+<p>The potential costs are:</p>
+
+<ul>
+<li>Complicated control logic to maintaining the consistency between <em>tag table</em> nodes and <em>tag map</em> nodes.</li>
+<li>Extra cache space to store <em>tag map</em> nodes in the tag cache, although in
+most workloads it is expected the more efficient caching of untagged memory
+regions will compensate for this cost many times over.</li>
+<li>Every node occupies a full cache line in the tag cache.</li>
+</ul>
+
+<h2 id="hardware-implementation:58ab57706fde04d7ca84e2f0a3417083">Hardware implementation</h2>
+
+<p>Instead of using three separate caches to store the <em>tag table</em> and the two <em>tag maps</em>, a unified cache is used.
+Nodes from all tree levels use the same size so they can be stored and searched in the same manner.
+This also allows dynamic space allocation between the table nodes and the map nodes.
+When most memory words are tagged, map nodes can be replaced to store table nodes;
+when most memory words are not tagged, the cache will primarily hold map
+nodes. The default block size is 64 bytes.
+Cache organisation is set-associative.</p>
+
+<p>The internal structure of the hierarchical tag cache is depicted below:</p>
+
+<p style="text-align:center;"><img src="../figures/tag_cache_structure.png" alt="Drawing" style="width: 400px; padding: 20px 0px;"/></p>
+
+<p>The tag cache has five major components:</p>
+
+<ul>
+<li><p><em>Data Array</em><br>
+The cache memory block to store the cached nodes of all levels of the tree.</p></li>
+
+<li><p><em>Metadata Array</em><br>
+The cache metadata memory block to store the line status (state flag <em>state</em> and non-empty flag <em>tagFlag</em>)
+and the address tag (<em>addrTag</em>) associated with each cache line.</p></li>
+
+<li><p><em>MemXact Trackers</em><br>
+Parallel transaction trackers for memory accesses from the last level cache.</p></li>
+
+<li><p><em>TagXact Trackers</em><br>
+Parallel transaction trackers (shared by all MemXact trackers) for accessing the uniformed tag cache.</p></li>
+
+<li><p><em>Writeback Unit</em><br>
+A single writeback unit shared by all TagXact trackers for writing back a tag cache line.</p></li>
+</ul>
+
+<p>The tag cache is capable of serving multiple memory accesses in parallel depending on the number of MemXact trackers.
+Each MemXact tracker is responsible for serving a single memory access in a consistent way.
+This implies two requirements:</p>
+
+<ul>
+<li><p>A memory transaction must start with a consistent view of the tree.
+If a simultaneous transaction is updating the part of the tree visible to this transaction,
+the transaction must wait until the outstanding update is finished.</p></li>
+
+<li><p>A memory transaction may temporarily update the tag tree into an inconsistent state,
+because it is difficult to make the whole transaction an atomic operation.
+A MemXact tracker must recover the tag tree back into a consistent state before accepting a new transaction.</p></li>
+</ul>
+
+<p>Each TagXact tracker is a tag cache handler that handles a single node operation atomically at any time.</p>
+
+<h3 id="extra-hardware-optimisations:58ab57706fde04d7ca84e2f0a3417083">Extra hardware optimisations</h3>
+
+<p>Some extra hardware optimisation techniques are used for better cache capacity and smaller transaction latency.</p>
+
+<h4 id="bottom-up-search-order:58ab57706fde04d7ca84e2f0a3417083">Bottom-up search order</h4>
+
+<p>The tag tree is searched in a bottom-up order.
+If a tag is found in a <em>tag table</em> node, there is no need to search higher <em>tag map</em> nodes.
+When most memory words are tagged, this search order reduces transaction latency and,
+more importantly, reduces the miss penalty when higher <em>tag map</em> nodes are
+replaced by <em>tag table</em> nodes. In a way, this also slightly increases the
+capacity of the hierarchical tag cache. In cases where most words are tagged,
+there is no access time penalty.</p>
+
+<h4 id="creation-rather-than-fetch:58ab57706fde04d7ca84e2f0a3417083">Creation rather than fetch</h4>
+
+<p>When writing a node that is missing but indicated empty by the associated <em>tag map</em> bit,
+an empty node is created directly rather than fetching it from memory.</p>
+
+<h4 id="avoiding-writing-back-empty-nodes:58ab57706fde04d7ca84e2f0a3417083">Avoiding writing back empty nodes</h4>
+
+<p>When a dirty but empty node is going to be replaced by another node, the writeback can be avoided because the
+associated <em>tag map</em> bit should have indicated the emptiness. This technique can only be used when the
+&lsquo;creation rather than fetch&rsquo; technique is utilised at the same time.</p>
+
+                    </section>
+                </article>
+
+        </div>
+      </section>
+    </div>
+    
+    <div class="row li-pagination article">
+      <div class="eight columns">
+        <div class="li-pagination-previous">
+          &nbsp;
+          
+          Previous<br />
+          &nbsp;
+          <a href="http://www.lowrisc.org/docs/minion-v0.4/tag_lowrisc/"> Tagged memory developments</a>
+          
+        </div>
+      </div>
+      <div class="eight columns">
+        <div class="li-pagination-next">
+          &nbsp;
+          
+          Next<br />
+          &nbsp;
+          <a href="http://www.lowrisc.org/docs/minion-v0.4/tag_core/"> Tag support in the Rocket core</a>
+          
+        </div>
+      </div>
+    </div>
+    
+
+
+                
+
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                 
+                var disqus_shortname = 'lowrisc'; 
+                var disqus_identifier = "/" + "docs/minion-v0.4/tag_cache";
+                var disqus_title = "Hierarchical tag cache";
+                var disqus_url = "http://www.lowrisc.org" + "docs/minion-v0.4/tag_cache";
+
+                 
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+            
+
+        <footer>
+
+          <section class="outer-container">
+
+            <div>
+              <div class="link-container">
+              </div>
+            </div>
+
+            <p>
+              Unless otherwise noted, content on this site is licensed under a Creative Commons Attribution ShareAlike 4.0 International License
+            </p>
+
+          </section>
+
+        </footer>
+    </body>
+</html>
+
+
+    </body>
+</html>
+

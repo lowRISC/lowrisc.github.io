@@ -22,11 +22,11 @@ release:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Moves forward our support for tagged memory by re-integrating the tag cache,
-reducing overhead with a [hierarchical scheme](http://www.lowrisc.org/docs/minion-v0.4/tag_cache/.
+reducing overhead with a &lt;a href=&#34;http://www.lowrisc.org/docs/minion-v0.4/tag_cache/&#34;&gt;hierarchical scheme&lt;/a&gt;.
 This will significantly reduce caches misses caused by tagged memory accesses
 where tags are distributed sparsely.&lt;/li&gt;
-&lt;li&gt;Integrates support for specifying and configuring [tag propagation and
-exception behaviour](http://www.lowrisc.org/docs/minion-v0.4/tag_core/.&lt;/li&gt;
+&lt;li&gt;Integrates support for specifying and configuring &lt;a href=&#34;http://www.lowrisc.org/docs/minion-v0.4/tag_core/&#34;&gt;tag propagation and
+exception behaviour&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;A &lt;a href=&#34;http://www.pulp-platform.org/&#34;&gt;PULPino&lt;/a&gt; based &amp;ldquo;minion core&amp;rdquo; has been
 integrated, and is used to provide peripherals such as the SD card
 interface, keyboard, and VGA tex display (when using the Nexys4 DDR FPGA

@@ -6,8 +6,38 @@
     <description>Recent content on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Mar 2017 09:35:57 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 09 Jun 2017 12:35:57 +0000</lastBuildDate>
     <atom:link href="http://www.lowrisc.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>lowRISC 0-4 milestone release</title>
+      <link>http://www.lowrisc.org/blog/2017/06/lowrisc-0-4-milestone-release</link>
+      <pubDate>Fri, 09 Jun 2017 12:35:57 +0000</pubDate>
+      
+      <guid>http://www.lowrisc.org/blog/2017/06/lowrisc-0-4-milestone-release</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;http://www.lowrisc.org/docs/minion-v0.4/&#34;&gt;lowRISC 0.4 milestone release&lt;/a&gt;
+is now available. The various changes are best described in our &lt;a href=&#34;http://www.lowrisc.org/docs/minion-v0.4/&#34;&gt;accompanying
+documentation&lt;/a&gt;, but in summary this
+release:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Moves forward our support for tagged memory by re-integrating the tag cache,
+reducing overhead with a [hierarchical scheme](http://www.lowrisc.org/docs/minion-v0.4/tag_cache/.
+This will significantly reduce caches misses caused by tagged memory accesses
+where tags are distributed sparsely.&lt;/li&gt;
+&lt;li&gt;Integrates support for specifying and configuring [tag propagation and
+exception behaviour](http://www.lowrisc.org/docs/minion-v0.4/tag_core/.&lt;/li&gt;
+&lt;li&gt;A &lt;a href=&#34;http://www.pulp-platform.org/&#34;&gt;PULPino&lt;/a&gt; based &amp;ldquo;minion core&amp;rdquo; has been
+integrated, and is used to provide peripherals such as the SD card
+interface, keyboard, and VGA tex display (when using the Nexys4 DDR FPGA
+development board).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Please report any issues &lt;a href=&#34;https://github.com/lowRISC/lowrisc-chip&#34;&gt;on our GitHub
+repository&lt;/a&gt;, or discuss on our
+&lt;a href=&#34;http://listmaster.pepperfish.net/cgi-bin/mailman/listinfo/lowrisc-dev-lists.lowrisc.org&#34;&gt;mailing list&lt;/a&gt;. As always, thank you to everyone who has contributed in any way - whether it&amp;rsquo;s advice and feedback, bug reports, code, or ideas.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Apply now for GSoC 2017</title>
@@ -2331,61 +2361,6 @@ Boot Requirements), RISC-V ABI, hypervisor, security.&lt;/li&gt;
 &lt;li&gt;Useful documents include a RISC-V Assembly Guide, some equivalent of the ARM
 Cortex-A Programmer&amp;rsquo;s Guide, and a New Contributor&amp;rsquo;s Guide.&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Untethered lowRISC release</title>
-      <link>http://www.lowrisc.org/blog/2015/12/untethered-lowrisc-release</link>
-      <pubDate>Fri, 18 Dec 2015 10:30:00 +0000</pubDate>
-      
-      <guid>http://www.lowrisc.org/blog/2015/12/untethered-lowrisc-release</guid>
-      <description>&lt;p&gt;Over the past several months, we&amp;rsquo;ve been working to provide a standalone or
-&amp;lsquo;untethered&amp;rsquo; SoC. Cores in the original &lt;a href=&#34;https://github.com/ucb-bar/rocket-chip&#34;&gt;Rocket
-chip&lt;/a&gt; rely on communicating with a
-companion processor via the host-target interface (HTIF) to access peripherals
-and I/O. This release removes this requirement, adding an I/O bus and
-instantiating FPGA peripherals. The accompanying &lt;a href=&#34;http://www.lowrisc.org/docs/untether-v0.2/&#34;&gt;tutorial&lt;/a&gt;, written by Wei Song, describes how to
-build this code release and explains the underlying structural changes. We
-support both the &lt;a href=&#34;http://www.xilinx.com/products/boards-and-kits/ek-k7-kc705-g.html&#34;&gt;Xilinx
-KC705&lt;/a&gt; and
-the lower-priced &lt;a href=&#34;http://store.digilentinc.com/nexys-4-ddr-artix-7-fpga-trainer-board-recommended-for-ece-curriculum/&#34;&gt;Nexys4
-DDR&lt;/a&gt;
-development boards. We would gladly welcome assistance in supporting other
-boards.&lt;/p&gt;
-
-&lt;p&gt;Please note that the codebase temporarily lacks support for tagged memory
-included in the &lt;a href=&#34;http://www.lowrisc.org/docs/tagged-memory-v0.1/&#34;&gt;previous release&lt;/a&gt;. We plan to re-integrate tagged memory support
-with additional optimisations early next year. You can find a detailed list of
-changes in the &lt;a href=&#34;http://www.lowrisc.org/docs/untether-v0.2/release/&#34;&gt;release notes&lt;/a&gt;.
-One highlight is support for &lt;a href=&#34;http://www.lowrisc.org/docs/untether-v0.2/vsim/&#34;&gt;RTL simulation using the open-source Verilator
-tool&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;This development milestone should make it easier for others to contribute. If
-you&amp;rsquo;re looking to get stuck in, you might want to consider looking at tasks
-such as:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Cleaning up the &lt;a href=&#34;https://github.com/lowRISC/riscv-linux&#34;&gt;RISC-V Linux port&lt;/a&gt;,
-improving devicetree support and removing the host-target interface.&lt;/li&gt;
-&lt;li&gt;Replacing use of proprietary peripheral IP with open-source IP cores.&lt;/li&gt;
-&lt;li&gt;Adding support for different FPGA development boards, including Altera
-boards.&lt;/li&gt;
-&lt;li&gt;Implementing the &lt;a href=&#34;http://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-852.pdf&#34;&gt;BERI Programmable Interrupt
-Controller&lt;/a&gt; (p73), and
-adding necessary Linux support.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Our next development priorities are the re-integration of tagged memory
-support and an initial integration of a minion core design. We also expect to
-put out a job advert in the next few weeks for a new member of the lowRISC
-development team at the University of Cambridge Computer Laboratory.
-Interested applicants are encouraged to make informal enquiries about the post
-to Rob Mullins &lt;a href=&#34;mailto:Robert.Mullins@cl.cam.ac.uk&#34;&gt;Robert.Mullins@cl.cam.ac.uk&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;We hope to see many of you at the &lt;a href=&#34;https://riscv.org/2015/12/prelim-agenda-3rd-risc-v-workshop/&#34;&gt;3rd RISC-V
-Workshop&lt;/a&gt; in January, where Wei Song
-and Alex Bradbury will be presenting about lowRISC.&lt;/p&gt;
 </description>
     </item>
     

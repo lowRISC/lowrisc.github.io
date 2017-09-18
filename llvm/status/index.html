@@ -87,55 +87,10 @@ For an overview of this work as well as the current patch set, please see
 <a href="https://github.com/lowRISC/riscv-llvm">github.com/lowRISC/riscv-llvm</a>.</p>
 
 <p>Aside from hand-written unit tests, most testing has been performed using the
-GCC torture suite. For RV32I at <code>O0</code>, currently <strong>1315 out of 1352</strong> compile
-and run. Of the failures, 32 are compile-time and 5 are run-time.</p>
+GCC torture suite. For RV32I at <code>-O1</code>, <code>-O2</code>, <code>-O3</code>, and <code>-Os</code>, <strong>1392 out of
+1392</strong> (100%) of these tests compile and run.</p>
 
-<p>Test cases failing at runtime are:</p>
-
-<pre><code>pr44942
-pr78622
-stdarg-4
-va-arg-15
-va-arg-6
-</code></pre>
-
-<p>Test cases failing at compile time are:</p>
-
-<pre><code>20010122-1
-20020413-1
-20021120-1
-20030323-1
-20030811-1
-20030914-1
-20040208-1
-20050121-1
-930622-2
-960215-1
-960513-1
-980608-1
-990208-1
-built-in-setjmp
-comp-goto-1
-complex-6
-conversion
-frame-address
-multi-ix
-pr17377
-pr47237
-pr53645-2
-pr56982
-pr58574
-pr58831
-pr60003
-pr60960
-pr70460
-pr71554
-regstack-1
-simd-6
-stdarg-2
-</code></pre>
-
-<p>Issues related to these failures are tracked
+<p>Issues detailing further work and improvements are tracked
 <a href="https://github.com/lowrisc/riscv-llvm/issues?q=is%3Aissue+is%3Aopen+label%3Abug">here</a>.
 The <a href="https://github.com/lowRISC/riscv-llvm/blob/master/scripts/run_torture_suite.sh">runner script</a>
 includes a list of skipped tests. Tests which are architecture-specific or

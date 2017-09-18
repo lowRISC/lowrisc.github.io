@@ -10,6 +10,47 @@
     <atom:link href="http://www.lowrisc.org/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>We&#39;re hiring! Work on making open source hardware a reality</title>
+      <link>http://www.lowrisc.org/blog/2017/09/were-hiring-work-on-making-open-source-hardware-a-reality</link>
+      <pubDate>Mon, 18 Sep 2017 08:15:00 +0000</pubDate>
+      
+      <guid>http://www.lowrisc.org/blog/2017/09/were-hiring-work-on-making-open-source-hardware-a-reality</guid>
+      <description>&lt;p&gt;We are looking for a talented hardware engineer to join the lowRISC team and
+help make our vision for an open source, secure, and flexible SoC a reality.
+&lt;a href=&#34;https://lowrisc.workable.com/j/DBAC61322F&#34;&gt;Apply now&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;lowRISC C.I.C. is a not-for-profit company that aims to demonstrate, promote
+and support the use of open-source hardware. The lowRISC project was
+established in 2014 with the aim of bringing the benefits of open-source to
+the hardware world. It is working to do this by producing a high quality,
+secure, open, and flexible System-on-Chip (SoC) platform. lowRISC C.I.C. also
+provides hardware and software services to support the growing RISC-V
+ecosystem. Our expertise includes the LLVM Compiler, hardware security
+extensions and RISC-V tools, hardware and processor design.&lt;/p&gt;
+
+&lt;p&gt;The successful candidate will be interested in computer architecture and
+hardware design. The primary focus of the role will be the development of the
+lowRISC SoC platform, which will involve work to evaluate and extend our
+current design including our general-purpose tagged-memory system. lowRISC is
+an ambitious project with a small core team, so you will be heavily involved
+in the project&amp;rsquo;s development direction. This role will involve frequent work
+with external contributors and collaborators. While much of the work will be
+at the hardware level the post will offer experience of the full
+hardware/software stack, higher-level simulation tools and architectural
+design issues.&lt;/p&gt;
+
+&lt;p&gt;Some practical experience of hardware design with a HDL such as
+Verilog/SystemVerilog is essential, as is a good knowledge of the HW/SW stack.
+Ideally, candidates will also have experience or demonstrated interest in some
+of: SoC design, large-scale open source development, hardware or software
+security, technical documentation, board support package development and
+driver development. Industrial experience and higher degree levels are valued,
+but we would be happy to consider an enthusiastic recent graduate with a
+strong academic record.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Building upstream RISC-V GCC&#43;binutils&#43;newlib: the quick and dirty way</title>
       <link>http://www.lowrisc.org/blog/2017/09/building-upstream-risc-v-gccbinutilsnewlib-the-quick-and-dirty-way</link>
       <pubDate>Tue, 05 Sep 2017 14:00:00 +0000</pubDate>

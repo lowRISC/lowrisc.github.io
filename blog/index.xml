@@ -6,8 +6,44 @@
     <description>Recent content in Blogs on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 18 Sep 2017 08:15:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 19 Sep 2017 14:45:00 +0000</lastBuildDate>
     <atom:link href="http://www.lowrisc.org/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>lowRISC tagged memory OS enablement</title>
+      <link>http://www.lowrisc.org/blog/2017/09/lowrisc-tagged-memory-os-enablement</link>
+      <pubDate>Tue, 19 Sep 2017 14:45:00 +0000</pubDate>
+      
+      <guid>http://www.lowrisc.org/blog/2017/09/lowrisc-tagged-memory-os-enablement</guid>
+      <description>&lt;p&gt;This summer, we were fortunate enough to have Katherine Lim join the lowRISC
+team at the University of Cambridge Computer Laboratory as an intern.
+Katherine&amp;rsquo;s focus was on operating system and software enabled for lowRISC&amp;rsquo;s
+tagged memory, building upon our
+&lt;a href=&#34;http://www.lowrisc.org/docs/minion-v0.4/&#34;&gt;most recent milestone release&lt;/a&gt;.
+As Katherine&amp;rsquo;s &lt;a href=&#34;http://www.lowrisc.org/docs/tagged-memory-os-enablement-internship-2017/&#34;&gt;detailed write-up&lt;/a&gt; demonstrates,
+it&amp;rsquo;s been a very productive summer.&lt;/p&gt;
+
+&lt;p&gt;The goal of this internship was to take the lowRISC hardware release, and
+demonstrate kernel support and software support for the hardware tagged memory
+primitives. This includes support for context-switch of the &lt;code&gt;tagctrl&lt;/code&gt; register
+used to configure tag rules, maintaining tags in pages upon copy-on-write,
+delivering tag exceptions to user space, loading tags from ELF binaries, and
+more. It culminated in a demonstration that pulls these various pieces of work
+together, showing how tagged memory can be used to mark valid branch targets.
+Read the &lt;a href=&#34;http://www.lowrisc.org/docs/tagged-memory-os-enablement-internship-2017/&#34;&gt;report&lt;/a&gt; for full
+details.&lt;/p&gt;
+
+&lt;p&gt;We believe there is a rich design space in hardware support for tagged memory
+and tag-based software policies. This operating system enablement work is an
+important part of exploring that space, and in making it easier for other
+groups to do the same.&lt;/p&gt;
+
+&lt;p&gt;If working on problems like this sounds interesting to you, there&amp;rsquo;s good news
+- &lt;a href=&#34;http://www.lowrisc.org/blog/2017/09/were-hiring-work-on-making-open-source-hardware-a-reality&#34;&gt;&lt;strong&gt;we&amp;rsquo;re hiring&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Alex Bradbury and Katherine Lim&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>We&#39;re hiring! Work on making open source hardware a reality</title>
@@ -1735,48 +1771,6 @@ post&lt;/a&gt;
 on starting this project.&lt;/li&gt;
 &lt;li&gt;Porting the xv6 teaching operating system to the lowRISC platform. Jeff
 Rogers, mentored by Alex Bradbury&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Apply now to work with lowRISC in Google Summer of Code</title>
-      <link>http://www.lowrisc.org/blog/2016/03/apply-now-to-work-with-lowrisc-in-google-summer-of-code</link>
-      <pubDate>Sun, 20 Mar 2016 20:35:57 +0000</pubDate>
-      
-      <guid>http://www.lowrisc.org/blog/2016/03/apply-now-to-work-with-lowrisc-in-google-summer-of-code</guid>
-      <description>&lt;p&gt;We are very grateful to have been selected to take part as a mentoring
-organisation in the &lt;a href=&#34;https://summerofcode.withgoogle.com/&#34;&gt;Google Summer of
-Code&lt;/a&gt; for the second year running. As
-with last year, we&amp;rsquo;re working with a number of friends from across the wider
-open source hardware community to act as an umbrella for a range of
-hardware-related projects. If you are a student who would like to be paid to
-work on open source during the summer, then take a look at &lt;a href=&#34;http://www.lowrisc.org/docs/gsoc-2016-ideas/&#34;&gt;the lowRISC ideas
-list&lt;/a&gt; and
-&lt;a href=&#34;https://summerofcode.withgoogle.com/organizations/6271463900315648/&#34;&gt;apply&lt;/a&gt;.
-As was pointed out on the Google Open Source Program&amp;rsquo;s blog, there is a &lt;a href=&#34;http://google-opensource.blogspot.co.uk/2016/03/something-different-code-up-hardware-in.html&#34;&gt;good
-showing from hardware-related projects in GSoC this
-year&lt;/a&gt;.
-The deadline for applications is this coming Friday, 25th March at 7pm GMT.&lt;/p&gt;
-
-&lt;p&gt;We welcome ideas of your own creation, but the &lt;a href=&#34;http://www.lowrisc.org/docs/gsoc-2016-ideas/&#34;&gt;ideas we&amp;rsquo;ve suggested this
-year&lt;/a&gt; include:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;A trace debug analysis tool (ideally using TypeScript and Electron)&lt;/li&gt;
-&lt;li&gt;Improving device-tree support for the Linux RISC-V port&lt;/li&gt;
-&lt;li&gt;Various ideas related to the &lt;a href=&#34;http://www.clifford.at/yosys/&#34;&gt;Yosys&lt;/a&gt;
-open-source synthesis tool.&lt;/li&gt;
-&lt;li&gt;Porting a teaching OS such as xv6 or XINU to the lowRISC platform&lt;/li&gt;
-&lt;li&gt;Porting CMSIS-DSP to PULPino&lt;/li&gt;
-&lt;li&gt;Doom on PULPino&lt;/li&gt;
-&lt;li&gt;Porting the Arduino libraries to PULPino&lt;/li&gt;
-&lt;li&gt;Integrating additional open-source IP for lowRISC on FPGA&lt;/li&gt;
-&lt;li&gt;Implementing a Trusted Execution Environment&lt;/li&gt;
-&lt;li&gt;Porting musl libc to RISC-V&lt;/li&gt;
-&lt;li&gt;A Generic hardware/software interface for software-defined radio&lt;/li&gt;
-&lt;li&gt;A SPIR-V frontend for Nyuzi&lt;/li&gt;
-&lt;li&gt;Porting an OS kernel to Nyuzi&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

@@ -79,16 +79,18 @@
                         
                     </header>
                     <section>
-                        <p><strong>Note</strong>: This page is something of a placeholder for a more dynamic status
-page.</p>
-
-<p>lowRISC has been pursuing the development of an upstream RISC-V LLVM backend.
+                        <p>lowRISC has been pursuing the development of an upstream RISC-V LLVM backend.
 For an overview of this work as well as the current patch set, please see
 <a href="https://github.com/lowRISC/riscv-llvm">github.com/lowRISC/riscv-llvm</a>.</p>
 
+<p>The most recent <a href="http://www.lowrisc.org/blog/2017/09/moving-risc-v-llvm-forwards">status blog post</a> provides a good overview of status, roadmap, and development approach.</p>
+
 <p>Aside from hand-written unit tests, most testing has been performed using the
-GCC torture suite. For RV32I at <code>-O1</code>, <code>-O2</code>, <code>-O3</code>, and <code>-Os</code>, <strong>1392 out of
-1392</strong> (100%) of these tests compile and run.</p>
+GCC torture suite. For RV32I at <code>-O0</code>, <code>-O1</code>, <code>-O2</code>, <code>-O3</code>, and <code>-Os</code>, <strong>1390 out of
+1390</strong> (100%) of these tests compile and run. For RV64I, <strong>1390 out of 1390</strong>
+(100%) of these tests compile and run at <code>-O1</code>, <code>-O2</code>, <code>-O3</code>, and <code>-Os</code>. There
+is 1 compilation failure at O0. MC-layer support is now present for a number of
+standard ISA extensions (RV32MAFD), as well as code-gen for RV32M.</p>
 
 <p>Issues detailing further work and improvements are tracked
 <a href="https://github.com/lowrisc/riscv-llvm/issues?q=is%3Aissue+is%3Aopen+label%3Abug">here</a>.

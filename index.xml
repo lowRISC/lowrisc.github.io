@@ -10,6 +10,219 @@
     <atom:link href="http://www.lowrisc.org/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Moving RISC-V LLVM forwards</title>
+      <link>http://www.lowrisc.org/blog/2017/09/moving-risc-v-llvm-forwards</link>
+      <pubDate>Wed, 27 Sep 2017 17:00:00 +0000</pubDate>
+      
+      <guid>http://www.lowrisc.org/blog/2017/09/moving-risc-v-llvm-forwards</guid>
+      <description>
+
+&lt;p&gt;A high quality, upstream RISC-V backend for LLVM is perhaps the most
+frequently requested missing piece of the RISC-V software ecosystem. This
+blog post provides an update on the rapid progress we&amp;rsquo;ve been making towards
+that goal, outlines next steps and upcoming events, and tries to better
+explain the approach that we&amp;rsquo;re taking.
+As always, you
+can track status &lt;a href=&#34;http://www.lowrisc.org/llvm/status/&#34;&gt;here&lt;/a&gt; and find the code
+&lt;a href=&#34;https://github.com/lowRISC/riscv-llvm&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;status:37a127be6d81e67368fb40a190b2ef8f&#34;&gt;Status&lt;/h2&gt;
+
+&lt;p&gt;I&amp;rsquo;ve been able to make substantial progress since the &lt;a href=&#34;http://lists.llvm.org/pipermail/llvm-dev/2017-August/116709.html&#34;&gt;last
+update&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;rv32:37a127be6d81e67368fb40a190b2ef8f&#34;&gt;RV32&lt;/h3&gt;
+
+&lt;p&gt;100% of the GCC torture suite passes for RV32I at -O0, -O1, -O2, -O3, and -Os
+(after masking gcc-only tests). MC-layer (assembler) support for RV32IMAFD has
+now been implemented, as well as code generation for RV32IM.&lt;/p&gt;
+
+&lt;h3 id=&#34;rv64:37a127be6d81e67368fb40a190b2ef8f&#34;&gt;RV64&lt;/h3&gt;
+
+&lt;p&gt;This is the biggest change versus my last update. LLVM recently gained support
+for parameterising backends by register size, which allows code duplication to
+be massively reduced for architectures like RISC-V. As planned, I&amp;rsquo;ve gone
+ahead and implemented RV64I MC-layer and code generation support making use of
+this feature. I&amp;rsquo;m happy to report that 100% of the GCC torture suite passes
+for RV64I at O1, O2, O3 and Os (and there&amp;rsquo;s a single compilation failure at
+O0). I&amp;rsquo;m very grateful for Krzysztof Parzyszek&amp;rsquo;s (QUIC) work on variable-sized
+register classes, which has made it possible to parameterise the backend on
+XLEN in this way. That LLVM feature was actually motivated by requirements of
+the Hexagon architecture - I think this is a great example of how we can all
+benefit by contributing upstream to projects, even across different ISAs.&lt;/p&gt;
+
+&lt;h3 id=&#34;other-activities:37a127be6d81e67368fb40a190b2ef8f&#34;&gt;Other activities&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Community members Luís Marques and David Craven have been experimenting with
+D and Rust support respectively.&lt;/li&gt;
+&lt;li&gt;Andes Technology have started working to contribute to this effort, and are
+putting together patches for compressed instruction set support. This is a
+really positive move and I hope others will follow their lead.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;development-stats:37a127be6d81e67368fb40a190b2ef8f&#34;&gt;Development stats&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The &amp;lsquo;reference&amp;rsquo; &lt;a href=&#34;https://github.com/lowRISC/riscv-llvm&#34;&gt;patch queue&lt;/a&gt; consists
+of 48 patches, modifying 128 files and inserting over 11500 lines to the LLVM
+and Clang codebases. Close to 50% of these lines are new tests.&lt;/li&gt;
+&lt;li&gt;Other activities:
+
+&lt;ul&gt;
+&lt;li&gt;8 committed patches to LLVM in areas other than lib/Target/RISCV
+(cleanups, support code, documentation improvements, bug fixes) with 5 more
+making their way through the review process.&lt;/li&gt;
+&lt;li&gt;2 GCC/binutils bugs reported&lt;/li&gt;
+&lt;li&gt;RISC-V &lt;a href=&#34;https://github.com/riscv/riscv-elf-psabi-doc/blob/master/riscv-elf.md&#34;&gt;psABI
+doc&lt;/a&gt;:
+Authored 7 merged commits, 13 issues filed.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I&amp;rsquo;d like to thank &lt;a href=&#34;https://github.com/lowRISC/riscv-llvm#credits&#34;&gt;everyone&lt;/a&gt;
+who has contributed code review, feedback, or suggestions so far, as well as
+our industrial sponsor.&lt;/p&gt;
+
+&lt;h2 id=&#34;approach-and-philosophy:37a127be6d81e67368fb40a190b2ef8f&#34;&gt;Approach and philosophy&lt;/h2&gt;
+
+&lt;p&gt;As enthusiastic supporters of RISC-V, I think we all want to see a huge range
+of RISC-V core implementations, making different trade-offs or targeting
+different classes of applications. But we &lt;em&gt;don&amp;rsquo;t&lt;/em&gt; want to see that variety in
+the RISC-V ecosystem result in dozens of different vendor-specific compiler
+toolchains and a fractured software ecosystem. Unfortunately most work on LLVM
+for RISC-V has been invested in private/proprietary code bases or short-term
+prototypes. This effort has been performed out in the open from the start,
+with a strong focus on code quality, testing, and on moving development
+upstream as quickly as possible - i.e. a solution for the long term.&lt;/p&gt;
+
+&lt;p&gt;My implementation approach has been to first work towards a cleanly designed
+and well tested RV32I baseline compiler. Once the fundamentals are solid, it
+is &lt;em&gt;significantly&lt;/em&gt; easier to add in new features, optimisations, or indeed
+customisations for different RISC-V variants. This careful approach has
+enabled the rapid progress of the past few weeks. I would summarise this
+approach as:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Ensuring (to the extent possible) that correct code is always generated for
+a simple RV32I baseline&lt;/li&gt;
+&lt;li&gt;Expand that baseline to support more RISC-V ISA variants (RV{32,64}IMA and
+later FD)&lt;/li&gt;
+&lt;li&gt;Push forwards on optimisations (generated code quality) and compiler
+feature support. Part of this work is moving to larger scale test programs and
+benchmarks in order to maintain confidence about the correctness of generated
+code.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This project is currently in the process of moving from point 2) to point 3)
+on the list above. As it stands, you will benefit from LLVM&amp;rsquo;s many middle-end
+optimisations, but the final code generation stage has seen little work
+focused on the performance of generated code. With a high quality base now in
+place, adding these optimisations can be done relatively easily.&lt;/p&gt;
+
+&lt;p&gt;If you want to see first-class support for RISC-V in LLVM, now is the time to
+get involved and help make it happen.&lt;/p&gt;
+
+&lt;h2 id=&#34;roadmap-and-upcoming-events:37a127be6d81e67368fb40a190b2ef8f&#34;&gt;Roadmap and upcoming events&lt;/h2&gt;
+
+&lt;p&gt;My aim is to have Clang and LLVM developed to serve as a competitive
+alternative to GCC on RISC-V by the end of the calendar year. If the RISC-V
+community works together, this is an achievable goal.&lt;/p&gt;
+
+&lt;p&gt;My near-term goals are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Expand testing for RV64. There are rather few RV64 unit tests right now
+because parameterising the backend by XLEN mostly &amp;ldquo;just worked&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;Go through the implementation again (particularly recently added code) to
+look for further cleanup or refactoring opportunities, then propose to merge
+it upstream.&lt;/li&gt;
+&lt;li&gt;Once I&amp;rsquo;m happy with the implementation approach for the most recently added
+features, move the 5.0-based
+&lt;a href=&#34;http://github.com/lowrisc/riscv-llvm-integration&#34;&gt;riscv-llvm-integration&lt;/a&gt;
+tree forwards.&lt;/li&gt;
+&lt;li&gt;Review patches from contributors such as Andes and help to support language
+port efforts.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Focus areas after that include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Clang toolchain driver, MAFD codegen and ABI support&lt;/li&gt;
+&lt;li&gt;Benchmarking vs RISC-V GCC and generated code quality improvements&lt;/li&gt;
+&lt;li&gt;Documentation, expanded test cases, and improved compiler testing tooling&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I&amp;rsquo;ve mapped out a number of TODO items
+&lt;a href=&#34;https://github.com/lowRISC/riscv-llvm/issues&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m pleased to report that my proposal for a RISC-V &amp;ldquo;birds of a feather&amp;rdquo;
+session at the &lt;a href=&#34;http://llvm.org/devmtg/2017-10/#bof4&#34;&gt;upcoming LLVM Dev
+Meeting&lt;/a&gt; (Oct 18th) was accepted. You
+should definitely attend this event if you are an LLVM developer working on an
+out-of-tree RISC-V backends or are looking to get involved (representatives
+from several companies in that position are already confirmed as attending).
+We&amp;rsquo;re also looking to run a longer working/hacking session the day before, at
+a San Jose location. More details on both events will be circulated shortly.&lt;/p&gt;
+
+&lt;h2 id=&#34;faq:37a127be6d81e67368fb40a190b2ef8f&#34;&gt;FAQ&lt;/h2&gt;
+
+&lt;h3 id=&#34;do-you-care-about-performance-of-generated-code-and-code-size:37a127be6d81e67368fb40a190b2ef8f&#34;&gt;Do you care about performance of generated code and code size?&lt;/h3&gt;
+
+&lt;p&gt;Like any compiler developer, of course. Starting with a solid and well tested
+base is the best way of achieving those aims. We&amp;rsquo;re now in a position where we
+can push forwards on these fronts, which will will soon become a primary focus
+of this development effort.&lt;/p&gt;
+
+&lt;h3 id=&#34;i-have-a-risc-v-llvm-fork-for-which-works-for-me-why-should-i-care-about-an-upstream-backend:37a127be6d81e67368fb40a190b2ef8f&#34;&gt;I have a RISC-V LLVM fork for which works for me, why should I care about an upstream backend?&lt;/h3&gt;
+
+&lt;p&gt;This is ultimately a question about long-term maintenance and sharing the
+support burden with others in the RISC-V ecosystem. By working together and
+pooling our development efforts, we can unlock the benefits of the open source
+approach. Contributing to this effort is almost definitely the right long-term
+choice for your project. If you want to discuss how to contribute, please drop
+me an email or come along to the upcoming birds of a feather session.&lt;/p&gt;
+
+&lt;h3 id=&#34;what-is-the-difference-between-this-and-other-risc-v-llvm-efforts:37a127be6d81e67368fb40a190b2ef8f&#34;&gt;What is the difference between this and other RISC-V LLVM efforts?&lt;/h3&gt;
+
+&lt;p&gt;This effort is focused on high code quality, long term maintainability, and in
+getting development merged in to upstream LLVM. Andes have recently released a
+private development tree to the public. That tree was was based on an early
+version of the lowRISC patchset, but diverged significantly in terms of
+implementation approach. Andes are now working to submit patches to this
+effort.&lt;/p&gt;
+
+&lt;h3 id=&#34;who-are-you:37a127be6d81e67368fb40a190b2ef8f&#34;&gt;Who are you?&lt;/h3&gt;
+
+&lt;p&gt;I (Alex Bradbury) am a co-founder and director of lowRISC CIC, where this
+development work has been taking place. I have been developing LLVM backends
+for the past seven years, and am now upstream code owner for the RISC-V
+backend. If you&amp;rsquo;re interested in LLVM, you are hopefully already familiar with
+my &lt;a href=&#34;http://llvmweekly.org/&#34;&gt;LLVM Weekly&lt;/a&gt; newsletter.&lt;/p&gt;
+
+&lt;h3 id=&#34;why-is-lowrisc-interested-in-llvm:37a127be6d81e67368fb40a190b2ef8f&#34;&gt;Why is lowRISC interested in LLVM?&lt;/h3&gt;
+
+&lt;p&gt;lowRISC is a not-for-profit created to push forward open source hardware by
+developing a secure, open, and flexible SoC design. Enabling custom hardware
+and derivative designs is about much more than shipping RTL with an open
+source license - hardware is of little use without the software infrastructure
+in place to support it. A high quality and easy to modify LLVM backend is
+important for potential lowRISC adopters, but also benefits our own hardware
+development efforts. Specifically, we will be building the software component
+of our tagged memory mechanisms on top of LLVM. If our mission sounds
+interesting to you, there&amp;rsquo;s good news - &lt;a href=&#34;http://www.lowrisc.org/blog/2017/09/were-hiring-work-on-making-open-source-hardware-a-reality/&#34;&gt;we&amp;rsquo;re
+hiring&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;who-do-i-contact-to-discuss-further-sponsoring-this-effort:37a127be6d81e67368fb40a190b2ef8f&#34;&gt;Who do I contact to discuss further sponsoring this effort?&lt;/h3&gt;
+
+&lt;p&gt;If your company would like to see lowRISC&amp;rsquo;s work on RISC-V LLVM be sustained
+or expanded through 2018, then contributing development time and/or
+sponsorship is the best way to do this. Please contact asb@lowrisc.org to
+discuss further.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>lowRISC tagged memory OS enablement</title>
       <link>http://www.lowrisc.org/blog/2017/09/lowrisc-tagged-memory-os-enablement</link>
       <pubDate>Tue, 19 Sep 2017 14:45:00 +0000</pubDate>
@@ -1735,43 +1948,6 @@ between October 7th and October 9th. &lt;a href=&#34;http://openrisc.io/orconf/&
 now&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>lowRISC&#39;s 2016 Google Summer of Code Students</title>
-      <link>http://www.lowrisc.org/blog/2016/06/lowriscs-2016-google-summer-of-code-students</link>
-      <pubDate>Fri, 03 Jun 2016 12:12:49 +0100</pubDate>
-      
-      <guid>http://www.lowrisc.org/blog/2016/06/lowriscs-2016-google-summer-of-code-students</guid>
-      <description>&lt;p&gt;The 2016 Google Summer of Code is now
-&lt;a href=&#34;https://developers.google.com/open-source/gsoc/timeline&#34;&gt;underway&lt;/a&gt; and we&amp;rsquo;re
-delighted to be working with five students, covering a variety of interesting
-projects. They have all introduced themselves over the past few weeks on &lt;a href=&#34;https://listmaster.pepperfish.net/cgi-bin/mailman/listinfo/lowrisc-dev-lists.lowrisc.org&#34;&gt;our
-project mailing
-list&lt;/a&gt;.
-Many thanks to everyone who applied, to the mentors who volunteered, and to
-Google for sponsoring this programme. If your application was unsuccessful, I
-hope you&amp;rsquo;ll try again next year.&lt;/p&gt;
-
-&lt;p&gt;The &lt;a href=&#34;https://summerofcode.withgoogle.com/organizations/6271463900315648/&#34;&gt;projects for lowRISC in the 2016
-GSoC&lt;/a&gt;
-are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Porting the Arduino library to RISC-V (PULPino). Mahmoud Elmohr, mentored by
-Andreas Traber&lt;/li&gt;
-&lt;li&gt;Implementing an open-source DDRx controller. Bittu N, mentored by Wei Song&lt;/li&gt;
-&lt;li&gt;Porting Musl libc to RISC-V. Masanori Ogino, mentored by Rich Felker. See
-Masanori&amp;rsquo;s &lt;a href=&#34;http://article.gmane.org/gmane.comp.hardware.lowrisc.devel/377&#34;&gt;first status
-update&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Porting the OP-TEE Trusted Execution Environment to the lowRISC
-platform.Rahul S Mahadev, mentored by Stefan Wallentowitz. See &lt;a href=&#34;http://mahadevrahul.blogspot.co.uk/2016/05/trusted-execution-environment-on-sel4.html&#34;&gt;Rahul&amp;rsquo;s blog
-post&lt;/a&gt;
-on starting this project.&lt;/li&gt;
-&lt;li&gt;Porting the xv6 teaching operating system to the lowRISC platform. Jeff
-Rogers, mentored by Alex Bradbury&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     

@@ -166,6 +166,18 @@ Our goal is to lower the barrier of entry to producing custom silicon, establish
     <ul id="tab-content2" class="tab-content">
       
       <li>
+      <div class="date-container"><h3>September 27, 2017</h3></div>
+<div class="article-container">
+  <h4>Moving RISC-V LLVM forwards </h4>
+  <p>
+  A high quality, upstream RISC-V backend for LLVM is perhaps the most frequently requested missing piece of the RISC-V software ecosystem. This blog post provides an update on the rapid progress we&rsquo;ve been making towards that goal, outlines next steps and upcoming events, and tries to better explain the approach that we&rsquo;re taking. As always, you can track status here and find the code here. Status I&rsquo;ve been able to make substantial progress since the last update.
+  <a href='http://www.lowrisc.org/blog/2017/09/moving-risc-v-llvm-forwards'>Read More</a>
+  </p>
+</div>
+
+      </li>
+      
+      <li>
       <div class="date-container"><h3>September 19, 2017</h3></div>
 <div class="article-container">
   <h4>lowRISC tagged memory OS enablement </h4>
@@ -196,18 +208,6 @@ Our goal is to lower the barrier of entry to producing custom silicon, establish
   <p>
   There are a number of available options for building a RISC-V GCC toolchain. You might use the build system from the riscv/riscv-tools repository, or investigate toolchain generators such as crosstool-ng. However in the case of riscv-tools, it&rsquo;s not always clear how this corresponds to the code in the relevant upstream projects. When investigating a potential bug, you often just want to build the latest upstream code with as little fuss as possible.
   <a href='http://www.lowrisc.org/blog/2017/09/building-upstream-risc-v-gccbinutilsnewlib-the-quick-and-dirty-way'>Read More</a>
-  </p>
-</div>
-
-      </li>
-      
-      <li>
-      <div class="date-container"><h3>June 9, 2017</h3></div>
-<div class="article-container">
-  <h4>lowRISC 0-4 milestone release </h4>
-  <p>
-  The lowRISC 0.4 milestone release is now available. The various changes are best described in our accompanying documentation, but in summary this release: Moves forward our support for tagged memory by re-integrating the tag cache, reducing overhead with a hierarchical scheme. This will significantly reduce caches misses caused by tagged memory accesses where tags are distributed sparsely. Integrates support for specifying and configuring tag propagation and exception behaviour. A PULPino based &ldquo;minion core&rdquo; has been integrated, and is used to provide peripherals such as the SD card interface, keyboard, and VGA tex display (when using the Nexys4 DDR FPGA development board).
-  <a href='http://www.lowrisc.org/blog/2017/06/lowrisc-0-4-milestone-release'>Read More</a>
   </p>
 </div>
 

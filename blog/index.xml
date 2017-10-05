@@ -6,8 +6,34 @@
     <description>Recent content in Blogs on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Sep 2017 17:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 05 Oct 2017 19:45:00 +0000</lastBuildDate>
     <atom:link href="http://www.lowrisc.org/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>GSoC 2017 student report: core lockstep for minion cores</title>
+      <link>http://www.lowrisc.org/blog/2017/10/gsoc-2017-student-report-core-lockstep-for-minion-cores</link>
+      <pubDate>Thu, 05 Oct 2017 19:45:00 +0000</pubDate>
+      
+      <guid>http://www.lowrisc.org/blog/2017/10/gsoc-2017-student-report-core-lockstep-for-minion-cores</guid>
+      <description>&lt;p&gt;This year, as part of &lt;a href=&#34;https://developers.google.com/open-source/gsoc/&#34;&gt;Google Summer of
+Code&lt;/a&gt; we had the pleasure of
+working with Nikitas Chronas. Alongside his degree studies, Nikitas had become
+involved with the &lt;a href=&#34;https://libre.space/&#34;&gt;Libre Space Foundation&lt;/a&gt; and developed
+a strong interest in the possibility of open source hardware in
+&lt;a href=&#34;https://en.wikipedia.org/wiki/CubeSat&#34;&gt;CubeSats&lt;/a&gt;. Fault tolerance of some
+sort is important for harsh environments, and Nikitas worked to add fault
+tolerance through the implementation of &lt;a href=&#34;https://en.wikipedia.org/wiki/Lockstep_(computing)&#34;&gt;core
+lockstep&lt;/a&gt; for the
+PULPino-based minion
+core subsystem. This was a really successful project which ended up
+making contributions in areas beyond the core lockstep focus:
+documentation, code quality, support for the Arty FPGA development board, and
+even prototyping a code generation mechanism. See the &lt;a href=&#34;http://www.lowrisc.org/docs/gsoc-2017/core-lockstep/&#34;&gt;detailed write-up&lt;/a&gt;
+for all the details, and below for the all-important blinky lights demo.&lt;/p&gt;
+
+&lt;iframe src=&#34;https://giphy.com/embed/26vIg6cZFMWvi6AbS&#34; width=&#34;480&#34; height=&#34;401&#34; frameBorder=&#34;0&#34; class=&#34;giphy-embed&#34; allowFullScreen&gt;&lt;/iframe&gt;
+</description>
+    </item>
     
     <item>
       <title>Moving RISC-V LLVM forwards</title>
@@ -1899,55 +1925,6 @@ week we&amp;rsquo;ll share a guide on how to enable VGA in lowRISC. By the end
 of the summer, as well as a working technical demo, we will also have
 produced detailed documentation on the whole process of adding a
 customised accelerator to lowRISC.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Announcing the LibreCores design contest and ORConf 2016</title>
-      <link>http://www.lowrisc.org/blog/2016/06/announcing-the-librecores-design-contest-and-orconf-2016</link>
-      <pubDate>Tue, 28 Jun 2016 15:39:34 +0100</pubDate>
-      
-      <guid>http://www.lowrisc.org/blog/2016/06/announcing-the-librecores-design-contest-and-orconf-2016</guid>
-      <description>&lt;p&gt;Our friends and collaborators at the &lt;a href=&#34;http://fossi-foundation.org/&#34;&gt;Free and Open Source Silicon
-Foundation&lt;/a&gt; have launched the &lt;a href=&#34;http://librecores.org/designcontest&#34;&gt;LibreCores design
-contest&lt;/a&gt;. This is a student design
-contest which aims to recognise and reward contributions to the open source
-hardware ecosystem. The main evaluation criteria are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Openness. Your work must be published under an established Open Source
-license.&lt;/li&gt;
-&lt;li&gt;Reusability. How easily can your work be used and modified by someone else?
-Is it well documented? Do you plan to continue to work on your project and help
-others to get started?&lt;/li&gt;
-&lt;li&gt;Usefulness. Is your work filling a much-needed gap in the world of Open
-Source hardware design? Something that was not there before?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;See the &lt;a href=&#34;http://librecores.org/designcontest&#34;&gt;design contest site&lt;/a&gt; for full
-details. The deadline for submission is August 31st, 2016. Entrants will have
-the opportunity to present their work at &lt;a href=&#34;http://openrisc.io/orconf/&#34;&gt;ORConf&lt;/a&gt;,
-with some travel funding available thanks to the sponsors.&lt;/p&gt;
-
-&lt;p&gt;This neatly leads me to the next activity I wanted to highlight in this post.
-Again, thanks to the hard work of our friends at FOSSi, registration is &lt;a href=&#34;http://openrisc.io/orconf/&#34;&gt;now
-open for ORConf 2016&lt;/a&gt;. To quote that page: &amp;ldquo;ORCONF
-is an open source digital design and embedded systems conference, covering
-areas of electronics from the transistor level up to Linux user space and
-beyond.  Expect presentations and discussion on free and open source IP
-projects, implementations on FPGA and in silicon, verification, EDA tools,
-licensing and embedded software&amp;rdquo;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://openrisc.io/orconf/2015/&#34;&gt;Last year&amp;rsquo;s ORConf&lt;/a&gt; was the biggest and most
-enthusiastic event focused on open source digital design I&amp;rsquo;ve ever been to,
-and saw the birth of the FOSSi Foundation. Please do register to attend and
-submit talks. With the growing interest in open source hardware and open
-source digital logic design, I expect it will be even bigger and better than
-last year. ORConf 2016 will be held at the University of Bologna in Italy
-between October 7th and October 9th. &lt;a href=&#34;http://openrisc.io/orconf/&#34;&gt;Register
-now&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>
     

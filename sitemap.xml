@@ -13,6 +13,16 @@
   </url>
   
   <url>
+    <loc>http://www.lowrisc.org/blog/2017/10/gsoc-2017-student-report-core-lockstep-for-minion-cores</loc>
+    <lastmod>2017-10-05T19:45:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/gsoc-2017/core-lockstep/</loc>
+    <lastmod>2017-10-05T19:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://www.lowrisc.org/blog/2017/09/moving-risc-v-llvm-forwards</loc>
     <lastmod>2017-09-27T17:00:00+00:00</lastmod>
   </url>

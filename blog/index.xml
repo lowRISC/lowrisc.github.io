@@ -455,6 +455,15 @@ production starts.&lt;/li&gt;
 &lt;ul&gt;
 &lt;li&gt;Jikes RVM now runs full JDK6 applications, including the Decapo benchmark
 suite. Passes the Jikes RVM core test suite. About 15000 lines of code.&lt;/li&gt;
+&lt;li&gt;Managed languages have been under-represented in computer architecture
+research for quite some time.&lt;/li&gt;
+&lt;li&gt;Challenges: long running on many cores, concurrent tasks, fine-grained
+interactions. Difficult fit for many common simulation approaches, e.g. Qemu
+or Gem5.&lt;/li&gt;
+&lt;li&gt;Instead, we can run managed workloads on real RISC-V hardware in FPGA-based
+simulation to enable modifying the entire stack.&lt;/li&gt;
+&lt;li&gt;By modifying the hardware, we can do fine-grained tracing without perturbing
+the software being tested.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

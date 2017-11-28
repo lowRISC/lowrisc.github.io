@@ -236,7 +236,27 @@ modes.</li>
 I/O and interrupts.</li>
 <li>Additional copies of most supervisor CSrs are provisioned as background
 supervisor CSRs, e.g. bsscratch, bsepc. In HS-mode, foreground CSRs contain
-S-mode state and background CSRs contain inactive VS-mode state.</li>
+S-mode state and background CSRs contain inactive VS-mode state. These are
+swapped in VS-mode.</li>
+<li>Use two-level address translation to virtualize memory. Original virtual
+addresses are translated to guest physical addresses by the VS-level page
+table, and then guest physical addresses are translated to machine physical
+addresses by the HS-level page table.
+
+<ul>
+<li>Page table entry formats and page table layouts are the same as S-mode</li>
+</ul></li>
+<li>Software and timer interrupts are easy to virtualise, as they&rsquo;re already
+exposed via the SBI. The two-level paging scheme can be used to trap MMIO
+accesses.
+
+<ul>
+<li>Could avoid extra traps into the hypervisor with a virtualisation-aware
+PLIC. This is considered a platform issues, outside of the scope of the
+hypervisor ISA.</li>
+</ul></li>
+<li>Need an I/O MMU to initiated DMAs without trap into the hypervisor - also a
+platform issue.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

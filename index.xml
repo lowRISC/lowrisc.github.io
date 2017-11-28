@@ -419,6 +419,9 @@ interconnect).&lt;/li&gt;
 &lt;li&gt;HiFive Unleashed will have the SiFive Freedom Unleashed 500 SoC connected to
 a Microsemi PolarFire FPGA, Provide USB and HDMI via the FPGA, as well as
 PCIe. Available Q1&amp;rsquo;2018.&lt;/li&gt;
+&lt;li&gt;HiFive Unleashed Early Access Program: give early access to FPGA-based
+prototypes (now) and development boards (soon). To get access, email
+info@sifive.com.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

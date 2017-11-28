@@ -477,6 +477,13 @@ better support managed-language support to RISC-V.&lt;/li&gt;
 
 &lt;h2 id=&#34;microprobe-an-open-source-microbenchmark-generator-ported-to-the-risc-v-isa-schuyler-eldridge:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;MicroProbe. An open source microbenchmark generator ported to the RISC-V ISA: Schuyler Eldridge&lt;/h2&gt;
 
+&lt;ul&gt;
+&lt;li&gt;Not yet open source, but in the process of releasing it.&lt;/li&gt;
+&lt;li&gt;Why make microbenchmarks? Might want to study worst case power consumption,
+look for performance bugs, determine if the design is reliable, &amp;hellip; But
+writing microbenchmarks is a labour-intensive process.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

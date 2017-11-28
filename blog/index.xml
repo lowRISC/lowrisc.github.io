@@ -515,6 +515,16 @@ Linux/Target OS awareness.&lt;/li&gt;
 the J-Link SDK.&lt;/li&gt;
 &lt;li&gt;J-Link is &amp;ldquo;intelligent&amp;rdquo;, eliminating round-trip-time over USB or IP using
 kernels in the debug adapter.&lt;/li&gt;
+&lt;li&gt;Over 600k units sold.&lt;/li&gt;
+&lt;li&gt;Also have Embedded Studio, other products.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;porting-the-threadx-rtos-to-risc-v-john-carbone:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;Porting the ThreadX RTOS to RISC-V: John Carbone&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ThreadX in production since 1997.&lt;/li&gt;
+&lt;li&gt;Small footprint, priority-based, fully preemptive RTOS with a single linear
+address space.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

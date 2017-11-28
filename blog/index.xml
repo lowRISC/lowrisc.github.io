@@ -249,6 +249,13 @@ byte and halfware-size loads/stores.&lt;/li&gt;
 &lt;ul&gt;
 &lt;li&gt;Most people think of Western Digital as a storage company, but actually
 they&amp;rsquo;re a &lt;em&gt;data&lt;/em&gt; company.&lt;/li&gt;
+&lt;li&gt;Big data is well known, but increasingly there are applications that require
+&amp;ldquo;fast data&amp;rdquo; (immediate access to information).&lt;/li&gt;
+&lt;li&gt;Big data applications have historically focused on general purpose compute.&lt;br /&gt;
+But we need to be able to move beyond general purpose compute to meet new
+application requirements.&lt;/li&gt;
+&lt;li&gt;In a general purpose compute architecture, everything is centered around the
+CPU rather than the data.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

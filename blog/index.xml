@@ -388,6 +388,17 @@ reduction for the G.729 codec.&lt;/li&gt;
 instruction design and implementation.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;customisation-of-a-risc-v-processor-to-achieve-dsp-performance-gain-marcela-zachariasova:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;Customisation of a RISC-V processor to achieve DSP performance gain: Marcela Zachariasova&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Codasip studio is a processor development environment which takes a high
+level description of a processor and automatically generates software tool,
+RTL, and verification environments.&lt;/li&gt;
+&lt;li&gt;Take one of Codasip&amp;rsquo;s Berkelium RISC-V cores as the starting point.&lt;/li&gt;
+&lt;li&gt;Configure the core by enabling/disabling ISA extensions as desired. You can
+also define new instructions, driven by profiling information.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

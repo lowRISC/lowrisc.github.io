@@ -72,6 +72,21 @@ servers in the cloud.
 &lt;li&gt;The CARRV RISC-V workshop at MICRO was even better attended than the
 machine learning workshop.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Expect in a few years time that the vast majority of undergraduates will be
+taught RISC-V at University.&lt;/li&gt;
+&lt;li&gt;Racepoint Global have been hired for Foundation marketing.&lt;/li&gt;
+&lt;li&gt;RISC-V Technical Roadmap for 2017:
+
+&lt;ul&gt;
+&lt;li&gt;Primary goal was to formally standardise the base ISA, resolve issues with
+the memory model, debug, and stabilize the privileged architecture.&lt;/li&gt;
+&lt;li&gt;Good progress has been made, but the spec hasn&amp;rsquo;t yet been ratified. One of
+the issues is differentiating the base spec versus clarifications for
+different &amp;ldquo;profiles&amp;rdquo;. There is no plan to change any instruction
+specification versus 2.0.&lt;/li&gt;
+&lt;li&gt;The Unix platform is stable as of the privileged 1.10 spec (i.e. no
+backwards incompatible changes from now on).&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

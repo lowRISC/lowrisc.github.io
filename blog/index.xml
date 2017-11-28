@@ -128,6 +128,14 @@ on the ratification process is needed.&lt;/li&gt;
 &lt;li&gt;Hypervisor implemented, spec ratified&lt;/li&gt;
 &lt;li&gt;Formal spec completed and released&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Vector: see the talk from Roger. Aim to be the Best Vector ISA Ever &amp;trade;.&lt;/li&gt;
+&lt;li&gt;Security: really two separable efforts in the foundation: trusted execution
+environments and cryptographic instruction extensions. Also a huge amount of
+other work in the academic community.&lt;/li&gt;
+&lt;li&gt;Interrupts: currently have fast local interrupts and global platform-level
+interrupts. Also have requests for high end systems who want per-hart
+message-signal interrupts (MSI) and from low-end embedded that want
+pre-emptive vectored prioritized interrupts.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

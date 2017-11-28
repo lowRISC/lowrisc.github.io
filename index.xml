@@ -491,6 +491,14 @@ YAML. Code generation and generation policies are written using Python.&lt;/li&g
 representation (IR) for describing benchmarks.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;lauterbach-debug-support-for-risc-v-bob-kupyn:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;Lauterbach debug support for RISC-V: Bob Kupyn&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Lauterbach is solely focused on hardware and software debug tools. All
+design, development and manufacture is done in Munich.&lt;/li&gt;
+&lt;li&gt;Claim the widest range of supported microprocessors in the market.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

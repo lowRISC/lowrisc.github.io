@@ -238,6 +238,10 @@ code with the TSO-only magic number.&lt;/li&gt;
 &lt;li&gt;Fragmentation due to the presence of two memory models is an obvious risk.
 Try to discourage software from targeting both, and encourage targeting RVWMO
 wherever possible (redundant fences simple become no-ops).&lt;/li&gt;
+&lt;li&gt;There have been a number of other ISA changes. ld.rl and sd.aq are
+deprecated. ld.aqrl and sd.aqrl mean RCsc. Also clarified other subtleties.&lt;br /&gt;
+May have future extensions to the fence instruction, and .aq/.rl variants for
+byte and halfware-size loads/stores.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

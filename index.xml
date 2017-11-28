@@ -221,6 +221,12 @@ much simpler to reason about than the Power and ARMv7 memory models.&lt;/li&gt;
 to be portable). It&amp;rsquo;s important to note that a hardware implementation meeting
 the RVWMO specification could be more conservative (stronger). Additional have
 the Ztso extension for RVTSO, which software might target.&lt;/li&gt;
+&lt;li&gt;RVWMO and RVTSO differ in the degree of memory access reordering they permit
+at the point of global visibility. In RVTSO, only store-to-load reordering can
+be observed. In RVWMO, most memory accesses can be reordered freely unless
+synchronized via .sq, .rl and/or fences.&lt;/li&gt;
+&lt;li&gt;Dan has some handy diagrams that explain the RVWMO and RVTSO rules in a
+nutshell, which you should be able to study once the slides become available.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

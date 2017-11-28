@@ -114,7 +114,7 @@ extension providing a strong TSO memory model.&lt;/li&gt;
 in progress.&lt;/li&gt;
 &lt;li&gt;A number of other compilers and languages are now available. e.g. CompCert,
 Go, Rust, OCaml, Jikes JVM, OpenJDK, &amp;hellip;&lt;/li&gt;
-&lt;li&gt;The Linux port has been accepted upstream for the 4.15 release.&lt;br /&gt;
+&lt;li&gt;The Linux port has been accepted upstream for the 4.15 release.
 Additionally, the hypervisor spec has been released (designed to support
 recursive virtualisation using an enhanced S mode).&lt;/li&gt;
 &lt;li&gt;Run-halt debug going well, is being targeted by commercial vendors.&lt;/li&gt;
@@ -239,7 +239,7 @@ code with the TSO-only magic number.&lt;/li&gt;
 Try to discourage software from targeting both, and encourage targeting RVWMO
 wherever possible (redundant fences simple become no-ops).&lt;/li&gt;
 &lt;li&gt;There have been a number of other ISA changes. ld.rl and sd.aq are
-deprecated. ld.aqrl and sd.aqrl mean RCsc. Also clarified other subtleties.&lt;br /&gt;
+deprecated. ld.aqrl and sd.aqrl mean RCsc. Also clarified other subtleties.
 May have future extensions to the fence instruction, and .aq/.rl variants for
 byte and halfware-size loads/stores.&lt;/li&gt;
 &lt;/ul&gt;
@@ -251,7 +251,7 @@ byte and halfware-size loads/stores.&lt;/li&gt;
 they&amp;rsquo;re a &lt;em&gt;data&lt;/em&gt; company.&lt;/li&gt;
 &lt;li&gt;Big data is well known, but increasingly there are applications that require
 &amp;ldquo;fast data&amp;rdquo; (immediate access to information).&lt;/li&gt;
-&lt;li&gt;Big data applications have historically focused on general purpose compute.&lt;br /&gt;
+&lt;li&gt;Big data applications have historically focused on general purpose compute.
 But we need to be able to move beyond general purpose compute to meet new
 application requirements.&lt;/li&gt;
 &lt;li&gt;In a general purpose compute architecture, everything is centered around the
@@ -323,7 +323,7 @@ This will be a 64-bit RISC-V core with vector extensions, an in-order
 pipeline, and extra instruction extensions for machine learning. Also have
 multiple hardware threads of execution. Like the ET-Maxion, this will be used
 in Esperanto products and available as a licensable core.&lt;/li&gt;
-&lt;li&gt;Putting these together in a product: Esperanto&amp;rsquo;s AI supercomputer on a chip.&lt;br /&gt;
+&lt;li&gt;Putting these together in a product: Esperanto&amp;rsquo;s AI supercomputer on a chip.
 16 64-bit ET-Maxion RISC-V cores with private L1 and L2 caches, 4096 64-bit
 ET-Minion RISC-V cores each with their own vector floating point unit,
 hardware accelerators, Network on Chip to allow processors to reside in the
@@ -375,7 +375,7 @@ and underflow, and for recording the maximum observed stack size.&lt;/li&gt;
 &lt;li&gt;Instructions for zero/sign-extensions&lt;/li&gt;
 &lt;li&gt;CoDense: code size compression instructions&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;The Andes DSP ISA extension features over 130 instructions, using only GPRs.&lt;br /&gt;
+&lt;li&gt;The Andes DSP ISA extension features over 130 instructions, using only GPRs.
 Introduces a range of SIMD instructions, zero-overhead loops, and 64-bit
 signed/unsigned addition and subtractions, and signed/unsigned multiplication
 and addition.
@@ -432,6 +432,14 @@ that the RISC-V approach is a good match for GlobalFoundries.&lt;/li&gt;
 &lt;li&gt;For the last year, have been engaged in applications where RISC-V processors
 are showing up. DNN accelerators, cluster computing, automotive/embedded SoCs,
 X86/GPU co-processors.&lt;/li&gt;
+&lt;li&gt;Argue foundry technology allows differentiated customer solutions. e.g.
+22FDX and 12FDX.&lt;/li&gt;
+&lt;li&gt;22FDX is targeted to serve segments such as mobility, IoT, RF, and
+automotive.&lt;/li&gt;
+&lt;li&gt;FDXcellerator program features multiple RISC-V cores, as well as LPDDR4,
+MIPI etc.&lt;/li&gt;
+&lt;li&gt;Partnered with SiFive (E31+E51), Reduced Energy Microsystems, Andes, ETH
+Zurich / University of Bologna (PULP), Berkeley Labs, IIT Chennai.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

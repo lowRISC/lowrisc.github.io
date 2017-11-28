@@ -180,7 +180,7 @@ extension providing a strong TSO memory model.</li>
 in progress.</li>
 <li>A number of other compilers and languages are now available. e.g. CompCert,
 Go, Rust, OCaml, Jikes JVM, OpenJDK, &hellip;</li>
-<li>The Linux port has been accepted upstream for the 4.15 release.<br />
+<li>The Linux port has been accepted upstream for the 4.15 release.
 Additionally, the hypervisor spec has been released (designed to support
 recursive virtualisation using an enhanced S mode).</li>
 <li>Run-halt debug going well, is being targeted by commercial vendors.</li>
@@ -305,7 +305,7 @@ code with the TSO-only magic number.</li>
 Try to discourage software from targeting both, and encourage targeting RVWMO
 wherever possible (redundant fences simple become no-ops).</li>
 <li>There have been a number of other ISA changes. ld.rl and sd.aq are
-deprecated. ld.aqrl and sd.aqrl mean RCsc. Also clarified other subtleties.<br />
+deprecated. ld.aqrl and sd.aqrl mean RCsc. Also clarified other subtleties.
 May have future extensions to the fence instruction, and .aq/.rl variants for
 byte and halfware-size loads/stores.</li>
 </ul>
@@ -317,7 +317,7 @@ byte and halfware-size loads/stores.</li>
 they&rsquo;re a <em>data</em> company.</li>
 <li>Big data is well known, but increasingly there are applications that require
 &ldquo;fast data&rdquo; (immediate access to information).</li>
-<li>Big data applications have historically focused on general purpose compute.<br />
+<li>Big data applications have historically focused on general purpose compute.
 But we need to be able to move beyond general purpose compute to meet new
 application requirements.</li>
 <li>In a general purpose compute architecture, everything is centered around the
@@ -389,7 +389,7 @@ This will be a 64-bit RISC-V core with vector extensions, an in-order
 pipeline, and extra instruction extensions for machine learning. Also have
 multiple hardware threads of execution. Like the ET-Maxion, this will be used
 in Esperanto products and available as a licensable core.</li>
-<li>Putting these together in a product: Esperanto&rsquo;s AI supercomputer on a chip.<br />
+<li>Putting these together in a product: Esperanto&rsquo;s AI supercomputer on a chip.
 16 64-bit ET-Maxion RISC-V cores with private L1 and L2 caches, 4096 64-bit
 ET-Minion RISC-V cores each with their own vector floating point unit,
 hardware accelerators, Network on Chip to allow processors to reside in the
@@ -441,7 +441,7 @@ and underflow, and for recording the maximum observed stack size.</li>
 <li>Instructions for zero/sign-extensions</li>
 <li>CoDense: code size compression instructions</li>
 </ul></li>
-<li>The Andes DSP ISA extension features over 130 instructions, using only GPRs.<br />
+<li>The Andes DSP ISA extension features over 130 instructions, using only GPRs.
 Introduces a range of SIMD instructions, zero-overhead loops, and 64-bit
 signed/unsigned addition and subtractions, and signed/unsigned multiplication
 and addition.
@@ -498,6 +498,14 @@ that the RISC-V approach is a good match for GlobalFoundries.</li>
 <li>For the last year, have been engaged in applications where RISC-V processors
 are showing up. DNN accelerators, cluster computing, automotive/embedded SoCs,
 X86/GPU co-processors.</li>
+<li>Argue foundry technology allows differentiated customer solutions. e.g.
+22FDX and 12FDX.</li>
+<li>22FDX is targeted to serve segments such as mobility, IoT, RF, and
+automotive.</li>
+<li>FDXcellerator program features multiple RISC-V cores, as well as LPDDR4,
+MIPI etc.</li>
+<li>Partnered with SiFive (E31+E51), Reduced Energy Microsystems, Andes, ETH
+Zurich / University of Bologna (PULP), Berkeley Labs, IIT Chennai.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

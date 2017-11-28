@@ -425,6 +425,12 @@ Andes-Embedded SoCs shipped in diverse applications.</li>
 <li>Optional Andes DSP extension</li>
 <li>Optional Andes Custom extension</li>
 </ul></li>
+<li>For the vectored PLIC, vector table entry 0 contains exceptions and local
+interrupts except &ldquo;external interrupt&rdquo;. Vector table entry 1 and above
+contains external interrupts from the PLIC. The PLIC interrupt ID is
+transmitted directly from PLIC to a hart.</li>
+<li>The extended PLIC saves over 30 instructions for dispatch and software
+preemption overhead.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

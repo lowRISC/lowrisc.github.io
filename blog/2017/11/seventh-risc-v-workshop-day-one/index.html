@@ -229,6 +229,14 @@ Hauser</li>
 <li>Goal is to virtualize S-mode to support running guest OSes under Type-1,
 Type-2 and hybrid hypervisors. Also want to be high performance and to support
 recursive virtualisation.</li>
+<li>The hypervisor extension adds new privileged modes. S-mode becomes HS-mode,
+and we also add the Virtualised Supervisor (VS) and Virtualized User (VU)
+modes.</li>
+<li>What needs to be virtualized? Supervisor architecture state (CSRs), memory,
+I/O and interrupts.</li>
+<li>Additional copies of most supervisor CSrs are provisioned as background
+supervisor CSRs, e.g. bsscratch, bsepc. In HS-mode, foreground CSRs contain
+S-mode state and background CSRs contain inactive VS-mode state.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

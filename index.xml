@@ -328,6 +328,10 @@ in Esperanto products and available as a licensable core.&lt;/li&gt;
 ET-Minion RISC-V cores each with their own vector floating point unit,
 hardware accelerators, Network on Chip to allow processors to reside in the
 same address space, multiple levels of cache, etc.&lt;/li&gt;
+&lt;li&gt;Other companies are proposing special purpose hardware for machine learning
+using proprietary instruction sets. Esperanto want to base all processing on
+RISC-V, adding instruction extensions and hardware accelerators where
+necessary.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

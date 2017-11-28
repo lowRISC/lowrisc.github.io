@@ -155,6 +155,16 @@ instructions. Would be good to continue to expand this to cover reference
 hardware implementations.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;risc-v-hyupervisor-extension-andrew-waterman:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;RISC-V Hyupervisor Extension: Andrew Waterman&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Presenting work with extensive contributions from Paolo Bonzini and John
+Hauser&lt;/li&gt;
+&lt;li&gt;Goal is to virtualize S-mode to support running guest OSes under Type-1,
+Type-2 and hybrid hypervisors. Also want to be high performance and to support
+recursive virtualisation.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

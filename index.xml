@@ -45,6 +45,16 @@ members).&lt;/li&gt;
 &lt;li&gt;RISC-V started in May 2010. v1.0 of the ISA came in 2011, first Rocket
 tapeout in 2012, first Linux port in 2013, v2.0 (frozen) IMAFD spec in 2014.
 First commercial softcores and first commercial SoC in 2017.&lt;/li&gt;
+&lt;li&gt;Large companies are adopting RISC-V for deeply embedded controllers in their
+SoCs (&amp;ldquo;minion cores&amp;rdquo;), replacing home-grown and commercial cores.
+
+&lt;ul&gt;
+&lt;li&gt;[Editor&amp;rsquo;s note: pleasing to see the &amp;ldquo;minion core&amp;rdquo; name take off around the
+wider RISC-V community!].&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Small and proprietary-ISA soft-core IP companies are switching to the RISC-V
+standard to access a larger market. &amp;ldquo;If you&amp;rsquo;re a softcore IP provider, you
+should have a RISC-V product in development&amp;rdquo;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

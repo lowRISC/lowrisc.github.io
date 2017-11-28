@@ -503,6 +503,18 @@ trace debug spec.&lt;/li&gt;
 &lt;li&gt;Trace32 debugger supports all the features you&amp;rsquo;d expect. The RISC-V port
 supports RV32 and RV64. In the future, want to add trace support and
 Linux/Target OS awareness.&lt;/li&gt;
+&lt;li&gt;In the initial release, support SiFive Coreplex E31 and E51.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;j-link-debug-probe-now-available-for-risc-v-paul-curtis:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;J-link debug probe now available for RISC-V: Paul Curtis&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;J-Link aims to be the &amp;ldquo;ultimate debug probe&amp;rdquo;. Supporting ARM, Mips, RX,
+8051, and now RISC-V.&lt;/li&gt;
+&lt;li&gt;J-Link is open in the sense you can incorporate it into your product using
+the J-Link SDK.&lt;/li&gt;
+&lt;li&gt;J-Link is &amp;ldquo;intelligent&amp;rdquo;, eliminating round-trip-time over USB or IP using
+kernels in the debug adapter.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

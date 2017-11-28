@@ -397,6 +397,8 @@ RTL, and verification environments.&lt;/li&gt;
 &lt;li&gt;Take one of Codasip&amp;rsquo;s Berkelium RISC-V cores as the starting point.&lt;/li&gt;
 &lt;li&gt;Configure the core by enabling/disabling ISA extensions as desired. You can
 also define new instructions, driven by profiling information.&lt;/li&gt;
+&lt;li&gt;Case study: audio processing solution for IoT (developed with Microsemi).&lt;/li&gt;
+&lt;li&gt;Ultimately, saw a 13.62x speedup for a 2.43x area overhead vs RV32IM.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

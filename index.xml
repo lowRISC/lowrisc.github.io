@@ -109,6 +109,14 @@ Aim for have first ready in Q12018.&lt;/li&gt;
 team of experts have come together over the past year to resolve the issues.
 RVWMO is the base memory model and is weak, while RVTSO is an optional
 extension providing a strong TSO memory model.&lt;/li&gt;
+&lt;li&gt;Calling convention and ABI has been stabilized and documented.&lt;/li&gt;
+&lt;li&gt;GCC and binutils have been upstreamed and released in GCC. LLVM upstream is
+in progress.&lt;/li&gt;
+&lt;li&gt;A number of other compilers and languages are now available. e.g. CompCert,
+Go, Rust, OCaml, Jikes JVM, OpenJDK, &amp;hellip;&lt;/li&gt;
+&lt;li&gt;The Linux port has been accepted upstream for the 4.15 release.&lt;br /&gt;
+Additionally, the hypervisor spec has been released (designed to support
+recursive virtualisation using an enhanced S mode).&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

@@ -191,6 +191,11 @@ hypervisor ISA.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;Need an I/O MMU to initiated DMAs without trap into the hypervisor - also a
 platform issue.&lt;/li&gt;
+&lt;li&gt;The hypervisor extension is designed to be efficiently emulatable on M/S/U
+systems with traps into M-mode.&lt;/li&gt;
+&lt;li&gt;Specification v.01 is &lt;a href=&#34;https://github.com/riscv/riscv-isa-manual&#34;&gt;available on
+GitHub&lt;/a&gt;. Hoping to implement in
+Spike in Q1 2018.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

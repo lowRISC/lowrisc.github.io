@@ -283,6 +283,10 @@ microarchitectural freedom.</li>
 they have issues as long as they haven&rsquo;t been observed by anyone else and is
 much simpler to reason about than the Power and ARMv7 memory models.</li>
 </ul></li>
+<li>The base RISC-V memory model is RVWMO (software must assume this if it wants
+to be portable). It&rsquo;s important to note that a hardware implementation meeting
+the RVWMO specification could be more conservative (stronger). Additional have
+the Ztso extension for RVTSO, which software might target.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

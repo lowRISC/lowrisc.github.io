@@ -117,6 +117,17 @@ Go, Rust, OCaml, Jikes JVM, OpenJDK, &amp;hellip;&lt;/li&gt;
 &lt;li&gt;The Linux port has been accepted upstream for the 4.15 release.&lt;br /&gt;
 Additionally, the hypervisor spec has been released (designed to support
 recursive virtualisation using an enhanced S mode).&lt;/li&gt;
+&lt;li&gt;Run-halt debug going well, is being targeted by commercial vendors.&lt;/li&gt;
+&lt;li&gt;2017 summary: All planned major technical decisions settled, some more work
+on the ratification process is needed.&lt;/li&gt;
+&lt;li&gt;Technical roadmap goals for 2018:
+
+&lt;ul&gt;
+&lt;li&gt;Complete ratification of base ISA and first profiles&lt;/li&gt;
+&lt;li&gt;Base vector extensions proposed and ratified&lt;/li&gt;
+&lt;li&gt;Hypervisor implemented, spec ratified&lt;/li&gt;
+&lt;li&gt;Formal spec completed and released&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

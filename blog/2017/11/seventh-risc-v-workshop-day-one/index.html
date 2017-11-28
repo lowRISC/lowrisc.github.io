@@ -548,6 +548,10 @@ better support managed-language support to RISC-V.</li>
 <li>Why make microbenchmarks? Might want to study worst case power consumption,
 look for performance bugs, determine if the design is reliable, &hellip; But
 writing microbenchmarks is a labour-intensive process.</li>
+<li>MicroProbe has the user write microbenchmark generation policies. The
+framework then produces benchmarks according to those policies.</li>
+<li>The target definition (ISA, microarchitecture, environment) is written using
+YAML. Code generation and generation policies are written using Python.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

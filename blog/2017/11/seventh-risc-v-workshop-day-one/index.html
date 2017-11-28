@@ -262,6 +262,27 @@ systems with traps into M-mode.</li>
 <li>Specification v.01 is <a href="https://github.com/riscv/riscv-isa-manual">available on
 GitHub</a>. Hoping to implement in
 Spike in Q1 2018.</li>
+<li>Want to see a silicon implementation prior to ratification.</li>
+</ul>
+
+<h2 id="risc-v-memory-consistency-model-status-update-dan-lustig:b3d82df2c32815668820ecff5dcd0b9a">RISC-V memory consistency model status update: Dan Lustig</h2>
+
+<ul>
+<li>The goal was to define the RISC-V memory consistency model (&ldquo;specifies the
+values that can be returned by loads&rdquo;). Support a wide range of hardware
+implementations, as well as Linux, C/C++ and lots of other critical software.</li>
+<li>The fundamental debate was about strong models (such as x86-TSO) vs weak
+models (ARM, IBM Power). Strong models have stricter ordering rules, resulting
+in something that&rsquo;s simpler for programmers and for architects. Weak models
+have more relaxed ordering rules, better performance/power/area and more
+microarchitectural freedom.</li>
+<li>In order to find a compromise, defined RVTSO (strong) and RVWMO (weak).
+
+<ul>
+<li>Both are multi-copy atomic. This means cores are allowed to peek at stores
+they have issues as long as they haven&rsquo;t been observed by anyone else and is
+much simpler to reason about than the Power and ARMv7 memory models.</li>
+</ul></li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

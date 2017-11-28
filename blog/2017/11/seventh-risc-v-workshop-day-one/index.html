@@ -431,6 +431,16 @@ contains external interrupts from the PLIC. The PLIC interrupt ID is
 transmitted directly from PLIC to a hart.</li>
 <li>The extended PLIC saves over 30 instructions for dispatch and software
 preemption overhead.</li>
+<li>StackSafe monitors the SP register value to detect stack pointer overflow
+and underflow, and for recording the maximum observed stack size.</li>
+<li>Andes ISA extensions add
+
+<ul>
+<li>GP-implied load/store instructions with a larger immediate range.</li>
+<li>Compare an operand with a small constant and branch</li>
+<li>Instructions for zero/sign-extensions</li>
+<li>CoDense: code size compression instructions</li>
+</ul></li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

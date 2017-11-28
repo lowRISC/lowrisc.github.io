@@ -340,6 +340,27 @@ make general purpose RISC-V processors with domain specific extensions when
 needed.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;andes-extended-features-dr-chuan-hua-chang:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;Andes Extended Features: Dr Chuan-Hua Chang&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Andes Technology is a Taiwan-based CPU IP company with over 2 billion
+Andes-Embedded SoCs shipped in diverse applications.&lt;/li&gt;
+&lt;li&gt;Have extended the RISC-V architecture in the V4m with:
+
+&lt;ul&gt;
+&lt;li&gt;Vectored interrupts and priority-based preemptive interrupts for the PLIC&lt;/li&gt;
+&lt;li&gt;StackSafe features&lt;/li&gt;
+&lt;li&gt;Exception redirection to the debuggers&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;The V5m ISA includes
+
+&lt;ul&gt;
+&lt;li&gt;Andes Perfomance extension&lt;/li&gt;
+&lt;li&gt;Optional Andes DSP extension&lt;/li&gt;
+&lt;li&gt;Optional Andes Custom extension&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

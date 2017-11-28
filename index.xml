@@ -55,6 +55,18 @@ wider RISC-V community!].&lt;/li&gt;
 &lt;li&gt;Small and proprietary-ISA soft-core IP companies are switching to the RISC-V
 standard to access a larger market. &amp;ldquo;If you&amp;rsquo;re a softcore IP provider, you
 should have a RISC-V product in development&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;RISC-V has seen government adoption, e.g. India adopted it as a national
+ISA. A recent security-focused DARPA project standardised on RISC-V. Israel
+Innovation Authority are creating the GenPro platform around RISC-V.&lt;/li&gt;
+&lt;li&gt;Many startups are choosing RISC-V for new products. &amp;ldquo;We haven&amp;rsquo;t had to tell
+startups about RISC-V; they find out about it very quickly when shopping for
+processor IP&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;Commercial ecosystem providers: starting to see mainstream commercial
+support. &amp;ldquo;Demand is driving supply in the commercial ecosystem&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;RISC-V in academic research: becoming the standard ISA for academic
+research. There will be talks at the workshop about the Celerity 500 RISC-V
+core SoC in 16nm FinFET, and FireSim which models 1024 quad-core RISC-V
+servers in the cloud.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

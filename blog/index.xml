@@ -375,6 +375,15 @@ and underflow, and for recording the maximum observed stack size.&lt;/li&gt;
 &lt;li&gt;Instructions for zero/sign-extensions&lt;/li&gt;
 &lt;li&gt;CoDense: code size compression instructions&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;The Andes DSP ISA extension features over 130 instructions, using only GPRs.&lt;br /&gt;
+Introduces a range of SIMD instructions, zero-overhead loops, and 64-bit
+signed/unsigned addition and subtractions, and signed/unsigned multiplication
+and addition.
+
+&lt;ul&gt;
+&lt;li&gt;See 50% cycle reduction for the Helix MP3 decoder, and 80.1% cycle
+reduction for the G.729 codec.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

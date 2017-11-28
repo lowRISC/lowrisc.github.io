@@ -293,6 +293,17 @@ be observed. In RVWMO, most memory accesses can be reordered freely unless
 synchronized via .sq, .rl and/or fences.</li>
 <li>Dan has some handy diagrams that explain the RVWMO and RVTSO rules in a
 nutshell, which you should be able to study once the slides become available.</li>
+<li>Software written for RVWMO will run on all RISC-V hardware (RVWMO and Ztso).
+RVTSO-only software can be be written, but will only run on hardware
+implementing Ztso. A flag in the ELF header will be used to ensure this.</li>
+<li>If you don&rsquo;t want to think about memory models, just use the standard OSes
+and toolchains. If you care about PPA or flexibility, use RVWMO. If you have
+lots of legacy x86 code, use hardware implementing Ztso so that any software
+will work. If you believe TSO is the future, use hardware with Ztso and emit
+code with the TSO-only magic number.</li>
+<li>Fragmentation due to the presence of two memory models is an obvious risk.
+Try to discourage software from targeting both, and encourage targeting RVWMO
+wherever possible (redundant fences simple become no-ops).</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

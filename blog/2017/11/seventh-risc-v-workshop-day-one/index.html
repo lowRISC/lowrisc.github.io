@@ -163,6 +163,18 @@ from platform profiles.</li>
 profiles should be as constrained as possible to simplify software
 compatibility.</li>
 </ul></li>
+<li>Single-letter names will run out some day, so a proposal has been made to
+allow finer-grained naming of instruction sets to describe profiles. Use Zxxxx
+to name standard instruction extensions (while Xyyyyy is used for non-standard
+instruction extensions). See the isa-dev list for more information.</li>
+<li>Profiles for software compatibility. A software ABI/SBI defines a profile.
+A software ABI/SBI defines a profile. Also need profiles M-mode-only
+microcontrollers, and MU-mode microcontrollers, and for booting MSU platforms.
+Aim for have first ready in Q12018.</li>
+<li>Memory model: the original was too weak for C11 and underspecified, but a
+team of experts have come together over the past year to resolve the issues.
+RVWMO is the base memory model and is weak, while RVTSO is an optional
+extension providing a strong TSO memory model.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

@@ -471,7 +471,11 @@ infrastructure.&lt;/li&gt;
 &lt;li&gt;Have the Jikes Research VM (baseline JIT, no optimising JIT). Can run
 OpenJDK Hotspot JVM with the Zero (interpreter) backend, but no
 high-performance JIT compiler port yet. Help needed!&lt;/li&gt;
+&lt;li&gt;The RISC-V Foundation has launched the J extension working group today, to
+better support managed-language support to RISC-V.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&#34;microprobe-an-open-source-microbenchmark-generator-ported-to-the-risc-v-isa-schuyler-eldridge:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;MicroProbe. An open source microbenchmark generator ported to the RISC-V ISA: Schuyler Eldridge&lt;/h2&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>

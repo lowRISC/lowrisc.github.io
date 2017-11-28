@@ -41,6 +41,9 @@ members).&lt;/li&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Krste gives a rapid overview of the RISC-V ISA.&lt;/li&gt;
+&lt;li&gt;RISC-V aims to be simple, clean-slate, modulary, and stable.&lt;/li&gt;
+&lt;li&gt;RISC-V started in May 2010. v1.0 of the ISA came in 2011, first Rocket
+tapeout in 2012, first Linux port in 2013, v2.0 (frozen) IMAFD spec in 2014.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

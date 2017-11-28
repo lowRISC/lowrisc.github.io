@@ -450,7 +450,7 @@ production starts.&lt;/li&gt;
 &lt;li&gt;I was the presenter, so no notes right now.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;a-risc-v-java-update-martin-maas:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;A RISC-v Java update: Martin Maas&lt;/h2&gt;
+&lt;h2 id=&#34;a-risc-v-java-update-martin-maas:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;A RISC-V Java update: Martin Maas&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Jikes RVM now runs full JDK6 applications, including the Decapo benchmark
@@ -486,6 +486,9 @@ writing microbenchmarks is a labour-intensive process.&lt;/li&gt;
 framework then produces benchmarks according to those policies.&lt;/li&gt;
 &lt;li&gt;The target definition (ISA, microarchitecture, environment) is written using
 YAML. Code generation and generation policies are written using Python.&lt;/li&gt;
+&lt;li&gt;MicroProbe uses riscv-meta from Michael Clark.&lt;/li&gt;
+&lt;li&gt;The user describes a microbenchmark as transforms over an intermediate
+representation (IR) for describing benchmarks.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

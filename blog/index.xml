@@ -412,6 +412,13 @@ integrated RISC-V SoC, U54MC RISC-V CPU Core Complex&lt;/li&gt;
 &lt;li&gt;Development board available in Q12018.&lt;/li&gt;
 &lt;li&gt;Feature GbE, DDR3/4, and ChipLink (a serialized chip-to-chip TileLink
 interconnect).&lt;/li&gt;
+&lt;li&gt;The E51 core is a 64-bit, 1.5GHz CPU &amp;ldquo;minion core&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;Coherent, 2MB 16-way L2 subsystem.&lt;/li&gt;
+&lt;li&gt;Single U54 core-only area 0.224mm2, single U53 core complex area 0.538mm2
+(including 32KB/32KB L1 cache). 1.7 DMIPS/MH, 2.75 CoreMark/MHz.&lt;/li&gt;
+&lt;li&gt;HiFive Unleashed will have the SiFive Freedom Unleashed 500 SoC connected to
+a Microsemi PolarFire FPGA, Provide USB and HDMI via the FPGA, as well as
+PCIe. Available Q1&amp;rsquo;2018.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

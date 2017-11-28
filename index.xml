@@ -332,6 +332,12 @@ same address space, multiple levels of cache, etc.&lt;/li&gt;
 using proprietary instruction sets. Esperanto want to base all processing on
 RISC-V, adding instruction extensions and hardware accelerators where
 necessary.&lt;/li&gt;
+&lt;li&gt;Also looked at using RISC-V for graphics. Wrote a shader cmpiler that can
+generate RISC-V compilers, and the code to distribute the workload across
+thousands of cores.&lt;/li&gt;
+&lt;li&gt;Argue that proprietary, custom instruction sets are a bad choice. Instead,
+make general purpose RISC-V processors with domain specific extensions when
+needed.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

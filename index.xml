@@ -525,6 +525,11 @@ kernels in the debug adapter.&lt;/li&gt;
 &lt;li&gt;ThreadX in production since 1997.&lt;/li&gt;
 &lt;li&gt;Small footprint, priority-based, fully preemptive RTOS with a single linear
 address space.&lt;/li&gt;
+&lt;li&gt;Has advanced features like preemption-threshold scheduling, real-time event
+trace, memory-protected modules.&lt;/li&gt;
+&lt;li&gt;Ported with co-operation from Mirosemi, ran on the Smartfusion2 Creative
+Development Board.&lt;/li&gt;
+&lt;li&gt;Anticipate commercial availability for RISC-V before the end of 2017.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

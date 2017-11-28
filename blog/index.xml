@@ -136,6 +136,23 @@ other work in the academic community.&lt;/li&gt;
 interrupts. Also have requests for high end systems who want per-hart
 message-signal interrupts (MSI) and from low-end embedded that want
 pre-emptive vectored prioritized interrupts.&lt;/li&gt;
+&lt;li&gt;Improving embedded compression: the C extension was designed for general
+purpose computing with Unix binaries. People are seeing non-competitive RISC-V
+code size on pure embedded workloads, like due to lack of byte/halfword memory
+access? Considering an alternative C extension for RV32E systems.&lt;/li&gt;
+&lt;li&gt;A new task group has been up for the &amp;lsquo;J&amp;rsquo; extension, exploring support for
+dynamically translated languages. Looking at issues like integer overflow,
+garbage collection, and instruction cache management.&lt;/li&gt;
+&lt;li&gt;Summary
+
+&lt;ul&gt;
+&lt;li&gt;Very rapid development and adoption &amp;ldquo;by the time you decide to do a
+project, support will be there&amp;rdquo;.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Question: does the foundation have any formal ways of addressing IP
+challenges? Answer: have been documenting prior art for the base ISA
+instructions. Would be good to continue to expand this to cover reference
+hardware implementations.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

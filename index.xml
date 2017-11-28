@@ -256,6 +256,12 @@ But we need to be able to move beyond general purpose compute to meet new
 application requirements.&lt;/li&gt;
 &lt;li&gt;In a general purpose compute architecture, everything is centered around the
 CPU rather than the data.&lt;/li&gt;
+&lt;li&gt;Workload diversity demands diverse technologies and architectures, both for
+&amp;ldquo;big data&amp;rdquo; and &amp;ldquo;fast data&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;There are a wide range of data-centric applications at the edge.&lt;/li&gt;
+&lt;li&gt;RISC-V meets the needs of big data (move compute to data) and fast data
+(memory centric compute). It enables purpose-built environments for big data
+and fast data applications.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

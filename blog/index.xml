@@ -317,6 +317,12 @@ computing system, and it will be based on the RISC-V ISA&lt;/li&gt;
 processor. Starting from BOOM v2, but expect substantial changes. Optimized
 for 7nm CMOS. This will be used in Esperanto&amp;rsquo;s products and made available as
 a licensable core.&lt;/li&gt;
+&lt;li&gt;Second core is the ET-Minion. This is intended to do all the heavy floating
+point work, with very high floating point throughput and energy efficiency.
+This will be a 64-bit RISC-V core with vector extensions, an in-order
+pipeline, and extra instruction extensions for machine learning. Also have
+multiple hardware threads of execution. Like the ET-Maxion, this will be used
+in Esperanto products and available as a licensable core.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

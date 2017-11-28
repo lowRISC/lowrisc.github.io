@@ -444,6 +444,19 @@ Zurich / University of Bologna (PULP), Berkeley Labs, IIT Chennai.&lt;/li&gt;
 production starts.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;risc-v-llvm-towards-a-production-ready-llvm-basd-toolchain-alex-bradbury:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;RISC-V LLVM. Towards a production-ready LLVM-basd toolchain: Alex Bradbury&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;I was the presenter, so no notes right now.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;a-risc-v-java-update-martin-maas:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;A RISC-v Java update: Martin Maas&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Jikes RVM now runs full JDK6 applications, including the Decapo benchmark
+suite. Passes the Jikes RVM core test suite. About 15000 lines of code.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

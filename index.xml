@@ -410,6 +410,8 @@ integrated RISC-V SoC, U54MC RISC-V CPU Core Complex&lt;/li&gt;
 32KB L1D$.&lt;/li&gt;
 &lt;li&gt;All five cores in a coherent system with 2MB L2$.&lt;/li&gt;
 &lt;li&gt;Development board available in Q12018.&lt;/li&gt;
+&lt;li&gt;Feature GbE, DDR3/4, and ChipLink (a serialized chip-to-chip TileLink
+interconnect).&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

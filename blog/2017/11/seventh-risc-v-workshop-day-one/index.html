@@ -530,6 +530,13 @@ or Gem5.</li>
 simulation to enable modifying the entire stack.</li>
 <li>By modifying the hardware, we can do fine-grained tracing without perturbing
 the software being tested.</li>
+<li>Can explore the interaction with the memory system, e.g. DRAM row misses
+encountered during garbage collection.</li>
+<li>This will allow a wide range of research that was difficult without this
+infrastructure.</li>
+<li>Have the Jikes Research VM (baseline JIT, no optimising JIT). Can run
+OpenJDK Hotspot JVM with the Zero (interpreter) backend, but no
+high-performance JIT compiler port yet. Help needed!</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

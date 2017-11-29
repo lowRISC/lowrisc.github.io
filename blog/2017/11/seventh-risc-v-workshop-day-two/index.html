@@ -168,6 +168,14 @@ other loads and stores.</li>
 1.3mloc (Verilog) for the UltrSPARC T2.</li>
 <li>Boomv2 achieves 3.92 CoreMark/MHz (on the taped out BOOM), vs 3.71 for the
 Cortex-A9.</li>
+<li>BOOMv1 had a short pipeline inspired by R10K, 21264, Cortex-A9 and a unified
+issue window.</li>
+<li>BOOMv2: broke critical patches in the frontend. Put the BTB into SRAM. Also
+moved hashing to its own stage.</li>
+<li>The first place+route for register file resulted in huge area. Ended up
+splitting the unified issue window, spliting the physical register file,
+moving issue and register read into separate stages. Then implemented 2-stage
+rename and 3-stage fetch.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

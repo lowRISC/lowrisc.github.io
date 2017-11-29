@@ -176,6 +176,14 @@ moved hashing to its own stage.</li>
 splitting the unified issue window, spliting the physical register file,
 moving issue and register read into separate stages. Then implemented 2-stage
 rename and 3-stage fetch.</li>
+<li>Didn&rsquo;t have the resources to support a customised register file. A
+synthesised register file resulted in huge congestion when routing the wires
+from the flip-flops. Instead, black-boxed the register file and hand-wrote
+some Verilog to instantiate specific flip-flops, muxes, and tri-state buffers.
+Effectively hand-crafting their own bit block out of standard cells.</li>
+<li>Saw about a 25% decreae in clock period, and 20% decrease in CoreMark/MHz
+(due to increased load-use delay, fixable in the future). A lot of the work
+was about fixing design rule check and geometry errors.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

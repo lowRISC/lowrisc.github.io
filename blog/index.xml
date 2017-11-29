@@ -581,8 +581,18 @@ and used gem5 with the Coremark/Dhrystone/Whetstone/Spec2006 benchmarks.&lt;/li&
 &lt;li&gt;For the simple benchmarks, saw a 6-8% increase in static code size. Smaller
 increase in dynamic instructions (and Whetstone saw a reduction). Saw in-order
 execution time impacted, but much smaller impact for the out-of-order designs.&lt;/li&gt;
-&lt;li&gt;For SPEC, saw (very) slightly improved code density and execution time. In
-perlbench this was primarily due to reduced function call overhead.&lt;/li&gt;
+&lt;li&gt;For SPECInt, saw (very) slightly improved code density and execution time.&lt;br /&gt;
+In perlbench this was primarily due to reduced function call overhead.&lt;/li&gt;
+&lt;li&gt;The impact was more negative for SPECFP.&lt;/li&gt;
+&lt;li&gt;Architectural overheads limit the viable design space of multithreaded
+out-of-order CPUs.&lt;/li&gt;
+&lt;li&gt;New potential designs:
+
+&lt;ul&gt;
+&lt;li&gt;Dual-threaded, small window out-of-order CPUs (~20 instruction windows).
+This is impractical with the current RISC-V register file size requirements&lt;/li&gt;
+&lt;li&gt;Large, high-IPC, many threaded CPU designs.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

@@ -55,6 +55,11 @@ polling or interrupts are required.&lt;/li&gt;
 &lt;li&gt;For the BNN: each core in the manycore tier executes a remote-load-store
 program to orchestrate sending weights to the specialization tier via a
 hardware FIFO.&lt;/li&gt;
+&lt;li&gt;All code available at &lt;a href=&#34;http://opencelerity.org&#34;&gt;opencelerity.org&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Want to build the &amp;ldquo;DNA&amp;rdquo; for open source ASICs. i.e. the basic components
+needs for building a full system, spanneing RTL, IP cores, hardware emulation,
+packaging, PCBs. See &lt;a href=&#34;http://bjump.org&#34;&gt;bjump.org&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;The BaseJump STL contains several hundred modules, all parameterised.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
@@ -73,6 +78,9 @@ hardware FIFO.&lt;/li&gt;
 workshop&lt;/a&gt; is going
 on today and tomorrow at Western Digital in Milpitas. I&amp;rsquo;ll be
 keeping a semi-live blog of talks and announcements throughout the day.&lt;/p&gt;
+
+&lt;p&gt;Follow &lt;a href=&#34;http://www.lowrisc.org/blog/2017/11/seventh-risc-v-workshop-day-two&#34;&gt;here&lt;/a&gt; for the
+day two live blog.&lt;/p&gt;
 
 &lt;h2 id=&#34;introduction-rick-o-conor:c2b101a090d7cc5ec0df656eac1944a4&#34;&gt;Introduction: Rick O&amp;rsquo;Conor&lt;/h2&gt;
 

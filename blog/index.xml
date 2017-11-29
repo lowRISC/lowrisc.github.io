@@ -99,7 +99,7 @@ other loads and stores.&lt;/li&gt;
 &lt;li&gt;Parameterised, just a few lines to instantiate a 2-wide vs 4-wide BOOM.&lt;/li&gt;
 &lt;li&gt;BOOM has now been taped out! Taped out with a 2 person team in 4 months.&lt;/li&gt;
 &lt;li&gt;Total LoC for the SiFive U54 Rocket is 34kloc, vs 50kloc for BOOMv2, vs
-1.3mloc (Verilog) for the UltrSPARC T2.&lt;/li&gt;
+1.3mloc (Verilog) for the UltraSPARC T2.&lt;/li&gt;
 &lt;li&gt;Boomv2 achieves 3.92 CoreMark/MHz (on the taped out BOOM), vs 3.71 for the
 Cortex-A9.&lt;/li&gt;
 &lt;li&gt;BOOMv1 had a short pipeline inspired by R10K, 21264, Cortex-A9 and a unified
@@ -107,7 +107,7 @@ issue window.&lt;/li&gt;
 &lt;li&gt;BOOMv2: broke critical patches in the frontend. Put the BTB into SRAM. Also
 moved hashing to its own stage.&lt;/li&gt;
 &lt;li&gt;The first place+route for register file resulted in huge area. Ended up
-splitting the unified issue window, spliting the physical register file,
+splitting the unified issue window, splitting the physical register file,
 moving issue and register read into separate stages. Then implemented 2-stage
 rename and 3-stage fetch.&lt;/li&gt;
 &lt;li&gt;Didn&amp;rsquo;t have the resources to support a customised register file. A
@@ -115,7 +115,7 @@ synthesised register file resulted in huge congestion when routing the wires
 from the flip-flops. Instead, black-boxed the register file and hand-wrote
 some Verilog to instantiate specific flip-flops, muxes, and tri-state buffers.
 Effectively hand-crafting their own bit block out of standard cells.&lt;/li&gt;
-&lt;li&gt;Saw about a 25% decreae in clock period, and 20% decrease in CoreMark/MHz
+&lt;li&gt;Saw about a 25% decrease in clock period, and 20% decrease in CoreMark/MHz
 (due to increased load-use delay, fixable in the future). A lot of the work
 was about fixing design rule check and geometry errors.&lt;/li&gt;
 &lt;li&gt;Physical design is a bottleneck for agile hardware development. RTL hacking
@@ -124,7 +124,7 @@ P+R results. Additionally, manual intervention is often required and reports
 are difficult to reason about.&lt;/li&gt;
 &lt;li&gt;Future directions for BOOM: further IPC and QoR improvements. Chris is
 joining Esperanto Technologies, but is committed to maintain the BOOM
-open-soruce repository.&lt;/li&gt;
+open-source repository.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;rocket-engines-easy-custom-risc-v-cores-through-reuse-albert-magyar:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;Rocket Engines. Easy, custom RISC-V cores through reuse: Albert Magyar&lt;/h2&gt;
@@ -133,7 +133,7 @@ open-soruce repository.&lt;/li&gt;
 &lt;li&gt;Why are there so many RISC-V cores (or: why not reuse rocket?). Often a
 desire to match interface to be a &amp;ldquo;drop in&amp;rdquo; replacement for an existing core,
 or want to tailor microarchitecture for custom extensions. Also, may find
-Rocket is over-featured for the desigred design point.&lt;/li&gt;
+Rocket is over-featured for the desired design point.&lt;/li&gt;
 &lt;li&gt;Less good reasons: not invented here, fear of Chisel.&lt;/li&gt;
 &lt;li&gt;There are a number of pitfalls for customized cores. e.g. introducing bugs
 that have long since been avoided in Rocket.&lt;/li&gt;
@@ -157,7 +157,7 @@ riscv-formal.&lt;/li&gt;
 necessary to reach the target GOps/W. Computation requirements keep growing,
 and real-time results are often required.&lt;/li&gt;
 &lt;li&gt;Current DoD architectures often use older technology nodes. Now moving
-towards newer technolgy nodes (28nm and below).&lt;/li&gt;
+towards newer technology nodes (28nm and below).&lt;/li&gt;
 &lt;li&gt;Most of the cost for DoD custom SoCs is in design. Typically low volume (1k
 parts). For small volume, find design costs 92%, fab NRE 7%, 1% production
 costs.&lt;/li&gt;
@@ -168,9 +168,9 @@ resources, time and complexity or a DoD custom SoC design. Open source IP
 permits increased use of unique DoD security approaches.&lt;/li&gt;
 &lt;li&gt;The not so good news: the open source community needs to develop a complete
 infrastructure, needs to e more robust than it is today, the community needs a
-model to fund infrastructue, and the support model must assure long term
+model to fund infrastructure, and the support model must assure long term
 support and continued development of open source IP.&lt;/li&gt;
-&lt;li&gt;Unique differentiation doesn&amp;rsquo;t reuqire development of the entire platform.
+&lt;li&gt;Unique differentiation doesn&amp;rsquo;t require development of the entire platform.
 Want to put all the effort into the differentiating &amp;ldquo;secret sauce&amp;rdquo;.&lt;/li&gt;
 &lt;li&gt;Open source IP can address both the cost and availability of standard IP.
 Open source IP macros are a critical first step, but integration IP is also
@@ -187,8 +187,8 @@ way that can be trusted, and RISC-V can be used to enable increased security
 &lt;li&gt;Need a full ecosystem infrastructure. Need to cover the entire
 infrastructure, be robust, and easy to use.&lt;/li&gt;
 &lt;li&gt;DoD requires robustness and dependability of the open-source infrastructure.
-Need complete verification, clear documentation, robustness validated throug
-hto silicon implementation and test. This is not the role or the strength of
+Need complete verification, clear documentation, robustness validated through
+to silicon implementation and test. This is not the role or the strength of
 universities.
 
 &lt;ul&gt;
@@ -199,6 +199,14 @@ ranges.&lt;/li&gt;
 &lt;li&gt;Need a model to fund long-term infrastructure. This isn&amp;rsquo;t the role of DARPA,
 which funds projects rather than infrastructure. Much of the work is
 difficult, but not exciting.&lt;/li&gt;
+&lt;li&gt;Need continual maintenance and improvement. Regular updates in terms of
+performance, architecture, and fabrication technology.&lt;/li&gt;
+&lt;li&gt;DARPA programs driving open source IP: PERFECT, CRAFT, SSITH, POSH, IDEA.&lt;/li&gt;
+&lt;li&gt;CRAFT&amp;rsquo;s goal is to enable more efficient custom IC design/fabrication to
+enable high performance electronic solutions faster and with more flexibility.&lt;/li&gt;
+&lt;li&gt;SSITH: develop hardware design tools and IP to provide inherent security
+against hardware vulnerabilities that are exploited through software in DoD
+and commercial electronic systems.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

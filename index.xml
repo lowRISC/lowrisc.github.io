@@ -85,6 +85,15 @@ tries to maximise the code coverage, and the instruction simulation and RTL
 model are compared.&lt;/li&gt;
 &lt;li&gt;Large number of companies using PULP/PULPino, e.g. Mentor, GreenWaves, NXP,
 Micron, Microsemi, Cadence, ST, Google, Intel.&lt;/li&gt;
+&lt;li&gt;PULPissimo platform will be released Q12018, including the new microDMA
+subsystem, new interrupt controller, new SDK etc. Taping out on GF22 soon.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;boom-v2-an-open-source-out-of-order-risc-v-core-chris-celio:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;BOOM v2. An open-source out-of-order RISC-V core: Chris Celio&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Out of order superscalar implementing RV64g. Open source and written in
+Chisel (~16kloc). Built on top of the rocket-chip ecosystem.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

@@ -379,6 +379,10 @@ in the previous example.&lt;/li&gt;
 4B) = 32&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;MVL is transparent to software, meaning code can be portable across
 different number of lanes and different values of MVL.&lt;/li&gt;
+&lt;li&gt;Not covered today: exceptions, kernel save + restore, custom types, or
+matrix shapes.&lt;/li&gt;
+&lt;li&gt;Goal is to be the best vector ISA ever! Expect LLVM and GCC to support it.&lt;/li&gt;
+&lt;li&gt;Current spec on GitHub is out-of-date.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

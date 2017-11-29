@@ -266,6 +266,9 @@ bursts, &amp;hellip;&lt;/li&gt;
 &lt;li&gt;No support for multiple cache layers.&lt;/li&gt;
 &lt;li&gt;Don&amp;rsquo;t want to depend on a standard controlled by a RISC-V competitor&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;TileLink was a clean slate project out of UC Berkeley. Featured a reduced
+message protocol, assumed all connected hardware is trusted, and only supports
+power-of-2 block transfers.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

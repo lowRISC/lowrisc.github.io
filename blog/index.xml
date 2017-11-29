@@ -220,7 +220,17 @@ and systems.&lt;/li&gt;
 &lt;li&gt;Been working with SiFive, providing IP blocks for the always-on domain.&lt;/li&gt;
 &lt;li&gt;The power management unit is a state machine running a microcode program
 that triggers events as necessary.&lt;/li&gt;
-&lt;li&gt;Have implemented a low-noise bandgap voltage reference, LDO, biasing control&lt;/li&gt;
+&lt;li&gt;Have implemented a wide range of IP: low-noise bandgap voltage reference,
+LDO, biasing control, crystal low-frequency driver (XTAL-RF), RC Oscillator,
+brownout detector, power-on reset, multi-resolution DAC and ADC, fully
+synthesized true random number generator&lt;/li&gt;
+&lt;li&gt;Finally, integrated these always-on domain blocks in a TSMC180nm SoC using
+Chisel at the top level.&lt;/li&gt;
+&lt;li&gt;Deliverables: releasing Verilog models, FSM Verilog RTL, documentation etc
+through the freechips project. Schematics and layout available through the
+SiFive Designshare program.&lt;/li&gt;
+&lt;li&gt;Taping out at the end of the year with SiFive, also want to include PHYs
+like SATA, PCIe, USB next year. Hope to have a qualified range of IP in 2019.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

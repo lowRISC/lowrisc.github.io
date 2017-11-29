@@ -104,7 +104,7 @@ other loads and stores.&lt;/li&gt;
 Cortex-A9.&lt;/li&gt;
 &lt;li&gt;BOOMv1 had a short pipeline inspired by R10K, 21264, Cortex-A9 and a unified
 issue window.&lt;/li&gt;
-&lt;li&gt;BOOMv2: broke critical patches in the frontend. Put the BTB into SRAM. Also
+&lt;li&gt;BOOMv2: broke critical paths in the frontend. Put the BTB into SRAM. Also
 moved hashing to its own stage.&lt;/li&gt;
 &lt;li&gt;The first place+route for register file resulted in huge area. Ended up
 splitting the unified issue window, splitting the physical register file,
@@ -494,6 +494,16 @@ by a trace of calls.&lt;/li&gt;
 &lt;li&gt;Use standard Coq ASCII syntax for mathematical proofs. These are checked
 automatically, just like type checking. Also benefit from streamlined IDE
 support for Coq.&lt;/li&gt;
+&lt;li&gt;Implement a design, which can be refined to check it against the spec (Coq
+tactics are used to prove the refinements). The design is also used to
+generate the RTL.&lt;/li&gt;
+&lt;li&gt;We are building a translator for the formal RISC-V ISA spec into the
+language of Coq/Kami.&lt;/li&gt;
+&lt;li&gt;Building an open library of formally verified components. Built a
+microcontroller-class RV32I. Working on desktop-class RV64IMA. Also have a
+cache-coherent memory system.&lt;/li&gt;
+&lt;li&gt;Reuse our proofs when composing our components with your own formally
+verified accelerators.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

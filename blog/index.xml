@@ -481,6 +481,19 @@ for all parameters.&lt;/li&gt;
 &lt;li&gt;Kami is a framework to support implementing, specifying, formally verifying,
 and compiling hardware designs. It is based on the Bluespec high-level
 hardware design language and the Coq proof assistant.&lt;/li&gt;
+&lt;li&gt;The big ideas (from Bluespec):
+
+&lt;ul&gt;
+&lt;li&gt;Program modules are objects with mutable private state accessed via
+methods.&lt;/li&gt;
+&lt;li&gt;Every method call appears to execute atomically. So any step is summarized
+by a trace of calls.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Object refinement is inclusion of all possible traces.&lt;/li&gt;
+&lt;li&gt;Composing objects hides internal method calls.&lt;/li&gt;
+&lt;li&gt;Use standard Coq ASCII syntax for mathematical proofs. These are checked
+automatically, just like type checking. Also benefit from streamlined IDE
+support for Coq.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

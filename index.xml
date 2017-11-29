@@ -565,7 +565,7 @@ here&lt;/a&gt;. Comments and
 collaborators are encouraged!&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;extending-teh-16-gpr-standard-beyond-rv32e-mitch-hayenga:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;Extending teh 16 GPR standard beyond RV32E: Mitch Hayenga&lt;/h2&gt;
+&lt;h2 id=&#34;extending-the-16-gpr-standard-beyond-rv32e-mitch-hayenga:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;Extending the 16 GPR standard beyond RV32E: Mitch Hayenga&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Motivation: Register file area/power/latency is critical to any processor.
@@ -610,6 +610,20 @@ random delays.&lt;/li&gt;
 &lt;li&gt;Collapsing stages was useful in order to build an emulator out of a RISC-V
 fluid core. Can also change the number of pipeline stages automatically, and
 perform formal verification.&lt;/li&gt;
+&lt;li&gt;For a Verilog implementation, saw 2MIPS when compiling with Verilator. When
+collapsing fluid pipelines to produce a fast emulator, saw 6MIPS. Spike
+achieves around 12 MIPS.&lt;/li&gt;
+&lt;li&gt;Compared synthesis results of the fluid pipelines vs a range of open source
+RISC-V cores.&lt;/li&gt;
+&lt;li&gt;For &amp;ldquo;fluid verification&amp;rdquo;, can collapse the stages in a RISC-V core, then
+verify against a trivial single stage RISC-V core. Used yosys to do this.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;performance-isolation-for-multicore-within-labeled-risc-v-zihao-yu:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;Performance isolation for multicore within labeled RISC-V: Zihao Yu&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;In multi-core architectures, core share resources such as L3, memory, and
+I/O. This can cause uncertainties.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

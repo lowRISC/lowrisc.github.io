@@ -184,6 +184,18 @@ IP. Added security capabilities require a robust base and infrastructure.&lt;/li
 &lt;li&gt;RISC-V is an adaptable open standard. RISC-V processors can be built in a
 way that can be trusted, and RISC-V can be used to enable increased security
 (easy to add security extensions).&lt;/li&gt;
+&lt;li&gt;Need a full ecosystem infrastructure. Need to cover the entire
+infrastructure, be robust, and easy to use.&lt;/li&gt;
+&lt;li&gt;DoD requires robustness and dependability of the open-source infrastructure.
+Need complete verification, clear documentation, robustness validated throug
+hto silicon implementation and test. This is not the role or the strength of
+universities.
+
+&lt;ul&gt;
+&lt;li&gt;Savings requires the ability to depend on the open source IP.&lt;/li&gt;
+&lt;li&gt;Savings require the robustness of the IP across extended performance
+ranges.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

@@ -615,7 +615,20 @@ manually utilized via extended load/store/move instructions.</li>
 <li>You only get access to the extended address space when using the new
 extended addressing instructions.</li>
 <li>ISA extensions: base integer load/store, raw integer load/store, address
-management.</li>
+management (explicitly read/write the extended registers).</li>
+<li>No support for things like atomics currently. (Question for the community:
+how to define extensions to extensions?)</li>
+<li>A number of outstanding issues with the ABI and calling convention. How to
+link base RISC-V objects with objects containing extended addressing? Howe do
+we address the caller/callee saved state with extended registers? What about
+debugging and debugging metadata.</li>
+<li>The software part of this is being led by the Data Intensive Scalable
+Computing Lab at Texas Tech. Have a prototype implementation in LLVM.</li>
+<li>Hardware part of the effort taking place at Tactical Computing Labs, LBNL
+and MIT. Looking at pipelined and accelerator-based implementations.</li>
+<li>The current spec is <a href="https://github.com/tactcomplabs/xbgas-archspec">available
+here</a>. Comments and
+collaborators are encouraged!</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

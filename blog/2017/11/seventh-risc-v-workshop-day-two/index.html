@@ -333,8 +333,16 @@ bursts, &hellip;</li>
 <li>Don&rsquo;t want to depend on a standard controlled by a RISC-V competitor</li>
 </ul></li>
 <li>TileLink was a clean slate project out of UC Berkeley. Featured a reduced
-message protocol, assumed all connected hardware is trusted, and only supports
-power-of-2 block transfers.</li>
+message protocol, assumed all connected hardware is trusted (do security
+checking at the source, not in the network), and only supports power-of-2
+block transfers.</li>
+<li>TileLink is a master-slave point-to-point protocol. It&rsquo;s message based with
+5 priorities. Out-order design with optional ordering. It&rsquo;s designed for
+composability and deadlock freedom.</li>
+<li>TileLink is open source and in production. Over 30 public modules including
+cores, crossbars and adapters. Has a coherency manager similar to how ACE does
+snooping. Also have bridges to AXI/AHB/APB</li>
+<li>SiFive chips use a banked directory-based wormhole MESI L2$.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

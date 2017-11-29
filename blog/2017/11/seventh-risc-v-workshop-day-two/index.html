@@ -465,6 +465,10 @@ needed for existing popular and promising post-quantum asymmetric cryptography
 schemes. Also accelerate symmetric block ciphers and digest algorithms taking
 advantage of the wide vector registers, using specialized VFUs (e.g. AES,
 SHA-2).</li>
+<li>Asymmetric crypto acceleration: use hardware support for modular arithmetic,
+but software for group operations and point multiplication.</li>
+<li>Propose vector element widths up to 4096, as well as an escape mechanism to
+allow larger widths or non-power-of-two widths.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

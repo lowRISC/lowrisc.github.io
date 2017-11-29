@@ -541,7 +541,7 @@ ABI.&lt;/li&gt;
 &lt;li&gt;Extended addressing must not specifically rely upon any one virtual memory&lt;/li&gt;
 &lt;li&gt;xBGAS is not a direct replacement for RV128.&lt;/li&gt;
 &lt;li&gt;See a variety of potential application domains.&lt;/li&gt;
-&lt;li&gt;HPC-PGAS: traditional message passing has a tremendous amount of overhead.&lt;br /&gt;
+&lt;li&gt;HPC-PGAS: traditional message passing has a tremendous amount of overhead.
 There are a range of low-latency PGAS runtimes, but little hardware/uarch
 support.&lt;/li&gt;
 &lt;li&gt;Add extended (eN) register that map to base general registers. These are
@@ -568,7 +568,7 @@ collaborators are encouraged!&lt;/li&gt;
 &lt;h2 id=&#34;extending-teh-16-gpr-standard-beyond-rv32e-mitch-hayenga:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;Extending teh 16 GPR standard beyond RV32E: Mitch Hayenga&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Motivation: Register file area/power/latency is critical to any processor.&lt;br /&gt;
+&lt;li&gt;Motivation: Register file area/power/latency is critical to any processor.
 Large register files help with static code scheduling, but wide issue
 out-of-order processors have the potential to hide register spill latency and
 issue bandwidth.&lt;/li&gt;
@@ -576,6 +576,13 @@ issue bandwidth.&lt;/li&gt;
 double-precision floating point registers.&lt;/li&gt;
 &lt;li&gt;Want to see the 16GPR option being orthogonal just like any other ISA
 variant (RV32E currently can&amp;rsquo;t be combined with the F and D extensions).&lt;/li&gt;
+&lt;li&gt;Reduced the available registers to x0-x15 and f0-f15. Modified GCC and glibc
+and used gem5 with the Coremark/Dhrystone/Whetstone/Spec2006 benchmarks.&lt;/li&gt;
+&lt;li&gt;For the simple benchmarks, saw a 6-8% increase in static code size. Smaller
+increase in dynamic instructions (and Whetstone saw a reduction). Saw in-order
+execution time impacted, but much smaller impact for the out-of-order designs.&lt;/li&gt;
+&lt;li&gt;For SPEC, saw (very) slightly improved code density and execution time. In
+perlbench this was primarily due to reduced function call overhead.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

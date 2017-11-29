@@ -638,6 +638,33 @@ Resourcing-on-Demand.
 request, and add label-based programmable control logic.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;LvNA + RISC-V = Labeled RISC-V&lt;/li&gt;
+&lt;li&gt;Saw less than 3% overhead in terms of code, less than 5% resource overhead,
+and no performance overheads for critical apps.&lt;/li&gt;
+&lt;li&gt;Plan to tape out with TSMC 40nm next year.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;a-practical-implementation-of-a-platform-level-interrupt-controller-plic-richard-herveille:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;A Practical Implementation of a Platform Level Interrupt Controller (PLIC): Richard Herveille&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;PLIC design goals: easy integration with external bus interfaces, be fully
+compliant, and very flexible. Should work from small microcontrollers all the
+way up to large server applications.&lt;/li&gt;
+&lt;li&gt;The deign flexibility may result in management complexity. Potentially
+hundreds or thousands of registers in a memory mapped management interface. So
+try to define a management interface that minimises the memory map.&lt;/li&gt;
+&lt;li&gt;Create the memory map dynamically based on parameters given to the IP core.&lt;br /&gt;
+The register arrangement and documentation is automated.&lt;/li&gt;
+&lt;li&gt;See the &lt;a href=&#34;https://roalogic.com&#34;&gt;Roa Logic website&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;open-source-rtos-ports-on-risc-v-nitin-deshpande:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;Open source RTOS ports on RISC-V: Nitin Deshpande&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ported FreeRTOS, MyNewt, and Huawei LitOS.&lt;/li&gt;
+&lt;li&gt;FreeRTOS: 32-bit version running on a RISC-V soft processor, 64-bit
+currently runs on Spike.&lt;/li&gt;
+&lt;li&gt;MyNewt: RISC-V support was already available, added the BSP and MCU/HAL
+support.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

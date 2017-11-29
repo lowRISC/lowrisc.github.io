@@ -704,6 +704,33 @@ Resourcing-on-Demand.
 request, and add label-based programmable control logic.</li>
 </ul></li>
 <li>LvNA + RISC-V = Labeled RISC-V</li>
+<li>Saw less than 3% overhead in terms of code, less than 5% resource overhead,
+and no performance overheads for critical apps.</li>
+<li>Plan to tape out with TSMC 40nm next year.</li>
+</ul>
+
+<h2 id="a-practical-implementation-of-a-platform-level-interrupt-controller-plic-richard-herveille:b3d82df2c32815668820ecff5dcd0b9a">A Practical Implementation of a Platform Level Interrupt Controller (PLIC): Richard Herveille</h2>
+
+<ul>
+<li>PLIC design goals: easy integration with external bus interfaces, be fully
+compliant, and very flexible. Should work from small microcontrollers all the
+way up to large server applications.</li>
+<li>The deign flexibility may result in management complexity. Potentially
+hundreds or thousands of registers in a memory mapped management interface. So
+try to define a management interface that minimises the memory map.</li>
+<li>Create the memory map dynamically based on parameters given to the IP core.<br />
+The register arrangement and documentation is automated.</li>
+<li>See the <a href="https://roalogic.com">Roa Logic website</a>.</li>
+</ul>
+
+<h2 id="open-source-rtos-ports-on-risc-v-nitin-deshpande:b3d82df2c32815668820ecff5dcd0b9a">Open source RTOS ports on RISC-V: Nitin Deshpande</h2>
+
+<ul>
+<li>Ported FreeRTOS, MyNewt, and Huawei LitOS.</li>
+<li>FreeRTOS: 32-bit version running on a RISC-V soft processor, 64-bit
+currently runs on Spike.</li>
+<li>MyNewt: RISC-V support was already available, added the BSP and MCU/HAL
+support.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

@@ -177,6 +177,13 @@ Open source IP macros are a critical first step, but integration IP is also
 needed.&lt;/li&gt;
 &lt;li&gt;Open source IP enables specialisation. It provides the blocks and standard
 infrastructure that can then be specialised.&lt;/li&gt;
+&lt;li&gt;Open source IP enables greater scrutiny by the DoD to ensure trust:
+assurance it will only do as specified.&lt;/li&gt;
+&lt;li&gt;Hardware security requires the ability to modify the SoC, including 3d party
+IP. Added security capabilities require a robust base and infrastructure.&lt;/li&gt;
+&lt;li&gt;RISC-V is an adaptable open standard. RISC-V processors can be built in a
+way that can be trusted, and RISC-V can be used to enable increased security
+(easy to add security extensions).&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

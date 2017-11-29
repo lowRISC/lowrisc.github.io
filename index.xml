@@ -572,6 +572,10 @@ collaborators are encouraged!&lt;/li&gt;
 Large register files help with static code scheduling, but wide issue
 out-of-order processors have the potential to hide register spill latency and
 issue bandwidth.&lt;/li&gt;
+&lt;li&gt;There are a number of commercially available cores that only offer 16
+double-precision floating point registers.&lt;/li&gt;
+&lt;li&gt;Want to see the 16GPR option being orthogonal just like any other ISA
+variant (RV32E currently can&amp;rsquo;t be combined with the F and D extensions).&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

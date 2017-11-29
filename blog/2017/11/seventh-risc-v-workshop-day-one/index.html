@@ -689,7 +689,20 @@ verify against a trivial single stage RISC-V core. Used yosys to do this.</li>
 
 <ul>
 <li>In multi-core architectures, core share resources such as L3, memory, and
-I/O. This can cause uncertainties.</li>
+I/O. This can cause uncertainties and QoS violations.</li>
+<li>Take inspiration from labeled networks and try to apply to computer
+architecture. Describe the Labeled von Neumann Architecture (LvNA).</li>
+<li>Each request has a label, each label is correlated with a
+process/thread/variable, labels are propagated across the whole machine, and
+software-defined control logic is used to provide different service for
+different labeled groups.</li>
+<li>Proposed PARD (ASPLOS 2015). Programmable Architecture for
+Resourcing-on-Demand.
+
+<ul>
+<li>Add a label register, allocate a label for each VM, attach a label to each
+request, and add label-based programmable control logic.</li>
+</ul></li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

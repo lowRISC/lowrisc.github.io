@@ -114,6 +114,13 @@ load-on-broken-reservation (stall if the reserved address wasn&rsquo;t written b
 other cores), and a consumer instruction to wait on a given address/valud. No
 polling or interrupts are required.</li>
 <li>Currently working on CUDA support.</li>
+<li>Can fit 42 of the &ldquo;manycore&rdquo; cores per mm2 (vs 5 cores per mm2 for Rocket).</li>
+<li>80% of the modules in the manycore are from the BaseJump library.</li>
+<li>For the backend, hardened each core and replicated across the die.</li>
+<li>Over 2/3rds of each manycore tile is memory.</li>
+<li>For the BNN: each core in the manycore tier executes a remote-load-store
+program to orchestrate sending weights to the specialization tier via a
+hardware FIFO.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

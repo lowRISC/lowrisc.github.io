@@ -118,6 +118,13 @@ Effectively hand-crafting their own bit block out of standard cells.&lt;/li&gt;
 &lt;li&gt;Saw about a 25% decreae in clock period, and 20% decrease in CoreMark/MHz
 (due to increased load-use delay, fixable in the future). A lot of the work
 was about fixing design rule check and geometry errors.&lt;/li&gt;
+&lt;li&gt;Physical design is a bottleneck for agile hardware development. RTL hacking
+can be rapid, but it takes 2-3 hours for synthesis results and 8-24 hours for
+P+R results. Additionally, manual intervention is often required and reports
+are difficult to reason about.&lt;/li&gt;
+&lt;li&gt;Future directions for BOOM: further IPC and QoR improvements. Chris is
+joining Esperanto Technologies, but is committed to maintain the BOOM
+open-soruce repository.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

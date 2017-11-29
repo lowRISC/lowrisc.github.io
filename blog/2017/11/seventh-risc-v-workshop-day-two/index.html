@@ -100,6 +100,11 @@ mesh tiled area &ldquo;manycore&rdquo;, 10-core RV32IM mesh tiled array (low vol
 <li>Of the 5 general purpose cores, 4 connect to the manycore array and 1
 interfaces with the Binary Neural Network accelerator. Each core executes
 independently within its own address space.</li>
+<li>The BaseJump manycore architecture implements the RV32IM with a 5-stage
+pipeline (full forwarded, in-order, single issue). It has 4KB+4KB instruction
+and data scratchpads.</li>
+<li>BaseJump Manycore Mesh Network: stores are routed based on the destination.<br />
+Simple XY-dimension routing.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

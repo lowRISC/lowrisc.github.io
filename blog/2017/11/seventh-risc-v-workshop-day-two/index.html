@@ -420,7 +420,31 @@ harts.</li>
 <li>Each vector register has an associated type, which can be different for
 different registers.</li>
 <li>Types can be mixed in an instruction under certain rules.</li>
+<li>Register types enable a &ldquo;polymorphic&rdquo; encoding an is also more scalable
+for the future.</li>
 </ul></li>
+<li>vcvt is used for type and data conversions.</li>
+<li>In some cases, types can be mixed in an instruction. e.g. adding <code>v1_i8, 
+v2_i64 -&gt; v0_i64</code>. When any source is smaller than the destination, the source
+is promoted to the destination size.</li>
+<li>The size of the vector register file is not set by the ISA. It is configured
+by writing to the vdcfg CSR. When doing this, the hardware computes the
+maximum vector length. This configuration can be done in user mode.
+
+<ul>
+<li>One implementation choice is to always return the same MVL, regardless of
+config. Alternatively, split storage across logical registers, perhaps
+losing some space.</li>
+</ul></li>
+<li>E.g the hardware has 32 registers, 4 elements per vector, each 4 bytes = 512
+bytes. If the user asks for 32 F32 registers, <code>MVL = 512B / (32 * 4) = 4</code>. If
+the user asked for only 2 F32 registers, <code>MVL = 512B / (4+4) = 64</code>. But it
+would be legal for the implementation to return something smaller, e.g. 4 as
+in the previous example.</li>
+<li>If the user asks for 2 F16 regs and 2 F32 registers, <code>MVL = 512B / (12B + 
+4B) = 32</code>.</li>
+<li>MVL is transparent to software, meaning code can be portable across
+different number of lanes and different values of MVL.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

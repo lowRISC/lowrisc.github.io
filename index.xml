@@ -248,6 +248,24 @@ padframe, power-on-reset, and generated SRAM to target ASIC.&lt;/li&gt;
 &lt;li&gt;The PicoSoC core is 1mm2, with analog+SRAM+padframe, 2mm x 1.5mm.&lt;/li&gt;
 &lt;li&gt;Can reproduce this yourself using the efabless IP catalog and the efablass
 CloudV-based design environment.&lt;/li&gt;
+&lt;li&gt;This is brought together in the efabless Open Galaxy Design Environment.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;tilelink-a-free-and-open-source-high-performance-scalable-cache-coherent-fabric-designed-for-risc-v-wesley-terpstra:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;TileLink. A free and open-source, high-performance scalable cache-coherent fabric designed for RISC-V: Wesley Terpstra&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Requirements for a RISC-V bus: Open standard, easy to implemented,
+cache-coherent block motion, multiple cache layers, reusable on and off-chip,
+and high performance.&lt;/li&gt;
+&lt;li&gt;What about AMBA CHI/ACE?
+
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;Open standard? CHI is not open!&amp;rdquo;. Can&amp;rsquo;t get hold of the spec.&lt;/li&gt;
+&lt;li&gt;Not easy to implement: 10 probe message types, split control/data, narrow
+bursts, &amp;hellip;&lt;/li&gt;
+&lt;li&gt;No support for multiple cache layers.&lt;/li&gt;
+&lt;li&gt;Don&amp;rsquo;t want to depend on a standard controlled by a RISC-V competitor&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

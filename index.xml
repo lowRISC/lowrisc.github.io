@@ -544,6 +544,12 @@ ABI.&lt;/li&gt;
 &lt;li&gt;HPC-PGAS: traditional message passing has a tremendous amount of overhead.&lt;br /&gt;
 There are a range of low-latency PGAS runtimes, but little hardware/uarch
 support.&lt;/li&gt;
+&lt;li&gt;Add extended (eN) register that map to base general registers. These are
+manually utilized via extended load/store/move instructions.&lt;/li&gt;
+&lt;li&gt;You only get access to the extended address space when using the new
+extended addressing instructions.&lt;/li&gt;
+&lt;li&gt;ISA extensions: base integer load/store, raw integer load/store, address
+management.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

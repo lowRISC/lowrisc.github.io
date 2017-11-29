@@ -442,6 +442,44 @@ API. Replace TinyCrypt on Rocket with a call to an API running on the Secure
 RV32.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;isa-formal-task-group-update-rishiyur-nikhil:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;ISA Formal Task Group Update: Rishiyur Nikhil&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A formal spec is a key requirement to be able to definitively answer
+questions about cmpiler correctness and implementation correctness. e.g. will
+executing this RISC-V program on this implementation produce correct results?&lt;br /&gt;
+For all RISC-V programs?&lt;/li&gt;
+&lt;li&gt;Clifford Wolf has demonstrated the value of formal spaces in identifying
+bugs in most publicly available RISC-V implementations.&lt;/li&gt;
+&lt;li&gt;The formal spec must be clear and understandable to the human reader,
+precise and complete, machine readable, executable, and usable with a variety
+of formal tools.
+
+&lt;ul&gt;
+&lt;li&gt;English-text specs and instruction set simulators can be regarded as
+specs, but typically do not meet many of these goals.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Our approach is to use a very minimal subset of Haskell to define a spec
+that is directly executable in Haskell. Then provide parsers to connect to
+other formal tools and formats.&lt;/li&gt;
+&lt;li&gt;See the current prototype
+&lt;a href=&#34;https://github.com/mit-plv/riscv-semantics&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Done: RV32I/RV64I, M, priv spec M. Currently ignoring memory model issues.
+Soon want to implement privilege spec supervisor mode, then A, C, F, D,
+integration with the memory model.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;strong-formal-verification-for-risc-v-adam-chlipala:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;Strong formal verification for RISC-V: Adam Chlipala&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Simplify: start by proving a shallow property, proving some straight-forward
+invariants.&lt;/li&gt;
+&lt;li&gt;Simplify: analyze isolated components and build larger components by
+composing them.&lt;/li&gt;
+&lt;li&gt;Want to avoid starting over for each design. Instead prove a property once
+for all parameters.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

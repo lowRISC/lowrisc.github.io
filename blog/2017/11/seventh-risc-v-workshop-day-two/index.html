@@ -508,6 +508,44 @@ API. Replace TinyCrypt on Rocket with a call to an API running on the Secure
 RV32.</li>
 </ul>
 
+<h2 id="isa-formal-task-group-update-rishiyur-nikhil:b3d82df2c32815668820ecff5dcd0b9a">ISA Formal Task Group Update: Rishiyur Nikhil</h2>
+
+<ul>
+<li>A formal spec is a key requirement to be able to definitively answer
+questions about cmpiler correctness and implementation correctness. e.g. will
+executing this RISC-V program on this implementation produce correct results?<br />
+For all RISC-V programs?</li>
+<li>Clifford Wolf has demonstrated the value of formal spaces in identifying
+bugs in most publicly available RISC-V implementations.</li>
+<li>The formal spec must be clear and understandable to the human reader,
+precise and complete, machine readable, executable, and usable with a variety
+of formal tools.
+
+<ul>
+<li>English-text specs and instruction set simulators can be regarded as
+specs, but typically do not meet many of these goals.</li>
+</ul></li>
+<li>Our approach is to use a very minimal subset of Haskell to define a spec
+that is directly executable in Haskell. Then provide parsers to connect to
+other formal tools and formats.</li>
+<li>See the current prototype
+<a href="https://github.com/mit-plv/riscv-semantics">here</a>.</li>
+<li>Done: RV32I/RV64I, M, priv spec M. Currently ignoring memory model issues.
+Soon want to implement privilege spec supervisor mode, then A, C, F, D,
+integration with the memory model.</li>
+</ul>
+
+<h2 id="strong-formal-verification-for-risc-v-adam-chlipala:b3d82df2c32815668820ecff5dcd0b9a">Strong formal verification for RISC-V: Adam Chlipala</h2>
+
+<ul>
+<li>Simplify: start by proving a shallow property, proving some straight-forward
+invariants.</li>
+<li>Simplify: analyze isolated components and build larger components by
+composing them.</li>
+<li>Want to avoid starting over for each design. Instead prove a property once
+for all parameters.</li>
+</ul>
+
 <p><em>Alex Bradbury</em></p>
 
                     </section>

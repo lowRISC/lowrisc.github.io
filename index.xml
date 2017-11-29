@@ -385,6 +385,22 @@ matrix shapes.&lt;/li&gt;
 &lt;li&gt;Current spec on GitHub is out-of-date.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;security-task-group-update-and-risc-v-security-extension-richard-newell:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;Security task group update and RISC-V security extension: Richard Newell&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The security working group works in two main areas. Trusted execution /
+isolation and cryptographic extensions. Recently had changes in direction for
+trusted execution / isolation.&lt;/li&gt;
+&lt;li&gt;This talk will focus on the cryptographic extensions status. Hope to have a
+written spec for the next workshop.&lt;/li&gt;
+&lt;li&gt;Want to rely heavily on the vector extensions for crypto.&lt;/li&gt;
+&lt;li&gt;Use vector functional units to perform modular and Galois Field arithmetic
+needed for existing popular and promising post-quantum asymmetric cryptography
+schemes. Also accelerate symmetric block ciphers and digest algorithms taking
+advantage of the wide vector registers, using specialized VFUs (e.g. AES,
+SHA-2).&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

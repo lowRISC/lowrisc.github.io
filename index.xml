@@ -207,6 +207,10 @@ enable high performance electronic solutions faster and with more flexibility.&l
 &lt;li&gt;SSITH: develop hardware design tools and IP to provide inherent security
 against hardware vulnerabilities that are exploited through software in DoD
 and commercial electronic systems.&lt;/li&gt;
+&lt;li&gt;IDEA: no &amp;ldquo;human in the lop&amp;rdquo; 24-hour layout generation for mixed signal ICs,
+systems in package, and PCBs. Machine generated layout of electrical circuits
+and systems.&lt;/li&gt;
+&lt;li&gt;POSH: an open source System on Chip design and IP ecosystem.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

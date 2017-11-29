@@ -217,6 +217,10 @@ and systems.&lt;/li&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Challenges: ready-to-plug IP and expensive licenses.&lt;/li&gt;
+&lt;li&gt;Been working with SiFive, providing IP blocks for the always-on domain.&lt;/li&gt;
+&lt;li&gt;The power management unit is a state machine running a microcode program
+that triggers events as necessary.&lt;/li&gt;
+&lt;li&gt;Have implemented a low-noise bandgap voltage reference, LDO, biasing control&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

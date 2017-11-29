@@ -427,6 +427,11 @@ extensions.&lt;/li&gt;
 
 &lt;ul&gt;
 &lt;li&gt;This talk is about leveraging RISC-V to deliver integrated hw/sw silicon IP.&lt;/li&gt;
+&lt;li&gt;The Intrinsix secure execution environment contains a tiny RISC-V core,
+crypto engines, secure fabric, as well as software.&lt;/li&gt;
+&lt;li&gt;Add a security CPU to provide an isolated execution environment. It&amp;rsquo;s easier
+to verify the separation between secure and non-secure actions. Costs less
+than 1% of silicon area (20K gates).&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

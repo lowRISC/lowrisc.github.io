@@ -94,6 +94,14 @@ subsystem, new interrupt controller, new SDK etc. Taping out on GF22 soon.&lt;/l
 &lt;ul&gt;
 &lt;li&gt;Out of order superscalar implementing RV64g. Open source and written in
 Chisel (~16kloc). Built on top of the rocket-chip ecosystem.&lt;/li&gt;
+&lt;li&gt;Advanced branch prediction. Loads can issue out-of-order with regard to
+other loads and stores.&lt;/li&gt;
+&lt;li&gt;Parameterised, just a few lines to instantiate a 2-wide vs 4-wide BOOM.&lt;/li&gt;
+&lt;li&gt;BOOM has now been taped out! Taped out with a 2 person team in 4 months.&lt;/li&gt;
+&lt;li&gt;Total LoC for the SiFive U54 Rocket is 34kloc, vs 50kloc for BOOMv2, vs
+1.3mloc (Verilog) for the UltrSPARC T2.&lt;/li&gt;
+&lt;li&gt;Boomv2 achieves 3.92 CoreMark/MHz (on the taped out BOOM), vs 3.71 for the
+Cortex-A9.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

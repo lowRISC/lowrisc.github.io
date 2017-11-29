@@ -62,6 +62,18 @@ packaging, PCBs. See &lt;a href=&#34;http://bjump.org&#34;&gt;bjump.org&lt;/a&gt
 &lt;li&gt;The BaseJump STL contains several hundred modules, all parameterised.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;the-pulp-cores-a-set-of-open-source-ultra-low-power-risc-v-cores-for-internet-of-things-applications-pasquale-davide-schiavone:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;The PULP Cores. A Set of Open-Source Ultra-Low-Power RISC-V Cores for Internet-of-Things Applications: Pasquale Davide Schiavone&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;PULP: Parallel Ultra-Low Power.&lt;/li&gt;
+&lt;li&gt;Designed for energy efficient hardware, e.g. near-sensor computation.&lt;/li&gt;
+&lt;li&gt;Have a set of 3 32-bit cores currently available, and working on a 64-bit
+Linux-capable core.&lt;/li&gt;
+&lt;li&gt;RISC&amp;amp; core has a 4-stage pipeline. RV32IM[F]C. 40.7-69.3kGE. 3.19
+CoreMark/MHz. Also has a number of extensions for packed SIMD, fixed point,
+bit manipulation and hardware loops.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

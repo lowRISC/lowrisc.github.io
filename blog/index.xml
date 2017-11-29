@@ -30,6 +30,10 @@ talks and announcements throughout the day.&lt;/p&gt;
 &lt;li&gt;Implemented in TSMC 16nm FFC. 25mm2 die area, 385M transistors&lt;/li&gt;
 &lt;li&gt;Why 511 RISC-V cores? 5 Linux-capable RV64G Rocket cores, 496-core RV32IM
 mesh tiled area &amp;ldquo;manycore&amp;rdquo;, 10-core RV32IM mesh tiled array (low voltage).&lt;/li&gt;
+&lt;li&gt;Used a flip-chip package.&lt;/li&gt;
+&lt;li&gt;Of the 5 general purpose cores, 4 connect to the manycore array and 1
+interfaces with the Binary Neural Network accelerator. Each core executes
+independently within its own address space.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

@@ -6,7 +6,7 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>Documentation &middot; lowRISC</title>
+        <title>Docs &middot; lowRISC</title>
         <link rel="stylesheet" href="http://www.lowrisc.org/css/styles.combined.min.css" />
         <link rel="shortcut icon" href="http://www.lowrisc.org/favicon.ico" />
         <link rel="alternate" href="http://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
@@ -55,108 +55,312 @@
 </div>
 
 
-
-
-
-
-
-
-
-    <div class="article">
-      <section class="outer-container">
+    <div class="container">
         <div class="row">
             <div class="sixteen columns">
-                <article class="li-article">
-                
-                    <header class="li-article-header">
-                        <h1 class="li-article-title">Documentation</h1>
-                        <span class="li-article-taxonomies">
-                            
-
-                            
-                        </span>
-                        
-                        
-                    </header>
-                    <section>
-                        
-
-<h2 id="code-releases:d680e8a854a7cbad6d490c445cba2eba">Code Releases</h2>
-
-<ul>
-<li><p><a href="http://www.lowrisc.org/docs/minion-v0.4/">lowRISC with tagged memory and minion core</a>
-<br><em>Release version 0.4, 06-2017</em>
-<br>This release provides a more complete prototype of tagged memory implementation.
-This includes the ability to define tag propagation rules and policies that control when encountering unexpected tags should raise exceptions.
-These features have been incorporated into the Rocket core.
-An optimised tag cache has also been developed in order to minimise any additional main memory traffic from the use of tags.
-A simple &ldquo;minion&rdquo; core is added to provide an SD-card interface.
-This system also supports a keyboard and provides a VGA compatible text display.
-We continue to support the Nexys4 DDR FPGA platform.
-The <a href="http://www.lowrisc.org/docs/minion-v0.4/">tutorial</a>
-outlines the build procedure and forthcoming releases that we are
-planning.</p></li>
-
-<li><p><a href="http://www.lowrisc.org/docs/debug-v0.3/">lowRISC with a trace debugger</a>
-<br><em>Release version 0.3, 07-2016</em>
-<br>In this code release we present a first prototype of the lowRISC debug
-infrastructure. It extends the <code>untethered</code> lowRISC system with the
-means to control the system, load programs and trace the software
-execution. The <a href="http://www.lowrisc.org/docs/debug-v0.3/">tutorial</a>
-outlines the debug system and the future directions we are
-planning. It demonstrates debugging with the RTL simulation and on
-the Nexys4 DDR FPGA board.</p></li>
-
-<li><p><a href="http://www.lowrisc.org/docs/untether-v0.2/">Untethered lowRISC</a>
-<br><em>Release version 0.2, 12-2015</em>
-<br>A code release providing a standalone lowRISC by <code>untethering</code> the Rocket chip.
-Cores in the original Rocket chip relies on a  companion processor to access I/O devices.
-This release repalce this companion core with actual FPGA peripherals.
-A <a href="http://www.lowrisc.org/docs/untether-v0.2/">tutorial</a> explains how to use this code release and explains the underlying structural changes.</p></li>
-
-<li><p><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/">lowRISC with tagged memory</a>
-<br> <em>Release version 0.1, 04-2015</em>
-<br>A code release builds on the Rocket RISC-V implementation to offer
-support for tagged memory (see the <a href="http://www.lowrisc.org/blog/2015/04/lowrisc-tagged-memory-preview-release">release blog post</a>). We&rsquo;ve put together an
-<a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/">extensive tutorial</a> on how to use this
-code release as well as documenting many of the changes made.</p></li>
-</ul>
-
-<h2 id="memos:d680e8a854a7cbad6d490c445cba2eba">Memos</h2>
-
-<p>Our <a href="http://www.lowrisc.org/docs/memo-2014-001-tagged-memory-and-minion-cores/">first memo</a> describes our
-plans for tagged memory and minion cores in lowRISC.</p>
-
-<h2 id="other:d680e8a854a7cbad6d490c445cba2eba">Other</h2>
-
-<p>Over the summer of 2016 we hosted a group of interns, kindly sponsored by <a href="http://www.imc.nl">IMC
-Financial Markets</a> who worked on adding custom acceleraors
-for video decoding to the lowRISC platform. This work resulted in the creation
-of several documents:</p>
-
-<ul>
-<li>A detailed <a href="http://www.lowrisc.org/docs/internship-2016/report/">report</a> on what
-was produced over the summer, what went well and what didn&rsquo;t, as well as a
-description of the accelerators.</li>
-<li>A tutorial on <a href="http://www.lowrisc.org/docs/internship-2016/accelerator-tutorial/">adding new stream processors</a> to the video accelerator
-infrastructure developed over the summer.</li>
-<li>A tutorial on <a href="http://www.lowrisc.org/docs/internship-2016/device-tutorial/">extending lowRISC with new devices</a>.</li>
-<li>A guide describing how to <a href="http://www.lowrisc.org/docs/internship-2016/video-tutorial/">recreate the video decode demo</a>.</li>
-</ul>
-
-<p>Although now over, you may be interested in our <a href="http://www.lowrisc.org/docs/gsoc-2015-ideas/">project
-idea list for Google Summer of Code 2015</a> and for <a href="http://www.lowrisc.org/docs/gsoc-2016-ideas/">GSoC 2016</a>.</p>
-
-                    </section>
-                </article>
-
+                <h1>Docs</h1>
+                <ul class="li-article-list">
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/gsoc-2017/core-lockstep/">GSoC 2017 student report: Core lockstep for minion cores</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/tagged-memory-os-enablement-internship-2017/">OS enablement for tagged memory (lowRISC Summer Internship 2017)</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/minion-v0.4/tag_lowrisc/">Tagged memory developments</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/minion-v0.4/minion/">lowRISC Minion internals</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/minion-v0.4/walkthrough/">Debug walkthrough</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/minion-v0.4/installtools/">Install FPGA and simulation tools</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/minion-v0.4/overview/">Overview of the minion infrastructure</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/minion-v0.4/environment/">Prepare the environment</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/minion-v0.4/release/">Release notes</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/minion-v0.4/fpga/">Running on the FPGA</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/minion-v0.4/">Tutorial for the v0.4 lowRISC release</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/minion-v0.4/tag_core/">Tag support in the Rocket core</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/minion-v0.4/tag_cache/">Hierarchical tag cache</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/debug-v0.3/zedboard/">Working with Zedboard</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/gsoc-2017-ideas/">lowRISC project ideas for GSoC 2017</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/internship-2016/video-tutorial/">End-to-end video decoding tutorial</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/internship-2016/device-tutorial/">Extending lowRISC with new devices</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/internship-2016/accelerator-tutorial/">Extending the video accelerator to add custom stream processors</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/internship-2016/report/">Technical report from the lowRISC Summer Internship 2016</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/debug-v0.3/add_device/">How to add a new peripherial</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/debug-v0.3/soc_struct/">Soc structure updates</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/untether-v0.2/linux_compile/">Compile the RISC-V Linux and the ramdisk `root.bin`</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/debug-v0.3/debugsession/">A debug session</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/debug-v0.3/simulation/">Connecting to RTL simulation and enumeration</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/debug-v0.3/interface/">Debug interface</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/debug-v0.3/debugmodules/">Debug modules</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/debug-v0.3/softwaremethodology/">Debug software and methodology</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/debug-v0.3/walkthrough/">Debug walkthrough</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/debug-v0.3/lowriscsetup/">Generic lowRISC setup</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/debug-v0.3/osdsoftware/">Open SoC Debug Software</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/debug-v0.3/overview/">Overview of the debug infrastructure</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/debug-v0.3/environment/">Prepare the environment</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/debug-v0.3/release/">Release notes</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/debug-v0.3/fpga/">Running on the FPGA</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/debug-v0.3/">Tutorial for the debug preview of lowRISC</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/gsoc-2016-ideas/">lowRISC project ideas for GSoC 2016</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/other/dpi/">Suggestions for using DPI with Verilator</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/untether-v0.2/dev-env/">A guide to the development environment</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/untether-v0.2/spike/">Behavioural Simulation (Spike)</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/untether-v0.2/bootload/">Bootload procedure</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/untether-v0.2/riscv_compile/">Compile and install RISC-V cross-compiler</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/untether-v0.2/parameter/">Configuration parameters</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/untether-v0.2/fpga-demo/">FPGA Demo</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/untether-v0.2/fpga-sim/">FPGA Simulation</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/untether-v0.2/verilator/">Install Verilator</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/untether-v0.2/xilinx/">Install Xilinx Vivado</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/untether-v0.2/pcr/">Memory and I/O maps, soft reset, and interrupts</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/untether-v0.2/mmio/">Memory mapped I/O (MMIO)</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/untether-v0.2/overview/">Overview of the Rocket chip</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/untether-v0.2/vsim/">RTL simulation</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/untether-v0.2/release/">Release Notes</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/untether-v0.2/rocket-core/">Rocket core overview</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/untether-v0.2/simulation/">Simulations and FPGA Demo</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/untether-v0.2/">Untethered lowRISC tutorial</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/">Documentation</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/future/">Future work</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/fpga-fesvr/">Building the front-end server</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/fpga-ramdisk/">Modifying the contents of the RAMdisk</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/fpga-bootimage/">Building the boot image from scratch</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/fpga/">Running tests on the Zedboard FPGA</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/verilog-fpga-sim/">Simulating the Verilog (FPGA target) generated by Chisel</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/verilog-asic-sim/">Simulating the Verilog (ASIC target) generated by Chisel</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/emulator/">Using the C&#43;&#43; emulator generated by Chisel</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/spike/">Running simulations using Spike</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/simulations/">Running simulations</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/setup/">A guide to setting up the development environment</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/tag-tests/">Tagged memory tests</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/new-instructions/">Adding HW/SW support for the load and store tag instructions</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/tags/">Tagged memory support</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/rocket-core/">Rocket core overview</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/rocket-chip/">Rocket chip overview</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/tagged-memory-v0.1/">lowRISC tagged memory tutorial</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/memo-2014-001-tagged-memory-and-minion-cores/">Tagged memory and minion cores in the lowRISC SoC</a></h4>
+                        </li>
+                    
+                        <li>
+                            <h4><a href="http://www.lowrisc.org/docs/gsoc-2015-ideas/">lowRISC project ideas for GSoC 2015</a></h4>
+                        </li>
+                    
+                </ul>
+            </div>
         </div>
-      </section>
     </div>
-    
-
-
-                
 
         <footer>
 

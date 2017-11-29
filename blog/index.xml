@@ -69,9 +69,16 @@ packaging, PCBs. See &lt;a href=&#34;http://bjump.org&#34;&gt;bjump.org&lt;/a&gt
 &lt;li&gt;Designed for energy efficient hardware, e.g. near-sensor computation.&lt;/li&gt;
 &lt;li&gt;Have a set of 3 32-bit cores currently available, and working on a 64-bit
 Linux-capable core.&lt;/li&gt;
-&lt;li&gt;RISC&amp;amp; core has a 4-stage pipeline. RV32IM[F]C. 40.7-69.3kGE. 3.19
+&lt;li&gt;RISCY core has a 4-stage pipeline. RV32IM[F]C. 40.7-69.3kGE. 3.19
 CoreMark/MHz. Also has a number of extensions for packed SIMD, fixed point,
 bit manipulation and hardware loops.&lt;/li&gt;
+&lt;li&gt;Zero-riscy has a 2-stage pipeline. RV32{I,E}[M]C. 11.6-18.9kGE. 2.44
+CoreMark/MHz for RV32IMC and 0.91 for RV32EC. Optimized for area.&lt;/li&gt;
+&lt;li&gt;Arian core for Linux. 6-stage pipeline, RV64IMC, 185kGE, OoE execution and
+in-order commit. 2.01 CoreMark/MHz.&lt;/li&gt;
+&lt;li&gt;Also have a set of software tools for PULP. Virtual platform, timing model.
+Have 1MIPS simulation speed with timing accuracy between 20-20% of the target
+hardware. Can also profile using kcachegrind.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

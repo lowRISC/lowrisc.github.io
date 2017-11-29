@@ -135,6 +135,15 @@ desire to match interface to be a &amp;ldquo;drop in&amp;rdquo; replacement for 
 or want to tailor microarchitecture for custom extensions. Also, may find
 Rocket is over-featured for the desigred design point.&lt;/li&gt;
 &lt;li&gt;Less good reasons: not invented here, fear of Chisel.&lt;/li&gt;
+&lt;li&gt;There are a number of pitfalls for customized cores. e.g. introducing bugs
+that have long since been avoided in Rocket.&lt;/li&gt;
+&lt;li&gt;Avoid reusing either too little or too much. Can reuse individual components
+without using the top-level rocket-chip framework at all. Stitch together
+individual components.&lt;/li&gt;
+&lt;li&gt;The &amp;ldquo;big 3&amp;rdquo; components: CSR file, decoder, RISC-V compressed (RVC) expander.&lt;/li&gt;
+&lt;li&gt;produced a new RISC-V core IP: &amp;ldquo;BottleRocket&amp;rdquo;. This has a classic
+three-stage pipeline with a similar microarchitecture to Z-Scale and V-Scale.
+Implements RV32IMC. The generator produces a single, easy to connect tile.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

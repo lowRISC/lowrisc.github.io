@@ -416,6 +416,11 @@ e.g. a profile for &amp;ldquo;internet&amp;rdquo;, &amp;ldquo;finance&amp;rdquo;
 &lt;li&gt;Richard is giving a great summary of implementing various crypto algorithms
 using the proposed crypto extensions, but unfortunately it&amp;rsquo;s difficult to
 summarise the information presented in these diagrams.&lt;/li&gt;
+&lt;li&gt;Expect a huge speedup vs the ARM Cortex-M3 for an appropriate RV32IVY
+implementation (though very dependent on the hardware that is implemented).&lt;/li&gt;
+&lt;li&gt;Performed a case study using WalnutDSA signature verification, developed by
+SecureRF. Saw a 3x speedup with crypto extensions vs without crypto
+extensions.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

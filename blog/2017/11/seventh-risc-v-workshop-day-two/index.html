@@ -501,6 +501,11 @@ than 1% of silicon area (20K gates).</li>
 <li>Implement RV32IC with machine and user modes. 2-stage pipeline with a local
 ROM And RAM. The IRAM can only hold signed code, is fetch-only, and is locked
 after authentication.</li>
+<li>Security RV32 runs signed firmware in user mode, and only executes from
+hardwired ROM in machine mode.</li>
+<li>Suppose you have Zephyr running on Rocket, using TinyCrypt as the crypto
+API. Replace TinyCrypt on Rocket with a call to an API running on the Secure
+RV32.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

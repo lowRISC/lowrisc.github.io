@@ -498,6 +498,9 @@ crypto engines, secure fabric, as well as software.</li>
 <li>Add a security CPU to provide an isolated execution environment. It&rsquo;s easier
 to verify the separation between secure and non-secure actions. Costs less
 than 1% of silicon area (20K gates).</li>
+<li>Implement RV32IC with machine and user modes. 2-stage pipeline with a local
+ROM And RAM. The IRAM can only hold signed code, is fetch-only, and is locked
+after authentication.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

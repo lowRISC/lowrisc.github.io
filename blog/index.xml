@@ -565,6 +565,15 @@ here&lt;/a&gt;. Comments and
 collaborators are encouraged!&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;extending-teh-16-gpr-standard-beyond-rv32e-mitch-hayenga:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;Extending teh 16 GPR standard beyond RV32E: Mitch Hayenga&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Motivation: Register file area/power/latency is critical to any processor.&lt;br /&gt;
+Large register files help with static code scheduling, but wide issue
+out-of-order processors have the potential to hide register spill latency and
+issue bandwidth.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

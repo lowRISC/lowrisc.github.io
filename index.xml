@@ -127,6 +127,16 @@ joining Esperanto Technologies, but is committed to maintain the BOOM
 open-soruce repository.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;rocket-engines-easy-custom-risc-v-cores-through-reuse-albert-magyar:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;Rocket Engines. Easy, custom RISC-V cores through reuse: Albert Magyar&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Why are there so many RISC-V cores (or: why not reuse rocket?). Often a
+desire to match interface to be a &amp;ldquo;drop in&amp;rdquo; replacement for an existing core,
+or want to tailor microarchitecture for custom extensions. Also, may find
+Rocket is over-featured for the desigred design point.&lt;/li&gt;
+&lt;li&gt;Less good reasons: not invented here, fear of Chisel.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

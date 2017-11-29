@@ -665,6 +665,16 @@ The register arrangement and documentation is automated.&lt;/li&gt;
 currently runs on Spike.&lt;/li&gt;
 &lt;li&gt;MyNewt: RISC-V support was already available, added the BSP and MCU/HAL
 support.&lt;/li&gt;
+&lt;li&gt;LiteOs: ported the kernel, BSP, and HAL. Aready merged into upstream LiteOS
+GitHub.&lt;/li&gt;
+&lt;li&gt;Had a positive experience with RISC-V.&lt;/li&gt;
+&lt;li&gt;Mi-V is an ecosystem that aims to accelerate the adoption of RISC-V.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;risc-v-poster-preview:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;RISC-V poster preview&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;This is too rapid fire to summarise, sorry!&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

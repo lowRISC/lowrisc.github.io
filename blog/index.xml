@@ -595,6 +595,23 @@ This is impractical with the current RISC-V register file size requirements&lt;/
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;using-pyrope-to-create-transformable-risc-v-architectures-haven-skinner:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;Using Pyrope to create transformable RISC-V architectures: Haven Skinner&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Hardware design is difficult. You need multiple codebases (cycle accurate,
+high level simulation, verification reference model). Also need to adjust
+pipeline stages and verify the hardware.&lt;/li&gt;
+&lt;li&gt;A new HDL (Pyrope) can help!&lt;/li&gt;
+&lt;li&gt;Fluid pipelines are the &amp;ldquo;hammer&amp;rdquo; used to address design complexity. Fluid
+pipeline transformations change the number of stages as part of the compile
+flow.&lt;/li&gt;
+&lt;li&gt;A fluid pipeline has valid/stop signals, and pipeline stages should tolerate
+random delays.&lt;/li&gt;
+&lt;li&gt;Collapsing stages was useful in order to build an emulator out of a RISC-V
+fluid core. Can also change the number of pipeline stages automatically, and
+perform formal verification.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

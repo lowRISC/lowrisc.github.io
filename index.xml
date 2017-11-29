@@ -146,6 +146,15 @@ three-stage pipeline with a similar microarchitecture to Z-Scale and V-Scale.
 Implements RV32IMC. The generator produces a single, easy to connect tile.&lt;/li&gt;
 &lt;li&gt;Supports debug, test, platform features: 0.13 debug spec, RVFI trace port,
 external interrupt controller.&lt;/li&gt;
+&lt;li&gt;The open sourcing effort is underway, as is the integration with
+riscv-formal.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;a-perspective-on-the-role-of-open-source-ip-in-government-electronic-systems-linton-salmon:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;A Perspective on the Role of Open-Source IP in Government Electronic Systems: Linton Salmon&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The USD Department of Defence (DoD) needs custom SoCs. Custom ICs are
+necessary to reach the target GOps/W.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

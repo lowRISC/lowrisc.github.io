@@ -406,6 +406,16 @@ allow larger widths or non-power-of-two widths.&lt;/li&gt;
 &lt;li&gt;Intend to use just one major opcode for the cryptographic extension.&lt;/li&gt;
 &lt;li&gt;Richard presented a handy slide summarising the algorithms used in crypto
 suites / libraries. Be sure to check it out once the slides become available!&lt;/li&gt;
+&lt;li&gt;Proposing to define profiles that define the required crypto algorithms.
+e.g. a profile for &amp;ldquo;internet&amp;rdquo;, &amp;ldquo;finance&amp;rdquo;, and &amp;ldquo;cellular&amp;rdquo;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;using-proposed-vector-and-crypto-extensions-for-fast-and-secure-boot-richard-newell:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;Using proposed vector and crypto extensions for fast and secure boot: Richard Newell&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Richard is giving a great summary of implementing various crypto algorithms
+using the proposed crypto extensions, but unfortunately it&amp;rsquo;s difficult to
+summarise the information presented in these diagrams.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

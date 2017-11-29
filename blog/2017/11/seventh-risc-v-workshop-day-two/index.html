@@ -103,8 +103,17 @@ independently within its own address space.</li>
 <li>The BaseJump manycore architecture implements the RV32IM with a 5-stage
 pipeline (full forwarded, in-order, single issue). It has 4KB+4KB instruction
 and data scratchpads.</li>
-<li>BaseJump Manycore Mesh Network: stores are routed based on the destination.<br />
+<li>BaseJump Manycore Mesh Network: stores are routed based on the destination.
 Simple XY-dimension routing.</li>
+<li>Each Rocket core has its own RoCC interface connecting to one of the routers
+in the mesh.</li>
+<li>Uses a remote store programming model, which enables efficent
+producer-consumer programming models. Offer extended instructions such as load
+reserved (load value and set the reservation address),
+load-on-broken-reservation (stall if the reserved address wasn&rsquo;t written by
+other cores), and a consumer instruction to wait on a given address/valud. No
+polling or interrupts are required.</li>
+<li>Currently working on CUDA support.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

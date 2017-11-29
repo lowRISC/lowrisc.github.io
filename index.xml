@@ -34,6 +34,20 @@ mesh tiled area &amp;ldquo;manycore&amp;rdquo;, 10-core RV32IM mesh tiled array 
 &lt;li&gt;Of the 5 general purpose cores, 4 connect to the manycore array and 1
 interfaces with the Binary Neural Network accelerator. Each core executes
 independently within its own address space.&lt;/li&gt;
+&lt;li&gt;The BaseJump manycore architecture implements the RV32IM with a 5-stage
+pipeline (full forwarded, in-order, single issue). It has 4KB+4KB instruction
+and data scratchpads.&lt;/li&gt;
+&lt;li&gt;BaseJump Manycore Mesh Network: stores are routed based on the destination.
+Simple XY-dimension routing.&lt;/li&gt;
+&lt;li&gt;Each Rocket core has its own RoCC interface connecting to one of the routers
+in the mesh.&lt;/li&gt;
+&lt;li&gt;Uses a remote store programming model, which enables efficent
+producer-consumer programming models. Offer extended instructions such as load
+reserved (load value and set the reservation address),
+load-on-broken-reservation (stall if the reserved address wasn&amp;rsquo;t written by
+other cores), and a consumer instruction to wait on a given address/valud. No
+polling or interrupts are required.&lt;/li&gt;
+&lt;li&gt;Currently working on CUDA support.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

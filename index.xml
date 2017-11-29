@@ -154,7 +154,15 @@ riscv-formal.&lt;/li&gt;
 
 &lt;ul&gt;
 &lt;li&gt;The USD Department of Defence (DoD) needs custom SoCs. Custom ICs are
-necessary to reach the target GOps/W.&lt;/li&gt;
+necessary to reach the target GOps/W. Computation requirements keep growing,
+and real-time results are often required.&lt;/li&gt;
+&lt;li&gt;Current DoD architectures often use older technology nodes. Now moving
+towards newer technolgy nodes (28nm and below).&lt;/li&gt;
+&lt;li&gt;Most of the cost for DoD custom SoCs is in design. Typically low volume (1k
+parts). For small volume, find design costs 92%, fab NRE 7%, 1% production
+costs.&lt;/li&gt;
+&lt;li&gt;Design cost are skyrocketing, increasingly dramtically with each technology
+node. This is a huge problem for the low volume DoD designs.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

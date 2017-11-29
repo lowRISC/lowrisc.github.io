@@ -277,6 +277,44 @@ composability and deadlock freedom.&lt;/li&gt;
 cores, crossbars and adapters. Has a coherency manager similar to how ACE does
 snooping. Also have bridges to AXI/AHB/APB&lt;/li&gt;
 &lt;li&gt;SiFive chips use a banked directory-based wormhole MESI L2$.&lt;/li&gt;
+&lt;li&gt;There are a few simplifying assumptions that make the protocol easier to
+work with.
+
+&lt;ul&gt;
+&lt;li&gt;Require there are no agent loops, i.e. the bus participants (agents) form
+a directed acyclic graph.&lt;/li&gt;
+&lt;li&gt;There are strict priorities. Messages have one of five priorities, and
+lower priority messages never block higher priority messages. Responses have
+a higher priority than requests.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;The on-chip TileLink wire protocol uses an independent channel for each
+message priority. Messages are transmitted using multi-beat bursts. Use
+ready-valid.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;the-risc-v-vector-isa-roger-espasa:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;The RISC-V Vector ISA: Roger Espasa&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Why a vector extension? Reduce instruction bandwidth, reduce memory
+bandwidth, lower energy, exposes DLP, masked execution, gather/scatter.
+Scalable from small to large vector processing unit.&lt;/li&gt;
+&lt;li&gt;The vector ISA in a nutshell
+
+&lt;ul&gt;
+&lt;li&gt;32 vector registers. Eachcan hold either a scalar, vector, or a matrix
+(shape). Each has an associated type (polymorphic encoding). There are a
+variable number of registers (dynamically changeable).&lt;/li&gt;
+&lt;li&gt;Vector instruction semantics: all instructions are controlled by the
+Vector Length (VL) register and can be executed under mask. Precise
+exceptions are supported.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Suppose you&amp;rsquo;re adding two vector registers: &lt;code&gt;vadd v1, v2 -&amp;gt; v0&lt;/code&gt;. If the
+vector length is less than maximum vector length, the remaining values must be
+zeroed.&lt;/li&gt;
+&lt;li&gt;You could implement this how you like. Might choose to have a 2-lane
+implementation (two FP adders), or 4-lane, or even 8-lane (SIMD, doing all in
+one cycle). The number of lanes is transparent to the programmer and the same
+code runs independent of the number of lanes.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

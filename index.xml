@@ -478,6 +478,9 @@ invariants.&lt;/li&gt;
 composing them.&lt;/li&gt;
 &lt;li&gt;Want to avoid starting over for each design. Instead prove a property once
 for all parameters.&lt;/li&gt;
+&lt;li&gt;Kami is a framework to support implementing, specifying, formally verifying,
+and compiling hardware designs. It is based on the Bluespec high-level
+hardware design language and the Coq proof assistant.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

@@ -423,6 +423,12 @@ SecureRF. Saw a 3x speedup with crypto extensions vs without crypto
 extensions.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;using-risc-v-as-a-security-processor-for-darpa-chips-and-commercial-iot-mark-beal:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;Using RISC-V as a security processor for DARPA CHIPS and Commercial IoT: Mark Beal&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;This talk is about leveraging RISC-V to deliver integrated hw/sw silicon IP.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

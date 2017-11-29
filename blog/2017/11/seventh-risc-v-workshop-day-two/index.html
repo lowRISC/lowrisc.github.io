@@ -381,6 +381,46 @@ zeroed.</li>
 implementation (two FP adders), or 4-lane, or even 8-lane (SIMD, doing all in
 one cycle). The number of lanes is transparent to the programmer and the same
 code runs independent of the number of lanes.</li>
+<li>Data inside a VREG could be a single scalar value, a vector, or a matrix
+(optionally). The current shape is held in the per-vreg type field.
+
+<ul>
+<li>e.g. <code>vadd v1, v2.s -&gt; v0</code>. This adds the scalar value in v2 to every
+value in vector v1.</li>
+</ul></li>
+<li>Masks are stored in regular vector registers (i.e. there will not be
+separate mask registers). Masks are computed with compare operations, and
+instructions use 2 bits of encoding to select masked execution.
+
+<ul>
+<li>e.g. <code>vadd v3, v4, v1.t -&gt; v5</code>.</li>
+<li>v1 is the only register used as mask source.</li>
+</ul></li>
+<li>Vector load (unit stride). <code>vld 80(x3) -&gt; v5</code> will Vector Length elements.</li>
+<li>Stride vector load. <code>vlds 80(x3, x9) -&gt; v5</code> performs a strided load.</li>
+<li>Gather (indexed vector load). <code>vldx 80(x3, v2) -&gt; v5</code>. This uses a vector to
+hold offsets. Repeated addresses are legal.</li>
+<li>Vector store: <code>vst v5 -&gt; 80(x3)</code>. Note that zeroes won&rsquo;t be written when MVL
+is larger than the vector length.</li>
+<li>Scatter (indexed vector store). <code>vstx v5 -&gt; 80(x3, v2)</code>. Will probably have
+two version of scatter, where one has guarantees about the ordering or stores
+to repeated addresses.</li>
+<li>Ordering:
+
+<ul>
+<li>From the point of view of a given hart, vector loads and stores happen in
+order. You don&rsquo;t need any fences to see your own stores.</li>
+<li>From the point of view of other harts, see the vector memory accesses as
+if done by a scalar loop. This means they can be seen out-of-order by other
+harts.</li>
+</ul></li>
+<li>Typed vector registers:
+
+<ul>
+<li>Each vector register has an associated type, which can be different for
+different registers.</li>
+<li>Types can be mixed in an instruction under certain rules.</li>
+</ul></li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

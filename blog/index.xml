@@ -315,6 +315,46 @@ zeroed.&lt;/li&gt;
 implementation (two FP adders), or 4-lane, or even 8-lane (SIMD, doing all in
 one cycle). The number of lanes is transparent to the programmer and the same
 code runs independent of the number of lanes.&lt;/li&gt;
+&lt;li&gt;Data inside a VREG could be a single scalar value, a vector, or a matrix
+(optionally). The current shape is held in the per-vreg type field.
+
+&lt;ul&gt;
+&lt;li&gt;e.g. &lt;code&gt;vadd v1, v2.s -&amp;gt; v0&lt;/code&gt;. This adds the scalar value in v2 to every
+value in vector v1.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Masks are stored in regular vector registers (i.e. there will not be
+separate mask registers). Masks are computed with compare operations, and
+instructions use 2 bits of encoding to select masked execution.
+
+&lt;ul&gt;
+&lt;li&gt;e.g. &lt;code&gt;vadd v3, v4, v1.t -&amp;gt; v5&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;v1 is the only register used as mask source.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Vector load (unit stride). &lt;code&gt;vld 80(x3) -&amp;gt; v5&lt;/code&gt; will Vector Length elements.&lt;/li&gt;
+&lt;li&gt;Stride vector load. &lt;code&gt;vlds 80(x3, x9) -&amp;gt; v5&lt;/code&gt; performs a strided load.&lt;/li&gt;
+&lt;li&gt;Gather (indexed vector load). &lt;code&gt;vldx 80(x3, v2) -&amp;gt; v5&lt;/code&gt;. This uses a vector to
+hold offsets. Repeated addresses are legal.&lt;/li&gt;
+&lt;li&gt;Vector store: &lt;code&gt;vst v5 -&amp;gt; 80(x3)&lt;/code&gt;. Note that zeroes won&amp;rsquo;t be written when MVL
+is larger than the vector length.&lt;/li&gt;
+&lt;li&gt;Scatter (indexed vector store). &lt;code&gt;vstx v5 -&amp;gt; 80(x3, v2)&lt;/code&gt;. Will probably have
+two version of scatter, where one has guarantees about the ordering or stores
+to repeated addresses.&lt;/li&gt;
+&lt;li&gt;Ordering:
+
+&lt;ul&gt;
+&lt;li&gt;From the point of view of a given hart, vector loads and stores happen in
+order. You don&amp;rsquo;t need any fences to see your own stores.&lt;/li&gt;
+&lt;li&gt;From the point of view of other harts, see the vector memory accesses as
+if done by a scalar loop. This means they can be seen out-of-order by other
+harts.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Typed vector registers:
+
+&lt;ul&gt;
+&lt;li&gt;Each vector register has an associated type, which can be different for
+different registers.&lt;/li&gt;
+&lt;li&gt;Types can be mixed in an instruction under certain rules.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

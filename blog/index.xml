@@ -510,6 +510,27 @@ verified accelerators.&lt;/li&gt;
 
 &lt;ul&gt;
 &lt;li&gt;The industry is looking to FPGAs to help accelerate cloud workloads.&lt;/li&gt;
+&lt;li&gt;Software challenge is how to map you multithreaded C++ app to your
+accelerator. On the hardware side, you want to avoid endless tapeouts as you
+tweak your algorithm.&lt;/li&gt;
+&lt;li&gt;GRVI Phalanx Accelerator Kit is a parallel processor overlay for
+software-first accelerators. Recompile your application and run on hundreds of
+RISC-V cores.&lt;/li&gt;
+&lt;li&gt;GRVI: FPGA-efficient RISC-V processing element. No CSRs or exceptions, but
+does implement mul and lr/sc.
+
+&lt;ul&gt;
+&lt;li&gt;3-stage pipeline with some resources shared by a pair of cores. Fits in
+320 LUTs.&lt;/li&gt;
+&lt;li&gt;Take 8 of these and connect to form a cluster (8PEs, shared RAM). Takes
+approximately 3500 LUTs.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Compose cores using message passing on the FPGA-optimised Hoplite NoC.&lt;/li&gt;
+&lt;li&gt;Use a partitioned global address space (PGAS).&lt;/li&gt;
+&lt;li&gt;Phalanx: fabric of clusters of PEs, memories, IOs&lt;/li&gt;
+&lt;li&gt;FPGAs used in the AWS F1 are huge, over 1.3M LUTs. Last December, fit 1680
+RISC-V cores on that FPGA. 250MHz, 420GIPS, 2.5TB/s cluster memory bandwidth,
+&amp;hellip;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

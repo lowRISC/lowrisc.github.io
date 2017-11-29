@@ -26,6 +26,10 @@ talks and announcements throughout the day.&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Built in only 9 months.&lt;/li&gt;
+&lt;li&gt;Celerity is an accelerator-centric SoC with a tiered accelertor fabric.&lt;/li&gt;
+&lt;li&gt;Implemented in TSMC 16nm FFC. 25mm2 die area, 385M transistors&lt;/li&gt;
+&lt;li&gt;Why 511 RISC-V cores? 5 Linux-capable RV64G Rocket cores, 496-core RV32IM
+mesh tiled area &amp;ldquo;manycore&amp;rdquo;, 10-core RV32IM mesh tiled array (low voltage).&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

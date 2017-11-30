@@ -547,7 +547,38 @@ excellent RISC-V ecosystem.&lt;/li&gt;
 &lt;ul&gt;
 &lt;li&gt;Neural networks can be used to replace computation-intensive but
 error-resilient code.&lt;/li&gt;
-&lt;li&gt;Connected a tightly-coupled neural accelerator through the RoCC interface.&lt;/li&gt;
+&lt;li&gt;Connected a tightly-coupled neural accelerator to a Rocket core through the
+RoCC interface.&lt;/li&gt;
+&lt;li&gt;Extended the instruction set. Added NPE instructions for neural accelerator
+initialisation and invocation. Also DMA instructions for data initialization
+in a buffer. Finally, AGU instructions for data streaming from buffer to
+processing elements.&lt;/li&gt;
+&lt;li&gt;The Neural Accelerator is a one-dimensional systolic array.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;lacore-a-risc-v-based-linear-algebra-accelerator-for-soc-designs-samuel-steffi:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;Lacore: A RISC-V based linear algebra accelerator for SoC designs: Samuel Steffi&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Linear algebra is a foundation of high performance computing.&lt;/li&gt;
+&lt;li&gt;Most HPC apps can be reduced to a handful of computation classes:
+sparse/dense linear algebra, FFT, structured/unstructured grids. These all
+have overlap with linear algebra.&lt;/li&gt;
+&lt;li&gt;LACore targets a wide range of applications and tries to overcome hardware
+issues of other approaches (GPU, fixed-function accelerators).&lt;/li&gt;
+&lt;li&gt;Five main pieces in the LACore additions to the scalar SCPU
+
+&lt;ul&gt;
+&lt;li&gt;LAExecUnit: mixed-precision systolic datapath connected to LAMemUnits with
+FIFOs. 3 inputs and 1 output, dual precision (32 and 64-bit). Datapath
+consists of a vector unit and a reduction unit.&lt;/li&gt;
+&lt;li&gt;LAMemUnits: read and write data-streams to the datapath FIFOs and
+LACache/Scratchpad. Can read or write scalars, vectors, matrices, and sparse
+matrices.&lt;/li&gt;
+&lt;li&gt;LAcfg provides configuration to LAMemUnits. These registers hold all info
+about data-stream type, precision, location etc.&lt;/li&gt;
+&lt;li&gt;64kb scratchpad&lt;/li&gt;
+&lt;li&gt;64kb LACache with 4 ports and 16 banks&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

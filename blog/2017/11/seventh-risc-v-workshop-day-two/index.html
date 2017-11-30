@@ -613,7 +613,38 @@ excellent RISC-V ecosystem.</li>
 <ul>
 <li>Neural networks can be used to replace computation-intensive but
 error-resilient code.</li>
-<li>Connected a tightly-coupled neural accelerator through the RoCC interface.</li>
+<li>Connected a tightly-coupled neural accelerator to a Rocket core through the
+RoCC interface.</li>
+<li>Extended the instruction set. Added NPE instructions for neural accelerator
+initialisation and invocation. Also DMA instructions for data initialization
+in a buffer. Finally, AGU instructions for data streaming from buffer to
+processing elements.</li>
+<li>The Neural Accelerator is a one-dimensional systolic array.</li>
+</ul>
+
+<h2 id="lacore-a-risc-v-based-linear-algebra-accelerator-for-soc-designs-samuel-steffi:b3d82df2c32815668820ecff5dcd0b9a">Lacore: A RISC-V based linear algebra accelerator for SoC designs: Samuel Steffi</h2>
+
+<ul>
+<li>Linear algebra is a foundation of high performance computing.</li>
+<li>Most HPC apps can be reduced to a handful of computation classes:
+sparse/dense linear algebra, FFT, structured/unstructured grids. These all
+have overlap with linear algebra.</li>
+<li>LACore targets a wide range of applications and tries to overcome hardware
+issues of other approaches (GPU, fixed-function accelerators).</li>
+<li>Five main pieces in the LACore additions to the scalar SCPU
+
+<ul>
+<li>LAExecUnit: mixed-precision systolic datapath connected to LAMemUnits with
+FIFOs. 3 inputs and 1 output, dual precision (32 and 64-bit). Datapath
+consists of a vector unit and a reduction unit.</li>
+<li>LAMemUnits: read and write data-streams to the datapath FIFOs and
+LACache/Scratchpad. Can read or write scalars, vectors, matrices, and sparse
+matrices.</li>
+<li>LAcfg provides configuration to LAMemUnits. These registers hold all info
+about data-stream type, precision, location etc.</li>
+<li>64kb scratchpad</li>
+<li>64kb LACache with 4 ports and 16 banks</li>
+</ul></li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

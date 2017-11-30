@@ -660,6 +660,27 @@ with 2 streaming multiprocessors. LACore saw a speedup of 3.43x over x86,
 ASIC implementation and eventual tapeout.</li>
 </ul>
 
+<h2 id="packet-manipulation-processor-a-risc-v-vliw-core-for-networking-applications-salvatore-pontarelli:b3d82df2c32815668820ecff5dcd0b9a">Packet manipulation processor. A RISC-v VLIW core for networking applications: Salvatore Pontarelli</h2>
+
+<ul>
+<li>Network &ldquo;softwareization&rdquo; is seen as the optimal solution to design next
+generation network infrastructures, services, and applications.</li>
+<li>Want high speed: 100-200Gbps (as achievable with FPGAs and network
+processors) and beyond, 5Tbps as achievable with programmable forwarding
+dataplanes.</li>
+<li>Propose an architecture where programmable forwarding dataplanes are
+augmented with a PMP (packet manipulation processor)</li>
+<li>Design a small, efficient CPU for packet manipulation. Deploy the PMP at the
+output port. Want to process packets at 10/40Gbps.</li>
+<li>Possible programmable actions: inband packet reply, custom tunneling,
+NAT/PNAT.</li>
+<li>The PMP has a small instruction memory (typically need less than 8K
+insructions). Small data memory (8KB). Flat memory, no cache hierarchy.</li>
+<li>PMP throughput: 10Gbps is 14.88Mpps, 67 clock cycles at 1GHz. A multi-core
+CPU is one approach, but has challenges regarding the reordering of packets.
+Pursue a VLIW solution instead.</li>
+</ul>
+
 <p><em>Alex Bradbury</em></p>
 
                     </section>

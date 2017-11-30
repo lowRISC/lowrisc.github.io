@@ -576,9 +576,22 @@ LACache/Scratchpad. Can read or write scalars, vectors, matrices, and sparse
 matrices.&lt;/li&gt;
 &lt;li&gt;LAcfg provides configuration to LAMemUnits. These registers hold all info
 about data-stream type, precision, location etc.&lt;/li&gt;
-&lt;li&gt;64kb scratchpad&lt;/li&gt;
-&lt;li&gt;64kb LACache with 4 ports and 16 banks&lt;/li&gt;
+&lt;li&gt;64kb scratchpad (3r1w).&lt;/li&gt;
+&lt;li&gt;64kb LACache with 4 ports (3r1w) and 16 banks&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Adding 68 new instructions, broadly split into 3 classes: configuration,
+data movement, and execution.&lt;/li&gt;
+&lt;li&gt;The LACoreAPI allows the accelerator to be programmed.&lt;/li&gt;
+&lt;li&gt;Started by implementing in gem5. This was ~25kloc of C++ and Python.&lt;/li&gt;
+&lt;li&gt;Implemented the HPC Challenge (HPCC) benchmark suite. Compared versus a
+in-order RISC-V core, superscalar x86 core with SSE2, and equivalent Fermi GPU
+with 2 streaming multiprocessors. LACore saw a speedup of 3.43x over x86,
+10.72x vs baseline RISC-V, and 12.04 vs the GPU baseline.&lt;/li&gt;
+&lt;li&gt;Estimated area is only 2.53x the area of a single RISC-V scalar CPU and
+0.60x the area of the equivalent GPU.&lt;/li&gt;
+&lt;li&gt;Freely available &lt;a href=&#34;https://github.com/scale-lab/la-core&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Currently working a LACore multi-core design and evaluation, as well as an
+ASIC implementation and eventual tapeout.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

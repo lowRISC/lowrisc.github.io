@@ -542,6 +542,14 @@ an OpenCL-based solution. Use the new &amp;lsquo;SDAccell for RTL&amp;rsquo;.&lt
 excellent RISC-V ecosystem.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;a-tightly-coupled-light-weight-neural-network-processing-unit-with-risc-v-core-lei-zhang:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;A tightly-coupled light-weight neural network processing unit with RISC-V Core: Lei Zhang&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Neural networks can be used to replace computation-intensive but
+error-resilient code.&lt;/li&gt;
+&lt;li&gt;Connected a tightly-coupled neural accelerator through the RoCC interface.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

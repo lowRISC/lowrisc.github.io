@@ -107,7 +107,7 @@ and data scratchpads.</li>
 Simple XY-dimension routing.</li>
 <li>Each Rocket core has its own RoCC interface connecting to one of the routers
 in the mesh.</li>
-<li>Uses a remote store programming model, which enables efficent
+<li>Uses a remote store programming model, which enables efficient
 producer-consumer programming models. Offer extended instructions such as load
 reserved (load value and set the reservation address),
 load-on-broken-reservation (stall if the reserved address wasn&rsquo;t written by
@@ -123,7 +123,7 @@ program to orchestrate sending weights to the specialization tier via a
 hardware FIFO.</li>
 <li>All code available at <a href="http://opencelerity.org">opencelerity.org</a>.</li>
 <li>Want to build the &ldquo;DNA&rdquo; for open source ASICs. i.e. the basic components
-needs for building a full system, spanneing RTL, IP cores, hardware emulation,
+needs for building a full system, spanning RTL, IP cores, hardware emulation,
 packaging, PCBs. See <a href="http://bjump.org">bjump.org</a>.</li>
 <li>The BaseJump STL contains several hundred modules, all parameterised.</li>
 </ul>
@@ -227,7 +227,7 @@ towards newer technology nodes (28nm and below).</li>
 <li>Most of the cost for DoD custom SoCs is in design. Typically low volume (1k
 parts). For small volume, find design costs 92%, fab NRE 7%, 1% production
 costs.</li>
-<li>Design cost are skyrocketing, increasingly dramtically with each technology
+<li>Design cost are skyrocketing, increasingly dramatically with each technology
 node. This is a huge problem for the low volume DoD designs.</li>
 <li>Is open source IP the answer? The good news is that it can sharply reduce
 resources, time and complexity or a DoD custom SoC design. Open source IP
@@ -367,7 +367,7 @@ Scalable from small to large vector processing unit.</li>
 <li>The vector ISA in a nutshell
 
 <ul>
-<li>32 vector registers. Eachcan hold either a scalar, vector, or a matrix
+<li>32 vector registers. Each can hold either a scalar, vector, or a matrix
 (shape). Each has an associated type (polymorphic encoding). There are a
 variable number of registers (dynamically changeable).</li>
 <li>Vector instruction semantics: all instructions are controlled by the
@@ -512,7 +512,7 @@ RV32.</li>
 
 <ul>
 <li>A formal spec is a key requirement to be able to definitively answer
-questions about cmpiler correctness and implementation correctness. e.g. will
+questions about compiler correctness and implementation correctness. e.g. will
 executing this RISC-V program on this implementation produce correct results?<br />
 For all RISC-V programs?</li>
 <li>Clifford Wolf has demonstrated the value of formal spaces in identifying
@@ -675,7 +675,7 @@ output port. Want to process packets at 10/40Gbps.</li>
 <li>Possible programmable actions: inband packet reply, custom tunneling,
 NAT/PNAT.</li>
 <li>The PMP has a small instruction memory (typically need less than 8K
-insructions). Small data memory (8KB). Flat memory, no cache hierarchy.</li>
+instructions). Small data memory (8KB). Flat memory, no cache hierarchy.</li>
 <li>PMP throughput: 10Gbps is 14.88Mpps, 67 clock cycles at 1GHz. A multi-core
 CPU is one approach, but has challenges regarding the reordering of packets.
 Pursue a VLIW solution instead.</li>
@@ -699,10 +699,10 @@ pipelined, less than 2000 4LUTs.</li>
 <li>Added streaming vector extensions and binary CNN accelerator.</li>
 <li>The streaming vector instructions (SVE) operate only on stream memory. Add
 streaming version of all the base RV32 integer operations, multiply
-instructions. Add in some extra insructions such as mov, conditional move,
+instructions. Add in some extra instructions such as mov, conditional move,
 comparisons, and vector control instructions. Packed SIMD can be supported
 naturally with this approach to vectors.</li>
-<li>Would also lke to add an extra SVE extension for DMA.</li>
+<li>Would also like to add an extra SVE extension for DMA.</li>
 <li>SVE has a base 32-bit encoding, as well an extended 64-bit encoding.</li>
 <li>Can redirect the data to a domain-specific streaming pipeline.</li>
 <li>4852 4-input LUTs for the whole solution.</li>
@@ -782,7 +782,7 @@ machines. These are describes via a structure and states are named.</li>
 <li>Modelling L1/L2 cache configuration register writes/reads</li>
 <li>&hellip;</li>
 </ul></li>
-<li>U54-MC QEMU hasn&rsquo;t yer been upstreamed to the main RISC-V QEMU githu repo
+<li>U54-MC QEMU hasn&rsquo;t yer been upstreamed to the main RISC-V QEMU github repo
 yet.</li>
 <li>Can boot Linux to console and interact, but it&rsquo;s a little slow (takes about
 15 minutes).</li>

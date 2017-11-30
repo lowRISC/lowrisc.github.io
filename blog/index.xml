@@ -917,7 +917,7 @@ instructions. Would be good to continue to expand this to cover reference
 hardware implementations.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;risc-v-hyupervisor-extension-andrew-waterman:c2b101a090d7cc5ec0df656eac1944a4&#34;&gt;RISC-V Hyupervisor Extension: Andrew Waterman&lt;/h2&gt;
+&lt;h2 id=&#34;risc-v-hypervisor-extension-andrew-waterman:c2b101a090d7cc5ec0df656eac1944a4&#34;&gt;RISC-V Hypervisor Extension: Andrew Waterman&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Presenting work with extensive contributions from Paolo Bonzini and John

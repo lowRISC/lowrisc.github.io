@@ -690,6 +690,39 @@ modular building blocks.&lt;/li&gt;
 &lt;li&gt;The platform description format is human readable, modular, and extendible.&lt;/li&gt;
 &lt;li&gt;Worked with Microsemi to support the Mi-V platform, integrate with
 SoftConsole IDE, and support Windows as a first-class platform.&lt;/li&gt;
+&lt;li&gt;Renode supports a range of handy features, such as fault injection,
+record/replay, and more.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;qemu-based-hardware-modelling-of-a-multi-hard-risc-v-soc-daire-mcnamara:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;QEMU-based hardware modelling of a multi-hard RISC-V SoC: Daire McNamara&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Wanted to explore have separate execution contexts on the same SoC that are
+free from interference (e.g. one core running an RTOS, while others run a
+general purpose OS).&lt;/li&gt;
+&lt;li&gt;In the SiFive Unleashed platform, the E51 provides services for other U54
+harts.&lt;/li&gt;
+&lt;li&gt;E51 services/peripheral drivers are implemented as event-driven state
+machines. These are describes via a structure and states are named.&lt;/li&gt;
+&lt;li&gt;Needed an emulator to model all of this.&lt;/li&gt;
+&lt;li&gt;Modified RISC-V QEMU:
+
+&lt;ul&gt;
+&lt;li&gt;Updated privileged spec support.&lt;/li&gt;
+&lt;li&gt;Hart synchronisation (IPIs)&lt;/li&gt;
+&lt;li&gt;Modelling physical memory protection&lt;/li&gt;
+&lt;li&gt;PLIC, CLINT, local interrupts&lt;/li&gt;
+&lt;li&gt;Support for managing contexts of multiple harts&lt;/li&gt;
+&lt;li&gt;Modelling L1/L2 cache configuration register writes/reads&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;U54-MC QEMU hasn&amp;rsquo;t yer been upstreamed to the main RISC-V QEMU githu repo
+yet.&lt;/li&gt;
+&lt;li&gt;Can boot Linux to console and interact, but it&amp;rsquo;s a little slow (takes about
+15 minutes).&lt;/li&gt;
+&lt;li&gt;Future plans: improve speed, add vectorisation for local interrupts, device
+tree support, QOM, remote control of real hardware. Finally, clean up and
+upstream.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

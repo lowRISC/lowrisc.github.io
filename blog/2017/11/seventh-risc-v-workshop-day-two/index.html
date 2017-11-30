@@ -756,6 +756,39 @@ modular building blocks.</li>
 <li>The platform description format is human readable, modular, and extendible.</li>
 <li>Worked with Microsemi to support the Mi-V platform, integrate with
 SoftConsole IDE, and support Windows as a first-class platform.</li>
+<li>Renode supports a range of handy features, such as fault injection,
+record/replay, and more.</li>
+</ul>
+
+<h2 id="qemu-based-hardware-modelling-of-a-multi-hard-risc-v-soc-daire-mcnamara:b3d82df2c32815668820ecff5dcd0b9a">QEMU-based hardware modelling of a multi-hard RISC-V SoC: Daire McNamara</h2>
+
+<ul>
+<li>Wanted to explore have separate execution contexts on the same SoC that are
+free from interference (e.g. one core running an RTOS, while others run a
+general purpose OS).</li>
+<li>In the SiFive Unleashed platform, the E51 provides services for other U54
+harts.</li>
+<li>E51 services/peripheral drivers are implemented as event-driven state
+machines. These are describes via a structure and states are named.</li>
+<li>Needed an emulator to model all of this.</li>
+<li>Modified RISC-V QEMU:
+
+<ul>
+<li>Updated privileged spec support.</li>
+<li>Hart synchronisation (IPIs)</li>
+<li>Modelling physical memory protection</li>
+<li>PLIC, CLINT, local interrupts</li>
+<li>Support for managing contexts of multiple harts</li>
+<li>Modelling L1/L2 cache configuration register writes/reads</li>
+<li>&hellip;</li>
+</ul></li>
+<li>U54-MC QEMU hasn&rsquo;t yer been upstreamed to the main RISC-V QEMU githu repo
+yet.</li>
+<li>Can boot Linux to console and interact, but it&rsquo;s a little slow (takes about
+15 minutes).</li>
+<li>Future plans: improve speed, add vectorisation for local interrupts, device
+tree support, QOM, remote control of real hardware. Finally, clean up and
+upstream.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

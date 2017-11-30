@@ -669,6 +669,27 @@ support the privileged ISA.&lt;/li&gt;
 &lt;li&gt;Floating point support was verified against spike and a hardware design.&lt;/li&gt;
 &lt;li&gt;The main challenge when implementing the compressed instruction was
 interfacing with gem5&amp;rsquo;s existing decode logic.&lt;/li&gt;
+&lt;li&gt;In the future, want to support multithreaded workloads in syscall emulation
+mode, enable full system mode (privileged ISA), and correct minor differences
+(e.g. floating point rounding).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;renode-a-flexible-open-source-simulation-for-risc-v-system-development-michael-gielda:b3d82df2c32815668820ecff5dcd0b9a&#34;&gt;Renode. A flexible open-source simulation for RISC-V system development: Michael Gielda&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;AntMicro was founded in 2009 and has been developing Renode since 2010.&lt;/li&gt;
+&lt;li&gt;Why did we build Renode? Observed data workflows for embedded development.
+Needed a fast simulator for software developers, as close to production as
+possible. Must support multi-node simulation, easy reuse of models, and be
+extensible.&lt;/li&gt;
+&lt;li&gt;It is an instruction set simulator, mostly written in C#. It supports fully
+deterministic execution, transparent debugging, integration with familiar
+tools (e.g. GDB).&lt;/li&gt;
+&lt;li&gt;Renode is open source, has a flexible structure and is constructed out of
+modular building blocks.&lt;/li&gt;
+&lt;li&gt;The platform description format is human readable, modular, and extendible.&lt;/li&gt;
+&lt;li&gt;Worked with Microsemi to support the Mi-V platform, integrate with
+SoftConsole IDE, and support Windows as a first-class platform.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

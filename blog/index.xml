@@ -733,6 +733,21 @@ commodity components, and custom hardware is changing faster than ever.&lt;/li&g
 &lt;li&gt;Our simulator needs to model hardware at scale (CPUs down to
 microarchitecture, fast networks and switches, novel accelerators), run real
 software, and be usable.&lt;/li&gt;
+&lt;li&gt;One way to test would be to build the hardware, get the chips back, then
+network together into a datacenter. This has obvious disadvantages.&lt;/li&gt;
+&lt;li&gt;Alternatively, use a software simulator. Easy to prototype new hardware this
+way, but also easy to model something that you can&amp;rsquo;t build. Additionally, it
+can be very slow to run, requiring the use of small microbenchmarks or
+sampling.&lt;/li&gt;
+&lt;li&gt;Or, build a hardware-accelerated simulator (see DIABLO). You need to
+hand-write RTL models, which in many ways is harder than &amp;ldquo;tapeout-ready&amp;rdquo; RTL.&lt;/li&gt;
+&lt;li&gt;How do we improve? Harness useful hardware trends such as the open RISC-V
+SoC, open silicon designs, high productivity hardware design languages
+(Chisel), FPGAs in the cloud.&lt;/li&gt;
+&lt;li&gt;FireSim target design: server blades, each with quad-core RISC-V Rocket at
+3.2GHz, 16KiB I+D cache, 256KiB L2, 16Gb DRAM, 200Gbps Ethernet NIC, optional
+accelerators. The network has parameterisable bandwidth/link latency and a
+configurable topology.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

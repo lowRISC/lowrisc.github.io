@@ -679,7 +679,7 @@ insructions). Small data memory (8KB). Flat memory, no cache hierarchy.</li>
 <li>PMP throughput: 10Gbps is 14.88Mpps, 67 clock cycles at 1GHz. A multi-core
 CPU is one approach, but has challenges regarding the reordering of packets.
 Pursue a VLIW solution instead.</li>
-<li>The PMP is a static 8-issue VLIW RISC-V core with the RV32I instruction set.<br />
+<li>The PMP is a static 8-issue VLIW RISC-V core with the RV32I instruction set.
 Has a 32-bit dataplane (to be upgraded). Written in VHDL. Features branch
 prediction, lane forwarding.</li>
 <li>Implemented in a NetFPGA based programmable dataplane.</li>
@@ -697,6 +697,44 @@ optimisations, and managed 98% accuracy.</li>
 <li>Use Orca (open source, BSD licensed). Written in VHDL, 200MHz fully
 pipelined, less than 2000 4LUTs.</li>
 <li>Added streaming vector extensions and binary CNN accelerator.</li>
+<li>The streaming vector instructions (SVE) operate only on stream memory. Add
+streaming version of all the base RV32 integer operations, multiply
+instructions. Add in some extra insructions such as mov, conditional move,
+comparisons, and vector control instructions. Packed SIMD can be supported
+naturally with this approach to vectors.</li>
+<li>Would also lke to add an extra SVE extension for DMA.</li>
+<li>SVE has a base 32-bit encoding, as well an extended 64-bit encoding.</li>
+<li>Can redirect the data to a domain-specific streaming pipeline.</li>
+<li>4852 4-input LUTs for the whole solution.</li>
+<li>Releasing the VectorBlox instruction set as an open specification, and
+joining the RISC-V vector working group to discuss it as a potential
+alternative.</li>
+<li>SVE vs the RISC-V vector extension
+
+<ul>
+<li>A &ldquo;memory-to-memory&rdquo; architecture, challenging the conventional wisdom of
+RISC.</li>
+<li>No named vector registers in the ISA (no register allocation, no compiler
+changes needed)</li>
+<li>High performance. Free loop unrolling, no saving/restoring of vector data.</li>
+<li>No storage wasted with streaming memory. Free software scratchpad if
+vectors aren&rsquo;t used.</li>
+<li>Easier/simpler hardware. Double-buffered DMA instead of prefetching +
+vector register renaming.</li>
+</ul></li>
+</ul>
+
+<h2 id="risc5-improving-support-for-risc-v-in-gem5-alex-roelke:b3d82df2c32815668820ecff5dcd0b9a">RISC5. Improving support for RISC-V in gem5: Alex Roelke</h2>
+
+<ul>
+<li>gem5 is a popular cycle approximate simulator, which can be very useful in
+RISC-V hardware development.</li>
+<li>RISC-V in gem5 supports RV64GC. It uses syscall emulation and doesn&rsquo;t yet
+support the privileged ISA.</li>
+<li>Implemented the release consistency memory model for atomics.</li>
+<li>Floating point support was verified against spike and a hardware design.</li>
+<li>The main challenge when implementing the compressed instruction was
+interfacing with gem5&rsquo;s existing decode logic.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

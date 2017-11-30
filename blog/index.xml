@@ -759,6 +759,9 @@ instructions/second). $13.20/hr on-demand, ~$2.60/hr on the spot market.&lt;/li&
 &lt;li&gt;Can scale to simulating a 1024 node RISC-V datacenter. Ran across 32
 f1.16xlarge instances. In aggregate, runs at 3.4MHz (13 billions insts/s
 across the simulated datacenter).&lt;/li&gt;
+&lt;li&gt;Can also achieve &amp;ldquo;functional&amp;rdquo; network simulation. e.g. allowing all of
+SPECInt06-ref to run on Rocket Chip at 150MHz (completing in less than one
+day).&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

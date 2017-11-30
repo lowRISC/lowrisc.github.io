@@ -814,6 +814,14 @@ SoC, open silicon designs, high productivity hardware design languages
 3.2GHz, 16KiB I+D cache, 256KiB L2, 16Gb DRAM, 200Gbps Ethernet NIC, optional
 accelerators. The network has parameterisable bandwidth/link latency and a
 configurable topology.</li>
+<li>Transform the RTL to simulate on the FPGA. For the network simulation, use
+CPUs and the host network (one thread per port).</li>
+<li>FAME-1 transforming RTL: given RTL, want to automatically transform it into
+decoupled cycle-accurate simulator RTL that we can run on the FPGA.</li>
+<li>Can pack four quad-core server simulations per FPGA, meaning 32 server
+simulations per f1.16xlarge (128 simulated cores). Use a 32-port 200Gbps
+per-port top of rack switch model. The simulation runs at 5MHz (~400 million
+instructions/second). $13.20/hr on-demand, ~$2.60/hr on the spot market.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

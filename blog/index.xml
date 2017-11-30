@@ -756,6 +756,9 @@ decoupled cycle-accurate simulator RTL that we can run on the FPGA.&lt;/li&gt;
 simulations per f1.16xlarge (128 simulated cores). Use a 32-port 200Gbps
 per-port top of rack switch model. The simulation runs at 5MHz (~400 million
 instructions/second). $13.20/hr on-demand, ~$2.60/hr on the spot market.&lt;/li&gt;
+&lt;li&gt;Can scale to simulating a 1024 node RISC-V datacenter. Ran across 32
+f1.16xlarge instances. In aggregate, runs at 3.4MHz (13 billions insts/s
+across the simulated datacenter).&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

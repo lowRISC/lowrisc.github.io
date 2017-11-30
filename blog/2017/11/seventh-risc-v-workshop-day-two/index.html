@@ -679,6 +679,24 @@ insructions). Small data memory (8KB). Flat memory, no cache hierarchy.</li>
 <li>PMP throughput: 10Gbps is 14.88Mpps, 67 clock cycles at 1GHz. A multi-core
 CPU is one approach, but has challenges regarding the reordering of packets.
 Pursue a VLIW solution instead.</li>
+<li>The PMP is a static 8-issue VLIW RISC-V core with the RV32I instruction set.<br />
+Has a 32-bit dataplane (to be upgraded). Written in VHDL. Features branch
+prediction, lane forwarding.</li>
+<li>Implemented in a NetFPGA based programmable dataplane.</li>
+<li>Synthesized at 250MHz on FPGA.</li>
+</ul>
+
+<h2 id="adding-a-binarized-cnn-accelerator-to-risc-v-for-person-detection-guy-lemieux:b3d82df2c32815668820ecff5dcd0b9a">Adding a Binarized CNN Accelerator to RISC-V for Person Detection: Guy Lemieux</h2>
+
+<ul>
+<li>This talk uses VectorBlox Vector instructions, which are not the same as the
+vector instructions proposed in the RISC-V vector working group.</li>
+<li>Prototyped in the Lattice iCE40 UltraPlus FPGA (5280 LUTs, 1Mb SRAM).</li>
+<li>Inspired by BinaryConnect. Built a custom database, performed other
+optimisations, and managed 98% accuracy.</li>
+<li>Use Orca (open source, BSD licensed). Written in VHDL, 200MHz fully
+pipelined, less than 2000 4LUTs.</li>
+<li>Added streaming vector extensions and binary CNN accelerator.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

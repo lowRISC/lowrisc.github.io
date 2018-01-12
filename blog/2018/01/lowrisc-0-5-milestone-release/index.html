@@ -6,7 +6,7 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>lowRISC Ethernet internals &middot; lowRISC</title>
+        <title>lowRISC 0-5 milestone release &middot; lowRISC</title>
         <link rel="stylesheet" href="http://www.lowrisc.org/css/styles.combined.min.css" />
         <link rel="shortcut icon" href="http://www.lowrisc.org/favicon.ico" />
         <link rel="alternate" href="http://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
@@ -68,12 +68,8 @@
             <div class="sixteen columns">
                 <article class="li-article">
                 
-                  <p>
-                    <a href="http://www.lowrisc.org/docs/ethernet-v0.5/">⇡ Tutorial for the v0.5 lowRISC preview release</a>
-                  </p>
-                
                     <header class="li-article-header">
-                        <h1 class="li-article-title">lowRISC Ethernet internals</h1>
+                        <h1 class="li-article-title">lowRISC 0-5 milestone release</h1>
                         <span class="li-article-taxonomies">
                             
 
@@ -81,72 +77,34 @@
                         </span>
                         
                         
+                        <time class="li-article-date">Friday, January 12, 2018</time>
+                        
                     </header>
                     <section>
-                        
+                        <p>The <a href="http://www.lowrisc.org/docs/ethernet-v0.5/">lowRISC 0.5 milestone release</a>
+is now available. The various changes are best described in our <a href="http://www.lowrisc.org/docs/ethernet-v0.5/">accompanying
+documentation</a>, but the main focus
+is the integration of open-source Ethernet IP. The tutorial demonstrates how
+to use Ethernet support to boot with an NFS root, as well as with a rootfs on
+SD card.</p>
 
-<p>This lowRISC release introduces 100Mbps Ethernet, allowing remote ssh and
-network filing system functionality.</p>
+<p>Our main development focus currently is migrating to a newer version of the
+upstream Rocket chip design and reintegrating our changes on top of that, but
+we felt that the integration of Ethernet support merits a release before that
+change.</p>
 
-<h2 id="rtl-changes:a0f36ff7b09c22b8fd5304a65640aa06">RTL changes</h2>
-
-<p>The PHY of the Ethernet uses reduced media independent interface (RMII). The transmission rate is fixed at 100MHz
-and is found to be compatible with most hubs and switches. The possibility to communicate with the PHY is programmed
-but not used.</p>
-
-<p>The core of the Ethernet block is adapted from a suite of IP provided by Alex Forencich.</p>
-
-<p><a href="https://github.com/alexforencich/verilog-ethernet.git">https://github.com/alexforencich/verilog-ethernet.git</a></p>
-
-<p>It requires a wrapper and some buffer RAMs to enable it to be controlled by the Rocket, plus an interrupt interface.
-This interface always operates in promiscuous mode, meaning all valid packets received by the media access controller (MAC)
-are passed to the kernel to decide what shall be done with them.</p>
-
-<p>The regular routines are setting and retrieving the MAC address of the device are present, but they make no difference to
-operation in this version/</p>
-
-<h2 id="linux-driver:a0f36ff7b09c22b8fd5304a65640aa06">Linux driver</h2>
-
-<p>A conventional model is followed with no DMA. It is assumed that the transmit will be so fast that the transmit buffer will
-never be full. Conversely multiple packets could be received before being noticed by the processor and for this purpose the
-received is adapted to receive up to 8 full-sized packets in quick succession. THis driver is interrupt driven in the usual way.</p>
-
-<h2 id="user-land-operation:a0f36ff7b09c22b8fd5304a65640aa06">User land operation</h2>
-
-<p>A complete suite of Linux user commands is available via the Poky Linux districution for RISCV. Only a few small changes are needed
-to adapt the distribution to the changed device names.</p>
-
-<h2 id="dhcp:a0f36ff7b09c22b8fd5304a65640aa06">DHCP</h2>
-
-<p>Dynamic host configuration protocol is supported for standalone computer use. It cannot be used if remote booting or NFS is required.
-A time protocol server is also preferable but not a showstopper.</p>
-
-<h2 id="remote-booting:a0f36ff7b09c22b8fd5304a65640aa06">Remote booting</h2>
-
-<p>This release adds a protocol for booting Linux or bare metal programs over Ethernet. Hence it is possible to operate without SD-cards
-or serial access to the device. In the latter case it highly desirable to have a VGA monitor and USB keyboard, and separate power provision
-needs to be provided.</p>
+<p>Please report any issues <a href="https://github.com/lowRISC/lowrisc-chip">on our GitHub
+repository</a>, or discuss on our
+<a href="http://listmaster.pepperfish.net/cgi-bin/mailman/listinfo/lowrisc-dev-lists.lowrisc.org">mailing
+list</a>.
+As always, thank you to everyone who has contributed in any way - whether it&rsquo;s
+advice and feedback, bug reports, code, or ideas.</p>
 
                     </section>
                 </article>
 
         </div>
       </section>
-    </div>
-    
-    <div class="row li-pagination article">
-      <div class="eight columns">
-        <div class="li-pagination-previous">
-          &nbsp;
-          
-        </div>
-      </div>
-      <div class="eight columns">
-        <div class="li-pagination-next">
-          &nbsp;
-          
-        </div>
-      </div>
     </div>
     
 
@@ -157,9 +115,9 @@ needs to be provided.</p>
             <script type="text/javascript">
                  
                 var disqus_shortname = 'lowrisc'; 
-                var disqus_identifier = "/" + "docs/ethernet-v0.5/ethernet";
-                var disqus_title = "lowRISC Ethernet internals";
-                var disqus_url = "http://www.lowrisc.org" + "docs/ethernet-v0.5/ethernet";
+                var disqus_identifier = "/" + "blog/2018/01/lowrisc-0-5-milestone-release";
+                var disqus_title = "lowRISC 0-5 milestone release";
+                var disqus_url = "http://www.lowrisc.org" + "blog/2018/01/lowrisc-0-5-milestone-release";
 
                  
                 (function() {

@@ -23,6 +23,31 @@
   </url>
   
   <url>
+    <loc>http://www.lowrisc.org/docs/diplomacy/</loc>
+    <lastmod>2017-10-26T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/ethernet-v0.5/development/</loc>
+    <lastmod>2017-10-14T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/ethernet-v0.5/environment/</loc>
+    <lastmod>2017-10-14T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/ethernet-v0.5/release/</loc>
+    <lastmod>2017-10-14T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/ethernet-v0.5/ethernet/</loc>
+    <lastmod>2017-10-06T11:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://www.lowrisc.org/blog/2017/10/gsoc-2017-student-report-core-lockstep-for-minion-cores</loc>
     <lastmod>2017-10-05T19:45:00+00:00</lastmod>
   </url>
@@ -30,6 +55,11 @@
   <url>
     <loc>http://www.lowrisc.org/docs/gsoc-2017/core-lockstep/</loc>
     <lastmod>2017-10-05T19:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/ethernet-v0.5/</loc>
+    <lastmod>2017-10-05T13:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -78,12 +108,27 @@
   </url>
   
   <url>
+    <loc>http://www.lowrisc.org/docs/ethernet-v0.5/walkthrough/</loc>
+    <lastmod>2017-04-14T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://www.lowrisc.org/docs/minion-v0.4/walkthrough/</loc>
     <lastmod>2017-04-14T13:00:00+00:00</lastmod>
   </url>
   
   <url>
+    <loc>http://www.lowrisc.org/docs/ethernet-v0.5/installtools/</loc>
+    <lastmod>2017-04-14T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://www.lowrisc.org/docs/minion-v0.4/installtools/</loc>
+    <lastmod>2017-04-14T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/ethernet-v0.5/overview/</loc>
     <lastmod>2017-04-14T13:00:00+00:00</lastmod>
   </url>
   
@@ -104,6 +149,16 @@
   
   <url>
     <loc>http://www.lowrisc.org/docs/minion-v0.4/fpga/</loc>
+    <lastmod>2017-04-14T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/ethernet-v0.5/fpga/</loc>
+    <lastmod>2017-04-14T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.lowrisc.org/docs/ethernet-v0.5/fpga2/</loc>
     <lastmod>2017-04-14T13:00:00+00:00</lastmod>
   </url>
   

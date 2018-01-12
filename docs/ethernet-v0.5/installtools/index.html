@@ -6,7 +6,7 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>GSoC 2017 student report: core lockstep for minion cores &middot; lowRISC</title>
+        <title>Install FPGA and simulation tools &middot; lowRISC</title>
         <link rel="stylesheet" href="http://www.lowrisc.org/css/styles.combined.min.css" />
         <link rel="shortcut icon" href="http://www.lowrisc.org/favicon.ico" />
         <link rel="alternate" href="http://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
@@ -68,8 +68,12 @@
             <div class="sixteen columns">
                 <article class="li-article">
                 
+                  <p>
+                    <a href="http://www.lowrisc.org/docs/minion-v0.4/environment/">⇡ Prepare the environment</a>
+                  </p>
+                
                     <header class="li-article-header">
-                        <h1 class="li-article-title">GSoC 2017 student report: core lockstep for minion cores</h1>
+                        <h1 class="li-article-title">Install FPGA and simulation tools</h1>
                         <span class="li-article-taxonomies">
                             
 
@@ -77,33 +81,49 @@
                         </span>
                         
                         
-                        <time class="li-article-date">Thursday, October 5, 2017</time>
-                        
                     </header>
                     <section>
-                        <p>This year, as part of <a href="https://developers.google.com/open-source/gsoc/">Google Summer of
-Code</a> we had the pleasure of
-working with Nikitas Chronas. Alongside his degree studies, Nikitas had become
-involved with the <a href="https://libre.space/">Libre Space Foundation</a> and developed
-a strong interest in the possibility of open source hardware in
-<a href="https://en.wikipedia.org/wiki/CubeSat">CubeSats</a>. Fault tolerance of some
-sort is important for harsh environments, and Nikitas worked to add fault
-tolerance through the implementation of <a href="https://en.wikipedia.org/wiki/Lockstep_(computing">core
-lockstep</a>) for the
-PULPino-based minion
-core subsystem. This was a really successful project which ended up
-making contributions in areas beyond the core lockstep focus:
-documentation, code quality, support for the Arty FPGA development board, and
-even prototyping a code generation mechanism. See the <a href="http://www.lowrisc.org/docs/gsoc-2017/core-lockstep/">detailed write-up</a>
-for all the details, and below for the all-important blinky lights demo.</p>
+                        <p>This part is identical to the previous tutorial, simply perform those
+steps:</p>
 
-<iframe src="https://giphy.com/embed/26vIg6cZFMWvi6AbS" width="480" height="401" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<ul>
+<li><a href="http://www.lowrisc.org/docs/untether-v0.2/xilinx/">Install Xilinx Vivado</a></li>
+<li><a href="http://www.lowrisc.org/docs/untether-v0.2/verilator/">Install Verilator</a></li>
+</ul>
+
+<p>The above procedure may change your LD_LIBRARY_PATH to an older version of libraries than some systems expect. If this
+happens, you may get a message such as:</p>
+
+<ul>
+<li>awk: symbol lookup error: awk: undefined symbol: mpfr_z_sub</li>
+</ul>
+
+<p>A work-around is to manually execute <code>unset LD_LIBRARY_PATH</code> afterwards before installing the cross-compiler.</p>
 
                     </section>
                 </article>
 
         </div>
       </section>
+    </div>
+    
+    <div class="row li-pagination article">
+      <div class="eight columns">
+        <div class="li-pagination-previous">
+          &nbsp;
+          
+          Previous<br />
+          &nbsp;
+          <a href="http://www.lowrisc.org/docs/minion-v0.4/environment/"> Prepare the environment</a>
+          
+        </div>
+      </div>
+      <div class="eight columns">
+        <div class="li-pagination-next">
+          &nbsp;
+          
+        </div>
+      </div>
     </div>
     
 
@@ -114,9 +134,9 @@ for all the details, and below for the all-important blinky lights demo.</p>
             <script type="text/javascript">
                  
                 var disqus_shortname = 'lowrisc'; 
-                var disqus_identifier = "/" + "blog/2017/10/gsoc-2017-student-report-core-lockstep-for-minion-cores";
-                var disqus_title = "GSoC 2017 student report: core lockstep for minion cores";
-                var disqus_url = "http://www.lowrisc.org" + "blog/2017/10/gsoc-2017-student-report-core-lockstep-for-minion-cores";
+                var disqus_identifier = "/" + "docs/ethernet-v0.5/installtools";
+                var disqus_title = "Install FPGA and simulation tools";
+                var disqus_url = "http://www.lowrisc.org" + "docs/ethernet-v0.5/installtools";
 
                  
                 (function() {

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Build your own bitstream and images &middot; lowRISC</title>
+        <link rel="stylesheet" href="http://www.lowrisc.org/css/styles.combined.min.css" />
+        <link rel="shortcut icon" href="http://www.lowrisc.org/favicon.ico" />
+        <link rel="alternate" href="http://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' type='text/css'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Exo+2' type='text/css'>
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-53520714-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+  </head>
+
+  <body data-page="article">
+<div class="header">
+  <header data-component="menu">
+
+    <section class="outer-container">
+      <div class="image">
+        <a href="http://www.lowrisc.org"><img src="http://www.lowrisc.org/img/logo.svg"></a>
+      </div>
+
+      <div class="menu">
+        <ul>
+          
+          <li><a href="/"> Home </a></li>
+          
+          <li><a href="/about/"> About </a></li>
+          
+          <li><a href="/blog/"> Blog </a></li>
+          
+          <li><a href="/faq/"> FAQ </a></li>
+          
+          <li><a href="/docs/"> Docs </a></li>
+          
+          <li><a href="/community/"> Community </a></li>
+          
+        </ul>
+      </div>
+    </section>
+
+  </header>
+</div>
+
+
+
+
+
+
+
+
+
+    <div class="article">
+      <section class="outer-container">
+        <div class="row">
+            <div class="sixteen columns">
+                <article class="li-article">
+                
+                  <p>
+                    <a href="http://www.lowrisc.org/docs/ethernet-v0.5/">⇡ Tutorial for the v0.5 lowRISC preview release</a>
+                  </p>
+                
+                    <header class="li-article-header">
+                        <h1 class="li-article-title">Build your own bitstream and images</h1>
+                        <span class="li-article-taxonomies">
+                            
+
+                            
+                        </span>
+                        
+                        
+                    </header>
+                    <section>
+                        
+
+<h3 id="generate-the-bitstream:c51f1b783d6e6b3bc97ce5906e9605d3">Generate the bitstream</h3>
+
+<h4 id="fpga-demo-with-ethernet-default-bootloader:c51f1b783d6e6b3bc97ce5906e9605d3">FPGA demo with Ethernet (default bootloader)</h4>
+
+<pre><code>cd $TOP/fpga/board/nexys4_ddr
+make cleanall
+make bitstream
+</code></pre>
+
+<p>The generated bitstream is located at <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code>.
+This will take some time (20-60 minutes depending on your computer).</p>
+
+<h3 id="program-the-bootloader-on-fpga:c51f1b783d6e6b3bc97ce5906e9605d3">Program the bootloader on FPGA</h3>
+
+<p>Next, turn on the FPGA board and connect the USB cable. Now you
+download the bitstream to the quad-SPI on the FPGA board:</p>
+
+<pre><code>make cfgmem
+make program-cfgmem
+</code></pre>
+
+<p>At this point, you should check the MODE jumper is in QSPI mode and then press the PROG button.</p>
+
+<h3 id="boot-linux-remotely-on-fpga:c51f1b783d6e6b3bc97ce5906e9605d3">Boot Linux remotely on FPGA</h3>
+
+<pre><code>make etherboot
+</code></pre>
+
+<h4 id="fpga-demo-with-ethernet-alternative-boot-programs:c51f1b783d6e6b3bc97ce5906e9605d3">FPGA demo with Ethernet (alternative boot programs)</h4>
+
+<pre><code>cd $TOP/fpga/board/nexys4_ddr
+make cleanall
+make target (where target is eth, selftest, dram, hello etc.)
+</code></pre>
+
+<p>The generated bitstream is located at <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code>.
+This will take some time (20-60 minutes depending on your computer).</p>
+
+<h3 id="program-the-alternative-boot-programs-on-fpga:c51f1b783d6e6b3bc97ce5906e9605d3">Program the alternative boot programs on FPGA</h3>
+
+<p>Next, turn on the FPGA board and connect the USB cable. Now you
+download the bitstream to the quad-SPI on the FPGA board:</p>
+
+<pre><code>make cfgmem-updated
+make program-cfgmem-updated
+</code></pre>
+
+<h3 id="build-linux-and-early-stage-root-filing-system:c51f1b783d6e6b3bc97ce5906e9605d3">Build Linux and early stage root filing system</h3>
+
+<pre><code>make verilog (automatically included if make bitstream is done above)
+
+$TOP/riscv-tools/make_root.sh
+</code></pre>
+
+<p>If everything runs OK, you should have a boot.bin file.</p>
+
+<p>Please note that the Berkeley bootloader used by the Linux kernel relies on a header file (<code>dev_map.h</code>) generated by the Rocket chip (automatically generated by the Chisel compilation process).
+Normally FPGA bitstream should be generated before building a kernel image.
+If you like to generate a kernel image without a bitstream, run the following to produce the header file:</p>
+
+<pre><code>cd $TOP/fpga/board/nexys4_ddr
+CONFIG=Nexys4Config make verilog
+</code></pre>
+
+<h3 id="build-riscv-poky:c51f1b783d6e6b3bc97ce5906e9605d3">Build riscv-poky</h3>
+
+<pre><code>cd $TOP/ricv-poky
+source oe-init-build-env
+bitbake core-image-riscv
+</code></pre>
+
+<p>This scripting system generates a huge set of downloads, all of which are built from source. This can take half or day on a fast connection and consumes 26GBytes or so of disk space. For these reasons, unless there is a need to modify the installed packages, the user who wishes to quick start might prefer to download the prebuild image. The source code is similar to the standard riscv-poky but with some customisation of device names and configuration.</p>
+
+<h2 id="useful-makefile-targets:c51f1b783d6e6b3bc97ce5906e9605d3">Useful Makefile targets</h2>
+
+<h4 id="make-project:c51f1b783d6e6b3bc97ce5906e9605d3"><code>make project</code></h4>
+
+<p>Generate a Vivado project.</p>
+
+<h4 id="make-verilog:c51f1b783d6e6b3bc97ce5906e9605d3"><code>make verilog</code></h4>
+
+<p>Run Chisel compiler and generate the Verilog files for Rocket chip.</p>
+
+<h4 id="make-vivado:c51f1b783d6e6b3bc97ce5906e9605d3"><code>make vivado</code></h4>
+
+<p>Open the Vivado GUI using the current project.</p>
+
+<h4 id="make-bitstream:c51f1b783d6e6b3bc97ce5906e9605d3"><code>make bitstream</code></h4>
+
+<p>Generate the default bitstream according to the <code>CONFIG</code> in Makefile and the program loaded in <code>src/boot.mem</code>. The default bitstream is generated at <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code></p>
+
+<h4 id="make-hello-dram-sdcard-boot-jump-trace-flash:c51f1b783d6e6b3bc97ce5906e9605d3"><code>make &lt;hello|dram|sdcard|boot|jump|trace|flash&gt;</code></h4>
+
+<p>Generate bitstreams for bare-metal tests:</p>
+
+<ul>
+<li><strong>hello</strong> A hello world program.</li>
+<li><strong>dram</strong> A DDR RAM test.</li>
+<li><strong>selftest</strong> A SD card read/write test and bare-metal debugging utility.</li>
+<li><strong>boot</strong> A 1st bootloader that loads <code>boot.bin</code> from SD to DDR RAM and executes <code>boot.bin</code> afterwards.</li>
+<li><strong>jump</strong> A 1st stage booloader that directly jumps to DDR RAM.</li>
+<li><strong>trace</strong> A software trace demo.</li>
+<li><strong>flash</strong> Read the content of the on-board Flash.</li>
+</ul>
+
+<p>For each bare-metal test <code>&lt;test&gt;</code>, the executable is generated to
+<code>examples/&lt;test&gt;.riscv</code>. It is also converted into a hex
+file and copied to <code>src/boot.mem</code>, which then changes the default program for
+<code>make bitstream</code> and <code>make simulation</code>. The updated bitstream is generated at
+<code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code></p>
+
+<h4 id="make-program-program-updated:c51f1b783d6e6b3bc97ce5906e9605d3"><code>make &lt;program|program-updated&gt;</code></h4>
+
+<p>Download a bitstream to FPGA. Use <code>program</code> for
+<code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code> and
+<code>program-updated</code> for
+<code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code></p>
+
+<h4 id="make-cfgmem-cfgmem-updated:c51f1b783d6e6b3bc97ce5906e9605d3"><code>make &lt;cfgmem|cfgmem-updated&gt;</code></h4>
+
+<p>Convert a bitstream to the format suitable for quad-SPI flash on the FPGA board. Use <code>cfgmem</code> for
+<code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code> and
+<code>cfgmem-updated</code> for
+<code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code></p>
+
+<h4 id="make-program-cfgmem-program-cfgmem-updated:c51f1b783d6e6b3bc97ce5906e9605d3"><code>make &lt;program-cfgmem|program-cfgmem-updated&gt;</code></h4>
+
+<p>Download a bitstream to quad-SPI flash on the FPGA board. Use <code>program-cfgmem</code> for
+<code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code> and
+<code>program-cfgmem-updated</code> for
+<code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code></p>
+
+<h4 id="make-clean-cleanall:c51f1b783d6e6b3bc97ce5906e9605d3"><code>make &lt;clean|cleanall&gt;</code></h4>
+
+<p><code>make clean</code> will remove all generated code without removing the Vivado
+project files. To remove all files including the Vivado project, use <code>make 
+cleanall</code>.</p>
+
+                    </section>
+                </article>
+
+        </div>
+      </section>
+    </div>
+    
+    <div class="row li-pagination article">
+      <div class="eight columns">
+        <div class="li-pagination-previous">
+          &nbsp;
+          
+          Previous<br />
+          &nbsp;
+          <a href="http://www.lowrisc.org/docs/ethernet-v0.5/walkthrough/"> Debug walkthrough</a>
+          
+        </div>
+      </div>
+      <div class="eight columns">
+        <div class="li-pagination-next">
+          &nbsp;
+          
+        </div>
+      </div>
+    </div>
+    
+
+
+                
+
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                 
+                var disqus_shortname = 'lowrisc'; 
+                var disqus_identifier = "/" + "docs/ethernet-v0.5/development";
+                var disqus_title = "Build your own bitstream and images";
+                var disqus_url = "http://www.lowrisc.org" + "docs/ethernet-v0.5/development";
+
+                 
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+            
+
+        <footer>
+
+          <section class="outer-container">
+
+            <div>
+              <div class="link-container">
+              </div>
+            </div>
+
+            <p>
+              Unless otherwise noted, content on this site is licensed under a Creative Commons Attribution ShareAlike 4.0 International License
+            </p>
+
+          </section>
+
+        </footer>
+    </body>
+</html>
+
+
+    </body>
+</html>
+

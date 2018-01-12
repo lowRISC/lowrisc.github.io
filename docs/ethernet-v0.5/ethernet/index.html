@@ -6,7 +6,7 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>GSoC 2017 student report: core lockstep for minion cores &middot; lowRISC</title>
+        <title>lowRISC Ethernet internals &middot; lowRISC</title>
         <link rel="stylesheet" href="http://www.lowrisc.org/css/styles.combined.min.css" />
         <link rel="shortcut icon" href="http://www.lowrisc.org/favicon.ico" />
         <link rel="alternate" href="http://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
@@ -68,8 +68,12 @@
             <div class="sixteen columns">
                 <article class="li-article">
                 
+                  <p>
+                    <a href="http://www.lowrisc.org/docs/ethernet-v0.5/">⇡ Tutorial for the v0.5 lowRISC preview release</a>
+                  </p>
+                
                     <header class="li-article-header">
-                        <h1 class="li-article-title">GSoC 2017 student report: core lockstep for minion cores</h1>
+                        <h1 class="li-article-title">lowRISC Ethernet internals</h1>
                         <span class="li-article-taxonomies">
                             
 
@@ -77,33 +81,71 @@
                         </span>
                         
                         
-                        <time class="li-article-date">Thursday, October 5, 2017</time>
-                        
                     </header>
                     <section>
-                        <p>This year, as part of <a href="https://developers.google.com/open-source/gsoc/">Google Summer of
-Code</a> we had the pleasure of
-working with Nikitas Chronas. Alongside his degree studies, Nikitas had become
-involved with the <a href="https://libre.space/">Libre Space Foundation</a> and developed
-a strong interest in the possibility of open source hardware in
-<a href="https://en.wikipedia.org/wiki/CubeSat">CubeSats</a>. Fault tolerance of some
-sort is important for harsh environments, and Nikitas worked to add fault
-tolerance through the implementation of <a href="https://en.wikipedia.org/wiki/Lockstep_(computing">core
-lockstep</a>) for the
-PULPino-based minion
-core subsystem. This was a really successful project which ended up
-making contributions in areas beyond the core lockstep focus:
-documentation, code quality, support for the Arty FPGA development board, and
-even prototyping a code generation mechanism. See the <a href="http://www.lowrisc.org/docs/gsoc-2017/core-lockstep/">detailed write-up</a>
-for all the details, and below for the all-important blinky lights demo.</p>
+                        
 
-<iframe src="https://giphy.com/embed/26vIg6cZFMWvi6AbS" width="480" height="401" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<p>This lowRISC release introduces 100MHz Ethernet, allowing remote ssh and network filing system functionality.</p>
+
+<h2 id="rtl-changes:a0f36ff7b09c22b8fd5304a65640aa06">RTL changes</h2>
+
+<p>The PHY of the Ethernet uses reduced media independent interface (RMII). The transmission rate is fixed at 100MHz
+and is found to be compatible with most hubs and switches. The possibility to communicate with the PHY is programmed
+but not used.</p>
+
+<p>The core of the Ethernet block is adapted from a suite of IP provided by Alex Forencich.</p>
+
+<p><a href="https://github.com/alexforencich/verilog-ethernet.git">https://github.com/alexforencich/verilog-ethernet.git</a></p>
+
+<p>It requires a wrapper and some buffer RAMs to enable it to be controlled by the Rocket, plus an interrupt interface.
+This interface always operates in promiscuous mode, meaning all valid packets received by the media access controller (MAC)
+are passed to the kernel to decide what shall be done with them.</p>
+
+<p>The regular routines are setting and retrieving the MAC address of the device are present, but they make no difference to
+operation in this version/</p>
+
+<h2 id="linux-driver:a0f36ff7b09c22b8fd5304a65640aa06">Linux driver</h2>
+
+<p>A conventional model is followed with no DMA. It is assumed that the transmit will be so fast that the transmit buffer will
+never be full. Conversely multiple packets could be received before being noticed by the processor and for this purpose the
+received is adapted to receive up to 8 full-sized packets in quick succession. THis driver is interrupt driven in the usual way.</p>
+
+<h2 id="user-land-operation:a0f36ff7b09c22b8fd5304a65640aa06">User land operation</h2>
+
+<p>A complete suite of Linux user commands is available via the Poky Linux districution for RISCV. Only a few small changes are needed
+to adapt the distribution to the changed device names.</p>
+
+<h2 id="dhcp:a0f36ff7b09c22b8fd5304a65640aa06">DHCP</h2>
+
+<p>Dynamic host configuration protocol is supported for standalone computer use. It cannot be used if remote booting or NFS is required.
+A time protocol server is also preferable but not a showstopper.</p>
+
+<h2 id="remote-booting:a0f36ff7b09c22b8fd5304a65640aa06">Remote booting</h2>
+
+<p>This release adds a protocol for booting Linux or bare metal programs over Ethernet. Hence it is possible to operate without SD-cards
+or serial access to the device. In the latter case it highly desirable to have a VGA monitor and USB keyboard, and separate power provision
+needs to be provided.</p>
 
                     </section>
                 </article>
 
         </div>
       </section>
+    </div>
+    
+    <div class="row li-pagination article">
+      <div class="eight columns">
+        <div class="li-pagination-previous">
+          &nbsp;
+          
+        </div>
+      </div>
+      <div class="eight columns">
+        <div class="li-pagination-next">
+          &nbsp;
+          
+        </div>
+      </div>
     </div>
     
 
@@ -114,9 +156,9 @@ for all the details, and below for the all-important blinky lights demo.</p>
             <script type="text/javascript">
                  
                 var disqus_shortname = 'lowrisc'; 
-                var disqus_identifier = "/" + "blog/2017/10/gsoc-2017-student-report-core-lockstep-for-minion-cores";
-                var disqus_title = "GSoC 2017 student report: core lockstep for minion cores";
-                var disqus_url = "http://www.lowrisc.org" + "blog/2017/10/gsoc-2017-student-report-core-lockstep-for-minion-cores";
+                var disqus_identifier = "/" + "docs/ethernet-v0.5/ethernet";
+                var disqus_title = "lowRISC Ethernet internals";
+                var disqus_url = "http://www.lowrisc.org" + "docs/ethernet-v0.5/ethernet";
 
                  
                 (function() {

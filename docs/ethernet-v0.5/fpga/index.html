@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Running the pre-built NFS-root image on the FPGA &middot; lowRISC</title>
+        <link rel="stylesheet" href="http://www.lowrisc.org/css/styles.combined.min.css" />
+        <link rel="shortcut icon" href="http://www.lowrisc.org/favicon.ico" />
+        <link rel="alternate" href="http://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' type='text/css'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Exo+2' type='text/css'>
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-53520714-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+  </head>
+
+  <body data-page="article">
+<div class="header">
+  <header data-component="menu">
+
+    <section class="outer-container">
+      <div class="image">
+        <a href="http://www.lowrisc.org"><img src="http://www.lowrisc.org/img/logo.svg"></a>
+      </div>
+
+      <div class="menu">
+        <ul>
+          
+          <li><a href="/"> Home </a></li>
+          
+          <li><a href="/about/"> About </a></li>
+          
+          <li><a href="/blog/"> Blog </a></li>
+          
+          <li><a href="/faq/"> FAQ </a></li>
+          
+          <li><a href="/docs/"> Docs </a></li>
+          
+          <li><a href="/community/"> Community </a></li>
+          
+        </ul>
+      </div>
+    </section>
+
+  </header>
+</div>
+
+
+
+
+
+
+
+
+
+    <div class="article">
+      <section class="outer-container">
+        <div class="row">
+            <div class="sixteen columns">
+                <article class="li-article">
+                
+                  <p>
+                    <a href="http://www.lowrisc.org/docs/ethernet-v0.5/">⇡ Tutorial for the v0.5 lowRISC preview release</a>
+                  </p>
+                
+                    <header class="li-article-header">
+                        <h1 class="li-article-title">Running the pre-built NFS-root image on the FPGA</h1>
+                        <span class="li-article-taxonomies">
+                            
+
+                            
+                        </span>
+                        
+                        
+                    </header>
+                    <section>
+                        
+
+<p>In this step, we want to test the Ethernet functionality on an FPGA board.
+The system will use the Ethernet 100Base-T connection at 100 MBaud to communicate with
+the LowRISC Linux system.</p>
+
+<h2 id="run-the-pre-built-fpga-demo:2b37e9ffd044e2f81b36b8d798aa8a19">Run the pre-built FPGA demo</h2>
+
+<p>The files you may need:</p>
+
+<ul>
+<li><a href="https://github.com/lowRISC/lowrisc-chip/releases/download/v0.5-rc2/nexys4ddr.bit">chip_top.bit</a>:
+The tagpipe/minion/debug enabled FPGA bitstream</li>
+<li><a href="https://github.com/lowRISC/lowrisc-chip/releases/download/v0.5-rc2/boot0001.bin">boot0001.bin</a>:
+Linux, Busybox and Berkley bootloader (BBL) packaged in one image (for NFS root filing system).</li>
+<li><a href="https://github.com/lowRISC/lowrisc-chip/releases/download/v0.5-rc2/rootfs.bzip2">rootfs.ext2</a>
+riscv-poky root filing system ready-built for LowRISC</li>
+</ul>
+
+<p>Download and write the bitstream</p>
+
+<pre><code>cd $TOP/fpga/board/nexys4_ddr
+curl -L https://github.com/lowRISC/lowrisc-chip/releases/download/v0.5-rc2/nexys4ddr.bit &gt; nexys4ddr.bit
+curl -L https://github.com/lowRISC/lowrisc-chip/releases/download/v0.5-rc2/boot0001.bin &gt; boot0001.bin
+curl -L https://github.com/lowRISC/lowrisc-chip/releases/download/v0.5-rc2/rootfs.bzip2 | bzip2 -d &gt; rootfs.ext2
+</code></pre>
+
+<p>Convert the bitstream to quad-spi memory format</p>
+
+<pre><code>vivado -mode batch -source $TOP/fpga/common/script/cfgmem.tcl -tclargs &quot;xc7a100t_0&quot; nexys4ddr.bit
+</code></pre>
+
+<p>Burn the quad-spi memory (Ensure the MODE switch is set to QSPI)</p>
+
+<pre><code>vivado -mode batch -source $TOP/fpga/common/script/program_cfgmem.tcl -tclargs &quot;xc7a100t_0&quot; nexys4ddr.bit.mcs
+</code></pre>
+
+<h2 id="access-the-boot-loader-and-connect-to-the-uart-console:2b37e9ffd044e2f81b36b8d798aa8a19">Access the boot-loader and connect to the UART console.</h2>
+
+<p>First check the available serial ports:</p>
+
+<pre><code>ls -l /dev/*USB*
+</code></pre>
+
+<p>which should result in a response similar to:</p>
+
+<pre><code>crw-rw---- 1 root dialout 188, 1 Apr 14 16:32 /dev/ttyUSB1
+</code></pre>
+
+<p>In this case the device is user and group only access, so you need to be a member of the group dialout to use it.</p>
+
+<pre><code>microcom -p /dev/ttyUSB1
+</code></pre>
+
+<p>This needs a separate terminal window as it takes over the screen. Alternatively a separate VGA display and USB keyboard may be used. You should see a display similar to the below a short delay after the PROG button is pushed.</p>
+
+<pre><code>Selftest iteration 1
+Selftest matches=4/4, delay = 5
+Selftest iteration 2
+Selftest matches=8/8, delay = 5
+Selftest iteration 3
+Selftest matches=16/16, delay = 7
+Selftest iteration 4
+Selftest matches=32/32, delay = 13
+Selftest iteration 5
+Selftest matches=64/64, delay = 26
+Selftest iteration 6
+Selftest matches=128/128, delay = 52
+Selftest iteration 7
+Selftest matches=256/256, delay = 103
+Selftest iteration 8
+Selftest matches=375/375, delay = 151
+Hello LowRISC! Thu Dec 21 18:02:20 2017
+MAC = eee1:e2e3e4e5
+MAC address = ee:e1:e2:e3:e4:e5.
+IP Address:  192.168.0.51
+Subnet Mask: 255.255.255.0
+Enabling interrupts
+</code></pre>
+
+<h2 id="ethernet-server-preparation:2b37e9ffd044e2f81b36b8d798aa8a19">Ethernet server preparation</h2>
+
+<p>We need to make some changes on the server to enable this option. Obviously the modern systemd commands can be used where supported.
+As of Ubuntu 16.04.3 the old methods still work via wrapper scripts as below.</p>
+
+<p>For this particular demo the server needs to have a fixed IP address 192.168.0.53. The client is preprogrammed to 192.168.0.51
+These numbers may be changed in various necessary places in the source code but this is outside the scope of this demo.
+This is a private range reserved for private networks, secondary ethernet ports, home NAT hubs and the like.
+If you have Wifi this may be used to maintain internet connectivity on the server. Network manager may be used to change the IP
+otherwise manually from the command line.</p>
+
+<p>First of all create a suitable NFSroot mount point:</p>
+
+<pre><code>sudo mkdir /mnt/poky-dev
+sudo mount -t ext2 -o loop rootfs.ext2 /mnt/poky-dev
+sudo vi /etc/xinetd.d/time
+#Change the first occurence of &quot;disable=yes&quot; to &quot;disable=no&quot;. This enables the time service.
+sudo /etc/init.d/xinetd restart
+sudo /etc/init.d/nfs-kernel-server stop
+sudo vi /etc/exports
+#Add the following to the end of the file. &quot;/mnt/poky-dev 192.168.0.51(rw,sync,no_root_squash)&quot;
+#Mount the previously downloaded rootfs onto the designated mount point (stored in initial_0001 in riscv-tools)
+sudo mount -t ext2 -o loop rootfs.ext2 /mnt/poky-dev
+#Restart the NFS server
+sudo /etc/init.d/nfs-kernel-server start
+</code></pre>
+
+<p>The dangerous option no_root_squash which allows the NFS client to run as root on the server, is mitigated by the confinement of the mount to the area of the loopback which we have set up. If access to host files is desired this may be done by copying on the host, or with a second mount point without no_root_squash inside the server&rsquo;s filing system</p>
+
+<h2 id="ethernet-booting:2b37e9ffd044e2f81b36b8d798aa8a19">Ethernet booting</h2>
+
+<pre><code>cd $TOP/fpga/board/nexys4_ddr
+make etherboot
+</code></pre>
+
+<p>You should see a display similar to the following:</p>
+
+<pre><code>Clear blocks requested
+........
+Report blocks requested
+Report md5 requested
+md5(0x86e00000,5272576) = 5f460062003d4b7293709df08dd09d71
+Boot requested
+Disabling interrupts
+Ethernet interrupt status = 0
+Load 5272576 bytes to memory address 86e00000 from boot.bin of 5272576 bytes.
+load elf to DDR memory
+Section[0]: memcpy(0x80000000,0x0x86e01000,0x6c70);
+memset(0x80006c70,0,0x58);
+Section[1]: memcpy(0x80007000,0x0x86e08000,0x4fcc20);
+Boot the loaded program...
+Goodbye, booter ...
+      vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+          vvvvvvvvvvvvvvvvvvvvvvvvvvvv
+rrrrrrrrrrrrr       vvvvvvvvvvvvvvvvvvvvvvvvvv
+rrrrrrrrrrrrrrrr      vvvvvvvvvvvvvvvvvvvvvvvv
+rrrrrrrrrrrrrrrrrr    vvvvvvvvvvvvvvvvvvvvvvvv
+rrrrrrrrrrrrrrrrrr    vvvvvvvvvvvvvvvvvvvvvvvv
+rrrrrrrrrrrrrrrrrr    vvvvvvvvvvvvvvvvvvvvvvvv
+rrrrrrrrrrrrrrrr      vvvvvvvvvvvvvvvvvvvvvv  
+rrrrrrrrrrrrr       vvvvvvvvvvvvvvvvvvvvvv    
+rr                vvvvvvvvvvvvvvvvvvvvvv      
+rr            vvvvvvvvvvvvvvvvvvvvvvvv      rr
+rrrr      vvvvvvvvvvvvvvvvvvvvvvvvvv      rrrr
+rrrrrr      vvvvvvvvvvvvvvvvvvvvvv      rrrrrr
+rrrrrrrr      vvvvvvvvvvvvvvvvvv      rrrrrrrr
+rrrrrrrrrr      vvvvvvvvvvvvvv      rrrrrrrrrr
+rrrrrrrrrrrr      vvvvvvvvvv      rrrrrrrrrrrr
+rrrrrrrrrrrrrr      vvvvvv      rrrrrrrrrrrrrr
+rrrrrrrrrrrrrrrr      vv      rrrrrrrrrrrrrrrr
+rrrrrrrrrrrrrrrrrr          rrrrrrrrrrrrrrrrrr
+rrrrrrrrrrrrrrrrrrrr      rrrrrrrrrrrrrrrrrrrr
+rrrrrrrrrrrrrrrrrrrrrr  rrrrrrrrrrrrrrrrrrrrrr
+
+   INSTRUCTION SETS WANT TO BE FREE
+[    0.000000] Linux version 4.6.2-gf7aa0f9 (jrrk2@jrrk2-iMac) (gcc version 6.1.0 (GCC) ) #1 Thu Dec 21 19:36:57 GMT 2017
+[    0.000000] Available physical memory: 114MB
+[    0.000000] Initial ramdisk at: 0xffffffff80016958 (781719 bytes)
+[    0.000000] Zone ranges:
+[    0.000000]   Normal   [mem 0x0000000080600000-0x00000000877fffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000080600000-0x00000000877fffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000080600000-0x00000000877fffff]
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 28785
+[    0.000000] Kernel command line: 
+[    0.000000] PID hash table entries: 512 (order: 0, 4096 bytes)
+[    0.000000] Dentry cache hash table entries: 16384 (order: 5, 131072 bytes)
+[    0.000000] Inode-cache hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.000000] Sorting __ex_table...
+[    0.000000] Memory: 110464K/116736K available (2601K kernel code, 144K rwdata, 548K rodata, 856K init, 239K bss, 6272K reserved, 0K cma-reserved)
+[    0.000000] SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] NR_IRQS:0 nr_irqs:0 0
+[    0.000000] clocksource: riscv_clocksource: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100 ns
+[    0.000000] Calibrating delay loop (skipped), value calculated using timer frequency.. 0.50 BogoMIPS (lpj=2500)
+[    0.000000] pid_max: default: 32768 minimum: 301
+[    0.000000] Mount-cache hash table entries: 512 (order: 0, 4096 bytes)
+[    0.000000] Mountpoint-cache hash table entries: 512 (order: 0, 4096 bytes)
+[    0.090000] devtmpfs: initialized
+[    0.120000] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.150000] NET: Registered protocol family 16
+[    0.360000] clocksource: Switched to clocksource riscv_clocksource
+[    0.430000] NET: Registered protocol family 2
+[    0.460000] TCP established hash table entries: 1024 (order: 1, 8192 bytes)
+[    0.470000] TCP bind hash table entries: 1024 (order: 1, 8192 bytes)
+[    0.470000] TCP: Hash tables configured (established 1024 bind 1024)
+[    0.480000] UDP hash table entries: 256 (order: 1, 8192 bytes)
+[    0.480000] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes)
+[    0.490000] NET: Registered protocol family 1
+[    0.510000] RPC: Registered named UNIX socket transport module.
+[    0.510000] RPC: Registered udp transport module.
+[    0.510000] RPC: Registered tcp transport module.
+[    0.510000] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    2.770000] Unpacking initramfs...
+[    5.040000] hid_keyboard address 40020000, remapped to ffffffff78002000
+[    5.040000] hid_display address 40028000, remapped to ffffffff78010000
+[    5.390000] console [xuart_console0] enabled
+[    5.400000] keyb_timer is started
+[    5.440000] futex hash table entries: 256 (order: 0, 6144 bytes)
+[    5.460000] workingset: timestamp_bits=61 max_order=15 bucket_order=0
+[    6.000000] io scheduler noop registered (default)
+[    9.100000] lowrisc-digilent-ethernet: Lowrisc ethernet platform (40012000-40013FFF) mapped to ffffffff78008000
+[    9.130000] libphy: GPIO Bitbanged LowRISC: probed
+[    9.140000] Probing lowrisc-0:01
+[    9.150000] SMSC LAN8710/LAN8720 lowrisc-0:01: attached PHY driver [SMSC LAN8710/LAN8720] (mii_bus:phy_addr=lowrisc-0:01, irq=-1)
+[    9.200000] lowrisc_digilent_ethernet lowrisc_digilent_ethernet: Lowrisc Ether100MHz registered
+[    9.300000] Card inserted, mask changed to 4
+[    9.330000] NET: Registered protocol family 17
+[    9.340000] Key type dns_resolver registered
+[    9.360000] mmc0: mmc_rescan_try_freq: trying to init card at 5000000 Hz
+[    9.530000] Freeing unused kernel memory: 856K (ffffffff80000000 - ffffffff800d6000)
+[    9.550000] This architecture does not have kernel memory protection.
+Running the initial fake init
+[   10.030000] Open device, request interrupt
+Setting the clock ...
+[   10.910000] mmc0: new SDHC card at address 0007
+[   10.930000] blk_queue_max_hw_sectors: set to minimum 8
+[   10.950000] mmcblk0: mmc0:0007 SD08G 7.42 GiB 
+[   11.020000]  mmcblk0: p1 p2 p3
+Mounting the nfs partition ...
+Switch to nfs root
+INIT: version 2.88 booting
+bootlogd: cannot find console device 4:0 under /dev
+[   46.690000] random: dd urandom read with 103 bits of entropy available
+[   60.370000] random: nonblocking pool is initialized
+hwclock: can't open '/dev/misc/rtc': No such file or directory
+INIT: Entering runlevel: 2
+Configuring network interfaces... ifup skipped for nfsroot interface eth0
+run-parts: /etc/network/if-pre-up.d/nfsroot: exit status 1
+Starting Dropbear SSH server: dropbear.
+hwclock: can't open '/dev/misc/rtc': No such file or directory
+Starting syslogd/klogd: done
+
+Poky (Yocto Project Reference Distro) 2.0+snapshot-20171219 qemuriscv64 /dev/console
+
+qemuriscv64 login: 
+</code></pre>
+
+<p>The first boot will take considerably longer than subsequent boots due to the ssh keys having to be regenerated.
+In addition at first there will be no root password. You should login as root and set this up with the &lsquo;passwd&rsquo; command.
+In this case the password will be stored remotely on the NFS image.</p>
+
+<h2 id="mount-an-sd-card-inside-risc-v-linux:2b37e9ffd044e2f81b36b8d798aa8a19">Mount an SD card inside RISC-V Linux</h2>
+
+<p>To discover whether an SD is recognized by the kernel:</p>
+
+<pre><code>cat /proc/partitions
+</code></pre>
+
+<p>If an SD card is formated in FAT32 and inserted, it should look like:</p>
+
+<pre><code>major minor  #blocks  name
+
+ 179        0    7782400 mmcblk0
+ 179        1      32768 mmcblk0p1
+ 179        2     614400 mmcblk0p2
+ 179        3    1048576 mmcblk0p3
+</code></pre>
+
+<p>To mount a DOS file system from this card:</p>
+
+<pre><code>root@qemuriscv64:~# mount /dev/mmcblk0p1 /mnt
+root@qemuriscv64:~# ls -l /mnt
+drwxr-xr-x    2 root     root          2048 Jan  1  1980 DIR
+-rwxr-xr-x    1 root     root       5272272 Dec 22 11:22 boot0000.bin
+-rwxr-xr-x    1 root     root       5272272 Dec 22 11:22 boot0001.bin
+</code></pre>
+
+<p>After you finished with the SD card, remember to unmount it.</p>
+
+<pre><code>umount /mnt
+</code></pre>
+
+<p>To mount a manually created ext2 chroot partition from this card:</p>
+
+<pre><code>mount /dev/mmcblk0p2 /mnt
+mount -t proc none /mnt/proc
+chroot /mnt
+</code></pre>
+
+<p>This partition should be prepared in advance using a card reader on the Workstation. See
+the list of downloads above.</p>
+
+<p>In principle it could be created live from the NFS partition, but performance limitations
+make this non-viable at the moment.</p>
+
+<p>After you finished with the chroot partition, remember to unmount it.</p>
+
+<pre><code>exit
+umount /mnt/proc
+umount /mnt
+</code></pre>
+
+<p>The final partition is designated as swap. This will be handy if you wish to attempt heavy duty
+tasks such as compilation.</p>
+
+<pre><code>root@qemuriscv64:~# swapon /dev/mmcblk0p3
+[  983.110000] Adding 1048572k swap on /dev/mmcblk0p3.  Priority:-1 extents:1 across:1048572k SS
+root@qemuriscv64:~# free
+     total       used       free     shared    buffers     cached
+Mem:        111320      10088     101232        196         36       5200
+-/+ buffers/cache:       4852     106468
+Swap:      1048572          0    1048572
+root@qemuriscv64:~# 
+</code></pre>
+
+                    </section>
+                </article>
+
+        </div>
+      </section>
+    </div>
+    
+    <div class="row li-pagination article">
+      <div class="eight columns">
+        <div class="li-pagination-previous">
+          &nbsp;
+          
+          Previous<br />
+          &nbsp;
+          <a href="http://www.lowrisc.org/docs/ethernet-v0.5/walkthrough/"> Debug walkthrough</a>
+          
+        </div>
+      </div>
+      <div class="eight columns">
+        <div class="li-pagination-next">
+          &nbsp;
+          
+        </div>
+      </div>
+    </div>
+    
+
+
+                
+
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                 
+                var disqus_shortname = 'lowrisc'; 
+                var disqus_identifier = "/" + "docs/ethernet-v0.5/fpga";
+                var disqus_title = "Running the pre-built NFS-root image on the FPGA";
+                var disqus_url = "http://www.lowrisc.org" + "docs/ethernet-v0.5/fpga";
+
+                 
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+            
+
+        <footer>
+
+          <section class="outer-container">
+
+            <div>
+              <div class="link-container">
+              </div>
+            </div>
+
+            <p>
+              Unless otherwise noted, content on this site is licensed under a Creative Commons Attribution ShareAlike 4.0 International License
+            </p>
+
+          </section>
+
+        </footer>
+    </body>
+</html>
+
+
+    </body>
+</html>
+

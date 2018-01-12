@@ -1456,8 +1456,8 @@ involved with the &lt;a href=&#34;https://libre.space/&#34;&gt;Libre Space Found
 a strong interest in the possibility of open source hardware in
 &lt;a href=&#34;https://en.wikipedia.org/wiki/CubeSat&#34;&gt;CubeSats&lt;/a&gt;. Fault tolerance of some
 sort is important for harsh environments, and Nikitas worked to add fault
-tolerance through the implementation of &lt;a href=&#34;https://en.wikipedia.org/wiki/Lockstep_(computing)&#34;&gt;core
-lockstep&lt;/a&gt; for the
+tolerance through the implementation of &lt;a href=&#34;https://en.wikipedia.org/wiki/Lockstep_(computing&#34;&gt;core
+lockstep&lt;/a&gt;) for the
 PULPino-based minion
 core subsystem. This was a really successful project which ended up
 making contributions in areas beyond the core lockstep focus:

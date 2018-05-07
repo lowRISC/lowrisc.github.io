@@ -83,18 +83,34 @@
 For an overview of this work as well as the current patch set, please see
 <a href="https://github.com/lowRISC/riscv-llvm">github.com/lowRISC/riscv-llvm</a>.</p>
 
-<p>The most recent <a href="http://www.lowrisc.org/blog/2017/09/moving-risc-v-llvm-forwards">status blog post</a> provides a good overview of status, roadmap, and development approach.</p>
+<p>An early <a href="http://www.lowrisc.org/blog/2017/09/moving-risc-v-llvm-forwards">status blog post</a>
+provides a good overview of the development approach.</p>
 
-<p>Aside from hand-written unit tests, most testing has been performed using the
-GCC torture suite. For RV32I at <code>-O0</code>, <code>-O1</code>, <code>-O2</code>, <code>-O3</code>, and <code>-Os</code>, <strong>1390 out of
-1390</strong> (100%) of these tests compile and run. For RV64I, <strong>1390 out of 1390</strong>
-(100%) of these tests compile and run at <code>-O1</code>, <code>-O2</code>, <code>-O3</code>, and <code>-Os</code>. There
-is 1 compilation failure at O0. MC-layer support is now present for a number of
-standard ISA extensions (RV32MAFD), as well as code-gen for RV32M.</p>
+<p>As of May 2018, the vast majority of these patches are now upstream and most
+users wishing to experiment with support for RISC-V in LLVM projects will
+likely be best served by building directly from the upstream repositories. You
+may prefer to follow this repository if you want to study how the backend is
+put together.</p>
 
-<p>Issues detailing further work and improvements are tracked
-<a href="https://github.com/lowrisc/riscv-llvm/issues?q=is%3Aissue+is%3Aopen+label%3Abug">here</a>.
-The <a href="https://github.com/lowRISC/riscv-llvm/blob/master/scripts/run_torture_suite.sh">runner script</a>
+<p>Immediate next steps:</p>
+
+<ul>
+<li>Week of 7th May: The patches in the <a href="https://github.com/lowRISC/riscv-llvm">lowRISC
+riscv-llvm</a> repository will be
+refreshed.</li>
+<li>Week of 14th May: The repository will be updated with documentation on
+adding custom instructions, building upon a presentation at the Barcelona
+RISC-V Workshop.</li>
+</ul>
+
+<p>The current patchset allows the entirety of the GCC torture suite to compile
+and run for {RV32I, RV32IM, RV32IFD} with or without the &lsquo;C&rsquo; (compressed)
+extension. Additionally, all torture suite tests compile and run for RV64I at
+O1, O2, O3, and Os. MC-layer support is present for RV32IMAFDC+RV64IMAFDC, and
+codegen support for RV32IMFDC and RV64I.</p>
+
+<p>The <a href="https://github.com/lowRISC/riscv-llvm/blob/master/scripts/run_torture_suite.sh">runner
+script</a>
 includes a list of skipped tests. Tests which are architecture-specific or
 which exercise features not supported by Clang are skipped and not included in
 the totals.</p>

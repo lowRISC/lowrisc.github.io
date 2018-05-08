@@ -464,6 +464,23 @@ functionality. Neither will RISC-V SoCs.&lt;/li&gt;
 enabling the community to port tools, OSes, middleware, packages to RISC-V.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;simulating-heterogeneous-multi-node-32-bit-and-64-bit-risc-v-systems-running-linux-and-zephry-with-renode-michael-gielda:7e63e62b65afd74857129fe53555ff5b&#34;&gt;Simulating heterogeneous multi-node 32-bit and 64-bit RISC-V systems running Linux and Zephry with Renode: Michael Gielda&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Antmicro: &amp;lsquo;turn ideas into software-driven products&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;Check out renode.io&lt;/li&gt;
+&lt;li&gt;Renode is an open source instruction set simulator with a multi-layered
+framework on top. It mimics entire platforms.&lt;/li&gt;
+&lt;li&gt;Cores are implemented in C, and the rest is implemented in C&amp;rsquo;, Python, or
+any .NET-compatible language.&lt;/li&gt;
+&lt;li&gt;Strengths include transparent and robust debugging, easy integration, rich
+model abstractions, &amp;hellip;&lt;/li&gt;
+&lt;li&gt;Renode has a simple platform description format that is human readable,
+modular, and extendible.&lt;/li&gt;
+&lt;li&gt;Also have the capability to simulate entire networks or wireless and wired
+devices in one time domain.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

@@ -330,6 +330,21 @@ order between a paired LR and successful SC (see spec for full details of
 rule)</li>
 <li>Progress Axiom: no memory operation may be preceded in the global memory
 order by an infinite sequence of other memory operations</li>
+<li>Misaligned AMOs are not supported in the base &lsquo;A&rsquo; extension, but can be
+supported with the &lsquo;Zam&rsquo; extension.</li>
+<li>Ztso strengthens the baseline memory model to TSO, but TSO-only code is not
+backwards-compatible with RVWMO.</li>
+<li>Authored two appendices which give lengthy explanations in plain English as
+well as axiomatic and operational models. More than 7000 litmus tests are
+available online.</li>
+<li>Ongoing/future work
+
+<ul>
+<li>Mixed-size, partially overlappy memory accesses</li>
+<li>Instruction fetches and fence.i, TL flushes and sfence.vma etc</li>
+<li>Integrations with V, J, N, T extensions</li>
+<li>&hellip;</li>
+</ul></li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

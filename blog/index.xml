@@ -443,6 +443,20 @@ be available through SiFive.&lt;/li&gt;
 &lt;li&gt;You can now submit proposals for your own freedom chip through the
 &amp;ldquo;Democratizing Ideas&amp;rdquo; program. Partners will be announced at the First Annual
 RISC-V Summit in December. Deadline is the end of October.&lt;/li&gt;
+&lt;li&gt;RISC-V is completing the innovation cycle of research, education, and
+industry.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;hifive-unleashed-expansion-kit-ted-marena:7e63e62b65afd74857129fe53555ff5b&#34;&gt;HiFive unleashed expansion kit: Ted Marena&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Marketing update: Looking for collaboration on a porting to RISC-V
+whitepaper. Would also like to see member companies communicating why they
+chose RISC-V.&lt;/li&gt;
+&lt;li&gt;Microsemi set up the MI-V ecosystem to support various RTOSes on soft RISC-V
+cores on FPGA.&lt;/li&gt;
+&lt;li&gt;The Mi-V HiFive Unleashed Expansion board connects to the HiFive board via
+FMC. Has PCIe connectors, SATA, HDMI, USB, microSD.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

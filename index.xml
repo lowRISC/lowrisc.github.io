@@ -552,6 +552,21 @@ made&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;smallest-risc-v-device-for-next-generation-edge-computing-seiji-munetoh:7e63e62b65afd74857129fe53555ff5b&#34;&gt;Smallest RISC-V device for next-generation edge computing: Seiji Munetoh&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;First target application is authentication. HMAC-SHA256 and variants&lt;/li&gt;
+&lt;li&gt;Use optical communication for host/device comms&lt;/li&gt;
+&lt;li&gt;Use SRAM to emulate storage memory chip&lt;/li&gt;
+&lt;li&gt;The BootROM is synthesized and embedded in the SoC&lt;/li&gt;
+&lt;li&gt;The first generation processor utilises a PULPino core. Target GF14LP, 300um
+x 250uM. 2KB data SRAM. Plus authentication engine, analog custom circuits
+(LDO, clock/reset, PD/LED IF).&lt;/li&gt;
+&lt;li&gt;Created a 2.5D integrated device, use a silicon interposer less than 1mm2.&lt;br /&gt;
+Processor SoC plus 32KB MPI-SRAM, plus optical IO (MicroLED, MicroPD), plus
+power.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

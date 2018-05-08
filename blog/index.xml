@@ -426,6 +426,13 @@ poor control, and bugs may occur non-deterministically.&lt;/li&gt;
 &lt;ul&gt;
 &lt;li&gt;When Instagram was acquired for $1B it has just 13 engineers. They achieved
 that partially by reusing open source software.&lt;/li&gt;
+&lt;li&gt;See SiFive silicon cloud services as a parallel to Amazon AWS. Offers a
+selection of CPU soft IPs, prototype ASICs, production ASICs.&lt;/li&gt;
+&lt;li&gt;Talking today about the Freedom Unleashed platform. Features 4 application
+cores and 1 embedded core.&lt;/li&gt;
+&lt;li&gt;The HiFive Unleashed board feature an SiFive FU540-C000, 8GB DDR4, Gigabit
+Ethernet port, 32MB Quad SPI flash, microSD card for removable storage,
+MicroUSB for debug and serial communication, digital GPIO pins, FMC connector.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

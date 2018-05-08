@@ -573,6 +573,8 @@ Ended up using an 8-bit bus configuration.&lt;/li&gt;
 &lt;li&gt;Improved SHA256 performance by adding a hwardware engine.&lt;/li&gt;
 &lt;li&gt;Made a debug chip packaged in QFP64 wire-bond&lt;/li&gt;
 &lt;li&gt;Currently testing the 2.5D integrated device&lt;/li&gt;
+&lt;li&gt;The second generation device was taped out in Feb 2018, featuring a new SoC
+design with instruction cache, RF interface, sensors.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

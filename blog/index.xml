@@ -93,8 +93,8 @@ changed once manufactured, threat of patent lawsuits&lt;/li&gt;
 &lt;li&gt;Major milestones in 2017
 
 &lt;ul&gt;
-&lt;li&gt;Fixed holdes in user ISA, no changed now in IMAFDQC&lt;/li&gt;
-&lt;li&gt;Froze priv-1.10 spec. Updates mus be backwars copmpat&lt;/li&gt;
+&lt;li&gt;Fixed holes in user ISA, no changed now in IMAFDQC&lt;/li&gt;
+&lt;li&gt;Froze priv-1.10 spec. Updates must be backwards compatible&lt;/li&gt;
 &lt;li&gt;Memory model work&lt;/li&gt;
 &lt;li&gt;Linux ABI frozen&lt;/li&gt;
 &lt;li&gt;Debug spec completed&lt;/li&gt;
@@ -105,7 +105,7 @@ changed once manufactured, threat of patent lawsuits&lt;/li&gt;
 &lt;li&gt;Working to prepare the base ISA for ratifications&lt;/li&gt;
 &lt;li&gt;Formal spec in progress&lt;/li&gt;
 &lt;li&gt;Hypervisor spec done, need implementations&lt;/li&gt;
-&lt;li&gt;Crypto in prograess&lt;/li&gt;
+&lt;li&gt;Crypto in progress&lt;/li&gt;
 &lt;li&gt;J (dynamic translation / runtimes) in progress&lt;/li&gt;
 &lt;li&gt;Packed SIMD in progress&lt;/li&gt;
 &lt;li&gt;Security task group ongoing&lt;/li&gt;
@@ -117,7 +117,7 @@ industry projects.  Have many more stakeholders giving input.&lt;/li&gt;
 &lt;li&gt;2018 embedded platform
 
 &lt;ul&gt;
-&lt;li&gt;New ABI for embedded (e.g. long doublej = 64bit)&lt;/li&gt;
+&lt;li&gt;New ABI for embedded (e.g. long double = 64bit)&lt;/li&gt;
 &lt;li&gt;Build on RV32E&lt;/li&gt;
 &lt;li&gt;compiler/library work for improved code compression&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
@@ -125,11 +125,11 @@ industry projects.  Have many more stakeholders giving input.&lt;/li&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Set up security standing committee. Chaired by Helena Handschuh (Rambus),
-vice-chair Joe Kiniry (Gaolois Research).&lt;/li&gt;
+vice-chair Joe Kiniry (Galois Research).&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&#34;the-state-of-risc-v-software-palmer-dabbelt:7e63e62b65afd74857129fe53555ff5b&#34;&gt;The state of RISC-V software: Palmer Dabbelt&lt;/h1&gt;
+&lt;h2 id=&#34;the-state-of-risc-v-software-palmer-dabbelt:7e63e62b65afd74857129fe53555ff5b&#34;&gt;The state of RISC-V software: Palmer Dabbelt&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Palmer shows a picture of Xorg with web browser, terminal, webcam, and a 3d
@@ -160,7 +160,16 @@ from a range of companies.&lt;/li&gt;
 included in a upstream release about a week ago)&lt;/li&gt;
 &lt;li&gt;There are also commercial simulators, such as Imperas OVP and Esperanto&amp;rsquo;s
 simulator.&lt;/li&gt;
-&lt;li&gt;Help wanted: OpenJDK JIT port.&lt;/li&gt;
+&lt;li&gt;Help wanted: OpenJDK JIT port, Arduino runtime&lt;/li&gt;
+&lt;li&gt;The RISC-V platform specification working group will define profiles for
+types of RISC-V systems. e.g. bare-metal embedded, RTOS, embedded Linux,
+portable Linux.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;the-risc-v-vector-isa-update-roger-espassa:7e63e62b65afd74857129fe53555ff5b&#34;&gt;The RISC-V vector ISA update: Roger Espassa&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The spec isn&amp;rsquo;t yet read&amp;hellip;but it&amp;rsquo;s getting really close&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

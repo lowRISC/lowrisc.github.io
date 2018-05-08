@@ -460,6 +460,8 @@ FMC. Has PCIe connectors, SATA, HDMI, USB, microSD.&lt;/li&gt;
 &lt;li&gt;Porting an application from ARM to RISC-V is the same effort as porting from
 one ARM SoC to another. No two ARM SoCs have the same memory map or peripheral
 functionality. Neither will RISC-V SoCs.&lt;/li&gt;
+&lt;li&gt;Mi-V HiFive Unleashed board aims to accelerate the RISC-V Linux ecosystem,
+enabling the community to port tools, OSes, middleware, packages to RISC-V.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

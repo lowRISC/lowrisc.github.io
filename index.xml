@@ -562,13 +562,17 @@ made&lt;/li&gt;
 &lt;li&gt;The first generation processor utilises a PULPino core. Target GF14LP, 300um
 x 250uM. 2KB data SRAM. Plus authentication engine, analog custom circuits
 (LDO, clock/reset, PD/LED IF).&lt;/li&gt;
-&lt;li&gt;Created a 2.5D integrated device, use a silicon interposer less than 1mm2.&lt;br /&gt;
+&lt;li&gt;Created a 2.5D integrated device, use a silicon interposer less than 1mm2.
 Processor SoC plus 32KB MPI-SRAM, plus optical IO (MicroLED, MicroPD), plus
 power.&lt;/li&gt;
 &lt;li&gt;Evaluated the architecture using low cost FPGA boards (ZedBoard, Zybo,
 Arty).&lt;/li&gt;
 &lt;li&gt;Moved the instruction SRAM out of the processor die, and evaluate the
-performance effect of different widths between processor and external SRAM.&lt;/li&gt;
+performance effect of different widths between processor and external SRAM.
+Ended up using an 8-bit bus configuration.&lt;/li&gt;
+&lt;li&gt;Improved SHA256 performance by adding a hwardware engine.&lt;/li&gt;
+&lt;li&gt;Made a debug chip packaged in QFP64 wire-bond&lt;/li&gt;
+&lt;li&gt;Currently testing the 2.5D integrated device&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

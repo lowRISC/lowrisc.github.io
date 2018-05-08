@@ -518,6 +518,18 @@ glibc upstreaming and freezing of the ABI.&lt;/li&gt;
 &lt;li&gt;5th - 13th March: First &amp;lsquo;native&amp;rsquo; build.&lt;/li&gt;
 &lt;li&gt;13th - 23rd March: Second &amp;lsquo;native&amp;rsquo; build in a clean environment (isolated
 environment similar to &amp;lsquo;production&amp;rsquo; auto-builders.&lt;/li&gt;
+&lt;li&gt;75% of packages are now there. Progress is slowing down as many of the
+remaining packages are either very large or difficult.&lt;/li&gt;
+&lt;li&gt;Uncovered a range of bugs in QEMU, toolchain and so on.&lt;/li&gt;
+&lt;li&gt;Manuel has a long lost of contributors to thank. Thank you to everyone who
+helped make this port happen!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;fedora-on-risc-v-richard-jones:7e63e62b65afd74857129fe53555ff5b&#34;&gt;Fedora on RISC-V: Richard Jones&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Every few years Red Hat Enterprise Linux is forked from Fedora.&lt;/li&gt;
+&lt;li&gt;Red Hat and Fedora have a strong upstream first policy&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

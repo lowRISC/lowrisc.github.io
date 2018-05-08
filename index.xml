@@ -320,6 +320,16 @@ Ecosystem is vital to success.&lt;/li&gt;
 they&amp;rsquo;re not in the processor business? Feel there&amp;rsquo;s too much focus on the CPU,
 when the focus needs to be on the data.&lt;/li&gt;
 &lt;li&gt;Half the world&amp;rsquo;s data lives on Western Digital devices.&lt;/li&gt;
+&lt;li&gt;First Western Digital RISC-V core. 2-way superscalar, mostly in-order core
+with 9 stage pipeline. RV32IMC, 1 load/store pipe, 1 multiplier, 1 divider, 4
+ALU engines.
+
+&lt;ul&gt;
+&lt;li&gt;Performance targets at 28nm. Dhrystone greater than 2MIPS/Mhz, CoreMark
+over 3 CM/MH. 1GHz operation.&lt;/li&gt;
+&lt;li&gt;Built to show it can be done and better understand RISC-V&lt;/li&gt;
+&lt;li&gt;Most of the work went into the uncore.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

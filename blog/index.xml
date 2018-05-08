@@ -567,6 +567,8 @@ Processor SoC plus 32KB MPI-SRAM, plus optical IO (MicroLED, MicroPD), plus
 power.&lt;/li&gt;
 &lt;li&gt;Evaluated the architecture using low cost FPGA boards (ZedBoard, Zybo,
 Arty).&lt;/li&gt;
+&lt;li&gt;Moved the instruction SRAM out of the processor die, and evaluate the
+performance effect of different widths between processor and external SRAM.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

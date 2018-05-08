@@ -169,7 +169,7 @@ portable Linux.&lt;/li&gt;
 &lt;h2 id=&#34;the-risc-v-vector-isa-update-roger-espassa:7e63e62b65afd74857129fe53555ff5b&#34;&gt;The RISC-V vector ISA update: Roger Espassa&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;The spec isn&amp;rsquo;t yet read&amp;hellip;but it&amp;rsquo;s getting really close&lt;/li&gt;
+&lt;li&gt;The spec isn&amp;rsquo;t yet ready&amp;hellip;but it&amp;rsquo;s getting really close&lt;/li&gt;
 &lt;li&gt;Updates and discussion points:
 
 &lt;ul&gt;
@@ -345,6 +345,8 @@ and open source IPs&lt;/li&gt;
 &lt;li&gt;Datacenter CPUs with smart, fast and open peripheral buses enable new
 compute paradigms for AI workloads&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;General purpose architectures are no longer sufficient. Workload diversity
+demands diverse technologies and architectures.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

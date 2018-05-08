@@ -482,6 +482,12 @@ devices in one time domain.&lt;/li&gt;
 &lt;li&gt;Can save and restore whole simulation state.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;debian-gnu-linux-port-for-risc-v-64-bit-manuel-fernandez-montecelo:7e63e62b65afd74857129fe53555ff5b&#34;&gt;Debian GNU/Linux port for RISC-V 64-bit: Manuel Fernandez Montecelo&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Goal is to have Debian ready to install and run on RISC-V systems.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

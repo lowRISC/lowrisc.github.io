@@ -187,7 +187,7 @@ a &amp;ldquo;scalar shape&amp;rdquo;. Introduce VLO/VSO to load/store single sca
 summarise these, so you&amp;rsquo;re best waiting for the slides to be published.&lt;/li&gt;
 &lt;li&gt;vclip is introduced to help support fixed point.&lt;/li&gt;
 &lt;li&gt;FP16 operations are introduced and are required for the V extension.&lt;/li&gt;
-&lt;li&gt;The vector extension introduces intersting instructions such as vector-fpr
+&lt;li&gt;The vector extension introduces interesting instructions such as vector-fpr
 merge, vector-fp merge, slide down / slide up&lt;/li&gt;
 &lt;li&gt;Plan to close the base spec very soon&lt;/li&gt;
 &lt;li&gt;Want to see compiler output before bringing for ratification&lt;/li&gt;
@@ -203,7 +203,7 @@ merge, vector-fp merge, slide down / slide up&lt;/li&gt;
 &lt;li&gt;Answer questions about compiler correctness. Will executing a certain two
 C programs produce the same results? For all inputs? For all C and
 corresponding RISC-V programs?&lt;/li&gt;
-&lt;li&gt;Answer questions on implementation correctness. Will executing this proram
+&lt;li&gt;Answer questions on implementation correctness. Will executing this progam
 produce correct results? On all RISC-V processors?&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;ISA formal spec goals
@@ -211,7 +211,17 @@ produce correct results? On all RISC-V processors?&lt;/li&gt;
 &lt;ul&gt;
 &lt;li&gt;Clear and understandable to the human reader. Precise and complete.&lt;br /&gt;
 Machine readable. Executable (run RISC-V programs, boot an OS). Usable with
-variosu formal tools.&lt;/li&gt;
+various formal tools.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Key issues
+
+&lt;ul&gt;
+&lt;li&gt;RISC-V&amp;rsquo;s modulatirty. A wide range of options, some of which are
+dynmically selectable or can vary between privilege levels. The spec needs
+to capture all combinations and still remain readable.&lt;/li&gt;
+&lt;li&gt;Extensibility. Want to allow people to build upon the formal spec to add
+support their own extensions.&lt;/li&gt;
+&lt;li&gt;Non-detterminism and concurrency.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 

@@ -253,7 +253,7 @@ a &ldquo;scalar shape&rdquo;. Introduce VLO/VSO to load/store single scalar elem
 summarise these, so you&rsquo;re best waiting for the slides to be published.</li>
 <li>vclip is introduced to help support fixed point.</li>
 <li>FP16 operations are introduced and are required for the V extension.</li>
-<li>The vector extension introduces intersting instructions such as vector-fpr
+<li>The vector extension introduces interesting instructions such as vector-fpr
 merge, vector-fp merge, slide down / slide up</li>
 <li>Plan to close the base spec very soon</li>
 <li>Want to see compiler output before bringing for ratification</li>
@@ -269,7 +269,7 @@ merge, vector-fp merge, slide down / slide up</li>
 <li>Answer questions about compiler correctness. Will executing a certain two
 C programs produce the same results? For all inputs? For all C and
 corresponding RISC-V programs?</li>
-<li>Answer questions on implementation correctness. Will executing this proram
+<li>Answer questions on implementation correctness. Will executing this progam
 produce correct results? On all RISC-V processors?</li>
 </ul></li>
 <li>ISA formal spec goals
@@ -277,7 +277,17 @@ produce correct results? On all RISC-V processors?</li>
 <ul>
 <li>Clear and understandable to the human reader. Precise and complete.<br />
 Machine readable. Executable (run RISC-V programs, boot an OS). Usable with
-variosu formal tools.</li>
+various formal tools.</li>
+</ul></li>
+<li>Key issues
+
+<ul>
+<li>RISC-V&rsquo;s modulatirty. A wide range of options, some of which are
+dynmically selectable or can vary between privilege levels. The spec needs
+to capture all combinations and still remain readable.</li>
+<li>Extensibility. Want to allow people to build upon the formal spec to add
+support their own extensions.</li>
+<li>Non-detterminism and concurrency.</li>
 </ul></li>
 </ul>
 

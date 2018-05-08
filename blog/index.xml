@@ -360,7 +360,15 @@ Data and Fast Data environments.&lt;/li&gt;
 &lt;li&gt;There is a multi-year transition of Western Digital devices, platforms and
 systems to RISC-V.&lt;/li&gt;
 &lt;li&gt;Question from the audience: will Western Digital be open sourcing their
-cores? Would like to, but not making a commitment today.&lt;/li&gt;
+cores? Would like to, but not making a commitment today. One of the challenges
+is uncoupling from the uncore. Ultimately hope to share cores and IP blocks.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;risc-v-debugging-custom-isa-extensions-multicore-dtm-variants-markus-goehrle:7e63e62b65afd74857129fe53555ff5b&#34;&gt;RISC-V debugging. Custom ISA extensions, multicore, DTM variants. Markus Goehrle&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Support for a variety of external and internal interfaces, as well as
+interconnections of standard debug transport modules (DTM).&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

@@ -486,6 +486,18 @@ devices in one time domain.&lt;/li&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Goal is to have Debian ready to install and run on RISC-V systems.&lt;/li&gt;
+&lt;li&gt;Debian has more than 27k source packages, and also supports other kernels
+such as FreeBSD or GNU Hurd.&lt;/li&gt;
+&lt;li&gt;There are three kinds of Debian port
+
+&lt;ul&gt;
+&lt;li&gt;Those outside of Debian infrastructure, e.g. Raspbian.&lt;/li&gt;
+&lt;li&gt;Unofficial/unsupported. Not in &amp;lsquo;stable&amp;rsquo; releases but hosted in Debian
+infrastructure.&lt;/li&gt;
+&lt;li&gt;Officially supported. Part of the &amp;lsquo;stable&amp;rsquo; releases and fully supported.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;RISC-V is currently unofficial, working its way towards officially
+supported.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

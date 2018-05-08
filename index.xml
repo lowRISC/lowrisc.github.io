@@ -170,6 +170,19 @@ portable Linux.&lt;/li&gt;
 
 &lt;ul&gt;
 &lt;li&gt;The spec isn&amp;rsquo;t yet read&amp;hellip;but it&amp;rsquo;s getting really close&lt;/li&gt;
+&lt;li&gt;Updates and discussion points:
+
+&lt;ul&gt;
+&lt;li&gt;Register types moved to an extension.&lt;/li&gt;
+&lt;li&gt;Widening multiplies&lt;/li&gt;
+&lt;li&gt;Debating whether reductions should be in base or not&lt;/li&gt;
+&lt;li&gt;Worked on overlaying V-reg and F-reg to save state, decided against it&lt;/li&gt;
+&lt;li&gt;Fixed point vclip instructions&lt;/li&gt;
+&lt;li&gt;Mask support for speculative vectorisation&lt;/li&gt;
+&lt;li&gt;Possibility to fit integer MADD within encoding&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Scalar support: the encoding allows indicating that the destination vreg is
+a &amp;ldquo;scalar shape&amp;rdquo;. Introduce VLO/VSO to load/store single scalar elements.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

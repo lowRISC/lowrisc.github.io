@@ -46,6 +46,17 @@ extensions.&lt;/li&gt;
 &lt;li&gt;Custom: Space for implemnter-specific extensions, never claimed by
 Foundation.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;The RISC-V big tent philosophy: enable all types of RISC-V implementation,
+from 32-bit microcontrollers with 1KiB SRAM up to 64-bit Unix servers with
+virtualisation or 128-bit 100k-core supercomputer with PiBs DRAM, open or
+proprietary business models, non-conforming extensions, software
+implementations (e.g. QEMU), &amp;hellip;
+
+&lt;ul&gt;
+&lt;li&gt;Minimize wasted work through maximum reuse. Factor out platform-level
+requirements from reusable ISA and software modules&lt;/li&gt;
+&lt;li&gt;Use standard platform profiles to reduce ecosystem effort.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

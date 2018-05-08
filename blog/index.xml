@@ -364,7 +364,7 @@ cores? Would like to, but not making a commitment today. One of the challenges
 is uncoupling from the uncore. Ultimately hope to share cores and IP blocks.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;risc-v-debugging-custom-isa-extensions-multicore-dtm-variants-markus-goehrle:7e63e62b65afd74857129fe53555ff5b&#34;&gt;RISC-V debugging. Custom ISA extensions, multicore, DTM variants. Markus Goehrle&lt;/h2&gt;
+&lt;h2 id=&#34;risc-v-debugging-custom-isa-extensions-multicore-dtm-variants-markus-goehrle:7e63e62b65afd74857129fe53555ff5b&#34;&gt;RISC-V debugging. Custom ISA extensions, multicore, DTM variants: Markus Goehrle&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Support for a variety of external and internal interfaces, as well as
@@ -376,6 +376,23 @@ task and kernel modules, addresses of dynamic objects etc.&lt;/li&gt;
 specification, as well as others who implement their own custom debug IP.
 People are also doing custom solutions for trace. The speaker strongly urges
 people to feed into the debug specification standardisation process.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;gdb-for-risc-v-jeremy-bennett:7e63e62b65afd74857129fe53555ff5b&#34;&gt;GDB for RISC-V: Jeremy Bennett&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;GDB support was committed upstream as of early March, including basic bare
+metal support. This sees nightly regression tests with a pass rate above 99%.&lt;/li&gt;
+&lt;li&gt;Next steps include:
+
+&lt;ul&gt;
+&lt;li&gt;XML target description support&lt;/li&gt;
+&lt;li&gt;Memory map support&lt;/li&gt;
+&lt;li&gt;Remote I/O support&lt;/li&gt;
+&lt;li&gt;Adding non-DWARF stack unwinding&lt;/li&gt;
+&lt;li&gt;Upstreaming a GDB Simulator&lt;/li&gt;
+&lt;li&gt;Linux application debugging&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

@@ -565,6 +565,8 @@ x 250uM. 2KB data SRAM. Plus authentication engine, analog custom circuits
 &lt;li&gt;Created a 2.5D integrated device, use a silicon interposer less than 1mm2.&lt;br /&gt;
 Processor SoC plus 32KB MPI-SRAM, plus optical IO (MicroLED, MicroPD), plus
 power.&lt;/li&gt;
+&lt;li&gt;Evaluated the architecture using low cost FPGA boards (ZedBoard, Zybo,
+Arty).&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

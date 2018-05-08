@@ -333,6 +333,18 @@ over 3 CM/MH. 1GHz operation.&lt;/li&gt;
 &lt;li&gt;Produced a NAND controller SoC using RISC-V. Added instruction optimisations
 for NAND media handling.&lt;/li&gt;
 &lt;li&gt;Still on track to ship first products with RISC-V in 2019.&lt;/li&gt;
+&lt;li&gt;RISC-V in embedded
+
+&lt;ul&gt;
+&lt;li&gt;Free and open IP connectivity buses enabling plug and play of proprietary
+and open source IPs&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;RISC-V in enterprise
+
+&lt;ul&gt;
+&lt;li&gt;Datacenter CPUs with smart, fast and open peripheral buses enable new
+compute paradigms for AI workloads&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

@@ -330,6 +330,9 @@ over 3 CM/MH. 1GHz operation.&lt;/li&gt;
 &lt;li&gt;Built to show it can be done and better understand RISC-V&lt;/li&gt;
 &lt;li&gt;Most of the work went into the uncore.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Produced a NAND controller SoC using RISC-V. Added instruction optimisations
+for NAND media handling.&lt;/li&gt;
+&lt;li&gt;Still on track to ship first products with RISC-V in 2019.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

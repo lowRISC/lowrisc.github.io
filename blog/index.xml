@@ -393,6 +393,39 @@ metal support. This sees nightly regression tests with a pass rate above 99%.&lt
 &lt;li&gt;Upstreaming a GDB Simulator&lt;/li&gt;
 &lt;li&gt;Linux application debugging&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;GDB support for multicore debug is evolving, with support for multiple
+active inferiors with their own flow of control and address space. Each
+inferior is associated with a program space (symbol table and DWARF debug
+information) for the code running on that inferior.&lt;/li&gt;
+&lt;li&gt;Upstream GDB supports multiple concurrent inferiors which has been tested
+for RISC-V with a 36-core system. More work is needed for complex address
+spaces (e.g. where some memory is shared with other inferiors).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;a-common-software-development-environment-for-many-core-risc-v-hardware-and-virtual-platforms-gajinder-panessar-and-simon-davidmann:7e63e62b65afd74857129fe53555ff5b&#34;&gt;A common software development environment for many-core RISC-V hardware and virtual platforms: Gajinder Panessar and Simon Davidmann&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Talking today about a collaboration between Imperas and UltraSoC to provide
+a common environment for debugging simulation-based and hardware debug.&lt;/li&gt;
+&lt;li&gt;Chip designs are getting more complex, including asymmetric multi-core.&lt;/li&gt;
+&lt;li&gt;Embedded software is increasingly important and engineering intensive.&lt;/li&gt;
+&lt;li&gt;Traditionally use GDB, with one instance per core. This has little
+visibility as it only sees the memory space of the attached CPU. It also gives
+poor control, and bugs may occur non-deterministically.&lt;/li&gt;
+&lt;li&gt;Imperas provide a commercial simulation solution, running at 100-2000MIPS.
+
+&lt;ul&gt;
+&lt;li&gt;This suports the Imperas &amp;lsquo;MPD&amp;rsquo; full platform debugger.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;UltraSoC provide IP for debug/monitoring for the whole SoC&lt;/li&gt;
+&lt;li&gt;Imperas and UltraSoC have collaborated to provide a common solution.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;hifive-unleashed-world-s-first-multi-core-risc-v-linux-dev-board-yunsup-lee:7e63e62b65afd74857129fe53555ff5b&#34;&gt;HiFive unleashed. World&amp;rsquo;s First Multi-Core RISC-V Linux Dev Board: Yunsup Lee&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;When Instagram was acquired for $1B it has just 13 engineers. They achieved
+that partially by reusing open source software.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

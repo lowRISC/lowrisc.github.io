@@ -129,6 +129,22 @@ vice-chair Joe Kiniry (Gaolois Research).&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h1 id=&#34;the-state-of-risc-v-software-palmer-dabbelt:7e63e62b65afd74857129fe53555ff5b&#34;&gt;The state of RISC-V software: Palmer Dabbelt&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Palmer shows a picture of Xorg with web browser, terminal, webcam, and a 3d
+video game all running on a RISC-V core (SiFive Unleashed with Microsemi
+add-on board).&lt;/li&gt;
+&lt;li&gt;GNU-based toolchains
+
+&lt;ul&gt;
+&lt;li&gt;binutils, gcc, glibc, newlib all upstreamed.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;The RISC-V Linux kernel port was upstreamed in January 2018. It only
+supports RV64I systems for now, and is currently missing some platform
+drivers. Help would be welcomed in getting these upstream.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

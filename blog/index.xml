@@ -206,6 +206,13 @@ corresponding RISC-V programs?&lt;/li&gt;
 &lt;li&gt;Answer questions on implementation correctness. Will executing this proram
 produce correct results? On all RISC-V processors?&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;ISA formal spec goals
+
+&lt;ul&gt;
+&lt;li&gt;Clear and understandable to the human reader. Precise and complete.&lt;br /&gt;
+Machine readable. Executable (run RISC-V programs, boot an OS). Usable with
+variosu formal tools.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

@@ -245,6 +245,18 @@ the weak memory model.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;risc-v-memory-consistency-model-status-update-dan-lustig:7e63e62b65afd74857129fe53555ff5b&#34;&gt;RISC-V memory consistency model status update: Dan Lustig&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The specification is released for public comment, which will run through to
+June 16th.&lt;/li&gt;
+&lt;li&gt;Fundamentally, the RISC-V memory consistency model specifies the values that
+can be returned by loads.&lt;/li&gt;
+&lt;li&gt;The RISC-V memory model specification defines the RISC-V weak memory
+ordering (RVWMO) model and extensions: Zam (misaligned atomics), Ztso (Total
+Store Ordering).&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

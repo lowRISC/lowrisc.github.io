@@ -183,6 +183,15 @@ portable Linux.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;Scalar support: the encoding allows indicating that the destination vreg is
 a &amp;ldquo;scalar shape&amp;rdquo;. Introduce VLO/VSO to load/store single scalar elements.&lt;/li&gt;
+&lt;li&gt;Roger is outlining the newly introduced instructions. I can&amp;rsquo;t usefully
+summarise these, so you&amp;rsquo;re best waiting for the slides to be published.&lt;/li&gt;
+&lt;li&gt;vclip is introduced to help support fixed point.&lt;/li&gt;
+&lt;li&gt;FP16 operations are introduced and are required for the V extension.&lt;/li&gt;
+&lt;li&gt;The vector extension introduces intersting instructions such as vector-fpr
+merge, vector-fp merge, slide down / slide up&lt;/li&gt;
+&lt;li&gt;Plan to close the base spec very soon&lt;/li&gt;
+&lt;li&gt;Want to see compiler output before bringing for ratification&lt;/li&gt;
+&lt;li&gt;Haven&amp;rsquo;t yet started on formal spec for the vector ISA&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

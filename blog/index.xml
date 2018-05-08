@@ -290,6 +290,7 @@ requirements for hardware design team&lt;/li&gt;
 high clock rate, and zero latency unlimited bandwidth access to a single
 memory. A hardware engineers dreams of many cores at 1ghz with accelerators,
 separate memories etc.&lt;/li&gt;
+&lt;li&gt;Trying to achieve even faster development cycles.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

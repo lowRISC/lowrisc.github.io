@@ -479,6 +479,7 @@ model abstractions, &amp;hellip;&lt;/li&gt;
 modular, and extendible.&lt;/li&gt;
 &lt;li&gt;Also have the capability to simulate entire networks or wireless and wired
 devices in one time domain.&lt;/li&gt;
+&lt;li&gt;Can save and restore whole simulation state.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

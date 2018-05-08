@@ -281,6 +281,17 @@ available online.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;software-drives-hardware-lessons-learned-and-future-directions-robert-oshana:7e63e62b65afd74857129fe53555ff5b&#34;&gt;Software drives hardware. Lessons learned and future directions: Robert Oshana&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Software engineers can innovate earlier/often and drive more specific core
+requirements for hardware design team&lt;/li&gt;
+&lt;li&gt;Software engineers like to dream of a simple single core running at very
+high clock rate, and zero latency unlimited bandwidth access to a single
+memory. A hardware engineers dreams of many cores at 1ghz with accelerators,
+separate memories etc.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

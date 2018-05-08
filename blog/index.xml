@@ -437,8 +437,12 @@ MicroUSB for debug and serial communication, digital GPIO pins, FMC connector.&l
 Rockchip or Alwinner (higher than the lower-clocked Allwinner, but slower than
 the Rockchip).&lt;/li&gt;
 &lt;li&gt;Open-V: a SiFive/ONCHIP microcontroller based on Freedom Everywhere. Built
-in TSMC 180nm, 3.3mm x 2.6mm. ONCHIP provided a range of analog IP, which were
-integrated with a SiFive E31 core.&lt;/li&gt;
+in TSMC 180nm, 3.3mm x 2.6mm. 2.7M transistors. ONCHIP provided a range of
+analog IP, which were integrated with a SiFive E31 core. The components will
+be available through SiFive.&lt;/li&gt;
+&lt;li&gt;You can now submit proposals for your own freedom chip through the
+&amp;ldquo;Democratizing Ideas&amp;rdquo; program. Partners will be announced at the First Annual
+RISC-V Summit in December. Deadline is the end of October.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

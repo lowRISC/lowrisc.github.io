@@ -37,6 +37,15 @@ members. These members are distributed across 25 countries around the world.&lt;
 
 &lt;ul&gt;
 &lt;li&gt;Krste gives an overview of the RISC-V ISA for newcomers.&lt;/li&gt;
+&lt;li&gt;RISC-V encoding terminology.
+
+&lt;ul&gt;
+&lt;li&gt;Standard: defined by the Foundation&lt;/li&gt;
+&lt;li&gt;Reserved: Foundation might eventually use this space for future standard
+extensions.&lt;/li&gt;
+&lt;li&gt;Custom: Space for implemnter-specific extensions, never claimed by
+Foundation.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

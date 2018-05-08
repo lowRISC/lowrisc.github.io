@@ -514,6 +514,10 @@ done on 32-bit Linux-capable systems.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;Started in 2016, but went in haitus until late 2017/early 2018 for Linux and
 glibc upstreaming and freezing of the ABI.&lt;/li&gt;
+&lt;li&gt;25th Feb - 5th March: Cross-built base set of packages&lt;/li&gt;
+&lt;li&gt;5th - 13th March: First &amp;lsquo;native&amp;rsquo; build.&lt;/li&gt;
+&lt;li&gt;13th - 23rd March: Second &amp;lsquo;native&amp;rsquo; build in a clean environment (isolated
+environment similar to &amp;lsquo;production&amp;rsquo; auto-builders.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

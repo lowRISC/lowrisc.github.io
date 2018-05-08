@@ -57,6 +57,76 @@ implementations (e.g. QEMU), &amp;hellip;
 requirements from reusable ISA and software modules&lt;/li&gt;
 &lt;li&gt;Use standard platform profiles to reduce ecosystem effort.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;A system is minimally RISC-V-ISA-compliant if it runs claimed RISC-V
+unprivileged code correctly. e.g. gcc-compiled RV32IMAC functions work
+correctly. Platform must support loading program, returning result etc.&lt;/li&gt;
+&lt;li&gt;One set of unprivileged ISA compliance tests should be able to run on any
+platform. There is a challenge here in handling tiny platforms, e.g. 1KiB
+SRAM.&lt;/li&gt;
+&lt;li&gt;A platform specification provides tight constraints on system configuration
+and options to support a software ecosystem.
+
+&lt;ul&gt;
+&lt;li&gt;It provides an interface between platform hardware and software, including
+privileged levels.&lt;/li&gt;
+&lt;li&gt;Avoid unnecessary duplication. Where it&amp;rsquo;s possible to define a common
+standard, do so.&lt;/li&gt;
+&lt;li&gt;Platform compliance tests will be built in collaboration with the relevant
+ecosystem. e.g. server platform compliance, ZephyrOS platform compliance.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Software is king in the RISC-V land
+
+&lt;ul&gt;
+&lt;li&gt;ISA extensions need compiler/linker/library support&lt;/li&gt;
+&lt;li&gt;There&amp;rsquo;s no point adding instructions if no software wants to use it.&lt;/li&gt;
+&lt;li&gt;ISA proposals should be sensible to implement.&lt;/li&gt;
+&lt;li&gt;Finished now is better than perfect sometime. But at the same time,
+shouldn&amp;rsquo;t rush to freeze a spec before it&amp;rsquo;s ready.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Open-source hardware vs software
+
+&lt;ul&gt;
+&lt;li&gt;Some lessons from the free/open source software community apply, but many
+things are different. e.g. very large investments in hardware that cannot be
+changed once manufactured, threat of patent lawsuits&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Major milestones in 2017
+
+&lt;ul&gt;
+&lt;li&gt;Fixed holdes in user ISA, no changed now in IMAFDQC&lt;/li&gt;
+&lt;li&gt;Froze priv-1.10 spec. Updates mus be backwars copmpat&lt;/li&gt;
+&lt;li&gt;Memory model work&lt;/li&gt;
+&lt;li&gt;Linux ABI frozen&lt;/li&gt;
+&lt;li&gt;Debug spec completed&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;2018 initiatives
+
+&lt;ul&gt;
+&lt;li&gt;Working to prepare the base ISA for ratifications&lt;/li&gt;
+&lt;li&gt;Formal spec in progress&lt;/li&gt;
+&lt;li&gt;Hypervisor spec done, need implementations&lt;/li&gt;
+&lt;li&gt;Crypto in prograess&lt;/li&gt;
+&lt;li&gt;J (dynamic translation / runtimes) in progress&lt;/li&gt;
+&lt;li&gt;Packed SIMD in progress&lt;/li&gt;
+&lt;li&gt;Security task group ongoing&lt;/li&gt;
+&lt;li&gt;Fast interrupts started&lt;/li&gt;
+&lt;li&gt;Trace started&lt;/li&gt;
+&lt;li&gt;Krste comments it may take longer to finish these things vs comparable
+industry projects.  Have many more stakeholders giving input.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;2018 embedded platform
+
+&lt;ul&gt;
+&lt;li&gt;New ABI for embedded (e.g. long doublej = 64bit)&lt;/li&gt;
+&lt;li&gt;Build on RV32E&lt;/li&gt;
+&lt;li&gt;compiler/library work for improved code compression&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;RISC-V and security
+
+&lt;ul&gt;
+&lt;li&gt;Set up security standing committee. Chaired by Helena Handschuh (Rambus),
+vice-chair Joe Kiniry (Gaolois Research).&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

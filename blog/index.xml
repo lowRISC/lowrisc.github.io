@@ -498,6 +498,22 @@ infrastructure.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;RISC-V is currently unofficial, working its way towards officially
 supported.&lt;/li&gt;
+&lt;li&gt;Initial plan
+
+&lt;ul&gt;
+&lt;li&gt;Bootstrap and create viable, basic OS disk images&lt;/li&gt;
+&lt;li&gt;Get it to the state of &amp;lsquo;unofficial/unsupported&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;Move towards an official backend&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Why not 32-bit or 128-bit variants?
+
+&lt;ul&gt;
+&lt;li&gt;Too early for 128&lt;/li&gt;
+&lt;li&gt;32-bit ports struggle to get large packages built. Plus less work has been
+done on 32-bit Linux-capable systems.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Started in 2016, but went in haitus until late 2017/early 2018 for Linux and
+glibc upstreaming and freezing of the ABI.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

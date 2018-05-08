@@ -530,6 +530,9 @@ helped make this port happen!&lt;/li&gt;
 &lt;ul&gt;
 &lt;li&gt;Every few years Red Hat Enterprise Linux is forked from Fedora.&lt;/li&gt;
 &lt;li&gt;Red Hat and Fedora have a strong upstream first policy&lt;/li&gt;
+&lt;li&gt;Final bootstrap took 2 months. 16725 builds producing 12785 binary packages&lt;/li&gt;
+&lt;li&gt;The current build farm contains 2 HiFive unleashed boards, 11 qemu instances
+on 4 Intel servers.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

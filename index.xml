@@ -194,6 +194,20 @@ merge, vector-fp merge, slide down / slide up&lt;/li&gt;
 &lt;li&gt;Haven&amp;rsquo;t yet started on formal spec for the vector ISA&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;the-isa-ofrmal-spec-technical-update-rishiyur-nikhil:7e63e62b65afd74857129fe53555ff5b&#34;&gt;The ISA ofrmal spec technical update: Rishiyur Nikhil&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;What what use is an ISA formal spec?
+
+&lt;ul&gt;
+&lt;li&gt;Answer questions about compiler correctness. Will executing a certain two
+C programs produce the same results? For all inputs? For all C and
+corresponding RISC-V programs?&lt;/li&gt;
+&lt;li&gt;Answer questions on implementation correctness. Will executing this proram
+produce correct results? On all RISC-V processors?&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

@@ -302,6 +302,15 @@ multiple vendors contributing back to the &amp;lsquo;RISC-V ISA mainline&amp;rsq
 &lt;li&gt;Using RISC-V mainly as &amp;lsquo;minion cores&amp;rsquo;. Focused on efficient core designs and
 ISA enhancement for application-specific functionality. e.g. bit manipulation,
 crypto. Other innovation targets include a multi RISC-V core MCU SoC.&lt;/li&gt;
+&lt;li&gt;Embedded software engineers will take a bigger role in defining the SoC
+architecture
+
+&lt;ul&gt;
+&lt;li&gt;Programming model&lt;/li&gt;
+&lt;li&gt;System optimsiation&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Open source RISC-V implementations will allow more software driven hardware.&lt;br /&gt;
+Ecosystem is vital to success.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

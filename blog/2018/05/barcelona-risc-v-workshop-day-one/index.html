@@ -289,6 +289,26 @@ to capture all combinations and still remain readable.</li>
 support their own extensions.</li>
 <li>Non-detterminism and concurrency.</li>
 </ul></li>
+<li>Status. Various approaches are being pursued: 3 projects in Haskell, 1
+project in SAIL, 1 project in L3, another in a &lsquo;functional subset&rsquo; of Verilog
+
+<ul>
+<li>One of the Haskell projects (led by a team at MIT) is furthest along.<br />
+Models RV32I, RV64I, M, priv U+S+M, Sv39 VM</li>
+</ul></li>
+<li>Next steps: within a couple of months publish a formal spec that is complete
+for RV32IMAC, RV64IMAC, user+supervisor+machine mode, sv32+sv39, and a simple
+sequential memory model. Liaise with the compliance group to use the formal
+spec as a golden reference for compliance suites. Then work to integrate with
+the weak memory model.</li>
+<li>Potential follow-up projects (by community?)
+
+<ul>
+<li>Formally show equivalences between different ISA formalisations</li>
+<li>Demonstrate extensibility to other standard options (e.g. vector, crypto)</li>
+<li>Use it! (to provide correctness of hardware implementations, compilers,
+&hellip;)</li>
+</ul></li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

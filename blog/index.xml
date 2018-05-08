@@ -434,7 +434,11 @@ cores and 1 embedded core.&lt;/li&gt;
 Ethernet port, 32MB Quad SPI flash, microSD card for removable storage,
 MicroUSB for debug and serial communication, digital GPIO pins, FMC connector.&lt;/li&gt;
 &lt;li&gt;Did a preliminary SPECINT2006 comparison. Competitive with A53 chips from
-Rockchip or Alwinner.&lt;/li&gt;
+Rockchip or Alwinner (higher than the lower-clocked Allwinner, but slower than
+the Rockchip).&lt;/li&gt;
+&lt;li&gt;Open-V: a SiFive/ONCHIP microcontroller based on Freedom Everywhere. Built
+in TSMC 180nm, 3.3mm x 2.6mm. ONCHIP provided a range of analog IP, which were
+integrated with a SiFive E31 core.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

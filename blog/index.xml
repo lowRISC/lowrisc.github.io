@@ -291,6 +291,17 @@ high clock rate, and zero latency unlimited bandwidth access to a single
 memory. A hardware engineers dreams of many cores at 1ghz with accelerators,
 separate memories etc.&lt;/li&gt;
 &lt;li&gt;Trying to achieve even faster development cycles.&lt;/li&gt;
+&lt;li&gt;Start with system modelling, move to system definition, and produce
+intrinsic libraries, new instructions, programming model details, and a Chisel
+model.&lt;/li&gt;
+&lt;li&gt;Moving towards &amp;ldquo;software driven hardware&amp;rdquo; to support the software
+programming model (2020).&lt;/li&gt;
+&lt;li&gt;NXP are using PULPino.&lt;/li&gt;
+&lt;li&gt;Challenge: establishing a robust open community for RISC-V. Want to see
+multiple vendors contributing back to the &amp;lsquo;RISC-V ISA mainline&amp;rsquo;.&lt;/li&gt;
+&lt;li&gt;Using RISC-V mainly as &amp;lsquo;minion cores&amp;rsquo;. Focused on efficient core designs and
+ISA enhancement for application-specific functionality. e.g. bit manipulation,
+crypto. Other innovation targets include a multi RISC-V core MCU SoC.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

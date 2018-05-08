@@ -533,6 +533,23 @@ helped make this port happen!&lt;/li&gt;
 &lt;li&gt;Final bootstrap took 2 months. 16725 builds producing 12785 binary packages&lt;/li&gt;
 &lt;li&gt;The current build farm contains 2 HiFive unleashed boards, 11 qemu instances
 on 4 Intel servers.&lt;/li&gt;
+&lt;li&gt;The server market is worth about $80B/year annually. 3 billion physical
+servers are shipped a year. Of those, x86 servers are about 85% of the market
+by value.&lt;/li&gt;
+&lt;li&gt;Don&amp;rsquo;t make these mistakes for the server market:
+
+&lt;ul&gt;
+&lt;li&gt;Require manual intervention to choose the right bootloader/kernel per
+vendor&lt;/li&gt;
+&lt;li&gt;Require out of tree drivers or patches&lt;/li&gt;
+&lt;li&gt;No standards or constantly changing standards&lt;/li&gt;
+&lt;li&gt;No organisation providing direction on server standards&lt;/li&gt;
+&lt;li&gt;Incompatible variants of the ISA meaning a single kernel image can&amp;rsquo;t be
+made&lt;/li&gt;
+&lt;li&gt;Breaking ABIs&lt;/li&gt;
+&lt;li&gt;Intimately tied to Linux so other OS vendors are excluded&lt;/li&gt;
+&lt;li&gt;Dev boards being too expensive for developers&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

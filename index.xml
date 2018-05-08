@@ -156,7 +156,11 @@ isn&amp;rsquo;t upstream, Micrium uC/OS is available, as is ThreadX.&lt;/li&gt;
 commercial debuggers: Segger, Lauterbach, UltraSoC, IAR is upcoming.&lt;/li&gt;
 &lt;li&gt;The core software stack has been supported by a consortium of developers
 from a range of companies.&lt;/li&gt;
-&lt;li&gt;RISC-V software implementations: Spike, RV8, Renode, QEMU&lt;/li&gt;
+&lt;li&gt;RISC-V software implementations: Spike, RV8, Renode, QEMU (upstreamed and
+included in a upstream release about a week ago)&lt;/li&gt;
+&lt;li&gt;There are also commercial simulators, such as Imperas OVP and Esperanto&amp;rsquo;s
+simulator.&lt;/li&gt;
+&lt;li&gt;Help wanted: OpenJDK JIT port.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

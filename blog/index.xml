@@ -145,11 +145,18 @@ supports RV64I systems for now, and is currently missing some platform
 drivers. Help would be welcomed in getting these upstream.&lt;/li&gt;
 &lt;li&gt;RISC-V Fedora and Debian support is in progress&lt;/li&gt;
 &lt;li&gt;RISC-V LLVM port is making rapid progress. RV32IMFDC upstream. [As a
-correction, compressed support is also upstream - thanks to contributions from
-Andes Tech and Qualcomm!]&lt;/li&gt;
+correction to the talk, compressed support is upstream - thanks to
+contributions from Andes Tech and Qualcomm!]&lt;/li&gt;
 &lt;li&gt;Bootloaders: U-boot is upstream, TianoCore is a work in progress. Coreboot
 RISC-V support is upstream but a little out of date. UEFI standard process is
 ongoing.&lt;/li&gt;
+&lt;li&gt;Embedded runtimes: Zephry is upstream, seL4 upstream, FreeRTOS exists but
+isn&amp;rsquo;t upstream, Micrium uC/OS is available, as is ThreadX.&lt;/li&gt;
+&lt;li&gt;Debugging: GDB port upstream, OpenOCD exists but not upstream. Also
+commercial debuggers: Segger, Lauterbach, UltraSoC, IAR is upcoming.&lt;/li&gt;
+&lt;li&gt;The core software stack has been supported by a consortium of developers
+from a range of companies.&lt;/li&gt;
+&lt;li&gt;RISC-V software implementations: Spike, RV8, Renode, QEMU&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

@@ -82,6 +82,22 @@ need to use them.&lt;/li&gt;
 8 arguments, 7 temporaries, and 1 return address. Even more if you have to
 save the floating point context. Krste argues that moving this to hardware
 isn&amp;rsquo;t enough, you need a new ABI to reduce the amount of state.&lt;/li&gt;
+&lt;li&gt;A number of options have been proposed for vectoring.
+
+&lt;ul&gt;
+&lt;li&gt;Having function pointers in a table. Downside is this is new functionality
+you&amp;rsquo;d have to add to a pipeline.&lt;/li&gt;
+&lt;li&gt;The SiFive proposal is to add a new +/-2GiB offset instruction which is
+only visible in a new interrupt ISA mode. The advantage is the pipeline can
+treat this as a regular instruction fetch, albeit with a different encoding.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Would like to allow each interrupt to be configured with its privilege mode
+and the &amp;lsquo;interrupt level&amp;rsquo; which describes the preemption level, and a
+priority.&lt;/li&gt;
+&lt;li&gt;To manage preempted context state it&amp;rsquo;s necessary to push/pop
+mepc/mpp/mil/mie to a memory stack. You also need to remember the previous
+interrupt level, &amp;lsquo;mil&amp;rsquo;. Now multiple levels must be tracked, which Krste
+proposes could be stored in mcause.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

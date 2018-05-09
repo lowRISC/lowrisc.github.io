@@ -388,6 +388,14 @@ loadable modules, Linux perf.&lt;/li&gt;
 &lt;li&gt;Understanding program behaviour in complex system isn&amp;rsquo;t easy, and using a
 debugger isn&amp;rsquo;t always possible. Processor Branch Trace can provide visibility
 into program execution.&lt;/li&gt;
+&lt;li&gt;Processor Branch Trace works by tracking execution from a known start
+address and sending messages about the deltas taking by the program. For
+uncoditional branches, there is no need to report the destination address.&lt;/li&gt;
+&lt;li&gt;The trace encoder ingress port defines singles to export from the processor.
+It contains information such as the privilege mode, address of the
+instruction, the instruction.&lt;/li&gt;
+&lt;li&gt;The trace encoer sends a packet which could contain a delta update with a
+subset of information, or a full context to force synchronisation.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Ale Bradbury&lt;/em&gt;&lt;/p&gt;

@@ -247,8 +247,27 @@ government, and UPC&lt;/li&gt;
 &lt;li&gt;Need to reach 50GFlops/W&lt;/li&gt;
 &lt;li&gt;MareNostrum 4 has been recognised as the &amp;ldquo;most beautiful datacenter in the
 world&amp;rdquo;. Total peak performance is 13.7 PFlops&lt;/li&gt;
-&lt;li&gt;USA, Japan, China are all building huge machines with domestic technology.
-Can the EU do the same?&lt;/li&gt;
+&lt;li&gt;USA, Japan, China are all building huge supercomputers with domestic
+technology. Can the EU do the same?&lt;/li&gt;
+&lt;li&gt;The EU has a large HPC ecosystem and a number of centers of excellence in
+HPC applications.&lt;/li&gt;
+&lt;li&gt;Through the Mont Blanc project, proposed the use of ARM processors in
+supercomputing applications. Extended current mobile chips with HPC features.&lt;/li&gt;
+&lt;li&gt;Europe has only 4 machines in the world top 20.&lt;/li&gt;
+&lt;li&gt;With Brexit and Softbank, ARM is not &amp;lsquo;European&amp;rsquo; any more.&lt;/li&gt;
+&lt;li&gt;Through EuroHPC, the Commission has proposed to invest 1B.&lt;/li&gt;
+&lt;li&gt;The European Processor Initiative is a consortium consisting of 23 partners.
+They will form the company &amp;lsquo;EPI Semiconductor&amp;rsquo; which will produce the EPI
+common platform. Now looking at growing the consortium, including companies
+from other countries.&lt;/li&gt;
+&lt;li&gt;Three streams
+
+&lt;ul&gt;
+&lt;li&gt;General purpose and common platform. ARM SVE or other candidates. BULL
+will be system integrator / chip integrator.&lt;/li&gt;
+&lt;li&gt;Accelerator: RISC-V&lt;/li&gt;
+&lt;li&gt;Automotive&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

@@ -113,6 +113,8 @@ operations. Similar for 8-bit SIMD.&lt;/li&gt;
 &lt;li&gt;GPR-based SIMD is more efficient for various embedded domains. It addresses
 the need for high performance generic code processing as well as digital
 signal processing.&lt;/li&gt;
+&lt;li&gt;Want to make this easy to use through intrinsic functions and optimised DSP
+libraries.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

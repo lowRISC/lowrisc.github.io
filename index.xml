@@ -277,6 +277,17 @@ supporting MPI+OpenMP&lt;/li&gt;
 &lt;ul&gt;
 &lt;li&gt;Meltdown and Spectre don&amp;rsquo;t just impact a single processor design or a single
 company&amp;rsquo;s design, but really impact any CPU using speculation.&lt;/li&gt;
+&lt;li&gt;A timing attack is when a change in your program input affects the time of
+another user.&lt;/li&gt;
+&lt;li&gt;There are 3 parts to a timing attack
+
+&lt;ul&gt;
+&lt;li&gt;Victim runs code that leaks observable side effects&lt;/li&gt;
+&lt;li&gt;Attacker runs code affected by timing leaks&lt;/li&gt;
+&lt;li&gt;Attacker measures time his code took to run&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Chris built up a taxonomy of time leaks. Two axes: were are we leaking from,
+and what are we directly leaking.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

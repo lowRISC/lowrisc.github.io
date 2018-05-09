@@ -64,8 +64,24 @@ instructions.&lt;/li&gt;
 &lt;li&gt;PLIC has variable priority, but the vectoring must be done in software.&lt;/li&gt;
 &lt;li&gt;The PLIC needs two memory accesses: one to claim it, one to indicate
 completion.&lt;/li&gt;
-&lt;li&gt;The Unix ABI requires many registers to be saved/restored.&lt;/li&gt;
+&lt;li&gt;The Unix ABI (which is the only one that has been standardised) requires
+many registers to be saved/restored.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Have had input via multiple proposals: Andes, Syntacore, Seagate, Liviu
+Ionescu, SiFive&lt;/li&gt;
+&lt;li&gt;There have been discussions on the list about the interrupt handler
+interface for software. It comes down to a choice between having the interrupt
+handler as a regular C function (requiring save/restore of all caller-save
+registers in hardware or software) or an inline handler which uses a gcc
+interrupt attribute to convert the function to always callee-save every
+register. Krste suggests both approaches are needed.&lt;/li&gt;
+&lt;li&gt;Krste explains how an &amp;ldquo;interrupt&amp;rdquo; attribute on a C function might work. In
+this example, every register is callee-saved, so registers are saved as you
+need to use them.&lt;/li&gt;
+&lt;li&gt;If you then went to call a function using the C ABI you need to save/restore
+8 arguments, 7 temporaries, and 1 return address. Even more if you have to
+save the floating point context. Krste argues that moving this to hardware
+isn&amp;rsquo;t enough, you need a new ABI to reduce the amount of state.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

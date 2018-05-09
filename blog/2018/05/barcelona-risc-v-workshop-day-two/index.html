@@ -561,6 +561,38 @@ memory), ucld (uncacheable read from memory)</li>
 would allow people to start work using software simulation tools.</li>
 </ul>
 
+<h2 id="the-hybrid-threading-processor-for-sparse-data-kernels-tony-brewer:a5d6ec65113439624abf306f86726737">The hybrid threading processor for sparse data kernels: Tony Brewer</h2>
+
+<ul>
+<li>Sparse data sets that greatly exceed a processor&rsquo;s cache size are a
+challenge for most systems. The cache hit rate is low resulting in idle cores.</li>
+<li>The Hybrid Threading Processor defines extensions for thread and message
+management. It&rsquo;s a high thread count barrel processor similar to Cray&rsquo;s MTA
+architecture.
+
+<ul>
+<li>Software-managed coherency</li>
+<li>Event driven processor.</li>
+</ul></li>
+<li>Can perform atomic operations at memory due to the software-managed
+coherency</li>
+<li>The project was funded under the DARPA CHIPS project. This produced two
+chiplets: the memory controller (MC) chiplet and compute near memory (CNM)
+chiplet.</li>
+<li>Implemented a simulator modelling functionality and performance, and also
+performed power estimation.</li>
+<li>Performed a sensitivity analysis to determine the optimal configuration.</li>
+<li>Compared performance for graph spectral clustering vs Haswell, Nvidia K80,
+Nvidia DGX-1. Saw ~25x better energy efficiency.</li>
+</ul>
+
+<h2 id="how-pulp-based-platforms-are-helping-security-research-frank-gurkaynak:a5d6ec65113439624abf306f86726737">How PULP-based platforms are helping security research: Frank Gurkaynak</h2>
+
+<ul>
+<li>Security of the system is not limited to just &ldquo;one part&rdquo;. You need to
+consider the entire system</li>
+</ul>
+
 <p><em>Alex Bradbury</em></p>
 
                     </section>

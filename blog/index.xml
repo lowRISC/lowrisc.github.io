@@ -495,6 +495,38 @@ memory), ucld (uncacheable read from memory)&lt;/li&gt;
 would allow people to start work using software simulation tools.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;the-hybrid-threading-processor-for-sparse-data-kernels-tony-brewer:a5d6ec65113439624abf306f86726737&#34;&gt;The hybrid threading processor for sparse data kernels: Tony Brewer&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Sparse data sets that greatly exceed a processor&amp;rsquo;s cache size are a
+challenge for most systems. The cache hit rate is low resulting in idle cores.&lt;/li&gt;
+&lt;li&gt;The Hybrid Threading Processor defines extensions for thread and message
+management. It&amp;rsquo;s a high thread count barrel processor similar to Cray&amp;rsquo;s MTA
+architecture.
+
+&lt;ul&gt;
+&lt;li&gt;Software-managed coherency&lt;/li&gt;
+&lt;li&gt;Event driven processor.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Can perform atomic operations at memory due to the software-managed
+coherency&lt;/li&gt;
+&lt;li&gt;The project was funded under the DARPA CHIPS project. This produced two
+chiplets: the memory controller (MC) chiplet and compute near memory (CNM)
+chiplet.&lt;/li&gt;
+&lt;li&gt;Implemented a simulator modelling functionality and performance, and also
+performed power estimation.&lt;/li&gt;
+&lt;li&gt;Performed a sensitivity analysis to determine the optimal configuration.&lt;/li&gt;
+&lt;li&gt;Compared performance for graph spectral clustering vs Haswell, Nvidia K80,
+Nvidia DGX-1. Saw ~25x better energy efficiency.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;how-pulp-based-platforms-are-helping-security-research-frank-gurkaynak:a5d6ec65113439624abf306f86726737&#34;&gt;How PULP-based platforms are helping security research: Frank Gurkaynak&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Security of the system is not limited to just &amp;ldquo;one part&amp;rdquo;. You need to
+consider the entire system&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

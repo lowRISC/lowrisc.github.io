@@ -183,6 +183,23 @@ existing metrics work for security&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;undefined-unspecified-non-deterministic-and-implementation-defined-behavior-in-verifiable-specifications-clifford-wolf:a5d6ec65113439624abf306f86726737&#34;&gt;Undefined, Unspecified, Non-deterministic, and Implementation Defined Behavior in Verifiable Specifications: Clifford Wolf&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Users of an ISA specification
+
+&lt;ul&gt;
+&lt;li&gt;Software engineers: just don&amp;rsquo;t do anything that&amp;rsquo;s not specified&lt;/li&gt;
+&lt;li&gt;Software security engineers: what can we expect from the hardware if we do
+the thing that wasn&amp;rsquo;t specified?&lt;/li&gt;
+&lt;li&gt;Hardware design engineers: do something safe and simple for anything not
+specified. But what does safe mean?&lt;/li&gt;
+&lt;li&gt;Hardware verification engineers&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;This presentation is a taxonomy of types of &amp;lsquo;not specified&amp;rsquo; behaviour, using
+nomenclature taking from different domains.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

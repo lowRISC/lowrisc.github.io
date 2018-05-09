@@ -407,6 +407,24 @@ and a compressed branch trace format&lt;/li&gt;
 
 &lt;ul&gt;
 &lt;li&gt;PULP was design for near sensor (aka edge) processing.&lt;/li&gt;
+&lt;li&gt;Seen a range of contributions since open sourcing from e.g. Embecosm,
+lowRISC, Micron, Google, &amp;hellip;&lt;/li&gt;
+&lt;li&gt;PULPissimo has a rich set of peripherals: QSPI, HyperRam+HyperFlash, camera
+interface, I2C, I2S, JTAG, &amp;hellip; Plus an autonomous IO DMA subsystem (uDMA)&lt;/li&gt;
+&lt;li&gt;Implements an efficient low-latency interconnect.&lt;/li&gt;
+&lt;li&gt;Used a RI5CY core plus extensions: packed SIMD, fixed point, bit
+manipulation, hardware loops. Included a IEEE 754 single precision floating
+point unit.&lt;/li&gt;
+&lt;li&gt;2.3mm2, effective area 1.22mm2. Most of the area taken by memories.&lt;/li&gt;
+&lt;li&gt;40MOPS/mW at 350MOPS. 1.4x better performance and 4x better energy
+efficiency than previous design in 40nm&lt;/li&gt;
+&lt;li&gt;Can further reduce power to 65MOPS/mw at 350MOPS when executing just from
+SCM.&lt;/li&gt;
+&lt;li&gt;Global Foundries produce up to 10M wafers / year (200mm equivalents)&lt;/li&gt;
+&lt;li&gt;GF has a dual-track roadmap. Performance optimized FinFET and power
+optimized FD-SOI.&lt;/li&gt;
+&lt;li&gt;FDXcelerator is accelerating RISC-V developers and partners. Partners
+include SiFive, Andes, Reduced Energy Microsystems, &amp;hellip;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Ale Bradbury&lt;/em&gt;&lt;/p&gt;

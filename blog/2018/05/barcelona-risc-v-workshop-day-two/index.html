@@ -473,6 +473,24 @@ and a compressed branch trace format</li>
 
 <ul>
 <li>PULP was design for near sensor (aka edge) processing.</li>
+<li>Seen a range of contributions since open sourcing from e.g. Embecosm,
+lowRISC, Micron, Google, &hellip;</li>
+<li>PULPissimo has a rich set of peripherals: QSPI, HyperRam+HyperFlash, camera
+interface, I2C, I2S, JTAG, &hellip; Plus an autonomous IO DMA subsystem (uDMA)</li>
+<li>Implements an efficient low-latency interconnect.</li>
+<li>Used a RI5CY core plus extensions: packed SIMD, fixed point, bit
+manipulation, hardware loops. Included a IEEE 754 single precision floating
+point unit.</li>
+<li>2.3mm2, effective area 1.22mm2. Most of the area taken by memories.</li>
+<li>40MOPS/mW at 350MOPS. 1.4x better performance and 4x better energy
+efficiency than previous design in 40nm</li>
+<li>Can further reduce power to 65MOPS/mw at 350MOPS when executing just from
+SCM.</li>
+<li>Global Foundries produce up to 10M wafers / year (200mm equivalents)</li>
+<li>GF has a dual-track roadmap. Performance optimized FinFET and power
+optimized FD-SOI.</li>
+<li>FDXcelerator is accelerating RISC-V developers and partners. Partners
+include SiFive, Andes, Reduced Energy Microsystems, &hellip;</li>
 </ul>
 
 <p><em>Ale Bradbury</em></p>

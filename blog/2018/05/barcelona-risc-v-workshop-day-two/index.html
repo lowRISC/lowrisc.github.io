@@ -166,6 +166,21 @@ interrupt level, &lsquo;mil&rsquo;. Now multiple levels must be tracked, which K
 proposes could be stored in mcause.</li>
 </ul>
 
+<h2 id="risc-v-dsp-p-extension-proposal-chuan-hua-chang:a5d6ec65113439624abf306f86726737">RISC-V DSP (P) extension proposal: Chuan-Hua Chang</h2>
+
+<ul>
+<li>P extension task group will define and ratify a packed-SIMD DSP extension
+containing instructions which operate on XLEN-bit integer registers. It will
+also define compiler intrinsic functions that can be directly used in
+high-level programming languages.</li>
+<li>The initial proposal is based on the AndeStar V3 DSP ISA.</li>
+<li>Supports e.g. 16-bit SIMD instructions with min, max, abs, compare, clip
+operations. Similar for 8-bit SIMD.</li>
+<li>GPR-based SIMD is more efficient for various embedded domains. It addresses
+the need for high performance generic code processing as well as digital
+signal processing.</li>
+</ul>
+
 <p><em>Alex Bradbury</em></p>
 
                     </section>

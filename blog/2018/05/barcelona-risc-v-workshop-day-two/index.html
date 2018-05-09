@@ -217,6 +217,20 @@ undesirable behaviours.</li>
 <li>Alternatively, formally verify your system. Compile a model to RTL via
 clash, then use equivalence checking tools to compare against your own
 implementation.</li>
+<li>Need machine-readable specification of the correctness and security of an
+implementation as well as a way to measure the conformance of an
+implementation.</li>
+<li>How to validate a specification?
+
+<ul>
+<li>Might perform rigorous validation through execution: ad hoc testing,
+simulation coverage analysis, or bisimulation.</li>
+<li>Alternatively perform rigorous verification through formal reasoning:
+prove test benches always pass, verification coverage analysis, or
+bisimulation.</li>
+</ul></li>
+<li>Security properties require a different approach. They typically have a
+different form, e.g. &ldquo;the following property must never hold&rdquo;.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

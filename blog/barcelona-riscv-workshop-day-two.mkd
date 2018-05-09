@@ -1,0 +1,15 @@
++++
+Description = ""
+date = "2018-05-09T07:00:00+00:00"
+title = "Barcelona RISC-V Workshop: Day Two"
+
++++
+The [eighth RISC-V 
+workshop](https://riscv.org/2018/04/risc-v-workshop-in-barcelona-agenda/) is 
+continuing
+today in Barcleona. As usual, I'll be keeping a semi-live blog of talks and 
+announcements throughout the day.
+
+## Fast interrupts for RISC-V: Krste Asanovic
+
+_Alex Bradbury_

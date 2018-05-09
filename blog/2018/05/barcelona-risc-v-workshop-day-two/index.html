@@ -264,6 +264,20 @@ specified. But what does safe mean?</li>
 </ul></li>
 <li>This presentation is a taxonomy of types of &lsquo;not specified&rsquo; behaviour, using
 nomenclature taking from different domains.</li>
+<li>Undefined behaviour: the &ldquo;just don&rsquo;t do that&rdquo; approach to not specifying
+behaviour. The spec is void for any program as a whole if it does this
+undefined behaviour once.</li>
+<li>Could introduce an &lsquo;undefined value&rsquo;, but that has similar issues</li>
+<li>Non-deterministic behaviour / unpredictable behaviour: allow more than one
+choice, which may change under re-execution</li>
+<li>Unspecified value: the instruction will return a value, but the spec doesn&rsquo;t
+say which value</li>
+<li>Implementation defined behaviour / value: similar to unspecified value /
+behaviour, but the implementer must specify what it is.</li>
+<li>Fully specified behaviour: the ideal choice for verification. Explicitly
+state what all implementations must do.</li>
+<li>Clifford strongly prefers implementation defined or fully specified
+behaviour.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

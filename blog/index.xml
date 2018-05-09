@@ -214,6 +214,20 @@ state what all implementations must do.&lt;/li&gt;
 behaviour.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;foundational-hpc-systems-in-2020-and-beyond-stevan-wallach:a5d6ec65113439624abf306f86726737&#34;&gt;Foundational HPC systems in 2020 and beyond: Stevan Wallach&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Architecture 1.0 (see Mark Hill paper). The world was very
+processor-centric. CPUs with memory attached.&lt;/li&gt;
+&lt;li&gt;Architecture 2.0. Not just the ISA. Move towards memory-driven computing.
+
+&lt;ul&gt;
+&lt;li&gt;Numerical processing is trivial, but achieving efficient memory access is
+very hard.&lt;/li&gt;
+&lt;li&gt;Caches now need to be protected machine state.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

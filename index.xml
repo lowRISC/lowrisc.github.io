@@ -396,6 +396,17 @@ It contains information such as the privilege mode, address of the
 instruction, the instruction.&lt;/li&gt;
 &lt;li&gt;The trace encoer sends a packet which could contain a delta update with a
 subset of information, or a full context to force synchronisation.&lt;/li&gt;
+&lt;li&gt;Trace control can control when a trace is generated, or configure filters.&lt;/li&gt;
+&lt;li&gt;Saw a mean 0.252 bits/instruction encoding efficiency across a range of
+benchmarks.&lt;/li&gt;
+&lt;li&gt;Next steps: set up task group to standardise processor to encoder interface
+and a compressed branch trace format&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;risc-v-meets-22fdx-an-open-source-ultra-low-power-microcontroller-for-advanced-fdsoi-technologies-pasquale-schiavone-and-sanjay-charagulla:a5d6ec65113439624abf306f86726737&#34;&gt;RISC-V meets 22FDX. An open source ultra-low power microcontroller for advanced FDSOI technologies: Pasquale Schiavone and Sanjay Charagulla&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;PULP was design for near sensor (aka edge) processing.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Ale Bradbury&lt;/em&gt;&lt;/p&gt;

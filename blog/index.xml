@@ -340,6 +340,8 @@ read and debug&lt;/li&gt;
 &lt;li&gt;Chisel generated code makes certain physical design items difficult such
 as sync/asnc clocks, power domains, clock domains etc&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Next steps: add full compliance for privilege/debug specification and
+evaluate performance impact after adding RI5CY to the Pixel Visual Core.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

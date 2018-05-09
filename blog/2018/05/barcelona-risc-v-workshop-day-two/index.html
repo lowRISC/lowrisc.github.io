@@ -410,6 +410,30 @@ as sync/asnc clocks, power domains, clock domains etc</li>
 evaluate performance impact after adding RI5CY to the Pixel Visual Core.</li>
 </ul>
 
+<h2 id="linux-ready-rv-gc-andescore-with-architecture-extensions-charlie-su:a5d6ec65113439624abf306f86726737">Linux-Ready RV-GC AndesCore with Architecture Extensions: Charlie Su</h2>
+
+<ul>
+<li>The AndeStar V5 architecture adopts RISC-V and adds pre-defined useful Andes
+extensions as well as custom-extension frameworks for domain-specific
+acceleration.</li>
+<li>Baseline extension instructions
+
+<ul>
+<li>Memory access and branches with fewer instructions</li>
+<li>Code size reduction on top of C extension (&lsquo;CoDense&rsquo;)</li>
+<li>DSP/SIMD (see P extension proposal)</li>
+<li>Custom instructions</li>
+<li>CSR-based extensions that don&rsquo;t require new instructions. e.g. stack
+protection mechanism, power management, &hellip;</li>
+</ul></li>
+<li>Delivered 32-bit and 64-bit implementations of the V5 architecture
+implementation AndeStar V5m which is a superset of RV-IMAC.</li>
+<li>An N25 (32-bit) small configuration is 37k gates at 28HPC, 1GHz. Large
+configuration is 159k gates.</li>
+<li>Introducing new 25-series cores adding floating point support (N25F/NX25F),
+MMU, and S mode (A25/AX25).</li>
+</ul>
+
 <p><em>Alex Bradbury</em></p>
 
                     </section>

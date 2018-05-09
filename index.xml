@@ -344,6 +344,30 @@ as sync/asnc clocks, power domains, clock domains etc&lt;/li&gt;
 evaluate performance impact after adding RI5CY to the Pixel Visual Core.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;linux-ready-rv-gc-andescore-with-architecture-extensions-charlie-su:a5d6ec65113439624abf306f86726737&#34;&gt;Linux-Ready RV-GC AndesCore with Architecture Extensions: Charlie Su&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The AndeStar V5 architecture adopts RISC-V and adds pre-defined useful Andes
+extensions as well as custom-extension frameworks for domain-specific
+acceleration.&lt;/li&gt;
+&lt;li&gt;Baseline extension instructions
+
+&lt;ul&gt;
+&lt;li&gt;Memory access and branches with fewer instructions&lt;/li&gt;
+&lt;li&gt;Code size reduction on top of C extension (&amp;lsquo;CoDense&amp;rsquo;)&lt;/li&gt;
+&lt;li&gt;DSP/SIMD (see P extension proposal)&lt;/li&gt;
+&lt;li&gt;Custom instructions&lt;/li&gt;
+&lt;li&gt;CSR-based extensions that don&amp;rsquo;t require new instructions. e.g. stack
+protection mechanism, power management, &amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Delivered 32-bit and 64-bit implementations of the V5 architecture
+implementation AndeStar V5m which is a superset of RV-IMAC.&lt;/li&gt;
+&lt;li&gt;An N25 (32-bit) small configuration is 37k gates at 28HPC, 1GHz. Large
+configuration is 159k gates.&lt;/li&gt;
+&lt;li&gt;Introducing new 25-series cores adding floating point support (N25F/NX25F),
+MMU, and S mode (A25/AX25).&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

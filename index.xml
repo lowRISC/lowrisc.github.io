@@ -465,6 +465,14 @@ contributions.&lt;/li&gt;
 &lt;li&gt;Return address stack cost ~1KGE, improves IPC by 20%. Resolving
 unconditional jumps immediately increases IPC by ~11%. These changes had no
 negative impact on timing.&lt;/li&gt;
+&lt;li&gt;Critical paths are on the memory interfaces, especially tag compare and
+address translation for cache access.&lt;/li&gt;
+&lt;li&gt;Kerbin is a proof of concept SoC for Ariane featuring PULP peripherals, a
+64-bit interconnect and debug support.&lt;/li&gt;
+&lt;li&gt;Compatible with gdb, but require a debug bridge currently.&lt;/li&gt;
+&lt;li&gt;Managed to boot Linux after 5 months development&lt;/li&gt;
+&lt;li&gt;FPGA: Targeted the VC707. Core runs at 50-100MHz, 15kLUTs.&lt;/li&gt;
+&lt;li&gt;Ariane has been taped out in GF22FDX. 910MHz, &amp;hellip;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

@@ -394,6 +394,18 @@ risk.</li>
 high risk.</li>
 <li>Third candidate: RI5CY, produced by the PULP team. Low level of effort,
 medium risk.</li>
+<li>Selected RI5CY for a number of reasons: it had been taped out, had good
+infrastructure, the license was acceptable, and it was implemented in
+SystemVerilog rather than Chisel.</li>
+<li>Why SystemVerilog rather than Chisel?
+
+<ul>
+<li>SystemVerilog builds on established physical design and verification flows</li>
+<li>Chisel generated verilog loses designer&rsquo;s intent, making it difficult to
+read and debug</li>
+<li>Chisel generated code makes certain physical design items difficult such
+as sync/asnc clocks, power domains, clock domains etc</li>
+</ul></li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

@@ -210,6 +210,13 @@ this.</li>
 <li>How can we provide assurance about these definitions / mechanisations?</li>
 <li>Assurance means: the system does what it is supposed to do and doesn&rsquo;t do
 anything else.</li>
+<li>When trying to get assurance through compliance tests, a huge burden is put
+on the shoulders of the test writers. Those conformance tests need to be 100%
+complete. This also doesn&rsquo;t help determine if an implementation has
+undesirable behaviours.</li>
+<li>Alternatively, formally verify your system. Compile a model to RTL via
+clash, then use equivalence checking tools to compare against your own
+implementation.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

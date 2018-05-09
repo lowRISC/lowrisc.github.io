@@ -214,7 +214,7 @@ state what all implementations must do.&lt;/li&gt;
 behaviour.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;foundational-hpc-systems-in-2020-and-beyond-stevan-wallach:a5d6ec65113439624abf306f86726737&#34;&gt;Foundational HPC systems in 2020 and beyond: Stevan Wallach&lt;/h2&gt;
+&lt;h2 id=&#34;foundational-hpc-systems-in-2020-and-beyond-steven-wallach:a5d6ec65113439624abf306f86726737&#34;&gt;Foundational HPC systems in 2020 and beyond: Steven Wallach&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Architecture 1.0 (see Mark Hill paper). The world was very
@@ -226,6 +226,15 @@ processor-centric. CPUs with memory attached.&lt;/li&gt;
 very hard.&lt;/li&gt;
 &lt;li&gt;Caches now need to be protected machine state.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;An RV128 working group is going to be started, chaired by Steven
+
+&lt;ul&gt;
+&lt;li&gt;Propose a 64-bit object ID and 64-bit byte offset.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;On an RV128 system, have to be able to execute RV64 programs and map 64-bit
+virtual into 128-bit virtual. Also map system calls.&lt;/li&gt;
+&lt;li&gt;Object 0 is kernel object, object 1 RV64, object 2 RV32.&lt;/li&gt;
+&lt;li&gt;Encrypted memory is identified with an object ID&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

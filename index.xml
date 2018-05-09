@@ -366,9 +366,14 @@ implementation AndeStar V5m which is a superset of RV-IMAC.&lt;/li&gt;
 configuration is 159k gates.&lt;/li&gt;
 &lt;li&gt;Introducing new 25-series cores adding floating point support (N25F/NX25F),
 MMU, and S mode (A25/AX25).&lt;/li&gt;
+&lt;li&gt;3.49CM/MHz&lt;/li&gt;
+&lt;li&gt;Added hit under miss caches and hardware support for misaligned accesses&lt;/li&gt;
+&lt;li&gt;Use single-port SRAMs to reduce area and power&lt;/li&gt;
+&lt;li&gt;COPILOT tool allows auto-generation of development tools for a set of custom
+extensions.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Ale Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>
     

@@ -473,6 +473,13 @@ address translation for cache access.&lt;/li&gt;
 &lt;li&gt;Managed to boot Linux after 5 months development&lt;/li&gt;
 &lt;li&gt;FPGA: Targeted the VC707. Core runs at 50-100MHz, 15kLUTs.&lt;/li&gt;
 &lt;li&gt;Ariane has been taped out in GF22FDX. 910MHz, &amp;hellip;&lt;/li&gt;
+&lt;li&gt;Working on Kosmodrom tapeout which includes a high performance and a low
+power version and a floating point accelerator.&lt;/li&gt;
+&lt;li&gt;Working on supporting F and D extensions as well as reduced prevision vector
+operations. Stand-alone floating point unit (~200kGE) will be released in the
+next months.&lt;/li&gt;
+&lt;li&gt;Also working on improved integer divider, vector unit, and hardware support
+for atomic memory operations&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

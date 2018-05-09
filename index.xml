@@ -235,6 +235,14 @@ very hard.&lt;/li&gt;
 virtual into 128-bit virtual. Also map system calls.&lt;/li&gt;
 &lt;li&gt;Object 0 is kernel object, object 1 RV64, object 2 RV32.&lt;/li&gt;
 &lt;li&gt;Encrypted memory is identified with an object ID&lt;/li&gt;
+&lt;li&gt;Steven suggests disabling speculation if kernel objects are referenced.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;european-processor-initiative-and-risc-v-mateo-valero:a5d6ec65113439624abf306f86726737&#34;&gt;European processor initiative and RISC-V: Mateo Valero&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;BSC-CNS is a consortium including the Spanish government, Catalan
+government, and UPC&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

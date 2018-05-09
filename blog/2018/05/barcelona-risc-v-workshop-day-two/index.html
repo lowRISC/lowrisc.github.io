@@ -98,7 +98,7 @@ handling with support for nested preempted interrupts.</li>
 
 <ul>
 <li>Local interrupts are directly connected to one hart. There&rsquo;s no
-arbitrartion between harts to sevice. Determine cause through xcause CSR.
+arbitration between harts to service. Determine cause through xcause CSR.
 Only two standard local interrupts (software, timer).</li>
 <li>Global (external) interrupts are routed via the platform-level interrupt
 controller (PLIC) which arbitrates between multiple harts claiming an
@@ -196,6 +196,20 @@ marketing and technical committees.</li>
 <li>Task groups will be set up to look at cryptograpshic ISA extensions and
 trusted execution environments for microcontroller</li>
 <li>The full charter will be published on riscv.org</li>
+</ul>
+
+<h2 id="formal-assurance-for-risc-v-implementations-daniel-m-zimmerman:a5d6ec65113439624abf306f86726737">Formal assurance for RISC-V implementations: Daniel M. Zimmerman</h2>
+
+<ul>
+<li>Galois started with a focus on cryptography, but has broadened its scope to
+&ldquo;high assurance everything&rdquo;</li>
+<li>There are a range of definitions for RISC-V. The human-readable instruction
+manual, mechanisations in the form of software simulators or hardware
+implementations. The formal model working group have also been working on
+this.</li>
+<li>How can we provide assurance about these definitions / mechanisations?</li>
+<li>Assurance means: the system does what it is supposed to do and doesn&rsquo;t do
+anything else.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

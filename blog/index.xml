@@ -32,7 +32,7 @@ handling with support for nested preempted interrupts.&lt;/li&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Local interrupts are directly connected to one hart. There&amp;rsquo;s no
-arbitrartion between harts to sevice. Determine cause through xcause CSR.
+arbitration between harts to service. Determine cause through xcause CSR.
 Only two standard local interrupts (software, timer).&lt;/li&gt;
 &lt;li&gt;Global (external) interrupts are routed via the platform-level interrupt
 controller (PLIC) which arbitrates between multiple harts claiming an
@@ -130,6 +130,20 @@ marketing and technical committees.&lt;/li&gt;
 &lt;li&gt;Task groups will be set up to look at cryptograpshic ISA extensions and
 trusted execution environments for microcontroller&lt;/li&gt;
 &lt;li&gt;The full charter will be published on riscv.org&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;formal-assurance-for-risc-v-implementations-daniel-m-zimmerman:a5d6ec65113439624abf306f86726737&#34;&gt;Formal assurance for RISC-V implementations: Daniel M. Zimmerman&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Galois started with a focus on cryptography, but has broadened its scope to
+&amp;ldquo;high assurance everything&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;There are a range of definitions for RISC-V. The human-readable instruction
+manual, mechanisations in the form of software simulators or hardware
+implementations. The formal model working group have also been working on
+this.&lt;/li&gt;
+&lt;li&gt;How can we provide assurance about these definitions / mechanisations?&lt;/li&gt;
+&lt;li&gt;Assurance means: the system does what it is supposed to do and doesn&amp;rsquo;t do
+anything else.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

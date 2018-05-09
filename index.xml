@@ -480,6 +480,8 @@ operations. Stand-alone floating point unit (~200kGE) will be released in the
 next months.&lt;/li&gt;
 &lt;li&gt;Also working on improved integer divider, vector unit, and hardware support
 for atomic memory operations&lt;/li&gt;
+&lt;li&gt;Help wanted: support for official RISC-V debug, improved branch predictors,
+multithreading, cache-coherent interconnect, &amp;hellip;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

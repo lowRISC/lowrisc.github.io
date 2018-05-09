@@ -115,6 +115,21 @@ the need for high performance generic code processing as well as digital
 signal processing.&lt;/li&gt;
 &lt;li&gt;Want to make this easy to use through intrinsic functions and optimised DSP
 libraries.&lt;/li&gt;
+&lt;li&gt;For 64-bit data types, use pairs of GPRs on RV32. An implementation could of
+course still use a 2R1W register file, but use multiple cycles to read a
+64-bit value.&lt;/li&gt;
+&lt;li&gt;After the task group is created, bi-weekly meetings will be set up.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;risc-v-isa-cryptographic-extension-proposal-richard-newell:a5d6ec65113439624abf306f86726737&#34;&gt;RISC-V ISA cryptographic extension proposal: Richard Newell&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The security group was previously a task group of the technical committee.
+There is now a new security standing committee, at the same level with the
+marketing and technical committees.&lt;/li&gt;
+&lt;li&gt;Task groups will be set up to look at cryptograpshic ISA extensions and
+trusted execution environments for microcontroller&lt;/li&gt;
+&lt;li&gt;The full charter will be published on riscv.org&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

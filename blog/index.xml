@@ -484,6 +484,14 @@ for atomic memory operations&lt;/li&gt;
 multithreading, cache-coherent interconnect, &amp;hellip;&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;risc-v-support-for-persistent-memory-systems-matheus-ogleari:a5d6ec65113439624abf306f86726737&#34;&gt;RISC-V support for persistent memory systems: Matheus Ogleari&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;(Missed the first few minutes I&amp;rsquo;m afraid)&lt;/li&gt;
+&lt;li&gt;RISC-V changes: introduce new instructions. ucst (uncacheable write to
+memory), ucld (uncacheable read from memory)&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

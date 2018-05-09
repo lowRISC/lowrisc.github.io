@@ -527,6 +527,10 @@ Nvidia DGX-1. Saw ~25x better energy efficiency.&lt;/li&gt;
 consider the entire system&lt;/li&gt;
 &lt;li&gt;An open approach has proven useful for security in software. Why should
 hardware be any different?&lt;/li&gt;
+&lt;li&gt;Cryptographic accelerators can easily achieve high throughput with low area.&lt;/li&gt;
+&lt;li&gt;PULP provides multiple opportunities to add extensions. e.g. new
+instructions added directly to the core, adding peripherals to the bus, or
+hardware accelerators with direct memory access&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

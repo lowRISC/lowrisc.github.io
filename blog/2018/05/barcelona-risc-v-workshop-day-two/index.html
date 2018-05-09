@@ -104,6 +104,18 @@ Only two standard local interrupts (software, timer).</li>
 controller (PLIC) which arbitrates between multiple harts claiming an
 interrupt.</li>
 </ul></li>
+<li>The machine interrupt pending (mip) CSR contains bits for local software,
+local timer, and external interrupts (from the PLIC). It tells you which
+interrupts are present.</li>
+<li>mie mirrors the layout of mip, and allows you to enable/disable interrupts.</li>
+<li>mstatus keeps track of interrupt status, containing a small interrupt stack.</li>
+<li>The interrupt is reported in the mcause CSR. The exception code indicates
+which interrupt was responsible - you might have to then interrogate the PLIC
+if it was an external interrupt.</li>
+<li>mtvec (machine trap vector base) contains the address of the trap vector
+(&lsquo;base&rsquo;). It also contains bits which control whether interrupts are direct
+(all exceptions and interrupts jump to base) or vectored (exceptions go to
+base, interrupts are vectored).</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

@@ -490,6 +490,9 @@ multithreading, cache-coherent interconnect, &amp;hellip;&lt;/li&gt;
 &lt;li&gt;(Missed the first few minutes I&amp;rsquo;m afraid)&lt;/li&gt;
 &lt;li&gt;RISC-V changes: introduce new instructions. ucst (uncacheable write to
 memory), ucld (uncacheable read from memory)&lt;/li&gt;
+&lt;li&gt;Also modify the cache controller and memory controller&lt;/li&gt;
+&lt;li&gt;These changes would enable new applications. Even defining the instructions
+would allow people to start work using software simulation tools.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

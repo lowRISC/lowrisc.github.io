@@ -425,9 +425,23 @@ SCM.&lt;/li&gt;
 optimized FD-SOI.&lt;/li&gt;
 &lt;li&gt;FDXcelerator is accelerating RISC-V developers and partners. Partners
 include SiFive, Andes, Reduced Energy Microsystems, &amp;hellip;&lt;/li&gt;
+&lt;li&gt;This is the first step towards silicon-qualified free-open-source RISC-V IPs
+on GF FDX22 process&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;em&gt;Ale Bradbury&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;ariane-an-open-source-64-bit-risc-v-application-class-processor-and-latest-improvements-florian-zaruba:a5d6ec65113439624abf306f86726737&#34;&gt;Ariane. An Open-Source 64-bit RISC-V Application Class Processor and latest improvements: Florian Zaruba&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ariane is a Linux-capable 64-bit core&lt;/li&gt;
+&lt;li&gt;M, S, U privilege modes. TLB. Tightly integrated D$ and I$, hardware page
+table walker&lt;/li&gt;
+&lt;li&gt;Area around 185kGE&lt;/li&gt;
+&lt;li&gt;Greater than 1.5GHz at 22FDX&lt;/li&gt;
+&lt;li&gt;Critical path is 25 logic levels&lt;/li&gt;
+&lt;li&gt;6 stage pipeline. In-order issue, out-of-order writeback, in-order commit&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>
     

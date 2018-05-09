@@ -272,6 +272,13 @@ will be system integrator / chip integrator.&lt;/li&gt;
 supporting MPI+OpenMP&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&#34;securing-high-performance-risc-v-processors-from-time-speculation-chris-celio:a5d6ec65113439624abf306f86726737&#34;&gt;Securing High-performance RISC-V Processors from Time Speculation: Chris Celio&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Meltdown and Spectre don&amp;rsquo;t just impact a single processor design or a single
+company&amp;rsquo;s design, but really impact any CPU using speculation.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>

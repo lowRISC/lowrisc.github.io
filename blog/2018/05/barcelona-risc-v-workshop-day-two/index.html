@@ -354,6 +354,21 @@ another user.</li>
 </ul></li>
 <li>Chris built up a taxonomy of time leaks. Two axes: were are we leaking from,
 and what are we directly leaking.</li>
+<li>High level ideas:
+
+<ul>
+<li>Don&rsquo;t leak any observable side-effects in the machine if speculation is
+aborted</li>
+<li>Avoid bandwidth interference between different time domains. Depending on
+the time domain you care about, this could be bandwidth to a functional
+unit.</li>
+</ul></li>
+<li>Modern speculative cores have 100-300 instructions in-flight, but not all
+are speculative. About 25% are beyond the point of non-return.</li>
+<li>Idea: do not update predictors speculatively.</li>
+<li>Idea: Don&rsquo;t speculatively update the cache. Could get rid of fully inclusive
+L1/L2/L3 caches in favour of neither exclusive nor inclusive (NENI) caches.<br />
+Then allocate only into the L1 cache.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

@@ -371,6 +371,23 @@ MMU, and S mode (A25/AX25).&lt;/li&gt;
 &lt;li&gt;Use single-port SRAMs to reduce area and power&lt;/li&gt;
 &lt;li&gt;COPILOT tool allows auto-generation of development tools for a set of custom
 extensions.&lt;/li&gt;
+&lt;li&gt;Software
+
+&lt;ul&gt;
+&lt;li&gt;Worked with Express Logic to port 64-bit ThreadX&lt;/li&gt;
+&lt;li&gt;Added support for AX25 to QEMU&lt;/li&gt;
+&lt;li&gt;Working on adding further component support for Linux: u-boot, ftrace,
+loadable modules, Linux perf.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;openSUSE is helping to enable their &amp;lsquo;EBBR&amp;rsquo; specification for RISC-V&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;processor-trace-in-a-holistic-world-gajinder-panesar:a5d6ec65113439624abf306f86726737&#34;&gt;Processor trace in a holistic world: Gajinder Panesar&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Understanding program behaviour in complex system isn&amp;rsquo;t easy, and using a
+debugger isn&amp;rsquo;t always possible. Processor Branch Trace can provide visibility
+into program execution.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Ale Bradbury&lt;/em&gt;&lt;/p&gt;

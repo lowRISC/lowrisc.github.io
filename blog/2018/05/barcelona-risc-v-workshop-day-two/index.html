@@ -369,6 +369,31 @@ are speculative. About 25% are beyond the point of non-return.</li>
 <li>Idea: Don&rsquo;t speculatively update the cache. Could get rid of fully inclusive
 L1/L2/L3 caches in favour of neither exclusive nor inclusive (NENI) caches.<br />
 Then allocate only into the L1 cache.</li>
+<li>Idea: misspeculation recovery should be deterministic. Any shared resource
+can leak time</li>
+<li>Idea: partition caches etc</li>
+<li>Idea: dynamic partitioning</li>
+<li>Idea: partial and full flushes. e.g. flush <sup>1</sup>&frasl;<sub>4</sub> BTB entries.</li>
+<li>Many other ideas (see the full list in the slides!)</li>
+</ul>
+
+<h2 id="evaluation-of-risc-v-for-pixel-visual-core-matt-cockrell:a5d6ec65113439624abf306f86726737">Evaluation of RISC-V for Pixel Visual Core: Matt Cockrell</h2>
+
+<ul>
+<li>Background: the Pixel Visual Core is a Google-design Image Processing Unit
+(IPU). It has a dedicated A53 which aggregates application layer IPU resource
+requests.</li>
+<li>Looking at adding a microcontroller as a job scheduling and dispatch unit.</li>
+<li>When selecting a core, key considerations were: level of effort (how
+difficult to integrate), risk (stability and reliability of support), and
+license.</li>
+<li>First candidate was the internal &lsquo;Bottle Rocket&rsquo; project. This implements
+RV32IMC, reusing parts of the Rocket design. High level of effort, medium
+risk.</li>
+<li>Second candidate: Merlin (github.com/origintfj/riscv). Low level of effort,
+high risk.</li>
+<li>Third candidate: RI5CY, produced by the PULP team. Low level of effort,
+medium risk.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

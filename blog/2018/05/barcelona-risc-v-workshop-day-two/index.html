@@ -91,6 +91,21 @@ announcements throughout the day.</p>
 
 <h2 id="fast-interrupts-for-risc-v-krste-asanovic:a5d6ec65113439624abf306f86726737">Fast interrupts for RISC-V: Krste Asanovic</h2>
 
+<ul>
+<li>Embedded is a major use for RISC-V. There is a desire for faster interrupt
+handling with support for nested preempted interrupts.</li>
+<li>Summary of current RISC-V interrupts
+
+<ul>
+<li>Local interrupts are directly connected to one hart. There&rsquo;s no
+arbitrartion between harts to sevice. Determine cause through xcause CSR.
+Only two standard local interrupts (software, timer).</li>
+<li>Global (external) interrupts are routed via the platform-level interrupt
+controller (PLIC) which arbitrates between multiple harts claiming an
+interrupt.</li>
+</ul></li>
+</ul>
+
 <p><em>Alex Bradbury</em></p>
 
                     </section>

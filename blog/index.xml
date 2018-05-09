@@ -531,6 +531,33 @@ hardware be any different?&lt;/li&gt;
 &lt;li&gt;PULP provides multiple opportunities to add extensions. e.g. new
 instructions added directly to the core, adding peripherals to the bus, or
 hardware accelerators with direct memory access&lt;/li&gt;
+&lt;li&gt;Implemented Fulmine, an IoT processor with accelerators. Added two TCDM
+ports, 64bits/cycle. The AES unit performs 2 rounds a cycle, 1.76Gbit/s and
+120pJ per byte (entire chip) at 0.8V and 84MHz&lt;/li&gt;
+&lt;li&gt;Side channel attacks are a huge challenge. Recently implemented a leakage
+resilient accelerator which reduces the attack surface by generating a new key
+per data block. This provides 5.29Gbit/s throughput at 256Mhz&lt;/li&gt;
+&lt;li&gt;Attacks that target control flow are a serious problem and can be realized
+in both hardware (e.g. glitching) or software. Implemented and published
+sponge based control-flow protection (SCFP), which stores instructions
+encrypted in memory. As instructions must be decrypted, the attacker would
+have to modify both the instruction and the internal state.
+
+&lt;ul&gt;
+&lt;li&gt;Implemented in Patronus chip. 25-35% power/area overhead, and 10$ runtime
+overhead due to &amp;lsquo;patches&amp;rsquo; and additional commands.&lt;/li&gt;
+&lt;li&gt;The probability of an illegal instruction trap when an instruction altered
+is 91.51% within 1 cycle rising to 99.95% within 3 cycles.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;risc-v-virtual-platforms-for-early-risc-v-embedded-software-development-kevin-mcdermott-and-lee-moore:a5d6ec65113439624abf306f86726737&#34;&gt;RISC-V virtual platforms for early RISC-V embedded software development: Kevin McDermott and Lee Moore&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;New markets have new software requirements&lt;/li&gt;
+&lt;li&gt;Virtual platforms can help accelerate software development&lt;/li&gt;
+&lt;li&gt;Imperas produce extendable platform kits (EPKs). These are virtual platforms
+with software set-up, allowing users to start quickly.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

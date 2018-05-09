@@ -597,6 +597,33 @@ hardware be any different?</li>
 <li>PULP provides multiple opportunities to add extensions. e.g. new
 instructions added directly to the core, adding peripherals to the bus, or
 hardware accelerators with direct memory access</li>
+<li>Implemented Fulmine, an IoT processor with accelerators. Added two TCDM
+ports, 64bits/cycle. The AES unit performs 2 rounds a cycle, 1.76Gbit/s and
+120pJ per byte (entire chip) at 0.8V and 84MHz</li>
+<li>Side channel attacks are a huge challenge. Recently implemented a leakage
+resilient accelerator which reduces the attack surface by generating a new key
+per data block. This provides 5.29Gbit/s throughput at 256Mhz</li>
+<li>Attacks that target control flow are a serious problem and can be realized
+in both hardware (e.g. glitching) or software. Implemented and published
+sponge based control-flow protection (SCFP), which stores instructions
+encrypted in memory. As instructions must be decrypted, the attacker would
+have to modify both the instruction and the internal state.
+
+<ul>
+<li>Implemented in Patronus chip. 25-35% power/area overhead, and 10$ runtime
+overhead due to &lsquo;patches&rsquo; and additional commands.</li>
+<li>The probability of an illegal instruction trap when an instruction altered
+is 91.51% within 1 cycle rising to 99.95% within 3 cycles.</li>
+</ul></li>
+</ul>
+
+<h2 id="risc-v-virtual-platforms-for-early-risc-v-embedded-software-development-kevin-mcdermott-and-lee-moore:a5d6ec65113439624abf306f86726737">RISC-V virtual platforms for early RISC-V embedded software development: Kevin McDermott and Lee Moore</h2>
+
+<ul>
+<li>New markets have new software requirements</li>
+<li>Virtual platforms can help accelerate software development</li>
+<li>Imperas produce extendable platform kits (EPKs). These are virtual platforms
+with software set-up, allowing users to start quickly.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

@@ -505,6 +505,32 @@ table walker</li>
 <li>Greater than 1.5GHz at 22FDX</li>
 <li>Critical path is 25 logic levels</li>
 <li>6 stage pipeline. In-order issue, out-of-order writeback, in-order commit</li>
+<li>Why develop another core?
+
+<ul>
+<li>Don&rsquo;t want an SoC generator. Don&rsquo;t want to be governed by a 3rd party</li>
+</ul></li>
+<li>First implementation took about 4 months</li>
+<li>Designed for higher performance in the future: dual issue and/or OoO issue</li>
+<li>Verification strategy
+
+<ul>
+<li>RISC-V tests</li>
+<li>Torture test framework</li>
+<li>Running applications on FPGA e.g. bootling Linux</li>
+<li>Verification isn&rsquo;t exhaustive, looking into more alternatives</li>
+</ul></li>
+<li>Ariane was open-sourced in February 2018. Already seen non-trivial external
+contributions.</li>
+<li>Latest improvements:
+
+<ul>
+<li>Completely revised instruction frontend.</li>
+<li>Re-naming in issue stage</li>
+</ul></li>
+<li>Return address stack cost ~1KGE, improves IPC by 20%. Resolving
+unconditional jumps immediately increases IPC by ~11%. These changes had no
+negative impact on timing.</li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

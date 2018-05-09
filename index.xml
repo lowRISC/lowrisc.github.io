@@ -439,6 +439,32 @@ table walker&lt;/li&gt;
 &lt;li&gt;Greater than 1.5GHz at 22FDX&lt;/li&gt;
 &lt;li&gt;Critical path is 25 logic levels&lt;/li&gt;
 &lt;li&gt;6 stage pipeline. In-order issue, out-of-order writeback, in-order commit&lt;/li&gt;
+&lt;li&gt;Why develop another core?
+
+&lt;ul&gt;
+&lt;li&gt;Don&amp;rsquo;t want an SoC generator. Don&amp;rsquo;t want to be governed by a 3rd party&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;First implementation took about 4 months&lt;/li&gt;
+&lt;li&gt;Designed for higher performance in the future: dual issue and/or OoO issue&lt;/li&gt;
+&lt;li&gt;Verification strategy
+
+&lt;ul&gt;
+&lt;li&gt;RISC-V tests&lt;/li&gt;
+&lt;li&gt;Torture test framework&lt;/li&gt;
+&lt;li&gt;Running applications on FPGA e.g. bootling Linux&lt;/li&gt;
+&lt;li&gt;Verification isn&amp;rsquo;t exhaustive, looking into more alternatives&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Ariane was open-sourced in February 2018. Already seen non-trivial external
+contributions.&lt;/li&gt;
+&lt;li&gt;Latest improvements:
+
+&lt;ul&gt;
+&lt;li&gt;Completely revised instruction frontend.&lt;/li&gt;
+&lt;li&gt;Re-naming in issue stage&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Return address stack cost ~1KGE, improves IPC by 20%. Resolving
+unconditional jumps immediately increases IPC by ~11%. These changes had no
+negative impact on timing.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

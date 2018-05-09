@@ -551,13 +551,15 @@ is 91.51% within 1 cycle rising to 99.95% within 3 cycles.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;risc-v-virtual-platforms-for-early-risc-v-embedded-software-development-kevin-mcdermott-and-lee-moore:a5d6ec65113439624abf306f86726737&#34;&gt;RISC-V virtual platforms for early RISC-V embedded software development: Kevin McDermott and Lee Moore&lt;/h2&gt;
+&lt;h2 id=&#34;risc-v-virtual-platforms-for-early-risc-v-embedded-software-development-kevin-mcdermott:a5d6ec65113439624abf306f86726737&#34;&gt;RISC-V virtual platforms for early RISC-V embedded software development: Kevin McDermott&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;New markets have new software requirements&lt;/li&gt;
 &lt;li&gt;Virtual platforms can help accelerate software development&lt;/li&gt;
 &lt;li&gt;Imperas produce extendable platform kits (EPKs). These are virtual platforms
 with software set-up, allowing users to start quickly.&lt;/li&gt;
+&lt;li&gt;Offer the ability to easily define custom instruction extensions&lt;/li&gt;
+&lt;li&gt;Can also perform software development using the Ashling RISC-V IDE&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;

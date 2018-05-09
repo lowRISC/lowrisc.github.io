@@ -116,6 +116,22 @@ if it was an external interrupt.</li>
 (&lsquo;base&rsquo;). It also contains bits which control whether interrupts are direct
 (all exceptions and interrupts jump to base) or vectored (exceptions go to
 base, interrupts are vectored).</li>
+<li>There&rsquo;s two parts of an interrupt: what you were doing when it happened
+(state context), and what you&rsquo;re going to do. mepc and mstatus allow the
+contact to be saved and restored.</li>
+<li>Problems with current interrupts:
+
+<ul>
+<li>Hardware preemption is only possible by switching privileged modes</li>
+<li>Fixed priority for local interrupts</li>
+<li>The vector table holds jumps instructions, which can only jump +/- 1MiB. A
+free register would be required to jump further, resulting in even more
+instructions.</li>
+<li>PLIC has variable priority, but the vectoring must be done in software.</li>
+<li>The PLIC needs two memory accesses: one to claim it, one to indicate
+completion.</li>
+<li>The Unix ABI requires many registers to be saved/restored.</li>
+</ul></li>
 </ul>
 
 <p><em>Alex Bradbury</em></p>

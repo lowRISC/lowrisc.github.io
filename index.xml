@@ -301,7 +301,7 @@ unit.&lt;/li&gt;
 are speculative. About 25% are beyond the point of non-return.&lt;/li&gt;
 &lt;li&gt;Idea: do not update predictors speculatively.&lt;/li&gt;
 &lt;li&gt;Idea: Don&amp;rsquo;t speculatively update the cache. Could get rid of fully inclusive
-L1/L2/L3 caches in favour of neither exclusive nor inclusive (NENI) caches.&lt;br /&gt;
+L1/L2/L3 caches in favour of neither exclusive nor inclusive (NENI) caches.
 Then allocate only into the L1 cache.&lt;/li&gt;
 &lt;li&gt;Idea: misspeculation recovery should be deterministic. Any shared resource
 can leak time&lt;/li&gt;
@@ -603,7 +603,7 @@ members. These members are distributed across 25 countries around the world.&lt;
 &lt;li&gt;Standard: defined by the Foundation&lt;/li&gt;
 &lt;li&gt;Reserved: Foundation might eventually use this space for future standard
 extensions.&lt;/li&gt;
-&lt;li&gt;Custom: Space for implemnter-specific extensions, never claimed by
+&lt;li&gt;Custom: Space for impelmenter-specific extensions, never claimed by
 Foundation.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;The RISC-V big tent philosophy: enable all types of RISC-V implementation,
@@ -754,7 +754,7 @@ merge, vector-fp merge, slide down / slide up&lt;/li&gt;
 &lt;li&gt;Haven&amp;rsquo;t yet started on formal spec for the vector ISA&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;the-isa-ofrmal-spec-technical-update-rishiyur-nikhil:7e63e62b65afd74857129fe53555ff5b&#34;&gt;The ISA ofrmal spec technical update: Rishiyur Nikhil&lt;/h2&gt;
+&lt;h2 id=&#34;the-isa-formal-spec-technical-update-rishiyur-nikhil:7e63e62b65afd74857129fe53555ff5b&#34;&gt;The ISA formal spec technical update: Rishiyur Nikhil&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;What what use is an ISA formal spec?
@@ -769,15 +769,15 @@ produce correct results? On all RISC-V processors?&lt;/li&gt;
 &lt;li&gt;ISA formal spec goals
 
 &lt;ul&gt;
-&lt;li&gt;Clear and understandable to the human reader. Precise and complete.&lt;br /&gt;
+&lt;li&gt;Clear and understandable to the human reader. Precise and complete.
 Machine readable. Executable (run RISC-V programs, boot an OS). Usable with
 various formal tools.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;Key issues
 
 &lt;ul&gt;
-&lt;li&gt;RISC-V&amp;rsquo;s modulatirty. A wide range of options, some of which are
-dynmically selectable or can vary between privilege levels. The spec needs
+&lt;li&gt;RISC-V&amp;rsquo;s modularity. A wide range of options, some of which are
+dynamically selectable or can vary between privilege levels. The spec needs
 to capture all combinations and still remain readable.&lt;/li&gt;
 &lt;li&gt;Extensibility. Want to allow people to build upon the formal spec to add
 support their own extensions.&lt;/li&gt;
@@ -787,7 +787,7 @@ support their own extensions.&lt;/li&gt;
 project in SAIL, 1 project in L3, another in a &amp;lsquo;functional subset&amp;rsquo; of Verilog
 
 &lt;ul&gt;
-&lt;li&gt;One of the Haskell projects (led by a team at MIT) is furthest along.&lt;br /&gt;
+&lt;li&gt;One of the Haskell projects (led by a team at MIT) is furthest along.
 Models RV32I, RV64I, M, priv U+S+M, Sv39 VM&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;Next steps: within a couple of months publish a formal spec that is complete
@@ -869,7 +869,7 @@ architecture
 &lt;li&gt;Programming model&lt;/li&gt;
 &lt;li&gt;System optimsiation&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Open source RISC-V implementations will allow more software driven hardware.&lt;br /&gt;
+&lt;li&gt;Open source RISC-V implementations will allow more software driven hardware.
 Ecosystem is vital to success.&lt;/li&gt;
 &lt;/ul&gt;
 

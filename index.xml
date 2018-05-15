@@ -2968,7 +2968,7 @@ cd build
 --disable-shared --disable-threads --disable-multilib --disable-gdb \
 --disable-libssp --with-newlib \
 --with-arch=rv32ima --with-abi=ilp32 --prefix=$(pwd)/built
-make -j
+make -j$(nproc)
 make install
 &lt;/code&gt;&lt;/pre&gt;
 

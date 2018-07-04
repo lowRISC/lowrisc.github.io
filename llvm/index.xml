@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Llvms on lowRISC</title>
-    <link>http://www.lowrisc.org/llvm/</link>
+    <link>https://www.lowrisc.org/llvm/</link>
     <description>Recent content in Llvms on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 07 May 2018 13:26:41 +0100</lastBuildDate>
-    <atom:link href="http://www.lowrisc.org/llvm/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.lowrisc.org/llvm/index.xml" rel="self" type="application/rss+xml" />
     
   </channel>
 </rss>

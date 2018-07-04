@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docs on lowRISC</title>
-    <link>http://www.lowrisc.org/docs/</link>
+    <link>https://www.lowrisc.org/docs/</link>
     <description>Recent content in Docs on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 12 Jan 2018 13:00:00 +0000</lastBuildDate>
-    <atom:link href="http://www.lowrisc.org/docs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.lowrisc.org/docs/index.xml" rel="self" type="application/rss+xml" />
     
   </channel>
 </rss>

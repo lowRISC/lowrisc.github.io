@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>RISC-V LLVM Coding Lab at the LLVM Developers&#39; Meeting 2018 &middot; lowRISC</title>
+        <link rel="stylesheet" href="https://www.lowrisc.org/css/styles.combined.min.css" />
+        <link rel="shortcut icon" href="https://www.lowrisc.org/favicon.ico" />
+        <link rel="alternate" href="https://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' type='text/css'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Exo+2' type='text/css'>
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-53520714-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+  </head>
+
+  <body data-page="article">
+<div class="header">
+  <header data-component="menu">
+
+    <section class="outer-container">
+      <div class="image">
+        <a href="https://www.lowrisc.org"><img src="https://www.lowrisc.org/img/logo.svg"></a>
+      </div>
+
+      <div class="menu">
+        <ul>
+          
+          <li><a href="/"> Home </a></li>
+          
+          <li><a href="/about/"> About </a></li>
+          
+          <li><a href="/blog/"> Blog </a></li>
+          
+          <li><a href="/faq/"> FAQ </a></li>
+          
+          <li><a href="/docs/"> Docs </a></li>
+          
+          <li><a href="/community/"> Community </a></li>
+          
+        </ul>
+      </div>
+    </section>
+
+  </header>
+</div>
+
+
+
+
+
+
+
+
+
+    <div class="article">
+      <section class="outer-container">
+        <div class="row">
+            <div class="sixteen columns">
+                <article class="li-article">
+                
+                    <header class="li-article-header">
+                        <h1 class="li-article-title">RISC-V LLVM Coding Lab at the LLVM Developers&#39; Meeting 2018</h1>
+                        <span class="li-article-taxonomies">
+                            
+
+                            
+                        </span>
+                        
+                        
+                    </header>
+                    <section>
+                        
+
+<p>Alex Bradbury is running a <a href="https://llvmdev18.sched.com/event/HGJT/coding-lab-for-risc-v-tutorial">Coding
+Lab</a> at
+the <a href="https://llvm.org/devmtg/2018-10/">2018 LLVM Developers&rsquo; Meeting</a> to
+complement his <a href="https://llvmdev18.sched.com/event/H2UV/llvm-backend-development-by-example-risc-v">LLVM backend
+tutorial</a>.</p>
+
+<p>This coding lab will build on the material presented in the backend and guide
+you through some sample modifications to the RISC-V backend, including both
+codegen and MC layer (assembler/disassmbler) modifications. Anyone familiar
+with C++ and a passing familiarity with LLVM IR should be able to get
+something out of this session, and you&rsquo;re able to go at your own pace.</p>
+
+<p>This page will be updated with full instructions prior to the coding lab.</p>
+
+<p>You will need:</p>
+
+<ul>
+<li>A laptop</li>
+<li>A debug build of recent HEAD LLVM with the RISC-V backend enabled
+(see below). Incremental builds should be relatively fast, but if your
+laptop is underpowered you may want to plan to ssh out to a faster machine you
+own.</li>
+</ul>
+
+<h2 id="building-llvm:9f989c6017a78266a3c07f2ec5d013cf">Building LLVM</h2>
+
+<p>The canonical source for LLVM build instructions are the <a href="https://llvm.org/docs/GettingStarted.html">getting started
+guide</a> or <a href="https://llvm.org/docs/CMake.html">instructions on building
+LLVM with CMake</a>. I outline my recommended
+options below.</p>
+
+<p>When developing LLVM you really want a build with
+debug info and assertions. This leads to huge binaries and a lot of
+work for your linker. GNU ld tends to struggle in this case and it&rsquo;s likely
+you&rsquo;ll encounter long build times and/or run out of memory if GNU ld is your
+system linker (<code>ld --version</code> reports &ldquo;GNU ld&rdquo;). Linkers such as GNU gold or
+LLVM&rsquo;s lld do not have this problem. The following instructions will check out
+and build LLVM using a system <code>clang</code> and <code>lld</code>, installed from your package
+manager. If you&rsquo;re on Debian or Ubuntu, you may want to look at the packages
+available at <a href="http://apt.llvm.org/">apt.llvm.org</a>.</p>
+
+<pre><code>git clone http://llvm.org/git/llvm.git
+mkdir build
+cd build
+cmake -G Ninja -DCMAKE_BUILD_TYPE=&quot;Debug&quot; \
+  -DBUILD_SHARED_LIBS=True -DLLVM_USE_SPLIT_DWARF=True \
+  -DLLVM_BUILD_TESTS=True \
+  -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ \
+  -DLLVM_ENABLE_LLD=True \
+  -DLLVM_TARGETS_TO_BUILD=&quot;all&quot; \
+  -DLLVM_EXPERIMENTAL_TARGETS_TO_BUILD=&quot;RISCV&quot; ../
+cmake --build .
+</code></pre>
+
+<p>The cmake options are chosen in order to allow a relatively fast
+incremental rebuild time.</p>
+
+                    </section>
+                </article>
+
+        </div>
+      </section>
+    </div>
+    
+
+
+                
+
+        <footer>
+
+          <section class="outer-container">
+
+            <div>
+              <div class="link-container">
+              </div>
+            </div>
+
+            <p>
+              Unless otherwise noted, content on this site is licensed under a Creative Commons Attribution ShareAlike 4.0 International License
+            </p>
+
+          </section>
+
+        </footer>
+    </body>
+</html>
+
+
+    </body>
+</html>
+

@@ -6,7 +6,7 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>Generic lowRISC setup &middot; lowRISC</title>
+        <title>Overview of the Refresh system &middot; lowRISC</title>
         <link rel="stylesheet" href="https://www.lowrisc.org/css/styles.combined.min.css" />
         <link rel="shortcut icon" href="https://www.lowrisc.org/favicon.ico" />
         <link rel="alternate" href="https://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
@@ -69,11 +69,11 @@
                 <article class="li-article">
                 
                   <p>
-                    <a href="https://www.lowrisc.org/docs/debug-v0.3/environment/">⇡ Prepare the environment</a>
+                    <a href="https://www.lowrisc.org/docs/refresh-v0.6/">⇡ Tutorial for the v0.6 lowRISC release</a>
                   </p>
                 
                     <header class="li-article-header">
-                        <h1 class="li-article-title">Generic lowRISC setup</h1>
+                        <h1 class="li-article-title">Overview of the Refresh system</h1>
                         <span class="li-article-taxonomies">
                             
 
@@ -83,13 +83,50 @@
                         
                     </header>
                     <section>
-                        <p>This part is identical to the previous tutorial, simply perform those
-steps:</p>
+                        
+
+<p><a name="figure-overview"></a>
+<img src="../figures/lowRISC_tag.png" alt="Drawing" style="width: 600px; padding: 20px 0px;"/></p>
+
+<h2 id="pre-defined-design-constraints:68f80267fa3a50980dbb745a782b8dca">Pre-defined Design constraints</h2>
+
+<p>Our goal of supporting the same FPGA board as the previous release
+may only be realised with slight changes to the JTAG instruction register length and data register numbers.
+The only software tool impacted is openocd, and this has been patched for this release to allow the alternative
+numbers to be used if Xilinx is detected as the manufacturer ID
+due to FPGA design constraints.</p>
+
+<p>For more information about JTAG internals and the changes necessary for LowRISC, consult the following link:</p>
 
 <ul>
-<li><a href="https://www.lowrisc.org/docs/untether-v0.2/xilinx/">Install Xilinx Vivado</a></li>
-<li><a href="https://www.lowrisc.org/docs/untether-v0.2/verilator/">Install Verilator</a></li>
-<li><a href="https://www.lowrisc.org/docs/riscv_compile/">Compile and install RISC-V cross-compiler</a></li>
+<li><a href="https://www.lowrisc.org/docs/jtag/">JTAG internals</a></li>
+</ul>
+
+<h2 id="overview-of-the-remote-boot-process:68f80267fa3a50980dbb745a782b8dca">Overview of the Remote boot process</h2>
+
+<p>The same booting options as ethernet-v0.5 are available. We also add a new method which replaces
+some of the functionality of the trace debugger that was first offered in v0.3: this is the GDB/openocd pairing
+which will be familiar to some due to its popularity in low-cost ARM debugging environments.</p>
+
+<h2 id="nfs-root-file-system:68f80267fa3a50980dbb745a782b8dca">NFS root file system</h2>
+
+<p>The NFS root file system requires a separate server such as a Linux server or laptop. Regardless of whether
+NFS or SD root is used, the previous riscv-poky release is replaced by (almost) upstream Debian binaries,
+eliminating the requirement to build the userland from scratch, a lengthy and error-prone process.</p>
+
+<h2 id="future-jtag-developments:68f80267fa3a50980dbb745a782b8dca">Future JTAG developments</h2>
+
+<p>This release incorporates a JTAG core for the first time, but there is of
+course much more to be done. The top priority is making GDB/openocd cognisant of the
+different virtual memory features offered in the different modes.</p>
+
+<p>Please <a href="https://www.lowrisc.org/community/">get in touch with us</a> if you have ideas
+and opinions about future directions we should take.</p>
+
+<p>Continue the process below:</p>
+
+<ul>
+<li><a href="https://www.lowrisc.org/docs/download-the-code/">Download the source code</a></li>
 </ul>
 
                     </section>
@@ -97,29 +134,6 @@ steps:</p>
 
         </div>
       </section>
-    </div>
-    
-    <div class="row li-pagination article">
-      <div class="eight columns">
-        <div class="li-pagination-previous">
-          &nbsp;
-          
-          Previous<br />
-          &nbsp;
-          <a href="https://www.lowrisc.org/docs/debug-v0.3/environment/"> Prepare the environment</a>
-          
-        </div>
-      </div>
-      <div class="eight columns">
-        <div class="li-pagination-next">
-          &nbsp;
-          
-          Next<br />
-          &nbsp;
-          <a href="https://www.lowrisc.org/docs/debug-v0.3/osdsoftware/"> Open SoC Debug Software</a>
-          
-        </div>
-      </div>
     </div>
     
 
@@ -130,9 +144,9 @@ steps:</p>
             <script type="text/javascript">
                  
                 var disqus_shortname = 'lowrisc'; 
-                var disqus_identifier = "/" + "docs/debug-v0.3/lowriscsetup";
-                var disqus_title = "Generic lowRISC setup";
-                var disqus_url = "https://www.lowrisc.org" + "docs/debug-v0.3/lowriscsetup";
+                var disqus_identifier = "/" + "docs/overview";
+                var disqus_title = "Overview of the Refresh system";
+                var disqus_url = "https://www.lowrisc.org" + "docs/overview";
 
                  
                 (function() {

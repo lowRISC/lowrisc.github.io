@@ -6,7 +6,7 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>Generic lowRISC setup &middot; lowRISC</title>
+        <title>Build Berkeley boot loader &middot; lowRISC</title>
         <link rel="stylesheet" href="https://www.lowrisc.org/css/styles.combined.min.css" />
         <link rel="shortcut icon" href="https://www.lowrisc.org/favicon.ico" />
         <link rel="alternate" href="https://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
@@ -69,11 +69,11 @@
                 <article class="li-article">
                 
                   <p>
-                    <a href="https://www.lowrisc.org/docs/debug-v0.3/environment/">⇡ Prepare the environment</a>
+                    <a href="https://www.lowrisc.org/docs/refresh-v0.6/">⇡ Tutorial for the v0.6 lowRISC release</a>
                   </p>
                 
                     <header class="li-article-header">
-                        <h1 class="li-article-title">Generic lowRISC setup</h1>
+                        <h1 class="li-article-title">Build Berkeley boot loader</h1>
                         <span class="li-article-taxonomies">
                             
 
@@ -83,13 +83,60 @@
                         
                     </header>
                     <section>
-                        <p>This part is identical to the previous tutorial, simply perform those
-steps:</p>
+                        
+
+<h2 id="what-is-this-for:ef6b028fa9381c7e7ec28d3ac200857e">What is this for ?</h2>
+
+<p>The RISCV specification defines (optionally) three main modes of operation: user, supervisor, and machine mode. Some documents also refer to a hypervisor mode, which may or may not be necessary. Some of the differences are:</p>
 
 <ul>
-<li><a href="https://www.lowrisc.org/docs/untether-v0.2/xilinx/">Install Xilinx Vivado</a></li>
-<li><a href="https://www.lowrisc.org/docs/untether-v0.2/verilator/">Install Verilator</a></li>
-<li><a href="https://www.lowrisc.org/docs/riscv_compile/">Compile and install RISC-V cross-compiler</a></li>
+<li>User mode: the mode which runs the users programs and the lowest privilege level.
+
+<ol>
+<li>No direct access to I/O or privileged instructions or kernel memory or other processes.</li>
+<li>Memory management unit always on under Linux.</li>
+</ol></li>
+<li>Supervisor mode: the mode that the majority of the Linux kernel or other O/S runs.
+
+<ol>
+<li>Access to most privileged instructions and I/O via ioremap function.</li>
+<li>Memory management unit may be on or off.</li>
+</ol></li>
+<li>Machine mode: Bare-metal / First-stage boot loader and BBL runs in this mode.
+
+<ol>
+<li>Memory management off.</li>
+<li>No memory protection.</li>
+</ol></li>
+<li>Hypervisor mode: Might be supported in future, would be used to support virtualisation such as Xen hypervisor.</li>
+</ul>
+
+<p>A simple summary of BBL is that it is the executable of last-resort when neither user-mode nor Linux cannot handle an operation. Currently it handles:</p>
+
+<ol>
+<li>Any illegal instructions that the RISCV processor is not equipped to handle directly in hardware.</li>
+<li>Initiation and responding to timer interrupts.</li>
+<li>Handling unaligned memory accesses (deprecated because it slows things a great deal).</li>
+<li>Chain loading and initial console access when Linux is booting, to simplify the first-stage boot loader.</li>
+</ol>
+
+<p>Now configure and build Berkeley Boot loader</p>
+
+<pre><code>cd $TOP/rocket-chip/riscv-tools/riscv-pk/
+mkdir -p build
+cd build
+../configure --prefix=$RISCV --host=riscv64-unknown-elf --with-payload=$TOP/riscv-linux/vmlinux --enable-logo
+make
+cp -p bbl $TOP/fpga/board/nexys4_ddr/boot.bin
+riscv64-unknown-elf-strip $TOP/fpga/board/nexys4_ddr/boot.bin
+</code></pre>
+
+<p>The use of the strip command minimises the download size for use with Ethernet or MMC/SD-Card loading.</p>
+
+<p>Next step:</p>
+
+<ul>
+<li><a href="https://www.lowrisc.org/docs/boot-remote/">Initiate Remote Booting</a></li>
 </ul>
 
                     </section>
@@ -97,29 +144,6 @@ steps:</p>
 
         </div>
       </section>
-    </div>
-    
-    <div class="row li-pagination article">
-      <div class="eight columns">
-        <div class="li-pagination-previous">
-          &nbsp;
-          
-          Previous<br />
-          &nbsp;
-          <a href="https://www.lowrisc.org/docs/debug-v0.3/environment/"> Prepare the environment</a>
-          
-        </div>
-      </div>
-      <div class="eight columns">
-        <div class="li-pagination-next">
-          &nbsp;
-          
-          Next<br />
-          &nbsp;
-          <a href="https://www.lowrisc.org/docs/debug-v0.3/osdsoftware/"> Open SoC Debug Software</a>
-          
-        </div>
-      </div>
     </div>
     
 
@@ -130,9 +154,9 @@ steps:</p>
             <script type="text/javascript">
                  
                 var disqus_shortname = 'lowrisc'; 
-                var disqus_identifier = "/" + "docs/debug-v0.3/lowriscsetup";
-                var disqus_title = "Generic lowRISC setup";
-                var disqus_url = "https://www.lowrisc.org" + "docs/debug-v0.3/lowriscsetup";
+                var disqus_identifier = "/" + "docs/build-berkeley-boot-loader";
+                var disqus_title = "Build Berkeley boot loader";
+                var disqus_url = "https://www.lowrisc.org" + "docs/build-berkeley-boot-loader";
 
                  
                 (function() {

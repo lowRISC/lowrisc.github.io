@@ -6,7 +6,7 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>Generic lowRISC setup &middot; lowRISC</title>
+        <title> &middot; lowRISC</title>
         <link rel="stylesheet" href="https://www.lowrisc.org/css/styles.combined.min.css" />
         <link rel="shortcut icon" href="https://www.lowrisc.org/favicon.ico" />
         <link rel="alternate" href="https://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
@@ -68,12 +68,8 @@
             <div class="sixteen columns">
                 <article class="li-article">
                 
-                  <p>
-                    <a href="https://www.lowrisc.org/docs/debug-v0.3/environment/">⇡ Prepare the environment</a>
-                  </p>
-                
                     <header class="li-article-header">
-                        <h1 class="li-article-title">Generic lowRISC setup</h1>
+                        <h1 class="li-article-title"></h1>
                         <span class="li-article-taxonomies">
                             
 
@@ -83,14 +79,11 @@
                         
                     </header>
                     <section>
-                        <p>This part is identical to the previous tutorial, simply perform those
-steps:</p>
-
-<ul>
-<li><a href="https://www.lowrisc.org/docs/untether-v0.2/xilinx/">Install Xilinx Vivado</a></li>
-<li><a href="https://www.lowrisc.org/docs/untether-v0.2/verilator/">Install Verilator</a></li>
-<li><a href="https://www.lowrisc.org/docs/riscv_compile/">Compile and install RISC-V cross-compiler</a></li>
-</ul>
+                        <p>cd $TOP
+git clone -b refresh-v0.6 <a href="https://github.com/lowRISC/buildroot.git">https://github.com/lowRISC/buildroot.git</a>
+cd buildroot
+cp configs/lowrisc_defconfig .config
+make</p>
 
                     </section>
                 </article>
@@ -99,51 +92,9 @@ steps:</p>
       </section>
     </div>
     
-    <div class="row li-pagination article">
-      <div class="eight columns">
-        <div class="li-pagination-previous">
-          &nbsp;
-          
-          Previous<br />
-          &nbsp;
-          <a href="https://www.lowrisc.org/docs/debug-v0.3/environment/"> Prepare the environment</a>
-          
-        </div>
-      </div>
-      <div class="eight columns">
-        <div class="li-pagination-next">
-          &nbsp;
-          
-          Next<br />
-          &nbsp;
-          <a href="https://www.lowrisc.org/docs/debug-v0.3/osdsoftware/"> Open SoC Debug Software</a>
-          
-        </div>
-      </div>
-    </div>
-    
 
 
                 
-
-            <div id="disqus_thread"></div>
-            <script type="text/javascript">
-                 
-                var disqus_shortname = 'lowrisc'; 
-                var disqus_identifier = "/" + "docs/debug-v0.3/lowriscsetup";
-                var disqus_title = "Generic lowRISC setup";
-                var disqus_url = "https://www.lowrisc.org" + "docs/debug-v0.3/lowriscsetup";
-
-                 
-                (function() {
-                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                })();
-            </script>
-            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-            </div>
-            
 
         <footer>
 

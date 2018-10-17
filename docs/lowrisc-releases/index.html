@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Releases &middot; lowRISC</title>
+        <link rel="stylesheet" href="https://www.lowrisc.org/css/styles.combined.min.css" />
+        <link rel="shortcut icon" href="https://www.lowrisc.org/favicon.ico" />
+        <link rel="alternate" href="https://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' type='text/css'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Exo+2' type='text/css'>
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-53520714-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+  </head>
+
+  <body data-page="article">
+<div class="header">
+  <header data-component="menu">
+
+    <section class="outer-container">
+      <div class="image">
+        <a href="https://www.lowrisc.org"><img src="https://www.lowrisc.org/img/logo.svg"></a>
+      </div>
+
+      <div class="menu">
+        <ul>
+          
+          <li><a href="/"> Home </a></li>
+          
+          <li><a href="/about/"> About </a></li>
+          
+          <li><a href="/blog/"> Blog </a></li>
+          
+          <li><a href="/faq/"> FAQ </a></li>
+          
+          <li><a href="/docs/"> Docs </a></li>
+          
+          <li><a href="/community/"> Community </a></li>
+          
+        </ul>
+      </div>
+    </section>
+
+  </header>
+</div>
+
+
+
+
+
+
+
+
+
+    <div class="article">
+      <section class="outer-container">
+        <div class="row">
+            <div class="sixteen columns">
+                <article class="li-article">
+                
+                    <header class="li-article-header">
+                        <h1 class="li-article-title">Releases</h1>
+                        <span class="li-article-taxonomies">
+                            
+
+                            
+                        </span>
+                        
+                        
+                    </header>
+                    <section>
+                        
+
+<ul>
+<li><p><a href="https://www.lowrisc.org/docs/refresh-v0.6/">lowRISC with run/step debugging via JTAG and GDB</a>
+<br><em>Release version 0.6, released October 2018</em>
+<br>This release updates the Rocket IP to March 2018 and includes compressed instructions and JTAG debugging conforming to the RISCV Debug Specification with custom JTAG DTM (see <a href="https://www.lowrisc.org/docs/jtag/">JTAG internals</a> for details). The root filing system is updated to use the mostly upstreamed Debian repository and the peripheral data path widths are increased to 64-bits for better performance.</p></li>
+
+<li><p><a href="https://www.lowrisc.org/docs/ethernet-v0.5/">lowRISC with 100MHz Ethernet and Network filing system access</a>
+<br><em>Release version 0.5, 01-2018</em>
+<br>This preview release provides a complete Ethernet reference design, tools, and NFS root capability.
+This includes the ability to arp, ping, ssh client and server, mount remote NFS disks, and run a full multi-user system (within the available RAM and FPGA CPU performance limitations)
+The SD-card interface is promoted to a Rocket peripheral to boost performance.
+The human interface (keyboard and VGA compatible text display) are integrated as the default Rocket console.
+We continue to support the Nexys4 DDR FPGA platform, only the Minion is omitted.
+The <a href="https://www.lowrisc.org/docs/ethernet-v0.5/">tutorial</a>
+outlines the build procedure and forthcoming releases that we are
+planning.</p></li>
+
+<li><p><a href="https://www.lowrisc.org/docs/minion-v0.4/">lowRISC with tagged memory and minion core</a>
+<br><em>Release version 0.4, 06-2017</em>
+<br>This release provides a more complete prototype of tagged memory implementation.
+This includes the ability to define tag propagation rules and policies that control when encountering unexpected tags should raise exceptions.
+These features have been incorporated into the Rocket core.
+An optimised tag cache has also been developed in order to minimise any additional main memory traffic from the use of tags.
+A simple &ldquo;minion&rdquo; core is added to provide an SD-card interface.
+This system also supports a keyboard and provides a VGA compatible text display.
+We continue to support the Nexys4 DDR FPGA platform.
+The <a href="https://www.lowrisc.org/docs/minion-v0.4/">tutorial</a>
+outlines the build procedure and forthcoming releases that we are
+planning.</p></li>
+
+<li><p><a href="https://www.lowrisc.org/docs/debug-v0.3/">lowRISC with a trace debugger</a>
+<br><em>Release version 0.3, 07-2016</em>
+<br>In this code release we present a first prototype of the lowRISC debug
+infrastructure. It extends the <code>untethered</code> lowRISC system with the
+means to control the system, load programs and trace the software
+execution. The <a href="https://www.lowrisc.org/docs/debug-v0.3/">tutorial</a>
+outlines the debug system and the future directions we are
+planning. It demonstrates debugging with the RTL simulation and on
+the Nexys4 DDR FPGA board.</p></li>
+
+<li><p><a href="https://www.lowrisc.org/docs/untether-v0.2/">Untethered lowRISC</a>
+<br><em>Release version 0.2, 12-2015</em>
+<br>A code release providing a standalone lowRISC by <code>untethering</code> the Rocket chip.
+Cores in the original Rocket chip relies on a  companion processor to access I/O devices.
+This release repalce this companion core with actual FPGA peripherals.
+A <a href="https://www.lowrisc.org/docs/untether-v0.2/">tutorial</a> explains how to use this code release and explains the underlying structural changes.</p></li>
+
+<li><p><a href="https://www.lowrisc.org/docs/tagged-memory-v0.1/">lowRISC with tagged memory</a>
+<br> <em>Release version 0.1, 04-2015</em>
+<br>A code release builds on the Rocket RISC-V implementation to offer
+support for tagged memory (see the <a href="https://www.lowrisc.org/blog/2015/04/lowrisc-tagged-memory-preview-release">release blog post</a>). We&rsquo;ve put together an
+<a href="https://www.lowrisc.org/docs/tagged-memory-v0.1/">extensive tutorial</a> on how to use this
+code release as well as documenting many of the changes made.</p></li>
+</ul>
+
+<h2 id="memos:7023f6ea49eec9a9c77fbf83bae48c27">Memos</h2>
+
+<p>Our <a href="https://www.lowrisc.org/docs/memo-2014-001-tagged-memory-and-minion-cores/">first memo</a> describes our
+plans for tagged memory and minion cores in lowRISC.</p>
+
+<h2 id="other:7023f6ea49eec9a9c77fbf83bae48c27">Other</h2>
+
+<p>Over the summer of 2016 we hosted a group of interns, kindly sponsored by <a href="http://www.imc.nl">IMC
+Financial Markets</a> who worked on adding custom acceleraors
+for video decoding to the lowRISC platform. This work resulted in the creation
+of several documents:</p>
+
+<ul>
+<li>A detailed <a href="https://www.lowrisc.org/docs/internship-2016/report/">report</a> on what
+was produced over the summer, what went well and what didn&rsquo;t, as well as a
+description of the accelerators.</li>
+<li>A tutorial on <a href="https://www.lowrisc.org/docs/internship-2016/accelerator-tutorial/">adding new stream processors</a> to the video accelerator
+infrastructure developed over the summer.</li>
+<li>A tutorial on <a href="https://www.lowrisc.org/docs/internship-2016/device-tutorial/">extending lowRISC with new devices</a>.</li>
+<li>A guide describing how to <a href="https://www.lowrisc.org/docs/internship-2016/video-tutorial/">recreate the video decode demo</a>.</li>
+</ul>
+
+<p>Although now over, you may be interested in our <a href="https://www.lowrisc.org/docs/gsoc-2015-ideas/">project
+idea list for Google Summer of Code 2015</a> and for <a href="https://www.lowrisc.org/docs/gsoc-2016-ideas/">GSoC 2016</a>.</p>
+
+                    </section>
+                </article>
+
+        </div>
+      </section>
+    </div>
+    
+
+
+                
+
+        <footer>
+
+          <section class="outer-container">
+
+            <div>
+              <div class="link-container">
+              </div>
+            </div>
+
+            <p>
+              Unless otherwise noted, content on this site is licensed under a Creative Commons Attribution ShareAlike 4.0 International License
+            </p>
+
+          </section>
+
+        </footer>
+    </body>
+</html>
+
+
+    </body>
+</html>
+

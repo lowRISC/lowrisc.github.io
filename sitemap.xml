@@ -3,13 +3,23 @@
   
   <url>
     <loc>https://www.lowrisc.org/</loc>
-    <lastmod>2018-10-11T14:00:00+00:00</lastmod>
+    <lastmod>2018-09-14T13:26:41+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/llvm/devmtg18/</loc>
-    <lastmod>2018-10-11T14:00:00+00:00</lastmod>
+    <loc>https://www.lowrisc.org/docs/frequently-asked-questions/</loc>
+    <lastmod>2018-09-14T13:26:41+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/docs/getting-started/</loc>
+    <lastmod>2018-09-14T13:26:41+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/docs/lowrisc-releases/</loc>
+    <lastmod>2018-08-20T13:26:41+01:00</lastmod>
   </url>
   
   <url>
@@ -38,8 +48,23 @@
   </url>
   
   <url>
+    <loc>https://www.lowrisc.org/docs/overview/</loc>
+    <lastmod>2018-01-12T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.lowrisc.org/docs/ethernet-v0.5/overview/</loc>
     <lastmod>2018-01-12T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/docs/boot-remote/</loc>
+    <lastmod>2018-01-11T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/docs/build-berkeley-boot-loader/</loc>
+    <lastmod>2018-01-11T13:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -53,12 +78,27 @@
   </url>
   
   <url>
+    <loc>https://www.lowrisc.org/docs/linux-kernel-build/</loc>
+    <lastmod>2018-01-11T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.lowrisc.org/docs/ethernet-v0.5/environment/</loc>
     <lastmod>2018-01-11T13:00:00+00:00</lastmod>
   </url>
   
   <url>
+    <loc>https://www.lowrisc.org/docs/prepare-the-environment/</loc>
+    <lastmod>2018-01-11T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.lowrisc.org/docs/ethernet-v0.5/release/</loc>
+    <lastmod>2018-01-11T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/docs/refresh-v0.6/release/</loc>
     <lastmod>2018-01-11T13:00:00+00:00</lastmod>
   </url>
   
@@ -78,7 +118,17 @@
   </url>
   
   <url>
+    <loc>https://www.lowrisc.org/docs/refresh-v0.6/</loc>
+    <lastmod>2018-01-11T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.lowrisc.org/docs/ethernet-v0.5/ethernet/</loc>
+    <lastmod>2018-01-11T11:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/docs/jtag/</loc>
     <lastmod>2018-01-11T11:00:00+00:00</lastmod>
   </url>
   
@@ -408,6 +458,11 @@
   </url>
   
   <url>
+    <loc>https://www.lowrisc.org/docs/riscv_compile/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.lowrisc.org/docs/untether-v0.2/riscv_compile/</loc>
     <lastmod>2015-12-17T17:00:00+00:00</lastmod>
   </url>
@@ -434,6 +489,11 @@
   
   <url>
     <loc>https://www.lowrisc.org/docs/untether-v0.2/xilinx/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/docs/xilinx/</loc>
     <lastmod>2015-12-17T17:00:00+00:00</lastmod>
   </url>
   
@@ -498,7 +558,42 @@
   </url>
   
   <url>
+    <loc>https://www.lowrisc.org/docs/build-bare-metal-toolchain/</loc>
+    <lastmod>2015-04-14T13:26:41+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/docs/boot-customised-NFS/</loc>
+    <lastmod>2015-04-14T13:26:41+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/docs/DHCP-configuration/</loc>
+    <lastmod>2015-04-14T13:26:41+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.lowrisc.org/docs/</loc>
+    <lastmod>2015-04-14T13:26:41+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/docs/download-install-debian/</loc>
+    <lastmod>2015-04-14T13:26:41+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/docs/introduction-to-development/</loc>
+    <lastmod>2015-04-14T13:26:41+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/docs/RISCV-qemu-emulation/</loc>
+    <lastmod>2015-04-14T13:26:41+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/docs/update-running-kernel/</loc>
     <lastmod>2015-04-14T13:26:41+01:00</lastmod>
   </url>
   
@@ -615,6 +710,22 @@
   <url>
     <loc>https://www.lowrisc.org/faq/</loc>
     <lastmod>2015-03-23T11:45:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/docs/configuring-build-root/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/docs/docker-tools-build/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/docs/download-the-code/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/docs/generate-the-bitstream/</loc>
   </url>
   
 </urlset>

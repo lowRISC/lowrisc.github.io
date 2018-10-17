@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Linux kernel build step &middot; lowRISC</title>
+        <link rel="stylesheet" href="https://www.lowrisc.org/css/styles.combined.min.css" />
+        <link rel="shortcut icon" href="https://www.lowrisc.org/favicon.ico" />
+        <link rel="alternate" href="https://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' type='text/css'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Exo+2' type='text/css'>
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-53520714-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+  </head>
+
+  <body data-page="article">
+<div class="header">
+  <header data-component="menu">
+
+    <section class="outer-container">
+      <div class="image">
+        <a href="https://www.lowrisc.org"><img src="https://www.lowrisc.org/img/logo.svg"></a>
+      </div>
+
+      <div class="menu">
+        <ul>
+          
+          <li><a href="/"> Home </a></li>
+          
+          <li><a href="/about/"> About </a></li>
+          
+          <li><a href="/blog/"> Blog </a></li>
+          
+          <li><a href="/faq/"> FAQ </a></li>
+          
+          <li><a href="/docs/"> Docs </a></li>
+          
+          <li><a href="/community/"> Community </a></li>
+          
+        </ul>
+      </div>
+    </section>
+
+  </header>
+</div>
+
+
+
+
+
+
+
+
+
+    <div class="article">
+      <section class="outer-container">
+        <div class="row">
+            <div class="sixteen columns">
+                <article class="li-article">
+                
+                  <p>
+                    <a href="https://www.lowrisc.org/docs/refresh-v0.6/">⇡ Tutorial for the v0.6 lowRISC release</a>
+                  </p>
+                
+                    <header class="li-article-header">
+                        <h1 class="li-article-title">Linux kernel build step</h1>
+                        <span class="li-article-taxonomies">
+                            
+
+                            
+                        </span>
+                        
+                        
+                    </header>
+                    <section>
+                        
+
+<h2 id="what-s-this-all-about:017fa77bd9b42207021df8444e516d0e">What&rsquo;s this all about?</h2>
+
+<p>Most of the support for RISCV specific development has taken place on very new versions of Linux.
+A generic kernel is hardly possible with all the possible scenarios where a RISCV could be used.
+Nevertheless certain helps are assumed to be always available which simplify matters:</p>
+
+<ol>
+<li>The Kernel entry address is 0x80200000</li>
+<li>Berkeley boot loader (BBL) handles the initial console output using it&rsquo;s SBI interface</li>
+<li>A device tree blob (DTB) is passed to Linux to enable it to decide which devices to enable. This blob is analogous to the BIOS settings in a traditional PC.</li>
+</ol>
+
+<p>In addition an initial root filing system is needed to allow site specific configuration. This is known
+as a cpio archive and it makes the initial decision which shall be the main boot device. This data structure
+is purely held and in RAM and should be discarded as soon as possible once the boot device is identified.</p>
+
+<p>The initial boot environment will interrogate the FPGA switch settings to decide how to boot:</p>
+
+<table>
+<thead>
+<tr>
+<th>FPGA Switch:</th>
+<th>15..12</th>
+<th>11..8</th>
+<th>7..4</th>
+<th>3..0</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Don&rsquo;t boot</td>
+<td></td>
+<td></td>
+<td></td>
+<td>0000</td>
+</tr>
+
+<tr>
+<td>GDB boot</td>
+<td></td>
+<td></td>
+<td></td>
+<td>00?1</td>
+</tr>
+
+<tr>
+<td>SD boot</td>
+<td></td>
+<td></td>
+<td></td>
+<td>0010</td>
+</tr>
+
+<tr>
+<td>DHCP boot</td>
+<td></td>
+<td></td>
+<td></td>
+<td>0100</td>
+</tr>
+
+<tr>
+<td>SD root</td>
+<td></td>
+<td></td>
+<td>0000</td>
+<td></td>
+</tr>
+
+<tr>
+<td>NFS root</td>
+<td></td>
+<td></td>
+<td>0001</td>
+<td></td>
+</tr>
+
+<tr>
+<td>Custom root</td>
+<td></td>
+<td></td>
+<td>001?</td>
+<td></td>
+</tr>
+
+<tr>
+<td>Reserved</td>
+<td></td>
+<td></td>
+<td>01??</td>
+<td></td>
+</tr>
+
+<tr>
+<td>Reserved</td>
+<td></td>
+<td></td>
+<td>1???</td>
+<td></td>
+</tr>
+
+<tr>
+<td>Reserved</td>
+<td></td>
+<td>????</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>MAC LSB</td>
+<td>????</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p>The LSB of the switches determines the boot address and should always be off unless GDB is in use. The SD boot and DHCP boot switches are interpreted by the boot loader to determine whether to check for an SD-Card presence or not. The SD root and NFS root options are determined by Linux using the /dev/gpio0 device, which also controls the LEDs. The decision making code is in debian-riscv64/work/busyboxinit.sh and is interpreted as an ash shell script. If a custom option is chosen the DOS partition the card will be mounted to search for further customisations (such as an address of a server to search for).</p>
+
+<h3 id="you-should-already-have-prepared-a-cpio-archive-in-the-debian-directory-if-not-visit-here-first:017fa77bd9b42207021df8444e516d0e">You should already have prepared a cpio archive in the Debian directory. If not, visit here first:</h3>
+
+<ul>
+<li><a href="https://www.lowrisc.org/docs/download-install-debian/">Downloading and Installing Debian</a></li>
+</ul>
+
+<p>or generate directly with this command:</p>
+
+<pre><code>make -C ../debian-riscv64 cpio
+</code></pre>
+
+<p>or copy from the quickstart binary release:</p>
+
+<pre><code>wget https://github.com/lowRISC/lowrisc-chip/releases/download/v0.6-rc3/initramfs.cpio
+</code></pre>
+
+<h2 id="configuring-and-building-the-linux-kernel-independent-of-the-device-tree-blob:017fa77bd9b42207021df8444e516d0e">Configuring and building the Linux kernel (independent of the device tree blob)</h2>
+
+<pre><code>cd $TOP/riscv-linux
+make ARCH=riscv defconfig
+make ARCH=riscv -j 4 CROSS_COMPILE=riscv64-unknown-linux-gnu- CONFIG_INITRAMFS_SOURCE=&quot;initramfs.cpio&quot;
+</code></pre>
+
+<p>The next recommended step is:</p>
+
+<ul>
+<li><a href="https://www.lowrisc.org/docs/build-berkeley-boot-loader/">Build the Berkeley boot loader (BBL)</a></li>
+</ul>
+
+                    </section>
+                </article>
+
+        </div>
+      </section>
+    </div>
+    
+
+
+                
+
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                 
+                var disqus_shortname = 'lowrisc'; 
+                var disqus_identifier = "/" + "docs/linux-kernel-build";
+                var disqus_title = "Linux kernel build step";
+                var disqus_url = "https://www.lowrisc.org" + "docs/linux-kernel-build";
+
+                 
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+            
+
+        <footer>
+
+          <section class="outer-container">
+
+            <div>
+              <div class="link-container">
+              </div>
+            </div>
+
+            <p>
+              Unless otherwise noted, content on this site is licensed under a Creative Commons Attribution ShareAlike 4.0 International License
+            </p>
+
+          </section>
+
+        </footer>
+    </body>
+</html>
+
+
+    </body>
+</html>
+

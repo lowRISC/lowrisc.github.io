@@ -6,7 +6,7 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>Generic lowRISC setup &middot; lowRISC</title>
+        <title>Release notes &middot; lowRISC</title>
         <link rel="stylesheet" href="https://www.lowrisc.org/css/styles.combined.min.css" />
         <link rel="shortcut icon" href="https://www.lowrisc.org/favicon.ico" />
         <link rel="alternate" href="https://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
@@ -69,11 +69,11 @@
                 <article class="li-article">
                 
                   <p>
-                    <a href="https://www.lowrisc.org/docs/debug-v0.3/environment/">⇡ Prepare the environment</a>
+                    <a href="https://www.lowrisc.org/docs/refresh-v0.6/">⇡ Tutorial for the v0.6 lowRISC release</a>
                   </p>
                 
                     <header class="li-article-header">
-                        <h1 class="li-article-title">Generic lowRISC setup</h1>
+                        <h1 class="li-article-title">Release notes</h1>
                         <span class="li-article-taxonomies">
                             
 
@@ -83,13 +83,67 @@
                         
                     </header>
                     <section>
-                        <p>This part is identical to the previous tutorial, simply perform those
-steps:</p>
+                        
+
+<h3 id="release-notes:6cd007d62737e5a12b005b4414d7b899">Release notes</h3>
 
 <ul>
-<li><a href="https://www.lowrisc.org/docs/untether-v0.2/xilinx/">Install Xilinx Vivado</a></li>
-<li><a href="https://www.lowrisc.org/docs/untether-v0.2/verilator/">Install Verilator</a></li>
-<li><a href="https://www.lowrisc.org/docs/riscv_compile/">Compile and install RISC-V cross-compiler</a></li>
+<li><p>Rocket-core (Chisel)</p>
+
+<ul>
+<li>Updated to March-2018 vintage together with riscv-tools</li>
+<li>Rocket repository hierarchy left unmodified for easier updates</li>
+<li>Compressed instructions and JTAG debugging functional in GDB</li>
+<li>Clock speed doubled from 25MHz to 50MHz to take advantage of improvements</li>
+</ul></li>
+
+<li><p>Software environment</p>
+
+<ul>
+<li>SD-Card bootloader now uses proper card recognition algorithm</li>
+<li>SD-cards now run at 10MHz corresponding to Rocket speed boost</li>
+<li>Ethernet boot loader supports DHCP and is about ten times faster</li>
+<li>Debian preview release supported with advanced package tool support</li>
+<li>Linux kernel updated to latest RISCV release</li>
+</ul></li>
+
+<li><p>lowRISC system-on-chip</p>
+
+<ul>
+<li>Accelerated access to all peripherals using 64-bit busses</li>
+<li>Proper integration of PC-keyboard codes into Linux driver</li>
+<li>Debian dialog friendly VGA text compatible colour console screen</li>
+<li>Eight-packet Ethernet receive buffer and Linux driver NAPI-compliant</li>
+<li>2K-byte buffer on all UART transmit and receive paths</li>
+</ul></li>
+
+<li><p>Design environment</p>
+
+<ul>
+<li>Updated Vivado synthesis and release to version 2018.1</li>
+<li>Updated demo images for NEXYS4-DDR FPGA.</li>
+<li>Minimal Rocket source code changes</li>
+<li>JTAG debug transport adapted to meet Xilinx hardware constraints</li>
+<li>Streamlined build more easily meets design constraints.</li>
+</ul></li>
+
+<li><p>Missing from this release vs the previous</p>
+
+<ul>
+<li>Tag memory system not ported to latest Rocket</li>
+<li>No procedure to build your own userland (Debian download required)</li>
+<li>Trace debugger not ported to latest Rocket</li>
+</ul></li>
+</ul>
+
+<h3 id="previous-releases:6cd007d62737e5a12b005b4414d7b899">Previous releases</h3>
+
+<ul>
+<li><a href="https://www.lowrisc.org/docs/ethernet-v0.5/release/"><strong>Version 0.5</strong>: ethernet multiuser lowRISC (12-2017)</a></li>
+<li><a href="https://www.lowrisc.org/docs/minion-v0.4/"><strong>Version 0.4</strong>: minion lowRISC (04-2017)</a></li>
+<li><a href="https://www.lowrisc.org/docs/debug-v0.3/"><strong>Version 0.3</strong>: core trace lowRISC (06-2016)</a></li>
+<li><a href="https://www.lowrisc.org/docs/untether-v0.2/"><strong>Version 0.2</strong>: untethered lowRISC (12-2015)</a></li>
+<li><a href="https://www.lowrisc.org/docs/tagged-memory-v0.1/"><strong>Version 0.1</strong>: tagged memory (04-2015)</a></li>
 </ul>
 
                     </section>
@@ -97,29 +151,6 @@ steps:</p>
 
         </div>
       </section>
-    </div>
-    
-    <div class="row li-pagination article">
-      <div class="eight columns">
-        <div class="li-pagination-previous">
-          &nbsp;
-          
-          Previous<br />
-          &nbsp;
-          <a href="https://www.lowrisc.org/docs/debug-v0.3/environment/"> Prepare the environment</a>
-          
-        </div>
-      </div>
-      <div class="eight columns">
-        <div class="li-pagination-next">
-          &nbsp;
-          
-          Next<br />
-          &nbsp;
-          <a href="https://www.lowrisc.org/docs/debug-v0.3/osdsoftware/"> Open SoC Debug Software</a>
-          
-        </div>
-      </div>
     </div>
     
 
@@ -130,9 +161,9 @@ steps:</p>
             <script type="text/javascript">
                  
                 var disqus_shortname = 'lowrisc'; 
-                var disqus_identifier = "/" + "docs/debug-v0.3/lowriscsetup";
-                var disqus_title = "Generic lowRISC setup";
-                var disqus_url = "https://www.lowrisc.org" + "docs/debug-v0.3/lowriscsetup";
+                var disqus_identifier = "/" + "docs/refresh-v0.6/release";
+                var disqus_title = "Release notes";
+                var disqus_url = "https://www.lowrisc.org" + "docs/refresh-v0.6/release";
 
                  
                 (function() {

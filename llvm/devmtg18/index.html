@@ -138,6 +138,389 @@ cmake --build .
 <p>The cmake options are chosen in order to allow a relatively fast
 incremental rebuild time.</p>
 
+<h2 id="first-steps:9f989c6017a78266a3c07f2ec5d013cf">First steps</h2>
+
+<p>All commands in this document assume you are in the <code>build/</code> directory you
+created and ran cmake from. All file name references are relative to the
+project root.  I recommend having one terminal in the project root and another
+in the build directory, used just for building and running tests.</p>
+
+<p>Firstly, check your just-built LLVM:</p>
+
+<pre><code>./bin/llc --version
+</code></pre>
+
+<p>Now let&rsquo;s run the RISC-V tests:</p>
+
+<pre><code>./bin/llvm-lit -s -i -v test/CodeGen/RISCV test/MC/RISCV
+</code></pre>
+
+<p>Next, inspect the isel debug output for a simple test (you may want to extract
+a single function to a separate file)</p>
+
+<pre><code>./bin/llc -mtriple=riscv32 -verify-machineinstrs \
+  &lt; ../test/CodeGen/RISCV/alu32.ll -debug-only=isel
+</code></pre>
+
+<p>And inspect the records produced by tablegen (search for RISCV in the output):</p>
+
+<pre><code>./bin/llvm-tblgen -I ../lib/Target/RISCV/ -I ../include/ -I ../lib/Target/ \
+   ../lib/Target/RISCV/RISCV.td | less
+</code></pre>
+
+<h2 id="incremental-development-how-to:9f989c6017a78266a3c07f2ec5d013cf">Incremental development how-to</h2>
+
+<p>The basic approach is to first build any changes:</p>
+
+<pre><code>cmake --build .
+</code></pre>
+
+<p>Then re-run the tests:</p>
+
+<pre><code>./bin/llvm-lit -s -i test/Codegen/RISCV test/MC/RISCV
+</code></pre>
+
+<p>If you used the build options I recommended, have a reasonable linker (GNU
+gold or lld) and a machine that&rsquo;s not completely underpowered most changes
+should have a fairly fast iteration time. e.g. 30s or less, depending on the
+file modified.</p>
+
+<p>I strongly encourage you to make full use of git, committing changes when they
+make sense and reminding yourself what you changed with git diff.</p>
+
+<h2 id="code-study-optional:9f989c6017a78266a3c07f2ec5d013cf">Code study (optional)</h2>
+
+<p>The RISC-V backend implementation lives in <code>lib/Target/RISCV</code>. You might want
+to look at some of the files we mentioned in the tutorial. e.g.
+RISCVInstrInfo.td, RISCVRegisterInfo.td.</p>
+
+<p>You may also want to look in build/lib/Target/RISCV to see some of the
+tablegenerated files (all named <code>*.inc</code>).</p>
+
+<h2 id="task-1-improving-immediate-materialisation:9f989c6017a78266a3c07f2ec5d013cf">Task 1: Improving immediate materialisation</h2>
+
+<p>Problem: For RV32, any 32-bit constant can be materialised in at most two
+instructions: lui+addi. However, when compiling with the RVC (compressed)
+instruction set, we want to select instructions that may have a 16-bit
+compressed form. One improvement would be to select <code>addi $reg, zero, -1</code> and
+<code>srli $reg, $reg, N</code> for any constant that is comprised of <code>N</code> 0s in the upper
+bits and 32-N 1s in the lower bits.</p>
+
+<p>First of all, write a test for this in <code>test/CodeGen/RISCV/newimm.ll</code>:</p>
+
+<pre><code>; RUN: llc -mtriple=riscv32 -verify-machineinstrs &lt; %s \
+; RUN:   | FileCheck %s -check-prefix=RV32I
+
+define i32 @shiftedmask() nounwind {
+  ret i32 16777215
+}
+</code></pre>
+
+<p>Unfortunately hex literals are reserved for floating point constants, so we
+have to use the decimal representation of 0xffffff.</p>
+
+<p>You can directly check out output of this test by running:</p>
+
+<pre><code>./bin/llc -mtriple=riscv32 -verify-machineinstrs &lt; \
+../test/CodeGen/RISCV/newimm.ll
+</code></pre>
+
+<p>Now, lets generate check lines to capture the current lowering:</p>
+
+<pre><code>../utils/update_llc_test_checks.py --llc-binary=./bin/llc \
+  ../test/CodeGen/RISCV/newimm.ll
+</code></pre>
+
+<p>If you reload newimm.ll you&rsquo;ll see that the test now tracks the generated
+instructions.</p>
+
+<p>Next we want to try to improve lowering in this case. Although we want a
+general solution for immediates of this type, let&rsquo;s start with the simplest
+possible change and introduce a pattern in RISCVInstrInfo.td just for that
+immediate:</p>
+
+<pre><code>def mask24 : ImmLeaf&lt;XLenVT, [{return Imm == 0xffffff;}]&gt;;
+def : Pat&lt;(mask24), (SRLI (ADDI X0, -1), 8)&gt;, Requires&lt;[IsRV32]&gt;;
+</code></pre>
+
+<p>Put this pattern just before the existing immediate patterns (search for <code>/// 
+Immediates</code> in the file). Note that we mark the pattern as valid only for the
+32-bit RISC-V target, because a 40-bit shift would be need to produce the same
+bit pattern on RV64.</p>
+
+<p>Now run the test and see if it matched. If it didn&rsquo;t, remember you can pass
+<code>-debug-only=isel</code> to llc to look in more detail.</p>
+
+<p>We&rsquo;ve just defined the <code>mask24</code> <code>Immleaf</code>, which will match any immediate with
+the value 0xffffff. The pattern defined on the next line expands that
+immediate to the desired addi+srli pair. But now we want to extend this to
+match any immediate with a bit pattern that means it can be materialised by
+shifting -1, with the proviso that it should be profitable to do so. This
+could be done solely within RISCVInstrInfo.td with the addition of:</p>
+
+<ol>
+<li>A new ImmLeaf to match immediates with that property. You&rsquo;ll need to change
+the predicate. Check include/llvm/Support/MathExtras.h for useful helper
+functions</li>
+<li>A new SDNodeXForm that produces a constant representing the number of bits
+to shift by (see current SDNodeXForm examples)</li>
+</ol>
+
+<p>Or alternatively, a C++ selection code could be introduced in
+RISCVDAGToDAGISel::Select in RISCVISelDAGToDAG.cpp. This patch shows a good
+example of how to create <code>MachineSDNode</code>s. <a href="https://reviews.llvm.org/D52962">https://reviews.llvm.org/D52962</a></p>
+
+<p>Lets modify the existing ImmLeaf. As the instruction selector will prefer
+shorter output patterns, we don&rsquo;t need to explicitly guard against the case
+where it would be cheaper to just generate <code>ADDI</code> (e.g. for immediates like
+2047 or 1). As it happens, <code>isMask_64</code> checks the exact property we want. You
+might want to add some new tests for mask-like constants to newimm.ll (e.g.<br />
+268435455), then change the predicate and re-run the test file to see if it
+matches. The generated code will be incorrect (as a shift of 8 is always
+selected), but we&rsquo;ll address that now.</p>
+
+<p>We need to define a new <code>SDNodeXForm</code> which will take the immediate and
+produce the appropriate shift width for use in our output pattern.
+<code>countLeadingZeros</code> from <code>MathExtras.h</code> will be useful for this. You should now
+have:</p>
+
+<pre><code>    def LeadingZeros32 : SDNodeXForm&lt;imm, [{
+        return CurDAG-&gt;getTargetConstant(countLeadingZeros&lt;uint32_t&gt;(N-&gt;getZExtValue()),
+                                                                         SDLoc(N), N-&gt;getValueType(0));
+    }]&gt;;
+    def mask : ImmLeaf&lt;XLenVT, [{return isMask_64(Imm);}]&gt;;
+</code></pre>
+
+<p>Finally, lets replace the previous pattern. I&rsquo;ve marked the output pattern as
+TODO for you to fill out. See the nearby immediate patterns for examples of
+using an <code>SDNodeXForm</code>.</p>
+
+<pre><code>def : Pat&lt;(mask:$imm), (TODO)&gt;, Requires&lt;[IsRV32]&gt;;
+</code></pre>
+
+<p>Extension task: match an <code>and</code> with a mask of this type directly to <code>slli</code> and
+<code>srli</code>, thus avoiding the need for a register. Although saving a register, the
+downside of this codegen choice is that it may result in more instructions in
+the case that the same mask is used multiple times.</p>
+
+<h2 id="task-2-adding-bit-manipulation-instruction-s:9f989c6017a78266a3c07f2ec5d013cf">Task 2: Adding bit manipulation instruction(s)</h2>
+
+<p>Aim: add a new instruction to the RISC-V LLVM backend. First introduce it to
+the MC layer (i.e. add assembler support). Then add codegen support.</p>
+
+<p>To simplify things, we will have this instruction enabled by default rather
+than requiring a specific extension is enabled.</p>
+
+<p>First, we&rsquo;ll add a test. Create test/MC/RISCV/bitrev.s:</p>
+
+<pre><code>    # RUN: llvm-mc %s -triple=riscv32 -riscv-no-aliases -show-encoding \
+    # RUN:     | FileCheck -check-prefixes=CHECK-ASM,CHECK-ASM-AND-OBJ %s
+    # RUN: llvm-mc -filetype=obj -triple=riscv32 &lt; %s \
+    # RUN:     | llvm-objdump -riscv-no-aliases -d -r - \
+    # RUN:     | FileCheck -check-prefixes=CHECK-OBJ,CHECK-ASM-AND-OBJ %s
+
+    # CHECK-ASM-AND-OBJ: bitrev a0, a1
+    bitrev a0, a1
+</code></pre>
+
+<p>You can directly execute this test with:</p>
+
+<pre><code>./bin/llvm-mc /local/scratch/asb58/llvm-repos/llvm/test/MC/RISCV/bitrev.s -triple=riscv32 -show-encoding
+</code></pre>
+
+<p>Open up lib/Target/RISCV/RISCVInstrInfo.td and study the instruction
+definitions. You want to define a new unary instruction for bitreverse.</p>
+
+<p>Lets create a new instruction:</p>
+
+<pre><code>    let hasSideEffects = 0, mayLoad = 0, mayStore = 0, rs2 = 0 in
+    def BITREV
+            : RVInstR&lt;0b1111111, 0b111, OPC_OP, (outs GPR:$rd), (ins GPR:$rs1),
+                                &quot;bitrev&quot;, &quot;$rd, $rs1&quot;&gt;;
+</code></pre>
+
+<p>Now check that the bitrev.s passes, e.g. <code>./bin/llvm-lit -v test/MC/RISCV/bitrev.s</code>.</p>
+
+<p>Next, we want to support codegen. Start by defining a test in
+test/CodeGen/RISCV/bitrev.ll</p>
+
+<pre><code>; RUN: llc -mtriple=riscv32 -verify-machineinstrs &lt; %s \
+; RUN:   | FileCheck %s -check-prefix=RV32I
+declare i32 @llvm.bitreverse.i32(i32)
+
+    define i32 @bitrev(i32 %a) {
+        %1 = call i32 @llvm.bitreverse.i32(i32 %a)
+        ret i32 %1
+}
+</code></pre>
+
+<p>If you run this through llc, you&rsquo;ll see it generates a huge amount of code
+right now.</p>
+
+<p>The first step to enabling codegen is to mark the <code>ISD::BITREVERSE</code>
+SelectionDAG opcode as legal. Do this in the RISCVTargetLowering constructor
+in RISCVISelLowering.cpp:</p>
+
+<pre><code>setOperationAction(ISD::BITREVERSE, XLenVT, Legal);
+</code></pre>
+
+<p>You can check the definitions of SelectionDAG pattern fragments such as
+<code>bitreverse</code> in <code>include/llvm/Target/TargetSelectionDAG.td</code> and of
+SelectionDAG opcodes in <code>include/llvm/CodeGen/ISDOpcodes.h</code>.</p>
+
+<p>Now define a pattern mapping the <code>bitreverse</code> SelectionDAG node to the
+<code>BITREV</code> instruction and re-run the test.</p>
+
+<p>Extension: dream up further instructions and add support for them, perhaps
+adding new reg-immediate instructions.</p>
+
+<h2 id="task-3-undoing-an-detrimental-dagcombine:9f989c6017a78266a3c07f2ec5d013cf">Task 3: Undoing an detrimental dagcombine</h2>
+
+<p>Consider the following somewhat contrived example aligns an input value:</p>
+
+<pre><code>    ; NOTE: Assertions have been autogenerated by utils/update_llc_test_checks.py
+    ; RUN: llc -mtriple=riscv32 -verify-machineinstrs &lt; %s \
+    ; RUN:   | FileCheck %s -check-prefix=RV32I
+
+    define i32 @aligner(i16 zeroext %a) nounwind {
+    ; RV32I-LABEL: aligner:
+    ; RV32I:       # %bb.0:
+    ; RV32I-NEXT:    lui a1, 32
+    ; RV32I-NEXT:    addi a1, a1, -16
+    ; RV32I-NEXT:    addi a0, a0, 15
+    ; RV32I-NEXT:    and a0, a0, a1
+    ; RV32I-NEXT:    ret
+        %1 = zext i16 %a to i32
+        %2 = add i32 %1, 15
+        %3 = and i32 %2, -16
+        ret i32 %3
+    }
+</code></pre>
+
+<p>This example is contrived, but similar code sequences can occur for the 64-bit
+RISC-V target.</p>
+
+<p>Note that the generated code is suboptimal. Why isn&rsquo;t a simple <code>andi a0, a0,
+-16</code> selected?</p>
+
+<p>Let&rsquo;s inspect the ISel debug output to investigate:</p>
+
+<pre><code>./bin/llc -mtriple=riscv32 &lt; ../test/CodeGen/RISCV/aligner.ll -debug-only=isel
+</code></pre>
+
+<p>Look at the DAG just prior to the start of instruction selection:</p>
+
+<pre><code>    Optimized legalized selection DAG: %bb.0 'aligner:'
+    SelectionDAG has 12 nodes:
+        t0: ch = EntryToken
+                        t2: i32,ch = CopyFromReg t0, Register:i32 %0
+                    t4: i32 = AssertZext t2, ValueType:ch:i16
+                t8: i32 = add t4, Constant:i32&lt;15&gt;
+            t15: i32 = and t8, Constant:i32&lt;131056&gt;
+        t12: ch,glue = CopyToReg t0, Register:i32 $x10, t15
+        t13: ch = RISCVISD::RET_FLAG t12, Register:i32 $x10, t12:1
+</code></pre>
+
+<p>We can see that during SelectionDAG lowering, the constant operand to <code>and</code>
+was mutated from <code>-16</code> (which can be used in <code>ANDI</code>) to 131056 (0x1FFF0 in
+hex), which does not. Looking at the SelectionDAG dumped after each stage, we
+can see that the constant is mutated during the first DAG combine.</p>
+
+<p>Running <code>llc</code> with <code>-debug-only=dagcombine</code> we can see when this happens:</p>
+
+<pre><code>Combining: t10: i32 = and t8, Constant:i32&lt;-16&gt;
+
+Replacing.2 t10: i32 = and t8, Constant:i32&lt;-16&gt;
+
+With: t15: i32 = and t8, Constant:i32&lt;131056&gt;
+</code></pre>
+
+<p>You can open up <code>lib/CodeGen/SelectionDAG/DAGCombiner.cpp</code> and inspect
+<code>DAGCombiner::visitAND</code> to see all the combines. In order to narrow down
+exactly which one is causing the problem, it may be easiest to get a stack
+trace from the point the mutated constant is created. Either use your
+favourite debugger to add a breakpoint in <code>SelectionDAG::getConstant</code> in
+<code>lib/CodeGen/SelectionDAG/SelectionDAG.cpp</code> or insert
+<code>sys::PrintStackTrace(llvm::errs())</code> (being sure to include
+<code>include/llvm/Support/Signals.h</code>). This shows that the culprit is
+<code>SimplifyDemandedBits</code> called from <code>visitAND</code> at line 4671 (in my checkout).</p>
+
+<p>The problem is that <code>SimplifyDemandedBits</code> is recognising that not all bits of
+the mask are actually needed (the upper 16 bits are known-zero before the
+addition and the addition can only affect a small number of bits), so creating
+a constant without those upper bits set. This isn&rsquo;t a beneficial
+transformation for this input because the new mask no longer fits into an
+immediate.</p>
+
+<p>Now we&rsquo;ve identified the source of the problem, what can we do to fix it? We
+could either try to modify the target-independent DAG combiner to recognise
+this case in somehow, or undo the combine in the backend. We&rsquo;ll elect to
+handle this in our backend. We&rsquo;re going to do this by writing some C++
+instruction selection logic. As well as demonstrating the process of
+investigating when the input to instruction selection isn&rsquo;t what&rsquo;s expected,
+this task also demonstrates another common backend development approach:
+learning from other backends. X86 actually handles this case in
+<code>X86DAGToDAGISel::shrinkAndImmediate</code>.</p>
+
+<p>Open up <code>lib/Target/RISCV/RISCVISelDAGToDAG.cpp</code>. We&rsquo;re going to edit the
+switch statement in <code>RISCVDagToDAGISel::Select</code>. We need to recognise an
+<code>ISD::ADD</code> SelectionDAG node where:</p>
+
+<ul>
+<li>It has a constant operand</li>
+<li>The constant operand doesn&rsquo;t fit in the 12-bit immediate field of <code>ANDI</code></li>
+<li>That constant operand has N leading zero bits</li>
+<li>Setting those N leading bits to 1 would result in a signed 12-bit immediate</li>
+<li>The most significant N bits of the first input operand are known to be zero</li>
+</ul>
+
+<p>This is quite fiddly, so I&rsquo;ve provided the majority of the logic for you:</p>
+
+<pre><code>    case ISD::AND: {
+        SDValue Op0 = Node-&gt;getOperand(0);
+        auto *Op1C = dyn_cast&lt;ConstantSDNode&gt;(Node-&gt;getOperand(1));
+        // Check we have a constant operand.
+        if (!Op1C)
+            break;
+        APInt MaskVal = Op1C-&gt;getAPIntValue();
+        // Check the mask curren't doesn't fit in ANDI immediate.
+        if (MaskVal.getMinSignedBits() &lt;= 12)                                            
+            break;
+        unsigned MaskLZ = MaskVal.countLeadingZeros();                                   
+        APInt HighOnes = APInt::getHighBitsSet(MaskVal.getBitWidth(), MaskLZ);           
+        APInt NewMaskVal = MaskVal | HighOnes;                                           
+        // If we were able to set the N upper zero bits to ones, would the new           
+        // mask fit in the ANDI immediate?                                               
+        if (NewMaskVal.getMinSignedBits() &gt; 12)                                          
+            break;                                                                         
+        // Are the upper N bits of the first operand known to be zero?
+        if (!CurDAG-&gt;MaskedValueIsZero(Op0, HighOnes))
+            break;
+        llvm_unreachable(&quot;Replace me with code to select the new ANDI!&quot;);
+  return;
+    }
+</code></pre>
+
+<p>Note that we use LLVM&rsquo;s arbitrary precision integer representation. The
+&ldquo;magic&rdquo; happens in the call to <code>MaskedValueIsZero</code>. This in turn calls the
+<code>computeKnownBits</code> helper, which is very important for a number of
+optimisations.</p>
+
+<p>I encourage you to step through the above logic carefully, then re-run <code>llc</code>
+with <code>aligner.ll</code> as it&rsquo;s input to verify that the <code>llvm_unreachable</code> is hit
+(i.e. the preceding logic identified a candidate for this transformation).</p>
+
+<p>You&rsquo;ll now need to create a TargetConstant for the new mask, and call
+<code>CurDAG-&gt;ReplaceNode</code> with the selected <code>MachineSDNode</code>. See my tutorial
+slides for an example of this, or look for examples elsewhere in
+<code>RISCVISelDAGToDAG.cpp</code>.</p>
+
+<p>With your change in place, you should see the <code>andi a0, a0, -16</code> generated
+from <code>aligner.ll</code>.</p>
+
+<p>Warning: this transformation was not heavily tested. It&rsquo;s quite possible you
+can spot a bug. Please let me know if so.</p>
+
                     </section>
                 </article>
 

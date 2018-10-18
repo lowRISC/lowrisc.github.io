@@ -213,6 +213,9 @@ compressed form. One improvement would be to select <code>addi $reg, zero, -1</c
 <code>srli $reg, $reg, N</code> for any constant that is comprised of <code>N</code> 0s in the upper
 bits and 32-N 1s in the lower bits.</p>
 
+<p>What is materialisation? This just refers to the process of loading a constant
+into a register.</p>
+
 <p>First of all, write a test for this in <code>test/CodeGen/RISCV/newimm.ll</code>:</p>
 
 <pre><code>; RUN: llc -mtriple=riscv32 -verify-machineinstrs &lt; %s \

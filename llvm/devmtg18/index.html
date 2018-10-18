@@ -129,6 +129,7 @@ manager. If you&rsquo;re on Debian or Ubuntu, you may want to look at the packag
 available at <a href="http://apt.llvm.org/">apt.llvm.org</a>.</p>
 
 <pre><code>git clone http://llvm.org/git/llvm.git
+cd llvm
 mkdir build
 cd build
 cmake -G Ninja -DCMAKE_BUILD_TYPE=&quot;Debug&quot; \
@@ -183,7 +184,7 @@ a single function to a separate file)</p>
 
 <p>Then re-run the tests:</p>
 
-<pre><code>./bin/llvm-lit -s -i test/Codegen/RISCV test/MC/RISCV
+<pre><code>./bin/llvm-lit -s -i test/CodeGen/RISCV test/MC/RISCV
 </code></pre>
 
 <p>If you used the build options I recommended, have a reasonable linker (GNU

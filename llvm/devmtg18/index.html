@@ -493,7 +493,7 @@ switch statement in <code>RISCVDagToDAGISel::Select</code>. We need to recognise
         if (!Op1C)
             break;
         APInt MaskVal = Op1C-&gt;getAPIntValue();
-        // Check the mask curren't doesn't fit in ANDI immediate.
+  // Check the mask currently doesn't fit in ANDI immediate.
         if (MaskVal.getMinSignedBits() &lt;= 12)                                            
             break;
         unsigned MaskLZ = MaskVal.countLeadingZeros();                                   

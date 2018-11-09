@@ -80,7 +80,10 @@
                     </header>
                     <section>
                         <p>No pre-build installation images are available for our setup. So we accelerate the bootstrapping process using qemu.
-This first step creates a RISCV emulation environment to short-circuit the complexities of preparing a rootfs</p>
+This first step builds qemu binary that provides user-space emulation (i.e.
+will execute RISC-V binaries, and intercept Linux syscalls to be handled by
+the host OS). This is in contrast to QEMU&rsquo;s full system emulation mode, which
+provides emulation devices and requires you to boot a native operating system.</p>
 
 <pre><code>cd $TOP/qemu
 ./configure --static --disable-system --target-list=riscv64-linux-user

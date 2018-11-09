@@ -13,7 +13,7 @@
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/docs/frequently-asked-questions/</loc>
+    <loc>https://www.lowrisc.org/docs/current-release-faq/</loc>
     <lastmod>2018-09-14T13:26:41+01:00</lastmod>
   </url>
   
@@ -568,12 +568,12 @@
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/docs/boot-customised-NFS/</loc>
+    <loc>https://www.lowrisc.org/docs/boot-customised-nfs/</loc>
     <lastmod>2015-04-14T13:26:41+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/docs/DHCP-configuration/</loc>
+    <loc>https://www.lowrisc.org/docs/dhcp-configuration/</loc>
     <lastmod>2015-04-14T13:26:41+01:00</lastmod>
   </url>
   
@@ -593,7 +593,7 @@
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/docs/RISCV-qemu-emulation/</loc>
+    <loc>https://www.lowrisc.org/docs/riscv-qemu-emulation/</loc>
     <lastmod>2015-04-14T13:26:41+01:00</lastmod>
   </url>
   

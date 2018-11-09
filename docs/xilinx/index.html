@@ -149,7 +149,11 @@ export XILINXD_LICENSE_FILE=/PATH/TO/LICENSE/FILE
 
 <h3 id="usb-jtag-installation:2105b1c254507869daddae6ab7f61853">USB-JTAG installation</h3>
 
-<p>The default JTAG and configuration method for both the KC705 and the NEXYS4-DDR kits is the UART-JTAG cable. A driver is needed for Vivado to utilize this cable. We recommend to use the driver packages provided by Digilent: <a href="https://www.digilentinc.com/Products/Detail.cfm?Prod=ADEPT2">https://www.digilentinc.com/Products/Detail.cfm?Prod=ADEPT2</a>. For 64-bit Ubuntu, please download and install the following two deb packages:</p>
+<p>The default JTAG and configuration method for both the KC705 and the
+NEXYS4-DDR kits is the UART-JTAG cable. A driver is needed for Vivado to
+utilize this cable. We recommend to use the <a href="https://reference.digilentinc.com/reference/software/adept/start">driver packages provided by
+Digilent</a>.<br />
+For 64-bit Ubuntu, please download and install the following two deb packages:</p>
 
 <ul>
 <li>Adept 2.16.1 Runtime, X64 DEB</li>
@@ -198,8 +202,9 @@ unset LD_LIBRARY_PATH
 
 <p>To use JTAG downloading with Vivado and the Digilent board you must install the drivers as follows (this one-off step might have to be performed by an administrator):</p>
 
-<p>cd /opt/Xilinx/Vivado/2018.1/data/xicom/cable_drivers/lin64/install_script/install_drivers
-sudo sh install_digilent.sh</p>
+<pre><code>cd /opt/Xilinx/Vivado/2018.1/data/xicom/cable_drivers/lin64/install_script/install_drivers
+sudo sh install_digilent.sh
+</code></pre>
 
 <p>After this step the Digilent board should be unplugged and plugged in again.</p>
 

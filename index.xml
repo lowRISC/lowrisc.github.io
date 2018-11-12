@@ -6,8 +6,35 @@
     <description>Recent content on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 11 Oct 2018 14:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 Nov 2018 09:50:00 +0000</lastBuildDate>
     <atom:link href="https://www.lowrisc.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>lowRISC 0-6 milestone release</title>
+      <link>https://www.lowrisc.org/blog/2018/11/lowrisc-0-6-milestone-release</link>
+      <pubDate>Mon, 12 Nov 2018 09:50:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2018/11/lowrisc-0-6-milestone-release</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;https://www.lowrisc.org/docs/refresh-v0.6/&#34;&gt;lowRISC 0.6 milestone release&lt;/a&gt;
+is now available. This release includes an updated version of the Rocket
+RISC-V core, a higher core clock frequency, JTAG debugging support, Ethernet
+improvements, and more. See the &lt;a href=&#34;https://www.lowrisc.org/docs/refresh-v0.6/&#34;&gt;release notes&lt;/a&gt;, for full details. We&amp;rsquo;ve also taken the
+opportunity to re-organise our &lt;a href=&#34;https://www.lowrisc.org/docs/&#34;&gt;documentation&lt;/a&gt;,
+adding an easy to follow quick-start guide.&lt;/p&gt;
+
+&lt;p&gt;Our next development focus is to add support for dropping in the &lt;a href=&#34;https://github.com/pulp-platform/ariane&#34;&gt;Ariane
+RISC-V design&lt;/a&gt; (from ETH Zurich) as
+an alternative to Rocket.&lt;/p&gt;
+
+&lt;p&gt;Please report any issues &lt;a href=&#34;https://github.com/lowRISC/lowrisc-chip&#34;&gt;on our GitHub
+repository&lt;/a&gt;, or discuss on our
+&lt;a href=&#34;http://listmaster.pepperfish.net/cgi-bin/mailman/listinfo/lowrisc-dev-lists.lowrisc.org&#34;&gt;mailing
+list&lt;/a&gt;.
+As always, thank you to everyone who has contributed in any way - whether it&amp;rsquo;s
+advice and feedback, bug reports, code, or ideas. With special thanks to Jonathan
+Kimmitt who has been the driving force behind this release.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Barcelona RISC-V Workshop: Day Two</title>
@@ -3008,27 +3035,6 @@ development board).&lt;/li&gt;
 &lt;p&gt;Please report any issues &lt;a href=&#34;https://github.com/lowRISC/lowrisc-chip&#34;&gt;on our GitHub
 repository&lt;/a&gt;, or discuss on our
 &lt;a href=&#34;http://listmaster.pepperfish.net/cgi-bin/mailman/listinfo/lowrisc-dev-lists.lowrisc.org&#34;&gt;mailing list&lt;/a&gt;. As always, thank you to everyone who has contributed in any way - whether it&amp;rsquo;s advice and feedback, bug reports, code, or ideas.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Apply now for GSoC 2017</title>
-      <link>https://www.lowrisc.org/blog/2017/03/apply-now-for-gsoc-2017</link>
-      <pubDate>Mon, 27 Mar 2017 09:35:57 +0000</pubDate>
-      
-      <guid>https://www.lowrisc.org/blog/2017/03/apply-now-for-gsoc-2017</guid>
-      <description>&lt;p&gt;We are very grateful for being selected again to take part as a mentoring
-organisation in the &lt;a href=&#34;https://summerofcode.withgoogle.com/&#34;&gt;Google Summer of
-Code&lt;/a&gt;, now for the third year running.
-If you are a student who would like to be paid to work on open source during
-the summer, then take a look at &lt;a href=&#34;https://www.lowrisc.org/docs/gsoc-2017-ideas/&#34;&gt;the lowRISC ideas
-list&lt;/a&gt; and
-&lt;a href=&#34;https://summerofcode.withgoogle.com/organizations/6271463900315648/&#34;&gt;apply&lt;/a&gt;.
-The deadline for applications is 4pm UTC on April 3rd. We&amp;rsquo;re always very interested in
-ideas suggested by students, and encourage you to share them &lt;a href=&#34;https://listmaster.pepperfish.net/cgi-bin/mailman/listinfo/lowrisc-dev-lists.lowrisc.org&#34;&gt;on our
-discussion
-list&lt;/a&gt;
-for feedback before making a proposal.&lt;/p&gt;
 </description>
     </item>
     

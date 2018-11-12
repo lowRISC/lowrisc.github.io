@@ -6,8 +6,35 @@
     <description>Recent content in Blogs on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 May 2018 07:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 Nov 2018 09:50:00 +0000</lastBuildDate>
     <atom:link href="https://www.lowrisc.org/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>lowRISC 0-6 milestone release</title>
+      <link>https://www.lowrisc.org/blog/2018/11/lowrisc-0-6-milestone-release</link>
+      <pubDate>Mon, 12 Nov 2018 09:50:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2018/11/lowrisc-0-6-milestone-release</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;https://www.lowrisc.org/docs/refresh-v0.6/&#34;&gt;lowRISC 0.6 milestone release&lt;/a&gt;
+is now available. This release includes an updated version of the Rocket
+RISC-V core, a higher core clock frequency, JTAG debugging support, Ethernet
+improvements, and more. See the &lt;a href=&#34;https://www.lowrisc.org/docs/refresh-v0.6/&#34;&gt;release notes&lt;/a&gt;, for full details. We&amp;rsquo;ve also taken the
+opportunity to re-organise our &lt;a href=&#34;https://www.lowrisc.org/docs/&#34;&gt;documentation&lt;/a&gt;,
+adding an easy to follow quick-start guide.&lt;/p&gt;
+
+&lt;p&gt;Our next development focus is to add support for dropping in the &lt;a href=&#34;https://github.com/pulp-platform/ariane&#34;&gt;Ariane
+RISC-V design&lt;/a&gt; (from ETH Zurich) as
+an alternative to Rocket.&lt;/p&gt;
+
+&lt;p&gt;Please report any issues &lt;a href=&#34;https://github.com/lowRISC/lowrisc-chip&#34;&gt;on our GitHub
+repository&lt;/a&gt;, or discuss on our
+&lt;a href=&#34;http://listmaster.pepperfish.net/cgi-bin/mailman/listinfo/lowrisc-dev-lists.lowrisc.org&#34;&gt;mailing
+list&lt;/a&gt;.
+As always, thank you to everyone who has contributed in any way - whether it&amp;rsquo;s
+advice and feedback, bug reports, code, or ideas. With special thanks to Jonathan
+Kimmitt who has been the driving force behind this release.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Barcelona RISC-V Workshop: Day Two</title>
@@ -3106,336 +3133,6 @@ you have any additional questions, then feel free to comment on this blog post
 or else, as always, drop by our &lt;a href=&#34;https://www.lowrisc.org/community/&#34;&gt;mailing list&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Fifth RISC-V Workshop: Day Two</title>
-      <link>https://www.lowrisc.org/blog/2016/11/fifth-risc-v-workshop-day-two</link>
-      <pubDate>Wed, 30 Nov 2016 17:00:00 +0000</pubDate>
-      
-      <guid>https://www.lowrisc.org/blog/2016/11/fifth-risc-v-workshop-day-two</guid>
-      <description>
-
-&lt;p&gt;Today is the second day of the &lt;a href=&#34;https://riscv.org/2016/10/5th-risc-v-workshop-agenda/&#34;&gt;fifth RISC-V
-workshop&lt;/a&gt;. I&amp;rsquo;ll be
-keeping a semi-live blog of talks and announcements throughout the day.&lt;/p&gt;
-
-&lt;h2 id=&#34;opensoc-system-architect-farzad-fatollahi-fard:529e3037a37627249629f6513082618e&#34;&gt;OpenSoC System Architect: Farzad Fatollahi-Fard&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Current architectures are wasteful. Only a small fraction of chip area goes
-to computation.&lt;/li&gt;
-&lt;li&gt;For both GoblinCore and OpenHPC, ended up doing a lot of similar work to
-achieve only a point design. Why not make a generator to avoid repeating the
-same steps?&lt;/li&gt;
-&lt;li&gt;OpenSoC System Architect is a combination of multiple tools to form a
-well-defined development flow for complex RISC-V SoCs&lt;/li&gt;
-&lt;li&gt;Supports standard RISC-V modules and custom extensions&lt;/li&gt;
-&lt;li&gt;It outputs pre-verified Chisel for the SoC, synthesisable Verilog, and an
-LLVM compiler for the SoC&lt;/li&gt;
-&lt;li&gt;OpenSoC Fabric is an open-source, flexible, parameterised NoC generator. It
-integrates with a wide variety of existing processors, as well as IO devices.&lt;/li&gt;
-&lt;li&gt;Created a &amp;lsquo;CoreGen&amp;rsquo; IR. It allows automatic generation of HDL
-representations of the SoC and build LLVM compiler backend implementations of
-the SoC and any extensions.&lt;/li&gt;
-&lt;li&gt;The IR is stored on disk in well-formed XML&lt;/li&gt;
-&lt;li&gt;What&amp;rsquo;s next? Better support for Chisel3, more integration with existing
-RISC-V tools and environment, frontend support to import existing
-Chisel/Verilog/SystemVerilog. Also want CoreGen as a standalone IR&lt;/li&gt;
-&lt;li&gt;See the website at &lt;a href=&#34;http://www.opensoc.community/&#34;&gt;http://www.opensoc.community/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;v-vector-extension-proposal-krste-asanovic:529e3037a37627249629f6513082618e&#34;&gt;V Vector Extension Proposal: Krste Asanovic&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;The vector extension intends to scale to all reasonable design points
-(low-cost microcontroller or high-performance supercomputer). Support both
-implicit auto-vectorisation and explicit SPMD&lt;/li&gt;
-&lt;li&gt;Fit into the 32-bit encoding space, but be a base for future vector
-extensions (e.g. crypto algorithms)&lt;/li&gt;
-&lt;li&gt;The goal is to ratify a proposal 12 months from now, at the 7th workshop&lt;/li&gt;
-&lt;li&gt;Cray-style vectors. &amp;ldquo;The right way&amp;rdquo; to exploit SIMD parallelism (as opposed
-to the wrong way: GPUs or packed SIMD)&lt;/li&gt;
-&lt;li&gt;V has an implementation-dependent vector length, meaning the same code runs
-across different hardware without recompiling&lt;/li&gt;
-&lt;li&gt;Each vector data register is configured with a width and type, or disabled.
-There are also a configurable number of predicate registers. The maximum
-vector length is a function of configuration, physical register storage, and
-microarchitecture&lt;/li&gt;
-&lt;li&gt;There are a number of mandatory supported types. e.g. an RV32IF system must
-support X8, X16, X32, F16, F32. This means that scalar and vector half
-precision floating point is a requirement if you are supporting floating
-point.&lt;/li&gt;
-&lt;li&gt;Each vector data register has a 4-bit field in a CSR (or multiple CSRs)
-indicating its width, and another for its type.&lt;/li&gt;
-&lt;li&gt;A vcfgd CSR alias is defined to allow faster writes of common vector data
-configurations.&lt;/li&gt;
-&lt;li&gt;Most user code would use the setvl instruction (which is actually setting a
-CSR).&lt;/li&gt;
-&lt;li&gt;A 16-bit+32-bit vector addition is pleasingly straight forward to specify in
-assembly&lt;/li&gt;
-&lt;li&gt;The architecture guarantees a minimum vector length of four regardless of
-configuration. This means 1KB SRAM is required as a minimum&lt;/li&gt;
-&lt;li&gt;A polymorphic instruction encoding is used. A single signed integer ADD
-opcode works on different size inputs and outputs, depending on the
-configuration of its inputs.&lt;/li&gt;
-&lt;li&gt;There is support for vector atomics (e.g. vector fetch-and-add).&lt;/li&gt;
-&lt;li&gt;For vector function calls (e.g. in auto-vectorised code) you want to make
-vector calls to a function library with separate vector calling convention.
-The caller has to allocate registers for the callee to use. It sets the
-maximum width, allowing the callee to change the vctype as needed.&lt;/li&gt;
-&lt;li&gt;For OpenCL/CUDA/SPMD, the configuration must be set at kernel launch to the
-maximum width used anywhere in the call tree. It needs a general vector
-function call capability with standard callee/caller save protocol&lt;/li&gt;
-&lt;li&gt;Krste argues autovectorisation is much preferable to OpenCL or CUDA.&lt;/li&gt;
-&lt;li&gt;Question: are you interested in smaller types (e.g. 4-bit). Answer: yes,
-also interested in non-power-of-two types&lt;/li&gt;
-&lt;li&gt;Question about the calling convention: the vector configuration state is
-assumed to be caller-saved (including the vector register file), meaning the
-scalar ABI is unmodified&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;towards-thousand-core-risc-v-shared-memory-systems-quan-nguyen:529e3037a37627249629f6513082618e&#34;&gt;Towards Thousand-Core RISC-V Shared Memory Systems: Quan Nguyen&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Tardis is a new cache coherency protocol with greater scalability than
-traditional directory coherence protocols.&lt;/li&gt;
-&lt;li&gt;Tardis enforces consistency through timestamps, using logical leases&lt;/li&gt;
-&lt;li&gt;It only tracks the exclusive owner of any particular cache line, requiring
-only O(log N) storage. No broadcast invalidations, and timestamps aren&amp;rsquo;t tied
-to the core count. There is no need for synchronised real-time clocks&lt;/li&gt;
-&lt;li&gt;They are building a thousand-core prototype. Fit as many cores as possible
-on a ZC706 FPGA, the connect in a 3D mesh to demonstrate at scale.&lt;/li&gt;
-&lt;li&gt;Want to adapt Tardis for release consistency (rather than sequential
-consistency), and Quan introduces how they have started to do this by
-introducing new timestamps&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;scrx-a-family-of-state-of-the-art-risc-v-synthesizable-cores-alexander-redkin:529e3037a37627249629f6513082618e&#34;&gt;SCRx: a family of state-of-the art RISC-V synthesizable cores: Alexander Redkin&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Syntacore develops and licenses energy-efficient programmable cores
-implementing the RISC-V ISA&lt;/li&gt;
-&lt;li&gt;SCRx is the family of RISC-V implementations, now available for evaluation.
-Each core can be extended and customised&lt;/li&gt;
-&lt;li&gt;The smallest core, SCR1 is less than 20kgates in a basic untethered
-configuration.&lt;/li&gt;
-&lt;li&gt;SCR3 is a high-performance MCU core with up to 1.7DMIPS/MHz,
-3.16CoreMark/MHz.&lt;/li&gt;
-&lt;li&gt;SCR4 is an MCU core with a high-performance FPU.&lt;/li&gt;
-&lt;li&gt;SCR5 is an efficient mid-range embedded core. Full MMU with Linux support.
-1GHz+ at 28nm, and 1.5+DMIPS/MHz per core.&lt;/li&gt;
-&lt;li&gt;In the near term, want to support the latest privileged spec, adding trace
-debug&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;enabling-hardware-software-co-design-with-risc-v-and-llvm-alex-bradbury:529e3037a37627249629f6513082618e&#34;&gt;Enabling hardware/software co-design with RISC-V and LLVM: Alex Bradbury&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;I&amp;rsquo;ll try and write something up for the blog later, but for now see my
-slides
-&lt;a href=&#34;https://speakerdeck.com/asb/software-co-design-with-risc-v-and-llvm&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;vm-threads-an-alternative-model-for-virtual-machines-on-risc-vm-ron-minnich:529e3037a37627249629f6513082618e&#34;&gt;VM threads: an alternative model for virtual machines on RISC-VM: Ron Minnich&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Akaros is a research kernel originally from UC Berkeley.&lt;/li&gt;
-&lt;li&gt;One core idea is the &amp;lsquo;multi core process&amp;rsquo;. This can be thought of as a set
-of cores assigned an entity to a program.&lt;/li&gt;
-&lt;li&gt;How do VMs fit into the Akaros model. A VM could be kind of a process.&lt;/li&gt;
-&lt;li&gt;Look back at how we start a process. With the introduction of fork(), it
-became easy and clean. But its introduction was controversial.&lt;/li&gt;
-&lt;li&gt;Virtualisation on Linux/BSD/Unix requires a device (e.g. /dev/kvm). This
-typically requires daemons who are used to interact with the device. In
-Akaros, they did not want to recreate this.&lt;/li&gt;
-&lt;li&gt;Can we just run a virtual machine like we do a thread? Introduce
-&lt;code&gt;vthread_create&lt;/code&gt;. In Akaros, they have extended the thread model to include
-virtual machine threads.&lt;/li&gt;
-&lt;li&gt;Virtual machine threads (vthreads) can run Linux 4.8 (with 12 lines of
-patches) and any code that shares the host ring 3 address space.&lt;/li&gt;
-&lt;li&gt;Ring 3 and Ring V share and address space. Ring V is limited to 2^46 bytes,
-while ring 3 is in a 2^47 byte address space.&lt;/li&gt;
-&lt;li&gt;VM threads are integrated tightly into the kernel.&lt;/li&gt;
-&lt;li&gt;On x86, Akaros pairs page table roots and page table pages. Page table pages
-are 2x4k pages, with the process PTP in the lower 4K and the VM PTP in the
-upper 4K. This makes it trivial to convert the two.&lt;/li&gt;
-&lt;li&gt;It is significantly easier to write virtual machine managers in Akaros than
-with the Linux model&lt;/li&gt;
-&lt;li&gt;Akaros VMS are unlike any other VMs - threads can easily switch from being a
-VM to being a host thread&lt;/li&gt;
-&lt;li&gt;Kernels also look like threads, and spinning up a core looks like CPU
-hotplug, accomplished by spinning up a vthread with IP at the 64-bit entry
-point.&lt;/li&gt;
-&lt;li&gt;There are a variety of implications and questions for RISC-V. How will
-RISC-V handle nested paging? Can we avoid massive shadow state. How about
-injecting interrupts without a vmexit?&lt;/li&gt;
-&lt;li&gt;RISC-V is a chance to enable software innovation. We shouldn&amp;rsquo;t get locked
-into &amp;ldquo;but we&amp;rsquo;ve always done it this way&amp;rdquo;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;enabling-low-power-smartphone-like-graphical-uis-for-risc-v-socs-michael-gielda:529e3037a37627249629f6513082618e&#34;&gt;Enabling low-power, smartphone-like graphical UIs for RISC-V SoCs: Michael Gielda&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Industrial/embedded UIs mostly look bad, but also have terribly user
-experience&lt;/li&gt;
-&lt;li&gt;For better UIs you mostly have to jump to Android or Linux - there&amp;rsquo;s a lack
-of a middle ground&lt;/li&gt;
-&lt;li&gt;For a previous project, produced a mobile-like GUI experience targeting an
-MCU (STM32F4).&lt;/li&gt;
-&lt;li&gt;With the right approach and tools, embedded GUIs can be beautiful too&lt;/li&gt;
-&lt;li&gt;Their library was written in C++, with support for layers+formats. It has
-its own font engine for kerning, anti-aliasing etc.&lt;/li&gt;
-&lt;li&gt;The GUI is specified in XML and has its own minimal CSS&lt;/li&gt;
-&lt;li&gt;Initially developed for eCos RTOS, and has an initial port for FreeRTOS. Can
-also run on Linux.&lt;/li&gt;
-&lt;li&gt;To prototype on a Zynq, implemented &amp;lsquo;micro blender&amp;rsquo; for blending, filling,
-scaling etc. This was written in Chisel.&lt;/li&gt;
-&lt;li&gt;Software-driven IP (silicon) is possible (and advisable!)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;a-fast-instruction-set-simulator-for-risc-v-maxim-maslov:529e3037a37627249629f6513082618e&#34;&gt;A Fast Instruction Set Simulator for RISC-V: Maxim Maslov&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Esperanto is a stealth mode startup designing chips with RISC-V&lt;/li&gt;
-&lt;li&gt;Wanted a fast RISC-V ISA simulator capable of running large applications
-with minimal slowdown&lt;/li&gt;
-&lt;li&gt;[Sorry folks, I had to duck out for a quick discussion - see the
-&lt;a href=&#34;https://riscv.org/wp-content/uploads/2016/11/Wed1330-Fast-ISA-Simulator-for-RISC-V-Maslov-Esperanto.pdf&#34;&gt;slides&lt;/a&gt;]&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;go-on-rv64g-benjamin-barenblat-and-michael-pratt:529e3037a37627249629f6513082618e&#34;&gt;Go on RV64G: Benjamin Barenblat and Michael Pratt&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Why RISC-V? Better architecture, lower power, faster processing, easier
-accelerator development. RISC-V is not going away&lt;/li&gt;
-&lt;li&gt;The Go toolchain is complex. It has its own compiler, assembler (and
-assembly language), and linker&lt;/li&gt;
-&lt;li&gt;Getting close, but the runtime doesn&amp;rsquo;t quite compile. Hope to get it working
-in the next few months.&lt;/li&gt;
-&lt;li&gt;In the mean time, relatively simple go programs will compile and run&lt;/li&gt;
-&lt;li&gt;It&amp;rsquo;s been mostly good. One pain-point has been that other Go ports don&amp;rsquo;t
-target architectures with good conditional branches so had to emulate a flag
-register. Another gripe is that loading 64-bit constants is a pain.&lt;/li&gt;
-&lt;li&gt;Within a couple of months you should be able to compile real Go programs and
-have them run on RISC-V&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;a-java-virtual-machine-for-risc-v-porting-the-jikes-rvm-martin-maas:529e3037a37627249629f6513082618e&#34;&gt;A Java Virtual Machine for RISC-V: Porting the Jikes RVM: Martin Maas&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Why do a JVM port? Both to run interesting applications, and for research
-(e.g. hardware support for GCed languages)&lt;/li&gt;
-&lt;li&gt;Porting OpenJDK/Hotspot for high performance, and the Jikes research VM for
-academic work. This talk will focus on Jikes&lt;/li&gt;
-&lt;li&gt;Jikes is itself written in Java&lt;/li&gt;
-&lt;li&gt;JVMs have a large number of dependencies, so use the riscv-poky Linux
-distribution generator to build a cross-compiled SDK and Linux image.&lt;/li&gt;
-&lt;li&gt;While developing, add assertions everywhere to fail as early as possible&lt;/li&gt;
-&lt;li&gt;Allowed the JIT to selectively emit instructions that dump trace output&lt;/li&gt;
-&lt;li&gt;Booting JikesRVM is no easy task (there a &lt;em&gt;lot&lt;/em&gt; to do in order to get to
-hello world)&lt;/li&gt;
-&lt;li&gt;The non-optimising JIT compiler is mostly feature-complete. Passes &lt;sup&gt;65&lt;/sup&gt;&amp;frasl;&lt;sub&gt;68&lt;/sub&gt;
-core tests. Targets RV64G&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;yopuzzle-an-open-v-development-platform-the-next-generation-elkim-roa:529e3037a37627249629f6513082618e&#34;&gt;YoPuzzle - an Open-V development platform the next generation: Elkim Roa&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&amp;lsquo;Open source&amp;rsquo; hardware. Raspberry Pi have sold 10 million boards, Arduino
-sold 4.5 million boards (estimated). Some predictions indicate the market will
-be worth over $1B within the next four years. These are based on commercial,
-closed-source silicon&lt;/li&gt;
-&lt;li&gt;OnChip UIS have developed an open 32-bit RISC-V based microcontroller. To
-test the initial silicon, used chip-on-board&lt;/li&gt;
-&lt;li&gt;RV32IM with a 3-stage pipeline. On TSMC 130nm GP. Die area 2.1mm x 2.1mm.&lt;/li&gt;
-&lt;li&gt;The Microprocessor core is 0.12mm2, max freq 200MHz, core voltage 1.2V, core
-dynamic power at 100MHz is 167uW/MHz (all peripheral clocks disabled)&lt;/li&gt;
-&lt;li&gt;Arduino is mostly aimed at children in secondary schools. But what about
-1-10 year olds?&lt;/li&gt;
-&lt;li&gt;The Open-V microcontroller is up on crowdsupply, trying to raise funds to
-produce 70k chips. Aim to do the second tapeout in Q1 2017, and produce puzzle
-boards in Q2 2018.&lt;/li&gt;
-&lt;li&gt;Elkim showed a neat live demo of the OnChip prototype along with a
-browser-based programming environment&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;the-risc-v-community-needs-peripheral-cores-elkim-roa:529e3037a37627249629f6513082618e&#34;&gt;The RISC-V community needs peripheral cores: Elkim Roa&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;It&amp;rsquo;s good to have an open ISA, but what about the peripherals? e.g. PHYs,
-bus IP, clocking circuitry, GPIO&lt;/li&gt;
-&lt;li&gt;Open hardware would translate into quality (Linux) drivers&lt;/li&gt;
-&lt;li&gt;There is no standard for GPIO. Want to have standard features (e.g.
-switching speed, current drive) with a standard interface.&lt;/li&gt;
-&lt;li&gt;The OnChip peripherals use AMBA buses&lt;/li&gt;
-&lt;li&gt;Have a synthesizable CDR and PLL&lt;/li&gt;
-&lt;li&gt;Are working on USB 3.1 gen 2, including the analog frontend.&lt;/li&gt;
-&lt;li&gt;Have also been working on &amp;lsquo;chipscope&amp;rsquo; and offset correction&lt;/li&gt;
-&lt;li&gt;Also working on LPDDR3. PCS is done, working on UVM IP&lt;/li&gt;
-&lt;li&gt;Have a fully synthesised true-random noise generator, and working on NVRAM
-on CMOS&lt;/li&gt;
-&lt;li&gt;Suggestion: have a common listing of recommended IP (e.g. SPI, I2C, USB PHY
-etc).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;sub-microsecond-adaptive-voltage-scaling-in-a-28nm-risc-v-socs-ben-keller:529e3037a37627249629f6513082618e&#34;&gt;Sub-microsecond Adaptive Voltage Scaling in a 28nm RISC-V SoCs: Ben Keller&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Energy efficiency is critical in mobile applications&lt;/li&gt;
-&lt;li&gt;Faster adaptive voltage scaling (AVS) saves more energy, especially for
-bursty workloads&lt;/li&gt;
-&lt;li&gt;State of the art SoCs cannot achieve fine-grained AVS because they use
-off-chip regulators&lt;/li&gt;
-&lt;li&gt;Integrate switch-cap regulators entirely on-die.&lt;/li&gt;
-&lt;li&gt;Need adaptive clock generation&lt;/li&gt;
-&lt;li&gt;The tape-out (~2 years ago) featured a version of Rocket. 16K I$, 32K D$, no
-L2. It also feature a version of Hwacha&lt;/li&gt;
-&lt;li&gt;Use a Z-scale core for the power management unit&lt;/li&gt;
-&lt;li&gt;Taped out in 28nm FD-SOI. Die area 3.03mm2, with the core area 1.07mm2. 568K
-standard cells&lt;/li&gt;
-&lt;li&gt;Achieved 41.8 DP GFLOPS/W&lt;/li&gt;
-&lt;li&gt;Body bias can be tuned to optimise efficiency for different workloads&lt;/li&gt;
-&lt;li&gt;Integrated voltage regulation provided 82-89% system efficiency with
-adaptive clocking&lt;/li&gt;
-&lt;li&gt;Sub-microsecond adaptive voltage scaling provided up to 40% energy savings
-with negligible performance loss&lt;/li&gt;
-&lt;li&gt;Will now talk about the Berkeley interpretation of &amp;lsquo;agile&amp;rsquo; hardware
-development. See &amp;ldquo;An Agile Approach to Building RISC-V Microprocessors&amp;rdquo;, MICRO
-2016.&lt;/li&gt;
-&lt;li&gt;&amp;lsquo;Tape-ins&amp;rsquo; before &amp;lsquo;tape-outs&amp;rsquo;. Sprint to an initial design that is
-feature-incomplete but functional, put it through the tools etc and shake out
-the issues with the VLSI flow. Then iteratively add features.&lt;/li&gt;
-&lt;li&gt;There have been 13 Berkeley RISC-V tapeouts in the last 5 years&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;reprogrammable-redundancy-for-cache-vmin-reduction-in-a-28nm-risc-v-processor-brian-zimmer:529e3037a37627249629f6513082618e&#34;&gt;Reprogrammable Redundancy for Cache Vmin Reduction in a 28nm RISC-V Processor: Brian Zimmer&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Voltage scaling is effective in reducing energy consumption, and SRAM limits
-the minimum operating voltage&lt;/li&gt;
-&lt;li&gt;Instead of preventing errors, tolerate errors. A significant reduction in
-the minimum voltage is possibly by tolerating 1000s of errors per MB of SRAM&lt;/li&gt;
-&lt;li&gt;There&amp;rsquo;s been lots of work on the circuit-level for preventing errors, and at
-the architectural level for tolerating errors&lt;/li&gt;
-&lt;li&gt;Goal for the chip is to prove that SRAM Vmin can be effectively lowered by
-tolerating a reasonable number of failing bitcells&lt;/li&gt;
-&lt;li&gt;Built on Rocket and modified caches to add reprogrammable redundancy, ECC,
-and BIST&lt;/li&gt;
-&lt;li&gt;Implemented three techniques: dynamic column redundancy (avoid single-bit
-errors in data SRAM), line disable (avoid &lt;code&gt;&amp;gt;=&lt;/code&gt; 2 bit errors in data SRAM), and
-bit bypass (avoid all errors in tag SRAM)&lt;/li&gt;
-&lt;li&gt;The system architecture involves three voltage domains. One for the uncore,
-one for the core, and another for the L2 cache&lt;/li&gt;
-&lt;li&gt;Reprogrammable redundancy is fairly straight-forward to add to the L1, but
-ECC is more difficult. The ECC decoding is pipelined. If an error is detected,
-the operation is recycled&lt;/li&gt;
-&lt;li&gt;There is a 2% area overhead for the L2.&lt;/li&gt;
-&lt;li&gt;Fabricated prototype is TSMC 28nm HPM.&lt;/li&gt;
-&lt;li&gt;The proposed techniques achieve 25% average Vmin reduction (and 49% power
-reduction) in the L2 for a 2% area overhead&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     

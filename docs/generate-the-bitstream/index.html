@@ -183,7 +183,7 @@ server = &quot;lowrisc4-sm&quot;
 <p>To compile, alternative programs:</p>
 
 <pre><code>cd $TOP/fpga/board/nexys4_ddr
-make target (where target is mmc, dram, hello etc.)
+make target (where target is boot, dram, hello etc.)
 </code></pre>
 
 <p>The generated bitstream is located at <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code>.
@@ -226,14 +226,14 @@ make program-cfgmem-updated
 
 <p>Generate the default bitstream according to the <code>CONFIG</code> in Makefile and the program loaded in <code>src/boot.mem</code>. The default bitstream is generated at <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code></p>
 
-<h4 id="make-hello-dram-eth-mmc:2e940d2fc709de723bf5538a98b59b3e"><code>make &lt;hello|dram|eth|mmc&gt;</code></h4>
+<h4 id="make-hello-dram-eth-boot:2e940d2fc709de723bf5538a98b59b3e"><code>make &lt;hello|dram|eth|boot&gt;</code></h4>
 
 <p>Generate bitstreams for bare-metal tests:</p>
 
 <ul>
 <li><strong>hello</strong> A hello world program.</li>
 <li><strong>dram</strong> A DDR RAM test.</li>
-<li><strong>mmc</strong> A 1st bootloader that loads <code>boot.bin</code> from SD to DDR RAM and executes <code>boot.bin</code> afterwards.</li>
+<li><strong>boot</strong> A 1st bootloader that loads <code>boot.bin</code> from SD to DDR RAM and executes <code>boot.bin</code> afterwards.</li>
 </ul>
 
 <p>For each bare-metal test <code>&lt;test&gt;</code>, the executable is generated to

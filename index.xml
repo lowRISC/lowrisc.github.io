@@ -2966,10 +2966,10 @@ strong academic record.&lt;/p&gt;
     
     <item>
       <title>Building upstream RISC-V GCC&#43;binutils&#43;newlib: the quick and dirty way</title>
-      <link>https://www.lowrisc.org/blog/2017/09/building-upstream-risc-v-gccbinutilsnewlib-the-quick-and-dirty-way</link>
+      <link>https://www.lowrisc.org/blog/2017/09/building-upstream-risc-v-gcc&#43;binutils&#43;newlib-the-quick-and-dirty-way</link>
       <pubDate>Tue, 05 Sep 2017 14:00:00 +0000</pubDate>
       
-      <guid>https://www.lowrisc.org/blog/2017/09/building-upstream-risc-v-gccbinutilsnewlib-the-quick-and-dirty-way</guid>
+      <guid>https://www.lowrisc.org/blog/2017/09/building-upstream-risc-v-gcc&#43;binutils&#43;newlib-the-quick-and-dirty-way</guid>
       <description>&lt;p&gt;There are a number of available options for building a RISC-V GCC toolchain.
 You might use the build system from the
 &lt;a href=&#34;https://github.com/riscv/riscv-tools&#34;&gt;riscv/riscv-tools repository&lt;/a&gt;, or

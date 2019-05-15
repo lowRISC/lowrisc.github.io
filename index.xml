@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>lowRISC</title>
+    <title>lowRISC on lowRISC</title>
     <link>https://www.lowrisc.org/index.xml</link>
-    <description>Recent content on lowRISC</description>
+    <description>Recent content in lowRISC on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 12 Nov 2018 09:50:00 +0000</lastBuildDate>

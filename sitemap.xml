@@ -2,11 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.lowrisc.org/</loc>
-    <lastmod>2018-11-12T09:50:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://www.lowrisc.org/blog/2018/11/lowrisc-0-6-milestone-release</loc>
     <lastmod>2018-11-12T09:50:00+00:00</lastmod>
   </url>
@@ -735,6 +730,30 @@
   
   <url>
     <loc>https://www.lowrisc.org/docs/generate-the-bitstream/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/blog/</loc>
+    <lastmod>2018-11-12T09:50:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/docs/</loc>
+    <lastmod>2018-09-14T13:26:41+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/llvm/</loc>
+    <lastmod>2018-10-11T14:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/</loc>
+    <lastmod>2018-11-12T09:50:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
 </urlset>

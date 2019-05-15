@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blogs on lowRISC</title>
-    <link>https://www.lowrisc.org/blog/</link>
-    <description>Recent content in Blogs on lowRISC</description>
+    <title>Blog-rsses on lowRISC</title>
+    <link>https://www.lowrisc.org/blog/index.xml</link>
+    <description>Recent content in Blog-rsses on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 12 Nov 2018 09:50:00 +0000</lastBuildDate>
-    <atom:link href="https://www.lowrisc.org/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>lowRISC 0-6 milestone release</title>

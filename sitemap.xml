@@ -715,6 +715,16 @@
   </url>
   
   <url>
+    <loc>https://www.lowrisc.org/code-of-conduct/</loc>
+    <lastmod>2015-03-23T13:40:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/our-work/</loc>
+    <lastmod>2015-03-23T13:40:22+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.lowrisc.org/docs/memo-2014-001-tagged-memory-and-minion-cores/</loc>
     <lastmod>2015-03-23T13:25:48+00:00</lastmod>
   </url>
@@ -722,11 +732,6 @@
   <url>
     <loc>https://www.lowrisc.org/docs/gsoc-2015-ideas/</loc>
     <lastmod>2015-03-23T13:12:36+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.lowrisc.org/faq/</loc>
-    <lastmod>2015-03-23T11:45:42+00:00</lastmod>
   </url>
   
   <url>

@@ -91,7 +91,7 @@ implementation, but contain the basic functionality we will
 extend over the next months. Please find more details about the
 modules at <a href="http://opensocdebug.org">Open SoC Debug</a>.</p>
 
-<h2 id="basic-module-interface:6678bd0c1462a153f54fc674dbdff1d5">Basic Module Interface</h2>
+<h2 id="basic-module-interface:7ea6347c6075ad91ba15b3d2514d3d35">Basic Module Interface</h2>
 
 <p>Each module has to provide a control and status interface via
 addresses that are accessed with register access packets. There is a
@@ -107,9 +107,9 @@ mute trace modules or special modules as the UART adapter.</p>
 <p>Finally, each module can provide more control and status registers,
 e.g., the information about the memory layout, the reset control, etc.</p>
 
-<h2 id="debug-modules:6678bd0c1462a153f54fc674dbdff1d5">Debug Modules</h2>
+<h2 id="debug-modules:7ea6347c6075ad91ba15b3d2514d3d35">Debug Modules</h2>
 
-<h3 id="system-control-module-scm:6678bd0c1462a153f54fc674dbdff1d5">System Control Module (SCM)</h3>
+<h3 id="system-control-module-scm:7ea6347c6075ad91ba15b3d2514d3d35">System Control Module (SCM)</h3>
 
 <p>The SCM is the only mandatory module. One of its main functions is to
 provide the <em>system information</em>:</p>
@@ -134,7 +134,7 @@ the memory, configure the trace modules, etc. Finally, it de-asserts
 <p><a name="figure-scm"></a>
 <img src="../figures/debug_module_scm.png" alt="SCM" style="padding: 20px 0px;"/></p>
 
-<h3 id="memory-access-module-mam:6678bd0c1462a153f54fc674dbdff1d5">Memory Access Module (MAM)</h3>
+<h3 id="memory-access-module-mam:7ea6347c6075ad91ba15b3d2514d3d35">Memory Access Module (MAM)</h3>
 
 <p>The memory access module is connected to the TileLink interconnect
 between the L1 caches and the L2 cache, which is the last level
@@ -148,7 +148,7 @@ cases are not limited to this.</p>
 <p><a name="figure-mam"></a>
 <img src="../figures/debug_module_mam.png" alt="MAM" style="padding: 20px 0px;"/></p>
 
-<h3 id="device-emulation-module-uart-dem-uart:6678bd0c1462a153f54fc674dbdff1d5">Device Emulation Module - UART (DEM-UART)</h3>
+<h3 id="device-emulation-module-uart-dem-uart:7ea6347c6075ad91ba15b3d2514d3d35">Device Emulation Module - UART (DEM-UART)</h3>
 
 <p>The DEM-UART module is hooked up in the IO subsystem of lowRISC
 instead of the UART controller and has the same interface as the UART
@@ -169,7 +169,7 @@ processors or processes.</p>
 <p><a name="figure-dem-uart"></a>
 <img src="../figures/debug_module_dem-uart.png" alt="DEM-UART" style="padding: 20px 0px;"/></p>
 
-<h3 id="core-trace-module-ctm:6678bd0c1462a153f54fc674dbdff1d5">Core Trace Module (CTM)</h3>
+<h3 id="core-trace-module-ctm:7ea6347c6075ad91ba15b3d2514d3d35">Core Trace Module (CTM)</h3>
 
 <p>A core trace is essentially sampling the execution of the processor
 core. The size of the sampled information can vary a lot, including
@@ -197,7 +197,7 @@ compression will be mandatory to take full advantage of tracing.</p>
 <p><a name="figure-ctm"></a>
 <img src="../figures/debug_module_ctm.png" alt="CTM" style="padding: 20px 0px;"/></p>
 
-<h3 id="software-trace-module-stm:6678bd0c1462a153f54fc674dbdff1d5">Software Trace Module (STM)</h3>
+<h3 id="software-trace-module-stm:7ea6347c6075ad91ba15b3d2514d3d35">Software Trace Module (STM)</h3>
 
 <p>We introduce another kind of trace beside the core trace. The latter
 is generated independently from the actual software and is thereby

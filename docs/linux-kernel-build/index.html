@@ -85,7 +85,7 @@
                     <section>
                         
 
-<h2 id="what-s-this-all-about:017fa77bd9b42207021df8444e516d0e">What&rsquo;s this all about?</h2>
+<h2 id="what-s-this-all-about:0592055f087b3931d97cea733a6d1cba">What&rsquo;s this all about?</h2>
 
 <p>Most of the support for RISCV specific development has taken place on very new versions of Linux.
 A fully generic kernel is hard to achieve given all the possible scenarios
@@ -208,7 +208,7 @@ rootfs, which might be on SD card or NFS.</p>
 
 <p>The LSB of the switches determines the boot address and should always be off unless GDB is in use. The SD boot and DHCP boot switches are interpreted by the boot loader to determine whether to check for an SD-Card presence or not. The SD root and NFS root options are determined by Linux using the /dev/gpio0 device, which also controls the LEDs. The decision making code is in debian-riscv64/work/busyboxinit.sh and is interpreted as an ash shell script. If a custom option is chosen the DOS partition the card will be mounted to search for further customisations (such as an address of a server to search for).</p>
 
-<h3 id="you-should-already-have-prepared-a-cpio-archive-in-the-debian-directory-if-not-visit-here-first:017fa77bd9b42207021df8444e516d0e">You should already have prepared a cpio archive in the Debian directory. If not, visit here first:</h3>
+<h3 id="you-should-already-have-prepared-a-cpio-archive-in-the-debian-directory-if-not-visit-here-first:0592055f087b3931d97cea733a6d1cba">You should already have prepared a cpio archive in the Debian directory. If not, visit here first:</h3>
 
 <ul>
 <li><a href="https://www.lowrisc.org/docs/download-install-debian/">Downloading and Installing Debian</a></li>
@@ -224,7 +224,7 @@ rootfs, which might be on SD card or NFS.</p>
 <pre><code>wget https://github.com/lowRISC/lowrisc-chip/releases/download/v0.6-rc3/initramfs.cpio
 </code></pre>
 
-<h2 id="configuring-and-building-the-linux-kernel-independent-of-the-device-tree-blob:017fa77bd9b42207021df8444e516d0e">Configuring and building the Linux kernel (independent of the device tree blob)</h2>
+<h2 id="configuring-and-building-the-linux-kernel-independent-of-the-device-tree-blob:0592055f087b3931d97cea733a6d1cba">Configuring and building the Linux kernel (independent of the device tree blob)</h2>
 
 <pre><code>cd $TOP/riscv-linux
 make ARCH=riscv defconfig

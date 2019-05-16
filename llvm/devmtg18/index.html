@@ -105,13 +105,13 @@ laptop is underpowered you may want to plan to ssh out to a faster machine you
 own.</li>
 </ul>
 
-<h2 id="tutorial-slides:9f989c6017a78266a3c07f2ec5d013cf">Tutorial slides</h2>
+<h2 id="tutorial-slides:7a3ed02fee8703cf5bf18355ee48a970">Tutorial slides</h2>
 
 <p>You will likely find it useful to refer to the
 <a href="https://speakerdeck.com/asb/llvm-backend-development-by-example-risc-v">slides</a>
 from my tutorial presentation.</p>
 
-<h2 id="building-llvm:9f989c6017a78266a3c07f2ec5d013cf">Building LLVM</h2>
+<h2 id="building-llvm:7a3ed02fee8703cf5bf18355ee48a970">Building LLVM</h2>
 
 <p>The canonical source for LLVM build instructions are the <a href="https://llvm.org/docs/GettingStarted.html">getting started
 guide</a> or <a href="https://llvm.org/docs/CMake.html">instructions on building
@@ -145,7 +145,7 @@ cmake --build .
 <p>The cmake options are chosen in order to allow a relatively fast
 incremental rebuild time.</p>
 
-<h2 id="first-steps:9f989c6017a78266a3c07f2ec5d013cf">First steps</h2>
+<h2 id="first-steps:7a3ed02fee8703cf5bf18355ee48a970">First steps</h2>
 
 <p>All commands in this document assume you are in the <code>build/</code> directory you
 created and ran cmake from. All file name references are relative to the
@@ -175,7 +175,7 @@ a single function to a separate file)</p>
    ../lib/Target/RISCV/RISCV.td | less
 </code></pre>
 
-<h2 id="incremental-development-how-to:9f989c6017a78266a3c07f2ec5d013cf">Incremental development how-to</h2>
+<h2 id="incremental-development-how-to:7a3ed02fee8703cf5bf18355ee48a970">Incremental development how-to</h2>
 
 <p>The basic approach is to first build any changes:</p>
 
@@ -195,7 +195,7 @@ file modified.</p>
 <p>I strongly encourage you to make full use of git, committing changes when they
 make sense and reminding yourself what you changed with git diff.</p>
 
-<h2 id="code-study-optional:9f989c6017a78266a3c07f2ec5d013cf">Code study (optional)</h2>
+<h2 id="code-study-optional:7a3ed02fee8703cf5bf18355ee48a970">Code study (optional)</h2>
 
 <p>The RISC-V backend implementation lives in <code>lib/Target/RISCV</code>. You might want
 to look at some of the files we mentioned in the tutorial. e.g.
@@ -204,7 +204,7 @@ RISCVInstrInfo.td, RISCVRegisterInfo.td.</p>
 <p>You may also want to look in build/lib/Target/RISCV to see some of the
 tablegenerated files (all named <code>*.inc</code>).</p>
 
-<h2 id="task-1-improving-immediate-materialisation:9f989c6017a78266a3c07f2ec5d013cf">Task 1: Improving immediate materialisation</h2>
+<h2 id="task-1-improving-immediate-materialisation:7a3ed02fee8703cf5bf18355ee48a970">Task 1: Improving immediate materialisation</h2>
 
 <p>Problem: For RV32, any 32-bit constant can be materialised in at most two
 instructions: lui+addi. However, when compiling with the RVC (compressed)
@@ -313,7 +313,7 @@ using an <code>SDNodeXForm</code>.</p>
 downside of this codegen choice is that it may result in more instructions in
 the case that the same mask is used multiple times.</p>
 
-<h2 id="task-2-adding-bit-manipulation-instruction-s:9f989c6017a78266a3c07f2ec5d013cf">Task 2: Adding bit manipulation instruction(s)</h2>
+<h2 id="task-2-adding-bit-manipulation-instruction-s:7a3ed02fee8703cf5bf18355ee48a970">Task 2: Adding bit manipulation instruction(s)</h2>
 
 <p>Aim: add a new instruction to the RISC-V LLVM backend. First introduce it to
 the MC layer (i.e. add assembler support). Then add codegen support.</p>
@@ -384,7 +384,7 @@ SelectionDAG opcodes in <code>include/llvm/CodeGen/ISDOpcodes.h</code>.</p>
 <p>Extension: dream up further instructions and add support for them, perhaps
 adding new reg-immediate instructions.</p>
 
-<h2 id="task-3-undoing-an-detrimental-dagcombine:9f989c6017a78266a3c07f2ec5d013cf">Task 3: Undoing an detrimental dagcombine</h2>
+<h2 id="task-3-undoing-an-detrimental-dagcombine:7a3ed02fee8703cf5bf18355ee48a970">Task 3: Undoing an detrimental dagcombine</h2>
 
 <p>Consider the following somewhat contrived example which aligns an input value:</p>
 

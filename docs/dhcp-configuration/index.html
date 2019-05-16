@@ -81,7 +81,7 @@
                     <section>
                         
 
-<h2 id="why-dhcp:bfc693f06dda432161fd175c7ef96a35">Why DHCP ?</h2>
+<h2 id="why-dhcp:3c3a546022b9c093894cf1e18c60e76d">Why DHCP ?</h2>
 
 <p>A powerful but confusing feature for new users is the Ethernet interface available on the FPGA board. The good news is that the infrastructure designed to manage PCs can work equally well for FPGA boards. If you have a home hub or network address translation zone associated with your development environment it should be sufficient to simply plug the FPGA board into your 100BaseT hub and reset (having followed the previous advice to install the bitstream in quad-spi memory). A DHCP server will supply hard to remember and possibly regularly changing information to your boot loader and Linux:</p>
 
@@ -95,7 +95,7 @@
 
 <p>If the Ethernet is unplugged or incapable of 100BaseT-DX operation, the display will likely stick after &lsquo;Waiting for DHCP_OFFER&rsquo;.</p>
 
-<h2 id="direct-cable-connection:bfc693f06dda432161fd175c7ef96a35">Direct cable connection</h2>
+<h2 id="direct-cable-connection:3c3a546022b9c093894cf1e18c60e76d">Direct cable connection</h2>
 
 <p>If you use a direct cable (recommended if you are experimenting), connect with your own PC&rsquo;s Ethernet port.
 This could be a development workstation if you have a second Ethernet card fitted, or a laptop with Wifi and Ethernet.
@@ -118,7 +118,7 @@ host lowrisc {
 
 <p>An FPGA booted with this configuration will only be able to see your own PC by default. Forwarding of packets is possible but outside the scope of this tutorial.</p>
 
-<h2 id="institutional-lan-connection:bfc693f06dda432161fd175c7ef96a35">Institutional LAN connection</h2>
+<h2 id="institutional-lan-connection:3c3a546022b9c093894cf1e18c60e76d">Institutional LAN connection</h2>
 
 <p>This option is the option that talks to your institution IT infrastructure. For security reasons you will need to request that the MAC address be registered as valid centrally. Emphasize that it is a locally administered value and not a registered company value.</p>
 
@@ -130,13 +130,13 @@ host lowrisc {
 
 <p>Forwarding of packets to the internet will normally be handled automatically and the replies routed back to the FPGA. Incoming session initiation will most likely be blocked by default.</p>
 
-<h2 id="broadband-network-address-translation-hub:bfc693f06dda432161fd175c7ef96a35">Broadband network address translation hub</h2>
+<h2 id="broadband-network-address-translation-hub:3c3a546022b9c093894cf1e18c60e76d">Broadband network address translation hub</h2>
 
 <p>This option will have one internet facing IP address (which may change at any arbitrary moment, but usually not more than once/day) and several port which are in the private range 192.168.x.x and/or 10.x.x.x</p>
 
 <p>Usually registration of the MAC address is not necessary, but you can fix the value in a manufacturer specific manner in the hub control panel, and this is usually more convenient than a random value. No particular effort is needed to route packets to the internet or get the responses. Protocols that require the IP address to be passed in the packet in ASCII can go wrong when NAT is used, but in my experience this is a rare occurence.</p>
 
-<h2 id="static-ip:bfc693f06dda432161fd175c7ef96a35">Static IP</h2>
+<h2 id="static-ip:3c3a546022b9c093894cf1e18c60e76d">Static IP</h2>
 
 <p>Because of the flexibility of DHCP, and the lack of a user interface on the FPGA board, it was decided not to offer static IP as an option on this release. If a static address is required, it can be offered via DHCP (recommended usage).</p>
 

@@ -87,7 +87,7 @@
 
 <p>Here we describe how to simulate the lowRISC SoC using Verilator.</p>
 
-<h3 id="compilation:d97345269c451cb053ed120caf95ad9b">Compilation</h3>
+<h3 id="compilation:514870219d3abfdff5b6e72bff95cfe8">Compilation</h3>
 
 <p>To compile a simulator for the lowRISC SoC:</p>
 
@@ -113,7 +113,7 @@ make sim-debug
 
 <p>The resulting simulator is named <code>DefaultConfig-sim-debug</code>.</p>
 
-<h3 id="running-simulations:d97345269c451cb053ed120caf95ad9b">Running simulations</h3>
+<h3 id="running-simulations:514870219d3abfdff5b6e72bff95cfe8">Running simulations</h3>
 
 <p>The simulator recognizes the following arguments:</p>
 
@@ -149,7 +149,7 @@ accordingly.</p>
 
 <p>Then the waveform is stored in <code>rv64ui-p-add.vcd</code>.</p>
 
-<h3 id="running-the-isa-regression-test:d97345269c451cb053ed120caf95ad9b">Running the ISA regression test</h3>
+<h3 id="running-the-isa-regression-test:514870219d3abfdff5b6e72bff95cfe8">Running the ISA regression test</h3>
 
 <p>To run a regression test:</p>
 
@@ -162,7 +162,7 @@ make -j$(nproc) run-asm-tests
 <pre><code>make output/rv64ui-p-add.verilator.vcd
 </code></pre>
 
-<h3 id="other-useful-makefile-targets:d97345269c451cb053ed120caf95ad9b">Other useful Makefile targets</h3>
+<h3 id="other-useful-makefile-targets:514870219d3abfdff5b6e72bff95cfe8">Other useful Makefile targets</h3>
 
 <pre><code># generate Verilog for the Chisel Rocket-cores
 make verilog

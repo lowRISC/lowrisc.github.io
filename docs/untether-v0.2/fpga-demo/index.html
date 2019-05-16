@@ -89,7 +89,7 @@
 
 <p>Depending on the board, please set variable $FPGA_BOARD to the board name. It is set to kc705 in <code>lowrisc-chip/set_riscv_env.sh</code>.</p>
 
-<h3 id="file-structure-of-the-fpga-demo:92c049390011b714e22883abc9bbe9aa">File structure of the FPGA demo</h3>
+<h3 id="file-structure-of-the-fpga-demo:715a3f0f0745eb370f48c8d691e3d218">File structure of the FPGA demo</h3>
 
 <ul>
 <li><code>constraint</code>: The constraint files used for the FPGA demo</li>
@@ -117,7 +117,7 @@
 </ul></li>
 </ul>
 
-<h3 id="compile-the-fpga-project:92c049390011b714e22883abc9bbe9aa">Compile the FPGA project</h3>
+<h3 id="compile-the-fpga-project:715a3f0f0745eb370f48c8d691e3d218">Compile the FPGA project</h3>
 
 <p>To generate a bitstream:</p>
 
@@ -129,7 +129,7 @@ make bitstream
 
 <p>For installing the USB-JTAG and USB-UART bridge, please see <a href="https://www.lowrisc.org/docs/untether-v0.2/xilinx/">[Install Xilinx Vivado]</a>.</p>
 
-<h4 id="compile-and-run-bare-metal-examples:92c049390011b714e22883abc9bbe9aa">Compile and run bare metal examples</h4>
+<h4 id="compile-and-run-bare-metal-examples:715a3f0f0745eb370f48c8d691e3d218">Compile and run bare metal examples</h4>
 
 <p>Four runnable bare-metal examples are provided for users to run on FPGA. To compile an example and replace the bitstream with a new boot image, just use the example name as the make target.</p>
 
@@ -140,7 +140,7 @@ make hello
 
 <p>If any of the examples have been compiled after an initial bitstream is generated, a NEW bitstream is generated as <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code> and this new bitstream should be used for configuring FPGA.</p>
 
-<h4 id="hello-world:92c049390011b714e22883abc9bbe9aa">Hello world</h4>
+<h4 id="hello-world:715a3f0f0745eb370f48c8d691e3d218">Hello world</h4>
 
 <p>This is a simple example testing the UART interface.</p>
 
@@ -156,7 +156,7 @@ make hello
 <pre><code>Hello World!
 </code></pre>
 
-<h4 id="dram-self-test:92c049390011b714e22883abc9bbe9aa">DRAM self-test</h4>
+<h4 id="dram-self-test:715a3f0f0745eb370f48c8d691e3d218">DRAM self-test</h4>
 
 <p>This example executes a read/write check of the DDR RAM. The check results are constantly printed to UART.</p>
 
@@ -195,7 +195,7 @@ Check block @18000 using key 4a0f9ca55caacaf6
 ......
 </code></pre>
 
-<h4 id="sd-card-read-test:92c049390011b714e22883abc9bbe9aa">SD card read test</h4>
+<h4 id="sd-card-read-test:715a3f0f0745eb370f48c8d691e3d218">SD card read test</h4>
 
 <p>This example reads a file named <code>test.txt</code> stored on a SD card (formatted in
 FAT32) and then prints the content of this file to UART.</p>
@@ -210,7 +210,7 @@ file size 28
 test.txt closed.
 </code></pre>
 
-<h4 id="boot-test:92c049390011b714e22883abc9bbe9aa">Boot test</h4>
+<h4 id="boot-test:715a3f0f0745eb370f48c8d691e3d218">Boot test</h4>
 
 <p>This example copies the content of a executable named &ldquo;<code>boot</code>&rdquo; from a SD card to DDR RAM and then boots it from DDR RAM.</p>
 
@@ -230,7 +230,7 @@ Hello World!
 
 <p><a name="boot"></a></p>
 
-<h3 id="boot-risc-v-linux:92c049390011b714e22883abc9bbe9aa">Boot RISC-V Linux</h3>
+<h3 id="boot-risc-v-linux:715a3f0f0745eb370f48c8d691e3d218">Boot RISC-V Linux</h3>
 
 <p>For first time users, please try the pre-compiled RISC-V and ramdisk images.</p>
 
@@ -309,7 +309,7 @@ Boot the loaded program...
 # 
 </code></pre>
 
-<h4 id="prepare-your-own-images:92c049390011b714e22883abc9bbe9aa">Prepare your own images</h4>
+<h4 id="prepare-your-own-images:715a3f0f0745eb370f48c8d691e3d218">Prepare your own images</h4>
 
 <p>Three files are needed on SD for booting RISC-V Linux:</p>
 
@@ -336,7 +336,7 @@ make bbl
 cp bbl/bbl /PATH/TO/SD/boot
 </code></pre>
 
-<h3 id="other-useful-makefile-targets:92c049390011b714e22883abc9bbe9aa">Other useful Makefile targets</h3>
+<h3 id="other-useful-makefile-targets:715a3f0f0745eb370f48c8d691e3d218">Other useful Makefile targets</h3>
 
 <pre><code># generate a Vivado project
 make project
@@ -360,9 +360,9 @@ make clean
 make cleanall
 </code></pre>
 
-<h2 id="fpga-resource-utilization:92c049390011b714e22883abc9bbe9aa">FPGA resource utilization</h2>
+<h2 id="fpga-resource-utilization:715a3f0f0745eb370f48c8d691e3d218">FPGA resource utilization</h2>
 
-<h4 id="kc705:92c049390011b714e22883abc9bbe9aa">KC705</h4>
+<h4 id="kc705:715a3f0f0745eb370f48c8d691e3d218">KC705</h4>
 
 <p>Core clock rate: 50 MHz</p>
 
@@ -462,7 +462,7 @@ make cleanall
 </tbody>
 </table>
 
-<h4 id="nexys4-ddr:92c049390011b714e22883abc9bbe9aa">NEXYS4-DDR</h4>
+<h4 id="nexys4-ddr:715a3f0f0745eb370f48c8d691e3d218">NEXYS4-DDR</h4>
 
 <p>Core clock rate: 25 MHz</p>
 

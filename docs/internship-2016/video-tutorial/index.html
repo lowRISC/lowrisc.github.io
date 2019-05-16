@@ -81,13 +81,13 @@
                     <section>
                         
 
-<h2 id="introduction:6d907b42703d9fbc2a7b4aaed6942c4f">Introduction</h2>
+<h2 id="introduction:777f6ec07f23e8973f731d1ddf7437f1">Introduction</h2>
 
 <p>The purpose of this tutorial is to give a simple list of steps to decode a single video on a Nexys4 DDR FPGA using lowRISC.</p>
 
 <p>The extension describes how to use the accelerators.</p>
 
-<h2 id="step-1-the-generic-lowrisc-setup:6d907b42703d9fbc2a7b4aaed6942c4f">Step 1: The Generic lowRISC setup</h2>
+<h2 id="step-1-the-generic-lowrisc-setup:777f6ec07f23e8973f731d1ddf7437f1">Step 1: The Generic lowRISC setup</h2>
 
 <p>Start by cloning our version of the lowRISC repository and running the typical set up commands:</p>
 
@@ -100,7 +100,7 @@ git submodule update --init --recursive....
 
 <p>This tutorial relies heavily on two tools (Vivado and the RISC-V cross compiler) and requires a host of other packages. Wei Song has provided a <a href="https://www.lowrisc.org/docs/debug-v0.3/environment/">tutorial</a> for setting up the environment. Install the packages on the linked page, then go to the next page (&rsquo;<a href="https://www.lowrisc.org/docs/debug-v0.3/lowriscsetup/">Generic lowRISC setup</a>&rsquo;) and follow the tutorials for <a href="https://www.lowrisc.org/docs/untether-v0.2/xilinx/">Vivado</a> and the <a href="https://www.lowrisc.org/docs/untether-v0.2/riscv_compile/">cross-compiler</a>.</p>
 
-<h2 id="step-2-building-the-mpeg-2-codec:6d907b42703d9fbc2a7b4aaed6942c4f">Step 2: Building the MPEG-2 Codec</h2>
+<h2 id="step-2-building-the-mpeg-2-codec:777f6ec07f23e8973f731d1ddf7437f1">Step 2: Building the MPEG-2 Codec</h2>
 
 <p>We&rsquo;re using a modified version of a reference MPEG-2 implementation. Start by pulling that and cross compiling it for RISC-V.</p>
 
@@ -120,13 +120,14 @@ The Makefile uses the gcc RISC-V cross compiler, if you get an error message suc
 <ul>
 <li>The RISC-V cross compiler has been built</li>
 <li>The RISCV environment variable has been set and points to $TOP/tools/riscv/debug-v0.3</li>
-<li>The cross compiler has been added to the PATH environment variable: if in doubt, run:
-<code>
-export PATH=$PATH:$RISCV/bin
-</code></li>
+
+<li><p>The cross compiler has been added to the PATH environment variable: if in doubt, run:</p>
+
+<pre><code>export PATH=$PATH:$RISCV/bin
+</code></pre></li>
 </ul>
 
-<h2 id="step-3-setting-up-the-vivado-project:6d907b42703d9fbc2a7b4aaed6942c4f">Step 3: Setting up the Vivado project</h2>
+<h2 id="step-3-setting-up-the-vivado-project:777f6ec07f23e8973f731d1ddf7437f1">Step 3: Setting up the Vivado project</h2>
 
 <p>The next steps use Vivado, which requires a few more environment variables. Customise the instructions below for your setup, and then run it.</p>
 
@@ -145,7 +146,7 @@ make boot
 
 <p>NOTE: The first time you run <code>make boot</code>, it will take a while time to run, and will use a large amount of memory. It may be necessary to close other programs while this is running.</p>
 
-<h2 id="step-4-building-the-boot-image:6d907b42703d9fbc2a7b4aaed6942c4f">Step 4: Building the boot image</h2>
+<h2 id="step-4-building-the-boot-image:777f6ec07f23e8973f731d1ddf7437f1">Step 4: Building the boot image</h2>
 
 <p>The decoder runs on Linux, so it&rsquo;s necessary to download and compile the Linux kernel (we&rsquo;re using version 4.6.2) as well as BusyBox.</p>
 
@@ -182,7 +183,7 @@ cd $TOP/riscv-tools
 
 <p>Once this has successfully completed, a file called <code>boot.bin</code> appears in the current directory ($TOP/riscv-tools). This must be copied onto the sd card, which is then to be placed into the FPGA.</p>
 
-<h2 id="step-5-programming-the-fpga:6d907b42703d9fbc2a7b4aaed6942c4f">Step 5: Programming the FPGA</h2>
+<h2 id="step-5-programming-the-fpga:777f6ec07f23e8973f731d1ddf7437f1">Step 5: Programming the FPGA</h2>
 
 <p>Now, it&rsquo;s finally time to program the FPGA. First, a hardware server needs to be started, TODO (source xilinx_env, run hw_server)</p>
 
@@ -214,7 +215,7 @@ make program-updated
 
 <p>Where video.mpg is the video file loaded earlier. The video should now play on the monitor from the FPGA.</p>
 
-<h2 id="extension-using-accelerators:6d907b42703d9fbc2a7b4aaed6942c4f">Extension: Using accelerators</h2>
+<h2 id="extension-using-accelerators:777f6ec07f23e8973f731d1ddf7437f1">Extension: Using accelerators</h2>
 
 <p>It is possible to use the accelerators we have created with a slight
 alteration to <strong>Step 1</strong> described above. In order to include the accelerators

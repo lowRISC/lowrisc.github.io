@@ -88,7 +88,7 @@
 <p><a name="figure-overview"></a>
 <img src="figures/lowRISC_tag.png" alt="Drawing" style="width: 600px; padding: 20px 0px;"/></p>
 
-<h2 id="pre-defined-design-constraints:68f80267fa3a50980dbb745a782b8dca">Pre-defined Design constraints</h2>
+<h2 id="pre-defined-design-constraints:f3b56000093113bd3bfb6c9c05e7e945">Pre-defined Design constraints</h2>
 
 <p>Our goal of supporting the same FPGA board as the previous release
 may only be realised with slight changes to the JTAG instruction register length and data register numbers.
@@ -102,19 +102,19 @@ due to FPGA design constraints.</p>
 <li><a href="https://www.lowrisc.org/docs/jtag/">JTAG internals</a></li>
 </ul>
 
-<h2 id="overview-of-the-remote-boot-process:68f80267fa3a50980dbb745a782b8dca">Overview of the Remote boot process</h2>
+<h2 id="overview-of-the-remote-boot-process:f3b56000093113bd3bfb6c9c05e7e945">Overview of the Remote boot process</h2>
 
 <p>The same booting options as ethernet-v0.5 are available. We also add a new method which replaces
 some of the functionality of the trace debugger that was first offered in v0.3: this is the GDB/openocd pairing
 which will be familiar to some due to its popularity in low-cost ARM debugging environments.</p>
 
-<h2 id="nfs-root-file-system:68f80267fa3a50980dbb745a782b8dca">NFS root file system</h2>
+<h2 id="nfs-root-file-system:f3b56000093113bd3bfb6c9c05e7e945">NFS root file system</h2>
 
 <p>The NFS root file system requires a separate server such as a Linux server or laptop. Regardless of whether
 NFS or SD root is used, the previous riscv-poky release is replaced by (almost) upstream Debian binaries,
 eliminating the requirement to build the userland from scratch, a lengthy and error-prone process.</p>
 
-<h2 id="future-jtag-developments:68f80267fa3a50980dbb745a782b8dca">Future JTAG developments</h2>
+<h2 id="future-jtag-developments:f3b56000093113bd3bfb6c9c05e7e945">Future JTAG developments</h2>
 
 <p>This release incorporates a JTAG core for the first time, but there is of
 course much more to be done. The top priority is making GDB/openocd cognisant of the

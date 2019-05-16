@@ -91,20 +91,20 @@
 
 <p><img src="../figures/pcr_ctl.png" alt="Drawing" style="width: 450px;"/></p>
 
-<h2 id="ports-of-pcrcontrol:b09078dfce21ca0f6aa6d6ada91ffb50">Ports of <code>PCRControl</code></h2>
+<h2 id="ports-of-pcrcontrol:e2024145d35b2c747c2f5bf628155765">Ports of <code>PCRControl</code></h2>
 
-<h4 id="pcr-read-write-requests-pcr-req:b09078dfce21ca0f6aa6d6ada91ffb50">PCR read/write requests (<code>pcr_req</code>)</h4>
+<h4 id="pcr-read-write-requests-pcr-req:e2024145d35b2c747c2f5bf628155765">PCR read/write requests (<code>pcr_req</code>)</h4>
 
 <p>The CSR file in each core has a dedicated request channel to the global PCR control unit. When a CSR address is identified as a PCR, the CSR request is forwarded to <code>PCRControl</code>.</p>
 
-<h4 id="pcr-read-write-response-pcr-resp:b09078dfce21ca0f6aa6d6ada91ffb50">PCR read/write response (<code>pcr_resp</code>)</h4>
+<h4 id="pcr-read-write-response-pcr-resp:e2024145d35b2c747c2f5bf628155765">PCR read/write response (<code>pcr_resp</code>)</h4>
 
 <p>Upon receiving a request from <code>pcr_req</code>, the PCR control unit processes the
 request and sends back a response through the <code>pcr_resp</code> port connected to the
 requesting core when it is finished. When it is a read request, the PCR value
 is sent back in the response.</p>
 
-<h4 id="broadcast-of-pcr-update-pcr-update:b09078dfce21ca0f6aa6d6ada91ffb50">Broadcast of PCR update (<code>pcr_update</code>)</h4>
+<h4 id="broadcast-of-pcr-update-pcr-update:e2024145d35b2c747c2f5bf628155765">Broadcast of PCR update (<code>pcr_update</code>)</h4>
 
 <p>Operations on some PCRs trigger changes of the global status, such as changing
 the I/O map. In this case, the updated PCR is broadcast to all components
@@ -115,18 +115,18 @@ added just below the L2 arbiter. Besides CSR modules, all <code>ioaddr</code> mo
 the memory address converter receive PCR updates to track the changes in I/O
 and memory maps.</p>
 
-<h4 id="irq-irq:b09078dfce21ca0f6aa6d6ada91ffb50">IRQ (<code>irq</code>)</h4>
+<h4 id="irq-irq:e2024145d35b2c747c2f5bf628155765">IRQ (<code>irq</code>)</h4>
 
 <p>All cores share the same interrupt sources but they can enable/disable
 individual interrupts separately. When an interrupt arrives, it is forwarded
 to all cores who have enabled it.</p>
 
-<h4 id="soft-reset-soft-reset:b09078dfce21ca0f6aa6d6ada91ffb50">Soft reset (<code>soft_reset</code>)</h4>
+<h4 id="soft-reset-soft-reset:e2024145d35b2c747c2f5bf628155765">Soft reset (<code>soft_reset</code>)</h4>
 
 <p>When a soft reset is triggered (a write to CSR <code>reset</code>), a reset signal is
 broadcast to all cores and the L2.</p>
 
-<h2 id="individual-pcrs:b09078dfce21ca0f6aa6d6ada91ffb50">Individual PCRs</h2>
+<h2 id="individual-pcrs:e2024145d35b2c747c2f5bf628155765">Individual PCRs</h2>
 
 <p>All PCRs are readable or writable in machine mode ONLY.</p>
 
@@ -480,7 +480,7 @@ broadcast to all cores and the L2.</p>
 </tbody>
 </table>
 
-<h2 id="time:b09078dfce21ca0f6aa6d6ada91ffb50">Time</h2>
+<h2 id="time:e2024145d35b2c747c2f5bf628155765">Time</h2>
 
 <p>The current wall clock counts at 50MHz. The value of this wall clock is updated to all cores every 20 cycles. The wall clock is not writable.</p>
 
@@ -489,15 +489,15 @@ initiated.  However, the timer comparator in each core is compared against the
 infrequently updated local copy, which incurs a 20 cycle inaccuracy in the
 worst case.</p>
 
-<h2 id="to-from-host:b09078dfce21ca0f6aa6d6ada91ffb50">To/from host</h2>
+<h2 id="to-from-host:e2024145d35b2c747c2f5bf628155765">To/from host</h2>
 
 <p>This pair of registers are kept for legacy reasons. They are used in the ISA regression test only for identifying the end of a test and the return value. Writing <code>tohost</code> has no effect in FPGA but writing a non-zero value to <code>fromhost</code> triggers an exception.</p>
 
-<h2 id="reset:b09078dfce21ca0f6aa6d6ada91ffb50">Reset</h2>
+<h2 id="reset:e2024145d35b2c747c2f5bf628155765">Reset</h2>
 
 <p>Writing any value to <code>reset</code> triggers a soft reset.</p>
 
-<h2 id="memory-map:b09078dfce21ca0f6aa6d6ada91ffb50">Memory map</h2>
+<h2 id="memory-map:e2024145d35b2c747c2f5bf628155765">Memory map</h2>
 
 <p>This implementation supports up to 4 separate memory sections. The space of
 any two sections should not overlap.</p>
@@ -511,7 +511,7 @@ interconnects is <code>(addr &amp; mem_mask) | mem_phy</code>.</p>
 
 <p>The update of a memory section should be an atomic operation. To ease this requirement, any write to a memory map is buffered. The actual update to the memory map is triggered by a write to <code>mem_update</code>.</p>
 
-<h2 id="i-o-map:b09078dfce21ca0f6aa6d6ada91ffb50">I/O map</h2>
+<h2 id="i-o-map:e2024145d35b2c747c2f5bf628155765">I/O map</h2>
 
 <p>This implementation supports up to 4 separate I/O sections. The space of any
 two sections should not overlap.</p>
@@ -520,7 +520,7 @@ two sections should not overlap.</p>
 
 <p>Similar to the memory map, the update of an I/O section should be an atomic operation. In the same way, any write to I/O map is buffered. The actual update is triggered by a write to <code>io_update</code>.</p>
 
-<h2 id="irqs:b09078dfce21ca0f6aa6d6ada91ffb50">IRQs</h2>
+<h2 id="irqs:e2024145d35b2c747c2f5bf628155765">IRQs</h2>
 
 <p>Up to 64 interrupt sources are supported.</p>
 

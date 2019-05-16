@@ -83,7 +83,7 @@
 
 <p><em>Nikitas Chronas</em></p>
 
-<h2 id="introduction:f0b7cef823366205d067cf495ce0e215">Introduction</h2>
+<h2 id="introduction:77614929e15065dd7aa41233ec798d25">Introduction</h2>
 
 <p>The upgraded role of <a href="https://en.wikipedia.org/wiki/CubeSat">CubeSats</a>, fueled
 by technological advances and lowered launch costs in the aerospace industry,
@@ -98,7 +98,7 @@ the minion core subsystem lowRISC SoC, employing the
 fault tolerant technique by integrating a CLS assist unit in order to be
 suitable for use in a CubeSat mission.</p>
 
-<h2 id="work-summary:f0b7cef823366205d067cf495ce0e215">Work summary</h2>
+<h2 id="work-summary:77614929e15065dd7aa41233ec798d25">Work summary</h2>
 
 <p>Here is a short summary of the work that was completed during the <a href="https://developers.google.com/open-source/gsoc/">Google
 Summer of Code</a> (GSoC) 2017,
@@ -147,7 +147,7 @@ assembly and C example programs. Forked from the minion verilator branch, the
 <a href="https://github.com/nchronas/minion_subsystem/tree/minion_CLS">minion_CLS</a> has
 the first prototypes of the CLS configuration.</p>
 
-<h2 id="setting-up-the-environment:f0b7cef823366205d067cf495ce0e215">Setting up the environment</h2>
+<h2 id="setting-up-the-environment:77614929e15065dd7aa41233ec798d25">Setting up the environment</h2>
 
 <p>All the work was done in a virtual machine based on ubuntu 16.04 LTS and a
 Vivado 2015.4 64bit install with Free webPACK licence. The project uses the
@@ -156,7 +156,7 @@ installing all programs but it wasn’t anything that wasn&rsquo;t easily resolv
 More information can be found
 <a href="https://www.lowrisc.org/docs/minion-v0.4/environment/">here</a>.</p>
 
-<h3 id="verilator:f0b7cef823366205d067cf495ce0e215">Verilator</h3>
+<h3 id="verilator:77614929e15065dd7aa41233ec798d25">Verilator</h3>
 
 <p>Verilator was installed based on these
 <a href="https://www.veripool.org/projects/verilator/wiki/Installing">instructions</a>,
@@ -170,7 +170,7 @@ run:</p>
 export VERILATOR_ROOT=/path_to_folder/verilator
 </code></pre>
 
-<h3 id="vivado:f0b7cef823366205d067cf495ce0e215">Vivado</h3>
+<h3 id="vivado:77614929e15065dd7aa41233ec798d25">Vivado</h3>
 
 <p>A guide about installing Vivado can be found in lowRISC documentation. One
 difference from that guide is that in my installation that I used the
@@ -178,21 +178,21 @@ following command <code>source
 /local/tool/Xilinx/Vivado/2015.4/.settings64-Vivado.sh</code>. It&rsquo;s generally a
 pretty straightforward installation but took a while to finish.</p>
 
-<h3 id="arty:f0b7cef823366205d067cf495ce0e215">Arty</h3>
+<h3 id="arty:77614929e15065dd7aa41233ec798d25">Arty</h3>
 
 <p>While this is not needed in order to run the project, I think it might be
 helpful. In order to use the Arty board in Vivado for a new project, this
 <a href="https://reference.digilentinc.com/learn/software/tutorials/vivado-board-files/start">guide</a>
 should be followed.</p>
 
-<h3 id="compiler:f0b7cef823366205d067cf495ce0e215">Compiler</h3>
+<h3 id="compiler:77614929e15065dd7aa41233ec798d25">Compiler</h3>
 
 <p>The PULPino-derived minion core uses a patched GCC compiler, found
 <a href="https://github.com/pulp-platform/ri5cy_gnu_toolchain">here</a>. The repository
 has sufficient instructions. You could either create a symlink in <code>/usr/bin</code>
 or add an appropriate directoy to your <code>$PATH</code>.</p>
 
-<h3 id="minion-soc:f0b7cef823366205d067cf495ce0e215">Minion SoC</h3>
+<h3 id="minion-soc:77614929e15065dd7aa41233ec798d25">Minion SoC</h3>
 
 <p>The code for the minion SoC can be found in the lowRISC minion subsystem
 <a href="https://github.com/lowRISC/minion_subsystem">repository</a>. The branch that all
@@ -204,12 +204,12 @@ cloning the repository, git should be installed.</p>
 compiled. romgen uses OCaml, so it has to be installed in the system in order
 to compile it (install using <code>apt-get install ocaml</code>).</p>
 
-<h3 id="code-generation:f0b7cef823366205d067cf495ce0e215">Code generation</h3>
+<h3 id="code-generation:77614929e15065dd7aa41233ec798d25">Code generation</h3>
 
 <p>The code generation project uses python 2.7 and the jinja2 templating engine.
 Jinja is installed by simply running (sudo) <code>pip install jinja2</code>.</p>
 
-<h2 id="running-the-examples:f0b7cef823366205d067cf495ce0e215">Running the examples</h2>
+<h2 id="running-the-examples:77614929e15065dd7aa41233ec798d25">Running the examples</h2>
 
 <iframe src="https://giphy.com/embed/l378u8meC0uNts7HG" width="480" height="334" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
@@ -298,7 +298,7 @@ machine.</p>
 
 <iframe src="https://giphy.com/embed/26vIg6cZFMWvi6AbS" width="480" height="401" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
-<h2 id="minion-soc-1:f0b7cef823366205d067cf495ce0e215">Minion SoC</h2>
+<h2 id="minion-soc-1:77614929e15065dd7aa41233ec798d25">Minion SoC</h2>
 
 <p>This section contains information for understanding the minion SoC. An
 <a href="https://www.lowrisc.org/docs/minion-v0.4/overview/">overview</a> on how the
@@ -306,7 +306,7 @@ minion connects with the rocket core and some complementary
 <a href="https://www.lowrisc.org/docs/minion-v0.4/minion/">information</a> about the SoC
 can be found in the lowRISC documentation.</p>
 
-<h3 id="project-structure:f0b7cef823366205d067cf495ce0e215">Project structure</h3>
+<h3 id="project-structure:77614929e15065dd7aa41233ec798d25">Project structure</h3>
 
 <p>The <code>minion_subsystem</code> has the following directory structure: <code>software</code> holds
 the software for the minion. The <code>pulpino</code> folder has all the HDL files for
@@ -331,7 +331,7 @@ for the code generation project. The software has the <code>minimal</code> C and
 <code>minimal_cls</code> C projects and finally the vsim folder has the all the files for
 the verilator.</p>
 
-<h3 id="core:f0b7cef823366205d067cf495ce0e215">Core</h3>
+<h3 id="core:77614929e15065dd7aa41233ec798d25">Core</h3>
 
 <p>The core is a modified PULPino core, which might be compared to the ARM
 Cortex-M4. The upstream PULPino uses an AXI bus to communicate with the
@@ -352,7 +352,7 @@ finished processing the transaction it issues the data valid flag.</p>
 <p><img src="pulp.png" style="width: 600px"/>
 <em>PULPino data bus transaction (image taken by the PULPino user manual)</em></p>
 
-<h3 id="coremem:f0b7cef823366205d067cf495ce0e215">Coremem</h3>
+<h3 id="coremem:77614929e15065dd7aa41233ec798d25">Coremem</h3>
 
 <p>The coremem module is used to for handing all interactions between the core
 and memories. Since PULPino has 2 buses, the module is used twice, one for the
@@ -364,7 +364,7 @@ the core and waits for one cycle until it sets the grant and valid signal.</p>
 one cycle. If a new peripheral needs more cycles to finish the operation, the
 coremem should be modified, to introduce the extra cycles.</p>
 
-<h3 id="bus:f0b7cef823366205d067cf495ce0e215">Bus</h3>
+<h3 id="bus:77614929e15065dd7aa41233ec798d25">Bus</h3>
 
 <p>The minion SoC uses a custom tightly coupled bus for communication of the core
 with the peripherals and the memories. For the core&rsquo;s instruction bus, the ROM
@@ -444,14 +444,14 @@ scripts, extra care should be taken that the RAM and ROM hold the same memory
 region. Of course any modification in the memory locations should be reflected
 in the software and the SFRs addresses.</p>
 
-<h3 id="memories:f0b7cef823366205d067cf495ce0e215">Memories</h3>
+<h3 id="memories:77614929e15065dd7aa41233ec798d25">Memories</h3>
 
 <p>The SoC uses one RAM to hold variables and a ROM to hold the program running.
 The implementation lies in <code>code.v</code> and <code>data.v</code> and it&rsquo;s generated by the
 compiled program, using the romgen software. The implementation is based on
 Xilinx block ram specific modules.</p>
 
-<h3 id="peripherals:f0b7cef823366205d067cf495ce0e215">Peripherals</h3>
+<h3 id="peripherals:77614929e15065dd7aa41233ec798d25">Peripherals</h3>
 
 <p>The minion SoC has the following peripherals integrated:</p>
 
@@ -489,12 +489,12 @@ frequency/ (baud rate * 4)</code>. For the arty project there is a 25MHz frequen
 and a 9600 baud rate, so the equation is <code>SFR value = 25.000.000 / (9600 * 4) 
 = 651</code>.</p>
 
-<h2 id="modifications:f0b7cef823366205d067cf495ce0e215">Modifications</h2>
+<h2 id="modifications:77614929e15065dd7aa41233ec798d25">Modifications</h2>
 
 <p>During the designing phase of the CLS configuration, I identified some
 improvements that could be made to minion SoC.</p>
 
-<h3 id="coremem-1:f0b7cef823366205d067cf495ce0e215">Coremem</h3>
+<h3 id="coremem-1:77614929e15065dd7aa41233ec798d25">Coremem</h3>
 
 <p>While examining the coremem module, I saw that the code had unreached states
 (<code>WRITE_DATA</code>, <code>WRITE_ADDR</code>) because of constant assignment of the
@@ -511,7 +511,7 @@ the <code>coremem_d</code>&rsquo;s signal <code>we_d</code>. So all the signals 
 <code>we_d</code> signal. That modification gives a clearer code, with the write of
 peripherals trigged only from one place.</p>
 
-<h3 id="uart-status:f0b7cef823366205d067cf495ce0e215">UART status</h3>
+<h3 id="uart-status:77614929e15065dd7aa41233ec798d25">UART status</h3>
 
 <p>The UART status SFR (memory location 0x300000) has a lot of information about
 the state of the UART. This included the <code>uart_wrcount</code> variable that shows
@@ -522,7 +522,7 @@ replaced <code>uart_wrcount</code> with <code>uart_rdata_avail</code> which hold
 bytes in the FIFO. The information is taken by subtracting <code>uart_wrcount</code> and
 <code>uart_rdcount</code>.</p>
 
-<h3 id="peripheral-modularisation:f0b7cef823366205d067cf495ce0e215">Peripheral modularisation.</h3>
+<h3 id="peripheral-modularisation:77614929e15065dd7aa41233ec798d25">Peripheral modularisation.</h3>
 
 <p>The SoC uses a custom tightly coupled bus for the connection not based on AXI.
 <code>minion_soc.sv</code> holds the bus implementation and code to connect the core with
@@ -552,11 +552,11 @@ data bus.</p>
 bugs. In the future this work could be merged with the code generation in the
 form of templates.</p>
 
-<h2 id="software:f0b7cef823366205d067cf495ce0e215">Software</h2>
+<h2 id="software:77614929e15065dd7aa41233ec798d25">Software</h2>
 
 <p>This section describes the software developed to run on the minion SoC.</p>
 
-<h3 id="minimal-assembly:f0b7cef823366205d067cf495ce0e215">Minimal assembly</h3>
+<h3 id="minimal-assembly:77614929e15065dd7aa41233ec798d25">Minimal assembly</h3>
 
 <p>For the first experiments with the platform, I created an assembly program.
 The reasons behind using assembly:</p>
@@ -606,7 +606,7 @@ to correspond to the address request from the core e.g. The core&rsquo;s boot
 address is 0x80 memory location, the instruction hex value had to be stored in
 the 0x20 memory location inside the progmem.</p>
 
-<h3 id="minimal-c:f0b7cef823366205d067cf495ce0e215">Minimal C</h3>
+<h3 id="minimal-c:77614929e15065dd7aa41233ec798d25">Minimal C</h3>
 
 <p>In v0.4 of the minion subsystem there isn&rsquo;t a minimal C program for the users
 to base and build their own program. In my case I needed a minimal C program
@@ -653,7 +653,7 @@ file holds empty functions, needed from the linker script.</p>
 <p>A future expansion of the example could use the rest of the available
 peripherals in the minion SoC.</p>
 
-<h3 id="minimal-c-cls-version:f0b7cef823366205d067cf495ce0e215">Minimal C CLS version</h3>
+<h3 id="minimal-c-cls-version:77614929e15065dd7aa41233ec798d25">Minimal C CLS version</h3>
 
 <p>The minimal C CLS version has the same functionality with the minimal C but
 with a few modifications for the CLS configuration. The <code>i</code> variable is used
@@ -667,13 +667,13 @@ from a CLS fault or from the general reset so it would initialize the
 variable. This solution is a bit hacky and in the future the linker script
 should be modified in order to incorporate this functionality.</p>
 
-<h2 id="ports:f0b7cef823366205d067cf495ce0e215">Ports</h2>
+<h2 id="ports:77614929e15065dd7aa41233ec798d25">Ports</h2>
 
 <p>The minion subsystem in the minion-v0.4 version didn&rsquo;t supported the Arty FPGA
 board or any support for a simulator. In order to run the code I needed to
 port them myself.</p>
 
-<h3 id="verilator-1:f0b7cef823366205d067cf495ce0e215">Verilator</h3>
+<h3 id="verilator-1:77614929e15065dd7aa41233ec798d25">Verilator</h3>
 
 <p>There were 2 main options for a simulator, the integrated simulator in the
 Vivado suite and verilator. While the Vivado simulator would have been the
@@ -715,7 +715,7 @@ SoC&rsquo;s behaviour can be studied by viewing the generated waveforms, running
 <code>gtkwave obj_dir/verilated.vcd</code>. Moreover the verilog <code>$display()</code> function
 was used to display debug messages during the simulation.</p>
 
-<h3 id="arty-1:f0b7cef823366205d067cf495ce0e215">Arty</h3>
+<h3 id="arty-1:77614929e15065dd7aa41233ec798d25">Arty</h3>
 
 <p>The <code>nexys4ddr</code> project was used as a template for the arty port. A new vivado
 project was created for the Arty port of the minion SoC. During The board
@@ -785,13 +785,13 @@ peripheral, is to remove all SD functionality in the minion SoC.</p>
 </table>
 </center></p>
 
-<h2 id="core-lock-step:f0b7cef823366205d067cf495ce0e215">Core Lock Step</h2>
+<h2 id="core-lock-step:77614929e15065dd7aa41233ec798d25">Core Lock Step</h2>
 
 <p>In core lock step we use redundant CPU cores, running with the same inputs and
 comparing each core output. In case there is a single event upset (SEU) during
 operation, its effect would be shown in the affected core&rsquo;s output.</p>
 
-<h3 id="issues:f0b7cef823366205d067cf495ce0e215">Issues</h3>
+<h3 id="issues:77614929e15065dd7aa41233ec798d25">Issues</h3>
 
 <p>The CLS configuration offers protection from SEUs by continuously comparing
 the output of each CPU based on common inputs. An SEU could effect a part in
@@ -818,7 +818,7 @@ project.</p>
 <p>Registers are often spilled (i.e. written to or read from the stack), meaning
 an SEU effect could be seen in relatively few cycles.</p>
 
-<h3 id="assumptions:f0b7cef823366205d067cf495ce0e215">Assumptions</h3>
+<h3 id="assumptions:77614929e15065dd7aa41233ec798d25">Assumptions</h3>
 
 <ol>
 <li>The CLS configuration is focused only in the protection from SEUs and from
@@ -828,7 +828,7 @@ won&rsquo;t be examined during this phase.</li>
 <li>The debug unit is not used during the CLS configuration.</li>
 </ol>
 
-<h3 id="fault-detection-behaviour:f0b7cef823366205d067cf495ce0e215">Fault detection behaviour</h3>
+<h3 id="fault-detection-behaviour:77614929e15065dd7aa41233ec798d25">Fault detection behaviour</h3>
 
 <p>The first and easiest fault handling is that the CLS unit resets the CPU
 cores. Since it doesn&rsquo;t reset the RAM or other peripherals, the program could
@@ -859,7 +859,7 @@ voting, the core that suffered the fault the issue can be identified. Using a
 restore mechanism like checkpoints or exceptions, the faulty core could be
 re-synced in a few cycles, thus removing the need to restart the program.</p>
 
-<h3 id="implementation:f0b7cef823366205d067cf495ce0e215">Implementation</h3>
+<h3 id="implementation:77614929e15065dd7aa41233ec798d25">Implementation</h3>
 
 <p>The core lock step implementation was pretty straightforward after a better
 understanding of the minion SoC and the pulpino core was achieved.</p>
@@ -916,7 +916,7 @@ grant signal to the cores.</p>
 normal reset and 1 if the reset was triggered by a CLS fault. That way the
 software knows the reset source.</p>
 
-<h3 id="fault-injection:f0b7cef823366205d067cf495ce0e215">Fault injection</h3>
+<h3 id="fault-injection:77614929e15065dd7aa41233ec798d25">Fault injection</h3>
 
 <p>Faults were simulated by injecting errors in the CLS design. These tests were
 the only way to ensure that the design was working. The errors are created by
@@ -976,7 +976,7 @@ limit resources usage.</p>
 <p><img src="finj.png" alt="Fault injection in simulation" />
 <em>Fault injection in simulation. The fault is injected in the red cursor.</em></p>
 
-<h3 id="packetcraft:f0b7cef823366205d067cf495ce0e215">Packetcraft</h3>
+<h3 id="packetcraft:77614929e15065dd7aa41233ec798d25">Packetcraft</h3>
 
 <p>In order to assess the CLS configuration, a test application was developed.
 The application implements the test service, a subset of the command and data
@@ -1059,7 +1059,7 @@ expected rate of faults induced by radiation is much less than that.</p>
 </table>
 </center></p>
 
-<h2 id="code-generation-1:f0b7cef823366205d067cf495ce0e215">Code generation</h2>
+<h2 id="code-generation-1:77614929e15065dd7aa41233ec798d25">Code generation</h2>
 
 <p>The minion SoC functionality is implemented in the <code>minion_soc.sv</code>. In that
 file the PULPino core along with the memories and peripherals are placed
@@ -1132,7 +1132,7 @@ the HAL by generating the file that holds the memory locations.</p>
 <p>Note that this code is still under development so it is possible that it
 contains bugs. Currently the more than 1 UARTs implementation doesn&rsquo;t work.</p>
 
-<h2 id="cls-power-and-size-differences:f0b7cef823366205d067cf495ce0e215">CLS power and size differences</h2>
+<h2 id="cls-power-and-size-differences:77614929e15065dd7aa41233ec798d25">CLS power and size differences</h2>
 
 <p>One of the key metrics of any protection techniques, is the changes in
 resources usage. In this section the resource usage of the CLS configuration
@@ -1157,7 +1157,7 @@ for 2U cubesat, as In <a href="https://upsat.gr/">UPSat</a> the onboard computer
 
 <p><em>Power usage: with CLS (top) and without (bottom)</em></p>
 
-<h2 id="thoughts-and-future-work:f0b7cef823366205d067cf495ce0e215">Thoughts and future work</h2>
+<h2 id="thoughts-and-future-work:77614929e15065dd7aa41233ec798d25">Thoughts and future work</h2>
 
 <p>One of the reasons that I started the GSoC project was get more familiar with
 HDL and FPGAs while I contributed to an open source project. Even though the

@@ -89,7 +89,7 @@
 The debug system will use the UART connection at 12 MBaud to communicate with
 the debug system.</p>
 
-<h2 id="run-the-pre-built-fpga-demo:2b37e9ffd044e2f81b36b8d798aa8a19">Run the pre-built FPGA demo</h2>
+<h2 id="run-the-pre-built-fpga-demo:d5407b76a51174fceb545bed7aa1d4ed">Run the pre-built FPGA demo</h2>
 
 <p>The files you may need:</p>
 
@@ -136,7 +136,7 @@ curl -L https://github.com/lowRISC/lowrisc-chip/releases/download/minion-v0.4-rc
 <pre><code>opensocdebugd uart device=/dev/ttyUSB1 speed=12000000 &amp;
 </code></pre>
 
-<h4 id="directly-load-linux-to-ddr-ram:2b37e9ffd044e2f81b36b8d798aa8a19">Directly load Linux to DDR RAM</h4>
+<h4 id="directly-load-linux-to-ddr-ram:d5407b76a51174fceb545bed7aa1d4ed">Directly load Linux to DDR RAM</h4>
 
 <p>The pre-built FPGA bitstream has a selftest program as the 1st stage bootloader
 (in an on-chip BRAM) which just jumps to DDR RAM if switch(0) is high (on the right). We need to load the Linux
@@ -152,7 +152,7 @@ osd&gt; start
 <p>The terminal should again boot Linux. To update the image simply
 perform the same action again. If you have a VGA display connected, you will see all output in both places (apart from Berkley boot loader messages).</p>
 
-<h4 id="load-linux-from-sd-card:2b37e9ffd044e2f81b36b8d798aa8a19">Load Linux from SD card</h4>
+<h4 id="load-linux-from-sd-card:d5407b76a51174fceb545bed7aa1d4ed">Load Linux from SD card</h4>
 
 <p>Other than manually loading a Linux to the DDR RAM using the debugger, we can use the selftest program to load Linux from SD, if switch(1) is high (second from right).</p>
 
@@ -165,7 +165,7 @@ osd&gt; reset
 
 <p>You should be able to see the boot program copy the boot.bin from SD to DDR RAM and then boot it.</p>
 
-<h4 id="connect-a-usb-keyboard-and-vga-compatible-lcd-display:2b37e9ffd044e2f81b36b8d798aa8a19">Connect a USB-keyboard and VGA compatible LCD display</h4>
+<h4 id="connect-a-usb-keyboard-and-vga-compatible-lcd-display:d5407b76a51174fceb545bed7aa1d4ed">Connect a USB-keyboard and VGA compatible LCD display</h4>
 
 <p>This method does not require a separate PC, once the bitstream has been burned to quad-spi flash. Note that the keyboard needs to be a PS/2 keyboard with USB interface to work with the Digilent board. For further information consult the Digilent documentation. It is advisable to power-cycle (i.e. turn it off and on again) after burning the QSPI flash and/or connecting these peripherals. After power-up, if all switches are off, you should see the following menu:</p>
 
@@ -204,7 +204,7 @@ osd&gt; reset
  'W' - write an address in Minion memory
 </code></pre>
 
-<h2 id="run-a-standalone-fpga-demo-no-debugger-support:2b37e9ffd044e2f81b36b8d798aa8a19">Run a standalone FPGA demo (no debugger support)</h2>
+<h2 id="run-a-standalone-fpga-demo-no-debugger-support:d5407b76a51174fceb545bed7aa1d4ed">Run a standalone FPGA demo (no debugger support)</h2>
 
 <p>We still keep the option to build a fully standalone implementation that does not rely on a debugger.</p>
 
@@ -240,7 +240,7 @@ curl -L https://github.com/lowRISC/lowrisc-chip/releases/download/minion-v0.4-rc
 <pre><code>vivado -mode batch -source $TOP/fpga/common/script/program.tcl -tclargs &quot;xc7a100t_0&quot; fpga.bit
 </code></pre>
 
-<h2 id="mount-an-sd-card-inside-risc-v-linux:2b37e9ffd044e2f81b36b8d798aa8a19">Mount an SD card inside RISC-V Linux</h2>
+<h2 id="mount-an-sd-card-inside-risc-v-linux:d5407b76a51174fceb545bed7aa1d4ed">Mount an SD card inside RISC-V Linux</h2>
 
 <p>To discover whether an SD is recognized by the kernel:</p>
 
@@ -285,11 +285,11 @@ umount /mnt/proc
 umount /mnt
 </code></pre>
 
-<h2 id="build-your-own-bitstream-and-images:2b37e9ffd044e2f81b36b8d798aa8a19">Build your own bitstream and images</h2>
+<h2 id="build-your-own-bitstream-and-images:d5407b76a51174fceb545bed7aa1d4ed">Build your own bitstream and images</h2>
 
-<h3 id="generate-the-bitstream:2b37e9ffd044e2f81b36b8d798aa8a19">Generate the bitstream</h3>
+<h3 id="generate-the-bitstream:d5407b76a51174fceb545bed7aa1d4ed">Generate the bitstream</h3>
 
-<h4 id="fpga-demo-with-a-trace-debugger:2b37e9ffd044e2f81b36b8d798aa8a19">FPGA demo with a trace debugger</h4>
+<h4 id="fpga-demo-with-a-trace-debugger:d5407b76a51174fceb545bed7aa1d4ed">FPGA demo with a trace debugger</h4>
 
 <pre><code>cd $TOP/fpga/board/nexys4_ddr
 make cleanall
@@ -299,7 +299,7 @@ CONFIG=Nexys4DebugConfig make selftest
 <p>The generated bitstream is located at <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code>.
 This will take some time (20-60 minutes depending on your computer).</p>
 
-<h4 id="standalone-fpga-demo-without-a-trace-debugger:2b37e9ffd044e2f81b36b8d798aa8a19">standalone FPGA demo without a trace debugger</h4>
+<h4 id="standalone-fpga-demo-without-a-trace-debugger:d5407b76a51174fceb545bed7aa1d4ed">standalone FPGA demo without a trace debugger</h4>
 
 <pre><code>cd $TOP/fpga/board/nexys4_ddr
 make cleanall
@@ -309,7 +309,7 @@ CONFIG=Nexys4Config make selftest
 <p>The generated bitstream is located at <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code>.
 This will take some time (20-60 minutes depending on your computer).</p>
 
-<h3 id="program-the-fpga:2b37e9ffd044e2f81b36b8d798aa8a19">Program the FPGA</h3>
+<h3 id="program-the-fpga:d5407b76a51174fceb545bed7aa1d4ed">Program the FPGA</h3>
 
 <p>Next, turn on the FPGA board and connect the USB cable. Now you
 download the bitstream to the quad-SPI on the FPGA board:</p>
@@ -318,13 +318,13 @@ download the bitstream to the quad-SPI on the FPGA board:</p>
 make program-cfgmem-updated
 </code></pre>
 
-<h3 id="download-busybox-user-commands:2b37e9ffd044e2f81b36b8d798aa8a19">Download busybox (user commands)</h3>
+<h3 id="download-busybox-user-commands:d5407b76a51174fceb545bed7aa1d4ed">Download busybox (user commands)</h3>
 
 <pre><code>cd $TOP/riscv-tools
 curl -L http://busybox.net/downloads/busybox-1.21.1.tar.bz2 | tar -xj
 </code></pre>
 
-<h3 id="build-linux:2b37e9ffd044e2f81b36b8d798aa8a19">Build Linux</h3>
+<h3 id="build-linux:d5407b76a51174fceb545bed7aa1d4ed">Build Linux</h3>
 
 <pre><code>sh $TOP/riscv-tools/fetch_and_patch_linux.sh
 cd $TOP/fpga/board/nexys4_ddr
@@ -341,25 +341,25 @@ If you like to generate a kernel image without a bitstream, run the following to
 CONFIG=Nexys4Config make verilog
 </code></pre>
 
-<h2 id="useful-makefile-targets:2b37e9ffd044e2f81b36b8d798aa8a19">Useful Makefile targets</h2>
+<h2 id="useful-makefile-targets:d5407b76a51174fceb545bed7aa1d4ed">Useful Makefile targets</h2>
 
-<h4 id="make-project:2b37e9ffd044e2f81b36b8d798aa8a19"><code>make project</code></h4>
+<h4 id="make-project:d5407b76a51174fceb545bed7aa1d4ed"><code>make project</code></h4>
 
 <p>Generate a Vivado project.</p>
 
-<h4 id="make-verilog:2b37e9ffd044e2f81b36b8d798aa8a19"><code>make verilog</code></h4>
+<h4 id="make-verilog:d5407b76a51174fceb545bed7aa1d4ed"><code>make verilog</code></h4>
 
 <p>Run Chisel compiler and generate the Verilog files for Rocket chip.</p>
 
-<h4 id="make-vivado:2b37e9ffd044e2f81b36b8d798aa8a19"><code>make vivado</code></h4>
+<h4 id="make-vivado:d5407b76a51174fceb545bed7aa1d4ed"><code>make vivado</code></h4>
 
 <p>Open the Vivado GUI using the current project.</p>
 
-<h4 id="make-bitstream:2b37e9ffd044e2f81b36b8d798aa8a19"><code>make bitstream</code></h4>
+<h4 id="make-bitstream:d5407b76a51174fceb545bed7aa1d4ed"><code>make bitstream</code></h4>
 
 <p>Generate the default bitstream according to the <code>CONFIG</code> in Makefile and the program loaded in <code>src/boot.mem</code>. The default bitstream is generated at <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code></p>
 
-<h4 id="make-hello-dram-sdcard-boot-jump-trace-flash:2b37e9ffd044e2f81b36b8d798aa8a19"><code>make &lt;hello|dram|sdcard|boot|jump|trace|flash&gt;</code></h4>
+<h4 id="make-hello-dram-sdcard-boot-jump-trace-flash:d5407b76a51174fceb545bed7aa1d4ed"><code>make &lt;hello|dram|sdcard|boot|jump|trace|flash&gt;</code></h4>
 
 <p>Generate bitstreams for bare-metal tests:</p>
 
@@ -379,28 +379,28 @@ file and copied to <code>src/boot.mem</code>, which then changes the default pro
 <code>make bitstream</code> and <code>make simulation</code>. The updated bitstream is generated at
 <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code></p>
 
-<h4 id="make-program-program-updated:2b37e9ffd044e2f81b36b8d798aa8a19"><code>make &lt;program|program-updated&gt;</code></h4>
+<h4 id="make-program-program-updated:d5407b76a51174fceb545bed7aa1d4ed"><code>make &lt;program|program-updated&gt;</code></h4>
 
 <p>Download a bitstream to FPGA. Use <code>program</code> for
 <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code> and
 <code>program-updated</code> for
 <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code></p>
 
-<h4 id="make-cfgmem-cfgmem-updated:2b37e9ffd044e2f81b36b8d798aa8a19"><code>make &lt;cfgmem|cfgmem-updated&gt;</code></h4>
+<h4 id="make-cfgmem-cfgmem-updated:d5407b76a51174fceb545bed7aa1d4ed"><code>make &lt;cfgmem|cfgmem-updated&gt;</code></h4>
 
 <p>Convert a bitstream to the format suitable for quad-SPI flash on the FPGA board. Use <code>cfgmem</code> for
 <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code> and
 <code>cfgmem-updated</code> for
 <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code></p>
 
-<h4 id="make-program-cfgmem-program-cfgmem-updated:2b37e9ffd044e2f81b36b8d798aa8a19"><code>make &lt;program-cfgmem|program-cfgmem-updated&gt;</code></h4>
+<h4 id="make-program-cfgmem-program-cfgmem-updated:d5407b76a51174fceb545bed7aa1d4ed"><code>make &lt;program-cfgmem|program-cfgmem-updated&gt;</code></h4>
 
 <p>Download a bitstream to quad-SPI flash on the FPGA board. Use <code>program-cfgmem</code> for
 <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code> and
 <code>program-cfgmem-updated</code> for
 <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code></p>
 
-<h4 id="make-clean-cleanall:2b37e9ffd044e2f81b36b8d798aa8a19"><code>make &lt;clean|cleanall&gt;</code></h4>
+<h4 id="make-clean-cleanall:d5407b76a51174fceb545bed7aa1d4ed"><code>make &lt;clean|cleanall&gt;</code></h4>
 
 <p><code>make clean</code> will remove all generated code without removing the Vivado
 project files. To remove all files including the Vivado project, use <code>make 

@@ -85,7 +85,7 @@
                     <section>
                         
 
-<h2 id="the-build-image-script:eaf5cc3969fbd3751c69cddf7ae07eb1">The build image script</h2>
+<h2 id="the-build-image-script:48ebbd00bd42f1546af7b694ecdf0195">The build image script</h2>
 
 <p>You can rebuild most of the boot image from scratch using the
 <code>build_image.sh</code> script:</p>
@@ -99,14 +99,14 @@ cd $TOP/fpga-zynq/zedboard
 <p>The individual steps needed to complete this process are described in
 more detail below. Similar instructions are provided for the original Rocket chip <a href="https://github.com/ucb-bar/fpga-zynq#3--building-everything-from-scratch">here</a>.</p>
 
-<h2 id="requirements:eaf5cc3969fbd3751c69cddf7ae07eb1">Requirements</h2>
+<h2 id="requirements:48ebbd00bd42f1546af7b694ecdf0195">Requirements</h2>
 
 <ul>
 <li>Xilinx Vivado 2014.4</li>
 <li>Ensure <a href="http://www.xilinx.com/support/answers/63036.html">Xilinx patch 63036</a>  is installed otherwise the First Stage Boot Loader (FSBL) cannot be generated.</li>
 </ul>
 
-<h2 id="1-generating-the-fpga-bitstream:eaf5cc3969fbd3751c69cddf7ae07eb1">1. Generating the FPGA bitstream</h2>
+<h2 id="1-generating-the-fpga-bitstream:48ebbd00bd42f1546af7b694ecdf0195">1. Generating the FPGA bitstream</h2>
 
 <p>The easiest way to generate a bitstream is to use the Makefile provided:</p>
 
@@ -137,7 +137,7 @@ make vivado
 <pre><code>zedboard_rocketchip/zedboard_rocketchip.runs/impl_1/rocketchip_wrapper.bit
 </code></pre>
 
-<h2 id="2-export-hardware-information-for-sdk:eaf5cc3969fbd3751c69cddf7ae07eb1">2. Export hardware information for SDK</h2>
+<h2 id="2-export-hardware-information-for-sdk:48ebbd00bd42f1546af7b694ecdf0195">2. Export hardware information for SDK</h2>
 
 <p>Select <code>File-&gt;Export-&gt;Export Hardware</code>. In the &ldquo;Export Hardware&rdquo; panel
 that appears, simply press &ldquo;OK&rdquo; with default options (there is no need
@@ -146,7 +146,7 @@ then exported to:</p>
 
 <p><code>zedboard_rocketchip/zedboard_rocketchip.runs/impl_1/rocketchip_wrapper.bit</code></p>
 
-<h2 id="3-building-the-first-stage-boot-loader-fsbl:eaf5cc3969fbd3751c69cddf7ae07eb1">3. Building the First Stage Boot Loader (FSBL)</h2>
+<h2 id="3-building-the-first-stage-boot-loader-fsbl:48ebbd00bd42f1546af7b694ecdf0195">3. Building the First Stage Boot Loader (FSBL)</h2>
 
 <p>Open the Xilinx SDK from the Vivado GUI (<code>File-&gt;Launch SDK</code>).</p>
 
@@ -179,7 +179,7 @@ to <code>fpga-images-zedboard/boot_image/zynq_fsbl.elf</code>.</p>
 
 <p><img src="../figures/fsbl_2.png" alt="Drawing" style="width: 500px;"/></p>
 
-<h2 id="4-building-u-boot-for-the-zynq-arm-core:eaf5cc3969fbd3751c69cddf7ae07eb1">4. Building u-boot for the Zynq ARM core</h2>
+<h2 id="4-building-u-boot-for-the-zynq-arm-core:48ebbd00bd42f1546af7b694ecdf0195">4. Building u-boot for the Zynq ARM core</h2>
 
 <p>This <a href="https://github.com/ucb-bar/fpga-zynq#34--building-u-boot-for-the-zynq-arm-core">step</a> is not normally required.</p>
 
@@ -195,7 +195,7 @@ Now copy this file to the <code>boot_image</code> directory:</p>
 <pre><code>cp soft_build/u-boot.elf fpga-images-zedboard/boot_image/
 </code></pre>
 
-<h2 id="5-creating-the-fpga-boot-image-boot-bin:eaf5cc3969fbd3751c69cddf7ae07eb1">5. Creating the FPGA boot image (<code>boot.bin</code>)</h2>
+<h2 id="5-creating-the-fpga-boot-image-boot-bin:48ebbd00bd42f1546af7b694ecdf0195">5. Creating the FPGA boot image (<code>boot.bin</code>)</h2>
 
 <p>The manual steps for completing this process are described <a href="https://github.com/ucb-bar/fpga-zynq#35--creating-bootbin">here</a>.</p>
 

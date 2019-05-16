@@ -92,18 +92,18 @@ As always, you
 can track status <a href="https://www.lowrisc.org/llvm/status/">here</a> and find the code
 <a href="https://github.com/lowRISC/riscv-llvm">here</a>.</p>
 
-<h2 id="status:37a127be6d81e67368fb40a190b2ef8f">Status</h2>
+<h2 id="status:b7c83479950d2bfc2cec7921b78c2ef0">Status</h2>
 
 <p>I&rsquo;ve been able to make substantial progress since the <a href="http://lists.llvm.org/pipermail/llvm-dev/2017-August/116709.html">last
 update</a>.</p>
 
-<h3 id="rv32:37a127be6d81e67368fb40a190b2ef8f">RV32</h3>
+<h3 id="rv32:b7c83479950d2bfc2cec7921b78c2ef0">RV32</h3>
 
 <p>100% of the GCC torture suite passes for RV32I at -O0, -O1, -O2, -O3, and -Os
 (after masking gcc-only tests). MC-layer (assembler) support for RV32IMAFD has
 now been implemented, as well as code generation for RV32IM.</p>
 
-<h3 id="rv64:37a127be6d81e67368fb40a190b2ef8f">RV64</h3>
+<h3 id="rv64:b7c83479950d2bfc2cec7921b78c2ef0">RV64</h3>
 
 <p>This is the biggest change versus my last update. LLVM recently gained support
 for parameterising backends by register size, which allows code duplication to
@@ -117,7 +117,7 @@ XLEN in this way. That LLVM feature was actually motivated by requirements of
 the Hexagon architecture - I think this is a great example of how we can all
 benefit by contributing upstream to projects, even across different ISAs.</p>
 
-<h3 id="other-activities:37a127be6d81e67368fb40a190b2ef8f">Other activities</h3>
+<h3 id="other-activities:b7c83479950d2bfc2cec7921b78c2ef0">Other activities</h3>
 
 <ul>
 <li>Community members Luís Marques and David Craven have been experimenting with
@@ -127,7 +127,7 @@ putting together patches for compressed instruction set support. This is a
 really positive move and I hope others will follow their lead.</li>
 </ul>
 
-<h3 id="development-stats:37a127be6d81e67368fb40a190b2ef8f">Development stats</h3>
+<h3 id="development-stats:b7c83479950d2bfc2cec7921b78c2ef0">Development stats</h3>
 
 <ul>
 <li>The &lsquo;reference&rsquo; <a href="https://github.com/lowRISC/riscv-llvm">patch queue</a> consists
@@ -150,7 +150,7 @@ Authored 7 merged commits, 13 issues filed.</li>
 who has contributed code review, feedback, or suggestions so far, as well as
 our industrial sponsor.</p>
 
-<h2 id="approach-and-philosophy:37a127be6d81e67368fb40a190b2ef8f">Approach and philosophy</h2>
+<h2 id="approach-and-philosophy:b7c83479950d2bfc2cec7921b78c2ef0">Approach and philosophy</h2>
 
 <p>As enthusiastic supporters of RISC-V, I think we all want to see a huge range
 of RISC-V core implementations, making different trade-offs or targeting
@@ -189,7 +189,7 @@ place, adding these optimisations can be done relatively easily.</p>
 <p>If you want to see first-class support for RISC-V in LLVM, now is the time to
 get involved and help make it happen.</p>
 
-<h2 id="roadmap-and-upcoming-events:37a127be6d81e67368fb40a190b2ef8f">Roadmap and upcoming events</h2>
+<h2 id="roadmap-and-upcoming-events:b7c83479950d2bfc2cec7921b78c2ef0">Roadmap and upcoming events</h2>
 
 <p>My aim is to have Clang and LLVM developed to serve as a competitive
 alternative to GCC on RISC-V by the end of the calendar year. If the RISC-V
@@ -231,16 +231,16 @@ from several companies in that position are already confirmed as attending).
 We&rsquo;re also looking to run a longer working/hacking session the day before, at
 a San Jose location. More details on both events will be circulated shortly.</p>
 
-<h2 id="faq:37a127be6d81e67368fb40a190b2ef8f">FAQ</h2>
+<h2 id="faq:b7c83479950d2bfc2cec7921b78c2ef0">FAQ</h2>
 
-<h3 id="do-you-care-about-performance-of-generated-code-and-code-size:37a127be6d81e67368fb40a190b2ef8f">Do you care about performance of generated code and code size?</h3>
+<h3 id="do-you-care-about-performance-of-generated-code-and-code-size:b7c83479950d2bfc2cec7921b78c2ef0">Do you care about performance of generated code and code size?</h3>
 
 <p>Like any compiler developer, of course. Starting with a solid and well tested
 base is the best way of achieving those aims. We&rsquo;re now in a position where we
 can push forwards on these fronts, which will will soon become a primary focus
 of this development effort.</p>
 
-<h3 id="i-have-a-risc-v-llvm-fork-which-works-for-me-why-should-i-care-about-an-upstream-backend:37a127be6d81e67368fb40a190b2ef8f">I have a RISC-V LLVM fork which works for me, why should I care about an upstream backend?</h3>
+<h3 id="i-have-a-risc-v-llvm-fork-which-works-for-me-why-should-i-care-about-an-upstream-backend:b7c83479950d2bfc2cec7921b78c2ef0">I have a RISC-V LLVM fork which works for me, why should I care about an upstream backend?</h3>
 
 <p>This is ultimately a question about long-term maintenance and sharing the
 support burden with others in the RISC-V ecosystem. By working together and
@@ -249,7 +249,7 @@ approach. Contributing to this effort is almost definitely the right long-term
 choice for your project. If you want to discuss how to contribute, please drop
 me an email or come along to the upcoming birds of a feather session.</p>
 
-<h3 id="what-is-the-difference-between-this-and-other-risc-v-llvm-efforts:37a127be6d81e67368fb40a190b2ef8f">What is the difference between this and other RISC-V LLVM efforts?</h3>
+<h3 id="what-is-the-difference-between-this-and-other-risc-v-llvm-efforts:b7c83479950d2bfc2cec7921b78c2ef0">What is the difference between this and other RISC-V LLVM efforts?</h3>
 
 <p>This effort is focused on high code quality, long term maintainability, and in
 getting development merged in to upstream LLVM. Andes have recently released a
@@ -258,7 +258,7 @@ version of the lowRISC patchset, but diverged significantly in terms of
 implementation approach. Andes are now working to submit patches to this
 effort.</p>
 
-<h3 id="who-are-you:37a127be6d81e67368fb40a190b2ef8f">Who are you?</h3>
+<h3 id="who-are-you:b7c83479950d2bfc2cec7921b78c2ef0">Who are you?</h3>
 
 <p>I (Alex Bradbury) am a co-founder and director of lowRISC CIC, where this
 development work has been taking place. I have been developing LLVM backends
@@ -266,7 +266,7 @@ for the past seven years, and am now upstream code owner for the RISC-V
 backend. If you&rsquo;re interested in LLVM, you are hopefully already familiar with
 my <a href="http://llvmweekly.org/">LLVM Weekly</a> newsletter.</p>
 
-<h3 id="why-is-lowrisc-interested-in-llvm:37a127be6d81e67368fb40a190b2ef8f">Why is lowRISC interested in LLVM?</h3>
+<h3 id="why-is-lowrisc-interested-in-llvm:b7c83479950d2bfc2cec7921b78c2ef0">Why is lowRISC interested in LLVM?</h3>
 
 <p>lowRISC is a not-for-profit created to push forward open source hardware by
 developing a secure, open, and flexible SoC design. Enabling custom hardware
@@ -279,7 +279,7 @@ of our tagged memory mechanisms on top of LLVM. If our mission sounds
 interesting to you, there&rsquo;s good news - <a href="https://www.lowrisc.org/blog/2017/09/were-hiring-work-on-making-open-source-hardware-a-reality/">we&rsquo;re
 hiring</a>.</p>
 
-<h3 id="who-do-i-contact-to-discuss-further-sponsoring-this-effort:37a127be6d81e67368fb40a190b2ef8f">Who do I contact to discuss further sponsoring this effort?</h3>
+<h3 id="who-do-i-contact-to-discuss-further-sponsoring-this-effort:b7c83479950d2bfc2cec7921b78c2ef0">Who do I contact to discuss further sponsoring this effort?</h3>
 
 <p>If your company would like to see lowRISC&rsquo;s work on RISC-V LLVM be sustained
 or expanded through 2018, then contributing development time and/or

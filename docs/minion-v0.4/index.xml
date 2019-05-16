@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial for the v0.4 lowRISC release on lowRISC</title>
+    <link>https://www.lowrisc.org/docs/minion-v0.4/</link>
+    <description>Recent content in Tutorial for the v0.4 lowRISC release on lowRISC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 14 Apr 2017 13:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.lowrisc.org/docs/minion-v0.4/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tagged memory developments</title>
+      <link>https://www.lowrisc.org/docs/minion-v0.4/tag_lowrisc/</link>
+      <pubDate>Tue, 18 Apr 2017 15:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/minion-v0.4/tag_lowrisc/</guid>
+      <description>This lowRISC release brings back support for tagged memory in our Rocket-derived codebase, redesigning and further optimising a number of aspects. The diagram below shows how Rocket-chip was extended to support tagged memory. Built-in tag manipulation and check functions are integrated into Rocket core piplines. All data words in the cacheable memory space are augmented with tags (by default a 4-bit tag for every 64-bit word). Tags are stored in a table in main memory.</description>
+    </item>
+    
+    <item>
+      <title>lowRISC Minion internals</title>
+      <link>https://www.lowrisc.org/docs/minion-v0.4/minion/</link>
+      <pubDate>Tue, 18 Apr 2017 15:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/minion-v0.4/minion/</guid>
+      <description>This lowRISC release introduces Minion cores, allowing I/O tasks to be offloaded from the Rocket. This goal is important because it provides a flexible platform to allow new and unusual devices to be supported. From Chapter 3: extract from Pulpino databook
+RISCV core overview from Pulpino databook
+The Pulpino as delivered from ETH Zurich is a complete microcontroller, and as such is too large to support our FPGA platform. AXI-compatible busses and peripherals increase the size by 2-3 times.</description>
+    </item>
+    
+    <item>
+      <title>Debug walkthrough</title>
+      <link>https://www.lowrisc.org/docs/minion-v0.4/walkthrough/</link>
+      <pubDate>Fri, 14 Apr 2017 13:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/minion-v0.4/walkthrough/</guid>
+      <description>This tutorial should be followed by those who are not familiar with the previous version of the lowRISC. All the same facilities as the debug-v0.3 release are available. For more details, consult debug enumeration and the general software usage with the RTL simulation, and example debug sessions.
+The FPGA example has changed however, due to the Minion being intimately involved in booting. Consult the FPGA example, which is based on the Nexys4 DDR board.</description>
+    </item>
+    
+    <item>
+      <title>Install FPGA and simulation tools</title>
+      <link>https://www.lowrisc.org/docs/minion-v0.4/installtools/</link>
+      <pubDate>Fri, 14 Apr 2017 13:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/minion-v0.4/installtools/</guid>
+      <description>This part is identical to the previous tutorial, simply perform those steps:
+ Install Xilinx Vivado Install Verilator  The above procedure may change your LD_LIBRARY_PATH to an older version of libraries than some systems expect. If this happens, you may get a message such as:
+ awk: symbol lookup error: awk: undefined symbol: mpfr_z_sub  A work-around is to manually execute unset LD_LIBRARY_PATH afterwards before installing the cross-compiler.
+Follow these instructions (caution: from a previous release) and then use the browser back button:</description>
+    </item>
+    
+    <item>
+      <title>Overview of the minion infrastructure</title>
+      <link>https://www.lowrisc.org/docs/minion-v0.4/overview/</link>
+      <pubDate>Fri, 14 Apr 2017 13:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/minion-v0.4/overview/</guid>
+      <description>As part of the lowRISC project we are exploring how simple processors (minions can help define an SoC&amp;rsquo;s functionality including some I/O interfaces. We invisage tailoring these cores depending on where they are used and also providing a thin layer of additional logic to help interface between the core and the signals it is driving or monitoring (we refer to this as the shim logic). This release includes a simple minion subsystem to help us explore some of these ideas.</description>
+    </item>
+    
+    <item>
+      <title>Prepare the environment</title>
+      <link>https://www.lowrisc.org/docs/minion-v0.4/environment/</link>
+      <pubDate>Fri, 14 Apr 2017 13:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/minion-v0.4/environment/</guid>
+      <description>lowRISC tools and source code are robust between versions of Linux, but it has been found that Vivado (the Xilinx FPGA implementation suite) is particular about the O/S
+All builds were completed with Vivado 2015.4. If a newer version is attempted there could be script incompatibilities to fix and/or incompatible upgrades to internal Xilinx IP. We have no evidence that newer versions do not work, however IP changes to support newer chip families can cause obscure error messages which are offputting for the first-time user.</description>
+    </item>
+    
+    <item>
+      <title>Release notes</title>
+      <link>https://www.lowrisc.org/docs/minion-v0.4/release/</link>
+      <pubDate>Fri, 14 Apr 2017 13:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/minion-v0.4/release/</guid>
+      <description>Release notes  Rocket-core (Chisel)  Add tag cache and improved security features.  Software environment  Most of the previous bare-metal program functionality integrated into one 64K executable Implement 4-bit read/write SD-mode access to memory cards in Linux. Console output appears on serial port and VGA screen in parallel. Bare metal booting kernel in 4-bit SD-mode supported.  lowRISC-chip  Add Minion core (Pulpino based) to control SD-card, keyboard, and VGA display.</description>
+    </item>
+    
+    <item>
+      <title>Running on the FPGA</title>
+      <link>https://www.lowrisc.org/docs/minion-v0.4/fpga/</link>
+      <pubDate>Fri, 14 Apr 2017 13:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/minion-v0.4/fpga/</guid>
+      <description>In this final step, we want to test the debug functionality on an FPGA board. The debug system will use the UART connection at 12 MBaud to communicate with the debug system.
+Run the pre-built FPGA demo The files you may need:
+ chip_top.bit: The tagpipe/minion/debug enabled FPGA bitstream boot.bin: Linux, Busybox and Berkley bootloader (BBL) packaged in one image.  Download and write the bitstream
+curl -L https://github.com/lowRISC/lowrisc-chip/releases/download/minion-v0.4-rc1/chip_top.bit &amp;gt; nexys4ddr_fpga.</description>
+    </item>
+    
+    <item>
+      <title>Tag support in the Rocket core</title>
+      <link>https://www.lowrisc.org/docs/minion-v0.4/tag_core/</link>
+      <pubDate>Tue, 11 Apr 2017 17:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/minion-v0.4/tag_core/</guid>
+      <description>Motivation In our previous tagged-memory release, special instructions are added to read and write tags for words in memory. However, there is no easy way to use tags in checking anomalies, such as protecting the return address from being altered on stack (important for protection against control-flow hijacking) or triggering an exception when accessing a specific address (unlimited hardware watch-points). In this release, we incorporate these essential tag manipulation and check functions into the normal RISC-V instructions and the Rocket core, which enables support for a range of tag-related use cases.</description>
+    </item>
+    
+    <item>
+      <title>Hierarchical tag cache</title>
+      <link>https://www.lowrisc.org/docs/minion-v0.4/tag_cache/</link>
+      <pubDate>Tue, 04 Apr 2017 16:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/minion-v0.4/tag_cache/</guid>
+      <description>Motivation The tagged memory mechanism augments each data word in memory with a small piece of extra metadata, a tag. A separate area in high memory is dedicated to the tags, which is hidden to software. As a result, each memory access to the memory is converted into two separate accesses, one for the actual data word and another one for the tag. For a naive design, the speed/throughput overhead of supporting tagged memory is 100%!</description>
+    </item>
+    
+  </channel>
+</rss>

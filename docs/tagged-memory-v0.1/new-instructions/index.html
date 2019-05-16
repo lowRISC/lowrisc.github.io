@@ -85,7 +85,7 @@
                     <section>
                         
 
-<h3 id="modifying-the-rocket-core:e54800e184f9d83e8ef57f10c8086f21">Modifying the Rocket core</h3>
+<h3 id="modifying-the-rocket-core:d26b8d303980270865e00384707f55dd">Modifying the Rocket core</h3>
 
 <p>The Rocket core is described using the <a href="https://chisel.eecs.berkeley.edu/">Chisel</a> hardware
 construction language.</p>
@@ -127,7 +127,7 @@ construction language.</p>
 </ul></li>
 </ul>
 
-<h3 id="step-1-instruction-encoding-and-decoding:e54800e184f9d83e8ef57f10c8086f21">Step 1. Instruction encoding and decoding</h3>
+<h3 id="step-1-instruction-encoding-and-decoding:d26b8d303980270865e00384707f55dd">Step 1. Instruction encoding and decoding</h3>
 
 <p>The two new instructions, load tag (<code>ltag</code>) and store tag (<code>stag</code>) are encoded
 using the I-type and the S-type instruction formats:</p>
@@ -166,15 +166,15 @@ new <code>MT_T</code> memory access type.</p>
 <pre><code>decode_table ++= TagDecode.table
 </code></pre>
 
-<h3 id="step-2-supporting-tags-in-the-memory-hierarchy:e54800e184f9d83e8ef57f10c8086f21">Step 2. Supporting tags in the memory hierarchy</h3>
+<h3 id="step-2-supporting-tags-in-the-memory-hierarchy:d26b8d303980270865e00384707f55dd">Step 2. Supporting tags in the memory hierarchy</h3>
 
-<h4 id="l1-data-cache:e54800e184f9d83e8ef57f10c8086f21">L1 data cache</h4>
+<h4 id="l1-data-cache:d26b8d303980270865e00384707f55dd">L1 data cache</h4>
 
 <p>The L1 data cache is extended to recognise the new memory access type
 (<code>MT_T</code>). These changes modify <code>StoreGen</code> and <code>LoadGen</code> in
 <a href="https://github.com/lowRISC/rocket/blob/master/src/main/scala/nbdcache.scala"><code>rocket/src/main/scala/nbdcache.scala</code></a>.</p>
 
-<h4 id="network:e54800e184f9d83e8ef57f10c8086f21">Network</h4>
+<h4 id="network:d26b8d303980270865e00384707f55dd">Network</h4>
 
 <p>Since the tags are simply inserted into larger cache lines there is no
 need to revise any control logic associated with on-chip
@@ -191,7 +191,7 @@ supported in the future. At present, tags are currently removed
 cache. Similarly, tags cannot be read via the host target interface
 (HTIF).</p>
 
-<h3 id="step-3-the-tag-cache:e54800e184f9d83e8ef57f10c8086f21">Step 3. The tag cache</h3>
+<h3 id="step-3-the-tag-cache:d26b8d303980270865e00384707f55dd">Step 3. The tag cache</h3>
 
 <p>The tag cache (<code>uncore/src/main/tagcache.scala</code>) is the final hardware
 addition required to support tagged memory. It receives caches misses
@@ -221,7 +221,7 @@ are handled in parallel. A transaction is serviced by a &ldquo;tracker&rdquo;, w
 the current state of each transaction. In the default configuration a single
 tracker is instantiated.</p>
 
-<h3 id="step-4-updating-the-assembler:e54800e184f9d83e8ef57f10c8086f21">Step 4. Updating the assembler</h3>
+<h3 id="step-4-updating-the-assembler:d26b8d303980270865e00384707f55dd">Step 4. Updating the assembler</h3>
 
 <p>Two GCC cross-compilers are provided:</p>
 

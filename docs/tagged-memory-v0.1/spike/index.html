@@ -107,19 +107,19 @@ support of the proxy kernel and with the support of a full Linux OS:</p>
 
 <p>To run the three hello world programs in their corresponding modes:</p>
 
-<h3 id="bare-metal-mode:4c97a9276b269235c841d9122c55cc94">Bare metal mode</h3>
+<h3 id="bare-metal-mode:b5e50df08916c41d1b7655688c31db9b">Bare metal mode</h3>
 
 <pre><code># requirements: riscv-isa-sim, riscv-fesvr, riscv-gnu-toolchain
 spike hello.bare
 </code></pre>
 
-<h3 id="with-proxy-kernel-and-newlib:4c97a9276b269235c841d9122c55cc94">With proxy kernel and newlib</h3>
+<h3 id="with-proxy-kernel-and-newlib:b5e50df08916c41d1b7655688c31db9b">With proxy kernel and newlib</h3>
 
 <pre><code># requirements: riscv-isa-sim, riscv-fesvr, riscv-pk, riscv-gnu-toolchain
 spike pk hello.pk
 </code></pre>
 
-<h3 id="with-a-full-linux-os:4c97a9276b269235c841d9122c55cc94">With a full Linux OS</h3>
+<h3 id="with-a-full-linux-os:b5e50df08916c41d1b7655688c31db9b">With a full Linux OS</h3>
 
 <pre><code># requirements: riscv-isa-sim, riscv-fesvr, riscv-gcc, riscv-linux, root.bin
 # copy the program to the root image: 
@@ -135,7 +135,7 @@ spike +disk=$TOP/riscv-tools/busybox-1.21.1/root.bin \
 # in the booted linux type: /hello
 </code></pre>
 
-<h3 id="using-spike:4c97a9276b269235c841d9122c55cc94">Using Spike</h3>
+<h3 id="using-spike:b5e50df08916c41d1b7655688c31db9b">Using Spike</h3>
 
 <p>The command-line arguments to Spike can be listed with <code>spike -h</code>:</p>
 

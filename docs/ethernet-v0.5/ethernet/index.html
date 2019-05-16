@@ -88,7 +88,7 @@
 <p>This lowRISC release introduces 100Mbps Ethernet, allowing remote ssh and
 network filing system functionality.</p>
 
-<h2 id="rtl-changes:a0f36ff7b09c22b8fd5304a65640aa06">RTL changes</h2>
+<h2 id="rtl-changes:9de3da8ba238018969aebf4a4f15de58">RTL changes</h2>
 
 <p>The PHY of the Ethernet uses reduced media independent interface (RMII). The transmission rate is fixed at 100MHz
 and is found to be compatible with most hubs and switches. The possibility to communicate with the PHY is programmed
@@ -105,23 +105,23 @@ are passed to the kernel to decide what shall be done with them.</p>
 <p>The regular routines are setting and retrieving the MAC address of the device are present, but they make no difference to
 operation in this version/</p>
 
-<h2 id="linux-driver:a0f36ff7b09c22b8fd5304a65640aa06">Linux driver</h2>
+<h2 id="linux-driver:9de3da8ba238018969aebf4a4f15de58">Linux driver</h2>
 
 <p>A conventional model is followed with no DMA. It is assumed that the transmit will be so fast that the transmit buffer will
 never be full. Conversely multiple packets could be received before being noticed by the processor and for this purpose the
 received is adapted to receive up to 8 full-sized packets in quick succession. THis driver is interrupt driven in the usual way.</p>
 
-<h2 id="user-land-operation:a0f36ff7b09c22b8fd5304a65640aa06">User land operation</h2>
+<h2 id="user-land-operation:9de3da8ba238018969aebf4a4f15de58">User land operation</h2>
 
 <p>A complete suite of Linux user commands is available via the Poky Linux districution for RISCV. Only a few small changes are needed
 to adapt the distribution to the changed device names.</p>
 
-<h2 id="dhcp:a0f36ff7b09c22b8fd5304a65640aa06">DHCP</h2>
+<h2 id="dhcp:9de3da8ba238018969aebf4a4f15de58">DHCP</h2>
 
 <p>Dynamic host configuration protocol is supported for standalone computer use. It cannot be used if remote booting or NFS is required.
 A time protocol server is also preferable but not a showstopper.</p>
 
-<h2 id="remote-booting:a0f36ff7b09c22b8fd5304a65640aa06">Remote booting</h2>
+<h2 id="remote-booting:9de3da8ba238018969aebf4a4f15de58">Remote booting</h2>
 
 <p>This release adds a protocol for booting Linux or bare metal programs over Ethernet. Hence it is possible to operate without SD-cards
 or serial access to the device. In the latter case it highly desirable to have a VGA monitor and USB keyboard, and separate power provision

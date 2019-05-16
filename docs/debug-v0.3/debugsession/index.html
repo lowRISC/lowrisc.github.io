@@ -94,7 +94,7 @@ learn the different basic features to interact with the system.</p>
 <pre><code>make -C $TOP/fpga/bare_metal/examples hello.riscv trace.riscv
 </code></pre>
 
-<h3 id="resetting-the-system:f87265c0cc81de64e78ce35c1598ac70">Resetting the system</h3>
+<h3 id="resetting-the-system:da9d471c4fb90641fea894c4e666b9c3">Resetting the system</h3>
 
 <p>In the first step we will start the command line interface and reset
 the system. When starting the command line interface it automatically
@@ -142,7 +142,7 @@ osd&gt; start
 
 <p>So now we want to see that in action.</p>
 
-<h3 id="capturing-uart-output:f87265c0cc81de64e78ce35c1598ac70">Capturing UART output</h3>
+<h3 id="capturing-uart-output:da9d471c4fb90641fea894c4e666b9c3">Capturing UART output</h3>
 
 <p>As described before, the UART controller has been replaced with an
 emulation module that has the same physical interface, but transports
@@ -167,7 +167,7 @@ osd&gt; reset
 without touching a board, but the real power comes with the other
 modules.</p>
 
-<h3 id="generate-a-function-trace:f87265c0cc81de64e78ce35c1598ac70">Generate a function trace</h3>
+<h3 id="generate-a-function-trace:da9d471c4fb90641fea894c4e666b9c3">Generate a function trace</h3>
 
 <p>To analyze the execution of the program on the core, you can use the
 core trace module. It can be configured to log all function calls and
@@ -238,7 +238,7 @@ Overflow, missed 4 events
 [..]
 </code></pre>
 
-<h3 id="minimally-invasive-software-debugging:f87265c0cc81de64e78ce35c1598ac70">Minimally-invasive software debugging</h3>
+<h3 id="minimally-invasive-software-debugging:da9d471c4fb90641fea894c4e666b9c3">Minimally-invasive software debugging</h3>
 
 <p>As introduced, lowRISC adds a software trace debugging technique that
 is minimally invasive by only adding a few cycles each time it is called
@@ -297,7 +297,7 @@ generate in <code>stm.log</code>:</p>
 000257d2 abcd 0123456789abcdef
 </code></pre>
 
-<h3 id="scripting-the-command-line-interface:f87265c0cc81de64e78ce35c1598ac70">Scripting the command line interface</h3>
+<h3 id="scripting-the-command-line-interface:da9d471c4fb90641fea894c4e666b9c3">Scripting the command line interface</h3>
 
 <p>You can execute commands at startup of the CLI by creating a script,
 e.g. this <code>startup.script</code>:</p>
@@ -337,7 +337,7 @@ execute: wait 10
 execute: quit
 </code></pre>
 
-<h3 id="loading-the-elf-to-memory:f87265c0cc81de64e78ce35c1598ac70">Loading the ELF to memory</h3>
+<h3 id="loading-the-elf-to-memory:da9d471c4fb90641fea894c4e666b9c3">Loading the ELF to memory</h3>
 
 <p>Until now we have started the simulation with the ELF program
 pre-loaded into the memory. We can also load the ELF into the memory
@@ -349,7 +349,7 @@ osd&gt; terminal 2
 osd&gt; start
 </code></pre>
 
-<h3 id="python-scripting:f87265c0cc81de64e78ce35c1598ac70">Python scripting</h3>
+<h3 id="python-scripting:da9d471c4fb90641fea894c4e666b9c3">Python scripting</h3>
 
 <p>To make the debugging really convenient we have python bindings, so
 that you can run automated debug sessions with re-usable scripts. An

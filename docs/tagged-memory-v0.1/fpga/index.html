@@ -85,7 +85,7 @@
                     <section>
                         
 
-<h2 id="introduction:2b37e9ffd044e2f81b36b8d798aa8a19">Introduction</h2>
+<h2 id="introduction:8be5b29bcd9c8bce8f95b4fe57d80ebb">Introduction</h2>
 
 <p>The Berkeley Rocket Chip can be run on various Zynq FPGA
 boards. Details of how to do this can be found <a href="https://github.com/ucb-bar/fpga-zynq">here</a>. For
@@ -119,7 +119,7 @@ defined in <code>riscv-tools/riscv-fesvr/fesvr/htif_zedboard.h</code>.</p>
 can also be accessed via the board&rsquo;s ethernet interface using an SSH
 connection.</p>
 
-<h2 id="the-prebuilt-boot-image:2b37e9ffd044e2f81b36b8d798aa8a19">The prebuilt boot image</h2>
+<h2 id="the-prebuilt-boot-image:8be5b29bcd9c8bce8f95b4fe57d80ebb">The prebuilt boot image</h2>
 
 <p>A prebuilt FPGA image is provided at
 <code>lowrisc-chip/fpga-zynq/zedboard/fpga-images-zedboard</code>.</p>
@@ -151,7 +151,7 @@ used directly by the FPGA.
 <li><code>tests/</code>: The preloaded tagged memory tests</li>
 </ul>
 
-<h2 id="booting-the-zedboard:2b37e9ffd044e2f81b36b8d798aa8a19">Booting the Zedboard</h2>
+<h2 id="booting-the-zedboard:8be5b29bcd9c8bce8f95b4fe57d80ebb">Booting the Zedboard</h2>
 
 <p>Format a SD card to FAT32.</p>
 
@@ -178,7 +178,7 @@ sudo cp -r fpga-images-zedboard/* /PATH/TO/SD
 
 <p><img src="../figures/zedboard.jpg" alt="Drawing" style="width: 500px;"/></p>
 
-<h2 id="communication-with-arm-linux-via-ssh:2b37e9ffd044e2f81b36b8d798aa8a19">Communication with ARM Linux via SSH</h2>
+<h2 id="communication-with-arm-linux-via-ssh:8be5b29bcd9c8bce8f95b4fe57d80ebb">Communication with ARM Linux via SSH</h2>
 
 <p>The Zedboard is configured to use the IP address <code>192.168.1.5</code>.
 <a href="http://zedboard.org/sites/default/files/GS-AES-Z7EV-7Z020-G-14.1-V1.pdf#23">Manually configure</a> your host PC with an IP
@@ -196,7 +196,7 @@ the password.</p>
 Linux. It is also possible to use <code>scp</code> to copy files between the host
 PC and ARM Linux filesystem.</p>
 
-<h2 id="hello-world:2b37e9ffd044e2f81b36b8d798aa8a19">&ldquo;Hello World&rdquo;</h2>
+<h2 id="hello-world:8be5b29bcd9c8bce8f95b4fe57d80ebb">&ldquo;Hello World&rdquo;</h2>
 
 <p>The initial shell you have logged in runs on the ARM Linux rather than
 the RISC-V Linux. In this environment you can launch bare metal
@@ -223,7 +223,7 @@ interfaces to the rocket chip</li>
 
 <p>Great! The Rocket core is running.</p>
 
-<h2 id="running-more-tests:2b37e9ffd044e2f81b36b8d798aa8a19">Running more tests</h2>
+<h2 id="running-more-tests:8be5b29bcd9c8bce8f95b4fe57d80ebb">Running more tests</h2>
 
 <p>To run more tests the content on the SD card must be mounted into the
 ARM Linux. A script is provided for this job:</p>
@@ -254,7 +254,7 @@ directory. This script is copied from <code>/sdcard/scripts</code> to
  ~/test.sh
 </code></pre>
 
-<h2 id="running-tests-under-risc-v-linux:2b37e9ffd044e2f81b36b8d798aa8a19">Running tests under RISC-V Linux</h2>
+<h2 id="running-tests-under-risc-v-linux:8be5b29bcd9c8bce8f95b4fe57d80ebb">Running tests under RISC-V Linux</h2>
 
 <p>To run and test the RISC-V Linux on the Rocket core:</p>
 
@@ -277,7 +277,7 @@ provided on the host PC.</p>
 <pre><code>  /tests/tag_ld_st.linux
 </code></pre>
 
-<h2 id="going-further:2b37e9ffd044e2f81b36b8d798aa8a19">Going further</h2>
+<h2 id="going-further:8be5b29bcd9c8bce8f95b4fe57d80ebb">Going further</h2>
 
 <ul>
 <li><a href="https://www.lowrisc.org/docs/tagged-memory-v0.1/fpga-bootimage/">Rebuilding the boot image</a></li>

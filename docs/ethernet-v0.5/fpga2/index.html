@@ -91,7 +91,7 @@ complete with dynamic host configuration protocol (DHCP), routing to the interne
 <p>The system will use the Ethernet 100Base-T connection at 100 MBaud to communicate with
 the LowRISC Linux system.</p>
 
-<h2 id="run-the-pre-built-fpga-demo:7ec6d3962d4482dc6a153e65338ea622">Run the pre-built FPGA demo</h2>
+<h2 id="run-the-pre-built-fpga-demo:0091db0d9eac6df8946294cb61bfb83e">Run the pre-built FPGA demo</h2>
 
 <p>The files you may need:</p>
 
@@ -122,7 +122,7 @@ curl -L https://github.com/lowRISC/lowrisc-chip/releases/download/v0.5-rc2/rootf
 <pre><code>vivado -mode batch -source $TOP/fpga/common/script/program_cfgmem.tcl -tclargs &quot;xc7a100t_0&quot; nexys4ddr.bit.mcs
 </code></pre>
 
-<h2 id="access-the-boot-loader-and-connect-to-the-uart-console:7ec6d3962d4482dc6a153e65338ea622">Access the boot-loader and connect to the UART console.</h2>
+<h2 id="access-the-boot-loader-and-connect-to-the-uart-console:0091db0d9eac6df8946294cb61bfb83e">Access the boot-loader and connect to the UART console.</h2>
 
 <p>First check the available serial ports:</p>
 
@@ -165,7 +165,7 @@ Subnet Mask: 255.255.255.0
 Enabling interrupts
 </code></pre>
 
-<h2 id="sd-card-preparation:7ec6d3962d4482dc6a153e65338ea622">SD-card preparation</h2>
+<h2 id="sd-card-preparation:0091db0d9eac6df8946294cb61bfb83e">SD-card preparation</h2>
 
 <p>The preparation is similar to formatting a hard disk for Linux installation on a host (the old, non-gui way).
 With a suitable card reader, insert the SD card (I use 8GByte for this example):</p>
@@ -285,27 +285,27 @@ The kernel still uses the old table. The new table will be used at the next rebo
 
 <p>To ensure the new partitions are recognised, remove and reinsert the card.</p>
 
-<h2 id="setting-the-partitions-use-the-image-downloaded-at-the-top-of-this-page:7ec6d3962d4482dc6a153e65338ea622">Setting the partitions (use the image downloaded at the top of this page)</h2>
+<h2 id="setting-the-partitions-use-the-image-downloaded-at-the-top-of-this-page:0091db0d9eac6df8946294cb61bfb83e">Setting the partitions (use the image downloaded at the top of this page)</h2>
 
 <pre><code>sudo mkfs.msdos /dev/sdc1
 sudo dd if=rootfs.ext2 of=/dev/sdc2 bs=64M
 sudo mkswap /dev/sdc3
 </code></pre>
 
-<h2 id="optional-set-up-the-time-server:7ec6d3962d4482dc6a153e65338ea622">Optional: set up the time-server</h2>
+<h2 id="optional-set-up-the-time-server:0091db0d9eac6df8946294cb61bfb83e">Optional: set up the time-server</h2>
 
 <pre><code>sudo vi /etc/xinetd.d/time
 #Change the first occurence of &quot;disable=yes&quot; to &quot;disable=no&quot;. This enables the time service.
 sudo /etc/init.d/xinetd restart
 </code></pre>
 
-<h2 id="sd-booting-kernel-via-ethernet:7ec6d3962d4482dc6a153e65338ea622">SD booting (kernel via Ethernet)</h2>
+<h2 id="sd-booting-kernel-via-ethernet:0091db0d9eac6df8946294cb61bfb83e">SD booting (kernel via Ethernet)</h2>
 
 <pre><code>cd $TOP/fpga/board/nexys4_ddr
 make ethersd
 </code></pre>
 
-<h2 id="sd-booting-standalone:7ec6d3962d4482dc6a153e65338ea622">SD booting (standalone)</h2>
+<h2 id="sd-booting-standalone:0091db0d9eac6df8946294cb61bfb83e">SD booting (standalone)</h2>
 
 <pre><code>cd $TOP/fpga/board/nexys4_ddr
 cp *.bin /media/jrrk2/26CD-9823/ # or wherever your SD-card partition is mounted
@@ -362,7 +362,7 @@ In addition at first there will be no root password. You should login as root an
 Any changes you make will be stored locally on the SD-card, so it is important to shutdown the server properly with the
 &lsquo;halt&rsquo; command.</p>
 
-<h2 id="mount-an-sd-card-inside-risc-v-linux:7ec6d3962d4482dc6a153e65338ea622">Mount an SD card inside RISC-V Linux</h2>
+<h2 id="mount-an-sd-card-inside-risc-v-linux:0091db0d9eac6df8946294cb61bfb83e">Mount an SD card inside RISC-V Linux</h2>
 
 <p>The root partition on /dev/mmcblk0p2 will have been mounted already during pre-init.
 This happens during the following script:</p>

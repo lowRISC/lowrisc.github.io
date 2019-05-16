@@ -88,7 +88,7 @@
 <p><a name="figure-overview"></a>
 <img src="../figures/lowRISC_tag.png" alt="Drawing" style="width: 600px; padding: 20px 0px;"/></p>
 
-<h2 id="pre-defined-design-constraints:68f80267fa3a50980dbb745a782b8dca">Pre-defined Design constraints</h2>
+<h2 id="pre-defined-design-constraints:060a56581ab0a644d58cfa95aea883db">Pre-defined Design constraints</h2>
 
 <p>Our goal of supporting the same FPGA board as the previous release
 may only be realised with a single 100BaseT Ethernet port (the most common type encountered),
@@ -96,17 +96,17 @@ due to PCB design constraints.
 Nevertheless it is conceived that 1Gbps Ethernet could be made use of by a different board.
 However using this version of the FPGA the practical performance is limited to about 2 megabits per second.</p>
 
-<h2 id="overview-of-the-remote-boot-process:68f80267fa3a50980dbb745a782b8dca">Overview of the Remote boot process</h2>
+<h2 id="overview-of-the-remote-boot-process:060a56581ab0a644d58cfa95aea883db">Overview of the Remote boot process</h2>
 
 <p>Using a custom protocol from a remote PC allows the first-stage boot loader to fit in the 64K ROM
 of the FPGA. It&rsquo;s contents are included in the bitstream as before. The boot process involves
 transferring a kernel and initial filing system of approximately 5MBytes in around a minute.</p>
 
-<h2 id="nfs-root-file-system:68f80267fa3a50980dbb745a782b8dca">NFS root file system</h2>
+<h2 id="nfs-root-file-system:060a56581ab0a644d58cfa95aea883db">NFS root file system</h2>
 
 <p>The NFS root file system requires a separate server such as a Linux server or laptop.</p>
 
-<h2 id="future-ethernet-developments:68f80267fa3a50980dbb745a782b8dca">Future ethernet developments</h2>
+<h2 id="future-ethernet-developments:060a56581ab0a644d58cfa95aea883db">Future ethernet developments</h2>
 
 <p>This release incorporates a &lsquo;ethernet&rsquo; core for the first time, but there is of
 course much more to be done. In the future, we want to integrate support for intelligent

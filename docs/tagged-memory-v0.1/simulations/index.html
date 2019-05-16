@@ -91,7 +91,7 @@ a pure bare metal mode or with the support of the
 <a href="https://sourceware.org/newlib/">newlib</a>
 library (a C standard library implementation) and a simple proxy kernel.</p>
 
-<h3 id="bare-metal-mode:8e324c5238b4073def5ad470f4f255cc">Bare metal mode</h3>
+<h3 id="bare-metal-mode:327a3da24a5b3d16347a954f2bd690e9">Bare metal mode</h3>
 
 <p>Programs running in this mode have no library support. The host target
 interface (HTIF) must be accessed directly by the program if necessary, e.g.
@@ -103,7 +103,7 @@ The success/fail status of each test is placed in the <code>tohost</code> CSR
 which can be checked by the host.  For more information, see
 <code>lowrisc-chip/riscv-tools/riscv-tests/env/p/riscv_test.h</code></p>
 
-<h3 id="newlib-proxy-kernel-pk:8e324c5238b4073def5ad470f4f255cc">Newlib/Proxy Kernel (PK)</h3>
+<h3 id="newlib-proxy-kernel-pk:327a3da24a5b3d16347a954f2bd690e9">Newlib/Proxy Kernel (PK)</h3>
 
 <p>Tests and systems not requiring access to a full-blown OS can be
 compiled for use with the proxy kernel (PK) and newlib. The proxy
@@ -114,14 +114,14 @@ such as <code>printf()</code>.</p>
 <p>The <code>riscv64-unknown-elf-gcc</code> GCC compiler produces code for use with
 the PK and newlib.</p>
 
-<h3 id="risc-v-linux:8e324c5238b4073def5ad470f4f255cc">RISC-V Linux</h3>
+<h3 id="risc-v-linux:327a3da24a5b3d16347a954f2bd690e9">RISC-V Linux</h3>
 
 <p>Alternatively, programs can be run under a booted Linux system. The programs
 running on Linux have the full system support, such as pthread, time,
 etc. However, the running time is much longer than the previous two due to the
 requirement to boot Linux in the simulation environment.</p>
 
-<h3 id="running-programs-on-the-software-simulators-and-fpgas:8e324c5238b4073def5ad470f4f255cc">Running programs on the software simulators and FPGAs</h3>
+<h3 id="running-programs-on-the-software-simulators-and-fpgas:327a3da24a5b3d16347a954f2bd690e9">Running programs on the software simulators and FPGAs</h3>
 
 <p>Regardless of the whether programs require full Linux support or not,
 simulations can take place at different levels (e.g. functional,

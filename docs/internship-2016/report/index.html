@@ -102,7 +102,7 @@ MathJax.Hub.Config({
 });
 </script>
 
-<h2 id="contents:0008bd64bca3cf32304ab7293617d71c">Contents</h2>
+<h2 id="contents:20fba17329d148d6311e836cc75b698f">Contents</h2>
 
 <ol>
 <li>Introduction</li>
@@ -158,7 +158,7 @@ MathJax.Hub.Config({
 
 <hr />
 
-<h2 id="1-introduction:0008bd64bca3cf32304ab7293617d71c">1. Introduction</h2>
+<h2 id="1-introduction:20fba17329d148d6311e836cc75b698f">1. Introduction</h2>
 
 <p>Beginning on Monday, 27th June 2016, a team of 4 undergraduate students from
 the University of Cambridge joined the <a href="https://www.lowrisc.org/">lowRISC</a>
@@ -176,13 +176,13 @@ board, which uses a Xilinx Artix-7 FPGA. All source code can be found on
 
 <hr />
 
-<h2 id="2-license:0008bd64bca3cf32304ab7293617d71c">2. License</h2>
+<h2 id="2-license:20fba17329d148d6311e836cc75b698f">2. License</h2>
 
 <p><a href="https://github.com/lowRISC/lowrisc-chip/blob/master/LICENSE">License</a></p>
 
 <hr />
 
-<h2 id="3-overview-of-the-project:0008bd64bca3cf32304ab7293617d71c">3. Overview of the Project</h2>
+<h2 id="3-overview-of-the-project:20fba17329d148d6311e836cc75b698f">3. Overview of the Project</h2>
 
 <p>The objective of our internship was to take the current lowRISC System-on-Chip
 design and demonstrate how an interested individual or team could extend it
@@ -212,9 +212,9 @@ describing the details of the devices produced.</p>
 
 <hr />
 
-<h2 id="4-approaching-the-task:0008bd64bca3cf32304ab7293617d71c">4. Approaching the Task</h2>
+<h2 id="4-approaching-the-task:20fba17329d148d6311e836cc75b698f">4. Approaching the Task</h2>
 
-<h3 id="4-1-codec-discussion:0008bd64bca3cf32304ab7293617d71c">4.1 Codec Discussion</h3>
+<h3 id="4-1-codec-discussion:20fba17329d148d6311e836cc75b698f">4.1 Codec Discussion</h3>
 
 <p>We quickly decided we&rsquo;d follow an existing video codec standard and either
 implement it ourselves or fork an existing free implementation. A myriad of
@@ -226,7 +226,7 @@ and MPEG-4 AVC (H.264). Ultimately, we decided on MPEG-2 because of a readily
 available reference implementation (under a BSD-like license) and its
 relatively low computational complexity compared to the other options.</p>
 
-<h3 id="4-2-specific-objectives:0008bd64bca3cf32304ab7293617d71c">4.2 Specific Objectives</h3>
+<h3 id="4-2-specific-objectives:20fba17329d148d6311e836cc75b698f">4.2 Specific Objectives</h3>
 
 <p>These were the formal objectives we defined, against which we could evaluate the progress and success of the project:</p>
 
@@ -256,9 +256,9 @@ Kbits of block RAM, and 128 MiB DDR2. The existing lowRISC chip architecture
 consumes 50,859 logic cells, and provides a 64-bit RISC-V core running at
 25MHz.</p>
 
-<h3 id="4-3-previous-work:0008bd64bca3cf32304ab7293617d71c">4.3 Previous Work</h3>
+<h3 id="4-3-previous-work:20fba17329d148d6311e836cc75b698f">4.3 Previous Work</h3>
 
-<h4 id="4-3-1-lowrisc:0008bd64bca3cf32304ab7293617d71c">4.3.1 lowRISC</h4>
+<h4 id="4-3-1-lowrisc:20fba17329d148d6311e836cc75b698f">4.3.1 lowRISC</h4>
 
 <p>Started in early 2015, lowRISC is a not-for-profit organisation working
 closely with the University of Cambridge and the open-source community.
@@ -268,7 +268,7 @@ open-source hardware community. Other goals are to explore and promote novel
 security features, to make it simple for companies to make derivative designs,
 and to create a benchmark design to aid academic research.</p>
 
-<h4 id="4-3-2-mpeg-2-codec:0008bd64bca3cf32304ab7293617d71c">4.3.2 MPEG-2 codec</h4>
+<h4 id="4-3-2-mpeg-2-codec:20fba17329d148d6311e836cc75b698f">4.3.2 MPEG-2 codec</h4>
 
 <p>The MPEG-2 codec was defined to resolve the shortcomings on the MPEG-1 codec,
 and was standardised in 2000. As such many implementations have been produced.
@@ -288,9 +288,9 @@ for software rewriting, or to start from a more modern reference.</p>
 
 <hr />
 
-<h2 id="5-outputting-to-vga:0008bd64bca3cf32304ab7293617d71c">5. Outputting to VGA</h2>
+<h2 id="5-outputting-to-vga:20fba17329d148d6311e836cc75b698f">5. Outputting to VGA</h2>
 
-<h3 id="5-1-implementing-vga-specification:0008bd64bca3cf32304ab7293617d71c">5.1 Implementing VGA Specification</h3>
+<h3 id="5-1-implementing-vga-specification:20fba17329d148d6311e836cc75b698f">5.1 Implementing VGA Specification</h3>
 
 <p>VGA output is controlled by a pair of signals, <code>HSync</code> (horizontal
 synchronisation) and <code>VSync</code> (vertical synchronisation) . The timing of these
@@ -304,21 +304,21 @@ output pins. A diagram of the VGA ports used is shown here.</p>
 
 <p><img src="../vga_port.png"/></p>
 
-<h3 id="5-2-video-controller:0008bd64bca3cf32304ab7293617d71c">5.2 Video Controller</h3>
+<h3 id="5-2-video-controller:20fba17329d148d6311e836cc75b698f">5.2 Video Controller</h3>
 
 <p>The video controller acts as an I/O slave device by mapping control registers
 to I/O space; it also acts as a DMA master device fetching frames repeatedly
 from memory. Currently the video controller is running at a rate of 125MHz,
 meaning a maximum of 960p video output is supported.</p>
 
-<h4 id="5-2-1-control-registers:0008bd64bca3cf32304ab7293617d71c">5.2.1 Control Registers</h4>
+<h4 id="5-2-1-control-registers:20fba17329d148d6311e836cc75b698f">5.2.1 Control Registers</h4>
 
 <p>The video controller exposes an AXI-lite interface for communication with the
 rocket core. The address space of memory mapped control registers is 4096
 Bytes, and each register is 32-bits. Therefore we have access to 1024 possible
 registers. Currently only 18 of them are used.</p>
 
-<h4 id="5-2-2-driver:0008bd64bca3cf32304ab7293617d71c">5.2.2 Driver</h4>
+<h4 id="5-2-2-driver:20fba17329d148d6311e836cc75b698f">5.2.2 Driver</h4>
 
 <p>To interact with the video driver in bare metal, you need to manipulate the
 above registers by yourself. A helper header <em>video.h</em> is provided with macro
@@ -330,7 +330,7 @@ device.</p>
 
 <hr />
 
-<h2 id="6-mpeg-2-decode-implementation:0008bd64bca3cf32304ab7293617d71c">6. MPEG-2 Decode Implementation</h2>
+<h2 id="6-mpeg-2-decode-implementation:20fba17329d148d6311e836cc75b698f">6. MPEG-2 Decode Implementation</h2>
 
 <p>As mentioned in section 4.3, we used the MPEG-2 implementation distributed on
 <a href="http://www.mpeg.org/MPEG/video/mssg-free-mpeg-software.html">mpeg.org</a> as the
@@ -341,7 +341,7 @@ modifying the library to allow outputting to the frame-buffer described in the
 previous section, rather than a file. Since the frame-buffer required raw RGB
 values, the basis of our function was the PPM output function.</p>
 
-<h3 id="6-1-profiling:0008bd64bca3cf32304ab7293617d71c">6.1 Profiling</h3>
+<h3 id="6-1-profiling:20fba17329d148d6311e836cc75b698f">6.1 Profiling</h3>
 
 <p>To identify useful opportunities for acceleration, we performed profiling of
 the reference implementation using <a href="https://sourceware.org/binutils/docs/gprof/">GNU
@@ -372,12 +372,12 @@ which explains why it takes longer than the surrounding calls.</p>
 
 <hr />
 
-<h2 id="7-infrastructure-for-accelerators:0008bd64bca3cf32304ab7293617d71c">7. Infrastructure for Accelerators</h2>
+<h2 id="7-infrastructure-for-accelerators:20fba17329d148d6311e836cc75b698f">7. Infrastructure for Accelerators</h2>
 
 <p>In this section, we will cover the infrastructure of our General Purpose
 Stream Pipelined Accelerator (SPA).</p>
 
-<h3 id="7-1-concept:0008bd64bca3cf32304ab7293617d71c">7.1 Concept</h3>
+<h3 id="7-1-concept:20fba17329d148d6311e836cc75b698f">7.1 Concept</h3>
 
 <p>Over the course of development the design has evolved. We started with a much
 more specialised video accelerator, but have ultimately arrived at a more
@@ -395,7 +395,7 @@ communication with the accelerators, but uses packet concept in AXI4-Stream as
 the boundary between data. The infrastructure is only responsible for packet
 routing and data moving.</p>
 
-<h3 id="7-2-architecture:0008bd64bca3cf32304ab7293617d71c">7.2 Architecture</h3>
+<h3 id="7-2-architecture:20fba17329d148d6311e836cc75b698f">7.2 Architecture</h3>
 
 <p><img src="../accelerator_arch.png" style="width: 500px"/></p>
 
@@ -420,7 +420,7 @@ adapting this design, stream processors can be piped to another, as long as
 <code>T_DEST</code> is correctly set. We also benefit from standardized interface by
 embracing AXI4-Stream specification.</p>
 
-<h3 id="7-3-scatter-gather:0008bd64bca3cf32304ab7293617d71c">7.3 Scatter-Gather</h3>
+<h3 id="7-3-scatter-gather:20fba17329d148d6311e836cc75b698f">7.3 Scatter-Gather</h3>
 
 <p>During development, we&rsquo;ve found that we need scatter-gather support to speed
 things up. Due to existence of the MMU, we can only guarantee physical address
@@ -429,7 +429,7 @@ accelerator. We address this issue by adding scatter-gather support to the
 data movers, and use a last bit in the every data move command to identify if
 this command is the last one in the packet.</p>
 
-<h3 id="7-4-accelerator-instruction:0008bd64bca3cf32304ab7293617d71c">7.4 Accelerator Instruction</h3>
+<h3 id="7-4-accelerator-instruction:20fba17329d148d6311e836cc75b698f">7.4 Accelerator Instruction</h3>
 
 <p>The accelerator has two FIFOs: input command FIFO and output command FIFO. The
 first one controls the data mover moving data into the accelerator and the
@@ -475,11 +475,11 @@ memory.</p>
 <p>The last field is the critical field for scatter-gather support: A stream is
 terminated if last is set to high.</p>
 
-<h3 id="7-5-driver:0008bd64bca3cf32304ab7293617d71c">7.5 Driver</h3>
+<h3 id="7-5-driver:20fba17329d148d6311e836cc75b698f">7.5 Driver</h3>
 
 <p>Currently two drivers are provided, one for bare metal and one for Linux.</p>
 
-<h4 id="7-5-1-bare-metal-driver:0008bd64bca3cf32304ab7293617d71c">7.5.1 Bare-metal Driver</h4>
+<h4 id="7-5-1-bare-metal-driver:20fba17329d148d6311e836cc75b698f">7.5.1 Bare-metal Driver</h4>
 
 <p>This is a very basic driver provided without scatter-gather support. In bare
 metal without MMU enabled, blocks are physically contiguous so scatter-gather
@@ -495,7 +495,7 @@ void videox_wait();
 void* fast_memcpy(void* dest, void* src, size_t size);
 </code></pre>
 
-<h4 id="7-5-2-linux-driver:0008bd64bca3cf32304ab7293617d71c">7.5.2 Linux Driver</h4>
+<h4 id="7-5-2-linux-driver:20fba17329d148d6311e836cc75b698f">7.5.2 Linux Driver</h4>
 
 <p>The driver registers a miscellaneous device. The device file only support one
 operation, which is ioctl. Within a driver, a queue is maintained internally,
@@ -526,7 +526,7 @@ whether the command is finished.</p>
 
 <hr />
 
-<h2 id="8-accelerators:0008bd64bca3cf32304ab7293617d71c">8. Accelerators</h2>
+<h2 id="8-accelerators:20fba17329d148d6311e836cc75b698f">8. Accelerators</h2>
 
 <p>In the final design, 3 special purpose accelerators were written for
 optimising tasks on the MPEG-2 decode process. These accelerators were for
@@ -535,7 +535,7 @@ Discrete-Cosine-Transform), Y&rsquo;UV 422 to Y&rsquo;UV 444 upsampling, and the
 conversion of Y&rsquo;UV 444 to RGB. Technical descriptions of these can be found in
 the following section.</p>
 
-<h3 id="8-1-dct-idct:0008bd64bca3cf32304ab7293617d71c">8.1 DCT/IDCT</h3>
+<h3 id="8-1-dct-idct:20fba17329d148d6311e836cc75b698f">8.1 DCT/IDCT</h3>
 
 <p>Similar to how we can represent numbers using digits, we can also represent
 functions with an equivalent of digits, basis functions. One particular way of
@@ -564,7 +564,7 @@ hardware as there is sufficient literature with regards to this task as well
 as the familiarity with these operations from our courses.
 Our design is as follows:</p>
 
-<h5 id="8-1-1-the-1d-row-column-units:0008bd64bca3cf32304ab7293617d71c">8.1.1 The 1D Row/Column units</h5>
+<h5 id="8-1-1-the-1d-row-column-units:20fba17329d148d6311e836cc75b698f">8.1.1 The 1D Row/Column units</h5>
 
 <p><img src="../8_point_dct.png"/></p>
 
@@ -647,7 +647,7 @@ truncation</p>
 we may wish to stall.</li>
 </ul>
 
-<h4 id="8-1-2-the-pipeline-for-2d-dct-idct:0008bd64bca3cf32304ab7293617d71c">8.1.2 The pipeline for 2D DCT/IDCT</h4>
+<h4 id="8-1-2-the-pipeline-for-2d-dct-idct:20fba17329d148d6311e836cc75b698f">8.1.2 The pipeline for 2D DCT/IDCT</h4>
 
 <p><img src="../2d_idct_pipe.png"></p>
 
@@ -727,7 +727,7 @@ truncation</p>
 <li>The <em><code>lock</code></em> signal is used to freeze the state of the unit in scenarios where we may wish to stall.</li>
 </ul>
 
-<h4 id="8-1-3-the-stream-processor-wrapper-for-dct-idct:0008bd64bca3cf32304ab7293617d71c">8.1.3 The stream processor wrapper for DCT/IDCT</h4>
+<h4 id="8-1-3-the-stream-processor-wrapper-for-dct-idct:20fba17329d148d6311e836cc75b698f">8.1.3 The stream processor wrapper for DCT/IDCT</h4>
 
 <p><img src="../stream_wrapper.png" style="width: 500px"/></p>
 
@@ -738,7 +738,7 @@ send the data of a row via the stream in $2$ cycles.  The choice was made as a
 trade-off  between requiring fewer cycles to load/store the data and having a
 big enough range of numbers to cover the target use scenarios.</p>
 
-<h3 id="8-2-idct-stream-processor:0008bd64bca3cf32304ab7293617d71c">8.2 IDCT Stream processor</h3>
+<h3 id="8-2-idct-stream-processor:20fba17329d148d6311e836cc75b698f">8.2 IDCT Stream processor</h3>
 
 <p>A second iteration of the IDCT processor was a pure stream processor that was
 made possible with the addition of the AXI-stream widener and narrower. In
@@ -792,7 +792,7 @@ will be denoted by a last signal.</p>
 zero rows required so that the output is guaranteed to form an integer number
 of $8\times8$ blocks.</p>
 
-<h3 id="8-3-y-uv-422-to-444:0008bd64bca3cf32304ab7293617d71c">8.3 Y&rsquo;UV 422 to 444</h3>
+<h3 id="8-3-y-uv-422-to-444:20fba17329d148d6311e836cc75b698f">8.3 Y&rsquo;UV 422 to 444</h3>
 
 <p>Chroma sub-sampling is a common compression technique in image encoding which
 implements less resolution for colour (UV) than for brightness (Y&rsquo;)
@@ -845,7 +845,7 @@ stage of the pipeline if the correct conditions are met.</p>
 
 <p>These guards are linked in such a way to allow the correct operation of the state machine.</p>
 
-<h3 id="8-4-y-uv444-to-rgb888:0008bd64bca3cf32304ab7293617d71c">8.4 Y&rsquo;UV444 to RGB888</h3>
+<h3 id="8-4-y-uv444-to-rgb888:20fba17329d148d6311e836cc75b698f">8.4 Y&rsquo;UV444 to RGB888</h3>
 
 <p>The final stage of decoding is to convert each pixel value from Y&rsquo;UV to RGB values, the standard for most monitors. The conversions between these is defined as follows:</p>
 
@@ -881,7 +881,7 @@ is the add stage, which computes the final RGB values by combining the
 $x$,$y$,$z$ values of the previous stage. Finally we perform the clamping and<br />
 outputting to <code>dst.t_data</code> in one stage.</p>
 
-<h3 id="8-5-rgb888-to-rgb565:0008bd64bca3cf32304ab7293617d71c">8.5 RGB888 to RGB565</h3>
+<h3 id="8-5-rgb888-to-rgb565:20fba17329d148d6311e836cc75b698f">8.5 RGB888 to RGB565</h3>
 
 <p>In order to reduce the memory requirement of frames, RGB values were encoded
 as 16-bit rather than 24-bit RGB. This was necessary due to the limited
@@ -904,7 +904,7 @@ manipulation is as follows:</p>
                              src.t_data[ 7: 3]}; // B
 </code></pre>
 
-<h3 id="8-6-saturation-and-mismatch-control:0008bd64bca3cf32304ab7293617d71c">8.6 Saturation and Mismatch Control</h3>
+<h3 id="8-6-saturation-and-mismatch-control:20fba17329d148d6311e836cc75b698f">8.6 Saturation and Mismatch Control</h3>
 
 <p>In MPEG-2, before feeding data into IDCT, clamping take place first to limit
 the value from -2048 to 2047. A parity correction took place as well to make
@@ -942,7 +942,7 @@ short *Block_Ptr;
 
 <hr />
 
-<h2 id="9-continuous-integration:0008bd64bca3cf32304ab7293617d71c">9. Continuous Integration</h2>
+<h2 id="9-continuous-integration:20fba17329d148d6311e836cc75b698f">9. Continuous Integration</h2>
 
 <p>Continuous integration is a development practice that requires programmers to
 integrate their code into a shared repository several times a day, with the
@@ -953,7 +953,7 @@ CI</a> continuous integration service and
 <a href="https://www.docker.com/">Docker</a>. We extended this with a linting step, and
 set up some independent FPGA based tests.</p>
 
-<h3 id="9-1-travis-and-linting:0008bd64bca3cf32304ab7293617d71c">9.1 Travis and Linting</h3>
+<h3 id="9-1-travis-and-linting:20fba17329d148d6311e836cc75b698f">9.1 Travis and Linting</h3>
 
 <p>Linting is the process of analysing source code to flag potential issues.
 During the build process, Verilator lints the input Verilog files and displays
@@ -963,7 +963,7 @@ regular expressions). This script is run during the automated testing, if
 there are any remaining warnings after it has run, the build is considered a
 failure.</p>
 
-<h3 id="9-2-synthesis-and-scripts:0008bd64bca3cf32304ab7293617d71c">9.2 Synthesis and Scripts</h3>
+<h3 id="9-2-synthesis-and-scripts:20fba17329d148d6311e836cc75b698f">9.2 Synthesis and Scripts</h3>
 
 <p>Travis CI is cloud based, which has many benefits, but a significant downside
 is that HDL code can only be tested via simulation. We found that several
@@ -978,9 +978,9 @@ later.</p>
 
 <hr />
 
-<h2 id="10-final-results:0008bd64bca3cf32304ab7293617d71c">10. Final Results</h2>
+<h2 id="10-final-results:20fba17329d148d6311e836cc75b698f">10. Final Results</h2>
 
-<h3 id="10-1-comparison-to-project-objectives:0008bd64bca3cf32304ab7293617d71c">10.1 Comparison to Project Objectives</h3>
+<h3 id="10-1-comparison-to-project-objectives:20fba17329d148d6311e836cc75b698f">10.1 Comparison to Project Objectives</h3>
 
 <p>A number of project objectives were described in section 4.2. In this section we will discuss each objective and whether it was met, and what could have been improved.</p>
 
@@ -1022,7 +1022,7 @@ and increasing the speed of the bus.</p>
 
 <p>These technical descriptions are included in this document.</p>
 
-<h3 id="10-2-comparison-of-video-with-and-without-acceleration:0008bd64bca3cf32304ab7293617d71c">10.2 Comparison of Video with and without Acceleration</h3>
+<h3 id="10-2-comparison-of-video-with-and-without-acceleration:20fba17329d148d6311e836cc75b698f">10.2 Comparison of Video with and without Acceleration</h3>
 
 <p>In order to compare the performance with and without acceleration, we
 introduced instrumentation into the codec before and after the functions for
@@ -1112,27 +1112,27 @@ over all frames in the video.</p>
 
 <p>As can be seen, hardware pipelining provided a significant speed-up over the unpipelined version. This further illustrates that, with our accelerators, the bottleneck to decoding is the speed memory can be accessed.</p>
 
-<h2 id="10-3-limitations-and-design-decisions:0008bd64bca3cf32304ab7293617d71c">10.3 Limitations and Design Decisions</h2>
+<h2 id="10-3-limitations-and-design-decisions:20fba17329d148d6311e836cc75b698f">10.3 Limitations and Design Decisions</h2>
 
-<h3 id="10-3-1-stream-processing:0008bd64bca3cf32304ab7293617d71c">10.3.1 Stream Processing</h3>
+<h3 id="10-3-1-stream-processing:20fba17329d148d6311e836cc75b698f">10.3.1 Stream Processing</h3>
 
 <p>Stream processing was a useful paradigm for acceleration of IDCT and simple interpolation, since it is very easy to simply stream the video data and have the processors work on it as it flows through. However the lack memory locations and lengths made it very difficult to perform certain tasks such as interpolation and converting Y&rsquo;UV 420 to Y&rsquo;UV 422 without a significant amount of buffering.</p>
 
-<h3 id="10-3-2-machine-instructions:0008bd64bca3cf32304ab7293617d71c">10.3.2 Machine Instructions</h3>
+<h3 id="10-3-2-machine-instructions:20fba17329d148d6311e836cc75b698f">10.3.2 Machine Instructions</h3>
 
 <p>An early discussion during the project was how best to accelerate the codec, by extending RISC-V with support for SIMD instructions, or by adding a memory mapped instruction buffer, placing our defined instructions into the buffer, and having the accelerator driver poll the size of the buffer for instructions in flight.</p>
 
 <p>Of these options, extending the instructions set with SIMD instructions was the most elegant and appealing options. However it was a little beyond the scope of our project, since we lacked the expertise and time to do it properly. We had a discussion about the possibility of using <a href="http://inst.eecs.berkeley.edu/~cs250/fa13/handouts/lab3-sumaccel.pdf">RoCC</a>, but decided to stick with a memory mapped accelerator for the simpleness and ability to support internally.</p>
 
-<h3 id="10-3-3-interrupts:0008bd64bca3cf32304ab7293617d71c">10.3.3 Interrupts</h3>
+<h3 id="10-3-3-interrupts:20fba17329d148d6311e836cc75b698f">10.3.3 Interrupts</h3>
 
 <p>As mentioned in an earlier section, the accelerator driver we implemented has no support for interrupts, and relies on polling for detecting when instructions are present or complete. As such the driver is less responsive than would be the ideal. In addition it is polling from user-space, which means each poll initialises a system call, taken a considerable number of cycles to complete.</p>
 
 <hr />
 
-<h2 id="11-future-work:0008bd64bca3cf32304ab7293617d71c">11. Future work</h2>
+<h2 id="11-future-work:20fba17329d148d6311e836cc75b698f">11. Future work</h2>
 
-<h3 id="11-1-memory:0008bd64bca3cf32304ab7293617d71c">11.1 Memory</h3>
+<h3 id="11-1-memory:20fba17329d148d6311e836cc75b698f">11.1 Memory</h3>
 
 <p>During development a deadlock condition arose when interacting with the L2
 cache. The exact cause of the deadlock proved to be difficult to reproduce
@@ -1151,11 +1151,11 @@ this reflects the issue we encountered, and look to integrate these updates
 into the lowRISC repository. If not, more work must be done to further isolate
 the issue.</p>
 
-<h3 id="11-2-driver-scatter-gather-support:0008bd64bca3cf32304ab7293617d71c">11.2 Driver Scatter-Gather Support</h3>
+<h3 id="11-2-driver-scatter-gather-support:20fba17329d148d6311e836cc75b698f">11.2 Driver Scatter-Gather Support</h3>
 
 <p>Currently the linux driver has support for scatter-gather instructions in physical memory, which is contiguous within user-space. A future extension would be to introduce full scatter-gather support - that is including the case where information is not contiguous within user space.</p>
 
-<h3 id="11-3-y-uv-420-to-422-and-interpolation:0008bd64bca3cf32304ab7293617d71c">11.3 Y&rsquo;UV 420 to 422 and Interpolation</h3>
+<h3 id="11-3-y-uv-420-to-422-and-interpolation:20fba17329d148d6311e836cc75b698f">11.3 Y&rsquo;UV 420 to 422 and Interpolation</h3>
 
 <p>The infrastructure we developed used the AXI-Stream bus protocol. This made it
 very easy to accelerate our streams of data, such as the data for a frame.
@@ -1193,7 +1193,7 @@ yuv444[w * ((2 * j) + 1)] = clamp(( 3 * yuv422[w * (j-3)]
                                 + 128) &gt;&gt; 8);
 </code></pre>
 
-<h3 id="11-4-other-accelerators:0008bd64bca3cf32304ab7293617d71c">11.4 Other Accelerators</h3>
+<h3 id="11-4-other-accelerators:20fba17329d148d6311e836cc75b698f">11.4 Other Accelerators</h3>
 
 <p>The infrastructure we have created is usable for the acceleration of many
 other tasks. Any task which is amenable to stream processing can be
@@ -1202,7 +1202,7 @@ coding, or context-adaptive variable-length coding (used in MPEG-4). The
 method for adding an accelerator of this kind is described in the tutorial
 describing adding an accelerator to the video accelerator.</p>
 
-<h3 id="11-5-increased-cpu-speed:0008bd64bca3cf32304ab7293617d71c">11.5 Increased CPU Speed</h3>
+<h3 id="11-5-increased-cpu-speed:20fba17329d148d6311e836cc75b698f">11.5 Increased CPU Speed</h3>
 
 <p>Currently, lowRISC needs to be run at a clock rate of 25 MHz or less due to
 the FPU. We intentionally designed our system to avoid using any floating
@@ -1217,7 +1217,7 @@ clock rate to 50 MHz.</p>
 
 <hr />
 
-<h2 id="references:0008bd64bca3cf32304ab7293617d71c">References</h2>
+<h2 id="references:20fba17329d148d6311e836cc75b698f">References</h2>
 
 <p>[1] Loeffler  C.,  Lightenberg  A.,  Moschytz G.  S., <strong>Practical  fast  1–D  DCT  algorithms  with  11  Multiplications</strong>,  Proceedings  of  the  International  Conference  on  Acoustics,  Speech  and  Signal Processing (ICASSP’89), 1989. – P. 988–991.</p>
 

@@ -85,7 +85,7 @@
 
 <p>(01-2018)</p>
 
-<h2 id="1-introduction:d680e8a854a7cbad6d490c445cba2eba">1. Introduction</h2>
+<h2 id="1-introduction:ccc16218c504353a59a6af4d5ea24c26">1. Introduction</h2>
 
 <p>Rocket-Chip is a SoC generator <a href="#Asanovic2016">[1]</a> initially developed by UC Berkeley and now mostly maintained by SiFive.
 The SoC can be configured with a single or multiple processor cores,
@@ -128,7 +128,7 @@ but do need special extension towards the Diplomacy package.</p>
 <li>Provide the internal information of the extension done by lowRISC to support the external SV AXI buses.</li>
 </ul>
 
-<h2 id="2-background-information:d680e8a854a7cbad6d490c445cba2eba">2. Background Information</h2>
+<h2 id="2-background-information:ccc16218c504353a59a6af4d5ea24c26">2. Background Information</h2>
 
 <p>It is probably unfeasible to write a single piece of document describing all related information.
 There are some good sources which serve as foreknowledge before any endeavour to read this document.</p>
@@ -148,7 +148,7 @@ The tutorial of the latest release from lowRISC. The difference between lowRISC 
 An unfinished but detailed note on the source code of the Rocket-Chip implementation.</li>
 </ul>
 
-<h2 id="3-extra-information-about-the-diplomacy-package:d680e8a854a7cbad6d490c445cba2eba">3. Extra Information About the Diplomacy Package</h2>
+<h2 id="3-extra-information-about-the-diplomacy-package:ccc16218c504353a59a6af4d5ea24c26">3. Extra Information About the Diplomacy Package</h2>
 
 <p>Assuming you have read <a href="#TileLink">[2]</a>, <a href="#Cook2017">[3]</a>,
 here is a quote from <a href="#Cook2017">[3]</a> which summarises Diplomacy pretty well:</p>
@@ -163,7 +163,7 @@ Diplomacy enables them to specialize themselves based on knowledge about the cap
 included in a particular system.</p>
 </blockquote>
 
-<h3 id="3-1-diplomacy-supports-directed-acyclic-graphs:d680e8a854a7cbad6d490c445cba2eba">3.1 Diplomacy supports directed acyclic graphs</h3>
+<h3 id="3-1-diplomacy-supports-directed-acyclic-graphs:ccc16218c504353a59a6af4d5ea24c26">3.1 Diplomacy supports directed acyclic graphs</h3>
 
 <p>Now let us dive into some details. Figure <a href="#figure-1">1</a> is a simple TileLink interconnect depicted as Figure 2.2 in <a href="#TileLink">[2]</a>.
 Every hardware component (the white outer block) connected to the TileLink interconnect contains one or more TileLink <em>agents</em>.
@@ -199,7 +199,7 @@ This is how the Diplomacy package is extended for the shared SV AXI bus in lowRI
 
 <p><a name="diplomacy-node"></a></p>
 
-<h3 id="3-2-a-rough-description-of-the-implementation-of-a-node:d680e8a854a7cbad6d490c445cba2eba">3.2 A rough description of the implementation of a <em>Node</em></h3>
+<h3 id="3-2-a-rough-description-of-the-implementation-of-a-node:ccc16218c504353a59a6af4d5ea24c26">3.2 A rough description of the implementation of a <em>Node</em></h3>
 
 <p>In the Chisel implementation of the Diplomacy package, an <em>agent</em> is an object derived from a class named a <em>Node</em>.
 Here shows the inheritance relationship of all <em>agents</em> in Figure <a href="#figure-1">1</a>.
@@ -333,7 +333,7 @@ To be specific, the lazy value resolving process may directly call the value of 
 When this tuple is fully resolved, indicating the parameter pushing and negotiation is finalised, the port connections <code>oPorts</code> and corresponding parameters <code>oParams</code> are resolved.
 Finally, the IO bundle <code>bundleOut</code> is generated, which denotes the starting point of the actual hardware generation.</p>
 
-<h3 id="3-3-cake-pattern:d680e8a854a7cbad6d490c445cba2eba">3.3 Cake pattern</h3>
+<h3 id="3-3-cake-pattern:ccc16218c504353a59a6af4d5ea24c26">3.3 Cake pattern</h3>
 
 <p>The so called &lsquo;cake pattern&rsquo; is the preferred way of extending the Rocket-Chip generator.</p>
 
@@ -425,7 +425,7 @@ Since the variable <code>outer</code> always points to the associated <code>Lazy
 this trait also constrains the associated <code>LazyModule</code> to be a derived type of <code>HasMasterAXI4MemPort</code>.</p></li>
 </ul>
 
-<h2 id="4-lowrisc-extension-to-support-an-external-systemverilog-axi-bus:d680e8a854a7cbad6d490c445cba2eba">4. lowRISC extension to support an external SystemVerilog AXI bus</h2>
+<h2 id="4-lowrisc-extension-to-support-an-external-systemverilog-axi-bus:ccc16218c504353a59a6af4d5ea24c26">4. lowRISC extension to support an external SystemVerilog AXI bus</h2>
 
 <p>The original Diplomacy package provided by the Rocket-Chip is lack of some important features which are necessary for the lowRISC SoC.
 Here Figure <a href="#figure-2">2</a> <a href="#lowRISC-v0.4">[4]</a> shows the internal structure of the lowRISC SoC.
@@ -524,7 +524,7 @@ the <code>WithUART</code> trait add the a virtual node on the virtual network de
 Inside the <code>WithUART</code> trait, the address space of the UART is defined at 0x41002000-0x41004000 with R/W permissions (by default).
 It also describes the device as a Xilins UART16550 compatible device with one interrupt line.</p>
 
-<h3 id="references:d680e8a854a7cbad6d490c445cba2eba">References</h3>
+<h3 id="references:ccc16218c504353a59a6af4d5ea24c26">References</h3>
 
 <!-- References --> 
 

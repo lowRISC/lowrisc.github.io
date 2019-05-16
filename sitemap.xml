@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2018/11/lowrisc-0-6-milestone-release</loc>
+    <loc>https://www.lowrisc.org/blog/</loc>
+    <lastmod>2018-11-12T09:50:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/</loc>
+    <lastmod>2018-11-12T09:50:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/blog/2018/11/lowrisc-0-6-milestone-release/</loc>
     <lastmod>2018-11-12T09:50:00+00:00</lastmod>
   </url>
   
@@ -27,12 +40,12 @@
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2018/05/barcelona-risc-v-workshop-day-two</loc>
+    <loc>https://www.lowrisc.org/blog/2018/05/barcelona-risc-v-workshop-day-two/</loc>
     <lastmod>2018-05-09T07:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2018/05/barcelona-risc-v-workshop-day-one</loc>
+    <loc>https://www.lowrisc.org/blog/2018/05/barcelona-risc-v-workshop-day-one/</loc>
     <lastmod>2018-05-08T07:00:00+00:00</lastmod>
   </url>
   
@@ -47,7 +60,7 @@
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2018/01/lowrisc-0-5-milestone-release</loc>
+    <loc>https://www.lowrisc.org/blog/2018/01/lowrisc-0-5-milestone-release/</loc>
     <lastmod>2018-01-12T14:45:57+00:00</lastmod>
   </url>
   
@@ -137,12 +150,12 @@
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2017/11/seventh-risc-v-workshop-day-two</loc>
+    <loc>https://www.lowrisc.org/blog/2017/11/seventh-risc-v-workshop-day-two/</loc>
     <lastmod>2017-11-29T15:16:45+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2017/11/seventh-risc-v-workshop-day-one</loc>
+    <loc>https://www.lowrisc.org/blog/2017/11/seventh-risc-v-workshop-day-one/</loc>
     <lastmod>2017-11-28T15:16:45+00:00</lastmod>
   </url>
   
@@ -152,7 +165,7 @@
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2017/10/gsoc-2017-student-report-core-lockstep-for-minion-cores</loc>
+    <loc>https://www.lowrisc.org/blog/2017/10/gsoc-2017-student-report-core-lockstep-for-minion-cores/</loc>
     <lastmod>2017-10-05T19:45:00+00:00</lastmod>
   </url>
   
@@ -162,7 +175,7 @@
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2017/09/moving-risc-v-llvm-forwards</loc>
+    <loc>https://www.lowrisc.org/blog/2017/09/moving-risc-v-llvm-forwards/</loc>
     <lastmod>2017-09-27T17:00:00+00:00</lastmod>
   </url>
   
@@ -172,12 +185,12 @@
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2017/09/lowrisc-tagged-memory-os-enablement</loc>
+    <loc>https://www.lowrisc.org/blog/2017/09/lowrisc-tagged-memory-os-enablement/</loc>
     <lastmod>2017-09-19T14:45:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2017/09/were-hiring-work-on-making-open-source-hardware-a-reality</loc>
+    <loc>https://www.lowrisc.org/blog/2017/09/were-hiring-work-on-making-open-source-hardware-a-reality/</loc>
     <lastmod>2017-09-18T08:15:00+00:00</lastmod>
   </url>
   
@@ -187,12 +200,12 @@
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2017/09/building-upstream-risc-v-gccbinutilsnewlib-the-quick-and-dirty-way</loc>
+    <loc>https://www.lowrisc.org/blog/2017/09/building-upstream-risc-v-gccbinutilsnewlib-the-quick-and-dirty-way/</loc>
     <lastmod>2017-09-05T14:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2017/06/lowrisc-0-4-milestone-release</loc>
+    <loc>https://www.lowrisc.org/blog/2017/06/lowrisc-0-4-milestone-release/</loc>
     <lastmod>2017-06-09T12:35:57+00:00</lastmod>
   </url>
   
@@ -252,7 +265,7 @@
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2017/03/apply-now-for-gsoc-2017</loc>
+    <loc>https://www.lowrisc.org/blog/2017/03/apply-now-for-gsoc-2017/</loc>
     <lastmod>2017-03-27T09:35:57+00:00</lastmod>
   </url>
   
@@ -267,27 +280,27 @@
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2017/02/2017-netfpga-design-challenge</loc>
+    <loc>https://www.lowrisc.org/blog/2017/02/2017-netfpga-design-challenge/</loc>
     <lastmod>2017-02-01T14:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2016/12/lowrisc-qa</loc>
+    <loc>https://www.lowrisc.org/blog/2016/12/lowrisc-qa/</loc>
     <lastmod>2016-12-09T17:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2016/11/fifth-risc-v-workshop-day-two</loc>
+    <loc>https://www.lowrisc.org/blog/2016/11/fifth-risc-v-workshop-day-two/</loc>
     <lastmod>2016-11-30T17:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2016/11/fifth-risc-v-workshop-day-one</loc>
+    <loc>https://www.lowrisc.org/blog/2016/11/fifth-risc-v-workshop-day-one/</loc>
     <lastmod>2016-11-29T15:10:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2016/10/generating-a-gantt-chart-from-hjson-input</loc>
+    <loc>https://www.lowrisc.org/blog/2016/10/generating-a-gantt-chart-from-hjson-input/</loc>
     <lastmod>2016-10-15T10:00:00+01:00</lastmod>
   </url>
   
@@ -312,12 +325,12 @@
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2016/07/lowriscimc-internship-second-update</loc>
+    <loc>https://www.lowrisc.org/blog/2016/07/lowriscimc-internship-second-update/</loc>
     <lastmod>2016-07-27T14:23:34+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2016/07/notes-from-the-fourth-risc-v-workshop</loc>
+    <loc>https://www.lowrisc.org/blog/2016/07/notes-from-the-fourth-risc-v-workshop/</loc>
     <lastmod>2016-07-14T16:08:07+01:00</lastmod>
   </url>
   
@@ -332,12 +345,12 @@
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2016/07/lowrisc-/-imc-internship-week-one---vga-output</loc>
+    <loc>https://www.lowrisc.org/blog/2016/07/lowrisc-/-imc-internship-week-one-vga-output/</loc>
     <lastmod>2016-07-07T14:23:34+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2016/06/announcing-the-librecores-design-contest-and-orconf-2016</loc>
+    <loc>https://www.lowrisc.org/blog/2016/06/announcing-the-librecores-design-contest-and-orconf-2016/</loc>
     <lastmod>2016-06-28T15:39:34+01:00</lastmod>
   </url>
   
@@ -347,7 +360,7 @@
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2016/06/lowriscs-2016-google-summer-of-code-students</loc>
+    <loc>https://www.lowrisc.org/blog/2016/06/lowriscs-2016-google-summer-of-code-students/</loc>
     <lastmod>2016-06-03T12:12:49+01:00</lastmod>
   </url>
   
@@ -417,7 +430,7 @@
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2016/03/apply-now-to-work-with-lowrisc-in-google-summer-of-code</loc>
+    <loc>https://www.lowrisc.org/blog/2016/03/apply-now-to-work-with-lowrisc-in-google-summer-of-code/</loc>
     <lastmod>2016-03-20T20:35:57+00:00</lastmod>
   </url>
   
@@ -432,17 +445,17 @@
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2016/01/third-risc-v-workshop-day-two</loc>
+    <loc>https://www.lowrisc.org/blog/2016/01/third-risc-v-workshop-day-two/</loc>
     <lastmod>2016-01-06T17:05:57+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2016/01/third-risc-v-workshop-day-one</loc>
+    <loc>https://www.lowrisc.org/blog/2016/01/third-risc-v-workshop-day-one/</loc>
     <lastmod>2016-01-05T17:35:57+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2015/12/untethered-lowrisc-release</loc>
+    <loc>https://www.lowrisc.org/blog/2015/12/untethered-lowrisc-release/</loc>
     <lastmod>2015-12-18T10:30:00+00:00</lastmod>
   </url>
   
@@ -542,22 +555,22 @@
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2015/08/lowrisc-at-orconf-2015</loc>
+    <loc>https://www.lowrisc.org/blog/2015/08/lowrisc-at-orconf-2015/</loc>
     <lastmod>2015-08-16T10:51:14+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2015/06/second-risc-v-workshop-day-two</loc>
+    <loc>https://www.lowrisc.org/blog/2015/06/second-risc-v-workshop-day-two/</loc>
     <lastmod>2015-06-30T17:00:45+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2015/06/second-risc-v-workshop-day-one</loc>
+    <loc>https://www.lowrisc.org/blog/2015/06/second-risc-v-workshop-day-one/</loc>
     <lastmod>2015-06-29T17:02:57+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2015/05/summer-of-code-students-for-lowrisc</loc>
+    <loc>https://www.lowrisc.org/blog/2015/05/summer-of-code-students-for-lowrisc/</loc>
     <lastmod>2015-05-13T20:45:07+01:00</lastmod>
   </url>
   
@@ -602,7 +615,7 @@
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2015/04/lowrisc-tagged-memory-preview-release</loc>
+    <loc>https://www.lowrisc.org/blog/2015/04/lowrisc-tagged-memory-preview-release/</loc>
     <lastmod>2015-04-13T22:28:10+00:00</lastmod>
   </url>
   
@@ -718,41 +731,31 @@
   
   <url>
     <loc>https://www.lowrisc.org/docs/configuring-build-root/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://www.lowrisc.org/docs/docker-tools-build/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://www.lowrisc.org/docs/download-the-code/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://www.lowrisc.org/docs/generate-the-bitstream/</loc>
-  </url>
-  
-  <url>
-    <loc>https://www.lowrisc.org/blog/</loc>
-    <lastmod>2018-11-12T09:50:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/docs/</loc>
-    <lastmod>2018-09-14T13:26:41+01:00</lastmod>
+    <loc>https://www.lowrisc.org/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/llvm/</loc>
-    <lastmod>2018-10-11T14:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.lowrisc.org/</loc>
-    <lastmod>2018-11-12T09:50:00+00:00</lastmod>
+    <loc>https://www.lowrisc.org/tags/</loc>
     <priority>0</priority>
   </url>
   

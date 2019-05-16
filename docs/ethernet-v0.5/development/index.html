@@ -85,9 +85,9 @@
                     <section>
                         
 
-<h3 id="generate-the-bitstream:c51f1b783d6e6b3bc97ce5906e9605d3">Generate the bitstream</h3>
+<h3 id="generate-the-bitstream:63e4d7c38a403be6b884c904a2751f72">Generate the bitstream</h3>
 
-<h4 id="fpga-demo-with-ethernet-default-bootloader:c51f1b783d6e6b3bc97ce5906e9605d3">FPGA demo with Ethernet (default bootloader)</h4>
+<h4 id="fpga-demo-with-ethernet-default-bootloader:63e4d7c38a403be6b884c904a2751f72">FPGA demo with Ethernet (default bootloader)</h4>
 
 <pre><code>cd $TOP/fpga/board/nexys4_ddr
 make cleanall
@@ -97,7 +97,7 @@ make bitstream
 <p>The generated bitstream is located at <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code>.
 This will take some time (20-60 minutes depending on your computer).</p>
 
-<h3 id="program-the-bootloader-on-fpga:c51f1b783d6e6b3bc97ce5906e9605d3">Program the bootloader on FPGA</h3>
+<h3 id="program-the-bootloader-on-fpga:63e4d7c38a403be6b884c904a2751f72">Program the bootloader on FPGA</h3>
 
 <p>Next, turn on the FPGA board and connect the USB cable. Now you
 download the bitstream to the quad-SPI on the FPGA board:</p>
@@ -108,12 +108,12 @@ make program-cfgmem
 
 <p>At this point, you should check the MODE jumper is in QSPI mode and then press the PROG button.</p>
 
-<h3 id="boot-linux-remotely-on-fpga:c51f1b783d6e6b3bc97ce5906e9605d3">Boot Linux remotely on FPGA</h3>
+<h3 id="boot-linux-remotely-on-fpga:63e4d7c38a403be6b884c904a2751f72">Boot Linux remotely on FPGA</h3>
 
 <pre><code>make etherboot
 </code></pre>
 
-<h4 id="fpga-demo-with-ethernet-alternative-boot-programs:c51f1b783d6e6b3bc97ce5906e9605d3">FPGA demo with Ethernet (alternative boot programs)</h4>
+<h4 id="fpga-demo-with-ethernet-alternative-boot-programs:63e4d7c38a403be6b884c904a2751f72">FPGA demo with Ethernet (alternative boot programs)</h4>
 
 <pre><code>cd $TOP/fpga/board/nexys4_ddr
 make cleanall
@@ -123,7 +123,7 @@ make target (where target is eth, selftest, dram, hello etc.)
 <p>The generated bitstream is located at <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code>.
 This will take some time (20-60 minutes depending on your computer).</p>
 
-<h3 id="program-the-alternative-boot-programs-on-fpga:c51f1b783d6e6b3bc97ce5906e9605d3">Program the alternative boot programs on FPGA</h3>
+<h3 id="program-the-alternative-boot-programs-on-fpga:63e4d7c38a403be6b884c904a2751f72">Program the alternative boot programs on FPGA</h3>
 
 <p>Next, turn on the FPGA board and connect the USB cable. Now you
 download the bitstream to the quad-SPI on the FPGA board:</p>
@@ -132,7 +132,7 @@ download the bitstream to the quad-SPI on the FPGA board:</p>
 make program-cfgmem-updated
 </code></pre>
 
-<h3 id="build-linux-and-early-stage-root-filing-system:c51f1b783d6e6b3bc97ce5906e9605d3">Build Linux and early stage root filing system</h3>
+<h3 id="build-linux-and-early-stage-root-filing-system:63e4d7c38a403be6b884c904a2751f72">Build Linux and early stage root filing system</h3>
 
 <pre><code>make verilog (automatically included if make bitstream is done above)
 
@@ -149,7 +149,7 @@ If you like to generate a kernel image without a bitstream, run the following to
 CONFIG=Nexys4Config make verilog
 </code></pre>
 
-<h3 id="build-riscv-poky:c51f1b783d6e6b3bc97ce5906e9605d3">Build riscv-poky</h3>
+<h3 id="build-riscv-poky:63e4d7c38a403be6b884c904a2751f72">Build riscv-poky</h3>
 
 <pre><code>cd $TOP/ricv-poky
 source oe-init-build-env
@@ -158,25 +158,25 @@ bitbake core-image-riscv
 
 <p>This scripting system generates a huge set of downloads, all of which are built from source. This can take half or day on a fast connection and consumes 26GBytes or so of disk space. For these reasons, unless there is a need to modify the installed packages, the user who wishes to quick start might prefer to download the prebuild image. The source code is similar to the standard riscv-poky but with some customisation of device names and configuration.</p>
 
-<h2 id="useful-makefile-targets:c51f1b783d6e6b3bc97ce5906e9605d3">Useful Makefile targets</h2>
+<h2 id="useful-makefile-targets:63e4d7c38a403be6b884c904a2751f72">Useful Makefile targets</h2>
 
-<h4 id="make-project:c51f1b783d6e6b3bc97ce5906e9605d3"><code>make project</code></h4>
+<h4 id="make-project:63e4d7c38a403be6b884c904a2751f72"><code>make project</code></h4>
 
 <p>Generate a Vivado project.</p>
 
-<h4 id="make-verilog:c51f1b783d6e6b3bc97ce5906e9605d3"><code>make verilog</code></h4>
+<h4 id="make-verilog:63e4d7c38a403be6b884c904a2751f72"><code>make verilog</code></h4>
 
 <p>Run Chisel compiler and generate the Verilog files for Rocket chip.</p>
 
-<h4 id="make-vivado:c51f1b783d6e6b3bc97ce5906e9605d3"><code>make vivado</code></h4>
+<h4 id="make-vivado:63e4d7c38a403be6b884c904a2751f72"><code>make vivado</code></h4>
 
 <p>Open the Vivado GUI using the current project.</p>
 
-<h4 id="make-bitstream:c51f1b783d6e6b3bc97ce5906e9605d3"><code>make bitstream</code></h4>
+<h4 id="make-bitstream:63e4d7c38a403be6b884c904a2751f72"><code>make bitstream</code></h4>
 
 <p>Generate the default bitstream according to the <code>CONFIG</code> in Makefile and the program loaded in <code>src/boot.mem</code>. The default bitstream is generated at <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code></p>
 
-<h4 id="make-hello-dram-sdcard-boot-jump-trace-flash:c51f1b783d6e6b3bc97ce5906e9605d3"><code>make &lt;hello|dram|sdcard|boot|jump|trace|flash&gt;</code></h4>
+<h4 id="make-hello-dram-sdcard-boot-jump-trace-flash:63e4d7c38a403be6b884c904a2751f72"><code>make &lt;hello|dram|sdcard|boot|jump|trace|flash&gt;</code></h4>
 
 <p>Generate bitstreams for bare-metal tests:</p>
 
@@ -196,28 +196,28 @@ file and copied to <code>src/boot.mem</code>, which then changes the default pro
 <code>make bitstream</code> and <code>make simulation</code>. The updated bitstream is generated at
 <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code></p>
 
-<h4 id="make-program-program-updated:c51f1b783d6e6b3bc97ce5906e9605d3"><code>make &lt;program|program-updated&gt;</code></h4>
+<h4 id="make-program-program-updated:63e4d7c38a403be6b884c904a2751f72"><code>make &lt;program|program-updated&gt;</code></h4>
 
 <p>Download a bitstream to FPGA. Use <code>program</code> for
 <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code> and
 <code>program-updated</code> for
 <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code></p>
 
-<h4 id="make-cfgmem-cfgmem-updated:c51f1b783d6e6b3bc97ce5906e9605d3"><code>make &lt;cfgmem|cfgmem-updated&gt;</code></h4>
+<h4 id="make-cfgmem-cfgmem-updated:63e4d7c38a403be6b884c904a2751f72"><code>make &lt;cfgmem|cfgmem-updated&gt;</code></h4>
 
 <p>Convert a bitstream to the format suitable for quad-SPI flash on the FPGA board. Use <code>cfgmem</code> for
 <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code> and
 <code>cfgmem-updated</code> for
 <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code></p>
 
-<h4 id="make-program-cfgmem-program-cfgmem-updated:c51f1b783d6e6b3bc97ce5906e9605d3"><code>make &lt;program-cfgmem|program-cfgmem-updated&gt;</code></h4>
+<h4 id="make-program-cfgmem-program-cfgmem-updated:63e4d7c38a403be6b884c904a2751f72"><code>make &lt;program-cfgmem|program-cfgmem-updated&gt;</code></h4>
 
 <p>Download a bitstream to quad-SPI flash on the FPGA board. Use <code>program-cfgmem</code> for
 <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code> and
 <code>program-cfgmem-updated</code> for
 <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code></p>
 
-<h4 id="make-clean-cleanall:c51f1b783d6e6b3bc97ce5906e9605d3"><code>make &lt;clean|cleanall&gt;</code></h4>
+<h4 id="make-clean-cleanall:63e4d7c38a403be6b884c904a2751f72"><code>make &lt;clean|cleanall&gt;</code></h4>
 
 <p><code>make clean</code> will remove all generated code without removing the Vivado
 project files. To remove all files including the Vivado project, use <code>make 

@@ -149,7 +149,7 @@ make run-vpd
 program is compiled according to the instructions at the beginning of <a href="/docs/tagged-memory-v0.1/spike/">this
 document</a>):</p>
 
-<h3 id="bare-metal-mode:11cce0584e53f34ef8f2f9d832f5cf58">Bare metal mode</h3>
+<h3 id="bare-metal-mode:b5713fcc8b58b3addefa396148fa9f78">Bare metal mode</h3>
 
 <p>Requirements: riscv-isa-sim, riscv-fesvr, riscv-gnu-toolchain</p>
 
@@ -173,7 +173,7 @@ vcd2vpd hello.vpd.vcd hello.vpd &gt; /dev/null &amp;
 
 <p>In the command line, +dramsim loads the dramsim library for modelling the DDRAM; +max-cycles defines the maximal cycles before an enforced stop; spike-dasm translates the instruction binary in the hello.out log file into human readable assembly codes.</p>
 
-<h3 id="with-proxy-kernel-and-newlib:11cce0584e53f34ef8f2f9d832f5cf58">With proxy kernel and newlib</h3>
+<h3 id="with-proxy-kernel-and-newlib:b5713fcc8b58b3addefa396148fa9f78">With proxy kernel and newlib</h3>
 
 <p>Requirements: riscv-isa-sim, riscv-fesvr, riscv-pk, riscv-gnu-toolchain</p>
 
@@ -196,7 +196,7 @@ vcd2vpd hello.vpd.vcd hello.vpd &gt; /dev/null &amp;
   3&gt;&amp;1 1&gt;&amp;2 2&gt;&amp;3 | spike-dasm  &gt; hello.out &amp;&amp; [ $PIPESTATUS -eq 0 ]
 </code></pre>
 
-<h3 id="with-a-full-linux-os:11cce0584e53f34ef8f2f9d832f5cf58">With a full Linux OS</h3>
+<h3 id="with-a-full-linux-os:b5713fcc8b58b3addefa396148fa9f78">With a full Linux OS</h3>
 
 <p>Requirements: riscv-isa-sim, riscv-fesvr, riscv-gcc, riscv-linux, root.bin</p>
 

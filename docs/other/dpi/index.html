@@ -96,22 +96,22 @@ A compact description of DPI in Verilator can be found <a href="http://www.verip
 
 <p>The following is a list of suggestons for using DPI in Verilator:</p>
 
-<h4 id="avoid-using-dpi-tasks:29d345a7278e739d32bc6d6ef4c1fa55">Avoid using DPI tasks</h4>
+<h4 id="avoid-using-dpi-tasks:02c6ea04a5875ad4e506e85dc4959b61">Avoid using DPI tasks</h4>
 
 <p>Verilator simulates synthesizable Verilog designs so the support of tasks is nearly non-existed. If a task does not incur delay, it is equivalent to a function and then it should be declared as a function. Furthermore, using a DPI task to access Verilog simulation events needs to access the Verilog scope, which is still problematic. So using DPI tasks should be totally avoided. Even using Verilog tasks in Verilator is not recommended.</p>
 
-<h4 id="avoid-accessing-verilog-variables-in-the-function-body:29d345a7278e739d32bc6d6ef4c1fa55">Avoid accessing Verilog variables in the function body</h4>
+<h4 id="avoid-accessing-verilog-variables-in-the-function-body:02c6ea04a5875ad4e506e85dc4959b61">Avoid accessing Verilog variables in the function body</h4>
 
 <p>Value transferring between Verilog and C/C++ should use the function argument list and the return value only. Also all arguments should be input rather than output or reference.
 Any extra accesses to Verilog variables inside the function body need to access the Verilog scope, which is still problematic and, therefore, should be avoided.</p>
 
 <p><em>Currently we have not found a stable method to initiate this Verilog scope in Verilator. If anyone knows how, please send an example to us, many thanks.</em></p>
 
-<h4 id="do-not-use-logic-reg-wire-but-bit:29d345a7278e739d32bc6d6ef4c1fa55">Do not use logic/reg/wire but bit</h4>
+<h4 id="do-not-use-logic-reg-wire-but-bit:02c6ea04a5875ad4e506e85dc4959b61">Do not use logic/reg/wire but bit</h4>
 
 <p>Verilator currently does not support 4-state values for DPI, so use 2-state values instead.</p>
 
-<h4 id="be-careful-with-impure-functions:29d345a7278e739d32bc6d6ef4c1fa55">Be careful with impure functions</h4>
+<h4 id="be-careful-with-impure-functions:02c6ea04a5875ad4e506e85dc4959b61">Be careful with impure functions</h4>
 
 <p>By default Verilator considers DPI functions as pure (no internal state and no side-effect) which allows Verilator to schedule functions freely.
 This may generated extra calls to DPI functions which are non-existed in other simulators.
@@ -119,7 +119,7 @@ Although the latest Verilator has changed this default behaviour but be prepared
 A walk-around is to add a flag argument to indicated whether a DPI call is actually needed.
 If the flag is unset, do not cause any side-effect on the C/C++ side (simply return).</p>
 
-<h4 id="dpi-function-working-as-tasks:29d345a7278e739d32bc6d6ef4c1fa55">DPI function working as tasks</h4>
+<h4 id="dpi-function-working-as-tasks:02c6ea04a5875ad4e506e85dc4959b61">DPI function working as tasks</h4>
 
 <p>The lack of support of tasks is not a huge issue. A DPI function can have its own internal static (or global) variables to record cycles (causing side-effect and this function is no longer pure). Then the Verilog process that calling this DPI function just needs to call the function in every cycle; therefore, the DPI function can track cycles and decide if there is any delay related operations.</p>
 

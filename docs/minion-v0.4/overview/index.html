@@ -105,7 +105,7 @@ and the new minion infrastructure.</p>
 <p><a name="figure-overview"></a>
 <img src="../figures/lowRISC_tag.png" alt="Drawing" style="width: 600px; padding: 20px 0px;"/></p>
 
-<h2 id="pre-defined-design-constraints:68f80267fa3a50980dbb745a782b8dca">Pre-defined Design constraints</h2>
+<h2 id="pre-defined-design-constraints:9b4d16a332b15f04be65fee55b4649ce">Pre-defined Design constraints</h2>
 
 <p>Our goal of supporting the same FPGA board as the previous release
 may only be realised with a single Minion, due to logic area constraints.
@@ -129,7 +129,7 @@ The enhanced system including processor takes approximately <sup>1</sup>&frasl;<
 operation of these cards are obscure. It is desirable to refer to older documents such as the MMC
 card specification for clarification of missing information.</p>
 
-<h2 id="overview-of-the-boot-process:68f80267fa3a50980dbb745a782b8dca">Overview of the boot process</h2>
+<h2 id="overview-of-the-boot-process:9b4d16a332b15f04be65fee55b4649ce">Overview of the boot process</h2>
 
 <p>To economise on silicon area, most systems nowadays make use of a large volatile off-chip memory,
 such as mobile double-data rate(DDR) dynamic memory, together with a small on-chip ROM. This concept
@@ -180,14 +180,14 @@ for more details consult the SD Group physical layer specification.</p>
 <p>Within each relevant command an elaborate data phase provides longitudinal CRC checking and error recovery.
 A future enhancement could add the intelligence for multi-block random access during booting.</p>
 
-<h2 id="boot-file-system:68f80267fa3a50980dbb745a782b8dca">Boot file system</h2>
+<h2 id="boot-file-system:9b4d16a332b15f04be65fee55b4649ce">Boot file system</h2>
 
 <p>The boot file system only supports a single DOS partition, which has to be partition 1. It does not support writing to the card. Most modern SD-cards out of the box will meet these requirements. Under Linux the available facilities are much more
 sophisticated, and a second ext2 partition with extended userland commands can happily coexist with this boot partition.</p>
 
 <p>FPGA boards, by their very nature, are noisy environments so it is desirable to be able to check the contents of the second stage boot loader after reading it from card. The builtin ROM can read an md5 text file and compare its contents with the calculated value on the second stage boot loader. The remaining task is to extract the ELF segments for the Berkley Boot Loader (BBL), and the kernel itself to their respective locations in memory, before the boot process proper can begin.</p>
 
-<h2 id="future-minion-developments:68f80267fa3a50980dbb745a782b8dca">Future minion developments</h2>
+<h2 id="future-minion-developments:9b4d16a332b15f04be65fee55b4649ce">Future minion developments</h2>
 
 <p>This release incorporates a &lsquo;minion&rsquo; core for the first time, but there is of
 course much more to be done. In the future, we want to integrate support for a

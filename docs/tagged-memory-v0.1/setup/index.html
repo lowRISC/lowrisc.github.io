@@ -85,7 +85,7 @@
                     <section>
                         
 
-<h3 id="file-structure-of-the-repository:2cc0b07f42930e4520820be1fe66f913">File structure of the repository</h3>
+<h3 id="file-structure-of-the-repository:4eb28af1617d895aef211f7e8adede06">File structure of the repository</h3>
 
 <p>Our tagged memory tutorial builds upon a forked version of the original Rocket
 chip repository. Its contents are described
@@ -126,7 +126,7 @@ compiling the rocket system.</li>
 <p>Note: load tag and store tag (<code>ltag</code> and <code>stag</code>) are not supported by
 the Spike simulator. We plan to release an update soon.</p>
 
-<h3 id="downloading-the-lowrisc-chip-repository:2cc0b07f42930e4520820be1fe66f913">Downloading the lowRISC chip repository</h3>
+<h3 id="downloading-the-lowrisc-chip-repository:4eb28af1617d895aef211f7e8adede06">Downloading the lowRISC chip repository</h3>
 
 <p>We recommend you work with a 64-bit Ubuntu (14.04 LTS) system with GNU
 GCC 4.8 installed. If necessary, create such a setup using VMware
@@ -155,7 +155,7 @@ to build the RISC-V tools:</p>
      openjdk-7-jre
 </code></pre>
 
-<h3 id="environment-variables:2cc0b07f42930e4520820be1fe66f913">Environment variables</h3>
+<h3 id="environment-variables:4eb28af1617d895aef211f7e8adede06">Environment variables</h3>
 
 <p>To setup the necessary environment variables use the setup script
 found at <code>lowrisc-chip/set_riscv_env.sh</code>:</p>
@@ -192,7 +192,7 @@ Waveforms of the lowRISC chip can be generated using the
 emulator in VCD format. <a href="http://gtkwave.sourceforge.net/">GTKWave</a> is
 a free tool that can be used to view these files.</p>
 
-<h3 id="building-the-risc-v-tools:2cc0b07f42930e4520820be1fe66f913">Building the RISC-V tools</h3>
+<h3 id="building-the-risc-v-tools:4eb28af1617d895aef211f7e8adede06">Building the RISC-V tools</h3>
 
 <p>To build the Spike simulator and the version of GCC required to produce
 code for use with the proxy kernel and newlib, run the following script:</p>
@@ -211,7 +211,7 @@ which riscv64-unknown-elf-gcc
 <p>The RISC-V GCC/Newlib Toolchain Installation Manual can be found
 <a href="https://github.com/riscv/riscv-tools#the-risc-v-gccnewlib-toolchain-installation-manual">here</a>.</p>
 
-<h3 id="building-gcc-for-risc-v:2cc0b07f42930e4520820be1fe66f913">Building GCC for RISC-V</h3>
+<h3 id="building-gcc-for-risc-v:4eb28af1617d895aef211f7e8adede06">Building GCC for RISC-V</h3>
 
 <p><code>riscv-gcc</code> is a compiler based on GNU GCC 4.6.1. This particular
 compiler version is required to compile the RISC-V Linux kernel and
@@ -234,7 +234,7 @@ make -j$(nproc) linux
 <pre><code>riscv-linux-gcc -v
 </code></pre>
 
-<h3 id="building-the-risc-v-linux-kernel:2cc0b07f42930e4520820be1fe66f913">Building the RISC-V Linux Kernel</h3>
+<h3 id="building-the-risc-v-linux-kernel:4eb28af1617d895aef211f7e8adede06">Building the RISC-V Linux Kernel</h3>
 
 <p>Requirements: <code>riscv-gcc</code> must be available</p>
 
@@ -261,7 +261,7 @@ make ARCH=riscv -j vmlinux
 <pre><code>./vmlinux
 </code></pre>
 
-<h3 id="build-the-root-image-root-bin-for-the-linux-kernel:2cc0b07f42930e4520820be1fe66f913">Build the root image (root.bin) for the Linux kernel</h3>
+<h3 id="build-the-root-image-root-bin-for-the-linux-kernel:4eb28af1617d895aef211f7e8adede06">Build the root image (root.bin) for the Linux kernel</h3>
 
 <p>Requirements: <code>riscv-gcc</code> must be available</p>
 

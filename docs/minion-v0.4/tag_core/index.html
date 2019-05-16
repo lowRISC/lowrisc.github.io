@@ -85,7 +85,7 @@
                     <section>
                         
 
-<h3 id="motivation:554f34de01621a018befee3b7414cf48">Motivation</h3>
+<h3 id="motivation:3e886b93ba9ea6d392a0818503a1d77f">Motivation</h3>
 
 <p>In our previous <a href="https://www.lowrisc.org/docs/tagged-memory-v0.1/tags/">tagged-memory release</a>,
 special instructions are added to read and write tags for words in memory.
@@ -99,7 +99,7 @@ tag-related use cases.
 This is our first attempt to incorporate tag functionality into the core pipeline, which is far from a hardened SOC from a security perspective.
 More investigation and improvement will be made in following releases.</p>
 
-<h3 id="extension-to-the-rocket-core:554f34de01621a018befee3b7414cf48">Extension to the Rocket core</h3>
+<h3 id="extension-to-the-rocket-core:3e886b93ba9ea6d392a0818503a1d77f">Extension to the Rocket core</h3>
 
 <p>To support built-in tag manipulation and check in the Rocket core,
 all general purpose registers (GPRs) and some exception related CSRs are extended with tags (excepted for <code>x0</code> whose tag is hardwired to <code>0</code>).
@@ -244,7 +244,7 @@ TAGW  [   imm[11:0]  ][  rs1  ][ funct3 ][  rd   ][  opcode  ]
 TAGW rd, rs1;  // (rd, rd_t) &lt;= (rd, rs1)
 </code></pre>
 
-<h4 id="alu-tag-propagation-and-check:554f34de01621a018befee3b7414cf48">ALU tag propagation and check</h4>
+<h4 id="alu-tag-propagation-and-check:3e886b93ba9ea6d392a0818503a1d77f">ALU tag propagation and check</h4>
 
 <p>For any ALU instructions, such as <code>add</code>, <code>addi</code>, <code>or</code>, <code>andi</code>, etc., the tag of the destination register (<code>rd_t</code>) is updated according to the equation below.
 When <code>rs2</code> is replaced with an immediate number, <code>rs2_t</code> is 0.
@@ -255,7 +255,7 @@ when the check fails.</p>
 ((rs1_t | rs2_t) &amp; ALU_CHECK) != 0 -&gt; xcpt!
 </code></pre>
 
-<h4 id="load-tag-propagation-and-check:554f34de01621a018befee3b7414cf48">Load tag propagation and check</h4>
+<h4 id="load-tag-propagation-and-check:3e886b93ba9ea6d392a0818503a1d77f">Load tag propagation and check</h4>
 
 <p>For any load or atomic memory operation, the tag from memory (<code>mem_t</code>) is
 copied to <code>rd_t</code> under the control of mask <code>LOAD_PROP</code>.
@@ -267,7 +267,7 @@ This feature can be used for compartment isolation, memory safety or data watch-
 (mem_t &amp; LOAD_CHECK) != 0 -&gt; xcpt!
 </code></pre>
 
-<h4 id="store-tag-propagation-preservation-and-check:554f34de01621a018befee3b7414cf48">Store tag propagation, preservation and check</h4>
+<h4 id="store-tag-propagation-preservation-and-check:3e886b93ba9ea6d392a0818503a1d77f">Store tag propagation, preservation and check</h4>
 
 <p>For any store or atomic memory operation, the tag from <code>rs2</code> (<code>rs2_t</code>) is copied to <code>mem_t</code> under the control of the mask <code>STORE_PROP</code>.
 At the same time, the <code>STORE_KEEP</code> mask prevents certain tag bits from being cleared by <code>rs2_t</code>.
@@ -279,7 +279,7 @@ This feature can be used for type tags, fine-grained memory protection, or data 
 (mem_t &amp; STORE_CHECK) != 0 -&gt; xcpt!
 </code></pre>
 
-<h4 id="instruction-tag-check:554f34de01621a018befee3b7414cf48">Instruction tag check</h4>
+<h4 id="instruction-tag-check:3e886b93ba9ea6d392a0818503a1d77f">Instruction tag check</h4>
 
 <p>The tag of an instruction (<code>inst_t</code>) can be checked against the <code>FETCH_CHECK</code> mask.
 This feature can be used for breakpoints.</p>
@@ -287,7 +287,7 @@ This feature can be used for breakpoints.</p>
 <pre><code>(inst_t &amp; FETCH_CHECK) != 0 -&gt; xcpt!
 </code></pre>
 
-<h4 id="jump-related-tag-operations:554f34de01621a018befee3b7414cf48">Jump related tag operations</h4>
+<h4 id="jump-related-tag-operations:3e886b93ba9ea6d392a0818503a1d77f">Jump related tag operations</h4>
 
 <p>For a jump instruction, assuming jump is either unconditional or conditional but taken,
 a mask (<code>CFLOW_INDIR_TGT</code> for <code>JALR</code> otherwise <code>CFLOW_DIR_TGT</code>) is stored as the tag for the program counter (noted as <code>pc_t</code>) of the next instruction (the jump target).
@@ -307,11 +307,11 @@ Also for all unconditional jumps (<code>JAL/JALR</code>), mask <code>JMP_PROP</c
 for JAL/JALR:  rd_t &lt;= JMP_PROP
 </code></pre>
 
-<h3 id="program-guidance:554f34de01621a018befee3b7414cf48">Program guidance</h3>
+<h3 id="program-guidance:3e886b93ba9ea6d392a0818503a1d77f">Program guidance</h3>
 
 <p>Here is a short discussion of how to utilise the tag functions in assembly programs.</p>
 
-<h4 id="the-tag-control-register:554f34de01621a018befee3b7414cf48">The tag control register</h4>
+<h4 id="the-tag-control-register:3e886b93ba9ea6d392a0818503a1d77f">The tag control register</h4>
 
 <p>The tag control register (<code>tagctrl</code>) is initialised to 0 after reset, which disables all tag propagation and checks.
 To enable a specific tag propagation or check function, a proper non-zero mask must be written to <code>tagctrl</code>.</p>
@@ -334,7 +334,7 @@ The definition of the <code>tagctrl</code> register is prone for further refinem
 
 <p>A set of macros (<code>TMASK_XXX</code> and <code>TSHIM_XXX</code>) are provided in the <code>encoding.h</code> header file for easy tag function configuration.</p>
 
-<h4 id="handle-tag-check-exceptions:554f34de01621a018befee3b7414cf48">Handle tag check exceptions</h4>
+<h4 id="handle-tag-check-exceptions:3e886b93ba9ea6d392a0818503a1d77f">Handle tag check exceptions</h4>
 
 <p>When a tag check fails, an <code>TAG_CHECK_FAIL</code> exception is raised with the <code>cause</code> CSR set to 0x10 and <code>epc</code> pointing to the exceptional instruction.
 It relies on the exception handler to check the specific failed function and clear the cause of the tag check failure.
@@ -391,7 +391,7 @@ Note that these sequences must be used as macros rather than sub-routines as any
 
 </code></pre>
 
-<h4 id="asynchronous-load-store-tag-exceptions:554f34de01621a018befee3b7414cf48">Asynchronous Load/Store tag exceptions</h4>
+<h4 id="asynchronous-load-store-tag-exceptions:3e886b93ba9ea6d392a0818503a1d77f">Asynchronous Load/Store tag exceptions</h4>
 
 <p>Currently the exceptions caused by Load/Store tag checks may be asynchronous.
 If the load/store operation ends up missing in the L1 D$, the non-blocking D$ would fetch the missing cache line without blocking the core pipeline.
@@ -404,7 +404,7 @@ This behaviour leads to two issues: asynchronous tag exception and miscounting t
 As for the asynchronous tag exception, a later release will fix this issue by rolling-back the core pipeline with a reorder buffer.
 For this release, the <code>fence.i</code> instruction can be used to enforce synchronous load/store exceptions, but with a high overhead.</p>
 
-<h4 id="tag-regression-tests:554f34de01621a018befee3b7414cf48">Tag regression tests</h4>
+<h4 id="tag-regression-tests:3e886b93ba9ea6d392a0818503a1d77f">Tag regression tests</h4>
 
 <p>A relatively thorough regression test suite is provided for the tag functions in <code>vsim/riscv-tests/tag</code>.
 It is possible to run this test suite by executing</p>

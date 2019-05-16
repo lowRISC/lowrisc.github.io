@@ -128,7 +128,7 @@ location (or follow your system adminstrator instructions)</p>
 unset LD_LIBRARY_PATH
 </code></pre>
 
-<h3 id="download-the-code:1c6c8021bf90a0f894bf2ef30de55548">Download the code</h3>
+<h3 id="download-the-code:2ce6f7160c057f4e00dea3301b32f3f7">Download the code</h3>
 
 <p>The code is hosted in the
 <a href="https://github.com/lowrisc/lowrisc-chip">lowRISC chip git repository</a>. All
@@ -141,13 +141,13 @@ proper branch (<code>ethernet-v0.5</code>):</p>
 cd lowrisc-chip-ethernet-v0.5
 </code></pre>
 
-<h3 id="structure-of-the-git-repository:1c6c8021bf90a0f894bf2ef30de55548">Structure of the git repository</h3>
+<h3 id="structure-of-the-git-repository:2ce6f7160c057f4e00dea3301b32f3f7">Structure of the git repository</h3>
 
 <p>The structure is similar to the one described
 <a href="/docs/untether-v0.2/dev-env/#gitstruct">here</a>. However
 the peripherals that were previously in the Minion repository are connected directly to the rocket.</p>
 
-<h3 id="next-steps:1c6c8021bf90a0f894bf2ef30de55548">Next steps</h3>
+<h3 id="next-steps:2ce6f7160c057f4e00dea3301b32f3f7">Next steps</h3>
 
 <p>To set the correct environment variables for running lowRISC, you need to
 source the script <code>set_env.sh</code> (formerly <code>set_riscv_env.sh</code>) in the base directory.
@@ -167,14 +167,14 @@ $FPGA_BOARD         The target FPGA board (nexys4_ddr).
 
 <p>The remainder of this page is optional if you choose to use our pre-compiled images.</p>
 
-<h2 id="download-and-build-linux-and-busybox-early-stage-user-commands:1c6c8021bf90a0f894bf2ef30de55548">Download and build Linux and busybox (early stage user commands)</h2>
+<h2 id="download-and-build-linux-and-busybox-early-stage-user-commands:2ce6f7160c057f4e00dea3301b32f3f7">Download and build Linux and busybox (early stage user commands)</h2>
 
 <p>This step is optional if you choose to use our pre-compiled images.</p>
 
 <pre><code>sh $TOP/riscv-tools/fetch_and_patch_linux.sh
 </code></pre>
 
-<h2 id="building-the-riscv-toolchain-quick-start-detailed-instructions-are-below:1c6c8021bf90a0f894bf2ef30de55548">Building the RISCV toolchain (quick start: detailed instructions are below)</h2>
+<h2 id="building-the-riscv-toolchain-quick-start-detailed-instructions-are-below:2ce6f7160c057f4e00dea3301b32f3f7">Building the RISCV toolchain (quick start: detailed instructions are below)</h2>
 
 <pre><code>cd $TOP/riscv-tools/
 ./build.sh
@@ -189,7 +189,7 @@ make -j$(nproc) linux
 <li><a href="https://www.lowrisc.org/docs/riscv_compile/">Compile and install RISC-V cross-compiler</a></li>
 </ul>
 
-<h2 id="optional-step:1c6c8021bf90a0f894bf2ef30de55548">Optional step</h2>
+<h2 id="optional-step:2ce6f7160c057f4e00dea3301b32f3f7">Optional step</h2>
 
 <p>The built-in hardware <a href="http://opensocdebug.org">Open SystemOnChip Debug</a> trace debugger is disabled by default.
 booting and remote access is done via Ethernet by default. However it can easily be enabled for development.</p>

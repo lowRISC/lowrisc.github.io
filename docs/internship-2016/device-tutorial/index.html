@@ -88,7 +88,7 @@
 <li>Add a device as a DMA master</li>
 </ul>
 
-<h2 id="add-an-i-o-slave-device:cbfb7e7a2305a30fd1d50cbb4d7e45a9">Add an I/O slave device</h2>
+<h2 id="add-an-i-o-slave-device:9fb76d0adca12c8a958f9337edf7602b">Add an I/O slave device</h2>
 
 <p>The lowRISC chip uses NASTI-Lite (UC Berkeley implementation of AXI-Lite) as the interface for all I/O devices. The data width is 32-bits. Implement the <a href="http://www.xilinx.com/support/documentation/ip_documentation/ug761_axi_reference_guide.pdf" title="Xilinx AXI Specification">standard AXI4-Lite interface</a> for the new device, and follow these instructions to connect it to the chip:</p>
 
@@ -120,7 +120,7 @@ defparam io_crossbar.MASKx = `DEV_MAP__io_ext_yourdevice__MASK;
 
 <p>The lowRISC chip is now connected to the new device, and can be accessed using the <code>DEV_MAP__io_ext_yourdevice__BASE</code> address declared in the file dev_map.h.</p>
 
-<h2 id="add-a-dma-master-device:cbfb7e7a2305a30fd1d50cbb4d7e45a9">Add a DMA master device</h2>
+<h2 id="add-a-dma-master-device:9fb76d0adca12c8a958f9337edf7602b">Add a DMA master device</h2>
 
 <p>Despite the fact that memory bus in lowRISC uses the TileLink protocol instead
 of AXI, it is still possible to use an AXI device as a master device.  Adding

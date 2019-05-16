@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Untethered lowRISC tutorial on lowRISC</title>
+    <link>https://www.lowrisc.org/docs/untether-v0.2/</link>
+    <description>Recent content in Untethered lowRISC tutorial on lowRISC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 17 Dec 2015 17:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.lowrisc.org/docs/untether-v0.2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Compile the RISC-V Linux and the ramdisk `root.bin`</title>
+      <link>https://www.lowrisc.org/docs/untether-v0.2/linux_compile/</link>
+      <pubDate>Fri, 10 Jun 2016 16:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/untether-v0.2/linux_compile/</guid>
+      <description>RISC-V Linux The Linux kernel can be simulated using Spike or booted on an FPGA. To compile your own Linux kernel, use the following script (more instructions can be found here:
+# set up the RISCV environment variables cd $TOP/riscv-tools curl https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.14.41.tar.xz \ | tar -xJ cd linux-3.14.41 git init git remote add origin https://github.com/lowrisc/riscv-linux.git git fetch git checkout -f -t origin/untether-v0.2 make ARCH=riscv defconfig make ARCH=riscv -j vmlinux  After the compilation, you should be able to find the Linux kernel image:</description>
+    </item>
+    
+    <item>
+      <title>A guide to the development environment</title>
+      <link>https://www.lowrisc.org/docs/untether-v0.2/dev-env/</link>
+      <pubDate>Thu, 17 Dec 2015 17:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/untether-v0.2/dev-env/</guid>
+      <description>System requirement We recommend you work with a 64-bit Ubuntu (14.04 LTS) system with GNU GCC &amp;gt;= 4.8 installed. If necessary, create such a setup using VMware Workstation Player or VirtualBox.
+The default simulator for RTL/Behavioural SystemVerilog simulation is Verilator. Please download and install a latest version for the best SystemVerilog support.
+An FPGA demonstration is provided using either a Xilinx Kintex-7 FPGA KC705 evaluation kit or a low-end Nexys™4 DDR Artix-7 FPGA Board.</description>
+    </item>
+    
+    <item>
+      <title>Behavioural Simulation (Spike)</title>
+      <link>https://www.lowrisc.org/docs/untether-v0.2/spike/</link>
+      <pubDate>Thu, 17 Dec 2015 17:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/untether-v0.2/spike/</guid>
+      <description>Introduction Spike is a RISC-V functional ISA simulator. It models a RISC-V core and cache system. Note that our fork hasn&amp;rsquo;t currently been modified to include tagged memory support.
+In this release, due to the peripheral mismatch between the original Rocket-chip and untethered lowRISC SoC, Spike can only be used to run a Linux Kernel and non-I/O related programs.
+Please see Compile and install the RISC-V cross-compiler for the installation of Spike.</description>
+    </item>
+    
+    <item>
+      <title>Bootload procedure</title>
+      <link>https://www.lowrisc.org/docs/untether-v0.2/bootload/</link>
+      <pubDate>Thu, 17 Dec 2015 17:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/untether-v0.2/bootload/</guid>
+      <description>Note: the content of this section is subject to change as the specification develops.
+This document explains the procedure required to boot the RISC-V Linux port.
+System status after power-on After a hard (power off/on) reset, the whole SoC, including all PCRs are reset to their initial values:
+ Pipeline: Flushed. L1 I$: Invalidated, PC &amp;lt;= 0x00000000_00000200. L1 D$: Invalidated. L2: Invalidated. PCRs: reset and interrupt disabled.      actual address spaces mapped address spaces Type     Memory section 0 (0x00000000 - 0x7FFFFFFF) (0x00000000 - 0x7FFFFFFF) Mem   &amp;gt; On-chip BRAM (64 KB) (0x00000000 - 0x0000FFFF) (0x00000000 - 0x0000FFFF) Mem   &amp;gt; DDR DRAM (0x40000000 - 0x7FFFFFFF) (0x40000000 - 0x7FFFFFFF) Mem   I/O section 0 (0x80000000 - 0x8FFFFFFF) (0x80000000 - 0x8FFFFFFF) I/O   &amp;gt; UART &amp;amp; SD (0x80000000 - 0x8001FFFF) (0x80000000 - 0x8001FFFF) I/O    Copy BBL from SD to DDR RAM The actual bootloader for RISC-V Linux is a revised Berkeley bootloader (BBL) located at $TOP/fpga/board/$FPGA_BOARD/bbl/.</description>
+    </item>
+    
+    <item>
+      <title>Compile and install RISC-V cross-compiler</title>
+      <link>https://www.lowrisc.org/docs/untether-v0.2/riscv_compile/</link>
+      <pubDate>Thu, 17 Dec 2015 17:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/untether-v0.2/riscv_compile/</guid>
+      <description>Introduction of the RISC-V cross-compilation tools A number of cross-compilation tools are provided in the $TOP/riscv-tools directory:
+ riscv-fesvr: The front-end server that serves system calls on the host machine. riscv-gnu-toolchain: The GNU GCC cross-compiler for RISC-V ISA. riscv-isa-sim: The RISC-V ISA simulator (Spike) riscv-pk: The proxy kernel that serves system calls on target machine.  There are four ways to test a program:
+ Behavioural simulation: run the program in the RISC-V ISA simulator (Spike).</description>
+    </item>
+    
+    <item>
+      <title>Configuration parameters</title>
+      <link>https://www.lowrisc.org/docs/untether-v0.2/parameter/</link>
+      <pubDate>Thu, 17 Dec 2015 17:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/untether-v0.2/parameter/</guid>
+      <description>The default configuration parameters are listed in the table below. All configuration parameters are located in src/scala/main/Configs.scala.
+Further details on how to parameterize Rocket Chip can be found here (note that now lowRISC has its own chip generator). A manual describing the advanced parameter library within Chisel is also available.
+   Description Parameter Name Default Value Possible Value (a)     No. of Rocket tiles NTILES 1 a &amp;gt; 0   No.</description>
+    </item>
+    
+    <item>
+      <title>FPGA Demo</title>
+      <link>https://www.lowrisc.org/docs/untether-v0.2/fpga-demo/</link>
+      <pubDate>Thu, 17 Dec 2015 17:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/untether-v0.2/fpga-demo/</guid>
+      <description>A comprehensive FPGA demo of the untethered lowRISC SoC is provided using either the Xilinx KC705 kit or the NEXYS4-DDR board.
+Depending on the board, please set variable $FPGA_BOARD to the board name. It is set to kc705 in lowrisc-chip/set_riscv_env.sh.
+File structure of the FPGA demo  constraint: The constraint files used for the FPGA demo driver: Bare metal driver programs used by bootloaders. examples: Some bare metal test programs for FPGA peripherals.</description>
+    </item>
+    
+    <item>
+      <title>FPGA Simulation</title>
+      <link>https://www.lowrisc.org/docs/untether-v0.2/fpga-sim/</link>
+      <pubDate>Thu, 17 Dec 2015 17:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/untether-v0.2/fpga-sim/</guid>
+      <description>An FPGA simulation is provided using the Xilinx ISim simulator. However, due to the lack of behavioural models for all peripherals, this FPGA simulation covers only part of the whole SoC.
+ All parts of the Rocket cores, L1/L2 caches and on-chip interconnects are simulated. A full DDR RAM simulation model is available from Xilinx (disabled by default) but extremely slow. A behavioural RAM simulation model is provided using SystemVerilog DPI interfaces (enabled by default).</description>
+    </item>
+    
+    <item>
+      <title>Install Verilator</title>
+      <link>https://www.lowrisc.org/docs/untether-v0.2/verilator/</link>
+      <pubDate>Thu, 17 Dec 2015 17:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/untether-v0.2/verilator/</guid>
+      <description>Verilator Verilator is written by Wilson Snyder (wsnyder@wsnyder.org), with Duane Galbi and Paul Wasson (pmwasson@gmail.com).
+&amp;ldquo;Verilator is the fastest free Verilog HDL simulator, and beats most commercial simulators. It compiles synthesizable Verilog (not test-bench code!), plus some PSL, SystemVerilog and Synthesis assertions into C++ or SystemC code. It is designed for large projects where fast simulation performance is of primary concern, and is especially well suited to generate executable models of CPUs for embedded software design teams.</description>
+    </item>
+    
+    <item>
+      <title>Install Xilinx Vivado</title>
+      <link>https://www.lowrisc.org/docs/untether-v0.2/xilinx/</link>
+      <pubDate>Thu, 17 Dec 2015 17:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/untether-v0.2/xilinx/</guid>
+      <description>Download and install Xilinx Vivado The Xilinx Vivado design suite can be downloaded from http://www.xilinx.com/support/download.html free of charge for registered users (registration is also free). For Ubuntu Linux, we recommend Vivado 2015.4. During the installation process, when asked for &amp;ldquo;Select Edition to Install&amp;rdquo;, please choose &amp;ldquo;Vivado Design Edition&amp;rdquo;. When choosing which packages to install, please add &amp;ldquo;Software Development Kit&amp;rdquo;. It is not required to install Xilinx Vivado in system directories, so choose any installation directory preferred.</description>
+    </item>
+    
+    <item>
+      <title>Memory and I/O maps, soft reset, and interrupts</title>
+      <link>https://www.lowrisc.org/docs/untether-v0.2/pcr/</link>
+      <pubDate>Thu, 17 Dec 2015 17:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/untether-v0.2/pcr/</guid>
+      <description>Note: the content of this section is subject to change as the specification develops.
+This untethered release starts to regulate the shared resources among cores, such as interrupts, memory and I/O maps, global timers, etc. A subset of control status register (CSR) space is defined as processor control registers (PCRs), whose values and accesses are shared by all cores and controlled by a global PCR control unit (PCRControl). The connections of the PCR control units is shown below.</description>
+    </item>
+    
+    <item>
+      <title>Memory mapped I/O (MMIO)</title>
+      <link>https://www.lowrisc.org/docs/untether-v0.2/mmio/</link>
+      <pubDate>Thu, 17 Dec 2015 17:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/untether-v0.2/mmio/</guid>
+      <description>Note: this initial implementation of MMIO is subject to significant further optimizations.
+Although peripherals are mapped into the memory space, they cannot be accessed in the same way as cacheable memory due to the consistency requirement of I/O operations and the possible side-effects of I/O read and write operations. To safely access the I/O space of peripherals, memory mapped I/O (MMIO) gives the core pipeline uncached access to I/O space (bypassing both L1 and L2) while enforcing I/O operations in the program order.</description>
+    </item>
+    
+    <item>
+      <title>Overview of the Rocket chip</title>
+      <link>https://www.lowrisc.org/docs/untether-v0.2/overview/</link>
+      <pubDate>Thu, 17 Dec 2015 17:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/untether-v0.2/overview/</guid>
+      <description>An overview of Berkeley&amp;rsquo;s RISC-V &amp;ldquo;Rocket Chip&amp;rdquo; SoC Generator can be found here.
+A high-level view of the untethered Rocket chip is shown below. The design contains multiple Rocket tiles each of which consists of a Rocket core and L1 instruction and data caches. All tiles share a unified and banked L2 cache and an I/O bus. The Rocket (Chisel) side of the SoC is encapsulated in a Chisel island whose features are configurable using the top-level configuration file $TOP/src/main/scala/Configs.</description>
+    </item>
+    
+    <item>
+      <title>RTL simulation</title>
+      <link>https://www.lowrisc.org/docs/untether-v0.2/vsim/</link>
+      <pubDate>Thu, 17 Dec 2015 17:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/untether-v0.2/vsim/</guid>
+      <description>Here we describe how to simulate the lowRISC SoC using Verilator.
+Compilation To compile a simulator for the lowRISC SoC:
+cd $TOP/vsim make sim  This generates a simulator named DefaultConfig-sim. It is optimized for simulation speed and does not generate a waveform. If the compilation time is too long on your machine, you can disable compiler optimization by commenting out the optimization flags in Makefile:
+# remove optimization if compilation takes too long or runs out of memory veri_opt_flags = -O3 -CFLAGS &amp;quot;-O1&amp;quot;  If a waveform is needed for debugging failed test cases, a debugging simulator can be compiled by</description>
+    </item>
+    
+    <item>
+      <title>Release Notes</title>
+      <link>https://www.lowrisc.org/docs/untether-v0.2/release/</link>
+      <pubDate>Thu, 17 Dec 2015 17:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/untether-v0.2/release/</guid>
+      <description>Release notes  Rocket-core (Chisel)  Merge the latest (10-2015) updates from RISC-V. Add uncached read/write in L1 D$ (support memory mapped I/O). Remove the HTIF CSR read/write port. Redefine CSRs mtime, mtohost, mfromhost, mreset to PCRs. Add memory map, I/O map, and IRQ PCRs. Add a global PCR controller shared by all Rocket cores. Nearly remove all functions of the HTIF (only needed for bare-metal mode) Add soft reset to Rocket cores, L2$.</description>
+    </item>
+    
+    <item>
+      <title>Rocket core overview</title>
+      <link>https://www.lowrisc.org/docs/untether-v0.2/rocket-core/</link>
+      <pubDate>Thu, 17 Dec 2015 17:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/untether-v0.2/rocket-core/</guid>
+      <description>The Rocket core is an in-order scalar processor that provides a 5-stage pipeline. It implements the RV64G variant of the RISC-V ISA. The Rocket core has one integer ALU and an optional FPU. An accelerator or co-processor interface, called RoCC, is also provided.
+Further details of the RISC-V Rocket core pipeline can be found here. See p.13 of this document for a detailed diagram of Rocket&amp;rsquo;s microarchitecture. The Rocket core is sometimes described as a 6-stage pipeline with the addition of a pcgen stage.</description>
+    </item>
+    
+    <item>
+      <title>Simulations and FPGA Demo</title>
+      <link>https://www.lowrisc.org/docs/untether-v0.2/simulation/</link>
+      <pubDate>Thu, 17 Dec 2015 17:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/untether-v0.2/simulation/</guid>
+      <description>This release works with three different simulators and provides an FPGA demo using either a Xilinx Kintex-7 KC705 evaluation kit or a low-end Nexys™4 DDR Artix-7 FPGA Board.
+ Behavioural Simulation (Spike) A fast instruction level simulator. The &amp;ldquo;golden&amp;rdquo; implementation of Rocket cores.  Peripheral support from the front-end server (not compatible with the FPGA implemantion).
+ RTL simulation RTL-level simulation for the whole lowRISC SoC provided by Verilator.  Behavioural memory model and simple HTIF for ISA regression test.</description>
+    </item>
+    
+  </channel>
+</rss>

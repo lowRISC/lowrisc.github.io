@@ -88,7 +88,7 @@
 <li>Exposing the new instruction to the user.</li>
 </ul>
 
-<h2 id="adding-a-new-stream-processor:5c05b8629f650b17b3806d26e37eed2b">Adding a new stream processor</h2>
+<h2 id="adding-a-new-stream-processor:00a86b7c1cc1bf6a56858df6dacba5bc">Adding a new stream processor</h2>
 
 <p>A stream processor has to be able to take a AXI4-Stream channel as input, process the data and output back to a AXI4-Stream channel as these are the only Input/Output options provided to it within the Video Accelerator infrastructure.</p>
 
@@ -152,9 +152,9 @@ nasti_stream_slicer #(
 
 <p>You need to increase NR_FUN_UNITS by one after wiring, and now your stream processor can be utilized via our SPA infrastructure.</p>
 
-<h2 id="exposing-the-new-instruction-to-the-user:5c05b8629f650b17b3806d26e37eed2b">Exposing the new instruction to the user</h2>
+<h2 id="exposing-the-new-instruction-to-the-user:00a86b7c1cc1bf6a56858df6dacba5bc">Exposing the new instruction to the user</h2>
 
-<h3 id="bare-metal:5c05b8629f650b17b3806d26e37eed2b">Bare metal</h3>
+<h3 id="bare-metal:00a86b7c1cc1bf6a56858df6dacba5bc">Bare metal</h3>
 
 <p>To expose the instruction to the user in bare metal we need to:
 Open videox.c and update</p>
@@ -173,7 +173,7 @@ Open videox.c and update</p>
 
 <p>Now you can use your accelerator using our provided <em>videox.h</em> interface.</p>
 
-<h3 id="linux-driver:5c05b8629f650b17b3806d26e37eed2b">Linux Driver</h3>
+<h3 id="linux-driver:00a86b7c1cc1bf6a56858df6dacba5bc">Linux Driver</h3>
 
 <p>Open videox.c and update</p>
 

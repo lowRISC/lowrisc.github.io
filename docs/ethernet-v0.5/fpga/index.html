@@ -89,7 +89,7 @@
 The system will use the Ethernet 100Base-T connection at 100 MBaud to communicate with
 the LowRISC Linux system.</p>
 
-<h2 id="run-the-pre-built-fpga-demo:2b37e9ffd044e2f81b36b8d798aa8a19">Run the pre-built FPGA demo</h2>
+<h2 id="run-the-pre-built-fpga-demo:e4b1779d2306b48576b09f8db4a2fb38">Run the pre-built FPGA demo</h2>
 
 <p>The files you may need:</p>
 
@@ -120,7 +120,7 @@ curl -L https://github.com/lowRISC/lowrisc-chip/releases/download/v0.5-rc2/rootf
 <pre><code>vivado -mode batch -source $TOP/fpga/common/script/program_cfgmem.tcl -tclargs &quot;xc7a100t_0&quot; nexys4ddr.bit.mcs
 </code></pre>
 
-<h2 id="access-the-boot-loader-and-connect-to-the-uart-console:2b37e9ffd044e2f81b36b8d798aa8a19">Access the boot-loader and connect to the UART console.</h2>
+<h2 id="access-the-boot-loader-and-connect-to-the-uart-console:e4b1779d2306b48576b09f8db4a2fb38">Access the boot-loader and connect to the UART console.</h2>
 
 <p>First check the available serial ports:</p>
 
@@ -163,7 +163,7 @@ Subnet Mask: 255.255.255.0
 Enabling interrupts
 </code></pre>
 
-<h2 id="ethernet-server-preparation:2b37e9ffd044e2f81b36b8d798aa8a19">Ethernet server preparation</h2>
+<h2 id="ethernet-server-preparation:e4b1779d2306b48576b09f8db4a2fb38">Ethernet server preparation</h2>
 
 <p>We need to make some changes on the server to enable this option. Obviously the modern systemd commands can be used where supported.
 As of Ubuntu 16.04.3 the old methods still work via wrapper scripts as below.</p>
@@ -192,7 +192,7 @@ sudo /etc/init.d/nfs-kernel-server start
 
 <p>The dangerous option no_root_squash which allows the NFS client to run as root on the server, is mitigated by the confinement of the mount to the area of the loopback which we have set up. If access to host files is desired this may be done by copying on the host, or with a second mount point without no_root_squash inside the server&rsquo;s filing system</p>
 
-<h2 id="ethernet-booting:2b37e9ffd044e2f81b36b8d798aa8a19">Ethernet booting</h2>
+<h2 id="ethernet-booting:e4b1779d2306b48576b09f8db4a2fb38">Ethernet booting</h2>
 
 <pre><code>cd $TOP/fpga/board/nexys4_ddr
 make etherboot
@@ -325,7 +325,7 @@ qemuriscv64 login:
 In addition at first there will be no root password. You should login as root and set this up with the &lsquo;passwd&rsquo; command.
 In this case the password will be stored remotely on the NFS image.</p>
 
-<h2 id="mount-an-sd-card-inside-risc-v-linux:2b37e9ffd044e2f81b36b8d798aa8a19">Mount an SD card inside RISC-V Linux</h2>
+<h2 id="mount-an-sd-card-inside-risc-v-linux:e4b1779d2306b48576b09f8db4a2fb38">Mount an SD card inside RISC-V Linux</h2>
 
 <p>To discover whether an SD is recognized by the kernel:</p>
 

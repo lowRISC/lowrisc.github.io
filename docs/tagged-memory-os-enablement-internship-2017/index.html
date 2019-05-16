@@ -83,7 +83,7 @@
 
 <p><em>Katherine Lim</em></p>
 
-<h2 id="project-overview:d680e8a854a7cbad6d490c445cba2eba">Project Overview</h2>
+<h2 id="project-overview:690c1b1b29c6028e839b62fe98e8623a">Project Overview</h2>
 
 <p>Tagged memory in lowRISC provides (by default) a 4 bit tag per 8 byte word.
 Policies are set by tagging data/instructions in memory and modifying a 64-bit
@@ -105,7 +105,7 @@ document). Hopefully, my work will enable experimentation with different ways
 user processes might use tagged memory as a basic implementation for others to
 build on.</p>
 
-<h2 id="supporting-multiple-processes:d680e8a854a7cbad6d490c445cba2eba">Supporting multiple processes</h2>
+<h2 id="supporting-multiple-processes:690c1b1b29c6028e839b62fe98e8623a">Supporting multiple processes</h2>
 
 <p>To support multiple processes, I modified typical kernel abstractions used to
 provide process isolation. Specifically, this involved modifying the context
@@ -117,7 +117,7 @@ pages might be shared or reallocated. When physical pages are shared for
 copy-on-write, tags must be copied along with data and when pages are
 reallocated, tags must be cleared.</p>
 
-<h3 id="context-switch:d680e8a854a7cbad6d490c445cba2eba">Context switch</h3>
+<h3 id="context-switch:690c1b1b29c6028e839b62fe98e8623a">Context switch</h3>
 
 <p>When a context switch occurs, the value of <code>tagctrl</code> and any tags set on the
 GPRs must be saved. Additionally, when saving GPRs, <code>tagctrl</code> must be set to
@@ -131,7 +131,7 @@ when performing these stores. Therefore, the context switch code must:</p>
 <li>Restore <code>tagctrl</code></li>
 </ul>
 
-<h4 id="overview:d680e8a854a7cbad6d490c445cba2eba">Overview</h4>
+<h4 id="overview:690c1b1b29c6028e839b62fe98e8623a">Overview</h4>
 
 <p>We decided on modifying the definition of the <code>tagctrl</code> register from release
 4 to make it easier to reason about tag policies at different privilege
@@ -149,7 +149,7 @@ potential to cause exceptions. After trying several different solutions, we
 decided on adding extra scratch CSRs to spill a GPR to when saving the
 <code>tagctrl</code> registers.</p>
 
-<h4 id="spike-modifications:d680e8a854a7cbad6d490c445cba2eba">Spike modifications</h4>
+<h4 id="spike-modifications:690c1b1b29c6028e839b62fe98e8623a">Spike modifications</h4>
 
 <p>I began by modifying Spike to have separate <code>utagctrl</code>/<code>stagctrl</code>/<code>mtagctrl</code>
 registers. To determine which one should be used for tag checking, I also
@@ -167,7 +167,7 @@ brought the Spike implementation more in line with the FPGA implementation of
 tags on CSRs. The CSRs which propagate tags are listed in the tagged memory
 section of release 4.</p>
 
-<h4 id="software-modifications:d680e8a854a7cbad6d490c445cba2eba">Software modifications</h4>
+<h4 id="software-modifications:690c1b1b29c6028e839b62fe98e8623a">Software modifications</h4>
 
 <p>In the kernel, to save <code>utagctrl</code> of a process and <code>stagctrl</code>, two new fields
 (<code>utagctrl</code> and <code>stagctrl</code>) were added to the <code>pt_reg</code> struct. I then modified
@@ -185,9 +185,9 @@ so I added extra space on the stack to save <code>mtagctrl</code> and <code>utag
 sure that <code>stagctrl</code>/<code>mtagctrl</code> are saved in a way that won&rsquo;t cause exceptions
 and without clobbering any data.</p>
 
-<h3 id="paging:d680e8a854a7cbad6d490c445cba2eba">Paging</h3>
+<h3 id="paging:690c1b1b29c6028e839b62fe98e8623a">Paging</h3>
 
-<h4 id="copy-on-write-pages:d680e8a854a7cbad6d490c445cba2eba">Copy-on-write pages</h4>
+<h4 id="copy-on-write-pages:690c1b1b29c6028e839b62fe98e8623a">Copy-on-write pages</h4>
 
 <p>Copy on write is a way for multiple processes to share a physical page even
 when the process thinks the page isn&rsquo;t shared. The most common use of this is
@@ -202,7 +202,7 @@ copy-on-write involves modifying a couple of functions used in the page fault
 handling code for copy-on-write faults. I modified the function used for
 copying data for copy-on-write to have it copy tags as well</p>
 
-<h4 id="clearing-pages:d680e8a854a7cbad6d490c445cba2eba">Clearing pages</h4>
+<h4 id="clearing-pages:690c1b1b29c6028e839b62fe98e8623a">Clearing pages</h4>
 
 <p>To make sure tags don&rsquo;t leak from one process to another, either for security
 reasons or to avoid exceptions, tags need to be cleared from pages before they
@@ -212,7 +212,7 @@ pages before allocation to set the tags to 0.</p>
 <p>Performance impact of these changes is negligible, because only a couple of
 constant time operations were added in each case.</p>
 
-<h2 id="delivering-tag-exceptions-to-user-space:d680e8a854a7cbad6d490c445cba2eba">Delivering Tag Exceptions to user space</h2>
+<h2 id="delivering-tag-exceptions-to-user-space:690c1b1b29c6028e839b62fe98e8623a">Delivering Tag Exceptions to user space</h2>
 
 <p>As part of using tags in user programs, we would like to be able to able to
 deliver tag exceptions to user space and trace back to the source of the
@@ -229,7 +229,7 @@ exception occurred unless you go and read the opcode of the instruction that
 it faulted on. Implementing this would involve changing the ABI, and we
 decided we did not want to make extensive changes to the ABI at this point</p>
 
-<h2 id="tags-on-elf-binaries:d680e8a854a7cbad6d490c445cba2eba">Tags on ELF binaries</h2>
+<h2 id="tags-on-elf-binaries:690c1b1b29c6028e839b62fe98e8623a">Tags on ELF binaries</h2>
 
 <p>We then wanted to define a mechanism for reading in tags from a file for file
 mapped memory. For this project, we decided to implement this by modifying ELF
@@ -238,7 +238,7 @@ compatibility and portability we decided on ELF binaries. Currently, the
 kernel supports both tagged and non-tagged binaries and tagged binaries can
 run on non-tagged architectures. We currently support only static binaries</p>
 
-<h3 id="modified-binaries:d680e8a854a7cbad6d490c445cba2eba">Modified binaries</h3>
+<h3 id="modified-binaries:690c1b1b29c6028e839b62fe98e8623a">Modified binaries</h3>
 
 <p>I decided to modify ELF binaries by adding a section with tags in it. To focus
 primarily on getting it working, I implemented the tags section as a flat
@@ -246,7 +246,7 @@ array where there is a byte (a tag only uses 4 of the 8 bits) for each word in
 the ELF binary&rsquo;s virtual address space. The tag corresponding to a certain
 address can be retrieved by indexing into this section with the address.</p>
 
-<h3 id="kernel-modifications:d680e8a854a7cbad6d490c445cba2eba">Kernel modifications</h3>
+<h3 id="kernel-modifications:690c1b1b29c6028e839b62fe98e8623a">Kernel modifications</h3>
 
 <p>Because we want to set tags whenever memory whenever we page fault a page in,
 I modified the page-in code used in the kernel. The code checks if the virtual
@@ -261,7 +261,7 @@ we page fault and the user space loader does not know when page faults occur.
 Thus, this method would have required us to define some sort of interface
 between the user and the kernel</p>
 
-<h3 id="future-work:d680e8a854a7cbad6d490c445cba2eba">Future work</h3>
+<h3 id="future-work:690c1b1b29c6028e839b62fe98e8623a">Future work</h3>
 
 <p>This method of reading in tags from a file is not meant to be the final
 implementation. From a storage and performance perspective, there are a lot of
@@ -272,7 +272,7 @@ fault, which is quite a high performance overhead. This implementation also
 doesn&rsquo;t support dynamic binaries and shared libraries, so future work could
 focus on implementing support for these as well.</p>
 
-<h2 id="tags-on-branch-targets:d680e8a854a7cbad6d490c445cba2eba">Tags on branch targets</h2>
+<h2 id="tags-on-branch-targets:690c1b1b29c6028e839b62fe98e8623a">Tags on branch targets</h2>
 
 <p>Tagged memory can be used to implement a simple form of control flow integrity
 by tagging valid branch targets. My focus was not so much deriving a scheme
@@ -280,7 +280,7 @@ for control flow integrity as setting up the infrastructure to support a CFI
 scheme, which involved modifying Spike to support branch tag checking and
 logging branch targets.</p>
 
-<h3 id="spike-modifications-1:d680e8a854a7cbad6d490c445cba2eba">Spike modifications</h3>
+<h3 id="spike-modifications-1:690c1b1b29c6028e839b62fe98e8623a">Spike modifications</h3>
 
 <p>I modified branch and jump instructions in Spike to tag the next PC and
 implement checks defined as defined in release 4. I also modified the loop
@@ -290,13 +290,13 @@ implement a tag pipeline, the point this check takes place isn&rsquo;t identical
 the hardware tag pipeline implementation <a href="https://www.lowrisc.org/docs/minion-v0.4/tag_core/">detailed in the v0.4 lowRISC
 release</a>.</p>
 
-<h3 id="capturing-branch-targets:d680e8a854a7cbad6d490c445cba2eba">Capturing branch targets</h3>
+<h3 id="capturing-branch-targets:690c1b1b29c6028e839b62fe98e8623a">Capturing branch targets</h3>
 
 <p>To log branch targets, I added print statements to branch and jump
 instructions in Spike to print out their targets to <code>stderr</code> if the processor
 is executing in user-mode.</p>
 
-<h2 id="demoing-new-functionality:d680e8a854a7cbad6d490c445cba2eba">Demoing New Functionality</h2>
+<h2 id="demoing-new-functionality:690c1b1b29c6028e839b62fe98e8623a">Demoing New Functionality</h2>
 
 <p>I implemented a basic framework to put together demos. It is a bit clunky and
 hasn&rsquo;t been tested extensively for corner cases, but it works well enough to
@@ -312,7 +312,7 @@ leave control checks off while running the trace. However, setting the
 <code>tagctrl</code> register can add some extra instructions, so it may be necessary to
 turn off branch exceptions in Spike instead,.</p>
 
-<h3 id="using-the-framework:d680e8a854a7cbad6d490c445cba2eba">Using the Framework</h3>
+<h3 id="using-the-framework:690c1b1b29c6028e839b62fe98e8623a">Using the Framework</h3>
 
 <ol>
 <li>Run Spike, making sure to redirect <code>stderr</code> to a file for the trace
@@ -348,7 +348,7 @@ binary]</code> to add the <code>.tags</code> section to the binary</li>
 <li>Run tagged binary in Spike</li>
 </ol>
 
-<h3 id="tests:d680e8a854a7cbad6d490c445cba2eba">Tests</h3>
+<h3 id="tests:690c1b1b29c6028e839b62fe98e8623a">Tests</h3>
 
 <p>I have modified a couple of basic examples to be used as examples of this
 framework. <code>stack_elf_tagged.c</code> and <code>ptr_elf_tagged.c</code> can both be run with
@@ -357,9 +357,9 @@ buffer overflow attack overwriting a return address on the stack in
 <code>stack_elf_tagged</code> and protect against a buffer overflow overwriting a
 function pointer in <code>ptr_elf_tagged.c</code>.</p>
 
-<h2 id="future-work-1:d680e8a854a7cbad6d490c445cba2eba">Future Work</h2>
+<h2 id="future-work-1:690c1b1b29c6028e839b62fe98e8623a">Future Work</h2>
 
-<h3 id="signal-handling:d680e8a854a7cbad6d490c445cba2eba">Signal handling</h3>
+<h3 id="signal-handling:690c1b1b29c6028e839b62fe98e8623a">Signal handling</h3>
 
 <p>To fully support tag exceptions where we are able to figure out exactly what
 caused the tag exception, we most likely want to have Spike generate traps
@@ -367,7 +367,7 @@ with different causes for each tag exception. These traps can be caught in the
 kernel and then passed up to the user signal handler via new codes or a
 new/modified field in the <code>siginfo</code> struct.</p>
 
-<h3 id="swap-debugging-swap:d680e8a854a7cbad6d490c445cba2eba">Swap/debugging swap</h3>
+<h3 id="swap-debugging-swap:690c1b1b29c6028e839b62fe98e8623a">Swap/debugging swap</h3>
 
 <p>Because tagging data on disk is not supported either in the swap system or the
 hardware, tags on memory must be harvested from the pages and saved manually
@@ -404,7 +404,7 @@ the swap file. I also tried to do it with a ramdisk, but the boot process hung
 when it was supposed to be loading the brd module, so likely there is some
 issue with ramdisk on FPGA.</p>
 
-<h3 id="libc-modifications:d680e8a854a7cbad6d490c445cba2eba">libc Modifications</h3>
+<h3 id="libc-modifications:690c1b1b29c6028e839b62fe98e8623a">libc Modifications</h3>
 
 <p>Supporting user programs will also mean modifying some common library
 functions such as <code>memcpy</code>, <code>memset</code>, etc. to treat tags &ldquo;properly&rdquo;. The exact
@@ -418,7 +418,7 @@ itself determines whether or not the tags are copied with the data.</p>
 be helpful to reference in future implementations of library functions for
 lowRISC.</p>
 
-<h2 id="github-repos:d680e8a854a7cbad6d490c445cba2eba">Github Repos</h2>
+<h2 id="github-repos:690c1b1b29c6028e839b62fe98e8623a">Github Repos</h2>
 
 <ul>
 <li><a href="https://github.com/lowRISC/riscv-linux/tree/ctxswitch_with_tags">riscv-linux</a>

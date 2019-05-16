@@ -89,7 +89,7 @@
   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-<h2 id="motivation:58ab57706fde04d7ca84e2f0a3417083">Motivation</h2>
+<h2 id="motivation:2b993a3d5d21182a81e4676a76e56f19">Motivation</h2>
 
 <p>The tagged memory mechanism augments each data word in memory with a small
 piece of extra metadata, a <em>tag</em>.
@@ -301,7 +301,7 @@ We would like to further reduce the size of the tag cache while maintaining a lo
 </tbody>
 </table>
 
-<h2 id="general-concept-of-a-hierarchical-tag-cache:58ab57706fde04d7ca84e2f0a3417083">General concept of a hierarchical tag cache</h2>
+<h2 id="general-concept-of-a-hierarchical-tag-cache:2b993a3d5d21182a81e4676a76e56f19">General concept of a hierarchical tag cache</h2>
 
 <p>In this release, we observe that most of the memory is not tagged for most use cases.
 Therefore, we can implement optimisation based on an hierarchical tag cache to
@@ -366,7 +366,7 @@ regions will compensate for this cost many times over.</li>
 
 <p>Full benchmarking and evaluation will come in a later release.</p>
 
-<h2 id="hardware-implementation:58ab57706fde04d7ca84e2f0a3417083">Hardware implementation</h2>
+<h2 id="hardware-implementation:2b993a3d5d21182a81e4676a76e56f19">Hardware implementation</h2>
 
 <p>Instead of using three separate caches to store the <em>tag table</em> and the two <em>tag maps</em>, a unified cache is used.
 Nodes from all tree levels use the same size so they can be stored and searched in the same manner.
@@ -416,9 +416,9 @@ A MemXact tracker must recover the tag tree back into a consistent state before 
 
 <p>Each TagXact tracker is a tag cache handler that handles a single node operation atomically at any time.</p>
 
-<h3 id="other-considerations:58ab57706fde04d7ca84e2f0a3417083">Other considerations</h3>
+<h3 id="other-considerations:2b993a3d5d21182a81e4676a76e56f19">Other considerations</h3>
 
-<h4 id="bottom-up-search-order:58ab57706fde04d7ca84e2f0a3417083">Bottom-up search order</h4>
+<h4 id="bottom-up-search-order:2b993a3d5d21182a81e4676a76e56f19">Bottom-up search order</h4>
 
 <p>The tag tree is searched in a bottom-up order.
 If a tag is found in a <em>tag table</em> node, there is no need to search higher <em>tag map</em> nodes.

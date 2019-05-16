@@ -88,7 +88,7 @@
 <p>This document details the steps needed to add a second BRAM on the IO NASTI
 bus.</p>
 
-<h3 id="a-secondary-bram:ab2ea13f432dfc0e979bda76c964a630">A secondary BRAM</h3>
+<h3 id="a-secondary-bram:3565e9c8affa406308627458ae97fc4e">A secondary BRAM</h3>
 
 <p>Below is the top-level connection of the BRAM to be added.</p>
 
@@ -98,7 +98,7 @@ bus.</p>
 );
 </code></pre>
 
-<h3 id="modify-the-global-address-map:ab2ea13f432dfc0e979bda76c964a630">Modify the global address map</h3>
+<h3 id="modify-the-global-address-map:3565e9c8affa406308627458ae97fc4e">Modify the global address map</h3>
 
 <p>Assuming the BRAM is 128KB and is readable, writable but not executable, we add a new entry named &ldquo;extra_bram&rdquo; into the address map at <code>$TOP/src/main/scala/Configs.scala</code>:</p>
 
@@ -120,7 +120,7 @@ bus.</p>
 #define DEV_MAP__io_ext_extra_bram__MASK 0x1ffff
 </code></pre>
 
-<h3 id="connect-the-bram-to-the-io-nasti-bus:ab2ea13f432dfc0e979bda76c964a630">Connect the BRAM to the IO NASTI bus.</h3>
+<h3 id="connect-the-bram-to-the-io-nasti-bus:3565e9c8affa406308627458ae97fc4e">Connect the BRAM to the IO NASTI bus.</h3>
 
 <p>Finally, we need to add the BRAM in the SystemVerilog top-level connection at <code>$TOP/src/main/verilog/chip_top.sv</code>:</p>
 

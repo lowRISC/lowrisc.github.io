@@ -6,10 +6,30 @@
     <description>Recent content in Blogs on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Nov 2018 09:50:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 16 May 2019 17:50:00 +0100</lastBuildDate>
     
 	<atom:link href="https://www.lowrisc.org/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>lowRISC Expands and Appoints New Members to the Board of Directors from Google and ETH Zurich</title>
+      <link>https://www.lowrisc.org/blog/2019/05/lowrisc-expands-press-release/</link>
+      <pubDate>Thu, 16 May 2019 17:50:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/05/lowrisc-expands-press-release/</guid>
+      <description>London, England - lowRISC C.I.C., the open source system on a chip (SoC) organisation, today announced that Prof. Luca Benini (ETH Zurich), Dominic Rizzo (Google) and Ron Minnich (Google) have joined its board of directors. The announcement coincides with a new phase of hiring by lowRISC with the goal of significantly increasing the size of its Cambridge-based engineering team during 2019.
+lowRISC is a not-for-profit, community-driven organisation working to provide a high quality, security-enabling, open SoC base for derivative designs.</description>
+    </item>
+    
+    <item>
+      <title>lowRISC at the SiFive Symposium in Cambridge</title>
+      <link>https://www.lowrisc.org/blog/2019/05/lowrisc-at-sifive-symposium-in-cambridge/</link>
+      <pubDate>Tue, 14 May 2019 17:58:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/05/lowrisc-at-sifive-symposium-in-cambridge/</guid>
+      <description>Several lowRISC team members attended the SiFive Symposium in our home town of Cambridge on May 13th 2019, a lovely sunny day.
+Imagination Technologies were co-hosting with SiFive, and we heard from both companies. Krste Asanovic, chairman of the board at the RISC-V Foundation, gave a great introduction to RISC-V and progress so far. Naveed Sherwani, CEO of SiFive, talked us through their silicon design platform and future services. We also heard from SecureRF and IAR Systems.</description>
+    </item>
     
     <item>
       <title>lowRISC 0-6 milestone release</title>

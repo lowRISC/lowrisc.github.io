@@ -5,8 +5,110 @@
     <description>Recent content in lowRISC on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 May 2019 13:40:22 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 16 May 2019 17:50:00 +0100</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>lowRISC Expands and Appoints New Members to the Board of Directors from Google and ETH Zurich</title>
+      <link>https://www.lowrisc.org/blog/2019/05/lowrisc-expands-press-release/</link>
+      <pubDate>Thu, 16 May 2019 17:50:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/05/lowrisc-expands-press-release/</guid>
+      <description>
+
+&lt;p&gt;&lt;em&gt;London, England - lowRISC C.I.C., the open source system on a chip (SoC)
+organisation, today announced that Prof. Luca Benini (ETH Zurich), Dominic
+Rizzo (Google) and Ron Minnich (Google) have joined its board of directors.
+The announcement coincides with a new phase of hiring by lowRISC with the goal
+of significantly increasing the size of its Cambridge-based engineering team
+during 2019.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://www.lowrisc.org/img/board1.jpg&#34; alt=&#34;lowRISC board photo&#34; title=&#34;lowRISC board&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;lowRISC is a not-for-profit, community-driven organisation working to provide
+a high quality, security-enabling, open SoC base for derivative designs. The
+organisation is lowering the barrier to producing custom silicon, enabling
+research and FPGA experimentation, and establishing a vibrant ecosystem around
+open silicon designs. lowRISC supports a core engineering team who collaborate
+with industry partners, academic groups, and the wider community to drive the
+open source silicon ecosystem.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;We are very pleased to welcome new board members from Google and ETH Zurich
+who share our excitement about the future of open-source hardware. Their
+commitment will accelerate our roadmap for delivering high-quality open-source
+system-on-chip designs,” said Alex Bradbury, CTO and co-founder of lowRISC
+CIC.&lt;/p&gt;
+
+&lt;p&gt;lowRISC also revealed that Google are providing support and funding to further
+their mission and that Prof. Benini&amp;rsquo;s group at ETH Zürich are contributing
+their Zero-riscy processor core. lowRISC, in collaboration with Prof. Benini’s
+PULP team and Google, will continue development of the core as
+“&lt;a href=&#34;https://github.com/lowRISC/ibex/&#34;&gt;Ibex&lt;/a&gt;”.&lt;/p&gt;
+
+&lt;p&gt;“I’m delighted to join the lowRISC board. lowRISC plays a key role in the
+open-source hardware ecosystem, providing engineering resources while
+maintaining a clear community-focused vision and not-for-profit status. We are
+excited that they will be able to contribute to the continued development of
+Zero-riscy and also provide the necessary ongoing support,” said Prof. Benini.&lt;/p&gt;
+
+&lt;p&gt;Google engineers Ron Minnich and Dominic Rizzo are long term supporters of
+open-source. Ron is a well known figure in the High Performance Computing
+field and inventor of LinuxBIOS, now known as coreboot, the firmware used in
+all Chromebooks. Dominic leads efforts in open source silicon and security
+fobs at Google.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Google believes that open source is good for everyone. To further our
+commitment, we are investing both capital and engineering resources to create
+a sustainable open source hardware ecosystem. In addition to engineering
+resources, lowRISC provides the community stewardship that is vital to this
+vision,” said Royal Hansen, vice president of Security, Google.&lt;/p&gt;
+
+&lt;p&gt;Please visit our &lt;a href=&#34;https://www.lowrisc.org/jobs/&#34;&gt;jobs&lt;/a&gt; page for more
+information on how lowRISC is expanding our engineering organization.&lt;/p&gt;
+
+&lt;h2 id=&#34;about-lowrisc:e6da6d9f5cf51bfb361d10f6e33ff022&#34;&gt;About lowRISC&lt;/h2&gt;
+
+&lt;p&gt;lowRISC C.I.C. is a not-for-profit company that aims to demonstrate, promote
+and support the use of open-source hardware - bringing the benefits of
+open-source to the hardware world. We are producing high-quality,
+security-focused, open, and flexible IP. Our expertise includes the LLVM
+Compiler, novel hardware security extensions and RISC-V tools, hardware and
+processor design.&lt;/p&gt;
+
+&lt;p&gt;For more information, please contact:&lt;/p&gt;
+
+&lt;p&gt;Media Contact:&lt;br /&gt;
+Andrew Back&lt;br /&gt;
+lowRISC&lt;br /&gt;
+press@lowrisc.org&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>lowRISC at the SiFive Symposium in Cambridge</title>
+      <link>https://www.lowrisc.org/blog/2019/05/lowrisc-at-sifive-symposium-in-cambridge/</link>
+      <pubDate>Tue, 14 May 2019 17:58:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/05/lowrisc-at-sifive-symposium-in-cambridge/</guid>
+      <description>&lt;p&gt;Several lowRISC team members attended the &lt;a href=&#34;https://sifivetechsymposium.com/agenda-cambridge/&#34;&gt;SiFive
+Symposium&lt;/a&gt; in our home town
+of Cambridge on May 13th 2019, a lovely sunny day.&lt;/p&gt;
+
+&lt;p&gt;Imagination Technologies were co-hosting with SiFive, and we heard from both
+companies. Krste Asanovic, chairman of the board at the RISC-V Foundation,
+gave a great introduction to RISC-V and progress so far. Naveed Sherwani, CEO
+of SiFive, talked us through their silicon design platform and future
+services. We also heard from SecureRF and IAR Systems.&lt;/p&gt;
+
+&lt;p&gt;Alex gave a short talk about bringing the benefits of open source to the
+hardware world. (We hope to be able to share the video soon!)&lt;/p&gt;
+
+&lt;p&gt;It was great to hear the latest news from SiFive and other RISC-V
+organisations, both from Cambridge and further afield. We also got to meet
+community members and to catch up with friends from Embecosm, the RISC-V
+Foundation, the Computer Lab and more.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>lowRISC 0-6 milestone release</title>
@@ -3055,83 +3157,6 @@ ideas suggested by students, and encourage you to share them &lt;a href=&#34;htt
 discussion
 list&lt;/a&gt;
 for feedback before making a proposal.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>2017 NetFPGA Design Challenge</title>
-      <link>https://www.lowrisc.org/blog/2017/02/2017-netfpga-design-challenge/</link>
-      <pubDate>Wed, 01 Feb 2017 14:00:00 +0000</pubDate>
-      
-      <guid>https://www.lowrisc.org/blog/2017/02/2017-netfpga-design-challenge/</guid>
-      <description>&lt;p&gt;As most of you know, the majority of full-time development on lowRISC takes
-place at the University of Cambridge Computer Laboratory. However, we&amp;rsquo;re far
-from the only open source hardware activity at the University. Our colleagues
-on the NetFPGA project have an open source design challenge that many readers
-of this blog might be interested in. See the &lt;a href=&#34;http://www.cl.cam.ac.uk/research/srg/netfpga/challenge2017/&#34;&gt;design challenge
-website&lt;/a&gt;, or read
-below for more details:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;We are pleased to announce the 2017 NetFPGA Design Challenge!
-
-NetFPGA platforms are used by the networked systems community for close to 
-a decade. The platforms enable researchers and instructors to build 
-high-speed, hardware-accelerated networking systems. The platforms can be used 
-by researchers to prototype advanced services for next-generation networked 
-systems. By using Field Programmable Gate Arrays (FPGAs), NetFPGA enables new 
-types of packet routing circuits to be implemented and detailed measurements 
-of network traffic to be obtained.
-
-The NetFPGA 2017 contest is a design challenge. The design teams are to 
-produce a working implementation employing any HW and SW design methodology 
-and targeting the NetFPGA SUME platform. The deadline for submissions is April 
-13th, 2017. The winners will be announced at the NetFPGA Developers Summit 
-(Thursday 20th - Friday, 21st April, 2017 Cambridge, UK).
-
-Challenge: Lowest Latency Switch
-
-Low latency devices are being increasingly used across a large number of 
-applications. Low latency solutions are few, and are rarely open source. The 
-goal of this challenge is to provide a usable, high performance, open source 
-alternative to use by universities and organizations who need the flexibility 
-of open source.  The systems will be evaluated using OSNT, an Open Source 
-Network Tester. Test benches will be available online, for users to experiment 
-and independently evaluate their design. The competition is open to students 
-of all levels (undergraduate and postgraduate), as well as to non students. 
-There is no need to own a NetFPGA SUME platform to take part in the 
-competition although, clearly, development and testing will be made easier if 
-you have access to this platform.  
-
-Team Prizes:
-First place: £500
-Best students project: £500
-
-The winning projects and runner ups will be invited to present their work 
-at the NetFPGA Developers Summit 2017.  All challenge participants are keenly 
-encouraged to attend the NetFPGA Developers Summit and are entitled to a 
-reduced registration rate.
-
-The design challenge prizes are generously 
-supported by IMC http://www.imc.nl/
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>lowRISC Q&#43;A</title>
-      <link>https://www.lowrisc.org/blog/2016/12/lowrisc-qa/</link>
-      <pubDate>Fri, 09 Dec 2016 17:00:00 +0000</pubDate>
-      
-      <guid>https://www.lowrisc.org/blog/2016/12/lowrisc-qa/</guid>
-      <description>&lt;p&gt;Yesterday, lowRISC triggered a lot of discussion when someone submitted it to
-Hacker News. The &lt;a href=&#34;https://news.ycombinator.com/item?id=13129076&#34;&gt;comment
-thread&lt;/a&gt; became something of an
-impromptu Q+A about our project direction and status. I thought it was worth
-linking to it here and highlighting the discussion for a wider audience. If
-you have any additional questions, then feel free to comment on this blog post
-or else, as always, drop by our &lt;a href=&#34;https://www.lowrisc.org/community/&#34;&gt;mailing list&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>
     

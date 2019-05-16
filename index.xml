@@ -5,8 +5,59 @@
     <description>Recent content in lowRISC on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 16 May 2019 17:50:00 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 16 May 2019 18:40:00 +0100</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Onwards and upwards at lowRISC</title>
+      <link>https://www.lowrisc.org/blog/2019/05/onwards-and-upwards-at-lowrisc/</link>
+      <pubDate>Thu, 16 May 2019 18:40:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/05/onwards-and-upwards-at-lowrisc/</guid>
+      <description>&lt;p&gt;If you haven&amp;rsquo;t checked it out yet, be sure to take a look at our &lt;a href=&#34;https://www.lowrisc.org/blog/2019/05/lowrisc-expands-press-release/&#34;&gt;press
+release&lt;/a&gt; and the
+&lt;a href=&#34;https://opensource.googleblog.com/2019/05/google-fosters-open-source-hardware.html&#34;&gt;corresponding Google blog
+post&lt;/a&gt;.
+This industry support and growth of our board is a huge step forwards for
+lowRISC. As Royal Hansen, vice president of Security, Google, said:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&#34;Google believes that open source is good for everyone. To further our
+commitment, we are investing both capital and engineering resources to create
+a sustainable open source hardware ecosystem. In addition to engineering
+resources, lowRISC provides the community stewardship that is vital to this
+vision”.
+&lt;/blockquote&gt;
+
+&lt;p&gt;We believe high quality engineering, extensive documentation, and
+verification are essential to drive the adoption of open source silicon
+designs. The donation of the &lt;a href=&#34;https://github.com/lowrisc/ibex&#34;&gt;Ibex&lt;/a&gt; core
+(previously zero-riscy, developed through the PULP project) and its collaborative development under lowRISC is a
+great step forwards on the open source hardware roadmap we&amp;rsquo;re working on with
+Google and other industry partners. Plus of course we’re continuing to lead the upstream RISC-V LLVM effort and further develop our 64-bit SoC platform. If you&amp;rsquo;re interested in collaboration, get in touch via info@lowrisc.org.&lt;/p&gt;
+
+&lt;p&gt;Over the last 6 months we&amp;rsquo;ve really entered a new phase of the lowRISC mission.
+We&amp;rsquo;ve grown from a single full-time engineer to five, with more on their way
+(check out our &lt;a href=&#34;https://www.lowrisc.org/jobs/&#34;&gt;active job adverts&lt;/a&gt; - we&amp;rsquo;d love to hear
+from you!). We&amp;rsquo;ve not been able to put out anywhere near as many updates as
+we&amp;rsquo;d like. The work we&amp;rsquo;ve been doing to grow the organisation and forge new
+collaborations is hugely time consuming, and of course embargos etc. come in to
+play. But you can expect to hear much more from us going forwards.&lt;/p&gt;
+
+&lt;p&gt;On a final note, I&amp;rsquo;d like to shine the spotlight on the &lt;a href=&#34;https://www.lowrisc.org/about/&#34;&gt;whole lowRISC
+family&lt;/a&gt;, especially those who have helped us get this far. In
+particular I’d like to thank our board of directors, our growing team of full
+time staff, our technical advisory board, and of course the wider community
+who have given us so much support, suggestions, and encouragement. Pirmin and
+Laura will soon be posting more about their experiences joining lowRISC, and
+you&amp;rsquo;ll be seeing a number of other new faces on our
+&lt;a href=&#34;https://github.com/lowRISC&#34;&gt;GitHub&lt;/a&gt;, &lt;a href=&#34;https://twitter.com/lowrisc&#34;&gt;Twitter&lt;/a&gt;,
+and shiny new &lt;a href=&#34;https://lowrisc.zulipchat.com/register/&#34;&gt;Zulip group chat&lt;/a&gt; - do
+join and say hi.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Alex Bradbury, CTO and Co-Founder&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>lowRISC Expands and Appoints New Members to the Board of Directors from Google and ETH Zurich</title>
@@ -3139,27 +3190,6 @@ development board).&lt;/li&gt;
 &lt;p&gt;Please report any issues &lt;a href=&#34;https://github.com/lowRISC/lowrisc-chip&#34;&gt;on our GitHub
 repository&lt;/a&gt;, or discuss on our
 &lt;a href=&#34;http://listmaster.pepperfish.net/cgi-bin/mailman/listinfo/lowrisc-dev-lists.lowrisc.org&#34;&gt;mailing list&lt;/a&gt;. As always, thank you to everyone who has contributed in any way - whether it&amp;rsquo;s advice and feedback, bug reports, code, or ideas.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Apply now for GSoC 2017</title>
-      <link>https://www.lowrisc.org/blog/2017/03/apply-now-for-gsoc-2017/</link>
-      <pubDate>Mon, 27 Mar 2017 09:35:57 +0000</pubDate>
-      
-      <guid>https://www.lowrisc.org/blog/2017/03/apply-now-for-gsoc-2017/</guid>
-      <description>&lt;p&gt;We are very grateful for being selected again to take part as a mentoring
-organisation in the &lt;a href=&#34;https://summerofcode.withgoogle.com/&#34;&gt;Google Summer of
-Code&lt;/a&gt;, now for the third year running.
-If you are a student who would like to be paid to work on open source during
-the summer, then take a look at &lt;a href=&#34;https://www.lowrisc.org/docs/gsoc-2017-ideas/&#34;&gt;the lowRISC ideas
-list&lt;/a&gt; and
-&lt;a href=&#34;https://summerofcode.withgoogle.com/organizations/6271463900315648/&#34;&gt;apply&lt;/a&gt;.
-The deadline for applications is 4pm UTC on April 3rd. We&amp;rsquo;re always very interested in
-ideas suggested by students, and encourage you to share them &lt;a href=&#34;https://listmaster.pepperfish.net/cgi-bin/mailman/listinfo/lowrisc-dev-lists.lowrisc.org&#34;&gt;on our
-discussion
-list&lt;/a&gt;
-for feedback before making a proposal.&lt;/p&gt;
 </description>
     </item>
     

@@ -6,10 +6,20 @@
     <description>Recent content in Blogs on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 16 May 2019 17:50:00 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 16 May 2019 18:40:00 +0100</lastBuildDate>
     
 	<atom:link href="https://www.lowrisc.org/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Onwards and upwards at lowRISC</title>
+      <link>https://www.lowrisc.org/blog/2019/05/onwards-and-upwards-at-lowrisc/</link>
+      <pubDate>Thu, 16 May 2019 18:40:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/05/onwards-and-upwards-at-lowrisc/</guid>
+      <description>If you haven&amp;rsquo;t checked it out yet, be sure to take a look at our press release and the corresponding Google blog post. This industry support and growth of our board is a huge step forwards for lowRISC. As Royal Hansen, vice president of Security, Google, said:
+ &#34;Google believes that open source is good for everyone. To further our commitment, we are investing both capital and engineering resources to create a sustainable open source hardware ecosystem.</description>
+    </item>
     
     <item>
       <title>lowRISC Expands and Appoints New Members to the Board of Directors from Google and ETH Zurich</title>

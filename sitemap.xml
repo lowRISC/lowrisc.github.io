@@ -3,13 +3,23 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.lowrisc.org/blog/</loc>
-    <lastmod>2018-11-12T09:50:00+00:00</lastmod>
-    <priority>0</priority>
+    <loc>https://www.lowrisc.org/code-of-conduct/</loc>
+    <lastmod>2019-05-15T13:40:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/our-work/</loc>
+    <lastmod>2019-05-15T13:40:22+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.lowrisc.org/</loc>
+    <lastmod>2019-05-15T13:40:22+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/blog/</loc>
     <lastmod>2018-11-12T09:50:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -711,16 +721,6 @@
   
   <url>
     <loc>https://www.lowrisc.org/about/</loc>
-    <lastmod>2015-03-23T13:40:22+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.lowrisc.org/code-of-conduct/</loc>
-    <lastmod>2015-03-23T13:40:22+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.lowrisc.org/our-work/</loc>
     <lastmod>2015-03-23T13:40:22+00:00</lastmod>
   </url>
   

@@ -5,8 +5,126 @@
     <description>Recent content in lowRISC on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 16 May 2019 18:40:00 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 03 Jun 2019 10:00:00 +0100</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Introducing Pirmin &amp; Laura</title>
+      <link>https://www.lowrisc.org/blog/2019/06/introducing-pirmin-laura/</link>
+      <pubDate>Mon, 03 Jun 2019 10:00:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/06/introducing-pirmin-laura/</guid>
+      <description>&lt;p&gt;Pirmin Vogel and Laura James both joined lowRISC on May 1st this year. A few
+weeks in to their new roles, they each share thoughts on what attracted them to
+work at lowRISC.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Pirmin:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://www.lowrisc.org/img/pirmin_vogel.jpg&#34; alt=&#34;Pirmin Vogel photo&#34; title=&#34;Pirmin Vogel&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;After having traveled around the world for 6 months, I finally started my new
+position as hardware/software engineer at lowRISC C.I.C. in Cambridge at the
+beginning of May. At lowRISC, we are working on open-source hardware/software
+ecosystems with a fully open-sourced, Linux-capable, RISC-V-based SoC being the
+ultimate goal.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Having done my PhD in the Digital Circuits and Systems group of ETH Zurich,
+i.e., a research group that very early started to promote and push for
+open-source hardware, it was important for me to continue along the open-source
+path. Open-source hardware and software are powerful catalysts for education,
+research and industry. Studying the sources of the Linux kernel and its modules
+was absolutely key to get to understand the kernel’s memory management system
+and to get started with the design of kernel drivers required for my research.
+Moreover, building on top of the open-source Parallel Ultra Low Power (PULP)
+Platform allowed me to carry out my research in the first place. Not only could
+I rely on a large pool of silicon-proven hardware designs and software tools
+such as libraries, runtimes and compilers, but I was also able to freely modify,
+tailor and extend them to fit my needs, and ultimately to release my own
+research open-source as part of the &lt;a href=&#34;https://www.pulp-platform.org/hero&#34;&gt;Open Heterogeneous Research Platform&lt;/a&gt; (HERO), thereby letting my research being more
+useful to more people. As for the industry, it seems that the open-source PULP
+ecosystem has gained quite some traction since its start in 2013 serving both as
+a starting point for custom designs and also creating &lt;a href=&#34;https://www.pulp-platform.org/pulp_users.html&#34;&gt;new business opportunities&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;At lowRISC, I am currently working on our RISC-V processor core &lt;a href=&#34;https://github.com/lowRISC/ibex&#34;&gt;Ibex&lt;/a&gt;. This core has its origins in academia – it
+has been designed by my former colleagues of the PULP team under the name
+Zero-riscy – and leveraging its design in a professional context offers
+challenges but also new opportunities. For example, it allows and requires to
+put a stronger focus on design verification but ultimately, it can prove also to
+the tough critics that open-source hardware is no longer just a toy but a
+serious alternative.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Laura:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://www.lowrisc.org/img/laura_james.jpg&#34; alt=&#34;Laura James photo&#34; title=&#34;Laura James&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;I’m delighted to be joining lowRISC. This is a really exciting
+opportunity for me on many levels - a chance to be part of a new wave of
+fundamental computing innovation enabling specialised silicon chips, to learn
+about the practicalities of shared engineering resource and IP at the hardware
+layer, and to actually ship some useful products (hopefully at reasonable
+scale). It builds on my varied career to date working to make emerging
+technologies a reality in real products and services, and in growing innovative
+organisations.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;lowRISC works on open source hardware at the silicon layer (and related open
+source software tools), and so builds on my longstanding interest in open stuff,
+and particularly the challenges of bringing open to new areas. Open source
+silicon isn&amp;rsquo;t a totally new idea, but producing products at scale with it is
+rare. Nonetheless, it&amp;rsquo;s important: openness means greater scope for audit and
+security; for efficiency (code and hardware designs can be reused, rather than
+reinventing the wheel), and for flexibility. With &lt;a href=&#34;https://semiengineering.com/the-impact-of-moores-law-ending/&#34;&gt;Moore&amp;rsquo;s law
+slowing down&lt;/a&gt;, new
+processors will be more specialised, rather than just smaller and faster.
+Instead, we&amp;rsquo;ll be designing silicon for more specific applications, and ensuring
+the designs are efficient and verifiable. Open source hardware makes this much
+easier - you can get more people working on a design to check it, and you can
+bolt together open modules for different bits of functionality knowing you
+understand what is in them (which you can&amp;rsquo;t do with a proprietary processor core
+which you&amp;rsquo;ve licensed - it&amp;rsquo;s just a black box). So open hardware at the silicon
+level is going to be important for the future of computing.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;lowRISC itself is still quite small (but growing), but the team size doesn&amp;rsquo;t
+reflect the range of people I’m working with day to day, because there&amp;rsquo;s lots of
+collaboration going on. Open source ecosystems have different kinds of
+organisation and activity in them; lowRISC is focussing on providing quality
+engineering resource and being a hub for collaborative engineering across other
+partners. (A bit like &lt;a href=&#34;https://www.linaro.org/&#34;&gt;Linaro&lt;/a&gt; does for open source for
+Arm, whose work I’ve always been fascinated by.)  It&amp;rsquo;s a community interest
+company, meaning a nonprofit dedicated to serving a broader mission not just
+itself. I&amp;rsquo;m looking forward to being part of changing how hardware is developed,
+making it fundamentally more collaborative and factoring in testing and
+maintenance sensibly.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;There are some really interesting challenges. For instance, you can&amp;rsquo;t be 100%
+open right now in silicon, because in an actual manufactured chip there&amp;rsquo;s a lot
+of analogue components as well as the open source digital bits, and those
+analogue bits are generally closely linked to the big foundries which
+manufacture silicon and are secret sauce today.  Collaborative engineering
+should be cost effective and useful to companies, as a way of working on
+non-differentiating technology components, but it&amp;rsquo;s not always an easy sell or
+easy to make happen in practice. The same goes for opening up hardware IP - not
+always a straightforward case to make. How should the governance for this sort
+of work operate, and how do you make it work in practice? And of course we have
+the usual startup challenge, that we need to make reliable, high quality
+products, in a reasonable time, which people actually want and are willing to
+pay for.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;I’m really looking forward to seeing what we can accomplish, and being part of
+the move towards open source silicon.&lt;/p&gt;
+
+&lt;p&gt;&amp;rdquo;(If you’d like to learn more about how I ended up here, I wrote on &lt;a href=&#34;https://lbj20.blogspot.com/2019/04/new-challenges-ahead.html&#34;&gt;my personal
+blog&lt;/a&gt; about this
+role and how it fits with things I’ve been working on.)&amp;rdquo;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;We&amp;rsquo;re thrilled to have Pirmin and Laura join the lowRISC team and if you&amp;rsquo;d like
+to be part of the open source silicon revolution, we presently have a number
+of openings and I&amp;rsquo;d encourage you to take a look at the &lt;a href=&#34;https://www.lowrisc.org/jobs/&#34;&gt;jobs page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Alex Bradbury, CTO and Co-Founder&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Onwards and upwards at lowRISC</title>
@@ -3160,36 +3278,6 @@ repositories, the gcc version takes precedence.&lt;/p&gt;
 
 &lt;p&gt;Major credit to everyone who worked on getting these toolchain
 ports upstream (Kito Cheng, Palmer Dabbelt, and others).&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>lowRISC 0-4 milestone release</title>
-      <link>https://www.lowrisc.org/blog/2017/06/lowrisc-0-4-milestone-release/</link>
-      <pubDate>Fri, 09 Jun 2017 12:35:57 +0000</pubDate>
-      
-      <guid>https://www.lowrisc.org/blog/2017/06/lowrisc-0-4-milestone-release/</guid>
-      <description>&lt;p&gt;The &lt;a href=&#34;https://www.lowrisc.org/docs/minion-v0.4/&#34;&gt;lowRISC 0.4 milestone release&lt;/a&gt;
-is now available. The various changes are best described in our &lt;a href=&#34;https://www.lowrisc.org/docs/minion-v0.4/&#34;&gt;accompanying
-documentation&lt;/a&gt;, but in summary this
-release:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Moves forward our support for tagged memory by re-integrating the tag cache,
-reducing overhead with a &lt;a href=&#34;https://www.lowrisc.org/docs/minion-v0.4/tag_cache/&#34;&gt;hierarchical scheme&lt;/a&gt;.
-This will significantly reduce caches misses caused by tagged memory accesses
-where tags are distributed sparsely.&lt;/li&gt;
-&lt;li&gt;Integrates support for specifying and configuring &lt;a href=&#34;https://www.lowrisc.org/docs/minion-v0.4/tag_core/&#34;&gt;tag propagation and
-exception behaviour&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;A &lt;a href=&#34;http://www.pulp-platform.org/&#34;&gt;PULPino&lt;/a&gt; based &amp;ldquo;minion core&amp;rdquo; has been
-integrated, and is used to provide peripherals such as the SD card
-interface, keyboard, and VGA tex display (when using the Nexys4 DDR FPGA
-development board).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Please report any issues &lt;a href=&#34;https://github.com/lowRISC/lowrisc-chip&#34;&gt;on our GitHub
-repository&lt;/a&gt;, or discuss on our
-&lt;a href=&#34;http://listmaster.pepperfish.net/cgi-bin/mailman/listinfo/lowrisc-dev-lists.lowrisc.org&#34;&gt;mailing list&lt;/a&gt;. As always, thank you to everyone who has contributed in any way - whether it&amp;rsquo;s advice and feedback, bug reports, code, or ideas.&lt;/p&gt;
 </description>
     </item>
     

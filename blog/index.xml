@@ -6,10 +6,20 @@
     <description>Recent content in Blogs on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Jun 2019 10:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 10 Jun 2019 15:00:00 +0100</lastBuildDate>
     
 	<atom:link href="https://www.lowrisc.org/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>An update on Ibex, our microcontroller-class CPU core</title>
+      <link>https://www.lowrisc.org/blog/2019/06/an-update-on-ibex-our-microcontroller-class-cpu-core/</link>
+      <pubDate>Mon, 10 Jun 2019 15:00:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/06/an-update-on-ibex-our-microcontroller-class-cpu-core/</guid>
+      <description>At the beginning of many chips projects, there’s a dream. Could we create a more future-proof chip by embedding an FPGA fabric into it? Could we measure glucose levels more accurately by integrating a small bio lab onto a chip? Could we more reliably recognize kittens in a set of pictures by implementing neural network inference in hardware?
+In implementation, this dream becomes a piece of hardware, with digital or analog logic, sensors, actuators, and much more.</description>
+    </item>
     
     <item>
       <title>Introducing Pirmin &amp; Laura</title>

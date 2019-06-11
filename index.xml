@@ -5,8 +5,60 @@
     <description>Recent content in lowRISC on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 10 Jun 2019 15:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 11 Jun 2019 16:00:00 +0100</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>lowRISC at Week of Open Source Hardware</title>
+      <link>https://www.lowrisc.org/blog/2019/06/lowrisc-at-week-of-open-source-hardware/</link>
+      <pubDate>Tue, 11 Jun 2019 16:00:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/06/lowrisc-at-week-of-open-source-hardware/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.lowrisc.org/img/WOSH_logo_640w.png&#34; alt=&#34;WOSH logo&#34; title=&#34;WOSH logo&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Pretty much the whole team is in Zurich this week for the RISC-V Workshop and
+inaugural Week of Open Source Hardware, with a &lt;a href=&#34;https://fossi-foundation.org/wosh/&#34;&gt;packed
+programme&lt;/a&gt; that got off to a start today and
+which runs all the way through to Friday afternoon.&lt;/p&gt;
+
+&lt;p&gt;This morning lowRISC board member, Professor Luca Benini, gave a RISC-V Workshop
+keynote entitled, &lt;a href=&#34;https://tmt.knect365.com/risc-v-workshop-zurich/agenda/1#keynotes_energy-efficient-computing-from-exascale-to-microwatts-the-risc-v-playground&#34;&gt;Energy efficient computing from Exascale to MicroWatts: The
+RISC-V
+playground&lt;/a&gt;.
+Our friends and close collaborators at &lt;a href=&#34;https://pulp-platform.org/&#34;&gt;PULP
+Platform&lt;/a&gt; are giving a number of talks this week
+and, we’re pleased to say, so are members of the lowRISC team!&lt;/p&gt;
+
+&lt;p&gt;On Thursday 13th there will be a morning session dedicated to &lt;a href=&#34;https://fossi-foundation.org/wosh/#licensing&#34;&gt;Open Source
+Licensing&lt;/a&gt; and at 10:50 Alex
+Bradbury will be presenting &lt;a href=&#34;https://fossi-foundation.org/wosh/#event-abstract-5&#34;&gt;a lowRISC experience
+report&lt;/a&gt;, immediately
+following which he’ll then be participating in a panel discussion moderated by
+the &lt;a href=&#34;https://fossi-foundation.org/&#34;&gt;FOSSi Foundation&lt;/a&gt;’s Stefan Wallentowitz.
+Later the same day at 16:10, Google engineer and lowRISC board member, Dom
+Rizzo, will be speaking about &lt;a href=&#34;https://fossi-foundation.org/wosh/#event-abstract-7&#34;&gt;Google and the Free and Open Source Hardware
+Community&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The following day on Friday 14th at 09:20, Philipp Wagner will be giving a talk
+entitled, &lt;a href=&#34;https://fossi-foundation.org/wosh/#event-abstract-2&#34;&gt;Ibex and The Mountain of Open Participation: How lowRISC develops its
+Ibex CPU core and lets everyone
+participate&lt;/a&gt;. Then Philipp
+will be taking to the stage for a second time at 14:40 to give another talk on
+&lt;a href=&#34;https://fossi-foundation.org/wosh/#event-abstract-4&#34;&gt;Python-powered hardware verification with
+Cocotb&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://www.lowrisc.org/img/lowRISC_enamel_badge_640w.jpg&#34; alt=&#34;lowRISC enamel badge&#34; title=&#34;lowRISC enamel
+badge&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you’re in Zurich this week please do say hello and if you can’t spot us from
+the team photo &lt;a href=&#34;https://www.lowrisc.org/about/&#34;&gt;on the website&lt;/a&gt; — it already
+needs updating! — be sure to follow the &lt;a href=&#34;https://twitter.com/lowrisc&#34;&gt;Twitter
+feed&lt;/a&gt; for team updates and also be on the lookout
+for people wearing a lowRISC pin.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Andrew Back&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>An update on Ibex, our microcontroller-class CPU core</title>
@@ -3291,49 +3343,6 @@ groups to do the same.&lt;/p&gt;
 - &lt;a href=&#34;https://www.lowrisc.org/blog/2017/09/were-hiring-work-on-making-open-source-hardware-a-reality/&#34;&gt;&lt;strong&gt;we&amp;rsquo;re hiring&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Alex Bradbury and Katherine Lim&lt;/em&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>We&#39;re hiring! Work on making open source hardware a reality</title>
-      <link>https://www.lowrisc.org/blog/2017/09/were-hiring-work-on-making-open-source-hardware-a-reality/</link>
-      <pubDate>Mon, 18 Sep 2017 08:15:00 +0000</pubDate>
-      
-      <guid>https://www.lowrisc.org/blog/2017/09/were-hiring-work-on-making-open-source-hardware-a-reality/</guid>
-      <description>&lt;p&gt;We are looking for a talented hardware engineer to join the lowRISC team and
-help make our vision for an open source, secure, and flexible SoC a reality.
-&lt;a href=&#34;https://lowrisc.workable.com/j/DBAC61322F&#34;&gt;Apply now&lt;/a&gt;!&lt;/p&gt;
-
-&lt;p&gt;lowRISC C.I.C. is a not-for-profit company that aims to demonstrate, promote
-and support the use of open-source hardware. The lowRISC project was
-established in 2014 with the aim of bringing the benefits of open-source to
-the hardware world. It is working to do this by producing a high quality,
-secure, open, and flexible System-on-Chip (SoC) platform. lowRISC C.I.C. also
-provides hardware and software services to support the growing RISC-V
-ecosystem. Our expertise includes the LLVM Compiler, hardware security
-extensions and RISC-V tools, hardware and processor design.&lt;/p&gt;
-
-&lt;p&gt;The successful candidate will be interested in computer architecture and
-hardware design. The primary focus of the role will be the development of the
-lowRISC SoC platform, which will involve work to evaluate and extend our
-current design including our general-purpose tagged-memory system. lowRISC is
-an ambitious project with a small core team, so you will be heavily involved
-in the project&amp;rsquo;s development direction. This role will involve frequent work
-with external contributors and collaborators. While much of the work will be
-at the hardware level the post will offer experience of the full
-hardware/software stack, higher-level simulation tools and architectural
-design issues.&lt;/p&gt;
-
-&lt;p&gt;Some practical experience of hardware design with a HDL such as
-Verilog/SystemVerilog is essential, as is a good knowledge of the HW/SW stack.
-Ideally, candidates will also have experience or demonstrated interest in some
-of: SoC design, large-scale open source development, hardware or software
-security, technical documentation, board support package development and
-driver development. Industrial experience and higher degree levels are valued,
-but we would be happy to consider an enthusiastic recent graduate with a
-strong academic record.&lt;/p&gt;
-
-&lt;p&gt;Informal enquires should be made to Alex Bradbury &lt;a href=&#34;mailto:asb@lowrisc.org&#34;&gt;asb@lowrisc.org&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

@@ -6,10 +6,20 @@
     <description>Recent content in Blogs on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 10 Jun 2019 15:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 11 Jun 2019 16:00:00 +0100</lastBuildDate>
     
 	<atom:link href="https://www.lowrisc.org/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>lowRISC at Week of Open Source Hardware</title>
+      <link>https://www.lowrisc.org/blog/2019/06/lowrisc-at-week-of-open-source-hardware/</link>
+      <pubDate>Tue, 11 Jun 2019 16:00:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/06/lowrisc-at-week-of-open-source-hardware/</guid>
+      <description>Pretty much the whole team is in Zurich this week for the RISC-V Workshop and inaugural Week of Open Source Hardware, with a packed programme that got off to a start today and which runs all the way through to Friday afternoon.
+This morning lowRISC board member, Professor Luca Benini, gave a RISC-V Workshop keynote entitled, Energy efficient computing from Exascale to MicroWatts: The RISC-V playground. Our friends and close collaborators at PULP Platform are giving a number of talks this week and, we’re pleased to say, so are members of the lowRISC team!</description>
+    </item>
     
     <item>
       <title>An update on Ibex, our microcontroller-class CPU core</title>

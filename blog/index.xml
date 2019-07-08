@@ -6,10 +6,20 @@
     <description>Recent content in Blogs on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 Jun 2019 16:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jul 2019 10:00:00 +0100</lastBuildDate>
     
 	<atom:link href="https://www.lowrisc.org/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Introducing Sam</title>
+      <link>https://www.lowrisc.org/blog/2019/07/introducing-sam/</link>
+      <pubDate>Mon, 08 Jul 2019 10:00:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/07/introducing-sam/</guid>
+      <description>On June 1st, Sam Elliott followed Laura and Pirmin in becoming lowRISC’s newest employee. A few weeks into his new role, he shares why he joined lowRISC and what he&amp;rsquo;s been doing since he started.
+&amp;ldquo;I joined lowRISC CIC as a Compiler Developer, working on the RISC-V LLVM backend, and so far I’m enjoying working on the team! Prior to lowRISC, I worked as a compilers and programming languages researcher at the University of Washington, where I completed my Masters degree.</description>
+    </item>
     
     <item>
       <title>lowRISC at Week of Open Source Hardware</title>

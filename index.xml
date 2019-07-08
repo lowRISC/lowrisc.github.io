@@ -5,8 +5,78 @@
     <description>Recent content in lowRISC on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 Jun 2019 16:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jul 2019 10:00:00 +0100</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Introducing Sam</title>
+      <link>https://www.lowrisc.org/blog/2019/07/introducing-sam/</link>
+      <pubDate>Mon, 08 Jul 2019 10:00:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/07/introducing-sam/</guid>
+      <description>&lt;p&gt;On June 1st, Sam Elliott followed &lt;a href=&#34;https://www.lowrisc.org/blog/2019/06/introducing-pirmin-laura/&#34;&gt;Laura and
+Pirmin&lt;/a&gt; in becoming lowRISC’s newest
+employee. A few weeks into his new role, he shares why he joined lowRISC and
+what he&amp;rsquo;s been doing since he started.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://www.lowrisc.org/img/sam_elliott.jpg&#34; alt=&#34;Sam Elliott photo&#34; title=&#34;Sam Elliott&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;I joined lowRISC CIC as a Compiler Developer, working on the RISC-V LLVM
+backend, and so far I’m enjoying working on the team! Prior to lowRISC, I worked
+as a compilers and programming languages researcher at the University of
+Washington, where I completed my Masters degree.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;I worked for about four years on the academic side of compiler research, trying
+out new ideas with new technologies. As well as working with academics, during
+that time I worked at Microsoft Research, on &lt;a href=&#34;https://www.microsoft.com/en-us/research/project/checked-c/&#34;&gt;Checked
+C&lt;/a&gt;, and at NVIDIA
+on an experimental compiler team. This was both challenging and fun, but I found
+that I was more satisfied with the work when it was closer to problems that
+normal software developers face. I’m really happy to have moved over to a more
+focused compiler development role on the team here at lowRISC, where I get to
+improve LLVM and participate in the wider open source community.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;My first month at lowRISC has been lots of fun. Alex and Luís have been great
+mentors to get me up to speed with the project. As we’re hoping to stabilise the
+RISC-V backend soon, some of my time has been spent ensuring we can build and
+run the LLVM &lt;a href=&#34;https://llvm.org/docs/TestingGuide.html#test-suite&#34;&gt;test suite&lt;/a&gt; on
+RISC-V. Gratifyingly, it seems 98% of the tests are passing – with some pending
+patches – and the rest are not far from also doing so. A few of the other
+patches I have committed this month have related to tuning the optimiser and
+instruction selector to make better decisions for RISC-V. Of course, we’ll never
+truly finish tuning the optimiser, especially as more and more instruction set
+extensions and open cores are implemented and released.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;On top of all of this, it was good to get out of the office and meet other
+RISC-V and open-source hardware supporters at the RISC-V Workshop and WOSH in
+Zurich. It was an almost overwhelming amount of information for someone so new
+to the ecosystem, but the community has been very friendly and welcoming.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;I’m not just interested in how programs can be compiled to be as efficient as
+possible; I’m also interested in how the design of programming languages allow
+developers to write programs that contain fewer errors. This is why I joined the
+Checked C project, and am interested in Rust. Along these lines I am beginning
+to look at improving the support for compiling Rust programs to RISC-V. Rust
+uses LLVM as a backend, so a lot of the work is already done, but we want to
+make sure the experience of using Rust on RISC-V is as good as it is for any
+other platform. Rust support is a key requirement for the RISC-V ports of
+distros such as Debian and Fedora, and I look forward to helping stabilise
+further support for the platform in these distributions.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Having stable RISC-V support in both the Clang and Rust compilers, in addition
+to the existing support in GCC, should allow more people and projects to adopt
+RISC-V and quickly get started on the platform.&amp;rdquo;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;We&amp;rsquo;re excited to have Sam join our team and help further accelerate our
+toolchain and LLVM-related efforts. If you&amp;rsquo;re interested in joining us on our
+mission, check out our &lt;a href=&#34;https://www.lowrisc.org/jobs/&#34;&gt;jobs page&lt;/a&gt; for details on
+positions we are looking to fill.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Alex Bradbury, CTO and Co-Founder&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>lowRISC at Week of Open Source Hardware</title>
@@ -3307,42 +3377,6 @@ hiring&lt;/a&gt;.&lt;/p&gt;
 or expanded through 2018, then contributing development time and/or
 sponsorship is the best way to do this. Please contact asb@lowrisc.org to
 discuss further.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>lowRISC tagged memory OS enablement</title>
-      <link>https://www.lowrisc.org/blog/2017/09/lowrisc-tagged-memory-os-enablement/</link>
-      <pubDate>Tue, 19 Sep 2017 14:45:00 +0000</pubDate>
-      
-      <guid>https://www.lowrisc.org/blog/2017/09/lowrisc-tagged-memory-os-enablement/</guid>
-      <description>&lt;p&gt;This summer, we were fortunate enough to have Katherine Lim join the lowRISC
-team at the University of Cambridge Computer Laboratory as an intern.
-Katherine&amp;rsquo;s focus was on operating system and software enabled for lowRISC&amp;rsquo;s
-tagged memory, building upon our
-&lt;a href=&#34;https://www.lowrisc.org/docs/minion-v0.4/&#34;&gt;most recent milestone release&lt;/a&gt;.
-As Katherine&amp;rsquo;s &lt;a href=&#34;https://www.lowrisc.org/docs/tagged-memory-os-enablement-internship-2017/&#34;&gt;detailed write-up&lt;/a&gt; demonstrates,
-it&amp;rsquo;s been a very productive summer.&lt;/p&gt;
-
-&lt;p&gt;The goal of this internship was to take the lowRISC hardware release, and
-demonstrate kernel support and software support for the hardware tagged memory
-primitives. This includes support for context-switch of the &lt;code&gt;tagctrl&lt;/code&gt; register
-used to configure tag rules, maintaining tags in pages upon copy-on-write,
-delivering tag exceptions to user space, loading tags from ELF binaries, and
-more. It culminated in a demonstration that pulls these various pieces of work
-together, showing how tagged memory can be used to mark valid branch targets.
-Read the &lt;a href=&#34;https://www.lowrisc.org/docs/tagged-memory-os-enablement-internship-2017/&#34;&gt;report&lt;/a&gt; for full
-details.&lt;/p&gt;
-
-&lt;p&gt;We believe there is a rich design space in hardware support for tagged memory
-and tag-based software policies. This operating system enablement work is an
-important part of exploring that space, and in making it easier for other
-groups to do the same.&lt;/p&gt;
-
-&lt;p&gt;If working on problems like this sounds interesting to you, there&amp;rsquo;s good news
-- &lt;a href=&#34;https://www.lowrisc.org/blog/2017/09/were-hiring-work-on-making-open-source-hardware-a-reality/&#34;&gt;&lt;strong&gt;we&amp;rsquo;re hiring&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Alex Bradbury and Katherine Lim&lt;/em&gt;&lt;/p&gt;
 </description>
     </item>
     

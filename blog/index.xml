@@ -6,10 +6,28 @@
     <description>Recent content in Blogs on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Jul 2019 10:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jul 2019 16:10:00 +0100</lastBuildDate>
     
 	<atom:link href="https://www.lowrisc.org/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Large-scale RISC-V LLVM testing with Buildroot</title>
+      <link>https://www.lowrisc.org/blog/2019/07/large-scale-risc-v-llvm-testing-with-buildroot/</link>
+      <pubDate>Wed, 10 Jul 2019 16:10:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/07/large-scale-risc-v-llvm-testing-with-buildroot/</guid>
+      <description>A few years ago lowRISC started developing a new LLVM backend targeting RISC-V. Rather than copying and modifying an existing backend, in an ad hoc fashion, we started from scratch and proceeded systematically. This approach proved successful in producing a high-quality codebase. We recently announced on the llvm-dev mailing list that the backend is now reaching stability and could be promoted from its current status of experimental to an official target.</description>
+    </item>
+    
+    <item>
+      <title>The RISC-V LLVM backend in Clang/LLVM 9.0</title>
+      <link>https://www.lowrisc.org/blog/2019/07/risc-v-llvm-backend-in-clang-llvm-9.0/</link>
+      <pubDate>Wed, 10 Jul 2019 16:00:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/07/risc-v-llvm-backend-in-clang-llvm-9.0/</guid>
+      <description>On Monday I proposed promoting the upstream RISC-V LLVM backend from &amp;ldquo;experimental&amp;rdquo; to &amp;ldquo;official&amp;rdquo; for the LLVM 9.0 release. Responses so far are extremely positive, and we&amp;rsquo;re working to ensure this is a smooth process. This means that from 9.0, the RISC-V backend will be built by default for LLVM, making it usable out of the box for standard LLVM/Clang builds. As well as being more convenient for end users, this also makes it significantly easier for e.</description>
+    </item>
     
     <item>
       <title>Introducing Sam</title>

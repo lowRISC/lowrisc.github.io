@@ -6,10 +6,19 @@
     <description>Recent content in Blogs on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Jul 2019 16:10:00 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jul 2019 20:00:00 +0100</lastBuildDate>
     
 	<atom:link href="https://www.lowrisc.org/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Six more weeks of Ibex development - what&#39;s new?</title>
+      <link>https://www.lowrisc.org/blog/2019/07/six-more-weeks-of-ibex-development-whats-new/</link>
+      <pubDate>Fri, 19 Jul 2019 20:00:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/07/six-more-weeks-of-ibex-development-whats-new/</guid>
+      <description>In the past months, we have invested considerable effort in improving our RISC-V core Ibex. This 2-stage, in-order, 32-bit microcontroller-class CPU core was contributed to us by ETH Zürich in December 2018, with activity really ramping up since May. Having been taped out multiple times (as zero-riscy) in a mix of academic and industry projects, it came to us as a relatively mature code base. Despite this, we have continued to invest in improving its design and maintainability.</description>
+    </item>
     
     <item>
       <title>Large-scale RISC-V LLVM testing with Buildroot</title>

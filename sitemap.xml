@@ -4,19 +4,22 @@
   
   <url>
     <loc>https://www.lowrisc.org/blog/</loc>
-    <lastmod>2019-07-19T20:00:00+01:00</lastmod>
-    <priority>0</priority>
+    <lastmod>2019-08-23T16:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/blog/2019/08/ibex-code-with-confidence/</loc>
+    <lastmod>2019-08-23T16:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/</loc>
+    <lastmod>2019-08-23T16:00:00+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.lowrisc.org/blog/2019/07/six-more-weeks-of-ibex-development-whats-new/</loc>
     <lastmod>2019-07-19T20:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.lowrisc.org/</loc>
-    <lastmod>2019-07-19T20:00:00+01:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -125,12 +128,12 @@
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/docs/overview/</loc>
+    <loc>https://www.lowrisc.org/docs/ethernet-v0.5/overview/</loc>
     <lastmod>2018-01-12T13:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/docs/ethernet-v0.5/overview/</loc>
+    <loc>https://www.lowrisc.org/docs/overview/</loc>
     <lastmod>2018-01-12T13:00:00+00:00</lastmod>
   </url>
   
@@ -240,12 +243,12 @@
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/docs/tagged-memory-os-enablement-internship-2017/</loc>
+    <loc>https://www.lowrisc.org/blog/2017/09/lowrisc-tagged-memory-os-enablement/</loc>
     <lastmod>2017-09-19T14:45:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2017/09/lowrisc-tagged-memory-os-enablement/</loc>
+    <loc>https://www.lowrisc.org/docs/tagged-memory-os-enablement-internship-2017/</loc>
     <lastmod>2017-09-19T14:45:00+00:00</lastmod>
   </url>
   
@@ -270,12 +273,12 @@
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/docs/minion-v0.4/tag_lowrisc/</loc>
+    <loc>https://www.lowrisc.org/docs/minion-v0.4/minion/</loc>
     <lastmod>2017-04-18T15:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/docs/minion-v0.4/minion/</loc>
+    <loc>https://www.lowrisc.org/docs/minion-v0.4/tag_lowrisc/</loc>
     <lastmod>2017-04-18T15:00:00+00:00</lastmod>
   </url>
   
@@ -590,17 +593,17 @@
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/docs/untether-v0.2/vsim/</loc>
-    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://www.lowrisc.org/docs/untether-v0.2/release/</loc>
     <lastmod>2015-12-17T17:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.lowrisc.org/docs/untether-v0.2/rocket-core/</loc>
+    <lastmod>2015-12-17T17:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/docs/untether-v0.2/vsim/</loc>
     <lastmod>2015-12-17T17:00:00+00:00</lastmod>
   </url>
   
@@ -806,12 +809,10 @@
   
   <url>
     <loc>https://www.lowrisc.org/categories/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://www.lowrisc.org/tags/</loc>
-    <priority>0</priority>
   </url>
   
 </urlset>

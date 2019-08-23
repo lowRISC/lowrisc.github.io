@@ -6,10 +6,19 @@
     <description>Recent content in Blogs on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 Jul 2019 20:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 23 Aug 2019 16:00:00 +0100</lastBuildDate>
     
 	<atom:link href="https://www.lowrisc.org/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ibex: Code with Confidence</title>
+      <link>https://www.lowrisc.org/blog/2019/08/ibex-code-with-confidence/</link>
+      <pubDate>Fri, 23 Aug 2019 16:00:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/08/ibex-code-with-confidence/</guid>
+      <description>Ibex, our small RISC-V core, is constantly changing. Roughly 50 percent of the RTL was refactored recently! We added features, tests, and cleaned the code up. We and our collaborators were able to make these changes (mostly) without breaking Ibex because we invested in testing: earlier this year we added UVM-based verification to the tree, and we run these tests after every change. We run static code analysis to catch common programming bugs.</description>
+    </item>
     
     <item>
       <title>Six more weeks of Ibex development - what&#39;s new?</title>

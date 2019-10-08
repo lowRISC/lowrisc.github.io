@@ -6,10 +6,19 @@
     <description>Recent content in Blogs on lowRISC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 23 Aug 2019 16:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 08 Oct 2019 16:30:00 +0100</lastBuildDate>
     
 	<atom:link href="https://www.lowrisc.org/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ibex on FPGA - Get stuff executed</title>
+      <link>https://www.lowrisc.org/blog/2019/10/ibex-on-fpga-get-stuff-executed/</link>
+      <pubDate>Tue, 08 Oct 2019 16:30:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/10/ibex-on-fpga-get-stuff-executed/</guid>
+      <description>Our microcontroller-class RISC-V processor core Ibex for sure is a solid base with which to start your own project. Over the past months, we have invested a lot of effort in making the design more mature. This includes refactoring the RTL to make the design more understandable and programmer friendly, adding UVM-based verification to the source tree, but also integrating support for the RISC-V compliance suite and enabling publicly visible, open-source powered continuous integration (CI) to keep the design stable.</description>
+    </item>
     
     <item>
       <title>Ibex: Code with Confidence</title>

@@ -4,16 +4,21 @@
   
   <url>
     <loc>https://www.lowrisc.org/blog/</loc>
-    <lastmod>2019-08-23T16:00:00+01:00</lastmod>
+    <lastmod>2019-10-08T16:30:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.lowrisc.org/blog/2019/08/ibex-code-with-confidence/</loc>
-    <lastmod>2019-08-23T16:00:00+01:00</lastmod>
+    <loc>https://www.lowrisc.org/blog/2019/10/ibex-on-fpga-get-stuff-executed/</loc>
+    <lastmod>2019-10-08T16:30:00+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.lowrisc.org/</loc>
+    <lastmod>2019-10-08T16:30:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.lowrisc.org/blog/2019/08/ibex-code-with-confidence/</loc>
     <lastmod>2019-08-23T16:00:00+01:00</lastmod>
   </url>
   

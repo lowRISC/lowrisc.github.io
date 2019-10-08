@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>lowRISC / IMC internship week one - VGA output &middot; lowRISC</title>
+        <link rel="stylesheet" href="https://www.lowrisc.org/css/styles.combined.min.css" />
+        <link rel="shortcut icon" href="https://www.lowrisc.org/favicon.ico" />
+        <link rel="alternate" href="https://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' type='text/css'>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Exo+2' type='text/css'>
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-53520714-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+  </head>
+
+  <body data-page="article">
+<div class="header">
+  <header data-component="menu">
+
+    <section class="outer-container">
+      <div class="image">
+        <a href="https://www.lowrisc.org"><img src="https://www.lowrisc.org/img/logo.svg"></a>
+      </div>
+
+      <div class="menu">
+        <ul>
+          
+          <li><a href="/jobs/"> Jobs </a></li>
+          
+          <li><a href="/our-work/"> Our work </a></li>
+          
+          <li><a href="/community/"> Community </a></li>
+          
+          <li><a href="/blog/"> Blog </a></li>
+          
+          <li><a href="/about/"> About us </a></li>
+          
+          <li><a href="/docs/"> Docs </a></li>
+          
+        </ul>
+      </div>
+    </section>
+
+  </header>
+</div>
+
+
+
+
+
+
+
+
+
+    <div class="article">
+      <section class="outer-container">
+        <div class="row">
+            <div class="sixteen columns">
+                <article class="li-article">
+                
+                    <header class="li-article-header">
+                        <h1 class="li-article-title">lowRISC / IMC internship week one - VGA output</h1>
+                        <span class="li-article-taxonomies">
+                            
+
+                            
+                        </span>
+                        
+                        
+                        <time class="li-article-date">Thursday, July 7, 2016</time>
+                        
+                    </header>
+                    <section>
+                        <p><em>Begnning on Monday, June 27th, we had a team of four University of
+Cambridge undergrads begin a 10 week
+internship working on the lowRISC project at the Computer Laboratory,
+kindly sponsored by <a href="http://www.imc.nl/">IMC Financial Markets</a> (who are also
+helping to advise this project). The team will be blogging regularly over the
+course of the summer - I&rsquo;ll pass over to them to introduce
+themselves.</em></p>
+
+<p>After some initial brainstorming, we decided to aim to extend the
+current lowRISC SoC design to enable video output, with the final goal of
+playing video smoothly at a resolution of 640x480 on FPGA. The photo below
+shows the four of us (left to right: Gary Guo, Profir-Petru Pârțachi, Alistair Fisher,
+Nathanael Davison).</p>
+
+<p><img src="/blog/2016/imc_lowrisc_interns_potatocam.jpg" alt="2016 lowRISC/IMC 
+internship team" style="width: 450px;"/></p>
+
+<p>The final goal has been decomposed into several milestones: adding VGA
+functionality to lowRISC, adding an in-memory framebuffer, implementing a
+video codec for RISC-V and designing and creating a 2D accelerator to speed
+up video decoding. Our plan for the augmented SoC architecture is
+shown the in the diagram below:</p>
+
+<p><img src="/blog/2016/imc_lowrisc_vga_diagram_week1.png" alt="Drawing" style="width: 650px;"/></p>
+
+<p>In our first week, we&rsquo;ve succeeded in adding VGA output to lowRISC, a
+demonstration of this is shown in the video below. The demo shows lowRISC
+instantiated on a Nexys4 DDR board (Artix-7) displaying a static image
+that has been loaded into its BRAM. This image is read from SD card by a
+bare-metal program on the RISC-V application core, which then loads it in to
+the memory-mapped BRAM we hooked up to the AXI-Lite bus. The on-chip BRAM
+is obviously a very limited resource, so our next step is to use the
+board&rsquo;s DRAM to hold the framebuffer and make use of the BRAM for a
+line-buffer.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/256wh1QOuH0" frameborder="0" allowfullscreen></iframe>
+
+<p>We aim to publish something every week, either in the form of a blog post
+like this or as a more detailed guide showing how to repeat our work. Next
+week we&rsquo;ll share a guide on how to enable VGA in lowRISC. By the end
+of the summer, as well as a working technical demo, we will also have
+produced detailed documentation on the whole process of adding a
+customised accelerator to lowRISC.</p>
+
+                    </section>
+                </article>
+
+        </div>
+      </section>
+    </div>
+    
+
+
+        <footer>
+
+          <section class="outer-container">
+
+
+
+            <p>
+
+
+            Unless otherwise noted, content on this site is licensed under a <a style="color:white" href="http://creativecommons.org/licenses/by-sa/4.0/" >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+
+          </section>
+
+        </footer>
+    </body>
+</html>
+
+    </body>
+</html>
+

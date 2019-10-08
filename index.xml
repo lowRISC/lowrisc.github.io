@@ -9,12 +9,2130 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Blogs</title>
-      <link>https://www.lowrisc.org/blog/</link>
+      <title>Ibex on FPGA - Get stuff executed</title>
+      <link>https://www.lowrisc.org/blog/2019/10/ibex-on-fpga-get-stuff-executed/</link>
       <pubDate>Tue, 08 Oct 2019 16:30:00 +0100</pubDate>
       
-      <guid>https://www.lowrisc.org/blog/</guid>
-      <description></description>
+      <guid>https://www.lowrisc.org/blog/2019/10/ibex-on-fpga-get-stuff-executed/</guid>
+      <description>
+
+&lt;p&gt;Our microcontroller-class RISC-V processor core
+&lt;a href=&#34;https://github.com/lowRISC/ibex/&#34;&gt;Ibex&lt;/a&gt; for sure is a solid base with which to
+start your own project. Over the past months, we have invested a lot of effort
+in making the design more mature. This includes &lt;a href=&#34;https://www.lowrisc.org/blog/2019/07/six-more-weeks-of-ibex-development-whats-new/&#34;&gt;refactoring the RTL to make the
+design more understandable and programmer
+friendly&lt;/a&gt;,
+adding UVM-based verification to the source tree, but also integrating support
+for the RISC-V compliance suite and &lt;a href=&#34;https://www.lowrisc.org/blog/2019/08/ibex-code-with-confidence/&#34;&gt;enabling publicly visible, open-source
+powered continuous integration
+(CI)&lt;/a&gt; to keep
+the design stable.&lt;/p&gt;
+
+&lt;p&gt;However, to actually get your own RISC-V system running, quite some more
+infrastructure might be needed besides the bare processor core. This includes
+for example instruction and data memory, input/outputs, peripherals, interrupt
+controllers, a debug module. But don’t worry, we can help you out! There are now
+two different system-on-chip designs available to help you get started with Ibex
+on FPGA.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://www.lowrisc.org/img/Ibex_on_Nexys_Video.jpg&#34; alt=&#34;Ibex on the Nexys Video FPGA board&#34; title=&#34;Ibex on the Nexys Video FPGA board.&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Ibex on the Nexys Video FPGA board.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;arty-a7-fpga-example:f96c26e4b9a6e48bb65bbc6bfd30cbe4&#34;&gt;Arty A7 FPGA Example&lt;/h2&gt;
+
+&lt;p&gt;This is fairly minimal example for the Arty A7 Artix-7 FPGA Development Board
+from Digilent that shows you how to integrate Ibex into a top-level design, how
+to connect memories and how to compile and run a simple application on the core.
+This example is included in the Ibex tree and is a community contribution by
+Tobias Wölfel. Thanks @towoe!&lt;/p&gt;
+
+&lt;h2 id=&#34;pulpissimo:f96c26e4b9a6e48bb65bbc6bfd30cbe4&#34;&gt;PULPissimo&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/pulp-platform/pulpissimo&#34;&gt;PULPissimo&lt;/a&gt; is the advanced
+microcontroller system from the &lt;a href=&#34;https://pulp-platform.org&#34;&gt;PULP team&lt;/a&gt; at ETH
+Zürich. It features a powerful uDMA for an autonomous input/output subsystem
+managing peripherals like UART, SPI, I2C and I2S, supports hardware processing
+elements, comes with a JTAG debug module and is supported by the &lt;a href=&#34;https://github.com/pulp-platform/pulp-sdk&#34;&gt;PULP software
+development kit (SDK)&lt;/a&gt; that comes
+with suitable compilers, libraries and even example applications. This complete
+ecosystem makes PULPissimo a useful starting point for your own project and
+explorations.&lt;/p&gt;
+
+&lt;p&gt;Besides re-integrating Ibex into PULPissimo we also created new FPGA port for
+the latest version (Commit ID d37549e). PULPissimo can now be instantiated on
+the Digilent Nexys Video Artix-7 FPGA board. This board is equipped with a
+XC7A200T device - the largest Artix-7 FPGA supported by the free Vivado WebPACK
+Edition - and thus an attractive target for hobbyists.&lt;/p&gt;
+
+&lt;p&gt;The picture below visualizes the mapping of the main components inside
+PULPissimo onto the resources provided by the Nexys Video FPGA board. Ibex
+utilizes a fairly small part of the overall resources (3500 LUTs, roughly 2.6%
+of the available resources). There is still plenty of space available for you to
+implement you own modules such as custom accelerators!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://www.lowrisc.org/img/PULPissimo_on_Nexys_Video.png&#34; alt=&#34;PULPissimo implementation on the Nexys Video FPGA
+board&#34; title=&#34;PULPissimo implementation on the
+Nexys Video FPGA board&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;PULPissimo implementation on the Nexys Video FPGA board.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;As you might know, Ibex was originally developed as Zero-riscy at ETH Zürich and
+contributed to us in Dec 2018. We are thus even more happy to enable support for
+the latest version of Ibex in the PULPissimo system and give something back to
+the PULP team!&lt;/p&gt;
+
+&lt;h2 id=&#34;what-s-next:f96c26e4b9a6e48bb65bbc6bfd30cbe4&#34;&gt;What’s next?&lt;/h2&gt;
+
+&lt;p&gt;We continue our efforts on making Ibex more robust and extending functionality.
+We recently added support for Physical Memory Protection U-mode support. This
+will make Ibex a good candidate for porting embedded and real-time operating
+systems.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Pirmin Vogel&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ibex: Code with Confidence</title>
+      <link>https://www.lowrisc.org/blog/2019/08/ibex-code-with-confidence/</link>
+      <pubDate>Fri, 23 Aug 2019 16:00:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/08/ibex-code-with-confidence/</guid>
+      <description>&lt;p&gt;Ibex, our small RISC-V core, is constantly changing. &lt;a href=&#34;https://www.lowrisc.org/blog/2019/07/six-more-weeks-of-ibex-development-whats-new/&#34;&gt;Roughly 50 percent of the
+RTL was
+refactored&lt;/a&gt;
+recently! We added features, tests, and cleaned the code up.  We and our
+collaborators were able to make these changes (mostly) without breaking Ibex
+because we invested in testing: earlier this year we added &lt;a href=&#34;https://github.com/lowRISC/ibex/tree/master/dv/uvm&#34;&gt;UVM-based
+verification to the tree&lt;/a&gt;,
+and we run these tests after every change.  We run static code analysis to catch
+common programming bugs. We run software on Ibex to see if it actually behaves
+as we expect it to behave. For licensing reasons it hasn’t been possible to
+share all of these tests - this post will
+explain how we’ve been working to address that issue..&lt;/p&gt;
+
+&lt;p&gt;We want every contributor to have a similar degree of confidence that their
+changes won’t break something, which is why we’ve been building out the test and
+continuous integration infrastructure using open source or freely available
+tooling. (I talked about the idea behind that at
+&lt;a href=&#34;https://fossi-foundation.org/wosh/&#34;&gt;WOSH&lt;/a&gt;, you’re invited to &lt;a href=&#34;https://youtu.be/bYidDwYuVr0&#34;&gt;watch the
+recorded talk&lt;/a&gt; to hear more about it!)&lt;/p&gt;
+
+&lt;p&gt;Today, we’re happy to announce a significant step in this direction: we have
+enabled publicly visible continuous integration (CI) for Ibex. On every pull
+request we now run three tests:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;We run Verilator lint on all SystemVerilog code files. Verilator lint catches
+common programming errors such as undefined variables or wrong signal width
+definitions.&lt;/li&gt;
+&lt;li&gt;We build a cycle-accurate compiled simulation of Ibex with
+Verilator.&lt;/li&gt;
+&lt;li&gt;Finally, we run the &lt;a href=&#34;https://github.com/riscv/riscv-compliance/&#34;&gt;RISC-V compliance test
+suite&lt;/a&gt; with our cycle-accurate
+simulation model of Ibex. This test suite executes a set of small assembly
+programs and checks its output against a golden reference.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;All of these tests run in a couple of minutes, and all test outputs are &lt;a href=&#34;https://dev.azure.com/lowrisc/ibex/_build&#34;&gt;publicly
+visible at Azure Pipelines&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://www.lowrisc.org/img/ICwC_Azure_Pipelines.png&#34; alt=&#34;Azure pipeline&#34; title=&#34;Azure pipeline&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The last test is worth explaining in more depth. The RISC-V Compliance test
+suite is a collaborative effort by the RISC-V Foundation Compliance Task Group
+to test RISC-V implementations for specification compliance. Lee Moore from
+Imperas has been doing a lot of &lt;a href=&#34;https://github.com/riscv/riscv-compliance/commit/25d14e798eb4b3a54bdf22083940e78ef731b817&#34;&gt;work to get the test suite extended to work
+with
+Ibex&lt;/a&gt;,
+and we have done our part by &lt;a href=&#34;https://github.com/lowRISC/ibex/pull/209&#34;&gt;adjusting the simulation model of
+Ibex&lt;/a&gt; to work with it. Once these
+building blocks were in place it was only a matter of a &lt;a href=&#34;https://github.com/lowRISC/ibex/blob/e97931c8c75aad34137db99121249fa675bc9aa3/azure-pipelines.yml#L102-L125&#34;&gt;couple of lines of
+configuration&lt;/a&gt;
+to enable these tests to run in CI.&lt;/p&gt;
+
+&lt;p&gt;With all this infrastructure in place, contributors can submit pull requests
+with more confidence than ever: look out for the green check mark under a pull
+request!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://www.lowrisc.org/img/ICwC_checks_passed.png&#34; alt=&#34;All checks have passed&#34; title=&#34;Screenshot show checks passed&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We are delighted that Ibex can now serve as a &lt;a href=&#34;https://github.com/google/riscv-dv#end-to-end-rtl-and-iss-co-simulation-flow&#34;&gt;reference end-to-end RTL and ISS
+co-simulation flow for
+riscv-dv&lt;/a&gt;
+and for running the RISC-V compliance suite on an RTL simulation. The
+DARPA-funded &lt;a href=&#34;https://github.com/The-OpenROAD-Project/alpha-release&#34;&gt;OpenROAD&lt;/a&gt;
+open source EDA toolchain initiative have also &lt;a href=&#34;https://github.com/The-OpenROAD-Project/alpha-release/tree/master/flow/designs/src/ibex&#34;&gt;included
+Ibex&lt;/a&gt;
+as a standard test case.&lt;/p&gt;
+
+&lt;p&gt;For us at lowRISC, this is just the start of the automation journey. Continuous
+integration in open source hardware projects is uncharted territory for many
+reasons, with licensing of proprietary tools adding further complicationWe will
+continue to expand the coverage of our publicly available continuous
+integration, and we’ll keep you updated here!&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Philipp Wagner&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Six more weeks of Ibex development - what&#39;s new?</title>
+      <link>https://www.lowrisc.org/blog/2019/07/six-more-weeks-of-ibex-development-whats-new/</link>
+      <pubDate>Fri, 19 Jul 2019 20:00:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/07/six-more-weeks-of-ibex-development-whats-new/</guid>
+      <description>
+
+&lt;p&gt;In the past months, we have invested considerable effort in improving our
+RISC-V core &lt;a href=&#34;https://github.com/lowRISC/ibex/&#34;&gt;Ibex&lt;/a&gt;. This 2-stage, in-order,
+32-bit microcontroller-class CPU core was &lt;a href=&#34;https://www.lowrisc.org/blog/2019/06/an-update-on-ibex-our-microcontroller-class-cpu-core/&#34;&gt;contributed to us&lt;/a&gt; by ETH Zürich in
+December 2018, with activity really ramping up since May. Having been taped out
+multiple times (as zero-riscy) in a mix of academic and industry projects, it
+came to us as a relatively mature code base. Despite this, we have continued to
+invest in improving its design and maintainability.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://www.lowrisc.org/img/ibex-cleaning-up.jpg&#34; alt=&#34;Ibex cleaning up&#34; title=&#34;Carl the Ibex&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Changes have included enhancements to functionality and improved compliance
+with the latest RISC-V specification. More recently we’ve been looking beyond
+that - the bare user-level ISA requirements are fairly minimal (e.g. there is
+no requirement that exceptions are precise). We’ve worked on a series of
+cleanups and improvements in order to provide an environment that is friendly
+to programmers and usable outside of deeply embedded use cases. An additional
+goal is to improve the code style and readability of the core. This is
+important for long-term maintenance as well as to reduce the barrier for
+engineers in industry, academics, students, and hobbyists to use and understand
+the core.&lt;/p&gt;
+
+&lt;p&gt;We’ve performed a lot of refactoring on the RTL design of Ibex. This has
+included a major cleanup and reorganization of critical Ibex components such as
+the &lt;a href=&#34;https://github.com/lowRISC/ibex/pull/132&#34;&gt;main processor controller&lt;/a&gt;, the
+entire &lt;a href=&#34;https://github.com/lowRISC/ibex/pull/120&#34;&gt;instruction-decode stage&lt;/a&gt;,
+and streamlining the interaction between those blocks. As well as improving the
+understandability of the core this allowed us to get rid of a painful control
+loop and to correct the handling of interrupts and exceptions.&lt;/p&gt;
+
+&lt;p&gt;Here are some numbers to give you an idea on the extent of our efforts over the
+past few months. Since we started to intensify our work on Ibex in early May,
+we pushed 132 Git commits to the Ibex repository which modified its RTL,
+inserting 3495 lines and deleting 3026 of them (not including initial mostly
+cosmetic commits and coding style changes). The whole RTL consists of 7,001
+lines of code. In other words, during the last 2.5 months, roughly 50 percent
+of the RTL was refactored.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://www.lowrisc.org/img/2019-07-ibex-diffstat.png&#34; alt=&#34;Ibex diffstat&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ultimately, having a clean codebase helps maintainability and eases a lot the
+implementation of new features and bug fixes. To this end, our refactoring
+efforts definitely start to pay off. Including all bug reports since May, our
+average time between receiving an issue report and and merging the
+corresponding bug fix into the master branch at roughly two working days.&lt;/p&gt;
+
+&lt;h2 id=&#34;from-bug-report-to-fix-in-two-days-the-power-of-open-source:f9533d37f76a8bc53a34dd188c3d72c0&#34;&gt;From bug report to fix in two days: the power of open source&lt;/h2&gt;
+
+&lt;p&gt;Looking at those bug reports we note a gradual shift on where they are coming
+from and how the bugs are found, with an increasing proportion of bug reports
+seeming to come from industry users. We have been desligned with the feedback
+we get and the interaction we are having from companies, individuals, and
+researchers, in private communications and especially via the public bug
+tracker on GitHub. This definitely helps us to improve Ibex, but also our
+processes. And it is an enriching experience!&lt;/p&gt;
+
+&lt;p&gt;Furthermore, there is definitely a growing interest in formal verification in
+industry. On our side, we have been working together with our collaborators to
+include support for the &lt;a href=&#34;https://github.com/SymbioticEDA/riscv-formal/&#34;&gt;RISC-V Formal Interface
+(RVFI)&lt;/a&gt; and to incorporate the
+&lt;a href=&#34;https://github.com/google/riscv-dv&#34;&gt;RISCV-DV instruction generator&lt;/a&gt;.
+Meanwhile, many bugs reported to us are found by means of formal verification,
+often covering corner cases or cases where the requirements of the
+specification are very minimal. The code was already mature and the design
+silicon proven when we first started work, but thanks to the combination of
+open source, our own engineering efforts, and the powerful community growing
+around this work we can go much beyond that. At a rapid pace we’re able to make
+Ibex fully compliant with the recently ratified RISC-V Specification, we’re
+making it more friendly to get started with, and we’re also making it more
+straightforward to hack on.&lt;/p&gt;
+
+&lt;p&gt;Do you have something you want Ibex to do? Let us know by opening an issue on
+GitHub! Our next priorities support for &lt;a href=&#34;https://github.com/lowRISC/ibex/issues/8&#34;&gt;Physical Memory Protection
+(PMPs)&lt;/a&gt; and
+&lt;a href=&#34;https://github.com/lowRISC/ibex/issues/88&#34;&gt;U-mode&lt;/a&gt;, with more to follow.&lt;/p&gt;
+
+&lt;p&gt;But why stop there? You can make hacking on Ibex and other exciting projects
+your day job! lowRISC is hiring, and you can find details on all of our current
+roles on our &lt;a href=&#34;https://www.lowrisc.org/jobs/&#34;&gt;jobs page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Philipp Wagner and Pirmin Vogel&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Large-scale RISC-V LLVM testing with Buildroot</title>
+      <link>https://www.lowrisc.org/blog/2019/07/large-scale-risc-v-llvm-testing-with-buildroot/</link>
+      <pubDate>Wed, 10 Jul 2019 16:10:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/07/large-scale-risc-v-llvm-testing-with-buildroot/</guid>
+      <description>&lt;p&gt;A few years ago lowRISC started developing a new LLVM backend targeting RISC-V.
+Rather than copying and modifying an existing backend, in an ad hoc fashion, we
+started from scratch and proceeded systematically. This approach proved
+successful in producing a high-quality codebase. We &lt;a href=&#34;https://www.lowrisc.org/blog/2019/07/risc-v-llvm-backend-in-clang-llvm-9.0/&#34;&gt;recently announced&lt;/a&gt; on the llvm-dev mailing
+list that the backend is now reaching stability and could be promoted from its
+current status of experimental to an official target. This post explains how
+our testing strategy has evolved as the compiler matured.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt;: we now successfully compile more than 90% of the 2000+ Linux packages
+built by the &lt;a href=&#34;https://buildroot.org/&#34;&gt;buildroot&lt;/a&gt; tool. The remaining packages
+mostly fail due to relying on GCC-specific C constructs and configurations,
+and not due to anything fundamental related to the new backend.&lt;/p&gt;
+
+&lt;p&gt;During the initial development of the backend our testing approach consisted
+mostly of unit tests. As each feature was implemented corresponding unit tests
+were added. This was done both to document the expected behaviour of the
+compiler and to ensure that future LLVM changes would not introduce regressions
+in those areas.&lt;/p&gt;
+
+&lt;p&gt;More recently, we started compiling entire programs using Clang targeting
+RISC-V, to exercise the backend using real-world code. We started with a few
+small programs and have now moved towards compiling a full Linux userspace.&lt;/p&gt;
+
+&lt;p&gt;One of the programs we chose for our initial tests was BusyBox. BusyBox
+replaces many standard UNIX programs with a single binary that mimics those
+individual programs. With almost 400 &amp;ldquo;applets&amp;rdquo;, BusyBox provided a reasonable
+amount of complexity to test. To compile it with LLVM we produced a
+configuration file that enables all of the BusyBox features and that specifies
+Clang as the compiler, with the correct flags to target RISC-V and find the
+appropriate sysroot headers and libraries.&lt;/p&gt;
+
+&lt;p&gt;BusyBox compiled successfully at the first try. To be reasonably confident it
+had been correctly compiled, we wrote a script to exercise all of the applets.
+Our testing revealed that a significant portion of the commands would crash
+upon launch. Investigating those crashes revealed that they all had a common
+cause, which was that BusyBox relied on C undefined behaviour and LLVM HEAD
+would optimize away code that was intended to run. So, in fact, this issue
+wasn’t specific to the new RISC-V target. We &lt;a href=&#34;http://lists.busybox.net/pipermail/busybox/2019-June/087337.html&#34;&gt;submitted a patch upstream&lt;/a&gt; fixing
+the issue, with which BusyBox now runs without problems.&lt;/p&gt;
+
+&lt;p&gt;Our initial testing of a handful of programs and libraries used QEMU Linux user
+mode emulation for a quick and convenient testing. Next, we moved to building a
+complete rootfs that we could boot with qemu-system as a sanity check, before
+starting to compile large amounts of packages. For that we chose the buildroot
+tool.&lt;/p&gt;
+
+&lt;p&gt;Buildroot can be used either with an existing toolchain or by letting it build
+its own. To facilitate the testing process, we let buildroot build its own
+GCC-8 RISC-V cross-compiler, and we then patch the resulting toolchain to use
+Clang / LLVM when desired, by using a wrapper script. For our sanity check we
+included a handful of programs, such as some simple command line utilities and
+the nginx web server. The wrapper script will redirect the compilation to
+Clang, adding a few additional command line options in the process to correctly
+configure the toolchain. The wrapper can also remove a few GCC-specific
+compilation flags that Clang doesn’t know about, cutting down on the
+compilation noise, although that isn’t strictly necessary for basic testing.
+With this approach we produced a full Linux system we could boot with QEMU.
+From within QEMU we saw that we could login into the system and use it
+normally, including making HTTP requests served by nginx.&lt;/p&gt;
+
+&lt;p&gt;In the terminal session below you can see me booting a clang-built rootfs
+(everything other than the kernel, opensbi, and glibc is built by Clang) in
+qemu, and browsing the web using links:&lt;/p&gt;
+
+&lt;script id=&#34;asciicast-9Cde6gZq8KljgZD50BhLFSms6&#34; src=&#34;https://asciinema.org/a/9Cde6gZq8KljgZD50BhLFSms6.js&#34; async&gt;&lt;/script&gt;
+
+&lt;p&gt;Once we had a bootable system we wanted to determine how many packages we could
+build. We also wanted this process to be easily reproducible, to be able to
+check for compiler regressions, changes in code quality and so on. This would
+require making the testing tools smarter since normally any buildroot
+compilation failure will halt the build process. We extended the testing tools
+to produce a tree of package dependencies, to be able to build individual
+packages, and to build the individual packages in the correct order to satisfy
+their dependencies. The tools are also able to apply per-package workarounds,
+to avoid problems caused by some packages that depend on very GCC-specific
+behaviour. This includes packages that refuse to compile unless the compilation
+is warning-free and are then tripped by Clang’s additional diagnostic messages.&lt;/p&gt;
+
+&lt;p&gt;Of the 2000+ packages that buildroot provides we are now able to compile more
+than 90% of them. We are still triaging a few of the remaining failing packages
+to see if there are any actionable compiler issues, or if those failures also
+relate to trivial configuration issues.&lt;/p&gt;
+
+&lt;p&gt;As next steps, we expect to do some more in-depth testing of the compiled
+packages and to start building the Linux kernel with Clang. We will also
+further investigate code size and generated code performance.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Luís Marques&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The RISC-V LLVM backend in Clang/LLVM 9.0</title>
+      <link>https://www.lowrisc.org/blog/2019/07/risc-v-llvm-backend-in-clang-llvm-9.0/</link>
+      <pubDate>Wed, 10 Jul 2019 16:00:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/07/risc-v-llvm-backend-in-clang-llvm-9.0/</guid>
+      <description>
+
+&lt;p&gt;On Monday I
+&lt;a href=&#34;http://lists.llvm.org/pipermail/llvm-dev/2019-July/133724.html&#34;&gt;proposed&lt;/a&gt;
+promoting the upstream RISC-V LLVM backend from &amp;ldquo;experimental&amp;rdquo; to &amp;ldquo;official&amp;rdquo;
+for the LLVM 9.0 release. Responses so far are &lt;a href=&#34;http://lists.llvm.org/pipermail/llvm-dev/2019-July/133740.html&#34;&gt;extremely
+positive&lt;/a&gt;, and
+we&amp;rsquo;re working to ensure this is a smooth process. This means that from 9.0, the
+RISC-V backend will be built by default for LLVM, making it usable out of the
+box for standard LLVM/Clang builds. As well as being more convenient for end
+users, this also makes it significantly easier for e.g. Rust/Julia/Swift and
+other languages using LLVM for code generation to do so using the
+system-provided LLVM libraries. This will make life easier for those working on
+RISC-V ports of Linux distros encountering issues with Rust dependencies. As
+&lt;a href=&#34;https://www.lowrisc.org/blog/2019/07/introducing-sam/&#34;&gt;Sam mentioned yesterday&lt;/a&gt;, we aim to work with the upstream
+Rust community to help unblock this. 9.0 will branch on the 18th of July with
+the release scheduled for the 28th of August.&lt;/p&gt;
+
+&lt;p&gt;The LLVM project is a popular open source suite of compiler toolchain related
+tools. The core LLVM library and Clang C/C++ front-end are the most
+recognisable components. See the &lt;a href=&#34;https://llvm.org/&#34;&gt;project home page&lt;/a&gt; for
+more background.&lt;/p&gt;
+
+&lt;p&gt;I started the upstream RISC-V LLVM effort towards the end of 2016, having
+developed and maintained an out-of-tree backend for a research architecture for
+a number of years. At the time, there was some downstream work heavily based on
+the MIPS backend but it had a range of problems. In order to maximise the value
+from upstream code reviews (and also provide a useful reference for LLVM
+newcomers), great care was taken to ensure backend functionality could be built
+up incrementally. I&amp;rsquo;m delighted that this has frequently been picked out by the
+LLVM community as the golden standard to follow when contributing new targets.&lt;/p&gt;
+
+&lt;h2 id=&#34;status:8c1693179c5c417d4b8c4ef0915dfc6c&#34;&gt;Status&lt;/h2&gt;
+
+&lt;p&gt;The RISC-V backend supports the 32- and 64-bit RISC-V base ISAs and all
+standard extensions. i.e. RV32IMAFDC, RV64IMAFDC and the ilp32, ilp32f, ilp32d,
+lp64, lp64f, lp64d ABIs (the &lt;a href=&#34;https://reviews.llvm.org/D60456&#34;&gt;Clang hard-float ABI
+patch&lt;/a&gt; will land imminently). Working with
+other backend contributors, we have developed a comprehensive set of in-tree
+unit tests. For quite some time various groups have reported success using
+Clang/LLVM for their RISC-V embedded firmware builds and more recently we have
+been pushing forwards on issues related to building Linux/BSD applications. The
+GCC torture suite has a 100% pass rate, we&amp;rsquo;re seeing a 98% pass rate on the
+LLVM test-suite (failures are almost all related to C++ exception handling,
+which we hope to resolve soon), and we&amp;rsquo;ve been able to get over 90% of
+buildroot&amp;rsquo;s over 2000 packages to build for RISC-V using clang (most failures
+are due to build system issues or GCCisms). We can compile and run meaningful
+programs e.g.  build a rootfs with nginx, serve HTTP requests). See the &lt;a href=&#34;https://www.lowrisc.org/blog/2019/07/large-scale-risc-v-llvm-testing-with-buildroot/&#34;&gt;blog
+post from Luis&lt;/a&gt; for many more
+details on this testing.&lt;/p&gt;
+
+&lt;p&gt;LLD support is now roughly feature-complete with the exception of support for
+linker relaxation. Fangrui Song has been most active on RISC-V LLD recently,
+and prior to that Andes Tech contributed the majority of this code. In terms of
+other language support, there is initial Rust support for bare metal RV32 and
+RV64 with support for hard float Linux targets due to start soon.&lt;/p&gt;
+
+&lt;p&gt;Support for RISC-V in LLVM is important for the wider RISC-V ecosystem and at
+lowRISC, we&amp;rsquo;re proud of the role we&amp;rsquo;ve played in initiating its development,
+driving it forwards, and building a community around it. As an independent
+non-profit engineering organisation, we&amp;rsquo;re uniquely positioned to perform this
+kind of work - &lt;a href=&#34;https://www.lowrisc.org/our-work/&#34;&gt;it&amp;rsquo;s what we do&lt;/a&gt;. Our toolchain team has
+grown to include Luís Marques and Sam Elliott as well as myself and we are
+always interested in hearing from skilled engineers who’d like to &lt;a href=&#34;https://www.lowrisc.org/jobs/&#34;&gt;join our
+team&lt;/a&gt;. If you&amp;rsquo;re interested in further supporting this work
+or in applying a similar approach to other open source hardware/software
+projects then get in touch at info@lowrisc.org.&lt;/p&gt;
+
+&lt;h2 id=&#34;thanks:8c1693179c5c417d4b8c4ef0915dfc6c&#34;&gt;Thanks&lt;/h2&gt;
+
+&lt;p&gt;As well as the lowRISC toolchain team I would like to thank everyone who gave
+encouragement, helped with funding in order to support this work, or submitted
+reviews or patches. We&amp;rsquo;re delighted at the growing community of contributors
+around this backend and feel it&amp;rsquo;s a real success story for collaboration within
+the RISC-V ecosystem. There are far too many names to mention everyone, but
+engineers from organisations such as (alphabetically) AndesTech, Embecosm,
+Google, Qualcomm, and the University of Cambridge have all made notable
+contributions.&lt;/p&gt;
+
+&lt;h2 id=&#34;next-steps:8c1693179c5c417d4b8c4ef0915dfc6c&#34;&gt;Next steps&lt;/h2&gt;
+
+&lt;p&gt;Becoming an &amp;ldquo;official&amp;rdquo; backend is a huge milestone, but of course that doesn&amp;rsquo;t
+mean we&amp;rsquo;re done. As well as ongoing maintenance and support, we&amp;rsquo;ll be
+continuing to work on: code size, generated code performance improvements,
+better testing, collaborating with language communities such as
+Rust/Swift/Julia, adding support for additional LLVM features or RISC-V
+instruction set extensions, and more.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Alex Bradbury, CTO and Co-Founder&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Introducing Sam</title>
+      <link>https://www.lowrisc.org/blog/2019/07/introducing-sam/</link>
+      <pubDate>Mon, 08 Jul 2019 10:00:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/07/introducing-sam/</guid>
+      <description>&lt;p&gt;On June 1st, Sam Elliott followed &lt;a href=&#34;https://www.lowrisc.org/blog/2019/06/introducing-pirmin-laura/&#34;&gt;Laura and
+Pirmin&lt;/a&gt; in becoming lowRISC’s newest
+employee. A few weeks into his new role, he shares why he joined lowRISC and
+what he&amp;rsquo;s been doing since he started.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://www.lowrisc.org/img/sam_elliott.jpg&#34; alt=&#34;Sam Elliott photo&#34; title=&#34;Sam Elliott&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;I joined lowRISC CIC as a Compiler Developer, working on the RISC-V LLVM
+backend, and so far I’m enjoying working on the team! Prior to lowRISC, I worked
+as a compilers and programming languages researcher at the University of
+Washington, where I completed my Masters degree.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;I worked for about four years on the academic side of compiler research, trying
+out new ideas with new technologies. As well as working with academics, during
+that time I worked at Microsoft Research, on &lt;a href=&#34;https://www.microsoft.com/en-us/research/project/checked-c/&#34;&gt;Checked
+C&lt;/a&gt;, and at NVIDIA
+on an experimental compiler team. This was both challenging and fun, but I found
+that I was more satisfied with the work when it was closer to problems that
+normal software developers face. I’m really happy to have moved over to a more
+focused compiler development role on the team here at lowRISC, where I get to
+improve LLVM and participate in the wider open source community.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;My first month at lowRISC has been lots of fun. Alex and Luís have been great
+mentors to get me up to speed with the project. As we’re hoping to stabilise the
+RISC-V backend soon, some of my time has been spent ensuring we can build and
+run the LLVM &lt;a href=&#34;https://llvm.org/docs/TestingGuide.html#test-suite&#34;&gt;test suite&lt;/a&gt; on
+RISC-V. Gratifyingly, it seems 98% of the tests are passing – with some pending
+patches – and the rest are not far from also doing so. A few of the other
+patches I have committed this month have related to tuning the optimiser and
+instruction selector to make better decisions for RISC-V. Of course, we’ll never
+truly finish tuning the optimiser, especially as more and more instruction set
+extensions and open cores are implemented and released.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;On top of all of this, it was good to get out of the office and meet other
+RISC-V and open-source hardware supporters at the RISC-V Workshop and WOSH in
+Zurich. It was an almost overwhelming amount of information for someone so new
+to the ecosystem, but the community has been very friendly and welcoming.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;I’m not just interested in how programs can be compiled to be as efficient as
+possible; I’m also interested in how the design of programming languages allow
+developers to write programs that contain fewer errors. This is why I joined the
+Checked C project, and am interested in Rust. Along these lines I am beginning
+to look at improving the support for compiling Rust programs to RISC-V. Rust
+uses LLVM as a backend, so a lot of the work is already done, but we want to
+make sure the experience of using Rust on RISC-V is as good as it is for any
+other platform. Rust support is a key requirement for the RISC-V ports of
+distros such as Debian and Fedora, and I look forward to helping stabilise
+further support for the platform in these distributions.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Having stable RISC-V support in both the Clang and Rust compilers, in addition
+to the existing support in GCC, should allow more people and projects to adopt
+RISC-V and quickly get started on the platform.&amp;rdquo;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;We&amp;rsquo;re excited to have Sam join our team and help further accelerate our
+toolchain and LLVM-related efforts. If you&amp;rsquo;re interested in joining us on our
+mission, check out our &lt;a href=&#34;https://www.lowrisc.org/jobs/&#34;&gt;jobs page&lt;/a&gt; for details on
+positions we are looking to fill.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Alex Bradbury, CTO and Co-Founder&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>lowRISC at Week of Open Source Hardware</title>
+      <link>https://www.lowrisc.org/blog/2019/06/lowrisc-at-week-of-open-source-hardware/</link>
+      <pubDate>Tue, 11 Jun 2019 16:00:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/06/lowrisc-at-week-of-open-source-hardware/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.lowrisc.org/img/WOSH_logo_640w.png&#34; alt=&#34;WOSH logo&#34; title=&#34;WOSH logo&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Pretty much the whole team is in Zurich this week for the RISC-V Workshop and
+inaugural Week of Open Source Hardware, with a &lt;a href=&#34;https://fossi-foundation.org/wosh/&#34;&gt;packed
+programme&lt;/a&gt; that got off to a start today and
+which runs all the way through to Friday afternoon.&lt;/p&gt;
+
+&lt;p&gt;This morning lowRISC board member, Professor Luca Benini, gave a RISC-V Workshop
+keynote entitled, &lt;a href=&#34;https://tmt.knect365.com/risc-v-workshop-zurich/agenda/1#keynotes_energy-efficient-computing-from-exascale-to-microwatts-the-risc-v-playground&#34;&gt;Energy efficient computing from Exascale to MicroWatts: The
+RISC-V
+playground&lt;/a&gt;.
+Our friends and close collaborators at &lt;a href=&#34;https://pulp-platform.org/&#34;&gt;PULP
+Platform&lt;/a&gt; are giving a number of talks this week
+and, we’re pleased to say, so are members of the lowRISC team!&lt;/p&gt;
+
+&lt;p&gt;On Thursday 13th there will be a morning session dedicated to &lt;a href=&#34;https://fossi-foundation.org/wosh/#licensing&#34;&gt;Open Source
+Licensing&lt;/a&gt; and at 10:50 Alex
+Bradbury will be presenting &lt;a href=&#34;https://fossi-foundation.org/wosh/#event-abstract-5&#34;&gt;a lowRISC experience
+report&lt;/a&gt;, immediately
+following which he’ll then be participating in a panel discussion moderated by
+the &lt;a href=&#34;https://fossi-foundation.org/&#34;&gt;FOSSi Foundation&lt;/a&gt;’s Stefan Wallentowitz.
+Later the same day at 16:10, Google engineer and lowRISC board member, Dom
+Rizzo, will be speaking about &lt;a href=&#34;https://fossi-foundation.org/wosh/#event-abstract-7&#34;&gt;Google and the Free and Open Source Hardware
+Community&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The following day on Friday 14th at 09:20, Philipp Wagner will be giving a talk
+entitled, &lt;a href=&#34;https://fossi-foundation.org/wosh/#event-abstract-2&#34;&gt;Ibex and The Mountain of Open Participation: How lowRISC develops its
+Ibex CPU core and lets everyone
+participate&lt;/a&gt;. Then Philipp
+will be taking to the stage for a second time at 14:40 to give another talk on
+&lt;a href=&#34;https://fossi-foundation.org/wosh/#event-abstract-4&#34;&gt;Python-powered hardware verification with
+Cocotb&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://www.lowrisc.org/img/lowRISC_enamel_badge_640w.jpg&#34; alt=&#34;lowRISC enamel badge&#34; title=&#34;lowRISC enamel
+badge&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you’re in Zurich this week please do say hello and if you can’t spot us from
+the team photo &lt;a href=&#34;https://www.lowrisc.org/about/&#34;&gt;on the website&lt;/a&gt; — it already
+needs updating! — be sure to follow the &lt;a href=&#34;https://twitter.com/lowrisc&#34;&gt;Twitter
+feed&lt;/a&gt; for team updates and also be on the lookout
+for people wearing a lowRISC pin.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Andrew Back&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>An update on Ibex, our microcontroller-class CPU core</title>
+      <link>https://www.lowrisc.org/blog/2019/06/an-update-on-ibex-our-microcontroller-class-cpu-core/</link>
+      <pubDate>Mon, 10 Jun 2019 15:00:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/06/an-update-on-ibex-our-microcontroller-class-cpu-core/</guid>
+      <description>&lt;p&gt;At the beginning of many chips projects, there’s a dream. Could we create a more
+future-proof chip by embedding an FPGA fabric into it? Could we measure glucose
+levels more accurately by integrating a small bio lab onto a chip? Could we more
+reliably recognize kittens in a set of pictures by implementing neural network
+inference in hardware?&lt;/p&gt;
+
+&lt;p&gt;In implementation, this dream becomes a piece of hardware, with digital or
+analog logic, sensors, actuators, and much more. Let’s get it produced and try
+out the real thing! But wait. How do you control the hardware block? How do you
+feed data to it? How do you make sure the startup sequence is done exactly in
+the right way? The answer often is: add an embedded micro-controller core to
+handle the control logic. A small, efficient, and rock-solid core. Where could
+you get such a core?&lt;/p&gt;
+
+&lt;p&gt;Say hello to Ibex: a small, 32-bit microcontroller-class RISC-V CPU core written
+in SystemVerilog. Reliable, unpretentious, getting the job done.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ibex supports the standard RV32I/EMC instruction set, allowing you to tap into
+a large ecosystem of compilers and software libraries.&lt;/li&gt;
+&lt;li&gt;Its two stage pipeline design balances a small area overhead with good
+performance. It gives you an IPC of 0.67 in CoreMark (2.44 CoreMarks/MHz) with
+an area of just 18.9 kGE. That’s 0.027 mm² in a 65 nm technology!
+(&lt;a href=&#34;https://doi.org/10.1109/PATMOS.2017.8106976&#34;&gt;Reference&lt;/a&gt;) But Ibex works
+equally well on FPGAs. The same configuration utilizes 2.5 k 6-input Slice LUTs
+and 1 DSP slice on low-end Xilinx 7-series FPGAs when targeting a clock
+frequency of 50 MHz.&lt;/li&gt;
+&lt;li&gt;And best of all: there are no usage restrictions. Ibex is open source under
+the Apache 2.0 License, &lt;a href=&#34;https://github.com/lowRISC/ibex/&#34;&gt;download it today&lt;/a&gt;
+and get started!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So if you need a microcontroller-class CPU core, look no further and give Ibex a
+try! Our friendly community awaits you &lt;a href=&#34;https://github.com/lowRISC/ibex/&#34;&gt;over at
+GitHub&lt;/a&gt; to discuss enhancements, issues or
+help you get your favorite feature added to Ibex!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://www.lowrisc.org/img/Ibex_block_diagram-100619.png&#34; alt=&#34;Ibex block diagram&#34; title=&#34;Ibex block diagram&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;re interested in using Ibex in your design, you&amp;rsquo;d be in good company.
+Researchers at the University of Manchester (with support from Andrew Attwood
+from the STFC Hartree Centre) are already working on taping out a design including
+the Ibex core, with reconfigurable FPGA instruction set
+extensions. Do get in touch at &lt;a href=&#34;mailto:info@lowrisc.org&#34;&gt;info@lowrisc.org&lt;/a&gt; if
+you’re looking to integrate Ibex into one of your designs…&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://www.lowrisc.org/img/forte_placement.png&#34; alt=&#34;University of Manchester design with Ibex
+core&#34; title=&#34;University of Manchester design with
+Ibex core&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ibex stands on an impressive mountain of engineering, erected by many great
+people mostly at ETH Zürich and the University of Bologna. Before &lt;a href=&#34;https://www.lowrisc.org/blog/2019/05/lowrisc-expands-press-release/&#34;&gt;it was
+contributed to
+lowRISC&lt;/a&gt; in
+December 2018, Ibex was called Zero-riscy. The history of the core can be traced
+back to a CPU core called “OR10N”, which was first taped out in 2013. Since that
+time, many, many hours of engineering, testing,
+and benchmarking went into what is now Ibex. That’s why it is such a solid
+design, and that’s the legacy lowRISC is proud to build upon.&lt;/p&gt;
+
+&lt;p&gt;lowRISC started working on Ibex around the time I joined the engineering team,
+since then we’ve been able to make a range of improvements in collaboration with
+our partners at Google and ETH Zürich, with &lt;a href=&#34;https://www.lowrisc.org/blog/2019/06/introducing-pirmin-laura/&#34;&gt;Pirmin also
+joining&lt;/a&gt; the
+effort recently.&lt;/p&gt;
+
+&lt;p&gt;One of the first things we did with Ibex was the replacement of the debug system
+with one that is compliant to the RISC-V Debug Specification. (Thanks to Robert
+Balas and Davide Schiavone who started this work on a similar CPU core!) We also
+cleaned up the code in many places to make it easier to read and extend. And
+just recently Tao Liu from Google added a UVM testbench to make it easier to
+verify that the core works as expected.&lt;/p&gt;
+
+&lt;p&gt;Importantly, this is an active and ongoing effort. With the engineering and
+project maintenance resources lowRISC and our partners are putting into Ibex and
+related IP blocks, we aim to make it the make Ibex &lt;em&gt;the&lt;/em&gt; go-to
+microcontroller-class CPU core. Our &lt;a href=&#34;https://github.com/lowRISC/ibex/issues&#34;&gt;issue tracker on
+GitHub&lt;/a&gt; should give you a rough idea of
+what’s coming.&lt;/p&gt;
+
+&lt;p&gt;Do you want to join us making Ibex even better? For example, do you want to set
+up world-class continuous integration for this core? lowRISC is hiring, and
+we’re looking for a broad range of engineers: hardware, software and tooling.
+&lt;a href=&#34;https://www.lowrisc.org/jobs/&#34;&gt;Join us!&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;You want to know more about Ibex and how lowRISC develops it to be a piece of
+high-quality free and open source IP? &lt;a href=&#34;https://fossi-foundation.org/wosh/&#34;&gt;Join Philipp for a talk at the Week of
+Open Source Hardware (WOSH) in Zürich, Switzerland on Friday, June
+14.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Philipp Wagner&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Introducing Pirmin &amp; Laura</title>
+      <link>https://www.lowrisc.org/blog/2019/06/introducing-pirmin-laura/</link>
+      <pubDate>Mon, 03 Jun 2019 10:00:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/06/introducing-pirmin-laura/</guid>
+      <description>&lt;p&gt;Pirmin Vogel and Laura James both joined lowRISC on May 1st this year. A few
+weeks in to their new roles, they each share thoughts on what attracted them to
+work at lowRISC.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Pirmin:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://www.lowrisc.org/img/pirmin_vogel.jpg&#34; alt=&#34;Pirmin Vogel photo&#34; title=&#34;Pirmin Vogel&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;After having traveled around the world for 6 months, I finally started my new
+position as hardware/software engineer at lowRISC C.I.C. in Cambridge at the
+beginning of May. At lowRISC, we are working on open-source hardware/software
+ecosystems with a fully open-sourced, Linux-capable, RISC-V-based SoC being the
+ultimate goal.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Having done my PhD in the Digital Circuits and Systems group of ETH Zurich,
+i.e., a research group that very early started to promote and push for
+open-source hardware, it was important for me to continue along the open-source
+path. Open-source hardware and software are powerful catalysts for education,
+research and industry. Studying the sources of the Linux kernel and its modules
+was absolutely key to get to understand the kernel’s memory management system
+and to get started with the design of kernel drivers required for my research.
+Moreover, building on top of the open-source Parallel Ultra Low Power (PULP)
+Platform allowed me to carry out my research in the first place. Not only could
+I rely on a large pool of silicon-proven hardware designs and software tools
+such as libraries, runtimes and compilers, but I was also able to freely modify,
+tailor and extend them to fit my needs, and ultimately to release my own
+research open-source as part of the &lt;a href=&#34;https://www.pulp-platform.org/hero&#34;&gt;Open Heterogeneous Research Platform&lt;/a&gt; (HERO), thereby letting my research being more
+useful to more people. As for the industry, it seems that the open-source PULP
+ecosystem has gained quite some traction since its start in 2013 serving both as
+a starting point for custom designs and also creating &lt;a href=&#34;https://www.pulp-platform.org/pulp_users.html&#34;&gt;new business opportunities&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;At lowRISC, I am currently working on our RISC-V processor core &lt;a href=&#34;https://github.com/lowRISC/ibex&#34;&gt;Ibex&lt;/a&gt;. This core has its origins in academia – it
+has been designed by my former colleagues of the PULP team under the name
+Zero-riscy – and leveraging its design in a professional context offers
+challenges but also new opportunities. For example, it allows and requires to
+put a stronger focus on design verification but ultimately, it can prove also to
+the tough critics that open-source hardware is no longer just a toy but a
+serious alternative.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Laura:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://www.lowrisc.org/img/laura_james.jpg&#34; alt=&#34;Laura James photo&#34; title=&#34;Laura James&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;I’m delighted to be joining lowRISC. This is a really exciting
+opportunity for me on many levels - a chance to be part of a new wave of
+fundamental computing innovation enabling specialised silicon chips, to learn
+about the practicalities of shared engineering resource and IP at the hardware
+layer, and to actually ship some useful products (hopefully at reasonable
+scale). It builds on my varied career to date working to make emerging
+technologies a reality in real products and services, and in growing innovative
+organisations.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;lowRISC works on open source hardware at the silicon layer (and related open
+source software tools), and so builds on my longstanding interest in open stuff,
+and particularly the challenges of bringing open to new areas. Open source
+silicon isn&amp;rsquo;t a totally new idea, but producing products at scale with it is
+rare. Nonetheless, it&amp;rsquo;s important: openness means greater scope for audit and
+security; for efficiency (code and hardware designs can be reused, rather than
+reinventing the wheel), and for flexibility. With &lt;a href=&#34;https://semiengineering.com/the-impact-of-moores-law-ending/&#34;&gt;Moore&amp;rsquo;s law
+slowing down&lt;/a&gt;, new
+processors will be more specialised, rather than just smaller and faster.
+Instead, we&amp;rsquo;ll be designing silicon for more specific applications, and ensuring
+the designs are efficient and verifiable. Open source hardware makes this much
+easier - you can get more people working on a design to check it, and you can
+bolt together open modules for different bits of functionality knowing you
+understand what is in them (which you can&amp;rsquo;t do with a proprietary processor core
+which you&amp;rsquo;ve licensed - it&amp;rsquo;s just a black box). So open hardware at the silicon
+level is going to be important for the future of computing.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;lowRISC itself is still quite small (but growing), but the team size doesn&amp;rsquo;t
+reflect the range of people I’m working with day to day, because there&amp;rsquo;s lots of
+collaboration going on. Open source ecosystems have different kinds of
+organisation and activity in them; lowRISC is focussing on providing quality
+engineering resource and being a hub for collaborative engineering across other
+partners. (A bit like &lt;a href=&#34;https://www.linaro.org/&#34;&gt;Linaro&lt;/a&gt; does for open source for
+Arm, whose work I’ve always been fascinated by.)  It&amp;rsquo;s a community interest
+company, meaning a nonprofit dedicated to serving a broader mission not just
+itself. I&amp;rsquo;m looking forward to being part of changing how hardware is developed,
+making it fundamentally more collaborative and factoring in testing and
+maintenance sensibly.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;There are some really interesting challenges. For instance, you can&amp;rsquo;t be 100%
+open right now in silicon, because in an actual manufactured chip there&amp;rsquo;s a lot
+of analogue components as well as the open source digital bits, and those
+analogue bits are generally closely linked to the big foundries which
+manufacture silicon and are secret sauce today.  Collaborative engineering
+should be cost effective and useful to companies, as a way of working on
+non-differentiating technology components, but it&amp;rsquo;s not always an easy sell or
+easy to make happen in practice. The same goes for opening up hardware IP - not
+always a straightforward case to make. How should the governance for this sort
+of work operate, and how do you make it work in practice? And of course we have
+the usual startup challenge, that we need to make reliable, high quality
+products, in a reasonable time, which people actually want and are willing to
+pay for.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;I’m really looking forward to seeing what we can accomplish, and being part of
+the move towards open source silicon.&lt;/p&gt;
+
+&lt;p&gt;&amp;rdquo;(If you’d like to learn more about how I ended up here, I wrote on &lt;a href=&#34;https://lbj20.blogspot.com/2019/04/new-challenges-ahead.html&#34;&gt;my personal
+blog&lt;/a&gt; about this
+role and how it fits with things I’ve been working on.)&amp;rdquo;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;We&amp;rsquo;re thrilled to have Pirmin and Laura join the lowRISC team and if you&amp;rsquo;d like
+to be part of the open source silicon revolution, we presently have a number
+of openings and I&amp;rsquo;d encourage you to take a look at the &lt;a href=&#34;https://www.lowrisc.org/jobs/&#34;&gt;jobs page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Alex Bradbury, CTO and Co-Founder&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Onwards and upwards at lowRISC</title>
+      <link>https://www.lowrisc.org/blog/2019/05/onwards-and-upwards-at-lowrisc/</link>
+      <pubDate>Thu, 16 May 2019 18:40:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/05/onwards-and-upwards-at-lowrisc/</guid>
+      <description>&lt;p&gt;If you haven&amp;rsquo;t checked it out yet, be sure to take a look at our &lt;a href=&#34;https://www.lowrisc.org/blog/2019/05/lowrisc-expands-press-release/&#34;&gt;press
+release&lt;/a&gt; and the
+&lt;a href=&#34;https://opensource.googleblog.com/2019/05/google-fosters-open-source-hardware.html&#34;&gt;corresponding Google blog
+post&lt;/a&gt;.
+This industry support and growth of our board is a huge step forwards for
+lowRISC. As Royal Hansen, vice president of Security, Google, said:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&#34;Google believes that open source is good for everyone. To further our
+commitment, we are investing both capital and engineering resources to create
+a sustainable open source hardware ecosystem. In addition to engineering
+resources, lowRISC provides the community stewardship that is vital to this
+vision”.
+&lt;/blockquote&gt;
+
+&lt;p&gt;We believe high quality engineering, extensive documentation, and
+verification are essential to drive the adoption of open source silicon
+designs. The donation of the &lt;a href=&#34;https://github.com/lowrisc/ibex&#34;&gt;Ibex&lt;/a&gt; core
+(previously zero-riscy, developed through the PULP project) and its collaborative development under lowRISC is a
+great step forwards on the open source hardware roadmap we&amp;rsquo;re working on with
+Google and other industry partners. Plus of course we’re continuing to lead the upstream RISC-V LLVM effort and further develop our 64-bit SoC platform. If you&amp;rsquo;re interested in collaboration, get in touch via info@lowrisc.org.&lt;/p&gt;
+
+&lt;p&gt;Over the last 6 months we&amp;rsquo;ve really entered a new phase of the lowRISC mission.
+We&amp;rsquo;ve grown from a single full-time engineer to five, with more on their way
+(check out our &lt;a href=&#34;https://www.lowrisc.org/jobs/&#34;&gt;active job adverts&lt;/a&gt; - we&amp;rsquo;d love to hear
+from you!). We&amp;rsquo;ve not been able to put out anywhere near as many updates as
+we&amp;rsquo;d like. The work we&amp;rsquo;ve been doing to grow the organisation and forge new
+collaborations is hugely time consuming, and of course embargos etc. come in to
+play. But you can expect to hear much more from us going forwards.&lt;/p&gt;
+
+&lt;p&gt;On a final note, I&amp;rsquo;d like to shine the spotlight on the &lt;a href=&#34;https://www.lowrisc.org/about/&#34;&gt;whole lowRISC
+family&lt;/a&gt;, especially those who have helped us get this far. In
+particular I’d like to thank our board of directors, our growing team of full
+time staff, our technical advisory board, and of course the wider community
+who have given us so much support, suggestions, and encouragement. Pirmin and
+Laura will soon be posting more about their experiences joining lowRISC, and
+you&amp;rsquo;ll be seeing a number of other new faces on our
+&lt;a href=&#34;https://github.com/lowRISC&#34;&gt;GitHub&lt;/a&gt;, &lt;a href=&#34;https://twitter.com/lowrisc&#34;&gt;Twitter&lt;/a&gt;,
+and shiny new &lt;a href=&#34;https://lowrisc.zulipchat.com/register/&#34;&gt;Zulip group chat&lt;/a&gt; - do
+join and say hi.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Alex Bradbury, CTO and Co-Founder&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>lowRISC Expands and Appoints New Members to the Board of Directors from Google and ETH Zurich</title>
+      <link>https://www.lowrisc.org/blog/2019/05/lowrisc-expands-press-release/</link>
+      <pubDate>Thu, 16 May 2019 17:50:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/05/lowrisc-expands-press-release/</guid>
+      <description>
+
+&lt;p&gt;&lt;em&gt;London, England - lowRISC C.I.C., the open source system on a chip (SoC)
+organisation, today announced that Prof. Luca Benini (ETH Zurich), Dominic
+Rizzo (Google) and Ron Minnich (Google) have joined its board of directors.
+The announcement coincides with a new phase of hiring by lowRISC with the goal
+of significantly increasing the size of its Cambridge-based engineering team
+during 2019.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://www.lowrisc.org/img/board1.jpg&#34; alt=&#34;lowRISC board photo&#34; title=&#34;lowRISC board&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;lowRISC is a not-for-profit, community-driven organisation working to provide
+a high quality, security-enabling, open SoC base for derivative designs. The
+organisation is lowering the barrier to producing custom silicon, enabling
+research and FPGA experimentation, and establishing a vibrant ecosystem around
+open silicon designs. lowRISC supports a core engineering team who collaborate
+with industry partners, academic groups, and the wider community to drive the
+open source silicon ecosystem.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;We are very pleased to welcome new board members from Google and ETH Zurich
+who share our excitement about the future of open-source hardware. Their
+commitment will accelerate our roadmap for delivering high-quality open-source
+system-on-chip designs,” said Alex Bradbury, CTO and co-founder of lowRISC
+CIC.&lt;/p&gt;
+
+&lt;p&gt;lowRISC also revealed that Google are providing support and funding to further
+their mission and that Prof. Benini&amp;rsquo;s group at ETH Zürich are contributing
+their Zero-riscy processor core. lowRISC, in collaboration with Prof. Benini’s
+PULP team and Google, will continue development of the core as
+“&lt;a href=&#34;https://github.com/lowRISC/ibex/&#34;&gt;Ibex&lt;/a&gt;”.&lt;/p&gt;
+
+&lt;p&gt;“I’m delighted to join the lowRISC board. lowRISC plays a key role in the
+open-source hardware ecosystem, providing engineering resources while
+maintaining a clear community-focused vision and not-for-profit status. We are
+excited that they will be able to contribute to the continued development of
+Zero-riscy and also provide the necessary ongoing support,” said Prof. Benini.&lt;/p&gt;
+
+&lt;p&gt;Google engineers Ron Minnich and Dominic Rizzo are long term supporters of
+open-source. Ron is a well known figure in the High Performance Computing
+field and inventor of LinuxBIOS, now known as coreboot, the firmware used in
+all Chromebooks. Dominic leads efforts in open source silicon and security
+fobs at Google.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Google believes that open source is good for everyone. To further our
+commitment, we are investing both capital and engineering resources to create
+a sustainable open source hardware ecosystem. In addition to engineering
+resources, lowRISC provides the community stewardship that is vital to this
+vision,” said Royal Hansen, vice president of Security, Google.&lt;/p&gt;
+
+&lt;p&gt;Please visit our &lt;a href=&#34;https://www.lowrisc.org/jobs/&#34;&gt;jobs&lt;/a&gt; page for more
+information on how lowRISC is expanding our engineering organization.&lt;/p&gt;
+
+&lt;h2 id=&#34;about-lowrisc:e6da6d9f5cf51bfb361d10f6e33ff022&#34;&gt;About lowRISC&lt;/h2&gt;
+
+&lt;p&gt;lowRISC C.I.C. is a not-for-profit company that aims to demonstrate, promote
+and support the use of open-source hardware - bringing the benefits of
+open-source to the hardware world. We are producing high-quality,
+security-focused, open, and flexible IP. Our expertise includes the LLVM
+Compiler, novel hardware security extensions and RISC-V tools, hardware and
+processor design.&lt;/p&gt;
+
+&lt;p&gt;For more information, please contact:&lt;/p&gt;
+
+&lt;p&gt;Media Contact:&lt;br /&gt;
+Andrew Back&lt;br /&gt;
+lowRISC&lt;br /&gt;
+press@lowrisc.org&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>lowRISC at the SiFive Symposium in Cambridge</title>
+      <link>https://www.lowrisc.org/blog/2019/05/lowrisc-at-sifive-symposium-in-cambridge/</link>
+      <pubDate>Tue, 14 May 2019 17:58:00 +0100</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2019/05/lowrisc-at-sifive-symposium-in-cambridge/</guid>
+      <description>&lt;p&gt;Several lowRISC team members attended the &lt;a href=&#34;https://sifivetechsymposium.com/agenda-cambridge/&#34;&gt;SiFive
+Symposium&lt;/a&gt; in our home town
+of Cambridge on May 13th 2019, a lovely sunny day.&lt;/p&gt;
+
+&lt;p&gt;Imagination Technologies were co-hosting with SiFive, and we heard from both
+companies. Krste Asanovic, chairman of the board at the RISC-V Foundation,
+gave a great introduction to RISC-V and progress so far. Naveed Sherwani, CEO
+of SiFive, talked us through their silicon design platform and future
+services. We also heard from SecureRF and IAR Systems.&lt;/p&gt;
+
+&lt;p&gt;Alex gave a short talk about bringing the benefits of open source to the
+hardware world. (We hope to be able to share the video soon!)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://www.lowrisc.org/img/sifive_symposium_alex1.jpg&#34; alt=&#34;Alex speaking&#34; title=&#34;Alex speaking&#34; /&gt;
+&lt;img src=&#34;https://www.lowrisc.org/img/sifive_symposium_alex2.jpg&#34; alt=&#34;Open source hardware in industry&#34; title=&#34;Open source hardware in industry&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It was great to hear the latest news from SiFive and other RISC-V
+organisations, both from Cambridge and further afield. We also got to meet
+community members and to catch up with friends from Embecosm, the RISC-V
+Foundation, the Computer Lab and more.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>lowRISC 0-6 milestone release</title>
+      <link>https://www.lowrisc.org/blog/2018/11/lowrisc-0-6-milestone-release/</link>
+      <pubDate>Mon, 12 Nov 2018 09:50:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2018/11/lowrisc-0-6-milestone-release/</guid>
+      <description>&lt;p&gt;The &lt;a href=&#34;https://www.lowrisc.org/docs/refresh-v0.6/&#34;&gt;lowRISC 0.6 milestone release&lt;/a&gt;
+is now available. This release includes an updated version of the Rocket
+RISC-V core, a higher core clock frequency, JTAG debugging support, Ethernet
+improvements, and more. See the &lt;a href=&#34;https://www.lowrisc.org/docs/refresh-v0.6/&#34;&gt;release notes&lt;/a&gt;, for full details. We&amp;rsquo;ve also taken the
+opportunity to re-organise our &lt;a href=&#34;https://www.lowrisc.org/docs/&#34;&gt;documentation&lt;/a&gt;,
+adding an easy to follow quick-start guide.&lt;/p&gt;
+
+&lt;p&gt;Our next development focus is to add support for dropping in the &lt;a href=&#34;https://github.com/pulp-platform/ariane&#34;&gt;Ariane
+RISC-V design&lt;/a&gt; (from ETH Zurich) as
+an alternative to Rocket.&lt;/p&gt;
+
+&lt;p&gt;Please report any issues &lt;a href=&#34;https://github.com/lowRISC/lowrisc-chip&#34;&gt;on our GitHub
+repository&lt;/a&gt;, or discuss on our
+&lt;a href=&#34;http://listmaster.pepperfish.net/cgi-bin/mailman/listinfo/lowrisc-dev-lists.lowrisc.org&#34;&gt;mailing
+list&lt;/a&gt;.
+As always, thank you to everyone who has contributed in any way - whether it&amp;rsquo;s
+advice and feedback, bug reports, code, or ideas. With special thanks to Jonathan
+Kimmitt who has been the driving force behind this release.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Barcelona RISC-V Workshop: Day Two</title>
+      <link>https://www.lowrisc.org/blog/2018/05/barcelona-risc-v-workshop-day-two/</link>
+      <pubDate>Wed, 09 May 2018 07:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2018/05/barcelona-risc-v-workshop-day-two/</guid>
+      <description>
+
+&lt;p&gt;The &lt;a href=&#34;https://riscv.org/2018/04/risc-v-workshop-in-barcelona-agenda/&#34;&gt;eighth RISC-V
+workshop&lt;/a&gt; is
+continuing
+today in Barcleona. As usual, I&amp;rsquo;ll be keeping a semi-live blog of talks and
+announcements throughout the day.&lt;/p&gt;
+
+&lt;p&gt;Look back &lt;a href=&#34;https://www.lowrisc.org/blog/2018/05/barcelona-risc-v-workshop-day-one/&#34;&gt;here&lt;/a&gt; for
+the day one live blog.&lt;/p&gt;
+
+&lt;p&gt;Note that slides from most presentations are now &lt;a href=&#34;https://riscv.org/2018/05/risc-v-workshop-in-barcelona-proceedings/&#34;&gt;available at
+riscv.org&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;fast-interrupts-for-risc-v-krste-asanovic:d2f16b96a9dcad25ca9611e08b0e618f&#34;&gt;Fast interrupts for RISC-V: Krste Asanovic&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Embedded is a major use for RISC-V. There is a desire for faster interrupt
+handling with support for nested preempted interrupts.&lt;/li&gt;
+&lt;li&gt;Summary of current RISC-V interrupts
+
+&lt;ul&gt;
+&lt;li&gt;Local interrupts are directly connected to one hart. There&amp;rsquo;s no
+arbitration between harts to service. Determine cause through xcause CSR.
+Only two standard local interrupts (software, timer).&lt;/li&gt;
+&lt;li&gt;Global (external) interrupts are routed via the platform-level interrupt
+controller (PLIC) which arbitrates between multiple harts claiming an
+interrupt.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;The machine interrupt pending (mip) CSR contains bits for local software,
+local timer, and external interrupts (from the PLIC). It tells you which
+interrupts are present.&lt;/li&gt;
+&lt;li&gt;mie mirrors the layout of mip, and allows you to enable/disable interrupts.&lt;/li&gt;
+&lt;li&gt;mstatus keeps track of interrupt status, containing a small interrupt stack.&lt;/li&gt;
+&lt;li&gt;The interrupt is reported in the mcause CSR. The exception code indicates
+which interrupt was responsible - you might have to then interrogate the PLIC
+if it was an external interrupt.&lt;/li&gt;
+&lt;li&gt;mtvec (machine trap vector base) contains the address of the trap vector
+(&amp;lsquo;base&amp;rsquo;). It also contains bits which control whether interrupts are direct
+(all exceptions and interrupts jump to base) or vectored (exceptions go to
+base, interrupts are vectored).&lt;/li&gt;
+&lt;li&gt;There&amp;rsquo;s two parts of an interrupt: what you were doing when it happened
+(state context), and what you&amp;rsquo;re going to do. mepc and mstatus allow the
+contact to be saved and restored.&lt;/li&gt;
+&lt;li&gt;Problems with current interrupts:
+
+&lt;ul&gt;
+&lt;li&gt;Hardware preemption is only possible by switching privileged modes&lt;/li&gt;
+&lt;li&gt;Fixed priority for local interrupts&lt;/li&gt;
+&lt;li&gt;The vector table holds jumps instructions, which can only jump +/- 1MiB. A
+free register would be required to jump further, resulting in even more
+instructions.&lt;/li&gt;
+&lt;li&gt;PLIC has variable priority, but the vectoring must be done in software.&lt;/li&gt;
+&lt;li&gt;The PLIC needs two memory accesses: one to claim it, one to indicate
+completion.&lt;/li&gt;
+&lt;li&gt;The Unix ABI (which is the only one that has been standardised) requires
+many registers to be saved/restored.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Have had input via multiple proposals: Andes, Syntacore, Seagate, Liviu
+Ionescu, SiFive&lt;/li&gt;
+&lt;li&gt;There have been discussions on the list about the interrupt handler
+interface for software. It comes down to a choice between having the interrupt
+handler as a regular C function (requiring save/restore of all caller-save
+registers in hardware or software) or an inline handler which uses a gcc
+interrupt attribute to convert the function to always callee-save every
+register. Krste suggests both approaches are needed.&lt;/li&gt;
+&lt;li&gt;Krste explains how an &amp;ldquo;interrupt&amp;rdquo; attribute on a C function might work. In
+this example, every register is callee-saved, so registers are saved as you
+need to use them.&lt;/li&gt;
+&lt;li&gt;If you then went to call a function using the C ABI you need to save/restore
+8 arguments, 7 temporaries, and 1 return address. Even more if you have to
+save the floating point context. Krste argues that moving this to hardware
+isn&amp;rsquo;t enough, you need a new ABI to reduce the amount of state.&lt;/li&gt;
+&lt;li&gt;A number of options have been proposed for vectoring.
+
+&lt;ul&gt;
+&lt;li&gt;Having function pointers in a table. Downside is this is new functionality
+you&amp;rsquo;d have to add to a pipeline.&lt;/li&gt;
+&lt;li&gt;The SiFive proposal is to add a new +/-2GiB offset instruction which is
+only visible in a new interrupt ISA mode. The advantage is the pipeline can
+treat this as a regular instruction fetch, albeit with a different encoding.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Would like to allow each interrupt to be configured with its privilege mode
+and the &amp;lsquo;interrupt level&amp;rsquo; which describes the preemption level, and a
+priority.&lt;/li&gt;
+&lt;li&gt;To manage preempted context state it&amp;rsquo;s necessary to push/pop
+mepc/mpp/mil/mie to a memory stack. You also need to remember the previous
+interrupt level, &amp;lsquo;mil&amp;rsquo;. Now multiple levels must be tracked, which Krste
+proposes could be stored in mcause.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;risc-v-dsp-p-extension-proposal-chuan-hua-chang:d2f16b96a9dcad25ca9611e08b0e618f&#34;&gt;RISC-V DSP (P) extension proposal: Chuan-Hua Chang&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;P extension task group will define and ratify a packed-SIMD DSP extension
+containing instructions which operate on XLEN-bit integer registers. It will
+also define compiler intrinsic functions that can be directly used in
+high-level programming languages.&lt;/li&gt;
+&lt;li&gt;The initial proposal is based on the AndeStar V3 DSP ISA.&lt;/li&gt;
+&lt;li&gt;Supports e.g. 16-bit SIMD instructions with min, max, abs, compare, clip
+operations. Similar for 8-bit SIMD.&lt;/li&gt;
+&lt;li&gt;GPR-based SIMD is more efficient for various embedded domains. It addresses
+the need for high performance generic code processing as well as digital
+signal processing.&lt;/li&gt;
+&lt;li&gt;Want to make this easy to use through intrinsic functions and optimised DSP
+libraries.&lt;/li&gt;
+&lt;li&gt;For 64-bit data types, use pairs of GPRs on RV32. An implementation could of
+course still use a 2R1W register file, but use multiple cycles to read a
+64-bit value.&lt;/li&gt;
+&lt;li&gt;After the task group is created, bi-weekly meetings will be set up.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;security-task-group-update-richard-newell:d2f16b96a9dcad25ca9611e08b0e618f&#34;&gt;Security task group update: Richard Newell&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The security group was previously a task group of the technical committee.
+There is now a new security standing committee, at the same level with the
+marketing and technical committees.&lt;/li&gt;
+&lt;li&gt;Task groups will be set up to look at cryptograpshic ISA extensions and
+trusted execution environments for microcontroller&lt;/li&gt;
+&lt;li&gt;The full charter will be published on riscv.org&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;formal-assurance-for-risc-v-implementations-daniel-m-zimmerman:d2f16b96a9dcad25ca9611e08b0e618f&#34;&gt;Formal assurance for RISC-V implementations: Daniel M. Zimmerman&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Galois started with a focus on cryptography, but has broadened its scope to
+&amp;ldquo;high assurance everything&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;There are a range of definitions for RISC-V. The human-readable instruction
+manual, mechanisations in the form of software simulators or hardware
+implementations. The formal model working group have also been working on
+this.&lt;/li&gt;
+&lt;li&gt;How can we provide assurance about these definitions / mechanisations?&lt;/li&gt;
+&lt;li&gt;Assurance means: the system does what it is supposed to do and doesn&amp;rsquo;t do
+anything else.&lt;/li&gt;
+&lt;li&gt;When trying to get assurance through compliance tests, a huge burden is put
+on the shoulders of the test writers. Those conformance tests need to be 100%
+complete. This also doesn&amp;rsquo;t help determine if an implementation has
+undesirable behaviours.&lt;/li&gt;
+&lt;li&gt;Alternatively, formally verify your system. Compile a model to RTL via
+clash, then use equivalence checking tools to compare against your own
+implementation.&lt;/li&gt;
+&lt;li&gt;Need machine-readable specification of the correctness and security of an
+implementation as well as a way to measure the conformance of an
+implementation.&lt;/li&gt;
+&lt;li&gt;How to validate a specification?
+
+&lt;ul&gt;
+&lt;li&gt;Might perform rigorous validation through execution: ad hoc testing,
+simulation coverage analysis, or bisimulation.&lt;/li&gt;
+&lt;li&gt;Alternatively perform rigorous verification through formal reasoning:
+prove test benches always pass, verification coverage analysis, or
+bisimulation.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Security properties require a different approach. They typically have a
+different form, e.g. &amp;ldquo;the following property must never hold&amp;rdquo;. Galois is
+developing a DSL that lets you specify the architecture, correctness
+properties and security properties of a hardware design. It&amp;rsquo;s also working on
+a security test suite.&lt;/li&gt;
+&lt;li&gt;Want to help systems engineers understand and explore the effects of design
+and implementation decisions on power, performance, area, and security.&lt;/li&gt;
+&lt;li&gt;Status
+
+&lt;ul&gt;
+&lt;li&gt;LANDO DSL is in early stages of development. Expect initial version before
+2018 RISC-V summit&lt;/li&gt;
+&lt;li&gt;Security test suite: early stages of development&lt;/li&gt;
+&lt;li&gt;Metrics and measures: evaluating existing tools for PPA and looking at
+existing metrics work for security&lt;/li&gt;
+&lt;li&gt;Dashboard: early stages of design&lt;/li&gt;
+&lt;li&gt;Feature model generation: early stages of design&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;undefined-unspecified-non-deterministic-and-implementation-defined-behavior-in-verifiable-specifications-clifford-wolf:d2f16b96a9dcad25ca9611e08b0e618f&#34;&gt;Undefined, Unspecified, Non-deterministic, and Implementation Defined Behavior in Verifiable Specifications: Clifford Wolf&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Users of an ISA specification
+
+&lt;ul&gt;
+&lt;li&gt;Software engineers: just don&amp;rsquo;t do anything that&amp;rsquo;s not specified&lt;/li&gt;
+&lt;li&gt;Software security engineers: what can we expect from the hardware if we do
+the thing that wasn&amp;rsquo;t specified?&lt;/li&gt;
+&lt;li&gt;Hardware design engineers: do something safe and simple for anything not
+specified. But what does safe mean?&lt;/li&gt;
+&lt;li&gt;Hardware verification engineers&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;This presentation is a taxonomy of types of &amp;lsquo;not specified&amp;rsquo; behaviour, using
+nomenclature taking from different domains.&lt;/li&gt;
+&lt;li&gt;Undefined behaviour: the &amp;ldquo;just don&amp;rsquo;t do that&amp;rdquo; approach to not specifying
+behaviour. The spec is void for any program as a whole if it does this
+undefined behaviour once.&lt;/li&gt;
+&lt;li&gt;Could introduce an &amp;lsquo;undefined value&amp;rsquo;, but that has similar issues&lt;/li&gt;
+&lt;li&gt;Non-deterministic behaviour / unpredictable behaviour: allow more than one
+choice, which may change under re-execution&lt;/li&gt;
+&lt;li&gt;Unspecified value: the instruction will return a value, but the spec doesn&amp;rsquo;t
+say which value&lt;/li&gt;
+&lt;li&gt;Implementation defined behaviour / value: similar to unspecified value /
+behaviour, but the implementer must specify what it is.&lt;/li&gt;
+&lt;li&gt;Fully specified behaviour: the ideal choice for verification. Explicitly
+state what all implementations must do.&lt;/li&gt;
+&lt;li&gt;Clifford strongly prefers implementation defined or fully specified
+behaviour.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;foundational-hpc-systems-in-2020-and-beyond-steven-wallach:d2f16b96a9dcad25ca9611e08b0e618f&#34;&gt;Foundational HPC systems in 2020 and beyond: Steven Wallach&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Architecture 1.0 (see Mark Hill paper). The world was very
+processor-centric. CPUs with memory attached.&lt;/li&gt;
+&lt;li&gt;Architecture 2.0. Not just the ISA. Move towards memory-driven computing.
+
+&lt;ul&gt;
+&lt;li&gt;Numerical processing is trivial, but achieving efficient memory access is
+very hard.&lt;/li&gt;
+&lt;li&gt;Caches now need to be protected machine state.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;An RV128 working group is going to be started, chaired by Steven
+
+&lt;ul&gt;
+&lt;li&gt;Propose a 64-bit object ID and 64-bit byte offset.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;On an RV128 system, have to be able to execute RV64 programs and map 64-bit
+virtual into 128-bit virtual. Also map system calls.&lt;/li&gt;
+&lt;li&gt;Object 0 is kernel object, object 1 RV64, object 2 RV32.&lt;/li&gt;
+&lt;li&gt;Encrypted memory is identified with an object ID&lt;/li&gt;
+&lt;li&gt;Steven suggests disabling speculation if kernel objects are referenced.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;european-processor-initiative-and-risc-v-mateo-valero:d2f16b96a9dcad25ca9611e08b0e618f&#34;&gt;European processor initiative and RISC-V: Mateo Valero&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;BSC-CNS is a consortium including the Spanish government, Catalan
+government, and UPC&lt;/li&gt;
+&lt;li&gt;Now have 529 people from a wide range of countries.&lt;/li&gt;
+&lt;li&gt;Need to reach 50GFlops/W&lt;/li&gt;
+&lt;li&gt;MareNostrum 4 has been recognised as the &amp;ldquo;most beautiful datacenter in the
+world&amp;rdquo;. Total peak performance is 13.7 PFlops&lt;/li&gt;
+&lt;li&gt;USA, Japan, China are all building huge supercomputers with domestic
+technology. Can the EU do the same?&lt;/li&gt;
+&lt;li&gt;The EU has a large HPC ecosystem and a number of centers of excellence in
+HPC applications.&lt;/li&gt;
+&lt;li&gt;Through the Mont Blanc project, proposed the use of ARM processors in
+supercomputing applications. Extended current mobile chips with HPC features.&lt;/li&gt;
+&lt;li&gt;Europe has only 4 machines in the world top 20.&lt;/li&gt;
+&lt;li&gt;With Brexit and Softbank, ARM is not &amp;lsquo;European&amp;rsquo; any more.&lt;/li&gt;
+&lt;li&gt;Through EuroHPC, the Commission has proposed to invest 1B.&lt;/li&gt;
+&lt;li&gt;The European Processor Initiative is a consortium consisting of 23 partners.
+They will form the company &amp;lsquo;EPI Semiconductor&amp;rsquo; which will produce the EPI
+common platform. Now looking at growing the consortium, including companies
+from other countries.&lt;/li&gt;
+&lt;li&gt;Three streams
+
+&lt;ul&gt;
+&lt;li&gt;General purpose and common platform. ARM SVE or other candidates. BULL
+will be system integrator / chip integrator.&lt;/li&gt;
+&lt;li&gt;Accelerator: RISC-V&lt;/li&gt;
+&lt;li&gt;Automotive&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;RISC-V accelerator vision: throughput-oriented designs, lower power,
+supporting MPI+OpenMP&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;securing-high-performance-risc-v-processors-from-time-speculation-chris-celio:d2f16b96a9dcad25ca9611e08b0e618f&#34;&gt;Securing High-performance RISC-V Processors from Time Speculation: Chris Celio&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Meltdown and Spectre don&amp;rsquo;t just impact a single processor design or a single
+company&amp;rsquo;s design, but really impact any CPU using speculation.&lt;/li&gt;
+&lt;li&gt;A timing attack is when a change in your program input affects the time of
+another user.&lt;/li&gt;
+&lt;li&gt;There are 3 parts to a timing attack
+
+&lt;ul&gt;
+&lt;li&gt;Victim runs code that leaks observable side effects&lt;/li&gt;
+&lt;li&gt;Attacker runs code affected by timing leaks&lt;/li&gt;
+&lt;li&gt;Attacker measures time his code took to run&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Chris built up a taxonomy of time leaks. Two axes: were are we leaking from,
+and what are we directly leaking.&lt;/li&gt;
+&lt;li&gt;High level ideas:
+
+&lt;ul&gt;
+&lt;li&gt;Don&amp;rsquo;t leak any observable side-effects in the machine if speculation is
+aborted&lt;/li&gt;
+&lt;li&gt;Avoid bandwidth interference between different time domains. Depending on
+the time domain you care about, this could be bandwidth to a functional
+unit.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Modern speculative cores have 100-300 instructions in-flight, but not all
+are speculative. About 25% are beyond the point of non-return.&lt;/li&gt;
+&lt;li&gt;Idea: do not update predictors speculatively.&lt;/li&gt;
+&lt;li&gt;Idea: Don&amp;rsquo;t speculatively update the cache. Could get rid of fully inclusive
+L1/L2/L3 caches in favour of neither exclusive nor inclusive (NENI) caches.
+Then allocate only into the L1 cache.&lt;/li&gt;
+&lt;li&gt;Idea: misspeculation recovery should be deterministic. Any shared resource
+can leak time&lt;/li&gt;
+&lt;li&gt;Idea: partition caches etc&lt;/li&gt;
+&lt;li&gt;Idea: dynamic partitioning&lt;/li&gt;
+&lt;li&gt;Idea: partial and full flushes. e.g. flush &lt;sup&gt;1&lt;/sup&gt;&amp;frasl;&lt;sub&gt;4&lt;/sub&gt; BTB entries.&lt;/li&gt;
+&lt;li&gt;Many other ideas (see the full list in the slides!)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;evaluation-of-risc-v-for-pixel-visual-core-matt-cockrell:d2f16b96a9dcad25ca9611e08b0e618f&#34;&gt;Evaluation of RISC-V for Pixel Visual Core: Matt Cockrell&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Background: the Pixel Visual Core is a Google-design Image Processing Unit
+(IPU). It has a dedicated A53 which aggregates application layer IPU resource
+requests.&lt;/li&gt;
+&lt;li&gt;Looking at adding a microcontroller as a job scheduling and dispatch unit.&lt;/li&gt;
+&lt;li&gt;When selecting a core, key considerations were: level of effort (how
+difficult to integrate), risk (stability and reliability of support), and
+license.&lt;/li&gt;
+&lt;li&gt;First candidate was the internal &amp;lsquo;Bottle Rocket&amp;rsquo; project. This implements
+RV32IMC, reusing parts of the Rocket design. High level of effort, medium
+risk.&lt;/li&gt;
+&lt;li&gt;Second candidate: Merlin (github.com/origintfj/riscv). Low level of effort,
+high risk.&lt;/li&gt;
+&lt;li&gt;Third candidate: RI5CY, produced by the PULP team. Low level of effort,
+medium risk.&lt;/li&gt;
+&lt;li&gt;Selected RI5CY for a number of reasons: it had been taped out, had good
+infrastructure, the license was acceptable, and it was implemented in
+SystemVerilog rather than Chisel.&lt;/li&gt;
+&lt;li&gt;Why SystemVerilog rather than Chisel?
+
+&lt;ul&gt;
+&lt;li&gt;SystemVerilog builds on established physical design and verification flows&lt;/li&gt;
+&lt;li&gt;Chisel generated verilog loses designer&amp;rsquo;s intent, making it difficult to
+read and debug&lt;/li&gt;
+&lt;li&gt;Chisel generated code makes certain physical design items difficult such
+as sync/asnc clocks, power domains, clock domains etc&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Next steps: add full compliance for privilege/debug specification and
+evaluate performance impact after adding RI5CY to the Pixel Visual Core.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;linux-ready-rv-gc-andescore-with-architecture-extensions-charlie-su:d2f16b96a9dcad25ca9611e08b0e618f&#34;&gt;Linux-Ready RV-GC AndesCore with Architecture Extensions: Charlie Su&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The AndeStar V5 architecture adopts RISC-V and adds pre-defined useful Andes
+extensions as well as custom-extension frameworks for domain-specific
+acceleration.&lt;/li&gt;
+&lt;li&gt;Baseline extension instructions
+
+&lt;ul&gt;
+&lt;li&gt;Memory access and branches with fewer instructions&lt;/li&gt;
+&lt;li&gt;Code size reduction on top of C extension (&amp;lsquo;CoDense&amp;rsquo;)&lt;/li&gt;
+&lt;li&gt;DSP/SIMD (see P extension proposal)&lt;/li&gt;
+&lt;li&gt;Custom instructions&lt;/li&gt;
+&lt;li&gt;CSR-based extensions that don&amp;rsquo;t require new instructions. e.g. stack
+protection mechanism, power management, &amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Delivered 32-bit and 64-bit implementations of the V5 architecture
+implementation AndeStar V5m which is a superset of RV-IMAC.&lt;/li&gt;
+&lt;li&gt;An N25 (32-bit) small configuration is 37k gates at 28HPC, 1GHz. Large
+configuration is 159k gates.&lt;/li&gt;
+&lt;li&gt;Introducing new 25-series cores adding floating point support (N25F/NX25F),
+MMU, and S mode (A25/AX25).&lt;/li&gt;
+&lt;li&gt;3.49CM/MHz&lt;/li&gt;
+&lt;li&gt;Added hit under miss caches and hardware support for misaligned accesses&lt;/li&gt;
+&lt;li&gt;Use single-port SRAMs to reduce area and power&lt;/li&gt;
+&lt;li&gt;COPILOT tool allows auto-generation of development tools for a set of custom
+extensions.&lt;/li&gt;
+&lt;li&gt;Software
+
+&lt;ul&gt;
+&lt;li&gt;Worked with Express Logic to port 64-bit ThreadX&lt;/li&gt;
+&lt;li&gt;Added support for AX25 to QEMU&lt;/li&gt;
+&lt;li&gt;Working on adding further component support for Linux: u-boot, ftrace,
+loadable modules, Linux perf.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;openSUSE is helping to enable their &amp;lsquo;EBBR&amp;rsquo; specification for RISC-V&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;processor-trace-in-a-holistic-world-gajinder-panesar:d2f16b96a9dcad25ca9611e08b0e618f&#34;&gt;Processor trace in a holistic world: Gajinder Panesar&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Understanding program behaviour in complex system isn&amp;rsquo;t easy, and using a
+debugger isn&amp;rsquo;t always possible. Processor Branch Trace can provide visibility
+into program execution.&lt;/li&gt;
+&lt;li&gt;Processor Branch Trace works by tracking execution from a known start
+address and sending messages about the deltas taking by the program. For
+uncoditional branches, there is no need to report the destination address.&lt;/li&gt;
+&lt;li&gt;The trace encoder ingress port defines singles to export from the processor.
+It contains information such as the privilege mode, address of the
+instruction, the instruction.&lt;/li&gt;
+&lt;li&gt;The trace encoer sends a packet which could contain a delta update with a
+subset of information, or a full context to force synchronisation.&lt;/li&gt;
+&lt;li&gt;Trace control can control when a trace is generated, or configure filters.&lt;/li&gt;
+&lt;li&gt;Saw a mean 0.252 bits/instruction encoding efficiency across a range of
+benchmarks.&lt;/li&gt;
+&lt;li&gt;Next steps: set up task group to standardise processor to encoder interface
+and a compressed branch trace format&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;risc-v-meets-22fdx-an-open-source-ultra-low-power-microcontroller-for-advanced-fdsoi-technologies-pasquale-schiavone-and-sanjay-charagulla:d2f16b96a9dcad25ca9611e08b0e618f&#34;&gt;RISC-V meets 22FDX. An open source ultra-low power microcontroller for advanced FDSOI technologies: Pasquale Schiavone and Sanjay Charagulla&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;PULP was design for near sensor (aka edge) processing.&lt;/li&gt;
+&lt;li&gt;Seen a range of contributions since open sourcing from e.g. Embecosm,
+lowRISC, Micron, Google, &amp;hellip;&lt;/li&gt;
+&lt;li&gt;PULPissimo has a rich set of peripherals: QSPI, HyperRam+HyperFlash, camera
+interface, I2C, I2S, JTAG, &amp;hellip; Plus an autonomous IO DMA subsystem (uDMA)&lt;/li&gt;
+&lt;li&gt;Implements an efficient low-latency interconnect.&lt;/li&gt;
+&lt;li&gt;Used a RI5CY core plus extensions: packed SIMD, fixed point, bit
+manipulation, hardware loops. Included a IEEE 754 single precision floating
+point unit.&lt;/li&gt;
+&lt;li&gt;2.3mm2, effective area 1.22mm2. Most of the area taken by memories.&lt;/li&gt;
+&lt;li&gt;40MOPS/mW at 350MOPS. 1.4x better performance and 4x better energy
+efficiency than previous design in 40nm&lt;/li&gt;
+&lt;li&gt;Can further reduce power to 65MOPS/mw at 350MOPS when executing just from
+SCM.&lt;/li&gt;
+&lt;li&gt;Global Foundries produce up to 10M wafers / year (200mm equivalents)&lt;/li&gt;
+&lt;li&gt;GF has a dual-track roadmap. Performance optimized FinFET and power
+optimized FD-SOI.&lt;/li&gt;
+&lt;li&gt;FDXcelerator is accelerating RISC-V developers and partners. Partners
+include SiFive, Andes, Reduced Energy Microsystems, &amp;hellip;&lt;/li&gt;
+&lt;li&gt;This is the first step towards silicon-qualified free-open-source RISC-V IPs
+on GF FDX22 process&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;ariane-an-open-source-64-bit-risc-v-application-class-processor-and-latest-improvements-florian-zaruba:d2f16b96a9dcad25ca9611e08b0e618f&#34;&gt;Ariane. An Open-Source 64-bit RISC-V Application Class Processor and latest improvements: Florian Zaruba&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ariane is a Linux-capable 64-bit core&lt;/li&gt;
+&lt;li&gt;M, S, U privilege modes. TLB. Tightly integrated D$ and I$, hardware page
+table walker&lt;/li&gt;
+&lt;li&gt;Area around 185kGE&lt;/li&gt;
+&lt;li&gt;Greater than 1.5GHz at 22FDX&lt;/li&gt;
+&lt;li&gt;Critical path is 25 logic levels&lt;/li&gt;
+&lt;li&gt;6 stage pipeline. In-order issue, out-of-order writeback, in-order commit&lt;/li&gt;
+&lt;li&gt;Why develop another core?
+
+&lt;ul&gt;
+&lt;li&gt;Don&amp;rsquo;t want an SoC generator. Don&amp;rsquo;t want to be governed by a 3rd party&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;First implementation took about 4 months&lt;/li&gt;
+&lt;li&gt;Designed for higher performance in the future: dual issue and/or OoO issue&lt;/li&gt;
+&lt;li&gt;Verification strategy
+
+&lt;ul&gt;
+&lt;li&gt;RISC-V tests&lt;/li&gt;
+&lt;li&gt;Torture test framework&lt;/li&gt;
+&lt;li&gt;Running applications on FPGA e.g. bootling Linux&lt;/li&gt;
+&lt;li&gt;Verification isn&amp;rsquo;t exhaustive, looking into more alternatives&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Ariane was open-sourced in February 2018. Already seen non-trivial external
+contributions.&lt;/li&gt;
+&lt;li&gt;Latest improvements:
+
+&lt;ul&gt;
+&lt;li&gt;Completely revised instruction frontend.&lt;/li&gt;
+&lt;li&gt;Re-naming in issue stage&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Return address stack cost ~1KGE, improves IPC by 20%. Resolving
+unconditional jumps immediately increases IPC by ~11%. These changes had no
+negative impact on timing.&lt;/li&gt;
+&lt;li&gt;Critical paths are on the memory interfaces, especially tag compare and
+address translation for cache access.&lt;/li&gt;
+&lt;li&gt;Kerbin is a proof of concept SoC for Ariane featuring PULP peripherals, a
+64-bit interconnect and debug support.&lt;/li&gt;
+&lt;li&gt;Compatible with gdb, but require a debug bridge currently.&lt;/li&gt;
+&lt;li&gt;Managed to boot Linux after 5 months development&lt;/li&gt;
+&lt;li&gt;FPGA: Targeted the VC707. Core runs at 50-100MHz, 15kLUTs.&lt;/li&gt;
+&lt;li&gt;Ariane has been taped out in GF22FDX. 910MHz, &amp;hellip;&lt;/li&gt;
+&lt;li&gt;Working on Kosmodrom tapeout which includes a high performance and a low
+power version and a floating point accelerator.&lt;/li&gt;
+&lt;li&gt;Working on supporting F and D extensions as well as reduced prevision vector
+operations. Stand-alone floating point unit (~200kGE) will be released in the
+next months.&lt;/li&gt;
+&lt;li&gt;Also working on improved integer divider, vector unit, and hardware support
+for atomic memory operations&lt;/li&gt;
+&lt;li&gt;Help wanted: support for official RISC-V debug, improved branch predictors,
+multithreading, cache-coherent interconnect, &amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;risc-v-support-for-persistent-memory-systems-matheus-ogleari:d2f16b96a9dcad25ca9611e08b0e618f&#34;&gt;RISC-V support for persistent memory systems: Matheus Ogleari&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;(Missed the first few minutes I&amp;rsquo;m afraid)&lt;/li&gt;
+&lt;li&gt;RISC-V changes: introduce new instructions. ucst (uncacheable write to
+memory), ucld (uncacheable read from memory)&lt;/li&gt;
+&lt;li&gt;Also modify the cache controller and memory controller&lt;/li&gt;
+&lt;li&gt;These changes would enable new applications. Even defining the instructions
+would allow people to start work using software simulation tools.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;the-hybrid-threading-processor-for-sparse-data-kernels-tony-brewer:d2f16b96a9dcad25ca9611e08b0e618f&#34;&gt;The hybrid threading processor for sparse data kernels: Tony Brewer&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Sparse data sets that greatly exceed a processor&amp;rsquo;s cache size are a
+challenge for most systems. The cache hit rate is low resulting in idle cores.&lt;/li&gt;
+&lt;li&gt;The Hybrid Threading Processor defines extensions for thread and message
+management. It&amp;rsquo;s a high thread count barrel processor similar to Cray&amp;rsquo;s MTA
+architecture.
+
+&lt;ul&gt;
+&lt;li&gt;Software-managed coherency&lt;/li&gt;
+&lt;li&gt;Event driven processor.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Can perform atomic operations at memory due to the software-managed
+coherency&lt;/li&gt;
+&lt;li&gt;The project was funded under the DARPA CHIPS project. This produced two
+chiplets: the memory controller (MC) chiplet and compute near memory (CNM)
+chiplet.&lt;/li&gt;
+&lt;li&gt;Implemented a simulator modelling functionality and performance, and also
+performed power estimation.&lt;/li&gt;
+&lt;li&gt;Performed a sensitivity analysis to determine the optimal configuration.&lt;/li&gt;
+&lt;li&gt;Compared performance for graph spectral clustering vs Haswell, Nvidia K80,
+Nvidia DGX-1. Saw ~25x better energy efficiency.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;how-pulp-based-platforms-are-helping-security-research-frank-gurkaynak:d2f16b96a9dcad25ca9611e08b0e618f&#34;&gt;How PULP-based platforms are helping security research: Frank Gurkaynak&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Security of the system is not limited to just &amp;ldquo;one part&amp;rdquo;. You need to
+consider the entire system&lt;/li&gt;
+&lt;li&gt;An open approach has proven useful for security in software. Why should
+hardware be any different?&lt;/li&gt;
+&lt;li&gt;Cryptographic accelerators can easily achieve high throughput with low area.&lt;/li&gt;
+&lt;li&gt;PULP provides multiple opportunities to add extensions. e.g. new
+instructions added directly to the core, adding peripherals to the bus, or
+hardware accelerators with direct memory access&lt;/li&gt;
+&lt;li&gt;Implemented Fulmine, an IoT processor with accelerators. Added two TCDM
+ports, 64bits/cycle. The AES unit performs 2 rounds a cycle, 1.76Gbit/s and
+120pJ per byte (entire chip) at 0.8V and 84MHz&lt;/li&gt;
+&lt;li&gt;Side channel attacks are a huge challenge. Recently implemented a leakage
+resilient accelerator which reduces the attack surface by generating a new key
+per data block. This provides 5.29Gbit/s throughput at 256Mhz&lt;/li&gt;
+&lt;li&gt;Attacks that target control flow are a serious problem and can be realized
+in both hardware (e.g. glitching) or software. Implemented and published
+sponge based control-flow protection (SCFP), which stores instructions
+encrypted in memory. As instructions must be decrypted, the attacker would
+have to modify both the instruction and the internal state.
+
+&lt;ul&gt;
+&lt;li&gt;Implemented in Patronus chip. 25-35% power/area overhead, and 10$ runtime
+overhead due to &amp;lsquo;patches&amp;rsquo; and additional commands.&lt;/li&gt;
+&lt;li&gt;The probability of an illegal instruction trap when an instruction altered
+is 91.51% within 1 cycle rising to 99.95% within 3 cycles.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;risc-v-virtual-platforms-for-early-risc-v-embedded-software-development-kevin-mcdermott:d2f16b96a9dcad25ca9611e08b0e618f&#34;&gt;RISC-V virtual platforms for early RISC-V embedded software development: Kevin McDermott&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;New markets have new software requirements&lt;/li&gt;
+&lt;li&gt;Virtual platforms can help accelerate software development&lt;/li&gt;
+&lt;li&gt;Imperas produce extendable platform kits (EPKs). These are virtual platforms
+with software set-up, allowing users to start quickly.&lt;/li&gt;
+&lt;li&gt;Offer the ability to easily define custom instruction extensions&lt;/li&gt;
+&lt;li&gt;Can also perform software development using the Ashling RISC-V IDE&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Barcelona RISC-V Workshop: Day One</title>
+      <link>https://www.lowrisc.org/blog/2018/05/barcelona-risc-v-workshop-day-one/</link>
+      <pubDate>Tue, 08 May 2018 07:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/blog/2018/05/barcelona-risc-v-workshop-day-one/</guid>
+      <description>
+
+&lt;p&gt;The &lt;a href=&#34;https://riscv.org/2018/04/risc-v-workshop-in-barcelona-agenda/&#34;&gt;eighth RISC-V
+workshop&lt;/a&gt; is
+going
+on today in Barcleona. As usual, I&amp;rsquo;ll be keeping a semi-live blog of talks and
+announcements throughout the day.&lt;/p&gt;
+
+&lt;p&gt;Follow &lt;a href=&#34;https://www.lowrisc.org/blog/2018/05/barcelona-risc-v-workshop-day-two/&#34;&gt;here&lt;/a&gt; for the
+day two live blog.&lt;/p&gt;
+
+&lt;p&gt;Note that slides from most presentations are now &lt;a href=&#34;https://riscv.org/2018/05/risc-v-workshop-in-barcelona-proceedings/&#34;&gt;available at
+riscv.org&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;introduction-rick-o-connor:2362d622cd60bdb9d5eb8a1222aae504&#34;&gt;Introduction: Rick O&amp;rsquo;Connor&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;This workshop has 325 attendees representing 101 companies and 25
+universties. Largest outside of Silicon Valley.&lt;/li&gt;
+&lt;li&gt;Rick gives the usual overview of the RISC-V Foundation structure.&lt;/li&gt;
+&lt;li&gt;The RISC-V Foundation currently has over 150 members, including invidual
+members. These members are distributed across 25 countries around the world.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;risc-v-state-of-the-union-krste-asanovic:2362d622cd60bdb9d5eb8a1222aae504&#34;&gt;RISC-V state of the union: Krste Asanovic&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Krste gives an overview of the RISC-V ISA for newcomers.&lt;/li&gt;
+&lt;li&gt;RISC-V encoding terminology.
+
+&lt;ul&gt;
+&lt;li&gt;Standard: defined by the Foundation&lt;/li&gt;
+&lt;li&gt;Reserved: Foundation might eventually use this space for future standard
+extensions.&lt;/li&gt;
+&lt;li&gt;Custom: Space for impelmenter-specific extensions, never claimed by
+Foundation.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;The RISC-V big tent philosophy: enable all types of RISC-V implementation,
+from 32-bit microcontrollers with 1KiB SRAM up to 64-bit Unix servers with
+virtualisation or 128-bit 100k-core supercomputer with PiBs DRAM, open or
+proprietary business models, non-conforming extensions, software
+implementations (e.g. QEMU), &amp;hellip;
+
+&lt;ul&gt;
+&lt;li&gt;Minimize wasted work through maximum reuse. Factor out platform-level
+requirements from reusable ISA and software modules&lt;/li&gt;
+&lt;li&gt;Use standard platform profiles to reduce ecosystem effort.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;A system is minimally RISC-V-ISA-compliant if it runs claimed RISC-V
+unprivileged code correctly. e.g. gcc-compiled RV32IMAC functions work
+correctly. Platform must support loading program, returning result etc.&lt;/li&gt;
+&lt;li&gt;One set of unprivileged ISA compliance tests should be able to run on any
+platform. There is a challenge here in handling tiny platforms, e.g. 1KiB
+SRAM.&lt;/li&gt;
+&lt;li&gt;A platform specification provides tight constraints on system configuration
+and options to support a software ecosystem.
+
+&lt;ul&gt;
+&lt;li&gt;It provides an interface between platform hardware and software, including
+privileged levels.&lt;/li&gt;
+&lt;li&gt;Avoid unnecessary duplication. Where it&amp;rsquo;s possible to define a common
+standard, do so.&lt;/li&gt;
+&lt;li&gt;Platform compliance tests will be built in collaboration with the relevant
+ecosystem. e.g. server platform compliance, ZephyrOS platform compliance.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Software is king in the RISC-V land
+
+&lt;ul&gt;
+&lt;li&gt;ISA extensions need compiler/linker/library support&lt;/li&gt;
+&lt;li&gt;There&amp;rsquo;s no point adding instructions if no software wants to use it.&lt;/li&gt;
+&lt;li&gt;ISA proposals should be sensible to implement.&lt;/li&gt;
+&lt;li&gt;Finished now is better than perfect sometime. But at the same time,
+shouldn&amp;rsquo;t rush to freeze a spec before it&amp;rsquo;s ready.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Open-source hardware vs software
+
+&lt;ul&gt;
+&lt;li&gt;Some lessons from the free/open source software community apply, but many
+things are different. e.g. very large investments in hardware that cannot be
+changed once manufactured, threat of patent lawsuits&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Major milestones in 2017
+
+&lt;ul&gt;
+&lt;li&gt;Fixed holes in user ISA, no changed now in IMAFDQC&lt;/li&gt;
+&lt;li&gt;Froze priv-1.10 spec. Updates must be backwards compatible&lt;/li&gt;
+&lt;li&gt;Memory model work&lt;/li&gt;
+&lt;li&gt;Linux ABI frozen&lt;/li&gt;
+&lt;li&gt;Debug spec completed&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;2018 initiatives
+
+&lt;ul&gt;
+&lt;li&gt;Working to prepare the base ISA for ratifications&lt;/li&gt;
+&lt;li&gt;Formal spec in progress&lt;/li&gt;
+&lt;li&gt;Hypervisor spec done, need implementations&lt;/li&gt;
+&lt;li&gt;Crypto in progress&lt;/li&gt;
+&lt;li&gt;J (dynamic translation / runtimes) in progress&lt;/li&gt;
+&lt;li&gt;Packed SIMD in progress&lt;/li&gt;
+&lt;li&gt;Security task group ongoing&lt;/li&gt;
+&lt;li&gt;Fast interrupts started&lt;/li&gt;
+&lt;li&gt;Trace started&lt;/li&gt;
+&lt;li&gt;Krste comments it may take longer to finish these things vs comparable
+industry projects.  Have many more stakeholders giving input.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;2018 embedded platform
+
+&lt;ul&gt;
+&lt;li&gt;New ABI for embedded (e.g. long double = 64bit)&lt;/li&gt;
+&lt;li&gt;Build on RV32E&lt;/li&gt;
+&lt;li&gt;compiler/library work for improved code compression&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;RISC-V and security
+
+&lt;ul&gt;
+&lt;li&gt;Set up security standing committee. Chaired by Helena Handschuh (Rambus),
+vice-chair Joe Kiniry (Galois Research).&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;the-state-of-risc-v-software-palmer-dabbelt:2362d622cd60bdb9d5eb8a1222aae504&#34;&gt;The state of RISC-V software: Palmer Dabbelt&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Palmer shows a picture of Xorg with web browser, terminal, webcam, and a 3d
+video game all running on a RISC-V core (SiFive Unleashed with Microsemi
+add-on board).&lt;/li&gt;
+&lt;li&gt;GNU-based toolchains
+
+&lt;ul&gt;
+&lt;li&gt;binutils, gcc, glibc, newlib all upstreamed.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;The RISC-V Linux kernel port was upstreamed in January 2018. It only
+supports RV64I systems for now, and is currently missing some platform
+drivers. Help would be welcomed in getting these upstream.&lt;/li&gt;
+&lt;li&gt;RISC-V Fedora and Debian support is in progress&lt;/li&gt;
+&lt;li&gt;RISC-V LLVM port is making rapid progress. RV32IMFDC upstream. [As a
+correction to the talk, compressed support is upstream - thanks to
+contributions from Andes Tech and Qualcomm!]&lt;/li&gt;
+&lt;li&gt;Bootloaders: U-boot is upstream, TianoCore is a work in progress. Coreboot
+RISC-V support is upstream but a little out of date. UEFI standard process is
+ongoing.&lt;/li&gt;
+&lt;li&gt;Embedded runtimes: Zephry is upstream, seL4 upstream, FreeRTOS exists but
+isn&amp;rsquo;t upstream, Micrium uC/OS is available, as is ThreadX.&lt;/li&gt;
+&lt;li&gt;Debugging: GDB port upstream, OpenOCD exists but not upstream. Also
+commercial debuggers: Segger, Lauterbach, UltraSoC, IAR is upcoming.&lt;/li&gt;
+&lt;li&gt;The core software stack has been supported by a consortium of developers
+from a range of companies.&lt;/li&gt;
+&lt;li&gt;RISC-V software implementations: Spike, RV8, Renode, QEMU (upstreamed and
+included in a upstream release about a week ago)&lt;/li&gt;
+&lt;li&gt;There are also commercial simulators, such as Imperas OVP and Esperanto&amp;rsquo;s
+simulator.&lt;/li&gt;
+&lt;li&gt;Help wanted: OpenJDK JIT port, Arduino runtime&lt;/li&gt;
+&lt;li&gt;The RISC-V platform specification working group will define profiles for
+types of RISC-V systems. e.g. bare-metal embedded, RTOS, embedded Linux,
+portable Linux.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;the-risc-v-vector-isa-update-roger-espassa:2362d622cd60bdb9d5eb8a1222aae504&#34;&gt;The RISC-V vector ISA update: Roger Espassa&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The spec isn&amp;rsquo;t yet ready&amp;hellip;but it&amp;rsquo;s getting really close&lt;/li&gt;
+&lt;li&gt;Updates and discussion points:
+
+&lt;ul&gt;
+&lt;li&gt;Register types moved to an extension.&lt;/li&gt;
+&lt;li&gt;Widening multiplies&lt;/li&gt;
+&lt;li&gt;Debating whether reductions should be in base or not&lt;/li&gt;
+&lt;li&gt;Worked on overlaying V-reg and F-reg to save state, decided against it&lt;/li&gt;
+&lt;li&gt;Fixed point vclip instructions&lt;/li&gt;
+&lt;li&gt;Mask support for speculative vectorisation&lt;/li&gt;
+&lt;li&gt;Possibility to fit integer MADD within encoding&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Scalar support: the encoding allows indicating that the destination vreg is
+a &amp;ldquo;scalar shape&amp;rdquo;. Introduce VLO/VSO to load/store single scalar elements.&lt;/li&gt;
+&lt;li&gt;Roger is outlining the newly introduced instructions. I can&amp;rsquo;t usefully
+summarise these, so you&amp;rsquo;re best waiting for the slides to be published.&lt;/li&gt;
+&lt;li&gt;vclip is introduced to help support fixed point.&lt;/li&gt;
+&lt;li&gt;FP16 operations are introduced and are required for the V extension.&lt;/li&gt;
+&lt;li&gt;The vector extension introduces interesting instructions such as vector-fpr
+merge, vector-fp merge, slide down / slide up&lt;/li&gt;
+&lt;li&gt;Plan to close the base spec very soon&lt;/li&gt;
+&lt;li&gt;Want to see compiler output before bringing for ratification&lt;/li&gt;
+&lt;li&gt;Haven&amp;rsquo;t yet started on formal spec for the vector ISA&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;the-isa-formal-spec-technical-update-rishiyur-nikhil:2362d622cd60bdb9d5eb8a1222aae504&#34;&gt;The ISA formal spec technical update: Rishiyur Nikhil&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;What what use is an ISA formal spec?
+
+&lt;ul&gt;
+&lt;li&gt;Answer questions about compiler correctness. Will executing a certain two
+C programs produce the same results? For all inputs? For all C and
+corresponding RISC-V programs?&lt;/li&gt;
+&lt;li&gt;Answer questions on implementation correctness. Will executing this progam
+produce correct results? On all RISC-V processors?&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;ISA formal spec goals
+
+&lt;ul&gt;
+&lt;li&gt;Clear and understandable to the human reader. Precise and complete.
+Machine readable. Executable (run RISC-V programs, boot an OS). Usable with
+various formal tools.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Key issues
+
+&lt;ul&gt;
+&lt;li&gt;RISC-V&amp;rsquo;s modularity. A wide range of options, some of which are
+dynamically selectable or can vary between privilege levels. The spec needs
+to capture all combinations and still remain readable.&lt;/li&gt;
+&lt;li&gt;Extensibility. Want to allow people to build upon the formal spec to add
+support their own extensions.&lt;/li&gt;
+&lt;li&gt;Non-detterminism and concurrency.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Status. Various approaches are being pursued: 3 projects in Haskell, 1
+project in SAIL, 1 project in L3, another in a &amp;lsquo;functional subset&amp;rsquo; of Verilog
+
+&lt;ul&gt;
+&lt;li&gt;One of the Haskell projects (led by a team at MIT) is furthest along.
+Models RV32I, RV64I, M, priv U+S+M, Sv39 VM&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Next steps: within a couple of months publish a formal spec that is complete
+for RV32IMAC, RV64IMAC, user+supervisor+machine mode, sv32+sv39, and a simple
+sequential memory model. Liaise with the compliance group to use the formal
+spec as a golden reference for compliance suites. Then work to integrate with
+the weak memory model.&lt;/li&gt;
+&lt;li&gt;Potential follow-up projects (by community?)
+
+&lt;ul&gt;
+&lt;li&gt;Formally show equivalences between different ISA formalisations&lt;/li&gt;
+&lt;li&gt;Demonstrate extensibility to other standard options (e.g. vector, crypto)&lt;/li&gt;
+&lt;li&gt;Use it! (to provide correctness of hardware implementations, compilers,
+&amp;hellip;)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;risc-v-memory-consistency-model-status-update-dan-lustig:2362d622cd60bdb9d5eb8a1222aae504&#34;&gt;RISC-V memory consistency model status update: Dan Lustig&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The specification is released for public comment, which will run through to
+June 16th.&lt;/li&gt;
+&lt;li&gt;Fundamentally, the RISC-V memory consistency model specifies the values that
+can be returned by loads.&lt;/li&gt;
+&lt;li&gt;The RISC-V memory model specification defines the RISC-V weak memory
+ordering (RVWMO) model and extensions: Zam (misaligned atomics), Ztso (Total
+Store Ordering).&lt;/li&gt;
+&lt;li&gt;Global memory order (GMO): a total order over the memory operations
+generated by the instructions in each program&lt;/li&gt;
+&lt;li&gt;GMO is constrained by the Preserved Program Order (PPO)&lt;/li&gt;
+&lt;li&gt;Load Value Axiom&lt;/li&gt;
+&lt;li&gt;Atomicity Axiom: no store from another hart can appear in the global memory
+order between a paired LR and successful SC (see spec for full details of
+rule)&lt;/li&gt;
+&lt;li&gt;Progress Axiom: no memory operation may be preceded in the global memory
+order by an infinite sequence of other memory operations&lt;/li&gt;
+&lt;li&gt;Misaligned AMOs are not supported in the base &amp;lsquo;A&amp;rsquo; extension, but can be
+supported with the &amp;lsquo;Zam&amp;rsquo; extension.&lt;/li&gt;
+&lt;li&gt;Ztso strengthens the baseline memory model to TSO, but TSO-only code is not
+backwards-compatible with RVWMO.&lt;/li&gt;
+&lt;li&gt;Authored two appendices which give lengthy explanations in plain English as
+well as axiomatic and operational models. More than 7000 litmus tests are
+available online.&lt;/li&gt;
+&lt;li&gt;Ongoing/future work
+
+&lt;ul&gt;
+&lt;li&gt;Mixed-size, partially overlappy memory accesses&lt;/li&gt;
+&lt;li&gt;Instruction fetches and fence.i, TL flushes and sfence.vma etc&lt;/li&gt;
+&lt;li&gt;Integrations with V, J, N, T extensions&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;software-drives-hardware-lessons-learned-and-future-directions-robert-oshana:2362d622cd60bdb9d5eb8a1222aae504&#34;&gt;Software drives hardware. Lessons learned and future directions: Robert Oshana&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Software engineers can innovate earlier/often and drive more specific core
+requirements for hardware design team&lt;/li&gt;
+&lt;li&gt;Software engineers like to dream of a simple single core running at very
+high clock rate, and zero latency unlimited bandwidth access to a single
+memory. A hardware engineers dreams of many cores at 1ghz with accelerators,
+separate memories etc.&lt;/li&gt;
+&lt;li&gt;Trying to achieve even faster development cycles.&lt;/li&gt;
+&lt;li&gt;Start with system modelling, move to system definition, and produce
+intrinsic libraries, new instructions, programming model details, and a Chisel
+model.&lt;/li&gt;
+&lt;li&gt;Moving towards &amp;ldquo;software driven hardware&amp;rdquo; to support the software
+programming model (2020).&lt;/li&gt;
+&lt;li&gt;NXP are using PULPino.&lt;/li&gt;
+&lt;li&gt;Challenge: establishing a robust open community for RISC-V. Want to see
+multiple vendors contributing back to the &amp;lsquo;RISC-V ISA mainline&amp;rsquo;.&lt;/li&gt;
+&lt;li&gt;Using RISC-V mainly as &amp;lsquo;minion cores&amp;rsquo;. Focused on efficient core designs and
+ISA enhancement for application-specific functionality. e.g. bit manipulation,
+crypto. Other innovation targets include a multi RISC-V core MCU SoC.&lt;/li&gt;
+&lt;li&gt;Embedded software engineers will take a bigger role in defining the SoC
+architecture
+
+&lt;ul&gt;
+&lt;li&gt;Programming model&lt;/li&gt;
+&lt;li&gt;System optimsiation&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Open source RISC-V implementations will allow more software driven hardware.
+Ecosystem is vital to success.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;unleashing-the-power-of-data-with-risc-v-martin-fink:2362d622cd60bdb9d5eb8a1222aae504&#34;&gt;Unleashing the power of data with RISC-V: Martin Fink&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Why has Western Digital made such a big commitment to RISC-V even though
+they&amp;rsquo;re not in the processor business? Feel there&amp;rsquo;s too much focus on the CPU,
+when the focus needs to be on the data.&lt;/li&gt;
+&lt;li&gt;Half the world&amp;rsquo;s data lives on Western Digital devices.&lt;/li&gt;
+&lt;li&gt;First Western Digital RISC-V core. 2-way superscalar, mostly in-order core
+with 9 stage pipeline. RV32IMC, 1 load/store pipe, 1 multiplier, 1 divider, 4
+ALU engines.
+
+&lt;ul&gt;
+&lt;li&gt;Performance targets at 28nm. Dhrystone greater than 2MIPS/Mhz, CoreMark
+over 3 CM/MH. 1GHz operation.&lt;/li&gt;
+&lt;li&gt;Built to show it can be done and better understand RISC-V&lt;/li&gt;
+&lt;li&gt;Most of the work went into the uncore.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Produced a NAND controller SoC using RISC-V. Added instruction optimisations
+for NAND media handling.&lt;/li&gt;
+&lt;li&gt;Still on track to ship first products with RISC-V in 2019.&lt;/li&gt;
+&lt;li&gt;RISC-V in embedded
+
+&lt;ul&gt;
+&lt;li&gt;Free and open IP connectivity buses enabling plug and play of proprietary
+and open source IPs&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;RISC-V in enterprise
+
+&lt;ul&gt;
+&lt;li&gt;Datacenter CPUs with smart, fast and open peripheral buses enable new
+compute paradigms for AI workloads&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;General purpose architectures are no longer sufficient. Workload diversity
+demands diverse technologies and architectures.&lt;/li&gt;
+&lt;li&gt;Open source software licenses can apply to HDL, GDSII, Gerber. There is more
+work still needed though.&lt;/li&gt;
+&lt;li&gt;Strong believer in the GPLv2. The troubling part about permissive licensing
+is it allows people to do proprietary things without sharing. Pragmatically,
+many companies gravitate towards permissive licenses like Apache. Hope to move
+work word towards copyleft over time.&lt;/li&gt;
+&lt;li&gt;Western Digital is working to support development of open source IP building
+blocks for the community. Will actively partner and invest in the ecosystem.
+Accelerate development of purpose-built processors for a broad range of Big
+Data and Fast Data environments.&lt;/li&gt;
+&lt;li&gt;There is a multi-year transition of Western Digital devices, platforms and
+systems to RISC-V.&lt;/li&gt;
+&lt;li&gt;Question from the audience: will Western Digital be open sourcing their
+cores? Would like to, but not making a commitment today. One of the challenges
+is uncoupling from the uncore. Ultimately hope to share cores and IP blocks.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;risc-v-debugging-custom-isa-extensions-multicore-dtm-variants-markus-goehrle:2362d622cd60bdb9d5eb8a1222aae504&#34;&gt;RISC-V debugging. Custom ISA extensions, multicore, DTM variants: Markus Goehrle&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Support for a variety of external and internal interfaces, as well as
+interconnections of standard debug transport modules (DTM).&lt;/li&gt;
+&lt;li&gt;TRACE32 has Linux-awareness, including the ability to view resources such as
+task and kernel modules, addresses of dynamic objects etc.&lt;/li&gt;
+&lt;li&gt;Support heterogeneous systems, custom ISA extensions&lt;/li&gt;
+&lt;li&gt;Found that a lot of customers have built something based on the draft debug
+specification, as well as others who implement their own custom debug IP.
+People are also doing custom solutions for trace. The speaker strongly urges
+people to feed into the debug specification standardisation process.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;gdb-for-risc-v-jeremy-bennett:2362d622cd60bdb9d5eb8a1222aae504&#34;&gt;GDB for RISC-V: Jeremy Bennett&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;GDB support was committed upstream as of early March, including basic bare
+metal support. This sees nightly regression tests with a pass rate above 99%.&lt;/li&gt;
+&lt;li&gt;Next steps include:
+
+&lt;ul&gt;
+&lt;li&gt;XML target description support&lt;/li&gt;
+&lt;li&gt;Memory map support&lt;/li&gt;
+&lt;li&gt;Remote I/O support&lt;/li&gt;
+&lt;li&gt;Adding non-DWARF stack unwinding&lt;/li&gt;
+&lt;li&gt;Upstreaming a GDB Simulator&lt;/li&gt;
+&lt;li&gt;Linux application debugging&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;GDB support for multicore debug is evolving, with support for multiple
+active inferiors with their own flow of control and address space. Each
+inferior is associated with a program space (symbol table and DWARF debug
+information) for the code running on that inferior.&lt;/li&gt;
+&lt;li&gt;Upstream GDB supports multiple concurrent inferiors which has been tested
+for RISC-V with a 36-core system. More work is needed for complex address
+spaces (e.g. where some memory is shared with other inferiors).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;a-common-software-development-environment-for-many-core-risc-v-hardware-and-virtual-platforms-gajinder-panessar-and-simon-davidmann:2362d622cd60bdb9d5eb8a1222aae504&#34;&gt;A common software development environment for many-core RISC-V hardware and virtual platforms: Gajinder Panessar and Simon Davidmann&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Talking today about a collaboration between Imperas and UltraSoC to provide
+a common environment for debugging simulation-based and hardware debug.&lt;/li&gt;
+&lt;li&gt;Chip designs are getting more complex, including asymmetric multi-core.&lt;/li&gt;
+&lt;li&gt;Embedded software is increasingly important and engineering intensive.&lt;/li&gt;
+&lt;li&gt;Traditionally use GDB, with one instance per core. This has little
+visibility as it only sees the memory space of the attached CPU. It also gives
+poor control, and bugs may occur non-deterministically.&lt;/li&gt;
+&lt;li&gt;Imperas provide a commercial simulation solution, running at 100-2000MIPS.
+
+&lt;ul&gt;
+&lt;li&gt;This suports the Imperas &amp;lsquo;MPD&amp;rsquo; full platform debugger.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;UltraSoC provide IP for debug/monitoring for the whole SoC&lt;/li&gt;
+&lt;li&gt;Imperas and UltraSoC have collaborated to provide a common solution.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;hifive-unleashed-world-s-first-multi-core-risc-v-linux-dev-board-yunsup-lee:2362d622cd60bdb9d5eb8a1222aae504&#34;&gt;HiFive unleashed. World&amp;rsquo;s First Multi-Core RISC-V Linux Dev Board: Yunsup Lee&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;When Instagram was acquired for $1B it has just 13 engineers. They achieved
+that partially by reusing open source software.&lt;/li&gt;
+&lt;li&gt;See SiFive silicon cloud services as a parallel to Amazon AWS. Offers a
+selection of CPU soft IPs, prototype ASICs, production ASICs.&lt;/li&gt;
+&lt;li&gt;Talking today about the Freedom Unleashed platform. Features 4 application
+cores and 1 embedded core.&lt;/li&gt;
+&lt;li&gt;The HiFive Unleashed board feature an SiFive FU540-C000, 8GB DDR4, Gigabit
+Ethernet port, 32MB Quad SPI flash, microSD card for removable storage,
+MicroUSB for debug and serial communication, digital GPIO pins, FMC connector.&lt;/li&gt;
+&lt;li&gt;Did a preliminary SPECINT2006 comparison. Competitive with A53 chips from
+Rockchip or Alwinner (higher than the lower-clocked Allwinner, but slower than
+the Rockchip).&lt;/li&gt;
+&lt;li&gt;Open-V: a SiFive/ONCHIP microcontroller based on Freedom Everywhere. Built
+in TSMC 180nm, 3.3mm x 2.6mm. 2.7M transistors. ONCHIP provided a range of
+analog IP, which were integrated with a SiFive E31 core. The components will
+be available through SiFive.&lt;/li&gt;
+&lt;li&gt;You can now submit proposals for your own freedom chip through the
+&amp;ldquo;Democratizing Ideas&amp;rdquo; program. Partners will be announced at the First Annual
+RISC-V Summit in December. Deadline is the end of October.&lt;/li&gt;
+&lt;li&gt;RISC-V is completing the innovation cycle of research, education, and
+industry.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;hifive-unleashed-expansion-kit-ted-marena:2362d622cd60bdb9d5eb8a1222aae504&#34;&gt;HiFive unleashed expansion kit: Ted Marena&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Marketing update: Looking for collaboration on a porting to RISC-V
+whitepaper. Would also like to see member companies communicating why they
+chose RISC-V.&lt;/li&gt;
+&lt;li&gt;Microsemi set up the MI-V ecosystem to support various RTOSes on soft RISC-V
+cores on FPGA.&lt;/li&gt;
+&lt;li&gt;The Mi-V HiFive Unleashed Expansion board connects to the HiFive board via
+FMC. Has PCIe connectors, SATA, HDMI, USB, microSD.&lt;/li&gt;
+&lt;li&gt;Porting an application from ARM to RISC-V is the same effort as porting from
+one ARM SoC to another. No two ARM SoCs have the same memory map or peripheral
+functionality. Neither will RISC-V SoCs.&lt;/li&gt;
+&lt;li&gt;Mi-V HiFive Unleashed board aims to accelerate the RISC-V Linux ecosystem,
+enabling the community to port tools, OSes, middleware, packages to RISC-V.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;simulating-heterogeneous-multi-node-32-bit-and-64-bit-risc-v-systems-running-linux-and-zephry-with-renode-michael-gielda:2362d622cd60bdb9d5eb8a1222aae504&#34;&gt;Simulating heterogeneous multi-node 32-bit and 64-bit RISC-V systems running Linux and Zephry with Renode: Michael Gielda&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Antmicro: &amp;lsquo;turn ideas into software-driven products&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;Check out renode.io&lt;/li&gt;
+&lt;li&gt;Renode is an open source instruction set simulator with a multi-layered
+framework on top. It mimics entire platforms.&lt;/li&gt;
+&lt;li&gt;Cores are implemented in C, and the rest is implemented in C&amp;rsquo;, Python, or
+any .NET-compatible language.&lt;/li&gt;
+&lt;li&gt;Strengths include transparent and robust debugging, easy integration, rich
+model abstractions, &amp;hellip;&lt;/li&gt;
+&lt;li&gt;Renode has a simple platform description format that is human readable,
+modular, and extendible.&lt;/li&gt;
+&lt;li&gt;Also have the capability to simulate entire networks or wireless and wired
+devices in one time domain.&lt;/li&gt;
+&lt;li&gt;Can save and restore whole simulation state.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;debian-gnu-linux-port-for-risc-v-64-bit-manuel-fernandez-montecelo:2362d622cd60bdb9d5eb8a1222aae504&#34;&gt;Debian GNU/Linux port for RISC-V 64-bit: Manuel Fernandez Montecelo&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Goal is to have Debian ready to install and run on RISC-V systems.&lt;/li&gt;
+&lt;li&gt;Debian has more than 27k source packages, and also supports other kernels
+such as FreeBSD or GNU Hurd.&lt;/li&gt;
+&lt;li&gt;There are three kinds of Debian port
+
+&lt;ul&gt;
+&lt;li&gt;Those outside of Debian infrastructure, e.g. Raspbian.&lt;/li&gt;
+&lt;li&gt;Unofficial/unsupported. Not in &amp;lsquo;stable&amp;rsquo; releases but hosted in Debian
+infrastructure.&lt;/li&gt;
+&lt;li&gt;Officially supported. Part of the &amp;lsquo;stable&amp;rsquo; releases and fully supported.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;RISC-V is currently unofficial, working its way towards officially
+supported.&lt;/li&gt;
+&lt;li&gt;Initial plan
+
+&lt;ul&gt;
+&lt;li&gt;Bootstrap and create viable, basic OS disk images&lt;/li&gt;
+&lt;li&gt;Get it to the state of &amp;lsquo;unofficial/unsupported&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;Move towards an official backend&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Why not 32-bit or 128-bit variants?
+
+&lt;ul&gt;
+&lt;li&gt;Too early for 128&lt;/li&gt;
+&lt;li&gt;32-bit ports struggle to get large packages built. Plus less work has been
+done on 32-bit Linux-capable systems.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Started in 2016, but went in haitus until late 2017/early 2018 for Linux and
+glibc upstreaming and freezing of the ABI.&lt;/li&gt;
+&lt;li&gt;25th Feb - 5th March: Cross-built base set of packages&lt;/li&gt;
+&lt;li&gt;5th - 13th March: First &amp;lsquo;native&amp;rsquo; build.&lt;/li&gt;
+&lt;li&gt;13th - 23rd March: Second &amp;lsquo;native&amp;rsquo; build in a clean environment (isolated
+environment similar to &amp;lsquo;production&amp;rsquo; auto-builders.&lt;/li&gt;
+&lt;li&gt;75% of packages are now there. Progress is slowing down as many of the
+remaining packages are either very large or difficult.&lt;/li&gt;
+&lt;li&gt;Uncovered a range of bugs in QEMU, toolchain and so on.&lt;/li&gt;
+&lt;li&gt;Manuel has a long lost of contributors to thank. Thank you to everyone who
+helped make this port happen!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;fedora-on-risc-v-richard-jones:2362d622cd60bdb9d5eb8a1222aae504&#34;&gt;Fedora on RISC-V: Richard Jones&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Every few years Red Hat Enterprise Linux is forked from Fedora.&lt;/li&gt;
+&lt;li&gt;Red Hat and Fedora have a strong upstream first policy&lt;/li&gt;
+&lt;li&gt;Final bootstrap took 2 months. 16725 builds producing 12785 binary packages&lt;/li&gt;
+&lt;li&gt;The current build farm contains 2 HiFive unleashed boards, 11 qemu instances
+on 4 Intel servers.&lt;/li&gt;
+&lt;li&gt;The server market is worth about $80B/year annually. 3 billion physical
+servers are shipped a year. Of those, x86 servers are about 85% of the market
+by value.&lt;/li&gt;
+&lt;li&gt;Don&amp;rsquo;t make these mistakes for the server market:
+
+&lt;ul&gt;
+&lt;li&gt;Require manual intervention to choose the right bootloader/kernel per
+vendor&lt;/li&gt;
+&lt;li&gt;Require out of tree drivers or patches&lt;/li&gt;
+&lt;li&gt;No standards or constantly changing standards&lt;/li&gt;
+&lt;li&gt;No organisation providing direction on server standards&lt;/li&gt;
+&lt;li&gt;Incompatible variants of the ISA meaning a single kernel image can&amp;rsquo;t be
+made&lt;/li&gt;
+&lt;li&gt;Breaking ABIs&lt;/li&gt;
+&lt;li&gt;Intimately tied to Linux so other OS vendors are excluded&lt;/li&gt;
+&lt;li&gt;Dev boards being too expensive for developers&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;smallest-risc-v-device-for-next-generation-edge-computing-seiji-munetoh:2362d622cd60bdb9d5eb8a1222aae504&#34;&gt;Smallest RISC-V device for next-generation edge computing: Seiji Munetoh&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;First target application is authentication. HMAC-SHA256 and variants&lt;/li&gt;
+&lt;li&gt;Use optical communication for host/device comms&lt;/li&gt;
+&lt;li&gt;Use SRAM to emulate storage memory chip&lt;/li&gt;
+&lt;li&gt;The BootROM is synthesized and embedded in the SoC&lt;/li&gt;
+&lt;li&gt;The first generation processor utilises a PULPino core. Target GF14LP, 300um
+x 250uM. 2KB data SRAM. Plus authentication engine, analog custom circuits
+(LDO, clock/reset, PD/LED IF).&lt;/li&gt;
+&lt;li&gt;Created a 2.5D integrated device, use a silicon interposer less than 1mm2.
+Processor SoC plus 32KB MPI-SRAM, plus optical IO (MicroLED, MicroPD), plus
+power.&lt;/li&gt;
+&lt;li&gt;Evaluated the architecture using low cost FPGA boards (ZedBoard, Zybo,
+Arty).&lt;/li&gt;
+&lt;li&gt;Moved the instruction SRAM out of the processor die, and evaluate the
+performance effect of different widths between processor and external SRAM.
+Ended up using an 8-bit bus configuration.&lt;/li&gt;
+&lt;li&gt;Improved SHA256 performance by adding a hwardware engine.&lt;/li&gt;
+&lt;li&gt;Made a debug chip packaged in QFP64 wire-bond&lt;/li&gt;
+&lt;li&gt;Currently testing the 2.5D integrated device&lt;/li&gt;
+&lt;li&gt;The second generation device was taped out in Feb 2018, featuring a new SoC
+design with instruction cache, RF interface, sensors.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;poster-and-demo-previews:2362d622cd60bdb9d5eb8a1222aae504&#34;&gt;Poster and demo previews&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Far too fast-paced to summarise. Be sure to come back tomorrow for a new
+liveblog. If you&amp;rsquo;re here at the workshop, be sure to come and say hello during
+the poster session.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Alex Bradbury&lt;/em&gt;&lt;/p&gt;
+</description>
     </item>
     
   </channel>

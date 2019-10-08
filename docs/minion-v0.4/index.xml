@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>Tagged memory developments</title>
+      <link>https://www.lowrisc.org/docs/minion-v0.4/tag_lowrisc/</link>
+      <pubDate>Tue, 18 Apr 2017 15:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/minion-v0.4/tag_lowrisc/</guid>
+      <description>This lowRISC release brings back support for tagged memory in our Rocket-derived codebase, redesigning and further optimising a number of aspects. The diagram below shows how Rocket-chip was extended to support tagged memory. Built-in tag manipulation and check functions are integrated into Rocket core piplines. All data words in the cacheable memory space are augmented with tags (by default a 4-bit tag for every 64-bit word). Tags are stored in a table in main memory.</description>
+    </item>
+    
+    <item>
       <title>lowRISC Minion internals</title>
       <link>https://www.lowrisc.org/docs/minion-v0.4/minion/</link>
       <pubDate>Tue, 18 Apr 2017 15:00:00 +0000</pubDate>
@@ -20,15 +29,6 @@
       <description>This lowRISC release introduces Minion cores, allowing I/O tasks to be offloaded from the Rocket. This goal is important because it provides a flexible platform to allow new and unusual devices to be supported. From Chapter 3: extract from Pulpino databook
 RISCV core overview from Pulpino databook
 The Pulpino as delivered from ETH Zurich is a complete microcontroller, and as such is too large to support our FPGA platform. AXI-compatible busses and peripherals increase the size by 2-3 times.</description>
-    </item>
-    
-    <item>
-      <title>Tagged memory developments</title>
-      <link>https://www.lowrisc.org/docs/minion-v0.4/tag_lowrisc/</link>
-      <pubDate>Tue, 18 Apr 2017 15:00:00 +0000</pubDate>
-      
-      <guid>https://www.lowrisc.org/docs/minion-v0.4/tag_lowrisc/</guid>
-      <description>This lowRISC release brings back support for tagged memory in our Rocket-derived codebase, redesigning and further optimising a number of aspects. The diagram below shows how Rocket-chip was extended to support tagged memory. Built-in tag manipulation and check functions are integrated into Rocket core piplines. All data words in the cacheable memory space are augmented with tags (by default a 4-bit tag for every 64-bit word). Tags are stored in a table in main memory.</description>
     </item>
     
     <item>

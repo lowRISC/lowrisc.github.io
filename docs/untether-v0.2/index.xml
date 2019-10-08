@@ -148,18 +148,6 @@ A high-level view of the untethered Rocket chip is shown below. The design conta
     </item>
     
     <item>
-      <title>RTL simulation</title>
-      <link>https://www.lowrisc.org/docs/untether-v0.2/vsim/</link>
-      <pubDate>Thu, 17 Dec 2015 17:00:00 +0000</pubDate>
-      
-      <guid>https://www.lowrisc.org/docs/untether-v0.2/vsim/</guid>
-      <description>Here we describe how to simulate the lowRISC SoC using Verilator.
-Compilation To compile a simulator for the lowRISC SoC:
-cd $TOP/vsim make sim  This generates a simulator named DefaultConfig-sim. It is optimized for simulation speed and does not generate a waveform. If the compilation time is too long on your machine, you can disable compiler optimization by commenting out the optimization flags in Makefile:
-# remove optimization if compilation takes too long or runs out of memory veri_opt_flags = -O3 -CFLAGS &amp;quot;-O1&amp;quot;  If a waveform is needed for debugging failed test cases, a debugging simulator can be compiled by</description>
-    </item>
-    
-    <item>
       <title>Release Notes</title>
       <link>https://www.lowrisc.org/docs/untether-v0.2/release/</link>
       <pubDate>Thu, 17 Dec 2015 17:00:00 +0000</pubDate>
@@ -176,6 +164,18 @@ cd $TOP/vsim make sim  This generates a simulator named DefaultConfig-sim. It is
       <guid>https://www.lowrisc.org/docs/untether-v0.2/rocket-core/</guid>
       <description>The Rocket core is an in-order scalar processor that provides a 5-stage pipeline. It implements the RV64G variant of the RISC-V ISA. The Rocket core has one integer ALU and an optional FPU. An accelerator or co-processor interface, called RoCC, is also provided.
 Further details of the RISC-V Rocket core pipeline can be found here. See p.13 of this document for a detailed diagram of Rocket&amp;rsquo;s microarchitecture. The Rocket core is sometimes described as a 6-stage pipeline with the addition of a pcgen stage.</description>
+    </item>
+    
+    <item>
+      <title>RTL simulation</title>
+      <link>https://www.lowrisc.org/docs/untether-v0.2/vsim/</link>
+      <pubDate>Thu, 17 Dec 2015 17:00:00 +0000</pubDate>
+      
+      <guid>https://www.lowrisc.org/docs/untether-v0.2/vsim/</guid>
+      <description>Here we describe how to simulate the lowRISC SoC using Verilator.
+Compilation To compile a simulator for the lowRISC SoC:
+cd $TOP/vsim make sim  This generates a simulator named DefaultConfig-sim. It is optimized for simulation speed and does not generate a waveform. If the compilation time is too long on your machine, you can disable compiler optimization by commenting out the optimization flags in Makefile:
+# remove optimization if compilation takes too long or runs out of memory veri_opt_flags = -O3 -CFLAGS &amp;quot;-O1&amp;quot;  If a waveform is needed for debugging failed test cases, a debugging simulator can be compiled by</description>
     </item>
     
     <item>

@@ -1,509 +1,152 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <title>Fifth RISC-V Workshop: Day One &middot; lowRISC</title>
-        <link rel="stylesheet" href="https://www.lowrisc.org/css/styles.combined.min.css" />
-        <link rel="shortcut icon" href="https://www.lowrisc.org/favicon.ico" />
-        <link rel="alternate" href="https://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
-        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' type='text/css'>
-        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Exo+2' type='text/css'>
-        <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-53520714-1', 'auto');
-        ga('send', 'pageview');
-      </script>
-  </head>
-
-  <body data-page="article">
-<div class="header">
-  <header data-component="menu">
-
-    <section class="outer-container">
-      <div class="image">
-        <a href="https://www.lowrisc.org"><img src="https://www.lowrisc.org/img/logo.svg"></a>
-      </div>
-
-      <div class="menu">
-        <ul>
-          
-          <li><a href="/jobs/"> Jobs </a></li>
-          
-          <li><a href="/our-work/"> Our work </a></li>
-          
-          <li><a href="/community/"> Community </a></li>
-          
-          <li><a href="/blog/"> Blog </a></li>
-          
-          <li><a href="/about/"> About us </a></li>
-          
-          <li><a href="/docs/"> Docs </a></li>
-          
-        </ul>
-      </div>
-    </section>
-
-  </header>
-</div>
-
-
-
-
-
-
-
-
-
-    <div class="article">
-      <section class="outer-container">
-        <div class="row">
-            <div class="sixteen columns">
-                <article class="li-article">
-                
-                    <header class="li-article-header">
-                        <h1 class="li-article-title">Fifth RISC-V Workshop: Day One</h1>
-                        <span class="li-article-taxonomies">
-                            
-
-                            
-                        </span>
-                        
-                        
-                        <time class="li-article-date">Tuesday, November 29, 2016</time>
-                        
-                    </header>
-                    <section>
-                        
-
-<p>The <a href="https://riscv.org/2016/10/5th-risc-v-workshop-agenda/">fifth RISC-V
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><base href=https://www.lowrisc.org><link rel=icon type=image/png sizes=32x32 href=/favicon.png><title>lowRISC: Collaborative open silicon engineering</title><link href=/main.fe48f.css rel=stylesheet><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-53520714-1','auto');ga('send','pageview');</script></head><body><header><nav class="navbar navbar-expand-md navbar-light"><div class=container><a class=navbar-brand href=#><img src=/img/logo/logo-dualcolor.svg alt=lowRISC></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarCollapse aria-controls=navbarCollapse aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarCollapse><ul class="navbar-nav ml-auto"><li class=nav-item><a href=/our-work class=nav-link>Our work</a></li><li class=nav-item><a href=/open-silicon class=nav-link>Open Silicon</a></li><li class=nav-item><a href=/community class=nav-link>Community</a></li><li class=nav-item><a href=/blog class=nav-link>Blog</a></li><li class=nav-item><a href=/jobs class=nav-link>Jobs</a></li><li class=nav-item><a href=/about class=nav-link>About us</a></li><li class=nav-item><a class="btn lr-navbar-btn-gh" href=https://github.com/lowrisc>GitHub</a></li></ul></div></div></nav></header><main role=main><div class="container lr-blog"><article><h1>Fifth RISC-V Workshop: Day One</h1><address class=lr-blog-author><time>November 29, 2016</time></address><p>The <a href=https://riscv.org/2016/10/5th-risc-v-workshop-agenda/>fifth RISC-V
 workshop</a> is going
 on today and tomorrow at the Google&rsquo;s Quad Campus in Mountain View. I&rsquo;ll be
-keeping a semi-live blog of talks and announcements throughout the day.</p>
-
-<h2 id="introduction-rick-o-connor-and-dom-rizzo:04209bd375e17aa5ec6945548b5da264">Introduction: Rick O&rsquo;Connor and Dom Rizzo</h2>
-
-<ul>
-<li>This workshop is yet again bigger than the last. 350+ attendees, 107 companies, 29 universities.</li>
-<li>The next workshop will be May 9th-10 in Shanghai, China.</li>
-</ul>
-
-<h2 id="risc-v-at-uc-san-diego-michael-taylor:04209bd375e17aa5ec6945548b5da264">RISC-V at UC San Diego: Michael Taylor</h2>
-
-<ul>
-<li>Startup software stacks today look a light like an iceberg. A small amount
-of &lsquo;value-add&rsquo; at the top, and a huge stack of open source underneath.</li>
-<li>How do we build the equivalent for hardware, the fully open source ASIC
-stack?</li>
-<li>Need core IP, IO pads, standard cells, PLLs, high speed I/O, tools, BGA
-packages, PCB design, firmware etc</li>
-<li>basejump aims to provide a &lsquo;base class&rsquo; for cheap hardware development. It
+keeping a semi-live blog of talks and announcements throughout the day.</p><h2 id=introduction-rick-o-connor-and-dom-rizzo:04209bd375e17aa5ec6945548b5da264>Introduction: Rick O&rsquo;Connor and Dom Rizzo</h2><ul><li>This workshop is yet again bigger than the last. 350+ attendees, 107 companies, 29 universities.</li><li>The next workshop will be May 9th-10 in Shanghai, China.</li></ul><h2 id=risc-v-at-uc-san-diego-michael-taylor:04209bd375e17aa5ec6945548b5da264>RISC-V at UC San Diego: Michael Taylor</h2><ul><li>Startup software stacks today look a light like an iceberg. A small amount
+of &lsquo;value-add&rsquo; at the top, and a huge stack of open source underneath.</li><li>How do we build the equivalent for hardware, the fully open source ASIC
+stack?</li><li>Need core IP, IO pads, standard cells, PLLs, high speed I/O, tools, BGA
+packages, PCB design, firmware etc</li><li>basejump aims to provide a &lsquo;base class&rsquo; for cheap hardware development. It
 includes a standard library of components, an open source package design, and
-an open source motherboard</li>
-<li><code>bsg_ip_cores</code> aims to be like C++ STL, but for SystemVerilog</li>
-<li>BSG Ten is a recent design featuring 10 RISC-V cores that will be taping out
-before the end of the year on a TSMC shuttle run.</li>
-<li>Aim for 100% of the design will be open, including design files for the
-chip, PCB, BGA package, firmware.</li>
-<li>BSG Ten has its own 5-stage RV32IM pipeline</li>
-<li>Also working on &lsquo;Certus&rsquo;, a 16nm TSMC design featuring Rocket cores, a
-neural network accelerator, and the BSG I/O infrastructure.</li>
-<li>Suggestion: RoCC interface should be wired to the toplevel of the Rocket
-hierarchy</li>
-<li>Suggestion: The RISC-V community should have at least yearly stable
-end-to-end releases of full RISC-V stacks (Linux to Verilog)</li>
-</ul>
-
-<h2 id="updates-on-pulpino-florian-zaruba:04209bd375e17aa5ec6945548b5da264">Updates on PULPino: Florian Zaruba</h2>
-
-<ul>
-<li>Imperio is the first ASIC implementation of PULPino, done in UMC 65nm.<br />
-Speed: 500MHz.</li>
-<li>Area is 700kGE for the SoC and 40kGE for the core (1kGE = 1.44um2).</li>
-<li>What is PULP? Parallel Ultra Low Power (platform).</li>
-<li>PULPino is a much simplified version of PULP, featuring just 1 core, reduced
-interconnect and simplified cache design.</li>
-<li>Have hardware loops, post-incrementing loads and stores and SIMD instruction
-extensions.</li>
-<li>Over 20 companies and research institutes are using PULPino</li>
-<li>PULPinov2 is targeted for Q12017. This features support for Verilator
+an open source motherboard</li><li><code>bsg_ip_cores</code> aims to be like C++ STL, but for SystemVerilog</li><li>BSG Ten is a recent design featuring 10 RISC-V cores that will be taping out
+before the end of the year on a TSMC shuttle run.</li><li>Aim for 100% of the design will be open, including design files for the
+chip, PCB, BGA package, firmware.</li><li>BSG Ten has its own 5-stage RV32IM pipeline</li><li>Also working on &lsquo;Certus&rsquo;, a 16nm TSMC design featuring Rocket cores, a
+neural network accelerator, and the BSG I/O infrastructure.</li><li>Suggestion: RoCC interface should be wired to the toplevel of the Rocket
+hierarchy</li><li>Suggestion: The RISC-V community should have at least yearly stable
+end-to-end releases of full RISC-V stacks (Linux to Verilog)</li></ul><h2 id=updates-on-pulpino-florian-zaruba:04209bd375e17aa5ec6945548b5da264>Updates on PULPino: Florian Zaruba</h2><ul><li>Imperio is the first ASIC implementation of PULPino, done in UMC 65nm.<br>Speed: 500MHz.</li><li>Area is 700kGE for the SoC and 40kGE for the core (1kGE = 1.44um2).</li><li>What is PULP? Parallel Ultra Low Power (platform).</li><li>PULPino is a much simplified version of PULP, featuring just 1 core, reduced
+interconnect and simplified cache design.</li><li>Have hardware loops, post-incrementing loads and stores and SIMD instruction
+extensions.</li><li>Over 20 companies and research institutes are using PULPino</li><li>PULPinov2 is targeted for Q12017. This features support for Verilator
 simulation, IP-XACT description, new peripherals (uDMA), new streamlined event
-unit, SDK, updated compiler, and improved documentation and tutorials</li>
-<li>In the future, want to work on a secure PULPino capable of running SeL4</li>
-<li>Working on a 10kGE or less RISC-V core. Evaluating 1 and 3-stage pipeline
-designs.</li>
-<li>Want to explore heterogeneous configurations, featuring FPU and
-accelerators.</li>
-<li>Find out more at the <a href="http://www.pulp-platform.org">PULP website</a>.</li>
-</ul>
-
-<h2 id="sifive-fe310-and-low-cost-hifive1-development-board-jack-kang:04209bd375e17aa5ec6945548b5da264">SiFive FE310 and low-cost HiFive1 development board: Jack Kang</h2>
-
-<ul>
-<li>SiFive is a fabless semiconductor company. Their business model is to build
+unit, SDK, updated compiler, and improved documentation and tutorials</li><li>In the future, want to work on a secure PULPino capable of running SeL4</li><li>Working on a 10kGE or less RISC-V core. Evaluating 1 and 3-stage pipeline
+designs.</li><li>Want to explore heterogeneous configurations, featuring FPU and
+accelerators.</li><li>Find out more at the <a href=http://www.pulp-platform.org>PULP website</a>.</li></ul><h2 id=sifive-fe310-and-low-cost-hifive1-development-board-jack-kang:04209bd375e17aa5ec6945548b5da264>SiFive FE310 and low-cost HiFive1 development board: Jack Kang</h2><ul><li>SiFive is a fabless semiconductor company. Their business model is to build
 custom SoC designs for their customers. Customers give specs and/or IP and
-SiFive deliver packaged, tested chips.</li>
-<li>Although a commercial company who may offer commercial licenses, they are
-committed to updating the open source rocket-chip implementation.</li>
-<li>RISC-V chips are here: the Freedom E310. This features an RV32IMAC core.<br />
-320MHz+ on TSMC180G. 1.61DMIPS/MHz, 16K L1 I$, 16K data scratchpad, multiple
-power domains (supports low power standby). Comes in a 6x6 48-pin QFN</li>
-<li>Claim to be 9x more power efficient than Intel Quark and 2x more power
-efficient than the ARM Cortex M0+.</li>
-<li>The HiFive 1 is an Arduino compatible board for this chip. The board design
+SiFive deliver packaged, tested chips.</li><li>Although a commercial company who may offer commercial licenses, they are
+committed to updating the open source rocket-chip implementation.</li><li>RISC-V chips are here: the Freedom E310. This features an RV32IMAC core.<br>320MHz+ on TSMC180G. 1.61DMIPS/MHz, 16K L1 I$, 16K data scratchpad, multiple
+power domains (supports low power standby). Comes in a 6x6 48-pin QFN</li><li>Claim to be 9x more power efficient than Intel Quark and 2x more power
+efficient than the ARM Cortex M0+.</li><li>The HiFive 1 is an Arduino compatible board for this chip. The board design
 and SDK is/will be open source. It&rsquo;s now up on
-<a href="https://www.crowdsupply.com/sifive/hifive1">CrowdSupply</a>. $59 will get you
-one board.</li>
-<li>The RTL for their implementations presented at the last RISC-V workshop are
-now open source and <a href="https://github.com/sifive/freedom">up at GitHub</a>.</li>
-<li>Question: how much (ballpark) might it cost to get 100 prototype chips? For
+<a href=https://www.crowdsupply.com/sifive/hifive1>CrowdSupply</a>. $59 will get you
+one board.</li><li>The RTL for their implementations presented at the last RISC-V workshop are
+now open source and <a href=https://github.com/sifive/freedom>up at GitHub</a>.</li><li>Question: how much (ballpark) might it cost to get 100 prototype chips? For
 Freedom Everywhere (microcontroller), looking at less than $100k depending on
-the level of customisation needed.</li>
-<li>Question: what is the plan for getting the SiFive chips to be competitive
+the level of customisation needed.</li><li>Question: what is the plan for getting the SiFive chips to be competitive
 with the Cortex-M4 and other designs from ARM? Answer: this will come in time
 with custom instructions, custom accelerators etc. The ability to customise
-will result in better performance/watt than any off the shelf solution.</li>
-</ul>
-
-<h2 id="rapid-silicon-prototyping-and-production-for-risc-v-socs-neil-hand:04209bd375e17aa5ec6945548b5da264">Rapid silicon prototyping and production for RISC-V SoCs: Neil Hand</h2>
-
-<ul>
-<li>Need to support rapid evolution of IoT designs.</li>
-<li>IoT class designs can be achieved in tens of k$.</li>
-<li>All standards based, but not open source</li>
-<li>A standard cell ASIC is typically 52-78 weeks, compared to 10 weeks for a
-Baysand Metal configurable standard cell.</li>
-<li>Codasip have 3-stage and 5-stage implementations RISC-V implementations. The
+will result in better performance/watt than any off the shelf solution.</li></ul><h2 id=rapid-silicon-prototyping-and-production-for-risc-v-socs-neil-hand:04209bd375e17aa5ec6945548b5da264>Rapid silicon prototyping and production for RISC-V SoCs: Neil Hand</h2><ul><li>Need to support rapid evolution of IoT designs.</li><li>IoT class designs can be achieved in tens of k$.</li><li>All standards based, but not open source</li><li>A standard cell ASIC is typically 52-78 weeks, compared to 10 weeks for a
+Baysand Metal configurable standard cell.</li><li>Codasip have 3-stage and 5-stage implementations RISC-V implementations. The
 slide compares gate count and frequency vs Rocket and ZScale (watch out for
-the slides to be posted, I didn&rsquo;t get a chance to jot down the numbers)</li>
-<li>Have a story for easy extensibility, adding new instructions and having a
-new SDK etc generated.</li>
-<li>UltraSoC provides debug</li>
-<li>LLVM is the glue that holds the solution together. They generate an LLVM
-compiler based on their processor model and any customer-defined extensions.</li>
-<li>A test chip will be taping out very soon. Also exploring general
-availability for a dev-board</li>
-<li>They are developing their own alternative to QEMU for their customers with a
-non-copyleft license.</li>
-</ul>
-
-<h2 id="extending-risc-v-for-application-specific-requirements-steve-cox:04209bd375e17aa5ec6945548b5da264">Extending RISC-V for application-specific requirements: Steve Cox</h2>
-
-<ul>
-<li>Sometimes a pre-defined ISA is insufficient. May require an
-application-optimised ISA. e.g. the Google TPU</li>
-<li>ASIP designer is a tool for automating ASIP design. The process can start
-with a pre-existing example model, e..g RISC-V</li>
-<li>ASIP designer has been used in more than 250 unique SoC products</li>
-<li>The speaker gives an example of a header compression accelerator. Start with
+the slides to be posted, I didn&rsquo;t get a chance to jot down the numbers)</li><li>Have a story for easy extensibility, adding new instructions and having a
+new SDK etc generated.</li><li>UltraSoC provides debug</li><li>LLVM is the glue that holds the solution together. They generate an LLVM
+compiler based on their processor model and any customer-defined extensions.</li><li>A test chip will be taping out very soon. Also exploring general
+availability for a dev-board</li><li>They are developing their own alternative to QEMU for their customers with a
+non-copyleft license.</li></ul><h2 id=extending-risc-v-for-application-specific-requirements-steve-cox:04209bd375e17aa5ec6945548b5da264>Extending RISC-V for application-specific requirements: Steve Cox</h2><ul><li>Sometimes a pre-defined ISA is insufficient. May require an
+application-optimised ISA. e.g. the Google TPU</li><li>ASIP designer is a tool for automating ASIP design. The process can start
+with a pre-existing example model, e..g RISC-V</li><li>ASIP designer has been used in more than 250 unique SoC products</li><li>The speaker gives an example of a header compression accelerator. Start with
 a simple 3-stage RV32IM core. This is 24.5k gates on TSMC 28HPM at 500MHz and
-32GPRs.</li>
-<li>First, consider instruction level parallelism. e.g. switching to a 2-slot
-VLIW. This reduced cycle could by 21% and increased gate count by 31%.</li>
-<li>Next, try adding application-specific instructions. This reduced the code
+32GPRs.</li><li>First, consider instruction level parallelism. e.g. switching to a 2-slot
+VLIW. This reduced cycle could by 21% and increased gate count by 31%.</li><li>Next, try adding application-specific instructions. This reduced the code
 size by 56%, cycle count by 67%, and added 9% to the gate count (compared to
-the original baseline).</li>
-<li>Next, try adding a compare immediate and branch instruction. This reduces
-code size by 8% and cycle count by 18% vs the previous result.</li>
-</ul>
-
-<h2 id="a-memory-model-for-risc-v-muralidaran-vijayaraghavan:04209bd375e17aa5ec6945548b5da264">A memory model for RISC-V: Muralidaran Vijayaraghavan</h2>
-
-<ul>
-<li>Why not SC/TSO? Simple implementations have low performance.</li>
-<li>Why not the POWER/ARM models? Expose too many microarchitectural details and
-their axiomatic models are too complex</li>
-<li>Why not RMO? The dependency requirements are too strict</li>
-<li>Want a simple specification with the inclusion of sufficient fences to force
-sequential consistency behaviour when necessary</li>
-<li>Which is why they&rsquo;ve introduced WMM: which has a simple operational
-specification like SC, TSO.</li>
-<li>WMM introduces the conceptual device of an invalidation buffer. This holds
-stale values that may be read by a future load.</li>
-<li>WMM has reconcile fences (clears the invalidation buffer) and commit fences
-(flushes the store buffer).</li>
-<li>All instructions are committed in order, so stores cannot overtake loads.
-This prevents &lsquo;out of thin air&rsquo; generation of values</li>
-<li>A write -back coherent cache hierarchy is typically global store atomic. SMT
-cores with L1 write-through caches aren&rsquo;t, so don&rsquo;t do it.</li>
-<li>Mapping C++11 atomic operations to WMM is straight forward</li>
-<li>Question: what is the difference to the programmer vs TSO? Answer: you would
-have to put a reconcile fence whenever you require load/load ordering</li>
-</ul>
-
-<h2 id="a-memory-consistency-model-for-risc-v-caroline-trippel:04209bd375e17aa5ec6945548b5da264">A Memory Consistency Model for RISC-V: Caroline Trippel</h2>
-
-<ul>
-<li>Princeton have been working on memory consistency model verification. This
+the original baseline).</li><li>Next, try adding a compare immediate and branch instruction. This reduces
+code size by 8% and cycle count by 18% vs the previous result.</li></ul><h2 id=a-memory-model-for-risc-v-muralidaran-vijayaraghavan:04209bd375e17aa5ec6945548b5da264>A memory model for RISC-V: Muralidaran Vijayaraghavan</h2><ul><li>Why not SC/TSO? Simple implementations have low performance.</li><li>Why not the POWER/ARM models? Expose too many microarchitectural details and
+their axiomatic models are too complex</li><li>Why not RMO? The dependency requirements are too strict</li><li>Want a simple specification with the inclusion of sufficient fences to force
+sequential consistency behaviour when necessary</li><li>Which is why they&rsquo;ve introduced WMM: which has a simple operational
+specification like SC, TSO.</li><li>WMM introduces the conceptual device of an invalidation buffer. This holds
+stale values that may be read by a future load.</li><li>WMM has reconcile fences (clears the invalidation buffer) and commit fences
+(flushes the store buffer).</li><li>All instructions are committed in order, so stores cannot overtake loads.
+This prevents &lsquo;out of thin air&rsquo; generation of values</li><li>A write -back coherent cache hierarchy is typically global store atomic. SMT
+cores with L1 write-through caches aren&rsquo;t, so don&rsquo;t do it.</li><li>Mapping C++11 atomic operations to WMM is straight forward</li><li>Question: what is the difference to the programmer vs TSO? Answer: you would
+have to put a reconcile fence whenever you require load/load ordering</li></ul><h2 id=a-memory-consistency-model-for-risc-v-caroline-trippel:04209bd375e17aa5ec6945548b5da264>A Memory Consistency Model for RISC-V: Caroline Trippel</h2><ul><li>Princeton have been working on memory consistency model verification. This
 resulted in PipeCheck and CCICheck. Then implemented ArMOR, which worked to
 more precisely define memory models. COATCheck looks at how e.g. instructions
 that are executed as a result of page table walks interact with the memory
 model. Finally, TriCheck helps to verify the lowering of e.g. C++11 atomic
 constructs to the ISA level, as well as checking the ISA memory model and
-hardware memory model.</li>
-<li>Have identified and characterised flaws in the current RISC-V memory model
-specification (ASPLOS&rsquo;17).</li>
-<li>Two broad categories of memory model relaxation. Preserved program order
+hardware memory model.</li><li>Have identified and characterised flaws in the current RISC-V memory model
+specification (ASPLOS&rsquo;17).</li><li>Two broad categories of memory model relaxation. Preserved program order
 (defines program orderings that hardware must preserve by default) and store
-atomicity (defines the order in which stores become visible to cores).</li>
-<li>Propose tighter preserved program order and non-multi-copy store atomicity.</li>
-<li>Why allow non-multiple-copy atomic stores? Commercial ISAs e.g. ARM, Power
+atomicity (defines the order in which stores become visible to cores).</li><li>Propose tighter preserved program order and non-multi-copy store atomicity.</li><li>Why allow non-multiple-copy atomic stores? Commercial ISAs e.g. ARM, Power
 allow this, and RISC-V is intended to be integrated with other vendor ISAs on
-a shared memory system.</li>
-<li>Want preserved program order to require same address read-read ordering</li>
-<li>Want PPO to maintain order between dependent instructions</li>
-<li>TriCheck compares high level language outcomes to ISA-level outcomes for a
-spectrum of legal ISA microarchitectures</li>
-<li>The currently document RISC-V memory model lacks cumulative fences, which
-are needed for C/C++ acquire/release synchronisation</li>
-<li>They have formulated an english language diff of the current spec with
-proposed changes, but are also working on a formal model.</li>
-</ul>
-
-<h2 id="trust-transparency-and-simplicity-eric-grosse:04209bd375e17aa5ec6945548b5da264">Trust, transparency and simplicity: Eric Grosse</h2>
-
-<ul>
-<li>Know your adversary. Many of them might sometimes be your partner as well as
+a shared memory system.</li><li>Want preserved program order to require same address read-read ordering</li><li>Want PPO to maintain order between dependent instructions</li><li>TriCheck compares high level language outcomes to ISA-level outcomes for a
+spectrum of legal ISA microarchitectures</li><li>The currently document RISC-V memory model lacks cumulative fences, which
+are needed for C/C++ acquire/release synchronisation</li><li>They have formulated an english language diff of the current spec with
+proposed changes, but are also working on a formal model.</li></ul><h2 id=trust-transparency-and-simplicity-eric-grosse:04209bd375e17aa5ec6945548b5da264>Trust, transparency and simplicity: Eric Grosse</h2><ul><li>Know your adversary. Many of them might sometimes be your partner as well as
 your adversary (e.g. state actors). Notably, seems to be fairly little in the
-way of advanced corporate espionage from other companies.</li>
-<li>Fix 1: secure communications. SSL, PGP etc</li>
-<li>Fix 2: authentication. e.g. two-step authentication, hardware security
-devices</li>
-<li>Fix 3: stay up to date with patches</li>
-<li>The disclosure process in the hardware community is dramatically different
+way of advanced corporate espionage from other companies.</li><li>Fix 1: secure communications. SSL, PGP etc</li><li>Fix 2: authentication. e.g. two-step authentication, hardware security
+devices</li><li>Fix 3: stay up to date with patches</li><li>The disclosure process in the hardware community is dramatically different
 than software. e.g. rowhammer was known to some hardware vendors well before
-the public disclosure.</li>
-<li>Long standing practitioners&rsquo; wisdom: &ldquo;Complexity is the enemy of security&rdquo;</li>
-<li>Modern systems aren&rsquo;t just incredibly complex, they&rsquo;re also largely
-undocumented.</li>
-<li>A paranoid&rsquo;s choice of CPU? x86 with Qubes-OS on a NUC kit. Or Coreboot,
-u-root on Asus KGPE-D16 motherboard</li>
-<li>For RISC-V, you have the critical advantage of openness - be sure to keep
+the public disclosure.</li><li>Long standing practitioners&rsquo; wisdom: &ldquo;Complexity is the enemy of security&rdquo;</li><li>Modern systems aren&rsquo;t just incredibly complex, they&rsquo;re also largely
+undocumented.</li><li>A paranoid&rsquo;s choice of CPU? x86 with Qubes-OS on a NUC kit. Or Coreboot,
+u-root on Asus KGPE-D16 motherboard</li><li>For RISC-V, you have the critical advantage of openness - be sure to keep
 it. Please resist adding features lightly, or else consider removing others in
-compensation. Also consider a CHERI security extension, or tagged memory</li>
-</ul>
-
-<h2 id="risc-v-foundation-update-rick-o-connor:04209bd375e17aa5ec6945548b5da264">RISC-V Foundation update: Rick O&rsquo;Connor</h2>
-
-<ul>
-<li>Rick gives another overview of the RISC-V Foundation, and reiterates that
+compensation. Also consider a CHERI security extension, or tagged memory</li></ul><h2 id=risc-v-foundation-update-rick-o-connor:04209bd375e17aa5ec6945548b5da264>RISC-V Foundation update: Rick O&rsquo;Connor</h2><ul><li>Rick gives another overview of the RISC-V Foundation, and reiterates that
 RISC-V is not an open source processor core but an open ISA specification. The
-Foundation will encourage both open source and proprietary implementations</li>
-<li>Every year at least two RISC-V Foundation board seats will be up for
-election.</li>
-<li>It&rsquo;s likely the end of year workshop each year will be in Silicon Valley,
-and the Spring/Summer workshop will move locations around the year</li>
-<li>The board of directors was formed in Q2 2016, and the technical and
-marketing committees were formed in Q3 2016.</li>
-</ul>
-
-<h2 id="risc-v-marketing-committee-update-arun-thomas:04209bd375e17aa5ec6945548b5da264">RISC-V Marketing Committee update: Arun Thomas</h2>
-
-<ul>
-<li>The marketing committee mission: grow RISC-V mindshare and grow the RISC-V
-community</li>
-<li>Activities include organising RISC-V workshops and tutorials, and RISC-V
-participation at industry events</li>
-<li>Want to help create RISC-V educational materials for industry practitioners,
-researchers, and university students</li>
-<li>The marketing committee has several task groups: RISC-V workshops, outreach,
+Foundation will encourage both open source and proprietary implementations</li><li>Every year at least two RISC-V Foundation board seats will be up for
+election.</li><li>It&rsquo;s likely the end of year workshop each year will be in Silicon Valley,
+and the Spring/Summer workshop will move locations around the year</li><li>The board of directors was formed in Q2 2016, and the technical and
+marketing committees were formed in Q3 2016.</li></ul><h2 id=risc-v-marketing-committee-update-arun-thomas:04209bd375e17aa5ec6945548b5da264>RISC-V Marketing Committee update: Arun Thomas</h2><ul><li>The marketing committee mission: grow RISC-V mindshare and grow the RISC-V
+community</li><li>Activities include organising RISC-V workshops and tutorials, and RISC-V
+participation at industry events</li><li>Want to help create RISC-V educational materials for industry practitioners,
+researchers, and university students</li><li>The marketing committee has several task groups: RISC-V workshops, outreach,
 RISC-V content (creating riscv.org content and educational and marketing
 materials), and member content (promoting content from RISC-V Foundation
-members)</li>
-<li>David Patterson announces both of his textbooks will have RISC-V editions</li>
-</ul>
-
-<h2 id="risc-v-technical-committee-update-yunsup-lee:04209bd375e17aa5ec6945548b5da264">RISC-V Technical Committee update: Yunsup Lee</h2>
-
-<ul>
-<li>Immediate goals:
-
-<ul>
-<li>Maintain a roadmap of the RISC-V ISA</li>
-<li>Provide and maintain a golden simulator for the RISC-V ISA</li>
-<li>Provide and maintain a set of verification/validation tests to ensure
-conformance</li>
-<li>To upstream software development tools (compiler, debugger etc)</li>
-<li>To maintain and update a list of hardware implementations of the
-architecture</li>
-</ul></li>
-<li>Longer term goals
-
-<ul>
-<li>Establish processes to define and standardise future ISA extensions</li>
-<li>Provide guidelines for platform integration</li>
-<li>Set up program committees for future RISC-V workshops</li>
-</ul></li>
-<li>Task groups: opcode space management, privileged ISA specification, formal
+members)</li><li>David Patterson announces both of his textbooks will have RISC-V editions</li></ul><h2 id=risc-v-technical-committee-update-yunsup-lee:04209bd375e17aa5ec6945548b5da264>RISC-V Technical Committee update: Yunsup Lee</h2><ul><li>Immediate goals:<ul><li>Maintain a roadmap of the RISC-V ISA</li><li>Provide and maintain a golden simulator for the RISC-V ISA</li><li>Provide and maintain a set of verification/validation tests to ensure
+conformance</li><li>To upstream software development tools (compiler, debugger etc)</li><li>To maintain and update a list of hardware implementations of the
+architecture</li></ul></li><li>Longer term goals<ul><li>Establish processes to define and standardise future ISA extensions</li><li>Provide guidelines for platform integration</li><li>Set up program committees for future RISC-V workshops</li></ul></li><li>Task groups: opcode space management, privileged ISA specification, formal
 specification, debug specification, security, vector extensions, software
-toolchain</li>
-<li>By Feb, debug spec will be ratified by the foundation, calling convention
-fixed and documented, ELF format fixed and documented, priv-1.10.0</li>
-<li>By November, ratify vector extension</li>
-<li>Formal specification task group: Formal models written in L3, BSV and in Coq</li>
-</ul>
-
-<h2 id="free-chips-project-yunsup-lee:04209bd375e17aa5ec6945548b5da264">Free Chips Project: Yunsup Lee</h2>
-
-<ul>
-<li>A plan to launch a not-for-profit for hosting open-source RISC-V
-implementations, tools, and code</li>
-<li>SiFive loves open source, believes it is essential to their mission.</li>
-<li>The rocket-chip generator has had almost 4000 commits. 40% of all commits so
-far come from SiFive</li>
-<li>SiFive contributions to the rocket-chip repository are made under the Apache
-v2 license.</li>
-<li>SiFive added RV32I+M/A/F support, compressed support, blocking data cache,
-and data SRAM options</li>
-<li>SiFive will publish a TileLink specification</li>
-<li>SiFive recently implemented a library &lsquo;Diplomacy&rsquo; for parameter negotiation.
-Also added multi-clock support, clock crossings, and asynchronous reset flops</li>
-<li>The SiFive blocks repository contains low-speed peripherals like SPI, UART,
+toolchain</li><li>By Feb, debug spec will be ratified by the foundation, calling convention
+fixed and documented, ELF format fixed and documented, priv-1.10.0</li><li>By November, ratify vector extension</li><li>Formal specification task group: Formal models written in L3, BSV and in Coq</li></ul><h2 id=free-chips-project-yunsup-lee:04209bd375e17aa5ec6945548b5da264>Free Chips Project: Yunsup Lee</h2><ul><li>A plan to launch a not-for-profit for hosting open-source RISC-V
+implementations, tools, and code</li><li>SiFive loves open source, believes it is essential to their mission.</li><li>The rocket-chip generator has had almost 4000 commits. 40% of all commits so
+far come from SiFive</li><li>SiFive contributions to the rocket-chip repository are made under the Apache
+v2 license.</li><li>SiFive added RV32I+M/A/F support, compressed support, blocking data cache,
+and data SRAM options</li><li>SiFive will publish a TileLink specification</li><li>SiFive recently implemented a library &lsquo;Diplomacy&rsquo; for parameter negotiation.
+Also added multi-clock support, clock crossings, and asynchronous reset flops</li><li>The SiFive blocks repository contains low-speed peripherals like SPI, UART,
 PWM, GPIO, PMU. These are written in Chisel with TileLink interfaces. It also
-includes wrappers for high-speed Xilinx FPGA peripherals</li>
-<li>The SiFive Freedom repository has submodules for rocket-chip and
-sifive-blocks and top-level SoC integration glue code</li>
-<li>The Free Chips project has a mission to be a home for open-source codebases
+includes wrappers for high-speed Xilinx FPGA peripherals</li><li>The SiFive Freedom repository has submodules for rocket-chip and
+sifive-blocks and top-level SoC integration glue code</li><li>The Free Chips project has a mission to be a home for open-source codebases
 to enable faster, better, cheaper chips. It will sustain and evolve
 open-source software tools and HDL code for SoC design. It will ensure free
 and open contributions are available to all of the SoC design community. It
 will manage publicly accessible, online repositories of source code,
-documentation and issues</li>
-</ul>
-
-<h2 id="128-bit-addressing-in-risc-v-and-security-steve-wallach:04209bd375e17aa5ec6945548b5da264">128-bit addressing in RISC-V and security: Steve Wallach</h2>
-
-<ul>
-<li>Aim for programming generality. Might have to recompile, but don&rsquo;t want to
-have to restructure your software.</li>
-<li>Computer virtual addresses span to local disk only, while other identifiers
+documentation and issues</li></ul><h2 id=128-bit-addressing-in-risc-v-and-security-steve-wallach:04209bd375e17aa5ec6945548b5da264>128-bit addressing in RISC-V and security: Steve Wallach</h2><ul><li>Aim for programming generality. Might have to recompile, but don&rsquo;t want to
+have to restructure your software.</li><li>Computer virtual addresses span to local disk only, while other identifiers
 such as MACs, URLs, IPv6 are globally unique. What if one unified name
-structure could be developed?</li>
-<li>RV128I strawman. 64-bits are used for an object ID, and the other 64 bits
-used for a byte offset.</li>
-<li>The object ID is a software or hardware structure considered to be worthy of
-a distinct name</li>
-<li>Protection and memory management are independent</li>
-<li>The machine that is simplest to program wins. User cycles are more important
-than CPU cycles</li>
-</ul>
-
-<h2 id="the-challenges-of-securing-and-authenticating-embedded-devices-derek-atkins:04209bd375e17aa5ec6945548b5da264">The challenges of securing and authenticating embedded devices: Derek Atkins</h2>
-
-<ul>
-<li>Why not just use symmetric encryption e.g. AES to secure your devices? It&rsquo;s
+structure could be developed?</li><li>RV128I strawman. 64-bits are used for an object ID, and the other 64 bits
+used for a byte offset.</li><li>The object ID is a software or hardware structure considered to be worthy of
+a distinct name</li><li>Protection and memory management are independent</li><li>The machine that is simplest to program wins. User cycles are more important
+than CPU cycles</li></ul><h2 id=the-challenges-of-securing-and-authenticating-embedded-devices-derek-atkins:04209bd375e17aa5ec6945548b5da264>The challenges of securing and authenticating embedded devices: Derek Atkins</h2><ul><li>Why not just use symmetric encryption e.g. AES to secure your devices? It&rsquo;s
 hard to deploy and it doesn&rsquo;t scale (either have one key for many devices or a
-database of a huge number of keys)</li>
-<li>Why do people think public key won&rsquo;t work? They think it&rsquo;s too big, too
-slow, or too power hungry.</li>
-<li>Many of these beliefs are true, e.g. ECC execution time on Cortex-M ARM
+database of a huge number of keys)</li><li>Why do people think public key won&rsquo;t work? They think it&rsquo;s too big, too
+slow, or too power hungry.</li><li>Many of these beliefs are true, e.g. ECC execution time on Cortex-M ARM
 cores is 233-1089ms. Implementations range in 8-30KB of ROM and require
 800-3000B of RAM. Hardware implementations are faster, but take a lot of
-gates. RSA and Diffie-Hellman are larger and take longer</li>
-<li>Fundamentally these overheads are there because a large number of 4086 bit
-numbers are multiplied</li>
-<li>Group theoretic cryptography (GTC) offers a potential answer. Complexity
-scales linearly with security instead of quadratically like RSA, ECC etc</li>
-<li>GTC can work with just 6-8 bit math</li>
-<li>The Ironwood Key Agreement Protocol enables two endpoints to generated a
+gates. RSA and Diffie-Hellman are larger and take longer</li><li>Fundamentally these overheads are there because a large number of 4086 bit
+numbers are multiplied</li><li>Group theoretic cryptography (GTC) offers a potential answer. Complexity
+scales linearly with security instead of quadratically like RSA, ECC etc</li><li>GTC can work with just 6-8 bit math</li><li>The Ironwood Key Agreement Protocol enables two endpoints to generated a
 shared secret over an open channel. The Walnut digital signature algorithm
-allows one device to generate a document that is verified by another.</li>
-<li>When comparing WalnutDSA on a Rocket core, it compared very favourable to
-microECC. 4.9ms run-time vs 2110ms (458ms with multiply/divide).</li>
-<li>WaltnutDSA written in RISC-V assembly achieved a 3.0ms run time</li>
-<li>The C implementation currently runs faster on the ARM Cortex-M3</li>
-</ul>
-
-<h2 id="risc-v-with-sanctum-enclaves-ilia-lebedev:04209bd375e17aa5ec6945548b5da264">RISC-V with Sanctum Enclaves: Ilia Lebedev</h2>
-
-<ul>
-<li>Today privilege implies trust (e.g. a hypervisor is privileged and so must
-be trusted). Sanctum decouples hardware protection from trust</li>
-<li>Sanctum uses hardware-assisted isolation, offering strong privacy and
-integrity with low overhead</li>
-<li>In remote software attestation, a trusted remote piece of hardware might
+allows one device to generate a document that is verified by another.</li><li>When comparing WalnutDSA on a Rocket core, it compared very favourable to
+microECC. 4.9ms run-time vs 2110ms (458ms with multiply/divide).</li><li>WaltnutDSA written in RISC-V assembly achieved a 3.0ms run time</li><li>The C implementation currently runs faster on the ARM Cortex-M3</li></ul><h2 id=risc-v-with-sanctum-enclaves-ilia-lebedev:04209bd375e17aa5ec6945548b5da264>RISC-V with Sanctum Enclaves: Ilia Lebedev</h2><ul><li>Today privilege implies trust (e.g. a hypervisor is privileged and so must
+be trusted). Sanctum decouples hardware protection from trust</li><li>Sanctum uses hardware-assisted isolation, offering strong privacy and
+integrity with low overhead</li><li>In remote software attestation, a trusted remote piece of hardware might
 measure (hash) and sign the software that is running. The remote user can then
 decides where to trust the certificate or not. Claim that prior work included
-too much software in their attestation</li>
-<li>Intel recently introduced SGX, which allowed a process to be placed in an
+too much software in their attestation</li><li>Intel recently introduced SGX, which allowed a process to be placed in an
 enclave. It aims to protect privacy and integrity of an enclave against a
 privileged software adversary. It also protects against some physical attacks,
-or instance by encrypting DRAM contents</li>
-<li>There have been a number of side channel attacks demonstrated against SGX.<br />
-e.g. dirty bits on page tables, or cache timing attacks</li>
-<li>Sanctum aims to protect against indirect tacks (such as cache timing
+or instance by encrypting DRAM contents</li><li>There have been a number of side channel attacks demonstrated against SGX.<br>e.g. dirty bits on page tables, or cache timing attacks</li><li>Sanctum aims to protect against indirect tacks (such as cache timing
 attacks) as well as the direct attacks covered by SGX. It does not protect
-against physical access or fault injection</li>
-<li>With Sanctum, the device manufacturer acts as a certificate authority</li>
-<li>Sanctum has a small software TCB, a ~5KLoC machine-mode security monitor</li>
-<li>The reference Sanctum implementation was built on the Rocket RISC-V
-implementation</li>
-<li>Enclaves execute on private cores. i.e. it will never share L1 caches,
-register, branch target buffer, TLB</li>
-<li>Sanctum also isolates physical memory. DRAM regions are defined, which are
-non-overlapping regions of memory assigned to certain enclaves</li>
-<li>To isolate enclaves in the last level cache, allocate exclusively at a
+against physical access or fault injection</li><li>With Sanctum, the device manufacturer acts as a certificate authority</li><li>Sanctum has a small software TCB, a ~5KLoC machine-mode security monitor</li><li>The reference Sanctum implementation was built on the Rocket RISC-V
+implementation</li><li>Enclaves execute on private cores. i.e. it will never share L1 caches,
+register, branch target buffer, TLB</li><li>Sanctum also isolates physical memory. DRAM regions are defined, which are
+non-overlapping regions of memory assigned to certain enclaves</li><li>To isolate enclaves in the last level cache, allocate exclusively at a
 region granularity (see the slides and/or the Sanctum paper for a description
-of exactly how this works)</li>
-<li>To provide hardware-assisted isolation, always maintain the invariant that
+of exactly how this works)</li><li>To provide hardware-assisted isolation, always maintain the invariant that
 entries in the TLB are safe and necessary invariants were checked while
-performing the page walk</li>
-<li>Very small hardware overhead (50 gates for LLC address rotation, 600 gates
+performing the page walk</li><li>Very small hardware overhead (50 gates for LLC address rotation, 600 gates
 for DMA whitelist). Roughly 2% area increase in total. Roughly 6% performance
-overhead in measurements</li>
-</ul>
-
-<h2 id="joined-up-debugging-and-analysis-in-the-risc-v-world-gajinder-panesar:04209bd375e17aa5ec6945548b5da264">Joined up debugging and analysis in the RISC-V world: Gajinder Panesar</h2>
-
-<ul>
-<li>Need a vendor-neutral debug infrastructure, enabling access to different
-proprietary debug schemes used today by various cores</li>
-<li>Need monitors into interconnects, interfaces, and custom logic which are
-run-time configurable with support for cross-triggering</li>
-<li>UltraSoC provides silicon IP and tools for on-chip debug</li>
-<li>As an example, consider a software-defined radio chip. Might want to track
+overhead in measurements</li></ul><h2 id=joined-up-debugging-and-analysis-in-the-risc-v-world-gajinder-panesar:04209bd375e17aa5ec6945548b5da264>Joined up debugging and analysis in the RISC-V world: Gajinder Panesar</h2><ul><li>Need a vendor-neutral debug infrastructure, enabling access to different
+proprietary debug schemes used today by various cores</li><li>Need monitors into interconnects, interfaces, and custom logic which are
+run-time configurable with support for cross-triggering</li><li>UltraSoC provides silicon IP and tools for on-chip debug</li><li>As an example, consider a software-defined radio chip. Might want to track
 CPU cycles spent on compute vs cache stalls. Or you might track utilised DDR
-bandwidth over time.</li>
-<li>UltraSoC monitors are non-intrusive by default</li>
-<li>Has a portfolio of 30 modules. e.g. bus monitors, communications</li>
-</ul>
-
-<p><em>Alex Bradbury</em></p>
-
-                    </section>
-                </article>
-
-        </div>
-      </section>
-    </div>
-    
-
-
-        <footer>
-
-          <section class="outer-container">
-
-
-
-            <p>
-
-
-            Unless otherwise noted, content on this site is licensed under a <a style="color:white" href="http://creativecommons.org/licenses/by-sa/4.0/" >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-            </p>
-
-          </section>
-
-        </footer>
-    </body>
-</html>
-
-    </body>
-</html>
-
+bandwidth over time.</li><li>UltraSoC monitors are non-intrusive by default</li><li>Has a portfolio of 30 modules. e.g. bus monitors, communications</li></ul><p><em>Alex Bradbury</em></p></article></div></main><footer class="lr-footer jumbotron"><div class=container><div class=row><div class="col-sm-4 pb-3 pb-sm-0"><img src=/img/logo/logo-dualcolor.svg width=150px></div><div class=col><p>The text content on this website is licensed under a <a href=https://creativecommons.org/licenses/by/4.0/>Creative Commons Attribution 4.0 International License</a>, except where otherwise noted. No license is granted for logos or other trademarks. Other content &copy; lowRISC Contributors.
+&middot; <a href=/privacy-policy>Privacy and cookies policy</a> &middot; <a href=/usage-licence>Usage licence</a> &middot; <a href=#>Back to top</a></p></div></div></div></footer><script src=/main.fe48f.js></script></body></html>

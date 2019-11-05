@@ -1,668 +1,189 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <title>Barcelona RISC-V Workshop: Day Two &middot; lowRISC</title>
-        <link rel="stylesheet" href="https://www.lowrisc.org/css/styles.combined.min.css" />
-        <link rel="shortcut icon" href="https://www.lowrisc.org/favicon.ico" />
-        <link rel="alternate" href="https://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
-        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' type='text/css'>
-        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Exo+2' type='text/css'>
-        <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-53520714-1', 'auto');
-        ga('send', 'pageview');
-      </script>
-  </head>
-
-  <body data-page="article">
-<div class="header">
-  <header data-component="menu">
-
-    <section class="outer-container">
-      <div class="image">
-        <a href="https://www.lowrisc.org"><img src="https://www.lowrisc.org/img/logo.svg"></a>
-      </div>
-
-      <div class="menu">
-        <ul>
-          
-          <li><a href="/jobs/"> Jobs </a></li>
-          
-          <li><a href="/our-work/"> Our work </a></li>
-          
-          <li><a href="/community/"> Community </a></li>
-          
-          <li><a href="/blog/"> Blog </a></li>
-          
-          <li><a href="/about/"> About us </a></li>
-          
-          <li><a href="/docs/"> Docs </a></li>
-          
-        </ul>
-      </div>
-    </section>
-
-  </header>
-</div>
-
-
-
-
-
-
-
-
-
-    <div class="article">
-      <section class="outer-container">
-        <div class="row">
-            <div class="sixteen columns">
-                <article class="li-article">
-                
-                    <header class="li-article-header">
-                        <h1 class="li-article-title">Barcelona RISC-V Workshop: Day Two</h1>
-                        <span class="li-article-taxonomies">
-                            
-
-                            
-                        </span>
-                        
-                        
-                        <time class="li-article-date">Wednesday, May 9, 2018</time>
-                        
-                    </header>
-                    <section>
-                        
-
-<p>The <a href="https://riscv.org/2018/04/risc-v-workshop-in-barcelona-agenda/">eighth RISC-V
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><base href=https://www.lowrisc.org><link rel=icon type=image/png sizes=32x32 href=/favicon.png><title>lowRISC: Collaborative open silicon engineering</title><link href=/main.fe48f.css rel=stylesheet><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-53520714-1','auto');ga('send','pageview');</script></head><body><header><nav class="navbar navbar-expand-md navbar-light"><div class=container><a class=navbar-brand href=#><img src=/img/logo/logo-dualcolor.svg alt=lowRISC></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarCollapse aria-controls=navbarCollapse aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarCollapse><ul class="navbar-nav ml-auto"><li class=nav-item><a href=/our-work class=nav-link>Our work</a></li><li class=nav-item><a href=/open-silicon class=nav-link>Open Silicon</a></li><li class=nav-item><a href=/community class=nav-link>Community</a></li><li class=nav-item><a href=/blog class=nav-link>Blog</a></li><li class=nav-item><a href=/jobs class=nav-link>Jobs</a></li><li class=nav-item><a href=/about class=nav-link>About us</a></li><li class=nav-item><a class="btn lr-navbar-btn-gh" href=https://github.com/lowrisc>GitHub</a></li></ul></div></div></nav></header><main role=main><div class="container lr-blog"><article><h1>Barcelona RISC-V Workshop: Day Two</h1><address class=lr-blog-author><time>May 9, 2018</time></address><p>The <a href=https://riscv.org/2018/04/risc-v-workshop-in-barcelona-agenda/>eighth RISC-V
 workshop</a> is
 continuing
 today in Barcleona. As usual, I&rsquo;ll be keeping a semi-live blog of talks and
-announcements throughout the day.</p>
-
-<p>Look back <a href="https://www.lowrisc.org/blog/2018/05/barcelona-risc-v-workshop-day-one/">here</a> for
-the day one live blog.</p>
-
-<p>Note that slides from most presentations are now <a href="https://riscv.org/2018/05/risc-v-workshop-in-barcelona-proceedings/">available at
-riscv.org</a>.</p>
-
-<h2 id="fast-interrupts-for-risc-v-krste-asanovic:d2f16b96a9dcad25ca9611e08b0e618f">Fast interrupts for RISC-V: Krste Asanovic</h2>
-
-<ul>
-<li>Embedded is a major use for RISC-V. There is a desire for faster interrupt
-handling with support for nested preempted interrupts.</li>
-<li>Summary of current RISC-V interrupts
-
-<ul>
-<li>Local interrupts are directly connected to one hart. There&rsquo;s no
+announcements throughout the day.</p><p>Look back <a href=https://www.lowrisc.org/blog/2018/05/barcelona-risc-v-workshop-day-one/>here</a> for
+the day one live blog.</p><p>Note that slides from most presentations are now <a href=https://riscv.org/2018/05/risc-v-workshop-in-barcelona-proceedings/>available at
+riscv.org</a>.</p><h2 id=fast-interrupts-for-risc-v-krste-asanovic:d2f16b96a9dcad25ca9611e08b0e618f>Fast interrupts for RISC-V: Krste Asanovic</h2><ul><li>Embedded is a major use for RISC-V. There is a desire for faster interrupt
+handling with support for nested preempted interrupts.</li><li>Summary of current RISC-V interrupts<ul><li>Local interrupts are directly connected to one hart. There&rsquo;s no
 arbitration between harts to service. Determine cause through xcause CSR.
-Only two standard local interrupts (software, timer).</li>
-<li>Global (external) interrupts are routed via the platform-level interrupt
+Only two standard local interrupts (software, timer).</li><li>Global (external) interrupts are routed via the platform-level interrupt
 controller (PLIC) which arbitrates between multiple harts claiming an
-interrupt.</li>
-</ul></li>
-<li>The machine interrupt pending (mip) CSR contains bits for local software,
+interrupt.</li></ul></li><li>The machine interrupt pending (mip) CSR contains bits for local software,
 local timer, and external interrupts (from the PLIC). It tells you which
-interrupts are present.</li>
-<li>mie mirrors the layout of mip, and allows you to enable/disable interrupts.</li>
-<li>mstatus keeps track of interrupt status, containing a small interrupt stack.</li>
-<li>The interrupt is reported in the mcause CSR. The exception code indicates
+interrupts are present.</li><li>mie mirrors the layout of mip, and allows you to enable/disable interrupts.</li><li>mstatus keeps track of interrupt status, containing a small interrupt stack.</li><li>The interrupt is reported in the mcause CSR. The exception code indicates
 which interrupt was responsible - you might have to then interrogate the PLIC
-if it was an external interrupt.</li>
-<li>mtvec (machine trap vector base) contains the address of the trap vector
+if it was an external interrupt.</li><li>mtvec (machine trap vector base) contains the address of the trap vector
 (&lsquo;base&rsquo;). It also contains bits which control whether interrupts are direct
 (all exceptions and interrupts jump to base) or vectored (exceptions go to
-base, interrupts are vectored).</li>
-<li>There&rsquo;s two parts of an interrupt: what you were doing when it happened
+base, interrupts are vectored).</li><li>There&rsquo;s two parts of an interrupt: what you were doing when it happened
 (state context), and what you&rsquo;re going to do. mepc and mstatus allow the
-contact to be saved and restored.</li>
-<li>Problems with current interrupts:
-
-<ul>
-<li>Hardware preemption is only possible by switching privileged modes</li>
-<li>Fixed priority for local interrupts</li>
-<li>The vector table holds jumps instructions, which can only jump +/- 1MiB. A
+contact to be saved and restored.</li><li>Problems with current interrupts:<ul><li>Hardware preemption is only possible by switching privileged modes</li><li>Fixed priority for local interrupts</li><li>The vector table holds jumps instructions, which can only jump +/- 1MiB. A
 free register would be required to jump further, resulting in even more
-instructions.</li>
-<li>PLIC has variable priority, but the vectoring must be done in software.</li>
-<li>The PLIC needs two memory accesses: one to claim it, one to indicate
-completion.</li>
-<li>The Unix ABI (which is the only one that has been standardised) requires
-many registers to be saved/restored.</li>
-</ul></li>
-<li>Have had input via multiple proposals: Andes, Syntacore, Seagate, Liviu
-Ionescu, SiFive</li>
-<li>There have been discussions on the list about the interrupt handler
+instructions.</li><li>PLIC has variable priority, but the vectoring must be done in software.</li><li>The PLIC needs two memory accesses: one to claim it, one to indicate
+completion.</li><li>The Unix ABI (which is the only one that has been standardised) requires
+many registers to be saved/restored.</li></ul></li><li>Have had input via multiple proposals: Andes, Syntacore, Seagate, Liviu
+Ionescu, SiFive</li><li>There have been discussions on the list about the interrupt handler
 interface for software. It comes down to a choice between having the interrupt
 handler as a regular C function (requiring save/restore of all caller-save
 registers in hardware or software) or an inline handler which uses a gcc
 interrupt attribute to convert the function to always callee-save every
-register. Krste suggests both approaches are needed.</li>
-<li>Krste explains how an &ldquo;interrupt&rdquo; attribute on a C function might work. In
+register. Krste suggests both approaches are needed.</li><li>Krste explains how an &ldquo;interrupt&rdquo; attribute on a C function might work. In
 this example, every register is callee-saved, so registers are saved as you
-need to use them.</li>
-<li>If you then went to call a function using the C ABI you need to save/restore
+need to use them.</li><li>If you then went to call a function using the C ABI you need to save/restore
 8 arguments, 7 temporaries, and 1 return address. Even more if you have to
 save the floating point context. Krste argues that moving this to hardware
-isn&rsquo;t enough, you need a new ABI to reduce the amount of state.</li>
-<li>A number of options have been proposed for vectoring.
-
-<ul>
-<li>Having function pointers in a table. Downside is this is new functionality
-you&rsquo;d have to add to a pipeline.</li>
-<li>The SiFive proposal is to add a new +/-2GiB offset instruction which is
+isn&rsquo;t enough, you need a new ABI to reduce the amount of state.</li><li>A number of options have been proposed for vectoring.<ul><li>Having function pointers in a table. Downside is this is new functionality
+you&rsquo;d have to add to a pipeline.</li><li>The SiFive proposal is to add a new +/-2GiB offset instruction which is
 only visible in a new interrupt ISA mode. The advantage is the pipeline can
-treat this as a regular instruction fetch, albeit with a different encoding.</li>
-</ul></li>
-<li>Would like to allow each interrupt to be configured with its privilege mode
+treat this as a regular instruction fetch, albeit with a different encoding.</li></ul></li><li>Would like to allow each interrupt to be configured with its privilege mode
 and the &lsquo;interrupt level&rsquo; which describes the preemption level, and a
-priority.</li>
-<li>To manage preempted context state it&rsquo;s necessary to push/pop
+priority.</li><li>To manage preempted context state it&rsquo;s necessary to push/pop
 mepc/mpp/mil/mie to a memory stack. You also need to remember the previous
 interrupt level, &lsquo;mil&rsquo;. Now multiple levels must be tracked, which Krste
-proposes could be stored in mcause.</li>
-</ul>
-
-<h2 id="risc-v-dsp-p-extension-proposal-chuan-hua-chang:d2f16b96a9dcad25ca9611e08b0e618f">RISC-V DSP (P) extension proposal: Chuan-Hua Chang</h2>
-
-<ul>
-<li>P extension task group will define and ratify a packed-SIMD DSP extension
+proposes could be stored in mcause.</li></ul><h2 id=risc-v-dsp-p-extension-proposal-chuan-hua-chang:d2f16b96a9dcad25ca9611e08b0e618f>RISC-V DSP (P) extension proposal: Chuan-Hua Chang</h2><ul><li>P extension task group will define and ratify a packed-SIMD DSP extension
 containing instructions which operate on XLEN-bit integer registers. It will
 also define compiler intrinsic functions that can be directly used in
-high-level programming languages.</li>
-<li>The initial proposal is based on the AndeStar V3 DSP ISA.</li>
-<li>Supports e.g. 16-bit SIMD instructions with min, max, abs, compare, clip
-operations. Similar for 8-bit SIMD.</li>
-<li>GPR-based SIMD is more efficient for various embedded domains. It addresses
+high-level programming languages.</li><li>The initial proposal is based on the AndeStar V3 DSP ISA.</li><li>Supports e.g. 16-bit SIMD instructions with min, max, abs, compare, clip
+operations. Similar for 8-bit SIMD.</li><li>GPR-based SIMD is more efficient for various embedded domains. It addresses
 the need for high performance generic code processing as well as digital
-signal processing.</li>
-<li>Want to make this easy to use through intrinsic functions and optimised DSP
-libraries.</li>
-<li>For 64-bit data types, use pairs of GPRs on RV32. An implementation could of
+signal processing.</li><li>Want to make this easy to use through intrinsic functions and optimised DSP
+libraries.</li><li>For 64-bit data types, use pairs of GPRs on RV32. An implementation could of
 course still use a 2R1W register file, but use multiple cycles to read a
-64-bit value.</li>
-<li>After the task group is created, bi-weekly meetings will be set up.</li>
-</ul>
-
-<h2 id="security-task-group-update-richard-newell:d2f16b96a9dcad25ca9611e08b0e618f">Security task group update: Richard Newell</h2>
-
-<ul>
-<li>The security group was previously a task group of the technical committee.
+64-bit value.</li><li>After the task group is created, bi-weekly meetings will be set up.</li></ul><h2 id=security-task-group-update-richard-newell:d2f16b96a9dcad25ca9611e08b0e618f>Security task group update: Richard Newell</h2><ul><li>The security group was previously a task group of the technical committee.
 There is now a new security standing committee, at the same level with the
-marketing and technical committees.</li>
-<li>Task groups will be set up to look at cryptograpshic ISA extensions and
-trusted execution environments for microcontroller</li>
-<li>The full charter will be published on riscv.org</li>
-</ul>
-
-<h2 id="formal-assurance-for-risc-v-implementations-daniel-m-zimmerman:d2f16b96a9dcad25ca9611e08b0e618f">Formal assurance for RISC-V implementations: Daniel M. Zimmerman</h2>
-
-<ul>
-<li>Galois started with a focus on cryptography, but has broadened its scope to
-&ldquo;high assurance everything&rdquo;</li>
-<li>There are a range of definitions for RISC-V. The human-readable instruction
+marketing and technical committees.</li><li>Task groups will be set up to look at cryptograpshic ISA extensions and
+trusted execution environments for microcontroller</li><li>The full charter will be published on riscv.org</li></ul><h2 id=formal-assurance-for-risc-v-implementations-daniel-m-zimmerman:d2f16b96a9dcad25ca9611e08b0e618f>Formal assurance for RISC-V implementations: Daniel M. Zimmerman</h2><ul><li>Galois started with a focus on cryptography, but has broadened its scope to
+&ldquo;high assurance everything&rdquo;</li><li>There are a range of definitions for RISC-V. The human-readable instruction
 manual, mechanisations in the form of software simulators or hardware
 implementations. The formal model working group have also been working on
-this.</li>
-<li>How can we provide assurance about these definitions / mechanisations?</li>
-<li>Assurance means: the system does what it is supposed to do and doesn&rsquo;t do
-anything else.</li>
-<li>When trying to get assurance through compliance tests, a huge burden is put
+this.</li><li>How can we provide assurance about these definitions / mechanisations?</li><li>Assurance means: the system does what it is supposed to do and doesn&rsquo;t do
+anything else.</li><li>When trying to get assurance through compliance tests, a huge burden is put
 on the shoulders of the test writers. Those conformance tests need to be 100%
 complete. This also doesn&rsquo;t help determine if an implementation has
-undesirable behaviours.</li>
-<li>Alternatively, formally verify your system. Compile a model to RTL via
+undesirable behaviours.</li><li>Alternatively, formally verify your system. Compile a model to RTL via
 clash, then use equivalence checking tools to compare against your own
-implementation.</li>
-<li>Need machine-readable specification of the correctness and security of an
+implementation.</li><li>Need machine-readable specification of the correctness and security of an
 implementation as well as a way to measure the conformance of an
-implementation.</li>
-<li>How to validate a specification?
-
-<ul>
-<li>Might perform rigorous validation through execution: ad hoc testing,
-simulation coverage analysis, or bisimulation.</li>
-<li>Alternatively perform rigorous verification through formal reasoning:
+implementation.</li><li>How to validate a specification?<ul><li>Might perform rigorous validation through execution: ad hoc testing,
+simulation coverage analysis, or bisimulation.</li><li>Alternatively perform rigorous verification through formal reasoning:
 prove test benches always pass, verification coverage analysis, or
-bisimulation.</li>
-</ul></li>
-<li>Security properties require a different approach. They typically have a
+bisimulation.</li></ul></li><li>Security properties require a different approach. They typically have a
 different form, e.g. &ldquo;the following property must never hold&rdquo;. Galois is
 developing a DSL that lets you specify the architecture, correctness
 properties and security properties of a hardware design. It&rsquo;s also working on
-a security test suite.</li>
-<li>Want to help systems engineers understand and explore the effects of design
-and implementation decisions on power, performance, area, and security.</li>
-<li>Status
-
-<ul>
-<li>LANDO DSL is in early stages of development. Expect initial version before
-2018 RISC-V summit</li>
-<li>Security test suite: early stages of development</li>
-<li>Metrics and measures: evaluating existing tools for PPA and looking at
-existing metrics work for security</li>
-<li>Dashboard: early stages of design</li>
-<li>Feature model generation: early stages of design</li>
-</ul></li>
-</ul>
-
-<h2 id="undefined-unspecified-non-deterministic-and-implementation-defined-behavior-in-verifiable-specifications-clifford-wolf:d2f16b96a9dcad25ca9611e08b0e618f">Undefined, Unspecified, Non-deterministic, and Implementation Defined Behavior in Verifiable Specifications: Clifford Wolf</h2>
-
-<ul>
-<li>Users of an ISA specification
-
-<ul>
-<li>Software engineers: just don&rsquo;t do anything that&rsquo;s not specified</li>
-<li>Software security engineers: what can we expect from the hardware if we do
-the thing that wasn&rsquo;t specified?</li>
-<li>Hardware design engineers: do something safe and simple for anything not
-specified. But what does safe mean?</li>
-<li>Hardware verification engineers</li>
-</ul></li>
-<li>This presentation is a taxonomy of types of &lsquo;not specified&rsquo; behaviour, using
-nomenclature taking from different domains.</li>
-<li>Undefined behaviour: the &ldquo;just don&rsquo;t do that&rdquo; approach to not specifying
+a security test suite.</li><li>Want to help systems engineers understand and explore the effects of design
+and implementation decisions on power, performance, area, and security.</li><li>Status<ul><li>LANDO DSL is in early stages of development. Expect initial version before
+2018 RISC-V summit</li><li>Security test suite: early stages of development</li><li>Metrics and measures: evaluating existing tools for PPA and looking at
+existing metrics work for security</li><li>Dashboard: early stages of design</li><li>Feature model generation: early stages of design</li></ul></li></ul><h2 id=undefined-unspecified-non-deterministic-and-implementation-defined-behavior-in-verifiable-specifications-clifford-wolf:d2f16b96a9dcad25ca9611e08b0e618f>Undefined, Unspecified, Non-deterministic, and Implementation Defined Behavior in Verifiable Specifications: Clifford Wolf</h2><ul><li>Users of an ISA specification<ul><li>Software engineers: just don&rsquo;t do anything that&rsquo;s not specified</li><li>Software security engineers: what can we expect from the hardware if we do
+the thing that wasn&rsquo;t specified?</li><li>Hardware design engineers: do something safe and simple for anything not
+specified. But what does safe mean?</li><li>Hardware verification engineers</li></ul></li><li>This presentation is a taxonomy of types of &lsquo;not specified&rsquo; behaviour, using
+nomenclature taking from different domains.</li><li>Undefined behaviour: the &ldquo;just don&rsquo;t do that&rdquo; approach to not specifying
 behaviour. The spec is void for any program as a whole if it does this
-undefined behaviour once.</li>
-<li>Could introduce an &lsquo;undefined value&rsquo;, but that has similar issues</li>
-<li>Non-deterministic behaviour / unpredictable behaviour: allow more than one
-choice, which may change under re-execution</li>
-<li>Unspecified value: the instruction will return a value, but the spec doesn&rsquo;t
-say which value</li>
-<li>Implementation defined behaviour / value: similar to unspecified value /
-behaviour, but the implementer must specify what it is.</li>
-<li>Fully specified behaviour: the ideal choice for verification. Explicitly
-state what all implementations must do.</li>
-<li>Clifford strongly prefers implementation defined or fully specified
-behaviour.</li>
-</ul>
-
-<h2 id="foundational-hpc-systems-in-2020-and-beyond-steven-wallach:d2f16b96a9dcad25ca9611e08b0e618f">Foundational HPC systems in 2020 and beyond: Steven Wallach</h2>
-
-<ul>
-<li>Architecture 1.0 (see Mark Hill paper). The world was very
-processor-centric. CPUs with memory attached.</li>
-<li>Architecture 2.0. Not just the ISA. Move towards memory-driven computing.
-
-<ul>
-<li>Numerical processing is trivial, but achieving efficient memory access is
-very hard.</li>
-<li>Caches now need to be protected machine state.</li>
-</ul></li>
-<li>An RV128 working group is going to be started, chaired by Steven
-
-<ul>
-<li>Propose a 64-bit object ID and 64-bit byte offset.</li>
-</ul></li>
-<li>On an RV128 system, have to be able to execute RV64 programs and map 64-bit
-virtual into 128-bit virtual. Also map system calls.</li>
-<li>Object 0 is kernel object, object 1 RV64, object 2 RV32.</li>
-<li>Encrypted memory is identified with an object ID</li>
-<li>Steven suggests disabling speculation if kernel objects are referenced.</li>
-</ul>
-
-<h2 id="european-processor-initiative-and-risc-v-mateo-valero:d2f16b96a9dcad25ca9611e08b0e618f">European processor initiative and RISC-V: Mateo Valero</h2>
-
-<ul>
-<li>BSC-CNS is a consortium including the Spanish government, Catalan
-government, and UPC</li>
-<li>Now have 529 people from a wide range of countries.</li>
-<li>Need to reach 50GFlops/W</li>
-<li>MareNostrum 4 has been recognised as the &ldquo;most beautiful datacenter in the
-world&rdquo;. Total peak performance is 13.7 PFlops</li>
-<li>USA, Japan, China are all building huge supercomputers with domestic
-technology. Can the EU do the same?</li>
-<li>The EU has a large HPC ecosystem and a number of centers of excellence in
-HPC applications.</li>
-<li>Through the Mont Blanc project, proposed the use of ARM processors in
-supercomputing applications. Extended current mobile chips with HPC features.</li>
-<li>Europe has only 4 machines in the world top 20.</li>
-<li>With Brexit and Softbank, ARM is not &lsquo;European&rsquo; any more.</li>
-<li>Through EuroHPC, the Commission has proposed to invest 1B.</li>
-<li>The European Processor Initiative is a consortium consisting of 23 partners.
+undefined behaviour once.</li><li>Could introduce an &lsquo;undefined value&rsquo;, but that has similar issues</li><li>Non-deterministic behaviour / unpredictable behaviour: allow more than one
+choice, which may change under re-execution</li><li>Unspecified value: the instruction will return a value, but the spec doesn&rsquo;t
+say which value</li><li>Implementation defined behaviour / value: similar to unspecified value /
+behaviour, but the implementer must specify what it is.</li><li>Fully specified behaviour: the ideal choice for verification. Explicitly
+state what all implementations must do.</li><li>Clifford strongly prefers implementation defined or fully specified
+behaviour.</li></ul><h2 id=foundational-hpc-systems-in-2020-and-beyond-steven-wallach:d2f16b96a9dcad25ca9611e08b0e618f>Foundational HPC systems in 2020 and beyond: Steven Wallach</h2><ul><li>Architecture 1.0 (see Mark Hill paper). The world was very
+processor-centric. CPUs with memory attached.</li><li>Architecture 2.0. Not just the ISA. Move towards memory-driven computing.<ul><li>Numerical processing is trivial, but achieving efficient memory access is
+very hard.</li><li>Caches now need to be protected machine state.</li></ul></li><li>An RV128 working group is going to be started, chaired by Steven<ul><li>Propose a 64-bit object ID and 64-bit byte offset.</li></ul></li><li>On an RV128 system, have to be able to execute RV64 programs and map 64-bit
+virtual into 128-bit virtual. Also map system calls.</li><li>Object 0 is kernel object, object 1 RV64, object 2 RV32.</li><li>Encrypted memory is identified with an object ID</li><li>Steven suggests disabling speculation if kernel objects are referenced.</li></ul><h2 id=european-processor-initiative-and-risc-v-mateo-valero:d2f16b96a9dcad25ca9611e08b0e618f>European processor initiative and RISC-V: Mateo Valero</h2><ul><li>BSC-CNS is a consortium including the Spanish government, Catalan
+government, and UPC</li><li>Now have 529 people from a wide range of countries.</li><li>Need to reach 50GFlops/W</li><li>MareNostrum 4 has been recognised as the &ldquo;most beautiful datacenter in the
+world&rdquo;. Total peak performance is 13.7 PFlops</li><li>USA, Japan, China are all building huge supercomputers with domestic
+technology. Can the EU do the same?</li><li>The EU has a large HPC ecosystem and a number of centers of excellence in
+HPC applications.</li><li>Through the Mont Blanc project, proposed the use of ARM processors in
+supercomputing applications. Extended current mobile chips with HPC features.</li><li>Europe has only 4 machines in the world top 20.</li><li>With Brexit and Softbank, ARM is not &lsquo;European&rsquo; any more.</li><li>Through EuroHPC, the Commission has proposed to invest 1B.</li><li>The European Processor Initiative is a consortium consisting of 23 partners.
 They will form the company &lsquo;EPI Semiconductor&rsquo; which will produce the EPI
 common platform. Now looking at growing the consortium, including companies
-from other countries.</li>
-<li>Three streams
-
-<ul>
-<li>General purpose and common platform. ARM SVE or other candidates. BULL
-will be system integrator / chip integrator.</li>
-<li>Accelerator: RISC-V</li>
-<li>Automotive</li>
-</ul></li>
-<li>RISC-V accelerator vision: throughput-oriented designs, lower power,
-supporting MPI+OpenMP</li>
-</ul>
-
-<h2 id="securing-high-performance-risc-v-processors-from-time-speculation-chris-celio:d2f16b96a9dcad25ca9611e08b0e618f">Securing High-performance RISC-V Processors from Time Speculation: Chris Celio</h2>
-
-<ul>
-<li>Meltdown and Spectre don&rsquo;t just impact a single processor design or a single
-company&rsquo;s design, but really impact any CPU using speculation.</li>
-<li>A timing attack is when a change in your program input affects the time of
-another user.</li>
-<li>There are 3 parts to a timing attack
-
-<ul>
-<li>Victim runs code that leaks observable side effects</li>
-<li>Attacker runs code affected by timing leaks</li>
-<li>Attacker measures time his code took to run</li>
-</ul></li>
-<li>Chris built up a taxonomy of time leaks. Two axes: were are we leaking from,
-and what are we directly leaking.</li>
-<li>High level ideas:
-
-<ul>
-<li>Don&rsquo;t leak any observable side-effects in the machine if speculation is
-aborted</li>
-<li>Avoid bandwidth interference between different time domains. Depending on
+from other countries.</li><li>Three streams<ul><li>General purpose and common platform. ARM SVE or other candidates. BULL
+will be system integrator / chip integrator.</li><li>Accelerator: RISC-V</li><li>Automotive</li></ul></li><li>RISC-V accelerator vision: throughput-oriented designs, lower power,
+supporting MPI+OpenMP</li></ul><h2 id=securing-high-performance-risc-v-processors-from-time-speculation-chris-celio:d2f16b96a9dcad25ca9611e08b0e618f>Securing High-performance RISC-V Processors from Time Speculation: Chris Celio</h2><ul><li>Meltdown and Spectre don&rsquo;t just impact a single processor design or a single
+company&rsquo;s design, but really impact any CPU using speculation.</li><li>A timing attack is when a change in your program input affects the time of
+another user.</li><li>There are 3 parts to a timing attack<ul><li>Victim runs code that leaks observable side effects</li><li>Attacker runs code affected by timing leaks</li><li>Attacker measures time his code took to run</li></ul></li><li>Chris built up a taxonomy of time leaks. Two axes: were are we leaking from,
+and what are we directly leaking.</li><li>High level ideas:<ul><li>Don&rsquo;t leak any observable side-effects in the machine if speculation is
+aborted</li><li>Avoid bandwidth interference between different time domains. Depending on
 the time domain you care about, this could be bandwidth to a functional
-unit.</li>
-</ul></li>
-<li>Modern speculative cores have 100-300 instructions in-flight, but not all
-are speculative. About 25% are beyond the point of non-return.</li>
-<li>Idea: do not update predictors speculatively.</li>
-<li>Idea: Don&rsquo;t speculatively update the cache. Could get rid of fully inclusive
+unit.</li></ul></li><li>Modern speculative cores have 100-300 instructions in-flight, but not all
+are speculative. About 25% are beyond the point of non-return.</li><li>Idea: do not update predictors speculatively.</li><li>Idea: Don&rsquo;t speculatively update the cache. Could get rid of fully inclusive
 L1/L2/L3 caches in favour of neither exclusive nor inclusive (NENI) caches.
-Then allocate only into the L1 cache.</li>
-<li>Idea: misspeculation recovery should be deterministic. Any shared resource
-can leak time</li>
-<li>Idea: partition caches etc</li>
-<li>Idea: dynamic partitioning</li>
-<li>Idea: partial and full flushes. e.g. flush <sup>1</sup>&frasl;<sub>4</sub> BTB entries.</li>
-<li>Many other ideas (see the full list in the slides!)</li>
-</ul>
-
-<h2 id="evaluation-of-risc-v-for-pixel-visual-core-matt-cockrell:d2f16b96a9dcad25ca9611e08b0e618f">Evaluation of RISC-V for Pixel Visual Core: Matt Cockrell</h2>
-
-<ul>
-<li>Background: the Pixel Visual Core is a Google-design Image Processing Unit
+Then allocate only into the L1 cache.</li><li>Idea: misspeculation recovery should be deterministic. Any shared resource
+can leak time</li><li>Idea: partition caches etc</li><li>Idea: dynamic partitioning</li><li>Idea: partial and full flushes. e.g. flush <sup>1</sup>&frasl;<sub>4</sub> BTB entries.</li><li>Many other ideas (see the full list in the slides!)</li></ul><h2 id=evaluation-of-risc-v-for-pixel-visual-core-matt-cockrell:d2f16b96a9dcad25ca9611e08b0e618f>Evaluation of RISC-V for Pixel Visual Core: Matt Cockrell</h2><ul><li>Background: the Pixel Visual Core is a Google-design Image Processing Unit
 (IPU). It has a dedicated A53 which aggregates application layer IPU resource
-requests.</li>
-<li>Looking at adding a microcontroller as a job scheduling and dispatch unit.</li>
-<li>When selecting a core, key considerations were: level of effort (how
+requests.</li><li>Looking at adding a microcontroller as a job scheduling and dispatch unit.</li><li>When selecting a core, key considerations were: level of effort (how
 difficult to integrate), risk (stability and reliability of support), and
-license.</li>
-<li>First candidate was the internal &lsquo;Bottle Rocket&rsquo; project. This implements
+license.</li><li>First candidate was the internal &lsquo;Bottle Rocket&rsquo; project. This implements
 RV32IMC, reusing parts of the Rocket design. High level of effort, medium
-risk.</li>
-<li>Second candidate: Merlin (github.com/origintfj/riscv). Low level of effort,
-high risk.</li>
-<li>Third candidate: RI5CY, produced by the PULP team. Low level of effort,
-medium risk.</li>
-<li>Selected RI5CY for a number of reasons: it had been taped out, had good
+risk.</li><li>Second candidate: Merlin (github.com/origintfj/riscv). Low level of effort,
+high risk.</li><li>Third candidate: RI5CY, produced by the PULP team. Low level of effort,
+medium risk.</li><li>Selected RI5CY for a number of reasons: it had been taped out, had good
 infrastructure, the license was acceptable, and it was implemented in
-SystemVerilog rather than Chisel.</li>
-<li>Why SystemVerilog rather than Chisel?
-
-<ul>
-<li>SystemVerilog builds on established physical design and verification flows</li>
-<li>Chisel generated verilog loses designer&rsquo;s intent, making it difficult to
-read and debug</li>
-<li>Chisel generated code makes certain physical design items difficult such
-as sync/asnc clocks, power domains, clock domains etc</li>
-</ul></li>
-<li>Next steps: add full compliance for privilege/debug specification and
-evaluate performance impact after adding RI5CY to the Pixel Visual Core.</li>
-</ul>
-
-<h2 id="linux-ready-rv-gc-andescore-with-architecture-extensions-charlie-su:d2f16b96a9dcad25ca9611e08b0e618f">Linux-Ready RV-GC AndesCore with Architecture Extensions: Charlie Su</h2>
-
-<ul>
-<li>The AndeStar V5 architecture adopts RISC-V and adds pre-defined useful Andes
+SystemVerilog rather than Chisel.</li><li>Why SystemVerilog rather than Chisel?<ul><li>SystemVerilog builds on established physical design and verification flows</li><li>Chisel generated verilog loses designer&rsquo;s intent, making it difficult to
+read and debug</li><li>Chisel generated code makes certain physical design items difficult such
+as sync/asnc clocks, power domains, clock domains etc</li></ul></li><li>Next steps: add full compliance for privilege/debug specification and
+evaluate performance impact after adding RI5CY to the Pixel Visual Core.</li></ul><h2 id=linux-ready-rv-gc-andescore-with-architecture-extensions-charlie-su:d2f16b96a9dcad25ca9611e08b0e618f>Linux-Ready RV-GC AndesCore with Architecture Extensions: Charlie Su</h2><ul><li>The AndeStar V5 architecture adopts RISC-V and adds pre-defined useful Andes
 extensions as well as custom-extension frameworks for domain-specific
-acceleration.</li>
-<li>Baseline extension instructions
-
-<ul>
-<li>Memory access and branches with fewer instructions</li>
-<li>Code size reduction on top of C extension (&lsquo;CoDense&rsquo;)</li>
-<li>DSP/SIMD (see P extension proposal)</li>
-<li>Custom instructions</li>
-<li>CSR-based extensions that don&rsquo;t require new instructions. e.g. stack
-protection mechanism, power management, &hellip;</li>
-</ul></li>
-<li>Delivered 32-bit and 64-bit implementations of the V5 architecture
-implementation AndeStar V5m which is a superset of RV-IMAC.</li>
-<li>An N25 (32-bit) small configuration is 37k gates at 28HPC, 1GHz. Large
-configuration is 159k gates.</li>
-<li>Introducing new 25-series cores adding floating point support (N25F/NX25F),
-MMU, and S mode (A25/AX25).</li>
-<li>3.49CM/MHz</li>
-<li>Added hit under miss caches and hardware support for misaligned accesses</li>
-<li>Use single-port SRAMs to reduce area and power</li>
-<li>COPILOT tool allows auto-generation of development tools for a set of custom
-extensions.</li>
-<li>Software
-
-<ul>
-<li>Worked with Express Logic to port 64-bit ThreadX</li>
-<li>Added support for AX25 to QEMU</li>
-<li>Working on adding further component support for Linux: u-boot, ftrace,
-loadable modules, Linux perf.</li>
-</ul></li>
-<li>openSUSE is helping to enable their &lsquo;EBBR&rsquo; specification for RISC-V</li>
-</ul>
-
-<h2 id="processor-trace-in-a-holistic-world-gajinder-panesar:d2f16b96a9dcad25ca9611e08b0e618f">Processor trace in a holistic world: Gajinder Panesar</h2>
-
-<ul>
-<li>Understanding program behaviour in complex system isn&rsquo;t easy, and using a
+acceleration.</li><li>Baseline extension instructions<ul><li>Memory access and branches with fewer instructions</li><li>Code size reduction on top of C extension (&lsquo;CoDense&rsquo;)</li><li>DSP/SIMD (see P extension proposal)</li><li>Custom instructions</li><li>CSR-based extensions that don&rsquo;t require new instructions. e.g. stack
+protection mechanism, power management, &hellip;</li></ul></li><li>Delivered 32-bit and 64-bit implementations of the V5 architecture
+implementation AndeStar V5m which is a superset of RV-IMAC.</li><li>An N25 (32-bit) small configuration is 37k gates at 28HPC, 1GHz. Large
+configuration is 159k gates.</li><li>Introducing new 25-series cores adding floating point support (N25F/NX25F),
+MMU, and S mode (A25/AX25).</li><li>3.49CM/MHz</li><li>Added hit under miss caches and hardware support for misaligned accesses</li><li>Use single-port SRAMs to reduce area and power</li><li>COPILOT tool allows auto-generation of development tools for a set of custom
+extensions.</li><li>Software<ul><li>Worked with Express Logic to port 64-bit ThreadX</li><li>Added support for AX25 to QEMU</li><li>Working on adding further component support for Linux: u-boot, ftrace,
+loadable modules, Linux perf.</li></ul></li><li>openSUSE is helping to enable their &lsquo;EBBR&rsquo; specification for RISC-V</li></ul><h2 id=processor-trace-in-a-holistic-world-gajinder-panesar:d2f16b96a9dcad25ca9611e08b0e618f>Processor trace in a holistic world: Gajinder Panesar</h2><ul><li>Understanding program behaviour in complex system isn&rsquo;t easy, and using a
 debugger isn&rsquo;t always possible. Processor Branch Trace can provide visibility
-into program execution.</li>
-<li>Processor Branch Trace works by tracking execution from a known start
+into program execution.</li><li>Processor Branch Trace works by tracking execution from a known start
 address and sending messages about the deltas taking by the program. For
-uncoditional branches, there is no need to report the destination address.</li>
-<li>The trace encoder ingress port defines singles to export from the processor.
+uncoditional branches, there is no need to report the destination address.</li><li>The trace encoder ingress port defines singles to export from the processor.
 It contains information such as the privilege mode, address of the
-instruction, the instruction.</li>
-<li>The trace encoer sends a packet which could contain a delta update with a
-subset of information, or a full context to force synchronisation.</li>
-<li>Trace control can control when a trace is generated, or configure filters.</li>
-<li>Saw a mean 0.252 bits/instruction encoding efficiency across a range of
-benchmarks.</li>
-<li>Next steps: set up task group to standardise processor to encoder interface
-and a compressed branch trace format</li>
-</ul>
-
-<h2 id="risc-v-meets-22fdx-an-open-source-ultra-low-power-microcontroller-for-advanced-fdsoi-technologies-pasquale-schiavone-and-sanjay-charagulla:d2f16b96a9dcad25ca9611e08b0e618f">RISC-V meets 22FDX. An open source ultra-low power microcontroller for advanced FDSOI technologies: Pasquale Schiavone and Sanjay Charagulla</h2>
-
-<ul>
-<li>PULP was design for near sensor (aka edge) processing.</li>
-<li>Seen a range of contributions since open sourcing from e.g. Embecosm,
-lowRISC, Micron, Google, &hellip;</li>
-<li>PULPissimo has a rich set of peripherals: QSPI, HyperRam+HyperFlash, camera
-interface, I2C, I2S, JTAG, &hellip; Plus an autonomous IO DMA subsystem (uDMA)</li>
-<li>Implements an efficient low-latency interconnect.</li>
-<li>Used a RI5CY core plus extensions: packed SIMD, fixed point, bit
+instruction, the instruction.</li><li>The trace encoer sends a packet which could contain a delta update with a
+subset of information, or a full context to force synchronisation.</li><li>Trace control can control when a trace is generated, or configure filters.</li><li>Saw a mean 0.252 bits/instruction encoding efficiency across a range of
+benchmarks.</li><li>Next steps: set up task group to standardise processor to encoder interface
+and a compressed branch trace format</li></ul><h2 id=risc-v-meets-22fdx-an-open-source-ultra-low-power-microcontroller-for-advanced-fdsoi-technologies-pasquale-schiavone-and-sanjay-charagulla:d2f16b96a9dcad25ca9611e08b0e618f>RISC-V meets 22FDX. An open source ultra-low power microcontroller for advanced FDSOI technologies: Pasquale Schiavone and Sanjay Charagulla</h2><ul><li>PULP was design for near sensor (aka edge) processing.</li><li>Seen a range of contributions since open sourcing from e.g. Embecosm,
+lowRISC, Micron, Google, &hellip;</li><li>PULPissimo has a rich set of peripherals: QSPI, HyperRam+HyperFlash, camera
+interface, I2C, I2S, JTAG, &hellip; Plus an autonomous IO DMA subsystem (uDMA)</li><li>Implements an efficient low-latency interconnect.</li><li>Used a RI5CY core plus extensions: packed SIMD, fixed point, bit
 manipulation, hardware loops. Included a IEEE 754 single precision floating
-point unit.</li>
-<li>2.3mm2, effective area 1.22mm2. Most of the area taken by memories.</li>
-<li>40MOPS/mW at 350MOPS. 1.4x better performance and 4x better energy
-efficiency than previous design in 40nm</li>
-<li>Can further reduce power to 65MOPS/mw at 350MOPS when executing just from
-SCM.</li>
-<li>Global Foundries produce up to 10M wafers / year (200mm equivalents)</li>
-<li>GF has a dual-track roadmap. Performance optimized FinFET and power
-optimized FD-SOI.</li>
-<li>FDXcelerator is accelerating RISC-V developers and partners. Partners
-include SiFive, Andes, Reduced Energy Microsystems, &hellip;</li>
-<li>This is the first step towards silicon-qualified free-open-source RISC-V IPs
-on GF FDX22 process</li>
-</ul>
-
-<h2 id="ariane-an-open-source-64-bit-risc-v-application-class-processor-and-latest-improvements-florian-zaruba:d2f16b96a9dcad25ca9611e08b0e618f">Ariane. An Open-Source 64-bit RISC-V Application Class Processor and latest improvements: Florian Zaruba</h2>
-
-<ul>
-<li>Ariane is a Linux-capable 64-bit core</li>
-<li>M, S, U privilege modes. TLB. Tightly integrated D$ and I$, hardware page
-table walker</li>
-<li>Area around 185kGE</li>
-<li>Greater than 1.5GHz at 22FDX</li>
-<li>Critical path is 25 logic levels</li>
-<li>6 stage pipeline. In-order issue, out-of-order writeback, in-order commit</li>
-<li>Why develop another core?
-
-<ul>
-<li>Don&rsquo;t want an SoC generator. Don&rsquo;t want to be governed by a 3rd party</li>
-</ul></li>
-<li>First implementation took about 4 months</li>
-<li>Designed for higher performance in the future: dual issue and/or OoO issue</li>
-<li>Verification strategy
-
-<ul>
-<li>RISC-V tests</li>
-<li>Torture test framework</li>
-<li>Running applications on FPGA e.g. bootling Linux</li>
-<li>Verification isn&rsquo;t exhaustive, looking into more alternatives</li>
-</ul></li>
-<li>Ariane was open-sourced in February 2018. Already seen non-trivial external
-contributions.</li>
-<li>Latest improvements:
-
-<ul>
-<li>Completely revised instruction frontend.</li>
-<li>Re-naming in issue stage</li>
-</ul></li>
-<li>Return address stack cost ~1KGE, improves IPC by 20%. Resolving
+point unit.</li><li>2.3mm2, effective area 1.22mm2. Most of the area taken by memories.</li><li>40MOPS/mW at 350MOPS. 1.4x better performance and 4x better energy
+efficiency than previous design in 40nm</li><li>Can further reduce power to 65MOPS/mw at 350MOPS when executing just from
+SCM.</li><li>Global Foundries produce up to 10M wafers / year (200mm equivalents)</li><li>GF has a dual-track roadmap. Performance optimized FinFET and power
+optimized FD-SOI.</li><li>FDXcelerator is accelerating RISC-V developers and partners. Partners
+include SiFive, Andes, Reduced Energy Microsystems, &hellip;</li><li>This is the first step towards silicon-qualified free-open-source RISC-V IPs
+on GF FDX22 process</li></ul><h2 id=ariane-an-open-source-64-bit-risc-v-application-class-processor-and-latest-improvements-florian-zaruba:d2f16b96a9dcad25ca9611e08b0e618f>Ariane. An Open-Source 64-bit RISC-V Application Class Processor and latest improvements: Florian Zaruba</h2><ul><li>Ariane is a Linux-capable 64-bit core</li><li>M, S, U privilege modes. TLB. Tightly integrated D$ and I$, hardware page
+table walker</li><li>Area around 185kGE</li><li>Greater than 1.5GHz at 22FDX</li><li>Critical path is 25 logic levels</li><li>6 stage pipeline. In-order issue, out-of-order writeback, in-order commit</li><li>Why develop another core?<ul><li>Don&rsquo;t want an SoC generator. Don&rsquo;t want to be governed by a 3rd party</li></ul></li><li>First implementation took about 4 months</li><li>Designed for higher performance in the future: dual issue and/or OoO issue</li><li>Verification strategy<ul><li>RISC-V tests</li><li>Torture test framework</li><li>Running applications on FPGA e.g. bootling Linux</li><li>Verification isn&rsquo;t exhaustive, looking into more alternatives</li></ul></li><li>Ariane was open-sourced in February 2018. Already seen non-trivial external
+contributions.</li><li>Latest improvements:<ul><li>Completely revised instruction frontend.</li><li>Re-naming in issue stage</li></ul></li><li>Return address stack cost ~1KGE, improves IPC by 20%. Resolving
 unconditional jumps immediately increases IPC by ~11%. These changes had no
-negative impact on timing.</li>
-<li>Critical paths are on the memory interfaces, especially tag compare and
-address translation for cache access.</li>
-<li>Kerbin is a proof of concept SoC for Ariane featuring PULP peripherals, a
-64-bit interconnect and debug support.</li>
-<li>Compatible with gdb, but require a debug bridge currently.</li>
-<li>Managed to boot Linux after 5 months development</li>
-<li>FPGA: Targeted the VC707. Core runs at 50-100MHz, 15kLUTs.</li>
-<li>Ariane has been taped out in GF22FDX. 910MHz, &hellip;</li>
-<li>Working on Kosmodrom tapeout which includes a high performance and a low
-power version and a floating point accelerator.</li>
-<li>Working on supporting F and D extensions as well as reduced prevision vector
+negative impact on timing.</li><li>Critical paths are on the memory interfaces, especially tag compare and
+address translation for cache access.</li><li>Kerbin is a proof of concept SoC for Ariane featuring PULP peripherals, a
+64-bit interconnect and debug support.</li><li>Compatible with gdb, but require a debug bridge currently.</li><li>Managed to boot Linux after 5 months development</li><li>FPGA: Targeted the VC707. Core runs at 50-100MHz, 15kLUTs.</li><li>Ariane has been taped out in GF22FDX. 910MHz, &hellip;</li><li>Working on Kosmodrom tapeout which includes a high performance and a low
+power version and a floating point accelerator.</li><li>Working on supporting F and D extensions as well as reduced prevision vector
 operations. Stand-alone floating point unit (~200kGE) will be released in the
-next months.</li>
-<li>Also working on improved integer divider, vector unit, and hardware support
-for atomic memory operations</li>
-<li>Help wanted: support for official RISC-V debug, improved branch predictors,
-multithreading, cache-coherent interconnect, &hellip;</li>
-</ul>
-
-<h2 id="risc-v-support-for-persistent-memory-systems-matheus-ogleari:d2f16b96a9dcad25ca9611e08b0e618f">RISC-V support for persistent memory systems: Matheus Ogleari</h2>
-
-<ul>
-<li>(Missed the first few minutes I&rsquo;m afraid)</li>
-<li>RISC-V changes: introduce new instructions. ucst (uncacheable write to
-memory), ucld (uncacheable read from memory)</li>
-<li>Also modify the cache controller and memory controller</li>
-<li>These changes would enable new applications. Even defining the instructions
-would allow people to start work using software simulation tools.</li>
-</ul>
-
-<h2 id="the-hybrid-threading-processor-for-sparse-data-kernels-tony-brewer:d2f16b96a9dcad25ca9611e08b0e618f">The hybrid threading processor for sparse data kernels: Tony Brewer</h2>
-
-<ul>
-<li>Sparse data sets that greatly exceed a processor&rsquo;s cache size are a
-challenge for most systems. The cache hit rate is low resulting in idle cores.</li>
-<li>The Hybrid Threading Processor defines extensions for thread and message
+next months.</li><li>Also working on improved integer divider, vector unit, and hardware support
+for atomic memory operations</li><li>Help wanted: support for official RISC-V debug, improved branch predictors,
+multithreading, cache-coherent interconnect, &hellip;</li></ul><h2 id=risc-v-support-for-persistent-memory-systems-matheus-ogleari:d2f16b96a9dcad25ca9611e08b0e618f>RISC-V support for persistent memory systems: Matheus Ogleari</h2><ul><li>(Missed the first few minutes I&rsquo;m afraid)</li><li>RISC-V changes: introduce new instructions. ucst (uncacheable write to
+memory), ucld (uncacheable read from memory)</li><li>Also modify the cache controller and memory controller</li><li>These changes would enable new applications. Even defining the instructions
+would allow people to start work using software simulation tools.</li></ul><h2 id=the-hybrid-threading-processor-for-sparse-data-kernels-tony-brewer:d2f16b96a9dcad25ca9611e08b0e618f>The hybrid threading processor for sparse data kernels: Tony Brewer</h2><ul><li>Sparse data sets that greatly exceed a processor&rsquo;s cache size are a
+challenge for most systems. The cache hit rate is low resulting in idle cores.</li><li>The Hybrid Threading Processor defines extensions for thread and message
 management. It&rsquo;s a high thread count barrel processor similar to Cray&rsquo;s MTA
-architecture.
-
-<ul>
-<li>Software-managed coherency</li>
-<li>Event driven processor.</li>
-</ul></li>
-<li>Can perform atomic operations at memory due to the software-managed
-coherency</li>
-<li>The project was funded under the DARPA CHIPS project. This produced two
+architecture.<ul><li>Software-managed coherency</li><li>Event driven processor.</li></ul></li><li>Can perform atomic operations at memory due to the software-managed
+coherency</li><li>The project was funded under the DARPA CHIPS project. This produced two
 chiplets: the memory controller (MC) chiplet and compute near memory (CNM)
-chiplet.</li>
-<li>Implemented a simulator modelling functionality and performance, and also
-performed power estimation.</li>
-<li>Performed a sensitivity analysis to determine the optimal configuration.</li>
-<li>Compared performance for graph spectral clustering vs Haswell, Nvidia K80,
-Nvidia DGX-1. Saw ~25x better energy efficiency.</li>
-</ul>
-
-<h2 id="how-pulp-based-platforms-are-helping-security-research-frank-gurkaynak:d2f16b96a9dcad25ca9611e08b0e618f">How PULP-based platforms are helping security research: Frank Gurkaynak</h2>
-
-<ul>
-<li>Security of the system is not limited to just &ldquo;one part&rdquo;. You need to
-consider the entire system</li>
-<li>An open approach has proven useful for security in software. Why should
-hardware be any different?</li>
-<li>Cryptographic accelerators can easily achieve high throughput with low area.</li>
-<li>PULP provides multiple opportunities to add extensions. e.g. new
+chiplet.</li><li>Implemented a simulator modelling functionality and performance, and also
+performed power estimation.</li><li>Performed a sensitivity analysis to determine the optimal configuration.</li><li>Compared performance for graph spectral clustering vs Haswell, Nvidia K80,
+Nvidia DGX-1. Saw ~25x better energy efficiency.</li></ul><h2 id=how-pulp-based-platforms-are-helping-security-research-frank-gurkaynak:d2f16b96a9dcad25ca9611e08b0e618f>How PULP-based platforms are helping security research: Frank Gurkaynak</h2><ul><li>Security of the system is not limited to just &ldquo;one part&rdquo;. You need to
+consider the entire system</li><li>An open approach has proven useful for security in software. Why should
+hardware be any different?</li><li>Cryptographic accelerators can easily achieve high throughput with low area.</li><li>PULP provides multiple opportunities to add extensions. e.g. new
 instructions added directly to the core, adding peripherals to the bus, or
-hardware accelerators with direct memory access</li>
-<li>Implemented Fulmine, an IoT processor with accelerators. Added two TCDM
+hardware accelerators with direct memory access</li><li>Implemented Fulmine, an IoT processor with accelerators. Added two TCDM
 ports, 64bits/cycle. The AES unit performs 2 rounds a cycle, 1.76Gbit/s and
-120pJ per byte (entire chip) at 0.8V and 84MHz</li>
-<li>Side channel attacks are a huge challenge. Recently implemented a leakage
+120pJ per byte (entire chip) at 0.8V and 84MHz</li><li>Side channel attacks are a huge challenge. Recently implemented a leakage
 resilient accelerator which reduces the attack surface by generating a new key
-per data block. This provides 5.29Gbit/s throughput at 256Mhz</li>
-<li>Attacks that target control flow are a serious problem and can be realized
+per data block. This provides 5.29Gbit/s throughput at 256Mhz</li><li>Attacks that target control flow are a serious problem and can be realized
 in both hardware (e.g. glitching) or software. Implemented and published
 sponge based control-flow protection (SCFP), which stores instructions
 encrypted in memory. As instructions must be decrypted, the attacker would
-have to modify both the instruction and the internal state.
-
-<ul>
-<li>Implemented in Patronus chip. 25-35% power/area overhead, and 10$ runtime
-overhead due to &lsquo;patches&rsquo; and additional commands.</li>
-<li>The probability of an illegal instruction trap when an instruction altered
-is 91.51% within 1 cycle rising to 99.95% within 3 cycles.</li>
-</ul></li>
-</ul>
-
-<h2 id="risc-v-virtual-platforms-for-early-risc-v-embedded-software-development-kevin-mcdermott:d2f16b96a9dcad25ca9611e08b0e618f">RISC-V virtual platforms for early RISC-V embedded software development: Kevin McDermott</h2>
-
-<ul>
-<li>New markets have new software requirements</li>
-<li>Virtual platforms can help accelerate software development</li>
-<li>Imperas produce extendable platform kits (EPKs). These are virtual platforms
-with software set-up, allowing users to start quickly.</li>
-<li>Offer the ability to easily define custom instruction extensions</li>
-<li>Can also perform software development using the Ashling RISC-V IDE</li>
-</ul>
-
-<p><em>Alex Bradbury</em></p>
-
-                    </section>
-                </article>
-
-        </div>
-      </section>
-    </div>
-    
-
-
-        <footer>
-
-          <section class="outer-container">
-
-
-
-            <p>
-
-
-            Unless otherwise noted, content on this site is licensed under a <a style="color:white" href="http://creativecommons.org/licenses/by-sa/4.0/" >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-            </p>
-
-          </section>
-
-        </footer>
-    </body>
-</html>
-
-    </body>
-</html>
-
+have to modify both the instruction and the internal state.<ul><li>Implemented in Patronus chip. 25-35% power/area overhead, and 10$ runtime
+overhead due to &lsquo;patches&rsquo; and additional commands.</li><li>The probability of an illegal instruction trap when an instruction altered
+is 91.51% within 1 cycle rising to 99.95% within 3 cycles.</li></ul></li></ul><h2 id=risc-v-virtual-platforms-for-early-risc-v-embedded-software-development-kevin-mcdermott:d2f16b96a9dcad25ca9611e08b0e618f>RISC-V virtual platforms for early RISC-V embedded software development: Kevin McDermott</h2><ul><li>New markets have new software requirements</li><li>Virtual platforms can help accelerate software development</li><li>Imperas produce extendable platform kits (EPKs). These are virtual platforms
+with software set-up, allowing users to start quickly.</li><li>Offer the ability to easily define custom instruction extensions</li><li>Can also perform software development using the Ashling RISC-V IDE</li></ul><p><em>Alex Bradbury</em></p></article></div></main><footer class="lr-footer jumbotron"><div class=container><div class=row><div class="col-sm-4 pb-3 pb-sm-0"><img src=/img/logo/logo-dualcolor.svg width=150px></div><div class=col><p>The text content on this website is licensed under a <a href=https://creativecommons.org/licenses/by/4.0/>Creative Commons Attribution 4.0 International License</a>, except where otherwise noted. No license is granted for logos or other trademarks. Other content &copy; lowRISC Contributors.
+&middot; <a href=/privacy-policy>Privacy and cookies policy</a> &middot; <a href=/usage-licence>Usage licence</a> &middot; <a href=#>Back to top</a></p></div></div></div></footer><script src=/main.fe48f.js></script></body></html>

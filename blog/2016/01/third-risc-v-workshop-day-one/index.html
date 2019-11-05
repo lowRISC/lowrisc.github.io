@@ -1,417 +1,146 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <title>Third RISC-V Workshop: Day One &middot; lowRISC</title>
-        <link rel="stylesheet" href="https://www.lowrisc.org/css/styles.combined.min.css" />
-        <link rel="shortcut icon" href="https://www.lowrisc.org/favicon.ico" />
-        <link rel="alternate" href="https://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
-        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' type='text/css'>
-        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Exo+2' type='text/css'>
-        <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-53520714-1', 'auto');
-        ga('send', 'pageview');
-      </script>
-  </head>
-
-  <body data-page="article">
-<div class="header">
-  <header data-component="menu">
-
-    <section class="outer-container">
-      <div class="image">
-        <a href="https://www.lowrisc.org"><img src="https://www.lowrisc.org/img/logo.svg"></a>
-      </div>
-
-      <div class="menu">
-        <ul>
-          
-          <li><a href="/jobs/"> Jobs </a></li>
-          
-          <li><a href="/our-work/"> Our work </a></li>
-          
-          <li><a href="/community/"> Community </a></li>
-          
-          <li><a href="/blog/"> Blog </a></li>
-          
-          <li><a href="/about/"> About us </a></li>
-          
-          <li><a href="/docs/"> Docs </a></li>
-          
-        </ul>
-      </div>
-    </section>
-
-  </header>
-</div>
-
-
-
-
-
-
-
-
-
-    <div class="article">
-      <section class="outer-container">
-        <div class="row">
-            <div class="sixteen columns">
-                <article class="li-article">
-                
-                    <header class="li-article-header">
-                        <h1 class="li-article-title">Third RISC-V Workshop: Day One</h1>
-                        <span class="li-article-taxonomies">
-                            
-
-                            
-                        </span>
-                        
-                        
-                        <time class="li-article-date">Tuesday, January 5, 2016</time>
-                        
-                    </header>
-                    <section>
-                        
-
-<p>The <a href="https://riscv.org/2015/12/prelim-agenda-3rd-risc-v-workshop/">third RISC-V workshop</a> is going
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><base href=https://www.lowrisc.org><link rel=icon type=image/png sizes=32x32 href=/favicon.png><title>lowRISC: Collaborative open silicon engineering</title><link href=/main.fe48f.css rel=stylesheet><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-53520714-1','auto');ga('send','pageview');</script></head><body><header><nav class="navbar navbar-expand-md navbar-light"><div class=container><a class=navbar-brand href=#><img src=/img/logo/logo-dualcolor.svg alt=lowRISC></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarCollapse aria-controls=navbarCollapse aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarCollapse><ul class="navbar-nav ml-auto"><li class=nav-item><a href=/our-work class=nav-link>Our work</a></li><li class=nav-item><a href=/open-silicon class=nav-link>Open Silicon</a></li><li class=nav-item><a href=/community class=nav-link>Community</a></li><li class=nav-item><a href=/blog class=nav-link>Blog</a></li><li class=nav-item><a href=/jobs class=nav-link>Jobs</a></li><li class=nav-item><a href=/about class=nav-link>About us</a></li><li class=nav-item><a class="btn lr-navbar-btn-gh" href=https://github.com/lowrisc>GitHub</a></li></ul></div></div></nav></header><main role=main><div class="container lr-blog"><article><h1>Third RISC-V Workshop: Day One</h1><address class=lr-blog-author><time>January 5, 2016</time></address><p>The <a href=https://riscv.org/2015/12/prelim-agenda-3rd-risc-v-workshop/>third RISC-V workshop</a> is going
 on today and tomorrow at the Oracle Conference Center, California. I&rsquo;ll be
 keeping a semi-live blog of talks and announcements throughout the day. See
-<a href="https://www.lowrisc.org/blog/2016/01/third-risc-v-workshop-day-two">here</a> for
-notes from the second day.</p>
-
-<h2 id="introductions-and-risc-v-foundation-overview-rick-o-connor:6ba2032c06bf883b3d2851c8414b058c">Introductions and RISC-V Foundation Overview: Rick O&rsquo;Connor</h2>
-
-<ul>
-<li>Save the date, the 4th RISC-V workshop will be July 12th-13th at the MIT
-CSAIL/Stata Center.</li>
-<li>In August 2015, articles of incorporation were filed to create a non-profit
-RISC-V Foundation to govern the ISA.</li>
-<li>RISC-V Foundation mission statement: The RISC-V Foundation is a non-profit
+<a href=https://www.lowrisc.org/blog/2016/01/third-risc-v-workshop-day-two>here</a> for
+notes from the second day.</p><h2 id=introductions-and-risc-v-foundation-overview-rick-o-connor:6ba2032c06bf883b3d2851c8414b058c>Introductions and RISC-V Foundation Overview: Rick O&rsquo;Connor</h2><ul><li>Save the date, the 4th RISC-V workshop will be July 12th-13th at the MIT
+CSAIL/Stata Center.</li><li>In August 2015, articles of incorporation were filed to create a non-profit
+RISC-V Foundation to govern the ISA.</li><li>RISC-V Foundation mission statement: The RISC-V Foundation is a non-profit
 consortium chartered to standardize, protect, and promote the free and open
 RISC-V instruction set architecture together with its hardware and software
-ecosystem for use in all computing devices.</li>
-<li>The RISC-V ISA and related standards shall remain open and license-free to
-all parties.</li>
-<li>The compatibility test suites shall always be publicly available as a source
-code download.</li>
-<li>To protect the standard, only members (with commercial RISC-V products) of
+ecosystem for use in all computing devices.</li><li>The RISC-V ISA and related standards shall remain open and license-free to
+all parties.</li><li>The compatibility test suites shall always be publicly available as a source
+code download.</li><li>To protect the standard, only members (with commercial RISC-V products) of
 the Foundation in good standing can use &ldquo;RISC-V&rdquo; and associated trademarks,
 and only for devices that pass the tests in the open-source compatibility
-suites maintained by the Foundation.</li>
-<li>Drafting a new license for the ISA &lsquo;combining the best of BSD, GPL and so
-on&rsquo;.</li>
-<li>The Foundation will have a board of 7 directors elected by the members. All
-members of committees must be members of the RISC-V Foundation.</li>
-<li>All details of the foundation are a work in progress. Feedback is welcome!</li>
-<li>16 member companies so far. Bluespec, Draper, Google, Hewlett Packard Labs,
+suites maintained by the Foundation.</li><li>Drafting a new license for the ISA &lsquo;combining the best of BSD, GPL and so
+on&rsquo;.</li><li>The Foundation will have a board of 7 directors elected by the members. All
+members of committees must be members of the RISC-V Foundation.</li><li>All details of the foundation are a work in progress. Feedback is welcome!</li><li>16 member companies so far. Bluespec, Draper, Google, Hewlett Packard Labs,
 Microsemi, Oracle, SiFive, antmicro, codasip, Gray Research, Lattice
-Semiconductor, lowRISC, ROA logic, Rumble Development, Syntacore, Technolution</li>
-</ul>
-
-<h2 id="risc-v-updates-krste-asanovic:6ba2032c06bf883b3d2851c8414b058c">RISC-V Updates: Krste Asanovic</h2>
-
-<ul>
-<li>The 1.9 version of the compressed extension is on track to become frozen and
+Semiconductor, lowRISC, ROA logic, Rumble Development, Syntacore, Technolution</li></ul><h2 id=risc-v-updates-krste-asanovic:6ba2032c06bf883b3d2851c8414b058c>RISC-V Updates: Krste Asanovic</h2><ul><li>The 1.9 version of the compressed extension is on track to become frozen and
 become blessed as v2.0. Now is the time to speak up if you have any feedback
-or concerns!</li>
-<li>Privileged architecture 1.7 was released in May 2015 and has received a lot
+or concerns!</li><li>Privileged architecture 1.7 was released in May 2015 and has received a lot
 of feedback. Hope to release an updated draft addressing feedback in the next
 month or two. Doubt it will really settle down before the summer, as it needs
-more OS and driver development against it.</li>
-<li>&lsquo;V&rsquo; Vector Extension: not yet ready to release a draft for this workshop,
+more OS and driver development against it.</li><li>&lsquo;V&rsquo; Vector Extension: not yet ready to release a draft for this workshop,
 but the RTL of the HWacha vector coprocessor has been open-sourced along with
-3 tech-reports.</li>
-<li>Hwacha is NOT the V extensions. It&rsquo;s a research project designed to push the
+3 tech-reports.</li><li>Hwacha is NOT the V extensions. It&rsquo;s a research project designed to push the
 limits of in-order decoupled data-parallel accelerators (e.g. GPUs). The
-microarchitecture does demonstrate some of the ideas that will appear in V.</li>
-<li>Ongoing ISA research at UCB: virtual local store (VLS, Henry Cook&rsquo;s 2009
+microarchitecture does demonstrate some of the ideas that will appear in V.</li><li>Ongoing ISA research at UCB: virtual local store (VLS, Henry Cook&rsquo;s 2009
 master&rsquo;s thesis) and user-level DMA (copying data between DRAM and VLS
-directly).</li>
-<li>New Berkeley open-source cores: BOOM out-of-order implementation and V-Scale
-(verilog implementation of Z-Scale).</li>
-<li>RISC-V is being transitioned out of Berkeley. This involves upstreaming of
-tools and the RISC-V Foundation taking over the standards process.</li>
-<li>SiFive has been founded by some of the lead RISC-V developers (Krste
-Asanovic, Yunsup Lee, Andrew Waterman). Sutter Hill Ventures have invested.</li>
-<li>Most urgent outstanding issues: holes and ambiguities in the specification
-and the platform specification.</li>
-<li>Holes in the spec: floating-point NaNs (resolved and updated), CSR
+directly).</li><li>New Berkeley open-source cores: BOOM out-of-order implementation and V-Scale
+(verilog implementation of Z-Scale).</li><li>RISC-V is being transitioned out of Berkeley. This involves upstreaming of
+tools and the RISC-V Foundation taking over the standards process.</li><li>SiFive has been founded by some of the lead RISC-V developers (Krste
+Asanovic, Yunsup Lee, Andrew Waterman). Sutter Hill Ventures have invested.</li><li>Most urgent outstanding issues: holes and ambiguities in the specification
+and the platform specification.</li><li>Holes in the spec: floating-point NaNs (resolved and updated), CSR
 read/write semantics (resolved, updated spec), memory model (far from
 resolved), Hypervisor support (no proposal). A formal spec of the whole ISA
-and memory model is desired.</li>
-<li>Although RISC-V was designed in reusable layers, some concrete standards for
+and memory model is desired.</li><li>Although RISC-V was designed in reusable layers, some concrete standards for
 hardware platforms are desirable e.g. memory maps, interrupt controller, power
 management. To what extent can platform specs be shared across
-microcontroller-class, application cores, and rack-scale designs?</li>
-</ul>
-
-<h2 id="risc-v-external-debug-aka-jtag-debugging-tim-newsome:6ba2032c06bf883b3d2851c8414b058c">RISC-V External Debug (aka JTAG debugging): Tim Newsome</h2>
-
-<ul>
-<li>Goals: a debug system that works for everybody with a working system done by
-July 1st 2016.</li>
-<li>The specification will be submitted to the RISC-V Foundation and there are
+microcontroller-class, application cores, and rack-scale designs?</li></ul><h2 id=risc-v-external-debug-aka-jtag-debugging-tim-newsome:6ba2032c06bf883b3d2851c8414b058c>RISC-V External Debug (aka JTAG debugging): Tim Newsome</h2><ul><li>Goals: a debug system that works for everybody with a working system done by
+July 1st 2016.</li><li>The specification will be submitted to the RISC-V Foundation and there are
 plans for an open source release of the debugger and implementations for
-Rocket and Z-Scale.</li>
-<li>Status: the specification is mostly complete.</li>
-<li>Features: (many, see the slides). Interested in tracing core execution to on
+Rocket and Z-Scale.</li><li>Status: the specification is mostly complete.</li><li>Features: (many, see the slides). Interested in tracing core execution to on
 or off-chip RAM and providing a framework to debug any component on the
-system, not just the RISC-V cores.</li>
-<li>The debug transport module provides access to the system bus. It implements
-a message queue and optional authentication.</li>
-<li>New CSRs will be added and exposed on the system bus.</li>
-<li>The spec describes a small amount of debug memory (1KiB ROM) and 8-16 bytes
-of RAM. This memory is not cached and is shared between all cores.</li>
-<li>Up to 4095 hardware breakpoints supported (but 4 is more typical). Each may
+system, not just the RISC-V cores.</li><li>The debug transport module provides access to the system bus. It implements
+a message queue and optional authentication.</li><li>New CSRs will be added and exposed on the system bus.</li><li>The spec describes a small amount of debug memory (1KiB ROM) and 8-16 bytes
+of RAM. This memory is not cached and is shared between all cores.</li><li>Up to 4095 hardware breakpoints supported (but 4 is more typical). Each may
 support exact address match, address range match, exact data match, data range
-match, &hellip;</li>
-<li>The work-in-progress spec will be posted to the hw-dev RISC-V mailing list
-later today. Comments very welcome.</li>
-<li>Question: how does this map to gdb&rsquo;s capabilities? Are there things it can
+match, &hellip;</li><li>The work-in-progress spec will be posted to the hw-dev RISC-V mailing list
+later today. Comments very welcome.</li><li>Question: how does this map to gdb&rsquo;s capabilities? Are there things it can
 do but gdb can&rsquo;t or vice-versa? It&rsquo;s not a 1:1 match but should be a superset
-of what gdb can do.</li>
-<li>Question: how does the tracing scale? Hasn&rsquo;t be investigated yet.</li>
-<li>Question: will support be integrated into the BOOM codebase? Answer: not
-currently planned.</li>
-<li>Question: there&rsquo;s a wide spectrum of functionality that different
+of what gdb can do.</li><li>Question: how does the tracing scale? Hasn&rsquo;t be investigated yet.</li><li>Question: will support be integrated into the BOOM codebase? Answer: not
+currently planned.</li><li>Question: there&rsquo;s a wide spectrum of functionality that different
 implementations could implement. Is there a discovery mechanism for the
-functionality that is supported? Yes.</li>
-</ul>
-
-<h2 id="risc-v-in-axiom-michael-gielda:6ba2032c06bf883b3d2851c8414b058c">RISC-V in Axiom: Michael Gielda</h2>
-
-<ul>
-<li>Axiom is a fully open source 4K film camera design. It is an EU Horizon 2020
-project with multiple partners.</li>
-<li>Aim of Axiom is to create an extensible open source platform that is also a
+functionality that is supported? Yes.</li></ul><h2 id=risc-v-in-axiom-michael-gielda:6ba2032c06bf883b3d2851c8414b058c>RISC-V in Axiom: Michael Gielda</h2><ul><li>Axiom is a fully open source 4K film camera design. It is an EU Horizon 2020
+project with multiple partners.</li><li>Aim of Axiom is to create an extensible open source platform that is also a
 desirable project in itself. The aim is to open up what is currently a fairly
 closed industry and lower barriers of entry to new players. There is an
-obvious parallel to the RISC-V and lowRISC projects.</li>
-<li>Chose the largest Zynq FPGA that had zero-cost tool support to maximise the
-number of people who can hack on the design.</li>
-<li>Using the Z-Scale as a soft-core for communication between the FPGA
+obvious parallel to the RISC-V and lowRISC projects.</li><li>Chose the largest Zynq FPGA that had zero-cost tool support to maximise the
+number of people who can hack on the design.</li><li>Using the Z-Scale as a soft-core for communication between the FPGA
 pre-processing board (Kintex-7) and the FPGA SoC main board with a dual-core
-Cortex-A9 (Zynq 7030).</li>
-<li>Long-term goals are to ensure the design can be reused through
+Cortex-A9 (Zynq 7030).</li><li>Long-term goals are to ensure the design can be reused through
 parameterisation, and look at broadening adoption of the Chisel design
-methodology.</li>
-<li>The Axiom Gamma project is almost half-way done. There will be an EU
-technical review in March at which point it should be working.</li>
-</ul>
-
-<h2 id="emulating-future-hpc-soc-architectures-using-risc-v-farzad-fatollahi-fard:6ba2032c06bf883b3d2851c8414b058c">Emulating future HPC SoC architectures using RISC-V: Farzad Fatollahi-Fard</h2>
-
-<ul>
-<li>Should HPC take inspiration from the embedded market?</li>
-<li>Is building an SoC for HPC a good idea? HPC is power limited
+methodology.</li><li>The Axiom Gamma project is almost half-way done. There will be an EU
+technical review in March at which point it should be working.</li></ul><h2 id=emulating-future-hpc-soc-architectures-using-risc-v-farzad-fatollahi-fard:6ba2032c06bf883b3d2851c8414b058c>Emulating future HPC SoC architectures using RISC-V: Farzad Fatollahi-Fard</h2><ul><li>Should HPC take inspiration from the embedded market?</li><li>Is building an SoC for HPC a good idea? HPC is power limited
 (performance/Watt) which arguably means HPC and embedded requirements are
-aligned.</li>
-<li>From a previous project case study (Green Wave), they found an embedded SoC
+aligned.</li><li>From a previous project case study (Green Wave), they found an embedded SoC
 design was performance/power competitive with Fermi. This had a 12x12 2D
 on-chip torus network with 676 compute cores, 33 supervisor cores, 1 PCI
-express interface, 8 Hybrid Memory Cube interfaces, &hellip;</li>
-<li>Proposed an FPGA-implemented SoC for HPC. This contains 4 Z-scale processors
+express interface, 8 Hybrid Memory Cube interfaces, &hellip;</li><li>Proposed an FPGA-implemented SoC for HPC. This contains 4 Z-scale processors
 with a 2x2 concentrated mesh with 2 virtual channels. The Z-Scale was chosen
-for area-efficiency on FPGA.</li>
-<li>The network is implemented using the <a href="https://github.com/LBL-CoDEx/OpenSoCFabric">OpenSoC
+for area-efficiency on FPGA.</li><li>The network is implemented using the <a href=https://github.com/LBL-CoDEx/OpenSoCFabric>OpenSoC
 fabric</a> (open source and in
-chisel). AHB endpoints have now beed added and AXI is in-development.</li>
-<li>A 96-core system was constructed using multiple FPGAs.</li>
-<li>For more info, see <a href="http://www.codexhpc.org/">CoDEx HPC</a>.</li>
-</ul>
-
-<h2 id="grvi-phalanx-a-massively-parallel-risc-v-fpga-accelerator-jan-gray:6ba2032c06bf883b3d2851c8414b058c">GRVI Phalanx. A massively parallel RISC-V FPGA accelerator: Jan Gray</h2>
-
-<ul>
-<li>GRVI is pronounced &lsquo;groovy&rsquo;.</li>
-<li>There&rsquo;s lots of interest in FPGA accelerators right now (Altera acquisition,
-MSR&rsquo;s catapult).</li>
-<li>FPGAs are an interesting platform. Massively parallel. Specialized.
+chisel). AHB endpoints have now beed added and AXI is in-development.</li><li>A 96-core system was constructed using multiple FPGAs.</li><li>For more info, see <a href=http://www.codexhpc.org/>CoDEx HPC</a>.</li></ul><h2 id=grvi-phalanx-a-massively-parallel-risc-v-fpga-accelerator-jan-gray:6ba2032c06bf883b3d2851c8414b058c>GRVI Phalanx. A massively parallel RISC-V FPGA accelerator: Jan Gray</h2><ul><li>GRVI is pronounced &lsquo;groovy&rsquo;.</li><li>There&rsquo;s lots of interest in FPGA accelerators right now (Altera acquisition,
+MSR&rsquo;s catapult).</li><li>FPGAs are an interesting platform. Massively parallel. Specialized.
 Connected. High throughput. Low latency. The big barrier is of course porting
 your software. Jan argues OpenCL for FPGAs is a major breakthrough for this
 problem, if you&rsquo;re lucky enough to have an application that can be expressed
-in OpenCL.</li>
-<li>Phalanx is an accelerator accelerator - an infrastructure making it easier
+in OpenCL.</li><li>Phalanx is an accelerator accelerator - an infrastructure making it easier
 to run you application on an FPGA and connect everything together. It is
-composed of processor+accelerator clusters+NoC.</li>
-<li>Jan&rsquo;s Razor: &ldquo;In a CMP, cut inessential resources from each CPU, to maximize
-CPUs per die.&rdquo;</li>
-<li>Jan has achieved an RV32I datapath in about 250 LUTs. This core can achieve
-300-375MHz, 1.3-1.6CPI. The &lsquo;GRVI&rsquo; core is ~320 6-LUTs so &ldquo;1 MIPS/LUT&rdquo;.</li>
-<li>How many can you fit on a modern FPGA? The limiting resource is really the
+composed of processor+accelerator clusters+NoC.</li><li>Jan&rsquo;s Razor: &ldquo;In a CMP, cut inessential resources from each CPU, to maximize
+CPUs per die.&rdquo;</li><li>Jan has achieved an RV32I datapath in about 250 LUTs. This core can achieve
+300-375MHz, 1.3-1.6CPI. The &lsquo;GRVI&rsquo; core is ~320 6-LUTs so &ldquo;1 MIPS/LUT&rdquo;.</li><li>How many can you fit on a modern FPGA? The limiting resource is really the
 block RAMs. In a cluster, two processing elements can share an instruction
-BRAM, and all PEs can share a cluster memory.</li>
-<li>How should the clusters be interconnected? A 5-port virtual channel router
+BRAM, and all PEs can share a cluster memory.</li><li>How should the clusters be interconnected? A 5-port virtual channel router
 might be a sensible choice in an ASIC, but does not map well to an FPGA.
-Instead use a <a href="http://fpga.org/2015/09/03/introducing-hoplite/">Hoplite</a> 2D
+Instead use a <a href=http://fpga.org/2015/09/03/introducing-hoplite/>Hoplite</a> 2D
 router. This is only 1% of the area x delay product of FPGA-optimized VC
 routers. Each cluster has a 300 bit connection to the Hoplite router (with a
-256bit payload).</li>
-<li>400 of the GRVI Phalanx PEs can fit on a Xilinx KU040. The amortized cost of
-the router per processor is only 40 LUTs.</li>
-<li>Can fit 32 GRVI Phalanx PEs on an Artix-7-35T.</li>
-<li>Want to support different accelerated parallel programming models: SPMD,
+256bit payload).</li><li>400 of the GRVI Phalanx PEs can fit on a Xilinx KU040. The amortized cost of
+the router per processor is only 40 LUTs.</li><li>Can fit 32 GRVI Phalanx PEs on an Artix-7-35T.</li><li>Want to support different accelerated parallel programming models: SPMD,
 MIMD, MP. All potentially accelerated by custom GRVI And cluster function
-units, custom memory or interconnects, custom accelerators on the NOC.</li>
-<li>Next steps: debug/trace over NoC, Hoplite/AXI4 bridges, OpenCL stack,
-potential bridge to Chisel RISC-V infrastructure?</li>
-<li>Question: how do I get this? Not available yet, and not yet sure on the
-licensing model.</li>
-</ul>
-
-<h2 id="coreboot-on-risc-v-ron-minnich:6ba2032c06bf883b3d2851c8414b058c">Coreboot on RISC-V: Ron Minnich</h2>
-
-<ul>
-<li>Initializing the stuff outside the main CPU on a chromebook takes about 1
-billion instructions before it can start Linux.</li>
-<li>Firmware, 1990-2005 &ldquo;fire and forget&rdquo;. Set al lthe stff kernels can&rsquo;t do
+units, custom memory or interconnects, custom accelerators on the NOC.</li><li>Next steps: debug/trace over NoC, Hoplite/AXI4 bridges, OpenCL stack,
+potential bridge to Chisel RISC-V infrastructure?</li><li>Question: how do I get this? Not available yet, and not yet sure on the
+licensing model.</li></ul><h2 id=coreboot-on-risc-v-ron-minnich:6ba2032c06bf883b3d2851c8414b058c>Coreboot on RISC-V: Ron Minnich</h2><ul><li>Initializing the stuff outside the main CPU on a chromebook takes about 1
+billion instructions before it can start Linux.</li><li>Firmware, 1990-2005 &ldquo;fire and forget&rdquo;. Set al lthe stff kernels can&rsquo;t do
 (e.g. LinuxBIOS), then get out of the way. But now there&rsquo;s a push for the
-firmware to hang around after boot.</li>
-<li>Ron argues this sucks. It&rsquo;s slow, there&rsquo;s no easy bugfix path, and it&rsquo;s not
-SMP capable on x86.</li>
-<li>Why doesn&rsquo;t Ron like persistent firmware? It&rsquo;s another attack vector,
+firmware to hang around after boot.</li><li>Ron argues this sucks. It&rsquo;s slow, there&rsquo;s no easy bugfix path, and it&rsquo;s not
+SMP capable on x86.</li><li>Why doesn&rsquo;t Ron like persistent firmware? It&rsquo;s another attack vector,
 indistinguishable from a persistent embedded threat. Ron&rsquo;s preference is the
 platform management code run as a kernel thread. Minion cores are ideal for
-this (Ron&rsquo;s words rather than mine - I of course agree whole-heartedly).</li>
-<li>coreboot is a GPLv2 BIOS replacement (not a bootloader). It has multiple
+this (Ron&rsquo;s words rather than mine - I of course agree whole-heartedly).</li><li>coreboot is a GPLv2 BIOS replacement (not a bootloader). It has multiple
 possible payloads including SeaBIOS and depthcharge (used for verified boot on
-Chromebooks).</li>
-<li>Port was started in October 2014 as a side project. The effort resumed in
+Chromebooks).</li><li>Port was started in October 2014 as a side project. The effort resumed in
 July 2015 with the privileged spec, and as-of September is up and running
 again. The most recent port runs on Spike but not QEMU (due to lack of support
-for the privileged spec).</li>
-<li>RISC-V is a first class citizen in coreboot, all commits must pass tests for
-the RISC-V buildbot.</li>
-<li>src/arch/riscv is 2685 LoC.</li>
-<li>The Federal Office for Information Security in Germany runs a hardware test
+for the privileged spec).</li><li>RISC-V is a first class citizen in coreboot, all commits must pass tests for
+the RISC-V buildbot.</li><li>src/arch/riscv is 2685 LoC.</li><li>The Federal Office for Information Security in Germany runs a hardware test
 station for coreboot. As soon as real hardware is running, they&rsquo;ve offered to
-integrate it into their system.</li>
-<li>Lessons learned
-
-<ul>
-<li>provide a boot time SRAM (make sure the address is fixed and not aliased
-by DRAM once DRAM is up).</li>
-<li>Provide a serial port.</li>
-<li>Ron reiterates that runtime functions belong in the kernel, not persistent
-firmware.</li>
-<li>Firmware tables always need translation by kernel, so make them text not
-binary.</li>
-<li>Keep the mask ROM as simple as possible.</li>
-<li>Don&rsquo;t cheap out on SPI or flash part size. Just plan a 64MiB part.</li>
-<li>Don&rsquo;t reset the chipset on IE device not present.</li>
-</ul></li>
-</ul>
-
-<h2 id="risc-v-and-uefi-dong-wei-and-abner-chang:6ba2032c06bf883b3d2851c8414b058c">RISC-V and UEFI: Dong Wei and Abner Chang</h2>
-
-<ul>
-<li>There is a UEFI Forum consistent of a board of 12 directors, 12 promoters,
-42 contributors, 213 adopters.</li>
-<li>UEFI and ACPI are both now handled by the UEFI Forum.</li>
-<li>A RISC-V UEFI port is taking place using EDKII (EFI Development Kit II) and
-OVMF (Open Virtual Machine Firmware).</li>
-<li>The speakers are giving a very thorough description of the UEFI boot
+integrate it into their system.</li><li>Lessons learned<ul><li>provide a boot time SRAM (make sure the address is fixed and not aliased
+by DRAM once DRAM is up).</li><li>Provide a serial port.</li><li>Ron reiterates that runtime functions belong in the kernel, not persistent
+firmware.</li><li>Firmware tables always need translation by kernel, so make them text not
+binary.</li><li>Keep the mask ROM as simple as possible.</li><li>Don&rsquo;t cheap out on SPI or flash part size. Just plan a 64MiB part.</li><li>Don&rsquo;t reset the chipset on IE device not present.</li></ul></li></ul><h2 id=risc-v-and-uefi-dong-wei-and-abner-chang:6ba2032c06bf883b3d2851c8414b058c>RISC-V and UEFI: Dong Wei and Abner Chang</h2><ul><li>There is a UEFI Forum consistent of a board of 12 directors, 12 promoters,
+42 contributors, 213 adopters.</li><li>UEFI and ACPI are both now handled by the UEFI Forum.</li><li>A RISC-V UEFI port is taking place using EDKII (EFI Development Kit II) and
+OVMF (Open Virtual Machine Firmware).</li><li>The speakers are giving a very thorough description of the UEFI boot
 mechanism which I&rsquo;m not able to do justice. You&rsquo;re best waiting for the
-slides+video I&rsquo;m afraid.</li>
-<li>The project was started a few months ago, and can now boot to a UEFI shell.</li>
-<li>They have created a new RISC-V QEMU target with some PC peripherals (CMOS,
-PM, PCI and other devices), and also implemented RISC-V machine mode.</li>
-<li>Requests for new RISC-V spec additions: a periodic timer CSR, RTC with alarm
-CSR, PI management mode support, &hellip; (sorry, missed some).</li>
-</ul>
-
-<h2 id="freebsd-and-risc-v-ruslan-bukin:6ba2032c06bf883b3d2851c8414b058c">FreeBSD and RISC-V: Ruslan Bukin</h2>
-
-<ul>
-<li>FreeBSD will support RV64I in release 11.0.</li>
-<li>Why use FreeBSD? Among other reasons, it gives a full-stack BSD license
-(RISC-V, FreeBSD, LLVM/Clang).</li>
-<li>FreeBSD has been brought up on Spike.</li>
-<li>The early boot assembly code will put the hardware in a known state, build a
+slides+video I&rsquo;m afraid.</li><li>The project was started a few months ago, and can now boot to a UEFI shell.</li><li>They have created a new RISC-V QEMU target with some PC peripherals (CMOS,
+PM, PCI and other devices), and also implemented RISC-V machine mode.</li><li>Requests for new RISC-V spec additions: a periodic timer CSR, RTC with alarm
+CSR, PI management mode support, &hellip; (sorry, missed some).</li></ul><h2 id=freebsd-and-risc-v-ruslan-bukin:6ba2032c06bf883b3d2851c8414b058c>FreeBSD and RISC-V: Ruslan Bukin</h2><ul><li>FreeBSD will support RV64I in release 11.0.</li><li>Why use FreeBSD? Among other reasons, it gives a full-stack BSD license
+(RISC-V, FreeBSD, LLVM/Clang).</li><li>FreeBSD has been brought up on Spike.</li><li>The early boot assembly code will put the hardware in a known state, build a
 ring buffer for interrupts, initialise the page tables, enable the MMU, then
-finally branch to a virtual address and call into C code.</li>
-<li>Userspace porting required modifications to jemalloc, csu (crt1.S, crtn.S,
-crti.S), libc, msun (libm), rtld-elf (the runtime linker).</li>
-<li>The FreeBSD port is based on the ARMv8 port. It has a 25k line diff and took
-6 months from scratch.</li>
-<li>Userland started working in December. Support will now be committed to
-FreeBSD SVN.</li>
-<li>Next plans include multicore, FPU, increasing the virtual address space,
-DTrace, performance monitoring counters, QEMU, &hellip;</li>
-<li>Proposed changes: split sptbr to sptrbr0 and sptbr1 for the user VA and the
+finally branch to a virtual address and call into C code.</li><li>Userspace porting required modifications to jemalloc, csu (crt1.S, crtn.S,
+crti.S), libc, msun (libm), rtld-elf (the runtime linker).</li><li>The FreeBSD port is based on the ARMv8 port. It has a 25k line diff and took
+6 months from scratch.</li><li>Userland started working in December. Support will now be committed to
+FreeBSD SVN.</li><li>Next plans include multicore, FPU, increasing the virtual address space,
+DTrace, performance monitoring counters, QEMU, &hellip;</li><li>Proposed changes: split sptbr to sptrbr0 and sptbr1 for the user VA and the
 kernel VA. This means there is no need to change SPTBR when changing the
-privilege level, and should reduce code size.</li>
-<li>For more on the project, see the relevant <a href="https://wiki.freebsd.org/riscv">FreeBSD wiki
-page</a>.</li>
-</ul>
-
-<h2 id="building-the-risc-v-software-ecosystem-arun-thomas:6ba2032c06bf883b3d2851c8414b058c">Building the RISC-V software ecosystem: Arun Thomas</h2>
-
-<ul>
-<li>&ldquo;2016 is the year of RISC-V&rdquo;. Or at least, the year of RISC-V software. We
-have a great opportunity to push the software stack forwards.</li>
-<li>What can we achieve by the end of the year? Hopefully upstereamed GNU
+privilege level, and should reduce code size.</li><li>For more on the project, see the relevant <a href=https://wiki.freebsd.org/riscv>FreeBSD wiki
+page</a>.</li></ul><h2 id=building-the-risc-v-software-ecosystem-arun-thomas:6ba2032c06bf883b3d2851c8414b058c>Building the RISC-V software ecosystem: Arun Thomas</h2><ul><li>&ldquo;2016 is the year of RISC-V&rdquo;. Or at least, the year of RISC-V software. We
+have a great opportunity to push the software stack forwards.</li><li>What can we achieve by the end of the year? Hopefully upstereamed GNU
 toolchain and QEMU. More mature Clang/LLVM support, upstreamed OS support,
-Debian/RISC-V port, start thinking about Android and a real-time OS.</li>
-<li>How do we get there? We need to recruit more RISC-V developers and make it
-easier for people to get started by producing more docs and specifications.</li>
-<li>Right now, the RISC-V Github has had 48 contributors from a wide range of
-Universities, companies and OSS projects.</li>
-<li>We should present talks and tutorials at developer conferences and local
-user group meetings.</li>
-<li>If you have local patches, upstream them!</li>
-<li>How to attract developers? Could fund developers/projects via the
+Debian/RISC-V port, start thinking about Android and a real-time OS.</li><li>How do we get there? We need to recruit more RISC-V developers and make it
+easier for people to get started by producing more docs and specifications.</li><li>Right now, the RISC-V Github has had 48 contributors from a wide range of
+Universities, companies and OSS projects.</li><li>We should present talks and tutorials at developer conferences and local
+user group meetings.</li><li>If you have local patches, upstream them!</li><li>How to attract developers? Could fund developers/projects via the
 Foundation, apply to be a Google Summer of Code mentoring organization, update
 the list of open bugs and future requests on github and track contribution
-statistics.</li>
-<li>We can make it much easier for people to get started by building Debian
-packages, upstreaming, and providing regular binary snapshots.</li>
-<li>Spike is great for prototyping hardware features, but QEMU is a better tool
-for software development and a critical part of the RISC-V software story.</li>
-<li>There&rsquo;s more to specify. e.g. a platform specification (e.g. ARMv8 Server
+statistics.</li><li>We can make it much easier for people to get started by building Debian
+packages, upstreaming, and providing regular binary snapshots.</li><li>Spike is great for prototyping hardware features, but QEMU is a better tool
+for software development and a critical part of the RISC-V software story.</li><li>There&rsquo;s more to specify. e.g. a platform specification (e.g. ARMv8 Server
 Base System Architecture), boot architecture (look at the ARMv8 Server Base
-Boot Requirements), RISC-V ABI, hypervisor, security.</li>
-<li>Useful documents include a RISC-V Assembly Guide, some equivalent of the ARM
-Cortex-A Programmer&rsquo;s Guide, and a New Contributor&rsquo;s Guide.</li>
-</ul>
-
-                    </section>
-                </article>
-
-        </div>
-      </section>
-    </div>
-    
-
-
-        <footer>
-
-          <section class="outer-container">
-
-
-
-            <p>
-
-
-            Unless otherwise noted, content on this site is licensed under a <a style="color:white" href="http://creativecommons.org/licenses/by-sa/4.0/" >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-            </p>
-
-          </section>
-
-        </footer>
-    </body>
-</html>
-
-    </body>
-</html>
-
+Boot Requirements), RISC-V ABI, hypervisor, security.</li><li>Useful documents include a RISC-V Assembly Guide, some equivalent of the ARM
+Cortex-A Programmer&rsquo;s Guide, and a New Contributor&rsquo;s Guide.</li></ul></article></div></main><footer class="lr-footer jumbotron"><div class=container><div class=row><div class="col-sm-4 pb-3 pb-sm-0"><img src=/img/logo/logo-dualcolor.svg width=150px></div><div class=col><p>The text content on this website is licensed under a <a href=https://creativecommons.org/licenses/by/4.0/>Creative Commons Attribution 4.0 International License</a>, except where otherwise noted. No license is granted for logos or other trademarks. Other content &copy; lowRISC Contributors.
+&middot; <a href=/privacy-policy>Privacy and cookies policy</a> &middot; <a href=/usage-licence>Usage licence</a> &middot; <a href=#>Back to top</a></p></div></div></div></footer><script src=/main.fe48f.js></script></body></html>

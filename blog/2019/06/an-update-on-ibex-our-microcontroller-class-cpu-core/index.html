@@ -1,205 +1,61 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <title>An update on Ibex, our microcontroller-class CPU core &middot; lowRISC</title>
-        <link rel="stylesheet" href="https://www.lowrisc.org/css/styles.combined.min.css" />
-        <link rel="shortcut icon" href="https://www.lowrisc.org/favicon.ico" />
-        <link rel="alternate" href="https://www.lowrisc.org/index.xml" type="application/rss+xml" title="lowRISC" />
-        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' type='text/css'>
-        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Exo+2' type='text/css'>
-        <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-53520714-1', 'auto');
-        ga('send', 'pageview');
-      </script>
-  </head>
-
-  <body data-page="article">
-<div class="header">
-  <header data-component="menu">
-
-    <section class="outer-container">
-      <div class="image">
-        <a href="https://www.lowrisc.org"><img src="https://www.lowrisc.org/img/logo.svg"></a>
-      </div>
-
-      <div class="menu">
-        <ul>
-          
-          <li><a href="/jobs/"> Jobs </a></li>
-          
-          <li><a href="/our-work/"> Our work </a></li>
-          
-          <li><a href="/community/"> Community </a></li>
-          
-          <li><a href="/blog/"> Blog </a></li>
-          
-          <li><a href="/about/"> About us </a></li>
-          
-          <li><a href="/docs/"> Docs </a></li>
-          
-        </ul>
-      </div>
-    </section>
-
-  </header>
-</div>
-
-
-
-
-
-
-
-
-
-    <div class="article">
-      <section class="outer-container">
-        <div class="row">
-            <div class="sixteen columns">
-                <article class="li-article">
-                
-                    <header class="li-article-header">
-                        <h1 class="li-article-title">An update on Ibex, our microcontroller-class CPU core</h1>
-                        <span class="li-article-taxonomies">
-                            
-
-                            
-                        </span>
-                        
-                        
-                        <time class="li-article-date">Monday, June 10, 2019</time>
-                        
-                    </header>
-                    <section>
-                        <p>At the beginning of many chips projects, there’s a dream. Could we create a more
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><base href=https://www.lowrisc.org><link rel=icon type=image/png sizes=32x32 href=/favicon.png><title>lowRISC: Collaborative open silicon engineering</title><link href=/main.fe48f.css rel=stylesheet><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-53520714-1','auto');ga('send','pageview');</script></head><body><header><nav class="navbar navbar-expand-md navbar-light"><div class=container><a class=navbar-brand href=#><img src=/img/logo/logo-dualcolor.svg alt=lowRISC></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarCollapse aria-controls=navbarCollapse aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarCollapse><ul class="navbar-nav ml-auto"><li class=nav-item><a href=/our-work class=nav-link>Our work</a></li><li class=nav-item><a href=/open-silicon class=nav-link>Open Silicon</a></li><li class=nav-item><a href=/community class=nav-link>Community</a></li><li class=nav-item><a href=/blog class=nav-link>Blog</a></li><li class=nav-item><a href=/jobs class=nav-link>Jobs</a></li><li class=nav-item><a href=/about class=nav-link>About us</a></li><li class=nav-item><a class="btn lr-navbar-btn-gh" href=https://github.com/lowrisc>GitHub</a></li></ul></div></div></nav></header><main role=main><div class="container lr-blog"><article><h1>An update on Ibex, our microcontroller-class CPU core</h1><address class=lr-blog-author>by Philipp Wagner,
+<time>June 10, 2019</time></address><p>At the beginning of many chips projects, there’s a dream. Could we create a more
 future-proof chip by embedding an FPGA fabric into it? Could we measure glucose
 levels more accurately by integrating a small bio lab onto a chip? Could we more
 reliably recognize kittens in a set of pictures by implementing neural network
-inference in hardware?</p>
-
-<p>In implementation, this dream becomes a piece of hardware, with digital or
+inference in hardware?</p><p>In implementation, this dream becomes a piece of hardware, with digital or
 analog logic, sensors, actuators, and much more. Let’s get it produced and try
 out the real thing! But wait. How do you control the hardware block? How do you
 feed data to it? How do you make sure the startup sequence is done exactly in
 the right way? The answer often is: add an embedded micro-controller core to
 handle the control logic. A small, efficient, and rock-solid core. Where could
-you get such a core?</p>
-
-<p>Say hello to Ibex: a small, 32-bit microcontroller-class RISC-V CPU core written
-in SystemVerilog. Reliable, unpretentious, getting the job done.</p>
-
-<ul>
-<li>Ibex supports the standard RV32I/EMC instruction set, allowing you to tap into
-a large ecosystem of compilers and software libraries.</li>
-<li>Its two stage pipeline design balances a small area overhead with good
+you get such a core?</p><p>Say hello to Ibex: a small, 32-bit microcontroller-class RISC-V CPU core written
+in SystemVerilog. Reliable, unpretentious, getting the job done.</p><ul><li>Ibex supports the standard RV32I/EMC instruction set, allowing you to tap into
+a large ecosystem of compilers and software libraries.</li><li>Its two stage pipeline design balances a small area overhead with good
 performance. It gives you an IPC of 0.67 in CoreMark (2.44 CoreMarks/MHz) with
 an area of just 18.9 kGE. That’s 0.027 mm² in a 65 nm technology!
-(<a href="https://doi.org/10.1109/PATMOS.2017.8106976">Reference</a>) But Ibex works
+(<a href=https://doi.org/10.1109/PATMOS.2017.8106976>Reference</a>) But Ibex works
 equally well on FPGAs. The same configuration utilizes 2.5 k 6-input Slice LUTs
 and 1 DSP slice on low-end Xilinx 7-series FPGAs when targeting a clock
-frequency of 50 MHz.</li>
-<li>And best of all: there are no usage restrictions. Ibex is open source under
-the Apache 2.0 License, <a href="https://github.com/lowRISC/ibex/">download it today</a>
-and get started!</li>
-</ul>
-
-<p>So if you need a microcontroller-class CPU core, look no further and give Ibex a
-try! Our friendly community awaits you <a href="https://github.com/lowRISC/ibex/">over at
+frequency of 50 MHz.</li><li>And best of all: there are no usage restrictions. Ibex is open source under
+the Apache 2.0 License, <a href=https://github.com/lowRISC/ibex/>download it today</a>
+and get started!</li></ul><p>So if you need a microcontroller-class CPU core, look no further and give Ibex a
+try! Our friendly community awaits you <a href=https://github.com/lowRISC/ibex/>over at
 GitHub</a> to discuss enhancements, issues or
-help you get your favorite feature added to Ibex!</p>
-
-<p><img src="/img/Ibex_block_diagram-100619.png" alt="Ibex block diagram" title="Ibex block diagram" /></p>
-
-<p>If you&rsquo;re interested in using Ibex in your design, you&rsquo;d be in good company.
+help you get your favorite feature added to Ibex!</p><img srcset="/blog/2019/06/an-update-on-ibex-our-microcontroller-class-cpu-core/Ibex_block_diagram-100619_hu869c9390c3021ae59283f78c5de92ff4_50850_400x0_resize_box_2.png 1x, /blog/2019/06/an-update-on-ibex-our-microcontroller-class-cpu-core/Ibex_block_diagram-100619_hu869c9390c3021ae59283f78c5de92ff4_50850_800x0_resize_box_2.png 2x" src=/blog/2019/06/an-update-on-ibex-our-microcontroller-class-cpu-core/Ibex_block_diagram-100619_hu869c9390c3021ae59283f78c5de92ff4_50850_400x0_resize_box_2.png alt="Ibex block diagram" title="Ibex block diagram" class="d-block mx-auto rounded m-2"><p>If you&rsquo;re interested in using Ibex in your design, you&rsquo;d be in good company.
 Researchers at the University of Manchester (with support from Andrew Attwood
 from the STFC Hartree Centre) are already working on taping out a design including
 the Ibex core, with reconfigurable FPGA instruction set
-extensions. Do get in touch at <a href="mailto:info@lowrisc.org">info@lowrisc.org</a> if
-you’re looking to integrate Ibex into one of your designs…</p>
-
-<p><img src="/img/forte_placement.png" alt="University of Manchester design with Ibex
-core" title="University of Manchester design with
-Ibex core" /></p>
-
-<p>Ibex stands on an impressive mountain of engineering, erected by many great
-people mostly at ETH Zürich and the University of Bologna. Before <a href="/blog/2019/05/lowrisc-expands-press-release/">it was
+extensions. Do get in touch at <a href=mailto:info@lowrisc.org>info@lowrisc.org</a> if
+you’re looking to integrate Ibex into one of your designs…</p><img srcset="/blog/2019/06/an-update-on-ibex-our-microcontroller-class-cpu-core/forte_placement_hue940785ad6e6ed3174e2001f0623cf05_326177_400x0_resize_box_2.png 1x, /blog/2019/06/an-update-on-ibex-our-microcontroller-class-cpu-core/forte_placement_hue940785ad6e6ed3174e2001f0623cf05_326177_800x0_resize_box_2.png 2x" src=/blog/2019/06/an-update-on-ibex-our-microcontroller-class-cpu-core/forte_placement_hue940785ad6e6ed3174e2001f0623cf05_326177_400x0_resize_box_2.png alt="University of Manchester design with Ibex core" title="University of Manchester design with Ibex core" class="d-block mx-auto m-2"><p>Ibex stands on an impressive mountain of engineering, erected by many great
+people mostly at ETH Zürich and the University of Bologna. Before <a href=/blog/2019/05/lowrisc-expands-press-release/>it was
 contributed to
 lowRISC</a> in
 December 2018, Ibex was called Zero-riscy. The history of the core can be traced
 back to a CPU core called “OR10N”, which was first taped out in 2013. Since that
 time, many, many hours of engineering, testing,
 and benchmarking went into what is now Ibex. That’s why it is such a solid
-design, and that’s the legacy lowRISC is proud to build upon.</p>
-
-<p>lowRISC started working on Ibex around the time I joined the engineering team,
+design, and that’s the legacy lowRISC is proud to build upon.</p><p>lowRISC started working on Ibex around the time I joined the engineering team,
 since then we’ve been able to make a range of improvements in collaboration with
-our partners at Google and ETH Zürich, with <a href="/blog/2019/06/introducing-pirmin-laura/">Pirmin also
+our partners at Google and ETH Zürich, with <a href=/blog/2019/06/introducing-pirmin-laura/>Pirmin also
 joining</a> the
-effort recently.</p>
-
-<p>One of the first things we did with Ibex was the replacement of the debug system
+effort recently.</p><p>One of the first things we did with Ibex was the replacement of the debug system
 with one that is compliant to the RISC-V Debug Specification. (Thanks to Robert
 Balas and Davide Schiavone who started this work on a similar CPU core!) We also
 cleaned up the code in many places to make it easier to read and extend. And
 just recently Tao Liu from Google added a UVM testbench to make it easier to
-verify that the core works as expected.</p>
-
-<p>Importantly, this is an active and ongoing effort. With the engineering and
+verify that the core works as expected.</p><p>Importantly, this is an active and ongoing effort. With the engineering and
 project maintenance resources lowRISC and our partners are putting into Ibex and
 related IP blocks, we aim to make it the make Ibex <em>the</em> go-to
-microcontroller-class CPU core. Our <a href="https://github.com/lowRISC/ibex/issues">issue tracker on
+microcontroller-class CPU core. Our <a href=https://github.com/lowRISC/ibex/issues>issue tracker on
 GitHub</a> should give you a rough idea of
-what’s coming.</p>
-
-<p>Do you want to join us making Ibex even better? For example, do you want to set
+what’s coming.</p><p>Do you want to join us making Ibex even better? For example, do you want to set
 up world-class continuous integration for this core? lowRISC is hiring, and
 we’re looking for a broad range of engineers: hardware, software and tooling.
-<a href="/jobs/">Join us!</a></p>
-
-<p>You want to know more about Ibex and how lowRISC develops it to be a piece of
-high-quality free and open source IP? <a href="https://fossi-foundation.org/wosh/">Join Philipp for a talk at the Week of
+<a href=/jobs/>Join us!</a></p><p>You want to know more about Ibex and how lowRISC develops it to be a piece of
+high-quality free and open source IP? <a href=https://fossi-foundation.org/wosh/>Join Philipp for a talk at the Week of
 Open Source Hardware (WOSH) in Zürich, Switzerland on Friday, June
-14.</a></p>
-
-<p><em>Philipp Wagner</em></p>
-
-                    </section>
-                </article>
-
-        </div>
-      </section>
-    </div>
-    
-
-
-        <footer>
-
-          <section class="outer-container">
-
-
-
-            <p>
-
-
-            Unless otherwise noted, content on this site is licensed under a <a style="color:white" href="http://creativecommons.org/licenses/by-sa/4.0/" >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-            </p>
-
-          </section>
-
-        </footer>
-    </body>
-</html>
-
-    </body>
-</html>
-
+14.</a></p></article></div></main><footer class="lr-footer jumbotron"><div class=container><div class=row><div class="col-sm-4 pb-3 pb-sm-0"><img src=/img/logo/logo-dualcolor.svg width=150px></div><div class=col><p>The text content on this website is licensed under a <a href=https://creativecommons.org/licenses/by/4.0/>Creative Commons Attribution 4.0 International License</a>, except where otherwise noted. No license is granted for logos or other trademarks. Other content &copy; lowRISC Contributors.
+&middot; <a href=/privacy-policy>Privacy and cookies policy</a> &middot; <a href=/usage-licence>Usage licence</a> &middot; <a href=#>Back to top</a></p></div></div></div></footer><script src=/main.fe48f.js></script></body></html>

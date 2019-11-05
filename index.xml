@@ -1,4 +1,62 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lowRISC: Collaborative open silicon engineering</title><link>https://www.lowrisc.org/</link><description>Recent blog posts from lowRISC</description><language>en-us</language><lastBuildDate>Wed, 23 Oct 2019 10:00:00 +0100</lastBuildDate><atom:link type="application/rss+xml" href="https://www.lowrisc.org/index.xml" rel="self"/><copyright> The text content on this website is licensed under a Creative Commons Attribution 4.0 International License, except where otherwise noted. No license is granted for logos or other trademarks. Other content Copyright lowRISC Contributors.</copyright><item><title>Introducing Greg &amp; Tom</title><link>https://www.lowrisc.org/blog/2019/10/introducing-greg-tom/</link><guid>https://www.lowrisc.org/blog/2019/10/introducing-greg-tom/</guid><pubDate>Wed, 23 Oct 2019 10:00:00 +0100</pubDate><author>info@lowrisc.org (lowRISC)</author><description><![CDATA[ 
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lowRISC: Collaborative open silicon engineering</title><link>https://www.lowrisc.org/</link><description>Recent blog posts from lowRISC</description><language>en-us</language><lastBuildDate>Tue, 05 Nov 2019 09:00:00 +0000</lastBuildDate><atom:link type="application/rss+xml" href="https://www.lowrisc.org/index.xml" rel="self"/><copyright> The text content on this website is licensed under a Creative Commons Attribution 4.0 International License, except where otherwise noted. No license is granted for logos or other trademarks. Other content Copyright lowRISC Contributors.</copyright><item><title>Andy Hopper joins lowRISC CIC Board as Independent Chair</title><link>https://www.lowrisc.org/blog/2019/11/andy-hopper-joins-lowrisc-cic-board-as-independent-chair/</link><guid>https://www.lowrisc.org/blog/2019/11/andy-hopper-joins-lowrisc-cic-board-as-independent-chair/</guid><pubDate>Tue, 05 Nov 2019 09:00:00 +0000</pubDate><author>info@lowrisc.org (lowRISC)</author><description><![CDATA[ 
+
+
+
+
+
+
+
+
+
+
+
+
+<img
+  src="https://www.lowrisc.org/blog/2019/11/andy-hopper-joins-lowrisc-cic-board-as-independent-chair/andy-hopper_hu2c6ee2f3eefab707dfe9b96887be9216_36641_300x0_resize_q75_box.jpg"
+  alt='Andy Hopper' 
+  title='Andy Hopper' 
+>
+
+
+<p>Today, we are delighted to announce that <a href="https://www.cl.cam.ac.uk/~ah12/">Professor Andy
+Hopper</a>, CBE FRS FIET FREng, has joined the
+lowRISC Board of Directors as Independent Chair.</p>
+
+<p>&ldquo;I&rsquo;m delighted to be joining lowRISC CIC,&rdquo; said Prof. Hopper, speaking today
+from Cambridge UK, &ldquo;As digital systems pervade every aspect of our lives trust
+and transparency become crucial. An open source approach allows for public
+inspection of the principles and implementations being used. I believe the
+future of digital systems will be underpinned by not for profit organisations
+that provide design transparency and enable real innovation. I am putting all
+my weight behind lowRISC because it is an indispensable component of our
+digital world.&rdquo;</p>
+
+<p>Professor Hopper, Treasurer and Vice-President of the Royal Society and
+Professor of Computer Technology at the University of Cambridge, is a pivotal
+figure in the UK technology scene. He was the Research Director of Acorn
+Computers from 1979-85, during which period the pioneering ARM1 RISC processor
+was developed<sup>1</sup>, and headed up the world-renowned Cambridge
+University Computer Lab between 2004 and 2018.</p>
+
+<p>Cited as one of the <a href="https://www.timeshighereducation.com/cn/news/the-uks-100-leading-practising-scientists/2010580.article">UK&rsquo;s leading practicing
+scientists</a>,
+Professor Hopper also has deep connections within the business community,
+having co-founded thirteen spin-outs and start-ups, three of which have
+subsequently been taken public. In recent years, the companies he helped
+create have
+<a href="https://en.wikipedia.org/wiki/Queen%27s_Awards_for_Enterprise">received five Queen&rsquo;s Awards for Enterprise</a>.</p>
+
+<p>The lowRISC board looks forward to working with Professor Hopper to grow
+lowRISC CIC&rsquo;s engineering and executive team, deepen our relationships with
+new and existing partners like Google, and maximize the positive global impact
+of open source silicon design in a variety of high value target applications.</p>
+
+<p><sup>1</sup> ARM itself was subsequently spun out in 1990.</p>
+
+<hr />
+
+<p><em>Dr Robert Mullins, lowRISC Director and Co-Founder</em></p>
+ ]]></description></item><item><title>Introducing Greg &amp; Tom</title><link>https://www.lowrisc.org/blog/2019/10/introducing-greg-tom/</link><guid>https://www.lowrisc.org/blog/2019/10/introducing-greg-tom/</guid><pubDate>Wed, 23 Oct 2019 10:00:00 +0100</pubDate><author>info@lowrisc.org (lowRISC)</author><description><![CDATA[ 
 
 <p><em>Greg Chadwick and Tom Roberts recently joined lowRISC’s growing engineering
 team. They’ve both taken some time to share a little about what they’re doing at

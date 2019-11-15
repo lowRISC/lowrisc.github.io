@@ -30,7 +30,7 @@
   src="https://www.lowrisc.org/blog/2019/11/announcing-opentitan-the-first-transparent-silicon-root-of-trust/logo-opentitan.svg"
   alt='OpenTitan' 
   title='OpenTitan' 
-  width='400 '
+  width='400'
   class='float-right rounded m-2 '
 >
 
@@ -68,7 +68,7 @@ Today, at the mid-point of the project, we’re opening up the <a href="https://
   src="https://www.lowrisc.org/blog/2019/11/announcing-opentitan-the-first-transparent-silicon-root-of-trust/opentitan-rot-comparison.svg"
   alt='Traditional RoT vs. OpenTitan' 
   title='Traditional RoT vs. OpenTitan' 
-  width='500 '
+  width='500'
   class='figure-img '
 >
 

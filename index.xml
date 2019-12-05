@@ -1,4 +1,22 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lowRISC: Collaborative open silicon engineering</title><link>https://www.lowrisc.org/</link><description>Recent blog posts from lowRISC</description><language>en-us</language><lastBuildDate>Tue, 26 Nov 2019 09:00:00 +0000</lastBuildDate><atom:link type="application/rss+xml" href="https://www.lowrisc.org/index.xml" rel="self"/><copyright> The text content on this website is licensed under a Creative Commons Attribution 4.0 International License, except where otherwise noted. No license is granted for logos or other trademarks. Other content Copyright lowRISC Contributors.</copyright><item><title>Get started with OpenTitan</title><link>https://www.lowrisc.org/blog/2019/11/get-started-with-opentitan/</link><guid>https://www.lowrisc.org/blog/2019/11/get-started-with-opentitan/</guid><pubDate>Tue, 26 Nov 2019 09:00:00 +0000</pubDate><author>info@lowrisc.org (Greg Chadwick)</author><description><![CDATA[ <p>Interested in trying out the recently announced OpenTitan? We&rsquo;ve put together a
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lowRISC: Collaborative open silicon engineering</title><link>https://www.lowrisc.org/</link><description>Recent blog posts from lowRISC</description><language>en-us</language><lastBuildDate>Thu, 05 Dec 2019 09:00:00 +0000</lastBuildDate><atom:link type="application/rss+xml" href="https://www.lowrisc.org/index.xml" rel="self"/><copyright> The text content on this website is licensed under a Creative Commons Attribution 4.0 International License, except where otherwise noted. No license is granted for logos or other trademarks. Other content Copyright lowRISC Contributors.</copyright><item><title>lowRISC 101: Introduction to lowRISC at the RISC-V Summit</title><link>https://www.lowrisc.org/blog/2019/12/lowrisc-101-introduction-to-lowrisc-at-the-risc-v-summit/</link><guid>https://www.lowrisc.org/blog/2019/12/lowrisc-101-introduction-to-lowrisc-at-the-risc-v-summit/</guid><pubDate>Thu, 05 Dec 2019 09:00:00 +0000</pubDate><author>info@lowrisc.org (lowRISC)</author><description><![CDATA[ <p>With the <a href="https://www.lowrisc.org/blog/2019/11/announcing-opentitan-the-first-transparent-silicon-root-of-trust/">recent announcement of OpenTitan</a>, we at lowRISC had many great conversations about the work we do to produce high-quality open source hardware and software.
+A great place to continue these discussions is the <a href="https://tmt.knect365.com/risc-v-summit/">RISC-V Summit in San Jose, CA</a> (Dec 10 - 12, 2019).
+lowRISC will showcase its work in the conference track and in the exhibit hall.</p>
+
+<p>At booth 101, lowRISC will showcase its recent work and our engineers will be around to answer your questions.
+Stop by if you have questions about OpenTitan, lowRISC in general, or about the LLVM compiler work we&rsquo;re doing!</p>
+
+<p>If you&rsquo;re using the LLVM compiler or are planning to use it for your next RISC-V project, we invite you to join Alex&rsquo;s talk in the conference track.
+Titled &ldquo;Production-ready RISC-V Support in LLVM/Clang 9.0 - How we Got There and What&rsquo;s Next&rdquo; the talk will retrace the journey to make the RISC-V LLVM backend production ready, an effort which hit a major milestone in August this year, when the RISC-V backend was enabled by default for all LLVM/Clang compiler builds.</p>
+
+<p>See you there! And as always, if you cannot make it to the RISC-V Summit, just drop us a line at <a href="mailto:info@lowrisc.org">info@lowrisc.org</a>!</p>
+
+<p><strong>Quick facts</strong></p>
+
+<ul>
+<li><a href="https://tmt.knect365.com/risc-v-summit/agenda/2#software_production-ready-risc-v-support-in-llvmclang-90-how-we-got-there-and-whats-next">Production-ready RISC-V Support in LLVM/Clang 9.0 - How we Got There and What&rsquo;s Next</a>. Wednesday, 11 December 2019 1:20pm - 1:40pm, Grand Ballroom 220-C</li>
+<li>Find lowRISC in booth 101 in the exhibit hall.</li>
+</ul>
+ ]]></description></item><item><title>Get started with OpenTitan</title><link>https://www.lowrisc.org/blog/2019/11/get-started-with-opentitan/</link><guid>https://www.lowrisc.org/blog/2019/11/get-started-with-opentitan/</guid><pubDate>Tue, 26 Nov 2019 09:00:00 +0000</pubDate><author>info@lowrisc.org (Greg Chadwick)</author><description><![CDATA[ <p>Interested in trying out the recently announced OpenTitan? We&rsquo;ve put together a
 video that goes through an overview of how the OpenTitan prototype system is
 put together and how to get up and running with our pre-built release
 (providing simulator binaries and pre-built FPGA images for the Nexys Video

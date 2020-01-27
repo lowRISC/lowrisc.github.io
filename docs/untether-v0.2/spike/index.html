@@ -1,0 +1,39 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><base href=https://www.lowrisc.org><link rel=icon type=image/png sizes=32x32 href=/favicon.png><title>Behavioural Simulation (Spike) &middot; lowRISC: Collaborative open silicon engineering</title><link href=/main.e2036.css rel=stylesheet><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-53520714-1','auto');ga('send','pageview');</script></head><body><header><nav class="navbar navbar-expand-md navbar-light"><div class=container><a class=navbar-brand href=#><img src=/img/logo/logo-dualcolor.svg alt=lowRISC></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarCollapse aria-controls=navbarCollapse aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarCollapse><ul class="navbar-nav ml-auto"><li class=nav-item><a href=/our-work class=nav-link>Our work</a></li><li class=nav-item><a href=/open-silicon class=nav-link>Open Silicon</a></li><li class=nav-item><a href=/community class=nav-link>Community</a></li><li class=nav-item><a href=/blog class=nav-link>Blog</a></li><li class=nav-item><a href=/jobs class=nav-link>Jobs</a></li><li class=nav-item><a href=/about class=nav-link>About us</a></li><li class=nav-item><a class="btn lr-navbar-btn-gh" href=https://github.com/lowrisc>GitHub</a></li></ul></div></div></nav></header><main role=main><div class=container><h1>Behavioural Simulation (Spike)</h1><h3 id=introduction:a919202b490d8b5c17ba80d4ef0b31a6>Introduction</h3><p><a href=https://github.com/riscv/riscv-isa-sim>Spike</a> is a RISC-V functional
+ISA simulator. It models a RISC-V core and cache system. Note that our fork
+hasn&rsquo;t currently been modified to include tagged memory support.</p><p>In this release, due to the peripheral mismatch between the original Rocket-chip and untethered lowRISC SoC, Spike can only be used to run a Linux Kernel and non-I/O related programs.</p><p>Please see <a href=https://www.lowrisc.org/docs/untether-v0.2/riscv_compile/>Compile and install the RISC-V cross-compiler</a> for the installation of Spike.</p><h3 id=using-spike:a919202b490d8b5c17ba80d4ef0b31a6>Using Spike</h3><p>The command-line arguments to Spike can be listed with <code>spike -h</code>:</p><pre><code># usage: spike [host options] &lt;target program&gt; [target options]
+# Host Options:
+#   -p &lt;n&gt;             Simulate &lt;n&gt; processors [default 1]
+#   -m &lt;n&gt;             Provide &lt;n&gt; MiB of target memory [default 4096]
+#   -d                 Interactive debug mode
+#   -g                 Track histogram of PCs
+#   -l                 Generate a log of execution
+#   -h                 Print this help message
+#   --isa=&lt;name&gt;       RISC-V ISA string [default RV64IMAFDC]
+#   --ic=&lt;S&gt;:&lt;W&gt;:&lt;B&gt;   Instantiate a cache model with S sets,
+#   --dc=&lt;S&gt;:&lt;W&gt;:&lt;B&gt;     W ways, and B-byte blocks (with S and
+#   --l2=&lt;S&gt;:&lt;W&gt;:&lt;B&gt;     B both powers of 2).
+#   --extension=&lt;name&gt; Specify RoCC Extension
+#   --extlib=&lt;name&gt;    Shared library to load
+</code></pre><p>Note: to use the <code>-g</code> argument Spike has to be compiled with the
+<code>--enable-histogram</code> option. This is not the case by default.</p><pre><code># set up the RISCV environment variables
+cd $TOP/riscv-tools/riscv-isa-sim
+mkdir build
+cd build
+../configure --prefix=$RISCV --with-fesvr=$RISCV --enable-histogram
+make -j$(nproc)
+make install
+</code></pre><h3 id=running-spike:a919202b490d8b5c17ba80d4ef0b31a6>Running Spike</h3><h4 id=bare-metal-mode:a919202b490d8b5c17ba80d4ef0b31a6>Bare metal mode</h4><p>Spike can be used to run the ISA regression test cases provided in <code>$TOP/riscv-tools/riscv-tests/isa</code>.</p><pre><code>cd $TOP/riscv-tools/riscv-tests/isa
+make rv64ui-p-add
+spike rv64ui-p-add
+# show the return value
+echo $?
+</code></pre><p>Since there is no peripheral support in the bare metal mode, the return value
+is the only way to see the result of a test case. <code>0</code> indicates success while
+non-zero identifies the failed test case.</p><p><a name=spike-boot></a></p><h4 id=booting-risc-v-linux:a919202b490d8b5c17ba80d4ef0b31a6>Booting RISC-V Linux</h4><p>Before booting Linux, please make sure the Linux image (<code>vmlinux</code>) and the
+ramdisk (<code>root.bin</code>) are available. Please see <a href=https://www.lowrisc.org/docs/untether-v0.2/linux_compile/>Compile RISC-V Linux and
+ramdisk <code>root.bin</code></a> for more details.</p><pre><code>cd $TOP/riscv-tools/
+spike +disk=busybox-1.21.1/root.bin bbl linux-3.14.41/vmlinux
+</code></pre></div></main><footer class=lr-footer><div class=container><div class=row><div class="col-lg-2 d-none d-lg-block"><img src=/img/logo/logo-dualcolor.svg width=150px></div><div class=col><p>The text content on this website is licensed under a <a href=https://creativecommons.org/licenses/by/4.0/>Creative Commons Attribution 4.0 International License</a>, except where otherwise noted. No license is granted for logos or other trademarks. Other content &copy; lowRISC Contributors.</p><a href=/privacy-policy>Privacy and cookies policy</a>
+&middot; <a href=/usage-licence>Usage licence</a></p></div><div class=col-lg-2><p><a href=#>Back to top</a></p></div></div></div></footer><script src=/main.e2036.js></script></body></html>

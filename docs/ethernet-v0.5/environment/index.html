@@ -1,0 +1,46 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><base href=https://www.lowrisc.org><link rel=icon type=image/png sizes=32x32 href=/favicon.png><title>Prepare the environment &middot; lowRISC: Collaborative open silicon engineering</title><link href=/main.e2036.css rel=stylesheet><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-53520714-1','auto');ga('send','pageview');</script></head><body><header><nav class="navbar navbar-expand-md navbar-light"><div class=container><a class=navbar-brand href=#><img src=/img/logo/logo-dualcolor.svg alt=lowRISC></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarCollapse aria-controls=navbarCollapse aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarCollapse><ul class="navbar-nav ml-auto"><li class=nav-item><a href=/our-work class=nav-link>Our work</a></li><li class=nav-item><a href=/open-silicon class=nav-link>Open Silicon</a></li><li class=nav-item><a href=/community class=nav-link>Community</a></li><li class=nav-item><a href=/blog class=nav-link>Blog</a></li><li class=nav-item><a href=/jobs class=nav-link>Jobs</a></li><li class=nav-item><a href=/about class=nav-link>About us</a></li><li class=nav-item><a class="btn lr-navbar-btn-gh" href=https://github.com/lowrisc>GitHub</a></li></ul></div></div></nav></header><main role=main><div class=container><h1>Prepare the environment</h1><p>lowRISC tools and source code are robust between versions of Linux, but it has been
+found that
+Vivado (the Xilinx FPGA implementation suite) <a href=https://www.xilinx.com/support/answers/54242.html>is particular about the O/S</a></p><p>All builds were completed with Vivado 2015.4. If a newer version is attempted there could be script incompatibilities to fix and/or incompatible upgrades to internal Xilinx IP. We have no evidence that newer versions do not work, however IP changes to support newer chip families can cause obscure error messages which are offputting for the first-time user.</p><p>For this version of Vivado the Xilinx recommended O/S 64-bit Ubuntu (14.04 LTS).
+However, this version of Linux is not stable on newer Intel chip sets, where Ubuntu 16.04.3 LTS should be used instead.</p><p>It has been found that most of the problems with Vivado will go away if LD_LIBRARY_PATH is unset after sourcing the Vivado setup.
+This is caused by obsolete versions of system libraries such as libstc++ being incorporated into Vivado to make it more &ldquo;portable&rdquo;.
+Do not succumb to the temptation to update the system libraries inside Vivado because some of the APIs have changed.</p><p>If your machine cannot meet these requirements then synthesis should be able to run, albeit rather slowly, inside a virtual machine.
+The pre-build binaries were created with Ubuntu 16.04.3 LTS.</p><p>The following instructions are identical to the previous release, apart from the release name.
+For a more detailed explanation follow the
+<a href=/docs/untether-v0.2/dev-env>instructions of a previous tutorial</a>.</p><p>Ensure you have all the necessary packages installed:</p><pre><code>sudo apt-get install autoconf automake autotools-dev curl \
+libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison \
+flex texinfo gperf libncurses5-dev libusb-1.0-0 libboost-dev \
+swig git libtool libreadline-dev libelf-dev python-dev \
+microcom chrpath gawk texinfo nfs-kernel-server xinetd pseudo 
+</code></pre><p>Next steps:</p><ul><li><a href=/docs/ethernet-v0.5/installtools>Install FPGA and simulation tools</a></li></ul><p>You might want to add the Vivado tools to your path first to keep the environment clean. This prevents system tools
+from trying to use shared libraries from the (older) Vivado install. Proceed as follows if you chose the default install
+location (or follow your system adminstrator instructions)</p><pre><code>source /opt/Xilinx/Vivado/2015.4/settings64.sh
+unset LD_LIBRARY_PATH
+</code></pre><h3 id=download-the-code:2ce6f7160c057f4e00dea3301b32f3f7>Download the code</h3><p>The code is hosted in the
+<a href=https://github.com/lowrisc/lowrisc-chip>lowRISC chip git repository</a>. All
+external repositories are fetched as submodules. In case you want to work on multiple branches
+give each checkout a unique name (such as lowrisc-chip-ethernet-v0.5)
+You need to clone the
+proper branch (<code>ethernet-v0.5</code>):</p><pre><code>git clone -b ethernet-v0.5 --recursive https://github.com/lowrisc/lowrisc-chip.git lowrisc-chip-ethernet-v0.5
+cd lowrisc-chip-ethernet-v0.5
+</code></pre><h3 id=structure-of-the-git-repository:2ce6f7160c057f4e00dea3301b32f3f7>Structure of the git repository</h3><p>The structure is similar to the one described
+<a href=/docs/untether-v0.2/dev-env/#gitstruct>here</a>. However
+the peripherals that were previously in the Minion repository are connected directly to the rocket.</p><h3 id=next-steps:2ce6f7160c057f4e00dea3301b32f3f7>Next steps</h3><p>To set the correct environment variables for running lowRISC, you need to
+source the script <code>set_env.sh</code> (formerly <code>set_riscv_env.sh</code>) in the base directory.
+This must be done in a fresh shell window, not one used to work on any other branch of LowRISC:</p><pre><code>source set_env.sh
+</code></pre><p>It is possible to override the default values by exporting variables before sourcing the script.
+The following variables are overridable:</p><pre><code>$TOP                Path to the lowrisc-chip directory ($PWD).
+$RISCV              Path to the riscv toolchain ($TOP/riscv).
+$OSD_ROOT           Path to the Open SoC Debug tools ($TOP/tools).
+$FPGA_BOARD         The target FPGA board (nexys4_ddr).
+</code></pre><p>The remainder of this page is optional if you choose to use our pre-compiled images.</p><h2 id=download-and-build-linux-and-busybox-early-stage-user-commands:2ce6f7160c057f4e00dea3301b32f3f7>Download and build Linux and busybox (early stage user commands)</h2><p>This step is optional if you choose to use our pre-compiled images.</p><pre><code>sh $TOP/riscv-tools/fetch_and_patch_linux.sh
+</code></pre><h2 id=building-the-riscv-toolchain-quick-start-detailed-instructions-are-below:2ce6f7160c057f4e00dea3301b32f3f7>Building the RISCV toolchain (quick start: detailed instructions are below)</h2><pre><code>cd $TOP/riscv-tools/
+./build.sh
+cd riscv-gnu-toolchain/build
+../configure --prefix=$RISCV
+make -j$(nproc) linux
+</code></pre><p>Or for more detail, follow these instructions <em>(caution: from a previous release)</em> and then use the browser back button:</p><ul><li><a href=https://www.lowrisc.org/docs/riscv_compile/>Compile and install RISC-V cross-compiler</a></li></ul><h2 id=optional-step:2ce6f7160c057f4e00dea3301b32f3f7>Optional step</h2><p>The built-in hardware <a href=http://opensocdebug.org>Open SystemOnChip Debug</a> trace debugger is disabled by default.
+booting and remote access is done via Ethernet by default. However it can easily be enabled for development.</p><p>It needs the following software installation instructions to be followed, in order to enable host communications.
+As well as trace debugging it allows Linux kernels to be loaded from the PC for debugging purposes.</p><p>Follow these instructions <em>(caution: from a previous release)</em> and then use the browser back button:</p><ul><li><a href=/docs/debug-v0.3/osdsoftware>Build the osd software</a></li></ul></div></main><footer class=lr-footer><div class=container><div class=row><div class="col-lg-2 d-none d-lg-block"><img src=/img/logo/logo-dualcolor.svg width=150px></div><div class=col><p>The text content on this website is licensed under a <a href=https://creativecommons.org/licenses/by/4.0/>Creative Commons Attribution 4.0 International License</a>, except where otherwise noted. No license is granted for logos or other trademarks. Other content &copy; lowRISC Contributors.</p><a href=/privacy-policy>Privacy and cookies policy</a>
+&middot; <a href=/usage-licence>Usage licence</a></p></div><div class=col-lg-2><p><a href=#>Back to top</a></p></div></div></div></footer><script src=/main.e2036.js></script></body></html>

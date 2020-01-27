@@ -1,0 +1,49 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><base href=https://www.lowrisc.org><link rel=icon type=image/png sizes=32x32 href=/favicon.png><title>Building the boot image from scratch &middot; lowRISC: Collaborative open silicon engineering</title><link href=/main.e2036.css rel=stylesheet><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-53520714-1','auto');ga('send','pageview');</script></head><body><header><nav class="navbar navbar-expand-md navbar-light"><div class=container><a class=navbar-brand href=#><img src=/img/logo/logo-dualcolor.svg alt=lowRISC></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarCollapse aria-controls=navbarCollapse aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarCollapse><ul class="navbar-nav ml-auto"><li class=nav-item><a href=/our-work class=nav-link>Our work</a></li><li class=nav-item><a href=/open-silicon class=nav-link>Open Silicon</a></li><li class=nav-item><a href=/community class=nav-link>Community</a></li><li class=nav-item><a href=/blog class=nav-link>Blog</a></li><li class=nav-item><a href=/jobs class=nav-link>Jobs</a></li><li class=nav-item><a href=/about class=nav-link>About us</a></li><li class=nav-item><a class="btn lr-navbar-btn-gh" href=https://github.com/lowrisc>GitHub</a></li></ul></div></div></nav></header><main role=main><div class=container><h1>Building the boot image from scratch</h1><h2 id=the-build-image-script:48ebbd00bd42f1546af7b694ecdf0195>The build image script</h2><p>You can rebuild most of the boot image from scratch using the
+<code>build_image.sh</code> script:</p><pre><code># setup the RISCV environment variables
+# setup the Xilinx environment variables
+cd $TOP/fpga-zynq/zedboard
+./build_image.sh
+</code></pre><p>The individual steps needed to complete this process are described in
+more detail below. Similar instructions are provided for the original Rocket chip <a href=https://github.com/ucb-bar/fpga-zynq#3--building-everything-from-scratch>here</a>.</p><h2 id=requirements:48ebbd00bd42f1546af7b694ecdf0195>Requirements</h2><ul><li>Xilinx Vivado 2014.4</li><li>Ensure <a href=http://www.xilinx.com/support/answers/63036.html>Xilinx patch 63036</a> is installed otherwise the First Stage Boot Loader (FSBL) cannot be generated.</li></ul><h2 id=1-generating-the-fpga-bitstream:48ebbd00bd42f1546af7b694ecdf0195>1. Generating the FPGA bitstream</h2><p>The easiest way to generate a bitstream is to use the Makefile provided:</p><pre><code># set up the RISCV environment variables
+# set up the Xilinx environment variables
+cd $TOP/fpga-zynq/zedboard
+# generate the FPGA Verilog code if not available
+make rocket
+# generate the Vivado project and compile it to a bitstream
+make bitstream
+</code></pre><p>Alternatively, using the GUI:</p><pre><code># set up the RISCV environment variables
+# set up the Xilinx environment variables
+cd $TOP/fpga-zynq/zedboard
+# generate the FPGA Verilog code if not available
+make rocket
+# Start Vivado and load the project file:
+make vivado
+</code></pre><p>Then select &ldquo;Generate Bitstream&rdquo; in the &ldquo;Program and Debug&rdquo; menu.</p><p>Either way, a bitstream file should be generated at:</p><pre><code>zedboard_rocketchip/zedboard_rocketchip.runs/impl_1/rocketchip_wrapper.bit
+</code></pre><h2 id=2-export-hardware-information-for-sdk:48ebbd00bd42f1546af7b694ecdf0195>2. Export hardware information for SDK</h2><p>Select <code>File-&gt;Export-&gt;Export Hardware</code>. In the &ldquo;Export Hardware&rdquo; panel
+that appears, simply press &ldquo;OK&rdquo; with default options (there is no need
+to tick the &ldquo;include bitstream&rdquo; option). The hardware information is
+then exported to:</p><p><code>zedboard_rocketchip/zedboard_rocketchip.runs/impl_1/rocketchip_wrapper.bit</code></p><h2 id=3-building-the-first-stage-boot-loader-fsbl:48ebbd00bd42f1546af7b694ecdf0195>3. Building the First Stage Boot Loader (FSBL)</h2><p>Open the Xilinx SDK from the Vivado GUI (<code>File-&gt;Launch SDK</code>).</p><p>In the &ldquo;Launch SDK&rdquo; panel that appears, press &ldquo;OK&rdquo; with the default options. You should see the SDK window as below.</p><p><img src=../figures/xilinx_sdk.png alt=Drawing style=width:500px></p><p>Note: If there are error messages (e.g. <code>Hsi 55-1464 : Hardware
+instant EMPTY not found in the design</code>), the Xilinx SDK probably
+hasn&rsquo;t been patched as required. Please refer to this
+<a href=http://www.xilinx.com/support/answers/63036.html>page</a> for
+instructions on installing the patch. After patching Vivado 2014.4,
+you will need to start from step 1. Remember to <code>make clean</code> before
+<code>make rocket</code>.</p><p>To generate the FSBL, select <code>File-&gt;New-&gt;Application Project</code>. This
+will open the &ldquo;New Projet&rdquo; panel (see below). In the &ldquo;Project name&rdquo;
+field enter &ldquo;FSBL&rdquo;.</p><p><img src=../figures/fsbl_1.png alt=Drawing style=width:500px></p><p>Note: If you choose a different name, such as YOUR_FSBL, you need to
+copy the generated elf file:
+<code>zedboard_rocketchip/zedboard_rocketchip.sdk/YOUR_FSBL/Debug/YOUR_FSBL.elf</code>
+to <code>fpga-images-zedboard/boot_image/zynq_fsbl.elf</code>.</p><p>Leaving all the options unchanged, press &ldquo;Next&rdquo;. In the &ldquo;Available Templates&rdquo; select &ldquo;Zynq FSBL&rdquo; and finally press &ldquo;Finish&rdquo;. The FSBL elf file will be generated and placed at:</p><p><code>zedboard_rocketchip/zedboard_rocketchip.sdk/FSBL/Debug/FSBL.elf</code></p><p><img src=../figures/fsbl_2.png alt=Drawing style=width:500px></p><h2 id=4-building-u-boot-for-the-zynq-arm-core:48ebbd00bd42f1546af7b694ecdf0195>4. Building u-boot for the Zynq ARM core</h2><p>This <a href=https://github.com/ucb-bar/fpga-zynq#34--building-u-boot-for-the-zynq-arm-core>step</a> is not normally required.</p><pre><code> # setup the RISCV environment variables
+ # setup the Xilinx environment variables
+ cd $TOP/fpga-zynq/zedboard
+ make arm-uboot
+</code></pre><p>The resulting <code>u-boot.elf</code> file is placed in <code>soft_build/u-boot.elf</code>.
+Now copy this file to the <code>boot_image</code> directory:</p><pre><code>cp soft_build/u-boot.elf fpga-images-zedboard/boot_image/
+</code></pre><h2 id=5-creating-the-fpga-boot-image-boot-bin:48ebbd00bd42f1546af7b694ecdf0195>5. Creating the FPGA boot image (<code>boot.bin</code>)</h2><p>The manual steps for completing this process are described <a href=https://github.com/ucb-bar/fpga-zynq#35--creating-bootbin>here</a>.</p><p>Alternatively, simply type:</p><pre><code> # setup the RISCV environment variables
+ cd $TOP/fpga-zynq/zedboard
+ rm fpga-images-zedboard/boot.bin
+ make fpga-images-zedboard/boot.bin
+</code></pre></div></main><footer class=lr-footer><div class=container><div class=row><div class="col-lg-2 d-none d-lg-block"><img src=/img/logo/logo-dualcolor.svg width=150px></div><div class=col><p>The text content on this website is licensed under a <a href=https://creativecommons.org/licenses/by/4.0/>Creative Commons Attribution 4.0 International License</a>, except where otherwise noted. No license is granted for logos or other trademarks. Other content &copy; lowRISC Contributors.</p><a href=/privacy-policy>Privacy and cookies policy</a>
+&middot; <a href=/usage-licence>Usage licence</a></p></div><div class=col-lg-2><p><a href=#>Back to top</a></p></div></div></div></footer><script src=/main.e2036.js></script></body></html>

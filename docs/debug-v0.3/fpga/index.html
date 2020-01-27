@@ -1,0 +1,77 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><base href=https://www.lowrisc.org><link rel=icon type=image/png sizes=32x32 href=/favicon.png><title>Running on the FPGA &middot; lowRISC: Collaborative open silicon engineering</title><link href=/main.e2036.css rel=stylesheet><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-53520714-1','auto');ga('send','pageview');</script></head><body><header><nav class="navbar navbar-expand-md navbar-light"><div class=container><a class=navbar-brand href=#><img src=/img/logo/logo-dualcolor.svg alt=lowRISC></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarCollapse aria-controls=navbarCollapse aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarCollapse><ul class="navbar-nav ml-auto"><li class=nav-item><a href=/our-work class=nav-link>Our work</a></li><li class=nav-item><a href=/open-silicon class=nav-link>Open Silicon</a></li><li class=nav-item><a href=/community class=nav-link>Community</a></li><li class=nav-item><a href=/blog class=nav-link>Blog</a></li><li class=nav-item><a href=/jobs class=nav-link>Jobs</a></li><li class=nav-item><a href=/about class=nav-link>About us</a></li><li class=nav-item><a class="btn lr-navbar-btn-gh" href=https://github.com/lowrisc>GitHub</a></li></ul></div></div></nav></header><main role=main><div class=container><h1>Running on the FPGA</h1><p>In this final step, we want to test the debug functionality on an FPGA board.
+The debug system will use the UART connection at 12 MBaud to communicate with
+the debug system.</p><h2 id=run-the-pre-built-fpga-demo-with-a-trace-debugger:c1fb0937386f1856cab2482632b86341>Run the pre-built FPGA demo with a trace debugger</h2><p>The files you may need:</p><ul><li><a href=https://github.com/lowRISC/lowrisc-chip/releases/download/v0.3/nexys4ddr_fpga_debug.bit>nexys4ddr_fpga_debug.bit</a>:
+The debug enabled FPGA bitstream</li><li><a href=https://github.com/lowRISC/lowrisc-chip/releases/download/v0.3/boot.bin>boot.bin</a>:
+Linux, Busybox and bootloader packaged in one image.</li><li><a href=https://github.com/lowRISC/lowrisc-chip/releases/download/v0.3/nexys4ddr_bram_boot.riscv>nexys4ddr_bram_boot.riscv</a>:
+A 1st stage bootloader to copy a program from SD to DDR RAM.</li></ul><p>Download and write the bitstream</p><pre><code>curl -L https://github.com/lowRISC/lowrisc-chip/releases/download/v0.3/nexys4ddr_fpga_debug.bit &gt; nexys4ddr_fpga_debug.bit
+curl -L https://github.com/lowRISC/lowrisc-chip/releases/download/v0.3/boot.bin &gt; boot.bin
+curl -L https://github.com/lowRISC/lowrisc-chip/releases/download/v0.3/nexys4ddr_bram_boot.riscv &gt; nexys4ddr_bram_boot.riscv
+vivado -mode batch -source $TOP/fpga/common/script/program.tcl -tclargs &quot;xc7a100t_0&quot; nexys4ddr_fpga_debug.bit
+</code></pre><p>There are two ways to boot a RISC-V Linux. For both cases, we need to open the debug daemon to load programs and connect to the UART console.</p><pre><code>opensocdebugd uart device=/dev/ttyUSB0 speed=12000000
+</code></pre><h4 id=directly-load-linux-to-ddr-ram:c1fb0937386f1856cab2482632b86341>Directly load Linux to DDR RAM</h4><p>The pre-built FPGA bitstream has a jump program as the 1st stage bootloader
+(in an on-chip BRAM) which just jumps to DDR RAM. We need to load the Linux
+image to the DDR RAM.</p><pre><code>osd-cli
+osd&gt; reset -halt
+osd&gt; terminal 2
+osd&gt; mem loadelf boot.bin 3
+osd&gt; start
+</code></pre><p>The terminal should again boot Linux. To update the image simply
+perform the same action again.</p><p>You can get a pre-built image of <a href=https://github.com/lowRISC/lowrisc-chip/releases/download/v0.3/nexys4ddr_bram_jump.riscv>jump</a>.</p><h4 id=load-linux-from-sd-card:c1fb0937386f1856cab2482632b86341>Load Linux from SD card</h4><p>Other than manually loading a Linux to the DDR RAM using the debugger, we can use the pre-built <code>nexys4ddr_bram_boot.riscv</code> to load Linux from SD.
+Note: make sure the Linux image <code>boot.bin</code> is copied to SD beforehand.</p><pre><code>osd-cli
+osd&gt; reset -halt
+osd&gt; terminal 2
+osd&gt; mem loadelf nexys4ddr_bram_boot.riscv 3
+osd&gt; start
+</code></pre><p>You should be able to see the boot program copy the boot.bin from SD to DDR RAM and then boot it.</p><h2 id=run-a-standalone-fpga-demo-no-debugger-support:c1fb0937386f1856cab2482632b86341>Run a standalone FPGA demo (no debugger support)</h2><p>We still keep the option to build a fully standalone implementation that does not rely on a debugger.</p><p>You need to download two files:</p><ul><li><a href=https://github.com/lowRISC/lowrisc-chip/releases/download/v0.3/nexys4ddr_fpga_standalone.bit>nexys4ddr_fpga_standalone.bit</a>:
+FPGA bitstream</li><li><a href=https://github.com/lowRISC/lowrisc-chip/releases/download/v0.3/boot.bin>boot.bin</a>:
+Linux, Busybox and bootloader packaged in one image.</li></ul><p>Download and write the bitstream:</p><pre><code>curl -L https://github.com/lowRISC/lowrisc-chip/releases/download/v0.3/nexys4ddr_fpga_standalone.bit &gt; fpga.bit
+curl -L https://github.com/lowRISC/lowrisc-chip/releases/download/v0.3/boot.bin &gt; boot.bin
+</code></pre><p>Now copy both binary files to the SD card and configure the Nexys4-DDR boot option to SD card (JP1 to USB/SD). Power up the FPGA board and open a terminal:</p><pre><code>microcom -p /dev/ttyUSB0 -s 115200
+</code></pre><p>You should be able to see that Linux boots from SD card.</p><p>A script is provided to load your SD card without manually downloading the binary files:</p><pre><code>$TOP/fpga/board/nexys4_ddr/preload_image.sh /PATH/TO/SD/
+</code></pre><p>You can also write the bitstream to FPGA by JTAG (JP1 to JTAG)</p><pre><code>vivado -mode batch -source $TOP/fpga/common/script/program.tcl -tclargs &quot;xc7a100t_0&quot; fpga.bit
+</code></pre><h2 id=mount-an-sd-card-inside-risc-v-linux:c1fb0937386f1856cab2482632b86341>Mount an SD card inside RISC-V Linux</h2><p>To discover whether an SD is recognized by the kernel:</p><pre><code>cat /proc/partitions
+</code></pre><p>If an SD card is formated in FAT32 and inserted, it should look like:</p><pre><code> 179        0    7707648 mmcblk0
+ 179        1    7706624 mmcblk0p1
+</code></pre><p>To mount this card:</p><pre><code>mknod /dev/mmcblk0p1 b 179 1
+mkdir /mnt
+mount /dev/mmcblk0p1 /mnt
+</code></pre><p>After you finished with the SD card, remember to unmount it.</p><pre><code>umount /mnt
+</code></pre><h2 id=build-your-own-bitstream-and-images:c1fb0937386f1856cab2482632b86341>Build your own bitstream and images</h2><h3 id=generate-the-bitstream:c1fb0937386f1856cab2482632b86341>Generate the bitstream</h3><h4 id=fpga-demo-with-a-trace-debugger:c1fb0937386f1856cab2482632b86341>FPGA demo with a trace debugger</h4><pre><code>cd $TOP/fpga/board/nexys4_ddr
+make cleanall
+CONFIG=Nexys4DebugConfig make jump
+</code></pre><p>The generated bitstream is located at <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code>.
+This will take some time (20-60 minutes depending on your computer).</p><h4 id=standalone-fpga-demo-without-a-trace-debugger:c1fb0937386f1856cab2482632b86341>standalone FPGA demo without a trace debugger</h4><pre><code>cd $TOP/fpga/board/nexys4_ddr
+make cleanall
+CONFIG=Nexys4Config make boot
+</code></pre><p>The generated bitstream is located at <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code>.
+This will take some time (20-60 minutes depending on your computer).</p><h3 id=program-the-fpga:c1fb0937386f1856cab2482632b86341>Program the FPGA</h3><p>Next, turn on the FPGA board and connect the USB cable. Now you
+download the bitstream to the FPGA:</p><pre><code>make program
+</code></pre><h3 id=build-linux:c1fb0937386f1856cab2482632b86341>Build Linux</h3><pre><code>cd $TOP/riscv-tools
+curl https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.6.2.tar.xz | tar -xJ
+curl -L http://busybox.net/downloads/busybox-1.21.1.tar.bz2 | tar -xj
+cd linux-4.6.2
+git init
+git remote add origin https://github.com/lowrisc/riscv-linux.git
+git fetch
+git checkout -f -t origin/debug-v0.3
+# lowRISC-specific hack for enabling power pin for SD card
+patch -p1 &lt; spi_sd_power_hack.patch
+cd $TOP/fpga/board/nexys4_ddr
+$TOP/riscv-tools/make_root.sh
+</code></pre><p>If everything runs OK, you should have a boot.bin file.</p><p>Please note that the Berkeley bootloader used by the Linux kernel relies on a header file (<code>dev_map.h</code>) generated by the Rocket chip (automatically generated by the Chisel compilation process).
+Normally FPGA bitstream should be generated before building a kernel image.
+If you like to generate a kernel image without a bitstream, run the following to produce the header file:</p><pre><code>cd $TOP/fpga/board/nexys4_ddr
+CONFIG=Nexys4Config make verilog
+</code></pre><h2 id=useful-makefile-targets:c1fb0937386f1856cab2482632b86341>Useful Makefile targets</h2><h4 id=make-project:c1fb0937386f1856cab2482632b86341><code>make project</code></h4><p>Generate a Vivado project.</p><h4 id=make-verilog:c1fb0937386f1856cab2482632b86341><code>make verilog</code></h4><p>Run Chisel compiler and generate the Verilog files for Rocket chip.</p><h4 id=make-vivado:c1fb0937386f1856cab2482632b86341><code>make vivado</code></h4><p>Open the Vivado GUI using the current project.</p><h4 id=make-bitstream:c1fb0937386f1856cab2482632b86341><code>make bitstream</code></h4><p>Generate the default bitstream according to the <code>CONFIG</code> in Makefile and the program loaded in <code>src/boot.mem</code>. The default bitstream is generated at <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code></p><h4 id=make-hello-dram-sdcard-boot-jump-trace-flash:c1fb0937386f1856cab2482632b86341><code>make &lt;hello|dram|sdcard|boot|jump|trace|flash&gt;</code></h4><p>Generate bitstreams for bare-metal tests:</p><ul><li><strong>hello</strong> A hello world program.</li><li><strong>dram</strong> A DDR RAM test.</li><li><strong>sdcard</strong> A SD card read/write test.</li><li><strong>boot</strong> A 1st bootloader that loads <code>boot.bin</code> from SD to DDR RAM and executes <code>boot.bin</code> afterwards.</li><li><strong>jump</strong> A 1st stage booloader that directly jumps to DDR RAM.</li><li><strong>trace</strong> A software trace demo.</li><li><strong>flash</strong> Read the content of the on-board Flash.</li></ul><p>For each bare-metal test <code>&lt;test&gt;</code>, the executable is generated to
+<code>examples/&lt;test&gt;.riscv</code>. It is also converted into a hex
+file and copied to <code>src/boot.mem</code>, which then changes the default program for
+<code>make bitstream</code> and <code>make simulation</code>. The updated bitstream is generated at
+<code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code></p><h4 id=make-program-program-updated:c1fb0937386f1856cab2482632b86341><code>make &lt;program|program-updated&gt;</code></h4><p>Download a bitstream to FPGA. Use <code>program</code> for
+<code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code> and
+<code>program-updated</code> for
+<code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code></p><h4 id=make-clean-cleanall:c1fb0937386f1856cab2482632b86341><code>make &lt;clean|cleanall&gt;</code></h4><p><code>make clean</code> will remove all generated code without removing the Vivado
+project files. To remove all files including the Vivado project, use <code>make
+cleanall</code>.</p></div></main><footer class=lr-footer><div class=container><div class=row><div class="col-lg-2 d-none d-lg-block"><img src=/img/logo/logo-dualcolor.svg width=150px></div><div class=col><p>The text content on this website is licensed under a <a href=https://creativecommons.org/licenses/by/4.0/>Creative Commons Attribution 4.0 International License</a>, except where otherwise noted. No license is granted for logos or other trademarks. Other content &copy; lowRISC Contributors.</p><a href=/privacy-policy>Privacy and cookies policy</a>
+&middot; <a href=/usage-licence>Usage licence</a></p></div><div class=col-lg-2><p><a href=#>Back to top</a></p></div></div></div></footer><script src=/main.e2036.js></script></body></html>

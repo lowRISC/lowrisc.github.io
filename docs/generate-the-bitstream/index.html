@@ -1,0 +1,76 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><base href=https://www.lowrisc.org><link rel=icon type=image/png sizes=32x32 href=/favicon.png><title>&middot; lowRISC: Collaborative open silicon engineering</title><link href=/main.e2036.css rel=stylesheet><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-53520714-1','auto');ga('send','pageview');</script></head><body><header><nav class="navbar navbar-expand-md navbar-light"><div class=container><a class=navbar-brand href=#><img src=/img/logo/logo-dualcolor.svg alt=lowRISC></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarCollapse aria-controls=navbarCollapse aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarCollapse><ul class="navbar-nav ml-auto"><li class=nav-item><a href=/our-work class=nav-link>Our work</a></li><li class=nav-item><a href=/open-silicon class=nav-link>Open Silicon</a></li><li class=nav-item><a href=/community class=nav-link>Community</a></li><li class=nav-item><a href=/blog class=nav-link>Blog</a></li><li class=nav-item><a href=/jobs class=nav-link>Jobs</a></li><li class=nav-item><a href=/about class=nav-link>About us</a></li><li class=nav-item><a class="btn lr-navbar-btn-gh" href=https://github.com/lowrisc>GitHub</a></li></ul></div></div></nav></header><main role=main><div class=container><h1></h1><h3 id=generate-the-bitstream:bbfe32d91fbfd9affb26ce9fec4602d6>Generate the bitstream</h3><h4 id=fpga-demo-with-fpga-default-bootloader:bbfe32d91fbfd9affb26ce9fec4602d6>FPGA demo with Fpga (default bootloader)</h4><pre><code>cd $TOP/fpga/board/nexys4_ddr
+make cleanall
+make bitstream
+</code></pre><p>The generated bitstream is located at <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code>.
+This will take some time (20-60 minutes depending on your computer).</p><h3 id=program-the-bootloader-on-fpga:bbfe32d91fbfd9affb26ce9fec4602d6>Program the bootloader on FPGA</h3><p>Next, turn on the FPGA board and connect the USB cable. Now you
+download the bitstream to the quad-SPI on the FPGA board:</p><pre><code>make cfgmem
+make program-cfgmem
+</code></pre><p>At this point, you should check that the FPGA board switches are initially all off (except SW2),
+and the MODE jumper is in QSPI mode and then press the PROG button.</p><h3 id=sample-output-assuming-ethernet-cable-connectivity-is-sane:bbfe32d91fbfd9affb26ce9fec4602d6>Sample output (assuming Ethernet cable connectivity is sane)</h3><p>The default bootloader assumes an Ethernet DHCP server is present, if so you should see a result similar to this:</p><pre><code>Calling main with MAC = eee1:4
+Selftest iteration 1, next buffer = 13, rx_start = 6800
+Selftest matches=2/2, delay = 11
+Selftest iteration 2, next buffer = 14, rx_start = 7000
+Selftest matches=4/4, delay = 11
+Selftest iteration 3, next buffer = 15, rx_start = 7800
+Selftest matches=8/8, delay = 12
+Selftest iteration 4, next buffer = 0, rx_start = 4000
+Selftest matches=16/16, delay = 22
+Selftest iteration 5, next buffer = 1, rx_start = 4800
+Selftest matches=32/32, delay = 41
+Selftest iteration 6, next buffer = 2, rx_start = 5000
+Selftest matches=64/64, delay = 80
+Selftest iteration 7, next buffer = 3, rx_start = 5800
+Selftest matches=128/128, delay = 159
+Selftest iteration 8, next buffer = 4, rx_start = 6000
+Selftest matches=187/187, delay = 231
+</code></pre><p>This first bit establishes that digital loopback of the Ethernet is working. If this does not appear, search your build log for timing errors.</p><pre><code>0: 0
+1: 1
+2: 1
+3: 1
+800: 1e
+801: 0
+802: 0
+803: 0
+</code></pre><p>This bit is just probing the platform level interrupt controller with some default values.</p><pre><code>lowRISC etherboot program
+=====================================
+MAC = eee1:4
+MAC address = ee:e1:e2:e3:e4:e4.
+eth0 MAC : EE:E1:E2:E3:E4:E4
+</code></pre><p>This section is concerned with setting the MAC address, and reading it back. The least significant value read will depend on SW[15:12]</p><pre><code>Sending DHCP_DISCOVERY
+Waiting for DHCP_OFFER
+Sending DHCP_REQUEST
+DHCP ACK
+DHCP Client IP Address:  128.232.60.123
+Server IP Address:  128.232.60.8
+Router address:  128.232.60.1
+Net mask address:  255.255.252.0
+Lease time = 43200
+domain = &quot;cl.cam.ac.uk&quot;
+server = &quot;lowrisc4-sm&quot;
+</code></pre><h4 id=fpga-demo-with-fpga-alternative-boot-programs:bbfe32d91fbfd9affb26ce9fec4602d6>FPGA demo with Fpga (alternative boot programs)</h4><p>If you already have a compiler installed, using either the quickstart process, or using this page:</p><ul><li><a href=https://www.lowrisc.org/docs/build-bare-metal-toolchain/>Developing BareMetal tool chain</a></li></ul><p>You can proceed to compile the alternative boot programs/bare-metal programs</p><p>Otherwise is suggested you proceed to the link below (or for development purposes, checkout the alternative targets)</p><ul><li><a href=https://www.lowrisc.org/docs/dhcp-configuration/>Configure DHCP</a></li></ul><p>To compile, alternative programs:</p><pre><code>cd $TOP/fpga/board/nexys4_ddr
+make target (where target is boot, dram, hello etc.)
+</code></pre><p>The generated bitstream is located at <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code>.
+First time through, this will take some time (20-60 minutes depending on your computer).</p><h3 id=program-the-alternative-boot-programs-on-fpga:bbfe32d91fbfd9affb26ce9fec4602d6>Program the alternative boot programs on FPGA</h3><p>There is a choice of programming volatile or non-volatile. Volatile programs are relatively fast
+to download, but naturally are lost when powered down (or overwritten, due to a bug).</p><p>Next, turn on the FPGA board and connect the USB cable. Now you
+download the bitstream to the quad-SPI on the FPGA board:</p><p>proceed with this command, for a volatile download:</p><pre><code>make program-updated
+</code></pre><p>or these commands for a permanent download:</p><pre><code>make cfgmem-updated
+make program-cfgmem-updated
+</code></pre><h2 id=other-useful-makefile-targets:bbfe32d91fbfd9affb26ce9fec4602d6>Other useful Makefile targets</h2><h4 id=make-project:bbfe32d91fbfd9affb26ce9fec4602d6><code>make project</code></h4><p>Generate a Vivado project.</p><h4 id=make-verilog:bbfe32d91fbfd9affb26ce9fec4602d6><code>make verilog</code></h4><p>Run Chisel compiler and generate the Verilog files for Rocket chip.</p><h4 id=make-vivado:bbfe32d91fbfd9affb26ce9fec4602d6><code>make vivado</code></h4><p>Open the Vivado GUI using the current project.</p><h4 id=make-bitstream:bbfe32d91fbfd9affb26ce9fec4602d6><code>make bitstream</code></h4><p>Generate the default bitstream according to the <code>CONFIG</code> in Makefile and the program loaded in <code>src/boot.mem</code>. The default bitstream is generated at <code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code></p><h4 id=make-hello-dram-eth-boot:bbfe32d91fbfd9affb26ce9fec4602d6><code>make &lt;hello|dram|eth|boot&gt;</code></h4><p>Generate bitstreams for bare-metal tests:</p><ul><li><strong>hello</strong> A hello world program.</li><li><strong>dram</strong> A DDR RAM test.</li><li><strong>boot</strong> A 1st bootloader that loads <code>boot.bin</code> from SD to DDR RAM and executes <code>boot.bin</code> afterwards.</li></ul><p>For each bare-metal test <code>&lt;test&gt;</code>, the executable is generated to
+<code>examples/&lt;test&gt;.riscv</code>. It is also converted into a hex
+file and copied to <code>src/boot.mem</code>, which then changes the default program for
+<code>make bitstream</code> and <code>make simulation</code>. The updated bitstream is generated at
+<code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code></p><h4 id=make-program-program-updated:bbfe32d91fbfd9affb26ce9fec4602d6><code>make &lt;program|program-updated&gt;</code></h4><p>Download a bitstream to FPGA. Use <code>program</code> for
+<code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code> and
+<code>program-updated</code> for
+<code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code></p><h4 id=make-cfgmem-cfgmem-updated:bbfe32d91fbfd9affb26ce9fec4602d6><code>make &lt;cfgmem|cfgmem-updated&gt;</code></h4><p>Convert a bitstream to the format suitable for quad-SPI flash on the FPGA board. Use <code>cfgmem</code> for
+<code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code> and
+<code>cfgmem-updated</code> for
+<code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code></p><h4 id=make-program-cfgmem-program-cfgmem-updated:bbfe32d91fbfd9affb26ce9fec4602d6><code>make &lt;program-cfgmem|program-cfgmem-updated&gt;</code></h4><p>Download a bitstream to quad-SPI flash on the FPGA board. Use <code>program-cfgmem</code> for
+<code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.bit</code> and
+<code>program-cfgmem-updated</code> for
+<code>lowrisc-chip-imp/lowrisc-chip-imp.runs/impl_1/chip_top.new.bit</code></p><h4 id=make-clean-cleanall:bbfe32d91fbfd9affb26ce9fec4602d6><code>make &lt;clean|cleanall&gt;</code></h4><p><code>make clean</code> will remove all generated code without removing the Vivado
+project files. To remove all files including the Vivado project, use <code>make
+cleanall</code>.</p></div></main><footer class=lr-footer><div class=container><div class=row><div class="col-lg-2 d-none d-lg-block"><img src=/img/logo/logo-dualcolor.svg width=150px></div><div class=col><p>The text content on this website is licensed under a <a href=https://creativecommons.org/licenses/by/4.0/>Creative Commons Attribution 4.0 International License</a>, except where otherwise noted. No license is granted for logos or other trademarks. Other content &copy; lowRISC Contributors.</p><a href=/privacy-policy>Privacy and cookies policy</a>
+&middot; <a href=/usage-licence>Usage licence</a></p></div><div class=col-lg-2><p><a href=#>Back to top</a></p></div></div></div></footer><script src=/main.e2036.js></script></body></html>

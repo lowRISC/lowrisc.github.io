@@ -1,0 +1,25 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><base href=https://www.lowrisc.org><link rel=icon type=image/png sizes=32x32 href=/favicon.png><title>Memory mapped I/O (MMIO) &middot; lowRISC: Collaborative open silicon engineering</title><link href=/main.e2036.css rel=stylesheet><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-53520714-1','auto');ga('send','pageview');</script></head><body><header><nav class="navbar navbar-expand-md navbar-light"><div class=container><a class=navbar-brand href=#><img src=/img/logo/logo-dualcolor.svg alt=lowRISC></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarCollapse aria-controls=navbarCollapse aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarCollapse><ul class="navbar-nav ml-auto"><li class=nav-item><a href=/our-work class=nav-link>Our work</a></li><li class=nav-item><a href=/open-silicon class=nav-link>Open Silicon</a></li><li class=nav-item><a href=/community class=nav-link>Community</a></li><li class=nav-item><a href=/blog class=nav-link>Blog</a></li><li class=nav-item><a href=/jobs class=nav-link>Jobs</a></li><li class=nav-item><a href=/about class=nav-link>About us</a></li><li class=nav-item><a class="btn lr-navbar-btn-gh" href=https://github.com/lowrisc>GitHub</a></li></ul></div></div></nav></header><main role=main><div class=container><h1>Memory mapped I/O (MMIO)</h1><p><strong>Note: this initial implementation of MMIO is subject to significant further optimizations.</strong></p><p>Although peripherals are mapped into the memory space, they cannot be accessed
+in the same way as cacheable memory due to the consistency requirement of I/O
+operations and the possible side-effects of I/O read and write operations. To
+safely access the I/O space of peripherals, memory mapped I/O (MMIO) gives the
+core pipeline uncached access to I/O space (bypassing both L1 and L2) while
+enforcing I/O operations in the program order.</p><p>To bypass L1 and L2 for I/O operations, they must be identified from normal
+memory operations and processed separately in the L1 D$. The following figure
+shows the new L1 D$ with MMIO (probe and write-back units are removed to
+highlight the MMIO). The components in blue are used for MMIO.</p><p><img src=../figures/dcache_mmio.png alt=Drawing style=width:600px></p><p>The <code>ioaddr</code> is an address checker controlled by the global I/O space mapping
+(see <a href=https://www.lowrisc.org/docs/untether-v0.2/pcr/>Memory and I/O maps, soft reset, and interrupts</a>).
+According to the I/O mapping, <code>ioaddr</code> identifies I/O requests in all D$
+misses (<code>ioaddr.io</code> fires when <code>s1_req.addr</code> hits in I/O space). Since all I/O
+operations are uncached, they all miss in D$ and are caught by <code>ioaddr</code>, which
+then notifies the I/O miss handler (<code>iomshr</code>). <code>iomshr</code> processes the actual
+I/O requests using the I/O bus shown in the <a href=../overview#figure-overview>high-level view of the untethered
+Rocket chip</a>. If it is a write operation, the D$
+assumes it is served once the miss is accepted by <code>iomshr</code>. For a read
+operation, <code>iomshr</code> initiates an I/O replay after fetching the requested data
+from peripherals. Two buffer stages (<code>io_data</code>, <code>s1_io_data</code>) are added to
+ensure that the I/O replay follows the exact timing of normal memory replay.<br>Consequently, the core pipeline gets the I/O value on the usual <code>cpu.resp</code>
+port at &ldquo;Stage 3&rdquo; of the I/O replay. Since there is only one <code>iomshr</code>, all I/O
+operations are processed in the program order.</p></div></main><footer class=lr-footer><div class=container><div class=row><div class="col-lg-2 d-none d-lg-block"><img src=/img/logo/logo-dualcolor.svg width=150px></div><div class=col><p>The text content on this website is licensed under a <a href=https://creativecommons.org/licenses/by/4.0/>Creative Commons Attribution 4.0 International License</a>, except where otherwise noted. No license is granted for logos or other trademarks. Other content &copy; lowRISC Contributors.</p><a href=/privacy-policy>Privacy and cookies policy</a>
+&middot; <a href=/usage-licence>Usage licence</a></p></div><div class=col-lg-2><p><a href=#>Back to top</a></p></div></div></div></footer><script src=/main.e2036.js></script></body></html>

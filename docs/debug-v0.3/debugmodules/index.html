@@ -1,0 +1,79 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><base href=https://www.lowrisc.org><link rel=icon type=image/png sizes=32x32 href=/favicon.png><title>Debug modules &middot; lowRISC: Collaborative open silicon engineering</title><link href=/main.e2036.css rel=stylesheet><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-53520714-1','auto');ga('send','pageview');</script></head><body><header><nav class="navbar navbar-expand-md navbar-light"><div class=container><a class=navbar-brand href=#><img src=/img/logo/logo-dualcolor.svg alt=lowRISC></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarCollapse aria-controls=navbarCollapse aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarCollapse><ul class="navbar-nav ml-auto"><li class=nav-item><a href=/our-work class=nav-link>Our work</a></li><li class=nav-item><a href=/open-silicon class=nav-link>Open Silicon</a></li><li class=nav-item><a href=/community class=nav-link>Community</a></li><li class=nav-item><a href=/blog class=nav-link>Blog</a></li><li class=nav-item><a href=/jobs class=nav-link>Jobs</a></li><li class=nav-item><a href=/about class=nav-link>About us</a></li><li class=nav-item><a class="btn lr-navbar-btn-gh" href=https://github.com/lowrisc>GitHub</a></li></ul></div></div></nav></header><main role=main><div class=container><h1>Debug modules</h1><p>In the following we will give you a brief overview of the debug
+modules employed in this release. They are all at a relatively early stage of
+implementation, but contain the basic functionality we will
+extend over the next months. Please find more details about the
+modules at <a href=http://opensocdebug.org>Open SoC Debug</a>.</p><h2 id=basic-module-interface:7ea6347c6075ad91ba15b3d2514d3d35>Basic Module Interface</h2><p>Each module has to provide a control and status interface via
+addresses that are accessed with register access packets. There is a
+basic memory map that contains the following information to enable
+easy system enumeration and tool adjustment to different module
+versions. It includes the module type, a vendor:id pair and the
+version of the module.</p><p>Beside that all modules that generate debug packets from events can be
+stalled remotely by writing to a certain address. This is necessary to
+mute trace modules or special modules as the UART adapter.</p><p>Finally, each module can provide more control and status registers,
+e.g., the information about the memory layout, the reset control, etc.</p><h2 id=debug-modules:7ea6347c6075ad91ba15b3d2514d3d35>Debug Modules</h2><h3 id=system-control-module-scm:7ea6347c6075ad91ba15b3d2514d3d35>System Control Module (SCM)</h3><p>The SCM is the only mandatory module. One of its main functions is to
+provide the <em>system information</em>:</p><ul><li><p>A system ID, which can be used by debug tools to identify the
+hardware platform</p></li><li><p>The total number of debug modules</p></li><li><p>The maximum length of debug packets supported by this platform</p></li></ul><p>Beside this, the module exposes a register where the lower two bits
+drive two pins: The <code>sys_rst</code> reset the entire system and <code>cpu_rst</code>
+resets only the CPUs. The general use case of this register is to
+assert <code>sys_rst</code> and <code>cpu_rst</code> by the host and immediately de-assert
+<code>sys_rst</code> while holding <code>cpu_rst</code>. Next, the debug tool can initialize
+the memory, configure the trace modules, etc. Finally, it de-asserts
+<code>cpu_rst</code> to start the processors.</p><p><a name=figure-scm></a><img src=../figures/debug_module_scm.png alt=SCM style="padding:20px 0"></p><h3 id=memory-access-module-mam:7ea6347c6075ad91ba15b3d2514d3d35>Memory Access Module (MAM)</h3><p>The memory access module is connected to the TileLink interconnect
+between the L1 caches and the L2 cache, which is the last level
+cache. Thereby it is ensured that no data is written or read
+incoherent to the caches. The host can read and write single words
+with a byte strobe or read and write bursts of words.</p><p>In this tutorial we use the MAM to initialize the memory, but the use
+cases are not limited to this.</p><p><a name=figure-mam></a><img src=../figures/debug_module_mam.png alt=MAM style="padding:20px 0"></p><h3 id=device-emulation-module-uart-dem-uart:7ea6347c6075ad91ba15b3d2514d3d35>Device Emulation Module - UART (DEM-UART)</h3><p>The DEM-UART module is hooked up in the IO subsystem of lowRISC
+instead of the UART controller and has the same interface as the UART
+(16550). There are two reasons why UART is now implemented that way:</p><ul><li><p>On the FPGA board the physical UART is actually needed for the
+debug interface</p></li><li><p>The terminal can directly be integrated into the debug tools
+without any further ado around the tty device</p></li></ul><p>In future we plan to have multiple memory-mapped serial devices
+multiplexed into one DEM-UART, which can be assigned to different
+processors or processes.</p><p><a name=figure-dem-uart></a><img src=../figures/debug_module_dem-uart.png alt=DEM-UART style="padding:20px 0"></p><h3 id=core-trace-module-ctm:7ea6347c6075ad91ba15b3d2514d3d35>Core Trace Module (CTM)</h3><p>A core trace is essentially sampling the execution of the processor
+core. The size of the sampled information can vary a lot, including
+the information about taken branches, executed program counters,
+register accesses, cache misses, branch predictor misses, just to
+mention a few. In this basic version we track the signals depicted in
+the figure to generate two kinds of trace events:</p><ul><li><p>All <em>execution mode changes</em> (machine mode and user mode) are
+detected. This can be used to determine time spent in the kernel or
+to update the information about the currently running thread.</p></li><li><p>All <em>function calls</em>, i.e., whenever a function is entered or
+left. We track the <code>jal</code> and <code>jalr</code> signals in accordance to the
+calling convention (so that this does not cover all hand-written
+assembly), but still this is speculative and the ELF is needed to
+determine which of the jumps were actually related.</p></li></ul><p>This already generates a high volume of trace events and with
+increasing information, better filtering and
+compression will be mandatory to take full advantage of tracing.</p><p><a name=figure-ctm></a><img src=../figures/debug_module_ctm.png alt=CTM style="padding:20px 0"></p><h3 id=software-trace-module-stm:7ea6347c6075ad91ba15b3d2514d3d35>Software Trace Module (STM)</h3><p>We introduce another kind of trace beside the core trace. The latter
+is generated independently from the actual software and is thereby
+non-intrusive. A better directed approach is to instrument the
+software with trace events, for example you could instrument your DMA
+driver like this:</p><pre><code>uint8_t *buffer = malloc(42);
+TRACE(TRACE_DMA_BUFFER, buffer);
+
+TRACE(TRACE_DMA_START, slotid);
+TRACE(TRACE_DMA_START, src);
+TRACE(TRACE_DMA_START, buffer);
+
+dma_transfer(slotid,incoming,buffer);
+
+TRACE(TRACE_DMA_FINISH, slotid);
+</code></pre><p>Each software trace event consists of a 16-bit <em>id</em>
+(<code>TRACE_DMA_BUFFER</code> etc.) and an <code>XLEN</code>-sized <em>value</em> (here: 64
+bit). This reduces the amount of necessary trace events
+significantly. The approach can be compared to <code>printf</code> debugging, but
+has a much smaller impact in the form of extra instructions. Instead
+each trace event is two instructions:</p><pre><code>/* Write value to a0 (first parameter) register */
+asm volatile (&quot;mv a0,%0&quot;: :&quot;r&quot; ((uint64_t)value) : &quot;a0&quot;);
+/* Write id to the STM CSR register */
+asm volatile (&quot;csrw 0x8ff, %0&quot; :: &quot;r&quot;(id));
+</code></pre><p>This sequence can also be emitted by user applications while still
+being thread safe (the register access will be restored and the CSR
+access is atomic). All accesses to the register are tracked and also
+stored. When the CSR access occurs the event is then emitted with the
+value stored in the STM.</p><p>Finally, the STM contains a configurable comparator that tracks all
+changes to a configured user register. This can be used to track
+accesses to the thread local storage pointer or similar, but this
+functionality is not used in this tutorial.</p><p>The following figure sketches the interface between the Rocket core
+and the STM.</p><p><a name=figure-stm></a><img src=../figures/debug_module_stm.png alt=STM style="padding:20px 0"></p></div></main><footer class=lr-footer><div class=container><div class=row><div class="col-lg-2 d-none d-lg-block"><img src=/img/logo/logo-dualcolor.svg width=150px></div><div class=col><p>The text content on this website is licensed under a <a href=https://creativecommons.org/licenses/by/4.0/>Creative Commons Attribution 4.0 International License</a>, except where otherwise noted. No license is granted for logos or other trademarks. Other content &copy; lowRISC Contributors.</p><a href=/privacy-policy>Privacy and cookies policy</a>
+&middot; <a href=/usage-licence>Usage licence</a></p></div><div class=col-lg-2><p><a href=#>Back to top</a></p></div></div></div></footer><script src=/main.e2036.js></script></body></html>

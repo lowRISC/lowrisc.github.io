@@ -1,0 +1,99 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><base href=https://www.lowrisc.org><link rel=icon type=image/png sizes=32x32 href=/favicon.png><title>How to add a new peripherial &middot; lowRISC: Collaborative open silicon engineering</title><link href=/main.e2036.css rel=stylesheet><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-53520714-1','auto');ga('send','pageview');</script></head><body><header><nav class="navbar navbar-expand-md navbar-light"><div class=container><a class=navbar-brand href=#><img src=/img/logo/logo-dualcolor.svg alt=lowRISC></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarCollapse aria-controls=navbarCollapse aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarCollapse><ul class="navbar-nav ml-auto"><li class=nav-item><a href=/our-work class=nav-link>Our work</a></li><li class=nav-item><a href=/open-silicon class=nav-link>Open Silicon</a></li><li class=nav-item><a href=/community class=nav-link>Community</a></li><li class=nav-item><a href=/blog class=nav-link>Blog</a></li><li class=nav-item><a href=/jobs class=nav-link>Jobs</a></li><li class=nav-item><a href=/about class=nav-link>About us</a></li><li class=nav-item><a class="btn lr-navbar-btn-gh" href=https://github.com/lowrisc>GitHub</a></li></ul></div></div></nav></header><main role=main><div class=container><h1>How to add a new peripherial</h1><p>This document details the steps needed to add a second BRAM on the IO NASTI
+bus.</p><h3 id=a-secondary-bram:3565e9c8affa406308627458ae97fc4e>A secondary BRAM</h3><p>Below is the top-level connection of the BRAM to be added.</p><pre><code>module nasti_bram (
+  input  clk, rstn,
+  nasti_channel.slave nasti
+);
+</code></pre><h3 id=modify-the-global-address-map:3565e9c8affa406308627458ae97fc4e>Modify the global address map</h3><p>Assuming the BRAM is 128KB and is readable, writable but not executable, we add a new entry named &ldquo;extra_bram&rdquo; into the address map at <code>$TOP/src/main/scala/Configs.scala</code>:</p><pre><code># In class BaseConfig extends Config (
+
+  if (site(UseSPI)) {
+    entries += AddrMapEntry(&quot;spi&quot;, MemSize(1&lt;&lt;13, 1&lt;&lt;13, MemAttr(AddrMapProt.RW)))
+    Dump(&quot;ADD_SPI&quot;, true)
+  }
+
++ entries += AddrMapEntry(&quot;extra_bram&quot;, MemSize(1&lt;&lt;17, 1&lt;&lt;17, MemAttr(AddrMapProt.RW)))
+
+  new AddrMap(entries)
+</code></pre><p>This should result in two extra macros defined in <code>dev_map.h</code>:</p><pre><code>#define DEV_MAP__io_ext_extra_bram__BASE 0x40020000
+#define DEV_MAP__io_ext_extra_bram__MASK 0x1ffff
+</code></pre><h3 id=connect-the-bram-to-the-io-nasti-bus:3565e9c8affa406308627458ae97fc4e>Connect the BRAM to the IO NASTI bus.</h3><p>Finally, we need to add the BRAM in the SystemVerilog top-level connection at <code>$TOP/src/main/verilog/chip_top.sv</code>:</p><pre><code>+   // secondary BRAM
++  
++   nasti_channel
++     #(
++     .ADDR_WIDTH  ( `ROCKET_PADDR_WIDTH       ),
++     .DATA_WIDTH  ( `LOWRISC_IO_DAT_WIDTH     ))
++   io_extra_bram_lite();
++   
++   nasti_bram extra_bram
++     (
++      .*,
++      .nasti ( io_extra_bram_lite )
++     );
++   
+    /////////////////////////////////////////////////////////////
+    // IO crossbar
+
+-   localparam NUM_DEVICE = 4;
++   localparam NUM_DEVICE = 5;
+
+    // output of the IO crossbar
+    nasti_channel
+      #(
+        .N_PORT      ( NUM_DEVICE                ),
+        .ADDR_WIDTH  ( `ROCKET_PADDR_WIDTH       ),
+        .DATA_WIDTH  ( `LOWRISC_IO_DAT_WIDTH     ))
+    io_cbo_lite();
+
+-   nasti_channel ios_dmm4(), ios_dmm5(), ios_dmm6(), ios_dmm7(); // dummy channels
++   nasti_channel ios_dmm5(), ios_dmm6(), ios_dmm7(); // dummy channels
+
+    nasti_channel_slicer #(NUM_DEVICE)
+    io_slicer (.s(io_cbo_lite), .m0(io_host_lite), .m1(io_uart_lite), .m2(io_spi_lite),
+-              .m3(io_bram_lite), .m4(ios_dmm4), .m5(ios_dmm5), .m6(ios_dmm6), .m7(ios_dmm7));
++              .m3(io_bram_lite), .m4(io_extra_bram_lite), .m5(ios_dmm5), .m6(ios_dmm6), .m7(ios_dmm7));
+
+    // the io crossbar
+    nasti_crossbar
+      #(
+        .N_INPUT    ( 1                     ),
+        .N_OUTPUT   ( NUM_DEVICE            ),
+        .IB_DEPTH   ( 0                     ),
+        .OB_DEPTH   ( 1                     ), // some IPs response only with data, which will cause deadlock in nasti_demux (no lock)
+        .W_MAX      ( 1                     ),
+        .R_MAX      ( 1                     ),
+        .ADDR_WIDTH ( `ROCKET_PADDR_WIDTH   ),
+        .DATA_WIDTH ( `LOWRISC_IO_DAT_WIDTH ),
+        .LITE_MODE  ( 1                     )
+        )
+    io_crossbar
+      (
+       .*,
+       .s ( io_lite     ),
+       .m ( io_cbo_lite )
+       );
+
+  `ifdef ADD_HOST
+    defparam io_crossbar.BASE0 = `DEV_MAP__io_ext_host__BASE ;
+    defparam io_crossbar.MASK0 = `DEV_MAP__io_ext_host__MASK ;
+  `endif
+
+  `ifdef ADD_UART
+    defparam io_crossbar.BASE1 = `DEV_MAP__io_ext_uart__BASE;
+    defparam io_crossbar.MASK1 = `DEV_MAP__io_ext_uart__MASK;
+  `endif
+
+  `ifdef ADD_SPI
+    defparam io_crossbar.BASE2 = `DEV_MAP__io_ext_spi__BASE;
+    defparam io_crossbar.MASK2 = `DEV_MAP__io_ext_spi__MASK;
+  `endif
+
+  `ifdef ADD_BRAM
+    defparam io_crossbar.BASE3 = `DEV_MAP__io_ext_bram__BASE;
+    defparam io_crossbar.MASK3 = `DEV_MAP__io_ext_bram__MASK;
+  `endif
+
++   defparam io_crossbar.BASE4 = `DEV_MAP__io_ext_extra_bram__BASE;
++   defparam io_crossbar.MASK4 = `DEV_MAP__io_ext_extra_bram__MASK;
+</code></pre><p>That&rsquo;s it! Now the secondary BRAM should be ready for use.</p></div></main><footer class=lr-footer><div class=container><div class=row><div class="col-lg-2 d-none d-lg-block"><img src=/img/logo/logo-dualcolor.svg width=150px></div><div class=col><p>The text content on this website is licensed under a <a href=https://creativecommons.org/licenses/by/4.0/>Creative Commons Attribution 4.0 International License</a>, except where otherwise noted. No license is granted for logos or other trademarks. Other content &copy; lowRISC Contributors.</p><a href=/privacy-policy>Privacy and cookies policy</a>
+&middot; <a href=/usage-licence>Usage licence</a></p></div><div class=col-lg-2><p><a href=#>Back to top</a></p></div></div></div></footer><script src=/main.e2036.js></script></body></html>

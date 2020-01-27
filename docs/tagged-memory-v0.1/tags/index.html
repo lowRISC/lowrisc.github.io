@@ -1,0 +1,43 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><base href=https://www.lowrisc.org><link rel=icon type=image/png sizes=32x32 href=/favicon.png><title>Tagged memory support &middot; lowRISC: Collaborative open silicon engineering</title><link href=/main.e2036.css rel=stylesheet><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-53520714-1','auto');ga('send','pageview');</script></head><body><header><nav class="navbar navbar-expand-md navbar-light"><div class=container><a class=navbar-brand href=#><img src=/img/logo/logo-dualcolor.svg alt=lowRISC></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarCollapse aria-controls=navbarCollapse aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarCollapse><ul class="navbar-nav ml-auto"><li class=nav-item><a href=/our-work class=nav-link>Our work</a></li><li class=nav-item><a href=/open-silicon class=nav-link>Open Silicon</a></li><li class=nav-item><a href=/community class=nav-link>Community</a></li><li class=nav-item><a href=/blog class=nav-link>Blog</a></li><li class=nav-item><a href=/jobs class=nav-link>Jobs</a></li><li class=nav-item><a href=/about class=nav-link>About us</a></li><li class=nav-item><a class="btn lr-navbar-btn-gh" href=https://github.com/lowrisc>GitHub</a></li></ul></div></div></nav></header><main role=main><div class=container><h1>Tagged memory support</h1><h2 id=tagged-memory-support:a625193e15aa6143c81c101412243d68>Tagged memory support</h2><p>Tagged memory associates metadata with each memory location and can be
+used to implement fine-grained memory access restrictions. Attacks
+which hijack control flow can be prevented by using this protection to
+restrict writes to memory locations containing return addresses,
+function pointers, and vtable pointers <a href=#Memo1>[1]</a>.</p><p>The implementation of tagged memory presented here provides only basic
+support by extending on-chip caches to hold tags and by adding a tag
+cache. Instruction set support is provided for testing in the form of
+load and store tag (<code>ltag</code>, <code>stag</code>) instructions. Future releases will
+add hardware support for particular security policies (e.g.
+generating an exception upon modifying data tagged as read-only) and
+Linux kernel support.</p><p>The tagged memory extensions add a configurable number of tag bits to
+each 64-bit double word. The size of the L1 data arrays is increased
+to accommodate the additional tag bits, i.e for 4-bit tags the cache
+line size increases from 512-bits to 544-bits (+6.5%):</p><p><img src=../figures/tag_extension.png alt=Drawing style=width:700px></p><p>Tags must also be associated with data in main memory. For this
+implementation tags are stored in a reserved area of physical memory
+(rather than attempting to use ECC bits to store tags). In order to
+minimise the performance and memory traffic overheads associated with
+tags a tag cache is added to the baseline Rocket chip SoC:</p><p><img src=../figures/tag_cache.png alt=Drawing style=width:500px></p><p>The tag cache also performs the role of the original TileLink/MemIO
+converter, converting TileLink transactions to memory transactions
+(MemIO). Multiple trackers are provided to allow multiple memory requests
+to be served in parallel.</p><h3 id=tag-cache-parameters:a625193e15aa6143c81c101412243d68>Tag cache parameters</h3><table><thead><tr><th>Description</th><th>Parameter Name</th><th>Default Value</th><th>Possible Value</th></tr></thead><tbody><tr><td>No. of tag bits</td><td>TagBits</td><td>4</td><td>&gt;0, &lt;=8</td></tr><tr><td>log2(Size of tag partition)</td><td>TagMemSize</td><td>24</td><td>[22..25]</td></tr><tr><td>Base address of tag partition</td><td>TagBaseAddr</td><td>0x0F000000</td><td></td></tr><tr><td>No. of ways in tag cache</td><td>TagCacheWays</td><td>8</td><td>&gt;0, power of 2</td></tr><tr><td>No. of sets in tag cache</td><td>TagCacheSets</td><td>64</td><td>&gt;0, power of 2</td></tr><tr><td>No. of trackers</td><td>TagCacheTrackers</td><td>1</td><td>&gt;0</td></tr></tbody></table><p>The maximum number of tag bits per 64-bit double word currently supported is 8.</p><table><thead><tr><th>No. of tag bits</th><th>Size of tag partition</th><th>Base address of partition</th></tr></thead><tbody><tr><td>1</td><td>4MB (2^22)</td><td>0x0FC00000</td></tr><tr><td>2</td><td>8MB (2^23)</td><td>0x0F800000</td></tr><tr><td>4</td><td>16MB (2^24)</td><td>0x0F000000</td></tr><tr><td>8</td><td>32MB (2^25)</td><td>0x0E000000</td></tr></tbody></table><p>The number of tag bits does not need to be a power of two, although
+the size of the tag partition must be a power of 2, e.g. if 6 tag bits
+are required a 32MB tag partition should be specified (rather than a
+24MB one).</p><p>If a 32MB tag partition is required the amount of physical memory
+available to the Rocket cores must be reduced to 224MB, i.e. edit the
+function <code>htif_zedboard_t::mem_mb()</code> in
+<code>riscv-tools/riscv-fesvr/fesvr/htif_zedboard.h</code> to return 224.</p><h3 id=new-load-and-store-tag-instructions:a625193e15aa6143c81c101412243d68>New load and store tag instructions</h3><p>Two new instructions have been added to the ISA for loading and storing tags:</p><pre><code># rd: destination register
+# rs1: 1st source resister
+# imm: immediate number, address offset, 12 bits wide
+
+# load the tag associated with DW located at rs1 + imm to register rd
+ltag rd, imm(rs1)
+
+# store the tag in rd to the DW located at rs1 + imm
+stag rd, imm(rs1)
+</code></pre><p>Addresses must be double word aligned otherwise a misalignment exception will be raised.</p><p>Current support for tags is limited to these simple instructions for
+testing. Future additions will allow both data and tag to be read
+atomically.</p><p>A step-by-step guide describing how hardware and software support for these new instructions was added
+is provided <a href=https://www.lowrisc.org/docs/tagged-memory-v0.1/new-instructions/>here</a>.</p><h3 id=bibliography:a625193e15aa6143c81c101412243d68>Bibliography</h3><p><a name=Memo1></a>[1] <a href=https://www.lowrisc.org/docs/memo-2014-001-tagged-memory-and-minion-cores/>Tagged memory and minion cores
+in the lowRISC SoC</a>, lowRISC-MEMO 2014-001</p></div></main><footer class=lr-footer><div class=container><div class=row><div class="col-lg-2 d-none d-lg-block"><img src=/img/logo/logo-dualcolor.svg width=150px></div><div class=col><p>The text content on this website is licensed under a <a href=https://creativecommons.org/licenses/by/4.0/>Creative Commons Attribution 4.0 International License</a>, except where otherwise noted. No license is granted for logos or other trademarks. Other content &copy; lowRISC Contributors.</p><a href=/privacy-policy>Privacy and cookies policy</a>
+&middot; <a href=/usage-licence>Usage licence</a></p></div><div class=col-lg-2><p><a href=#>Back to top</a></p></div></div></div></footer><script src=/main.e2036.js></script></body></html>

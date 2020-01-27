@@ -1,0 +1,135 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><base href=https://www.lowrisc.org><link rel=icon type=image/png sizes=32x32 href=/favicon.png><title>lowRISC project ideas for GSoC 2016 &middot; lowRISC: Collaborative open silicon engineering</title><link href=/main.e2036.css rel=stylesheet><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-53520714-1','auto');ga('send','pageview');</script></head><body><header><nav class="navbar navbar-expand-md navbar-light"><div class=container><a class=navbar-brand href=#><img src=/img/logo/logo-dualcolor.svg alt=lowRISC></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarCollapse aria-controls=navbarCollapse aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarCollapse><ul class="navbar-nav ml-auto"><li class=nav-item><a href=/our-work class=nav-link>Our work</a></li><li class=nav-item><a href=/open-silicon class=nav-link>Open Silicon</a></li><li class=nav-item><a href=/community class=nav-link>Community</a></li><li class=nav-item><a href=/blog class=nav-link>Blog</a></li><li class=nav-item><a href=/jobs class=nav-link>Jobs</a></li><li class=nav-item><a href=/about class=nav-link>About us</a></li><li class=nav-item><a class="btn lr-navbar-btn-gh" href=https://github.com/lowrisc>GitHub</a></li></ul></div></div></nav></header><main role=main><div class=container><h1>lowRISC project ideas for GSoC 2016</h1><p>lowRISC is taking part in the <a href=https://summerofcode.withgoogle.com/>2016 Google Summer of
+Code</a> as a mentoring organisation. We
+are working with a number of our friends in the open source hardware
+community, acting as an &lsquo;umbrella&rsquo; organisation to provide a wider range of
+projects. For an introduction to GSoC, see <a href=https://developers.google.com/open-source/gsoc/faq>the GSoC
+FAQ</a>. You can find our
+<a href=https://summerofcode.withgoogle.com/organizations/6271463900315648/>GSoC organisation page
+here</a>.
+See the <a href=https://summerofcode.withgoogle.com/how-it-works/>full program
+timeline</a> for key dates.
+Student applications are open between March 14th and March 25th.</p><p>See <a href=https://www.lowrisc.org/docs/gsoc-2015-ideas/>last year&rsquo;s idea list</a> for more
+potential projects. We also recommend you check out the projects being
+mentored by <a href=http://fossi-foundation.org/gsoc16-ideas.html>our friends at the FOSSi
+Foundation</a>. Additional
+projects mentored by other organisations that may benefit lowRISC and the open
+source hardware eocsystem include
+<a href=http://qemu-project.org/Google_Summer_of_Code_2016#Multi-threaded_TCG_Projects>multi-threaded TCG in QEMU</a>,
+<a href=http://www.archc.org/gsoc-2016.html>developing a RISC-V processor model for
+ArchC</a>,
+<a href=https://www.coreboot.org/Project_Ideas#coreboot_on_the_open_source_Berkeley_RISC_V_processor>improving the RISC-V port of Coreboot</a>,
+or <a href=https://wiki.debian.org/SummerOfCode2016/Projects#SummerOfCode2016.2FProjects.2FCrossBootstrap.Cross_Bootstrap>working on cross-bootstrap in Debian</a>.
+Also see the <a href=http://dev.myhdl.org/gsoc/gsoc_2016.html>MyHDL projects</a>.</p><h1 id=project-ideas-in-no-particular-order:c0beb8ed6aef4c43cef5ce8d0d378d83>Project ideas (in no particular order)</h1><h2 id=your-project-here:c0beb8ed6aef4c43cef5ce8d0d378d83>Your project here</h2><p>If you have a project idea relevant to lowRISC, don&rsquo;t worry that it&rsquo;s not
+listed here. For a good student with an interesting project we&rsquo;ll almost
+definitely have an appropriate mentor. You are strongly recommended to get in
+touch either on the mailing list or directly to discuss the idea though. Some
+projects might be better handled under a different mentoring organisation,
+e.g. a PyPy port to RISC-V would make more sense under the Python Software
+Foundation.</p><h2 id=porting-musl-libc-to-risc-v:c0beb8ed6aef4c43cef5ce8d0d378d83>Porting musl libc to RISC-V</h2><p><strong>Summary:</strong> Create a port of the musl libc to RISC-V 32-bit and 64-bit.</p><p>Musl is an MIT-licensed libc implementation with excellent support for static
+linking. It has been used by a number of lightweight Linux distributions, most
+prominently Alpine. This project would involve porting musl to the 32-bit and
+64-bit RISC-V instruction set architecture. An unoptimised port should require
+less than 1KLOC, so after achieving this initial milestone time should be spent
+both building out the musl benchmark suite and implementing optimised
+implementations for key functions. A partially complete port of Musl is
+actually <a href=https://github.com/lluixhi/musl-riscv>available here</a>, so although
+there will be work in completing a port and preparing it for upstreaming, we
+are particularly interested in proposals that go beyond a functioning port and
+consider interesting things that could be done regarding testing,
+benchmarking, and so on.</p><p><strong>Links:</strong></p><ul><li><a href=http://www.musl-libc.org/>Musl homepage</a></li></ul><p><strong>Details:</strong></p><p><strong>Skill level:</strong> intermediate</p><p><strong>Language:</strong> C</p><p><strong>Mentor:</strong> Rich Felker <a href=mailto:dalias@libc.org>dalias@libc.org</a></p><h2 id=improve-device-tree-support-for-the-linux-risc-v-port:c0beb8ed6aef4c43cef5ce8d0d378d83>Improve device-tree support for the Linux RISC-V port</h2><p><strong>Summary:</strong> Implement solid, well-tested device-tree support for the Linux
+RISC-V port.</p><p>The <a href=https://github.com/riscv/riscv-linux>Linux RISC-V port</a> is currently
+fairly barebones, and makes use of the host-target interface (HTIF) for most
+I/O. This project would involve cleaning it up, ensuring there is good support
+for instantiating devices using device-tree, and thoroughly testing this
+through modifications to the bootloader and to
+<a href=https://github.com/riscv/riscv-qemu>QEMU</a>.</p><p><strong>Links:</strong></p><ul><li><a href=https://events.linuxfoundation.org/sites/events/files/slides/petazzoni-device-tree-dummies.pdf>Device tree for
+dummies</a></li><li><a href=https://github.com/riscv/riscv-linux>RISC-V Linux</a></li><li><a href=https://github.com/riscv/riscv-qemu>RISC-V QEMU</a></li></ul><p><strong>Details:</strong></p><p><strong>Skill level:</strong> intermediate/advanced</p><p><strong>Language:</strong> C</p><p><strong>Mentor:</strong> Roy Spliet <a href=mailto:rs855@cam.ac.uk>rs855@cam.ac.uk</a></p><h2 id=contributions-to-the-yosys-ecosystem:c0beb8ed6aef4c43cef5ce8d0d378d83>Contributions to the Yosys ecosystem</h2><p><a href=http://www.clifford.at/yosys/>Yosys</a> is a framework for Verilog RTL
+synthesis. The following list is incomplete and is meant to inspire student
+proposals. Do not simply pick one of the projects on this list! We are
+interested in genuinely original student proposals. Please contact Clifford
+Wolf early in the process to discuss your ideas.</p><p><strong>Ideas regarding <a href=http://www.clifford.at/icestorm/>Project IceStorm</a> (the
+FOSS iCE40 FPGA flow)</strong></p><ul><li>Improvements in Arachne-pnr place and route tool, such as<ul><li>Analytical (e.g. quadratic wirelength) placement</li><li>Support for LUT cascade feature</li><li>Support for BRAM cascade feature</li><li>Improved inference of <code>SB_IO</code> cells</li><li>Timing driven place and route</li><li>Speedups (OpenCL?)</li></ul></li><li>Alternative iCE40 place and route flow (e.g. using VPR/VTR)</li><li>Additional support for more iCE40 devices (e.g. UltraLite)</li><li>In-hardware validation flow for chip databases</li></ul><p><strong>Ideas regarding <a href=http://www.clifford.at/yosys/>Yosys</a></strong></p><ul><li>Additional front- and back-ends</li><li>New architectures (e.g. additional FPGA families)</li><li>New non-synthesis flows (verification, etc.)</li><li>New yosys commands and other features</li></ul><p><strong>Ideas regarding <a href=http://www.clifford.at/yosys/yosysjs.html>YosysJS</a></strong></p><ul><li>Interactive schematic viewer running in the web browser</li><li>Puzzle games and other web-based Verilog training tools</li><li>Port of Icarus Verilog to JavaScript (using EMCC)</li></ul><p><strong>Skill level:</strong> intermediate/advanced</p><p><strong>Language:</strong> C++, Javascript</p><p><strong>Mentor:</strong> Clifford Wolf <a href=mailto:clifford@clifford.at>clifford@clifford.at</a></p><h2 id=port-a-teaching-operating-system-to-the-lowrisc-platform:c0beb8ed6aef4c43cef5ce8d0d378d83>Port a teaching operating system to the lowRISC platform</h2><p><strong>Summary:</strong> Port a teaching OS such as XINU or Xv6 to RISC-V and lowRISC</p><p><a href=https://pdos.csail.mit.edu/6.828/2014/xv6.html>Xv6</a> and
+<a href=http://www.xinu.cs.purdue.edu/>XINU</a> are both compact, easy to understand
+implementations of a Unix-like operating system. Porting one of these to
+RISC-V and to the lowRISC platform will help to enable its use in teaching,
+and also open up the possibilities for courses that deal with modifications
+across the whole hardware and software stack (e.g. implementing a new OS
+feature, and modifying the underlying hardware to better support it).</p><p><strong>Links:</strong></p><ul><li><a href=https://pdos.csail.mit.edu/6.828/2014/xv6.html>Xv6</a></li><li><a href=http://www.xinu.cs.purdue.edu/>XINU</a></li></ul><p><strong>Details:</strong></p><p><strong>Skill level:</strong> intermediate/advanced</p><p><strong>Language:</strong> C</p><p><strong>Mentor:</strong> Alex Bradbury <a href=mailto:asb@lowrisc.org>asb@lowrisc.org</a></p><h2 id=integrate-more-open-source-ip-for-lowrisc-on-fpgas:c0beb8ed6aef4c43cef5ce8d0d378d83>Integrate more open-source IP for lowRISC on FPGAs</h2><p><strong>Summary:</strong> Introduce open-source IP for components such as UART, SPI, and
+the memory controller.</p><p>The current <a href=https://www.lowrisc.org/docs/untether-v0.2/>untethered lowRISC release</a> makes use of Xilinx IP for its memory controller, SPI controller, and
+UART. Replacing these with open-source IP from OpenCores or elsewhere would
+allow customisation of the whole system, and may be a useful step towards
+supporting the untethered lowRISC design on Altera FPGAs. A useful starting
+point would likely be to study what IP is currently available and to assess
+its quality.</p><p><strong>Links:</strong></p><ul><li><a href=http://opencores.org/>OpenCores</a></li></ul><p><strong>Details:</strong></p><p><strong>Skill level:</strong> intermediate/advanced</p><p><strong>Language:</strong> Verilog/VHDL and Chisel</p><p><strong>Mentor:</strong> Wei Song <a href=mailto:ws327@cam.ac.uk>ws327@cam.ac.uk</a></p><h2 id=implement-a-trusted-execution-environment:c0beb8ed6aef4c43cef5ce8d0d378d83>Implement a Trusted Execution Environment</h2><p><strong>Summary:</strong> Port an existing open-source Trusted Execution Environment to the
+lowRISC platform.</p><p>A Trusted Execution Environment (TEE) runs in parallel to the general purpose
+OS (&lsquo;Rich OS&rsquo;) like Linux and executes security-sensitive tasks. Global
+Platform has standardized TEE and
+<a href=https://wiki.linaro.org/WorkingGroups/Security/OP-TEE>OP-TEE</a> is an
+open-source GP-compliant TEE, which seems like a good target for
+porting to RISC-V and the lowRISC minion cores. There are different
+options to implement the TEE and another important component is the
+trusted firmware to boot both the secure and the non-secure world. It
+is also thinkable to port OP-TEE as components running on an L4
+Microkernel, such as seL4 which
+<a href=http://heshamelmatary.blogspot.de/2015/10/a-talk-about-my-gsoc-project-with.html>has been ported in last years GSoC</a>.</p><p>This project is potentially very large and it is important to discuss
+alternatives and define a good subset in the discussion with us before
+applying.</p><p><strong>Links:</strong></p><ul><li><a href=http://www.globalplatform.org/specificationsdevice.asp>TEE spec</a></li><li><a href=https://wiki.linaro.org/WorkingGroups/Security/OP-TEE>OP-TEE</a></li></ul><p><strong>Details:</strong></p><p><strong>Skill level:</strong> advanced</p><p><strong>Language:</strong> C</p><p><strong>Mentor:</strong> Stefan Wallentowitz <a href=mailto:stefan@simless.com>stefan@simless.com</a></p><h2 id=trace-debug-analysis-tool:c0beb8ed6aef4c43cef5ce8d0d378d83>Trace-debug analysis tool</h2><p><strong>Summary:</strong> Implement a client program to usefully analyse trace debug data.</p><p>We are currently working on implementing <a href=http://opensocdebug.org/>trace debug
+support</a> in to the lowRISC SoC. This provides a
+powerful way to debug complicated multi-threaded applications as well as to
+help diagnose hardware implementation issues. This project would involve
+implementing a program on Linux to parse this data and present it in a useful
+way to aid debugging. We&rsquo;re open to proposals using the
+language and UI toolkit of your preference, but think TypeScript
+and <a href=http://electron.atom.io/>Electron</a> would form a particularly interesting
+starting point.</p><p><strong>Links:</strong></p><ul><li><a href=http://opensocdebug.org/>OpenSoC debug</a></li></ul><p><strong>Details:</strong></p><p><strong>Skill level:</strong> intermediate</p><p><strong>Language:</strong> Your choice (C++, Python, TypeScript, ..?)</p><p><strong>Mentor:</strong> Stefan Wallentowitz <a href=mailto:stefan@wallentowitz.de>stefan@wallentowitz.de</a> and Bruce Mitchener
+<a href=mailto:bruce.mitchener@gmail.com>bruce.mitchener@gmail.com</a></p><h2 id=generic-hardware-software-interface-for-software-defined-radio:c0beb8ed6aef4c43cef5ce8d0d378d83>Generic hardware/software interface for software-defined radio</h2><p><strong>Summary:</strong> Identify and implement useful hardware blocks to support
+software-defined radio.</p><p>The lowRISC project employs a configurable I/O-Subsystem for low speed I/O.
+This project hops to provide something similar for wireless connectivity
+(2.5G, Wifi, Bluetooth, ZigBee, etc.). The goal is to define a minimal subset
+of hardware elements as building blocks, so that they can be controlled and
+configured for different wireless standards.</p><p><strong>Links:</strong></p><ul><li><a href=https://en.wikipedia.org/wiki/Software-defined_radio>Software-defined radio</a></li><li><a href=https://myriadrf.org/>Myriad RF</a></li></ul><p><strong>Details:</strong></p><p><strong>Skill level:</strong> advanced</p><p><strong>Language:</strong> Verilog/VHDL/Chisel, C</p><p><strong>Mentor:</strong> Stefan Wallentowitz <a href=mailto:stefan@simless.com>stefan@simless.com</a> and David May
+<a href=mailto:david@simless.com>david@simless.com</a></p><h2 id=implement-a-spir-v-front-end-for-nyuzi:c0beb8ed6aef4c43cef5ce8d0d378d83>Implement a SPIR-V front end for Nyuzi</h2><p><strong>Summary:</strong> Support the new SPIR-V intermediate language for the Nyuzi GPGPU.</p><p><a href=https://www.khronos.org/spir>SPIR-V</a> is an intermediate language for
+parallel computation. Supporting SPIR-V on Nyuzi would allow a variety of
+parallel languages to target it. There is already an LLVM back-end for Nyuzi,
+so this task would consist of writing a front end that parses SPIR-V and
+converts it to the LLVM intermediate code form, using Nyuzi specific
+intrinsics for handling branch divergence.</p><p><strong>Links:</strong></p><ul><li><a href=https://github.com/jbush001/NyuziProcessor>Nyuzi GPGPU</a></li><li><a href=latchup.blogspot.com/2014/12/branch-divergence-in-parallel-kernels.html>A description of handling branch divergence using the Nyuzi LLVM
+backend</a></li><li><a href=https://github.com/jbush001/NyuziToolchain/tree/master/tools/spmd-compile>Sample code for a parallel language front-end on
+Nyuzi</a></li><li><a href=https://github.com/KhronosGroup/SPIRV-Tools>Source code for SPIR-V tools</a></li></ul><p><strong>Details:</strong></p><p><strong>Skill level:</strong> advanced</p><p><strong>Language:</strong> C++</p><p><strong>Mentor:</strong> Jeff Bush <a href=mailto:jeffbush001@gmail.com>jeffbush001@gmail.com</a></p><h2 id=port-an-operating-system-kernel-to-nyuzi:c0beb8ed6aef4c43cef5ce8d0d378d83>Port an operating system kernel to Nyuzi</h2><p><strong>Summary:</strong> Port an OS kernel of your choice to the Nyuzi GPGPU to put the
+recently added MMU and supervisor mode through its paces.</p><p>Nyuzi currently runs programs on bare metal and doesn&rsquo;t have a real operating
+system. Supervisor mode and MMU support have recently been implemented in
+hardware. Porting an operating system would be useful both to test the
+hardware implementation and to enable more complex use cases.</p><p>This project would consist of:</p><ul><li>Selecting an operating system such as FreeBSD or L4, or potentially creating
+a custom OS (Linux may be challenging because of its size and because it is
+heavily GCC dependent and Nyuzi uses an LLVM based toolchain). Ideally, the
+kernel should support virtual memory, multiple processes, and system/user
+mode.</li><li>Writing Nyuzi specific drivers and BSP code for it, - Bring up and debugging
+it in the emulator and Verilog simulation (or, as a bonus, on FPGA)</li><li>Potentially fixing hardware bugs and adding new hardware features if needed</li></ul><p><strong>Links:</strong></p><ul><li><a href=https://github.com/jbush001/NyuziProcessor>Nyuzi GPGPU</a></li></ul><p><strong>Details:</strong></p><p><strong>Skill level:</strong> advanced</p><p><strong>Language:</strong> C</p><p><strong>Mentor:</strong> Jeff Bush <a href=mailto:jeffbush001@gmail.com>jeffbush001@gmail.com</a></p><h2 id=cmsis-dsp-on-pulpino:c0beb8ed6aef4c43cef5ce8d0d378d83>CMSIS-DSP on PULPino</h2><p><strong>Summary:</strong> Implement a subset of the ARM CMSIS DSP library on the Pulpino
+platform</p><p>Pulpino is an open-source design containing a 32-bit RISC-V implementation
+enhanced with DSP extensions. The ARM CMSIS DSP library is a set of common
+signal processing functions. The implementation will consist in selecting a
+reasonable subset of the library, implementing it on Pulpino, finely optimizing
+it to take advantage of PULP&rsquo;s DSP extensions, and benchmarking it against
+an ARM implementation on a Cortex M4. This will help measuring the impact of
+the existing extensions and drive future extensions. The work could also be
+extended to the parallelization of this subset on the Pulp platform.</p><p><strong>Links:</strong></p><ul><li><a href=http://www.pulp-platform.org>PULP</a></li><li><a href=http://www.keil.com/pack/doc/CMSIS/DSP/html/index.html>CMSIS-DSP</a></li></ul><p><strong>Details:</strong></p><p><strong>Skill level:</strong> intermediate</p><p><strong>Language:</strong> C</p><p><strong>Mentor:</strong> Germain Haugou <a href=mailto:haugoug@iis.ee.ethz.ch>haugoug@iis.ee.ethz.ch</a></p><h2 id=doom-on-pulpino:c0beb8ed6aef4c43cef5ce8d0d378d83>Doom on PULPino</h2><p><strong>Summary:</strong> Porting DOOM on the PULPino platform</p><p>In this project, we set the challenging objective of porting the DOOM game to
+PULPino - an open-source microcontroller platform based on a 32-bit RISC-V
+implementation with DSP extensions. The project will consist in 1) porting the
+main game engine on RISC-V, optimizing it by means of the PULPino DSP
+extensions; 2) test it using an artificial set of inputs, such as mouse data
+collected from running DOOM on a normal workstation, and check consistency with
+the expected outputs, 3) design of a simple interface for the Zedboard version
+of PULPino in Vivado, to enable using simple buttons for the input and a
+compatible HDMI display for the output.</p><p>The project could easily be extended to provide a more advanced interface (e.g.
+a mouse) if you are interested in HW design.</p><p><strong>Links:</strong></p><ul><li><a href=http://www.pulp-platform.org>PULP</a></li><li><a href=https://github.com/id-Software/DOOM>DOOM</a></li></ul><p><strong>Details:</strong></p><p><strong>Skill level:</strong> intermediate/high</p><p><strong>Language:</strong> C, some Vivado FPGA work (no or very small amount of RTL coding)</p><p><strong>Mentor:</strong> Francesco Conti <a href=mailto:f.conti@unibo.it>f.conti@unibo.it</a></p><h2 id=arduino-to-pulpino-library-porting:c0beb8ed6aef4c43cef5ce8d0d378d83>Arduino to Pulpino library porting</h2><p><strong>Summary:</strong> Porting the Arduino software libraries to PULPino.</p><p>PULPino is a small RISC-V based platform that has been published as open-source
+recently. The platform is using a highly optimized RISC-V core and contains all
+the necessary peripherals usually found on modern microcontrollers including
+SPI, I2C, GPIO and UART. PULPino is currently available for RTL simulation,
+FPGA (ZedBoard) and a first low-volume test chip was taped out in January. The
+goal of this project is to make PULPino compatible with the Arduino ecosystem
+and port the required libraries to the PULPino RISC-V platform. If time
+permits a PCB for the test-chip can be created during the project and/or some
+applications using the Arduino compatibility layer can be developed.</p><p><strong>Links:</strong></p><ul><li><a href=http://www.pulp-platform.org>PULP</a></li><li><a href=https://www.arduino.cc/en/Main/Software>Arduino software</a></li></ul><p><strong>Details:</strong></p><p><strong>Skill level:</strong> intermediate</p><p><strong>Language:</strong> C/C++</p><p><strong>Mentor:</strong> Andreas Traber <a href=mailto:atraber@iis.ee.ethz.ch>atraber@iis.ee.ethz.ch</a></p></div></main><footer class=lr-footer><div class=container><div class=row><div class="col-lg-2 d-none d-lg-block"><img src=/img/logo/logo-dualcolor.svg width=150px></div><div class=col><p>The text content on this website is licensed under a <a href=https://creativecommons.org/licenses/by/4.0/>Creative Commons Attribution 4.0 International License</a>, except where otherwise noted. No license is granted for logos or other trademarks. Other content &copy; lowRISC Contributors.</p><a href=/privacy-policy>Privacy and cookies policy</a>
+&middot; <a href=/usage-licence>Usage licence</a></p></div><div class=col-lg-2><p><a href=#>Back to top</a></p></div></div></div></footer><script src=/main.e2036.js></script></body></html>

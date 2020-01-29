@@ -1,4 +1,35 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lowRISC: Collaborative open silicon engineering</title><link>https://www.lowrisc.org/</link><description>Recent blog posts from lowRISC</description><language>en-us</language><lastBuildDate>Thu, 05 Dec 2019 09:00:00 +0000</lastBuildDate><atom:link type="application/rss+xml" href="https://www.lowrisc.org/index.xml" rel="self"/><copyright> The text content on this website is licensed under a Creative Commons Attribution 4.0 International License, except where otherwise noted. No license is granted for logos or other trademarks. Other content Copyright lowRISC Contributors.</copyright><item><title>lowRISC 101: Introduction to lowRISC at the RISC-V Summit</title><link>https://www.lowrisc.org/blog/2019/12/lowrisc-101-introduction-to-lowrisc-at-the-risc-v-summit/</link><guid>https://www.lowrisc.org/blog/2019/12/lowrisc-101-introduction-to-lowrisc-at-the-risc-v-summit/</guid><pubDate>Thu, 05 Dec 2019 09:00:00 +0000</pubDate><author>info@lowrisc.org (lowRISC)</author><description><![CDATA[ <p>With the <a href="https://www.lowrisc.org/blog/2019/11/announcing-opentitan-the-first-transparent-silicon-root-of-trust/">recent announcement of OpenTitan</a>, we at lowRISC had many great conversations about the work we do to produce high-quality open source hardware and software.
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lowRISC: Collaborative open silicon engineering</title><link>https://www.lowrisc.org/</link><description>Recent blog posts from lowRISC</description><language>en-us</language><lastBuildDate>Wed, 29 Jan 2020 15:00:00 +0000</lastBuildDate><atom:link type="application/rss+xml" href="https://www.lowrisc.org/index.xml" rel="self"/><copyright> The text content on this website is licensed under a Creative Commons Attribution 4.0 International License, except where otherwise noted. No license is granted for logos or other trademarks. Other content Copyright lowRISC Contributors.</copyright><item><title>At FOSDEM you can hear how we made our Ibex CPU core faster</title><link>https://www.lowrisc.org/blog/2020/01/at-fosdem-you-can-hear-how-we-made-our-ibex-cpu-core-faster/</link><guid>https://www.lowrisc.org/blog/2020/01/at-fosdem-you-can-hear-how-we-made-our-ibex-cpu-core-faster/</guid><pubDate>Wed, 29 Jan 2020 15:00:00 +0000</pubDate><author>info@lowrisc.org (Greg Chadwick)</author><description><![CDATA[ 
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  <img
+    srcset='https://www.lowrisc.org/blog/2020/01/at-fosdem-you-can-hear-how-we-made-our-ibex-cpu-core-faster/FOSDEM_logo_huf82e281a9237d835c6322add1947ed2b_9557_200x0_resize_box_2.png 1x, https://www.lowrisc.org/blog/2020/01/at-fosdem-you-can-hear-how-we-made-our-ibex-cpu-core-faster/FOSDEM_logo_huf82e281a9237d835c6322add1947ed2b_9557_400x0_resize_box_2.png 2x '
+    src="https://www.lowrisc.org/blog/2020/01/at-fosdem-you-can-hear-how-we-made-our-ibex-cpu-core-faster/FOSDEM_logo_huf82e281a9237d835c6322add1947ed2b_9557_200x0_resize_box_2.png"alt='FOSDEM logo' title='FOSDEM' class='float-right m-2 '
+  >
+
+
+
+
+
+<p>I’ll be giving a talk in the <a href="https://fosdem.org/2020/schedule/track/risc_v/">RISC-V devroom</a> at FOSDEM on Saturday 1st February, in which I’ll describe how we are analysing and improving the performance of the <a href="https://github.com/lowRISC/ibex">Ibex RISC-V CPU core</a>. I’ll discuss how Verilator is used to simulate Ibex running CoreMark and Embench and how I’ve analysed these simulations to identify major sources of stalls. This is used to inform what improvements should be made. Yosys was used to analyse the impact on area and clock frequency from these changes. I’ll talk about how this analysis was performed and what was required to avoid adversely impacting clock frequency.</p>
+
+<p>For details see the <a href="https://fosdem.org/2020/schedule/event/riscv_lowrisc/">FOSDEM website</a>. I look forward to seeing you there and if you can’t make it, the talks are usually recorded and we’ll be sure to share the link once this is available.</p>
+ ]]></description></item><item><title>lowRISC 101: Introduction to lowRISC at the RISC-V Summit</title><link>https://www.lowrisc.org/blog/2019/12/lowrisc-101-introduction-to-lowrisc-at-the-risc-v-summit/</link><guid>https://www.lowrisc.org/blog/2019/12/lowrisc-101-introduction-to-lowrisc-at-the-risc-v-summit/</guid><pubDate>Thu, 05 Dec 2019 09:00:00 +0000</pubDate><author>info@lowrisc.org (lowRISC)</author><description><![CDATA[ <p>With the <a href="https://www.lowrisc.org/blog/2019/11/announcing-opentitan-the-first-transparent-silicon-root-of-trust/">recent announcement of OpenTitan</a>, we at lowRISC had many great conversations about the work we do to produce high-quality open source hardware and software.
 A great place to continue these discussions is the <a href="https://tmt.knect365.com/risc-v-summit/">RISC-V Summit in San Jose, CA</a> (Dec 10 - 12, 2019).
 lowRISC will showcase its work in the conference track and in the exhibit hall.</p>
 

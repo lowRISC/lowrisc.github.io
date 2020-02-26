@@ -34,14 +34,20 @@ OpenTitan repository and its dependencies.</p><h2 id=create-an-ibex-based-soc-pl
 tools.</p><p>This necessarily involves porting the core, making sure it fits and reasonably
 maps. Then adding memory, timer, UART, SPI (leveraging + adapting existing
 IP). Finally, creation of the SoC infrastructure: toolchain, linker script,
-software libs.</p><h2 id=open-source-logic-analyser-ip-for-fpga:9303baa6f60dbe92b8f81b1ce6b2e04c>Open source logic analyser IP for FPGA</h2><p><strong>Sumary:</strong> Build a <a href=https://sigrok.org/>sigrok</a> compatible logic analyser
-that can be used in FPGA.</p><p>Sigrok is an open source software suite for signal
-analysis, it supports a wide range of devices We could build a sigrok
-compatible logic analyser that can be used in FPGA (and potentially ASIC). For
-bonus points implement something using an existing verilog parsing framework
-that can let you choose signals from your hierarchy and it auto-generates the
-logic analyser instantiation with hierarchical paths for you plus a nice
-config file for the GUI tool to give you signal names etc</p><h2 id=implement-the-bit-manipulation-extension-for-ibex:9303baa6f60dbe92b8f81b1ce6b2e04c>Implement the bit manipulation extension for Ibex</h2><p><strong>Sumary:</strong> Implement support for the proposed <a href=https://github.com/riscv/riscv-bitmanip>RISC-V bit manipulation
+software libs.</p><h2 id=open-source-logic-analyser-ip-for-fpga:9303baa6f60dbe92b8f81b1ce6b2e04c>Open source logic analyser IP for FPGA</h2><p><strong>Summary:</strong> Build a <a href=https://sigrok.org/>sigrok</a> compatible logic analyser
+that can be used in FPGA.</p><p>FPGA vendors such as Altera and Xilinx have proprietary logic analyser
+generators that can be used for FPGA debug. They allow configuration of a wide
+number of parameters, such as signal widths, depth of buffering and possible
+triggering modes (from a simple edge trigger to more complex conditions
+involving multiple signals over several cycles).</p><p>Sigrok is an open source software suite for signal analysis, it supports a wide
+range of devices. This project would build an open source logic analyser
+generator with similar capabilities to existing proprietary solutions that is
+compatible with Sigrok. The focus would be on use for FPGA debug but it could
+also be used with external IO to produce a &lsquo;traditional&rsquo; logic analyser or be
+embedded in an ASIC for post-silicon debug.</p><p>By combining the generator with an existing verilog parsing framework a user
+friendly front end could be created. This would allow a designer to select the
+signals they want to capture and the necessary logic analyser would be
+generated with all the required wiring to feed to signals into the analyser.</p><h2 id=implement-the-bit-manipulation-extension-for-ibex:9303baa6f60dbe92b8f81b1ce6b2e04c>Implement the bit manipulation extension for Ibex</h2><p><strong>Summary:</strong> Implement support for the proposed <a href=https://github.com/riscv/riscv-bitmanip>RISC-V bit manipulation
 extension</a> in
 <a href=https://github.com/lowrisc/ibex>Ibex</a>.</p><p>As well as the RTL implementation, an important part of this project will be
 to deliver a workable testing strategy.</p><h2 id=simulated-memory-controller:9303baa6f60dbe92b8f81b1ce6b2e04c>&ldquo;Simulated&rdquo; memory controller</h2><p><strong>Summary:</strong> Provide a way to produce realistic performance numbers from FPGA.</p><p>It is a common pitfall to misinterpret or incorrectly scale performance

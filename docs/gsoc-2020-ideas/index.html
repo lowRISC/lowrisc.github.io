@@ -1,11 +1,12 @@
 <!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><base href=https://www.lowrisc.org><link rel=icon type=image/png sizes=32x32 href=/favicon.png><title>lowRISC project ideas for GSoC 2020 &middot; lowRISC: Collaborative open silicon engineering</title><link href=/main.e2036.css rel=stylesheet><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-53520714-1','auto');ga('send','pageview');</script></head><body><header><nav class="navbar navbar-expand-md navbar-light"><div class=container><a class=navbar-brand href=#><img src=/img/logo/logo-dualcolor.svg alt=lowRISC></a>
 <button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarCollapse aria-controls=navbarCollapse aria-expanded=false aria-label="Toggle navigation">
-<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarCollapse><ul class="navbar-nav ml-auto"><li class=nav-item><a href=/our-work class=nav-link>Our work</a></li><li class=nav-item><a href=/open-silicon class=nav-link>Open Silicon</a></li><li class=nav-item><a href=/community class=nav-link>Community</a></li><li class=nav-item><a href=/blog class=nav-link>Blog</a></li><li class=nav-item><a href=/jobs class=nav-link>Jobs</a></li><li class=nav-item><a href=/about class=nav-link>About us</a></li><li class=nav-item><a class="btn lr-navbar-btn-gh" href=https://github.com/lowrisc>GitHub</a></li></ul></div></div></nav></header><main role=main><div class=container><h1>lowRISC project ideas for GSoC 2020</h1><p>lowRISC has applied to take part in the <a href=https://summerofcode.withgoogle.com/>2020 Google Summer of
-Code</a> as a mentoring
-organisation. See the <a href=https://summerofcode.withgoogle.com/how-it-works/#timeline>full program
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarCollapse><ul class="navbar-nav ml-auto"><li class=nav-item><a href=/our-work class=nav-link>Our work</a></li><li class=nav-item><a href=/open-silicon class=nav-link>Open Silicon</a></li><li class=nav-item><a href=/community class=nav-link>Community</a></li><li class=nav-item><a href=/blog class=nav-link>Blog</a></li><li class=nav-item><a href=/jobs class=nav-link>Jobs</a></li><li class=nav-item><a href=/about class=nav-link>About us</a></li><li class=nav-item><a class="btn lr-navbar-btn-gh" href=https://github.com/lowrisc>GitHub</a></li></ul></div></div></nav></header><main role=main><div class=container><h1>lowRISC project ideas for GSoC 2020</h1><p>lowRISC has been accepted as a mentoring organisation for the <a href=https://summerofcode.withgoogle.com/>2020 Google
+Summer of Code</a>. See the <a href=https://summerofcode.withgoogle.com/how-it-works/#timeline>full program
 timeline</a> for a
-run-down of key dates.</p><p>If you want feedback on ideas, you&rsquo;re best posting to info@lowrisc.org or
-discussing <a href=https://lowrisc.zulipchat.com>on our Zulip group chat</a>.</p><h1 id=project-ideas-in-no-particular-order:9303baa6f60dbe92b8f81b1ce6b2e04c>Project ideas (in no particular order)</h1><h2 id=your-project-here:9303baa6f60dbe92b8f81b1ce6b2e04c>Your project here</h2><p>If you have a project idea relevant to lowRISC, don&rsquo;t worry that it&rsquo;s not
+run-down of key dates.</p><p>Before submitting your application, please get in contact with us on <a href=https://lowrisc.zulipchat.com>our
+Zulip group chat</a> or send an email to potential
+mentors. We are keen to start discussing potential projects with you.</p><p>For guidance on how to write the application, please check out the <a href=https://google.github.io/gsocguides/student/writing-a-proposal#the-basics>GSoC
+student guide</a>.</p><h1 id=project-ideas-in-no-particular-order:9303baa6f60dbe92b8f81b1ce6b2e04c>Project ideas (in no particular order)</h1><h2 id=your-project-here:9303baa6f60dbe92b8f81b1ce6b2e04c>Your project here</h2><p>If you have a project idea relevant to lowRISC, don&rsquo;t worry that it&rsquo;s not
 listed here. For a good student with an interesting project we&rsquo;ll almost
 definitely have an appropriate mentor. You are strongly recommended to get in
 touch to discuss the idea though. Some projects might be better handled under
@@ -15,14 +16,16 @@ sense under the Python Software Foundation.</p><h2 id=a-template-project-for-ibe
 instruction set extensions.</p><p>One part of this project is to demonstrate a methodology for doing this, which
 may involve making suggestions for refactorings to make this an easier task.
 The project would ideally involve addressing the challenge of keeping the
-example/template project functional.</p><h2 id=custom-compressed-instruction-set-generation:9303baa6f60dbe92b8f81b1ce6b2e04c>Custom compressed instruction set generation</h2><p><strong>Summary:</strong> Create a flow that can generate a custom compressed instruction
+example/template project functional.</p><p>Mentors: <a href=mailto:asb@lowrisc.org>Alex</a>, <a href=mailto:gac@lowrisc.org>Greg</a>,
+<a href=mailto:vogelpi@lowrisc.org>Pirmin</a></p><h2 id=custom-compressed-instruction-set-generation:9303baa6f60dbe92b8f81b1ce6b2e04c>Custom compressed instruction set generation</h2><p><strong>Summary:</strong> Create a flow that can generate a custom compressed instruction
 set tuned for a given firmware image.</p><p>This project would involve creating a tool that would analyse a firmware
 image, and generate a custom compressed instruction set (or alternatively,
 additions to the standard compressed instruction set) that would minimise code
 size. The tool would generate the necessary instruction descriptions for LLVM
 as well as the decode logic for the Ibex CPU core. There is a wealth of
 additional research ideas on further reducing code size that may also be
-interesting to explore in the context of this project.</p><h2 id=opentitan-soc-tooling-work:9303baa6f60dbe92b8f81b1ce6b2e04c>OpenTitan SoC tooling work</h2><p><strong>Summary:</strong> Improve the Python tooling in the OpenTitan project for register
+interesting to explore in the context of this project.</p><p>Mentors: <a href=mailto:asb@lowrisc.org>Alex</a>, <a href=mailto:luismarques@lowrisc.org>Luís</a>, <a href=mailto:selliott@lowrisc.org>Sam</a>,
+<a href=mailto:silvestrst@lowrisc.org>Silvestrs</a></p><h2 id=opentitan-soc-tooling-work:9303baa6f60dbe92b8f81b1ce6b2e04c>OpenTitan SoC tooling work</h2><p><strong>Summary:</strong> Improve the Python tooling in the OpenTitan project for register
 description generation, documentation generation, etc.</p><p><a href=https://opentitan.org/>OpenTitan</a> contains a <a href=https://docs.opentitan.org/doc/rm/>range of
 tools</a>, implemented in Python to help
 build custom SoCs. e.g. topgen.py, regtool.py, tlgen.py. In general, these
@@ -30,11 +33,11 @@ could all benefit from further software engineering input - e.g. adding a
 proper test suite, working with digital designers / design verification
 engineers to implement new features. e.g. it may be interesting to extend the
 vendor tool to allow the extraction of a specific piece of IP from the
-OpenTitan repository and its dependencies.</p><h2 id=create-an-ibex-based-soc-platform-for-ice40-ultraplus-fpga-devices:9303baa6f60dbe92b8f81b1ce6b2e04c>Create an Ibex-based SoC platform for iCE40 UltraPlus FPGA devices</h2><p><strong>Summary:</strong> Create an Ibex-based demonstration platform using fully open
-tools.</p><p>This necessarily involves porting the core, making sure it fits and reasonably
-maps. Then adding memory, timer, UART, SPI (leveraging + adapting existing
-IP). Finally, creation of the SoC infrastructure: toolchain, linker script,
-software libs.</p><h2 id=open-source-logic-analyser-ip-for-fpga:9303baa6f60dbe92b8f81b1ce6b2e04c>Open source logic analyser IP for FPGA</h2><p><strong>Summary:</strong> Build a <a href=https://sigrok.org/>sigrok</a> compatible logic analyser
+OpenTitan repository and its dependencies.</p><p>Mentors: <a href=mailto:selliott@lowrisc.org>Sam</a>, <a href=mailto:silvestrst@lowrisc.org>Silvestrs</a></p><h2 id=create-an-ibex-based-soc-platform-for-ice40-ultraplus-fpga-devices:9303baa6f60dbe92b8f81b1ce6b2e04c>Create an Ibex-based SoC platform for iCE40 UltraPlus FPGA devices</h2><p><strong>Summary:</strong> Create an Ibex-based demonstration platform using <a href=http://www.clifford.at/icestorm/>IceStorm</a>, the fully open source
+Verilog-to-bitstream flow for iCE40 FPGAs .</p><p>This project necessarily involves porting the <a href=https://github.com/lowRISC/ibex>Ibex</a> core to the IceStorm flow, making sure it
+fits and reasonably maps to iCE40 FPGAs. Then adding memory, timer, UART,
+SPI (leveraging + adapting existing IP). Finally, creation of the SoC
+infrastructure: toolchain, linker script, software libs.</p><p>Mentors: <a href=mailto:gac@lowrisc.org>Greg</a>, <a href=mailto:vogelpi@lowrisc.org>Pirmin</a></p><h2 id=open-source-logic-analyser-ip-for-fpga:9303baa6f60dbe92b8f81b1ce6b2e04c>Open source logic analyser IP for FPGA</h2><p><strong>Summary:</strong> Build a <a href=https://sigrok.org/>sigrok</a> compatible logic analyser
 that can be used in FPGA.</p><p>FPGA vendors such as Altera and Xilinx have proprietary logic analyser
 generators that can be used for FPGA debug. They allow configuration of a wide
 number of parameters, such as signal widths, depth of buffering and possible
@@ -47,10 +50,19 @@ also be used with external IO to produce a &lsquo;traditional&rsquo; logic analy
 embedded in an ASIC for post-silicon debug.</p><p>By combining the generator with an existing verilog parsing framework a user
 friendly front end could be created. This would allow a designer to select the
 signals they want to capture and the necessary logic analyser would be
-generated with all the required wiring to feed to signals into the analyser.</p><h2 id=implement-the-bit-manipulation-extension-for-ibex:9303baa6f60dbe92b8f81b1ce6b2e04c>Implement the bit manipulation extension for Ibex</h2><p><strong>Summary:</strong> Implement support for the proposed <a href=https://github.com/riscv/riscv-bitmanip>RISC-V bit manipulation
-extension</a> in
-<a href=https://github.com/lowrisc/ibex>Ibex</a>.</p><p>As well as the RTL implementation, an important part of this project will be
-to deliver a workable testing strategy.</p><h2 id=simulated-memory-controller:9303baa6f60dbe92b8f81b1ce6b2e04c>&ldquo;Simulated&rdquo; memory controller</h2><p><strong>Summary:</strong> Provide a way to produce realistic performance numbers from FPGA.</p><p>It is a common pitfall to misinterpret or incorrectly scale performance
+generated with all the required wiring to feed to signals into the analyser.</p><p>Mentors: <a href=mailto:gac@lowrisc.org>Greg</a>, <a href=mailto:vogelpi@lowrisc.org>Pirmin</a>,
+<a href=mailto:luismarques@lowrisc.org>Luís</a></p><h2 id=proof-of-concept-integration-of-pointer-authentication-support-in-ibex:9303baa6f60dbe92b8f81b1ce6b2e04c>Proof-of-concept integration of pointer authentication support in Ibex</h2><p><strong>Summary:</strong> Extend the processor pipeline of <a href=https://github.com/lowrisc/ibex>Ibex</a> with instructions to generate and
+check pointer authentication codes.</p><p><a href=https://www.usenix.org/system/files/sec19fall_liljestrand_prepub.pdf>Pointer Authentication</a> uses
+cryptographic message authentication codes (MACs) both generated and
+authenticated at runtime to protect the integrity of
+pointers in order to aggravate attacks targeting arbitrary code execution
+through malicious manipulation of code and data pointers. This project aims
+at doing a proof-of-concept integration of pointer authentication
+into Ibex.</p><p>For this project, the actual MAC is considered a black box of configurable
+latency. The focus lies on integrating pointer authentication into the
+processor pipeline. To this end, new custom instructions need to be added to
+generate and authenticate pointers based on the value of the PC, SP and a
+secret key (including exception handling if authentication fails).</p><p>Mentors: <a href=mailto:vogelpi@lowrisc.org>Pirmin</a>, <a href=mailto:selliott@lowrisc.org>Sam</a>, <a href=mailto:luismarques@lowrisc.org>Luís</a></p><h2 id=simulated-memory-controller:9303baa6f60dbe92b8f81b1ce6b2e04c>&ldquo;Simulated&rdquo; memory controller</h2><p><strong>Summary:</strong> Provide a way to produce realistic performance numbers from FPGA.</p><p>It is a common pitfall to misinterpret or incorrectly scale performance
 numbers derived from benchmarks run on an FPGA-based SoC design. The problem
 is that your external memory interface is running at a very high speed
 compared to the core CPU (e.g. a 25MHz core clock speed but external memory
@@ -59,5 +71,5 @@ what the performance would be on an ASIC, as the CPU clock speed could be many
 times higher but the memory frequency be the same or increase by a much
 smaller amount. The solution is to have a simulation-ready memory controller
 that will produce delays much closer to a system where the memory interface is
-running at a much slower speed.</p></div></main><footer class=lr-footer><div class=container><div class=row><div class="col-lg-2 d-none d-lg-block"><img src=/img/logo/logo-dualcolor.svg width=150px></div><div class=col><p>The text content on this website is licensed under a <a href=https://creativecommons.org/licenses/by/4.0/>Creative Commons Attribution 4.0 International License</a>, except where otherwise noted. No license is granted for logos or other trademarks. Other content &copy; lowRISC Contributors.</p><a href=/privacy-policy>Privacy and cookies policy</a>
+running at a much slower speed.</p><p>Mentors: <a href=mailto:asb@lowrisc.org>Alex</a>, <a href=mailto:vogelpi@lowrisc.org>Pirmin</a></p></div></main><footer class=lr-footer><div class=container><div class=row><div class="col-lg-2 d-none d-lg-block"><img src=/img/logo/logo-dualcolor.svg width=150px></div><div class=col><p>The text content on this website is licensed under a <a href=https://creativecommons.org/licenses/by/4.0/>Creative Commons Attribution 4.0 International License</a>, except where otherwise noted. No license is granted for logos or other trademarks. Other content &copy; lowRISC Contributors.</p><a href=/privacy-policy>Privacy and cookies policy</a>
 &middot; <a href=/usage-licence>Usage licence</a></p></div><div class=col-lg-2><p><a href=#>Back to top</a></p></div></div></div></footer><script src=/main.e2036.js></script></body></html>

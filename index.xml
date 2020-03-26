@@ -18,17 +18,6 @@ Get in contact with us to work with potential lowRISC mentors to prepare your ap
 
 <p>Please check out our <a href="https://www.lowrisc.org/docs/gsoc-2020-ideas/">project proposals</a> and get in contact with us on our <a href="https://lowrisc.zulipchat.com/">Zulip group chat</a>.
 We are keen to start discussing potential projects!</p>
- ]]></description></item><item><title>Students for GSoC projects wanted</title><link>https://www.lowrisc.org/blog/2020/03/students-for-gsoc-projects-wanted/</link><guid>https://www.lowrisc.org/blog/2020/03/students-for-gsoc-projects-wanted/</guid><pubDate>Mon, 23 Mar 2020 15:00:00 +0000</pubDate><author>info@lowrisc.org (Pirmin Vogel)</author><description><![CDATA[ <p>We are excited to be back as a mentoring organisation for <a href="https://summerofcode.withgoogle.com/">Google Summer of Code</a> and are currently looking for enthusiastic students interested in doing a project with us.</p>
-
-<p>We have a set of <a href="https://www.lowrisc.org/docs/gsoc-2020-ideas/">project proposals</a> based around the vibrant open source projects that we either host or actively contribute to. Examples include: the OpenTitan silicon root of trust; our RISC-V processor core, Ibex; the LLVM compiler infrastructure; and the lowRISC 64-bit SoC. In addition, some of our proposals also connect these projects with other open-source initiatives such as <a href="http://www.clifford.at/icestorm/">Project IceStorm</a>, the fully open source Verilog-to-bitstream flow for iCE40 FPGAs, and <a href="https://sigrok.org/">sigrok</a>, the portable, cross-platform, signal analysis software suite.</p>
-
-<p>Our projects will be mentored by the diverse lowRISC engineering team. We are experienced with guiding GSoC and other student projects at top academic institutions such as the University of Cambridge, TU München, and ETH Zürich.</p>
-
-<p>Are you interested in gaining ground in the open source community? Do you want to do a GSoC project in a vibrant ecosystem with motivated mentors? Get in contact with us to work with potential lowRISC mentors to prepare your application for GSoC 2020. But hurry up, the submission deadline is one week from now, on March 31!</p>
-
-<p>We would be especially happy to hear from students who otherwise may not apply or for whom this is something totally new.</p>
-
-<p>Please check out our <a href="https://www.lowrisc.org/docs/gsoc-2020-ideas/">project proposals</a> and get in contact with us on our <a href="https://lowrisc.zulipchat.com/">Zulip group chat</a>. We are keen to start discussing potential projects!</p>
  ]]></description></item><item><title>At FOSDEM you can hear how we made our Ibex CPU core faster</title><link>https://www.lowrisc.org/blog/2020/01/at-fosdem-you-can-hear-how-we-made-our-ibex-cpu-core-faster/</link><guid>https://www.lowrisc.org/blog/2020/01/at-fosdem-you-can-hear-how-we-made-our-ibex-cpu-core-faster/</guid><pubDate>Wed, 29 Jan 2020 15:00:00 +0000</pubDate><author>info@lowrisc.org (Greg Chadwick)</author><description><![CDATA[ 
 
 

@@ -1,4 +1,32 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lowRISC: Collaborative open silicon engineering</title><link>https://www.lowrisc.org/</link><description>Recent blog posts from lowRISC</description><language>en-us</language><lastBuildDate>Mon, 23 Mar 2020 15:00:00 +0000</lastBuildDate><atom:link type="application/rss+xml" href="https://www.lowrisc.org/index.xml" rel="self"/><copyright> The text content on this website is licensed under a Creative Commons Attribution 4.0 International License, except where otherwise noted. No license is granted for logos or other trademarks. Other content Copyright lowRISC Contributors.</copyright><item><title>Students for GSoC projects wanted</title><link>https://www.lowrisc.org/blog/2020/03/students-for-gsoc-projects-wanted/</link><guid>https://www.lowrisc.org/blog/2020/03/students-for-gsoc-projects-wanted/</guid><pubDate>Mon, 23 Mar 2020 15:00:00 +0000</pubDate><author>info@lowrisc.org (Pirmin Vogel)</author><description><![CDATA[ <p>We are excited to be back as a mentoring organisation for <a href="https://summerofcode.withgoogle.com/">Google Summer of Code (GSoC)</a> and are currently looking for enthusiastic students interested in doing a project with us.
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lowRISC: Collaborative open silicon engineering</title><link>https://www.lowrisc.org/</link><description>Recent blog posts from lowRISC</description><language>en-us</language><lastBuildDate>Mon, 04 May 2020 18:01:00 +0000</lastBuildDate><atom:link type="application/rss+xml" href="https://www.lowrisc.org/index.xml" rel="self"/><copyright> The text content on this website is licensed under a Creative Commons Attribution 4.0 International License, except where otherwise noted. No license is granted for logos or other trademarks. Other content Copyright lowRISC Contributors.</copyright><item><title>GSoC Accepted Projects Announcement</title><link>https://www.lowrisc.org/blog/2020/05/gsoc-accepted-projects-announcement/</link><guid>https://www.lowrisc.org/blog/2020/05/gsoc-accepted-projects-announcement/</guid><pubDate>Mon, 04 May 2020 18:01:00 +0000</pubDate><author>info@lowrisc.org (Sam Elliott and Pirmin Vogel)</author><description><![CDATA[ 
+
+<p>We are pleased to announce that we will be mentoring two students as part of Google Summer of Code](<a href="https://summerofcode.withgoogle.com/">https://summerofcode.withgoogle.com/</a>) (GSoC).</p>
+
+<p>We are looking forward to working with Flavien and Yuichi on features and tools to improve IP such as Ibex, our open-source RISC-V core.</p>
+
+<h2 id="flavien-solt-simulated-memory-controller:c2aa219841f63b0fb8a5fa48c2938fdb">Flavien Solt: Simulated Memory Controller</h2>
+
+<p>It is a common pitfall to misinterpret or incorrectly scale performance numbers derived from benchmarks run on an FPGA-based SoC design.
+The problem is that the external memory interface is running at a very high speed compared to the core CPU (e.g. a 25MHz core clock speed but external memory running a several hundred MHz).
+This can be misleading when trying to consider what the performance would be on an ASIC, as the CPU clock speed could be many times higher but the memory frequency remains the same or increases by a much smaller amount.
+The solution is to implement a memory controller for the FPGA that can accurately “simulate” memory access delays in terms of the processor’s clock cycles.</p>
+
+<p>Flavien will be mentored by Greg Chadwick, Alex Bradbury, and Pirmin Vogel.</p>
+
+<h2 id="yuichi-sugiyama-integrating-pointer-authentication-into-ibex:c2aa219841f63b0fb8a5fa48c2938fdb">Yuichi Sugiyama: Integrating Pointer Authentication into Ibex</h2>
+
+<p>Pointer Authentication uses cryptographic message authentication codes (MACs) both generated and authenticated at runtime to protect the integrity of pointers in order to aggravate attacks targeting arbitrary code execution through malicious manipulation of code and data pointers.
+This project aims to perform a proof-of-concept integration of pointer authentication into Ibex.
+The focus lies on integrating pointer authentication into the processor pipeline.
+To this end, new custom instructions need to be added to generate and authenticate pointers based on the value of the program counter, stack pointer and a secret key (including exception handling if authentication fails).</p>
+
+<p>Yuichi will be mentored by Pirmin Vogel, Luís Marques, and Sam Elliott.</p>
+
+<p>At this point, we would like to thank all the students who applied for a GSoC project with lowRISC, as well as Google for running the program of course (now in its 15th year).
+We received many high-quality applications, but unfortunately, we could not accept all of them.</p>
+
+<p>We&rsquo;re excited about the opportunity to bring new people into the open source hardware community and are looking forward to collaborating with Flavien and Yuichi over the coming months.</p>
+ ]]></description></item><item><title>Students for GSoC projects wanted</title><link>https://www.lowrisc.org/blog/2020/03/students-for-gsoc-projects-wanted/</link><guid>https://www.lowrisc.org/blog/2020/03/students-for-gsoc-projects-wanted/</guid><pubDate>Mon, 23 Mar 2020 15:00:00 +0000</pubDate><author>info@lowrisc.org (Pirmin Vogel)</author><description><![CDATA[ <p>We are excited to be back as a mentoring organisation for <a href="https://summerofcode.withgoogle.com/">Google Summer of Code (GSoC)</a> and are currently looking for enthusiastic students interested in doing a project with us.
 The GSoC initiative gives students the opportunity to spend the summer break gaining real-world hardware and software development experience while earning a stipend from Google.
 If you&rsquo;re a student interested in applying, we strongly recommend you read up on <a href="https://summerofcode.withgoogle.com/how-it-works/">how GSoC works</a> and study the <a href="https://google.github.io/gsocguides/student/">Google Summer of Code Student Guide</a>, which contains excellent advice on preparing a high quality proposal.</p>
 

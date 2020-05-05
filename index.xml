@@ -1,6 +1,6 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lowRISC: Collaborative open silicon engineering</title><link>https://www.lowrisc.org/</link><description>Recent blog posts from lowRISC</description><language>en-us</language><lastBuildDate>Mon, 04 May 2020 18:01:00 +0000</lastBuildDate><atom:link type="application/rss+xml" href="https://www.lowrisc.org/index.xml" rel="self"/><copyright> The text content on this website is licensed under a Creative Commons Attribution 4.0 International License, except where otherwise noted. No license is granted for logos or other trademarks. Other content Copyright lowRISC Contributors.</copyright><item><title>GSoC Accepted Projects Announcement</title><link>https://www.lowrisc.org/blog/2020/05/gsoc-accepted-projects-announcement/</link><guid>https://www.lowrisc.org/blog/2020/05/gsoc-accepted-projects-announcement/</guid><pubDate>Mon, 04 May 2020 18:01:00 +0000</pubDate><author>info@lowrisc.org (Sam Elliott and Pirmin Vogel)</author><description><![CDATA[ 
 
-<p>We are pleased to announce that we will be mentoring two students as part of Google Summer of Code](<a href="https://summerofcode.withgoogle.com/">https://summerofcode.withgoogle.com/</a>) (GSoC).</p>
+<p>We are pleased to announce that we will be mentoring two students as part of <a href="https://summerofcode.withgoogle.com/">Google Summer of Code</a> (GSoC).</p>
 
 <p>We are looking forward to working with Flavien and Yuichi on features and tools to improve IP such as Ibex, our open-source RISC-V core.</p>
 

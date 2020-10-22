@@ -1,4 +1,41 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lowRISC: Collaborative open silicon engineering</title><link>https://www.lowrisc.org/</link><description>Recent blog posts from lowRISC</description><language>en-us</language><lastBuildDate>Thu, 08 Oct 2020 07:00:00 +0000</lastBuildDate><atom:link type="application/rss+xml" href="https://www.lowrisc.org/index.xml" rel="self"/><copyright> The text content on this website is licensed under a Creative Commons Attribution 4.0 International License, except where otherwise noted. No license is granted for logos or other trademarks. Other content Copyright lowRISC Contributors.</copyright><item><title>How we used differential testing to rapidly find and fix missed optimisation opportunities in LLVM&#39;s RISC-V backend</title><link>https://www.lowrisc.org/blog/2020/10/how-we-used-differential-testing-to-rapidly-find-and-fix-missed-optimisation-opportunities-in-llvms-risc-v-backend/</link><guid>https://www.lowrisc.org/blog/2020/10/how-we-used-differential-testing-to-rapidly-find-and-fix-missed-optimisation-opportunities-in-llvms-risc-v-backend/</guid><pubDate>Thu, 08 Oct 2020 07:00:00 +0000</pubDate><author>info@lowrisc.org (Luís Marques)</author><description><![CDATA[ <p>At this <a href="http://llvm.org/devmtg/2020-09/">October 2020 LLVM Developers&rsquo; Meeting</a> I presented a 
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lowRISC: Collaborative open silicon engineering</title><link>https://www.lowrisc.org/</link><description>Recent blog posts from lowRISC</description><language>en-us</language><lastBuildDate>Thu, 22 Oct 2020 12:00:00 +0000</lastBuildDate><atom:link type="application/rss+xml" href="https://www.lowrisc.org/index.xml" rel="self"/><copyright> The text content on this website is licensed under a Creative Commons Attribution 4.0 International License, except where otherwise noted. No license is granted for logos or other trademarks. Other content Copyright lowRISC Contributors.</copyright><item><title>A birthday present for lowRISC: We won an OpenUK Award!</title><link>https://www.lowrisc.org/blog/2020/10/a-birthday-present-for-lowrisc-we-won-an-openuk-award/</link><guid>https://www.lowrisc.org/blog/2020/10/a-birthday-present-for-lowrisc-we-won-an-openuk-award/</guid><pubDate>Thu, 22 Oct 2020 12:00:00 +0000</pubDate><author>info@lowrisc.org (lowRISC)</author><description><![CDATA[ 
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  <img
+    srcset='https://www.lowrisc.org/blog/2020/10/a-birthday-present-for-lowrisc-we-won-an-openuk-award/lowrisc-openuk-award_hu102d7995d2b963f22702224878f2b063_388619_300x0_resize_q75_box.jpg 1x, https://www.lowrisc.org/blog/2020/10/a-birthday-present-for-lowrisc-we-won-an-openuk-award/lowrisc-openuk-award_hu102d7995d2b963f22702224878f2b063_388619_600x0_resize_q75_box.jpg 2x '
+    src="https://www.lowrisc.org/blog/2020/10/a-birthday-present-for-lowrisc-we-won-an-openuk-award/lowrisc-openuk-award_hu102d7995d2b963f22702224878f2b063_388619_300x0_resize_q75_box.jpg"alt='lowRISC&#39;s 2020 OpenUK Award' title='lowRISC&#39;s 2020 OpenUK Award' class='float-right rounded m-2 '
+  >
+
+
+
+
+
+<p>On October 20th lowRISC CIC won in the Open Hardware category at the <a href="https://openuk.uk/awards/">2020 OpenUK Awards</a>, describing lowRISC as “the jewel in the crown of the UK’s open silicon companies”. The OpenUK awards promote “UK Leadership in Open Technology”, and are given out by OpenUK, a UK-based not-for-profit company which supports open source collaboration and open technologies within the United Kingdom.</p>
+
+<p>On receiving the award lowRISC CTO, Alex Bradbury, said “We&rsquo;re incredibly grateful to have been recognised for our achievements and contributions to date. Six years into our journey, it&rsquo;s a fantastic time to reflect on and thank the many people helping to make our vision for open source silicon a reality - our community of contributors, project partners, and the growing lowRISC team.”</p>
+
+<p>What a great present to receive on the occasion of lowRISC’s 6th Birthday! It doesn’t seem too long ago we were celebrating our 5th birthday but what a year it has been. The pioneering Open Silicon project <a href="https://www.opentitan.org">OpenTitan</a> had its public launch, we’ve moved to a fantastic new office, hired new staff and are making fantastic progress on OpenTitan, Ibex and LLVM.</p>
+
+<p>We’ve had our heads down working hard so haven’t been writing about our work as much as we’d like but we’ll be getting a larger update out soon. In the meantime you can always see what we’re up to on our <a href="https://www.github.com/lowRISC">GitHub Repositories</a> and contribute yourself.</p>
+
+<p>Don’t forget we’re actively hiring, so if you want to get involved in our work full time take a look at our <a href="https://www.lowrisc.org/jobs/">Jobs Page</a>.</p>
+ ]]></description></item><item><title>How we used differential testing to rapidly find and fix missed optimisation opportunities in LLVM&#39;s RISC-V backend</title><link>https://www.lowrisc.org/blog/2020/10/how-we-used-differential-testing-to-rapidly-find-and-fix-missed-optimisation-opportunities-in-llvms-risc-v-backend/</link><guid>https://www.lowrisc.org/blog/2020/10/how-we-used-differential-testing-to-rapidly-find-and-fix-missed-optimisation-opportunities-in-llvms-risc-v-backend/</guid><pubDate>Thu, 08 Oct 2020 07:00:00 +0000</pubDate><author>info@lowrisc.org (Luís Marques)</author><description><![CDATA[ <p>At this <a href="http://llvm.org/devmtg/2020-09/">October 2020 LLVM Developers&rsquo; Meeting</a> I presented a 
 
 
 <a href="/blog/2020/10/how-we-used-differential-testing-to-rapidly-find-and-fix-missed-optimisation-opportunities-in-llvms-risc-v-backend/llvm-dev-meeting-oct-2020-poster.pdf">poster</a>

@@ -6,7 +6,7 @@
 
 <p>As part of a drive to ensure these advances are usable in the challenging operational technology (OT) domain as well as the more fully-featured platforms to which they were originally targeted, we are delighted to report that this announcement also included significant funding for a new project with lowRISC CIC</p>
 
-<h1 id="lowrisc-s-involvement:343a95b60f8f72f9122c291dee15b61c">lowRISC’s Involvement</h1>
+<h1 id="lowrisc-s-involvement:e21d2da2ad44ad21037cfdd284510990">lowRISC’s Involvement</h1>
 
 <p>Operational  technology (OT) systems are computing nodes used to monitor or control physical devices, processes, and events. They are particularly challenging targets, since their critical security requirements must typically be achieved within very tight power, area and financial budgets.</p>
 
@@ -18,13 +18,45 @@
 
 <p>OpenTitan has <a href="https://lowrisc.org/blog/2023/06/opentitans-rtl-freeze-leveraging-transparency-to-create-trustworthy-computing/">recently declared</a> a significant milestone, taping out its Engineering Sample (ES). This marks a hugely significant quality and verification step towards commercial production silicon. Furthermore, its wholly owned subsidiary <a href="https://www.newae.com/">NewAE Technology Inc</a>, will develop and deliver the evaluation boards, seeding interest and take up of CHERI technology.</p>
 
-<h1 id="project-deliverables-in-detail:343a95b60f8f72f9122c291dee15b61c">Project Deliverables in Detail</h1>
+<h1 id="project-deliverables-in-detail:e21d2da2ad44ad21037cfdd284510990">Project Deliverables in Detail</h1>
 
 <p>As noted, lowRISC will deliver two prototype platforms: one centred around the existing CHERIoT core as a demonstrator (the Base-Version, BV) and another where the CHERIoT core is paired with OpenTitan (the Extended Evaluation Version, EEV). The EEV enables the full power of CHERIoT to be evaluated and utilised in an OT context. The lowRISC team will work closely with UKRI to bring these versions to their intended audiences and accelerate the adoption of CHERI in the market.</p>
 
 <p>We are seeking input from interested parties on the requirements for the BV. In particular we are interested to hear about peripherals and interfaces that would be useful to those seeking to evaluate CHERIoT for use with their applications. See <a href="http://tinyurl.com/cheriot-fpga-board">tinyurl.com/cheriot-fpga-board</a> for more details. Please send your feedback to <a href="mailto:cheriot-bv-reqs@lowrisc.org">cheriot-bv-reqs@lowrisc.org</a></p>
 
 <p>All board designs, RTL, and firmware will be provided as permissively licensed open source to maximise their impact and reach, and the project will be completed by the end of 2024. The deliverables and outputs from this project will help fulfil the objectives of DSbD to “transform digital technology and create a more resilient, and secure foundation for a safer future.” Through lowRISC’s deliverables,  the next generation of secure-by-design electronic devices — in the challenging domain of OT —  can be further researched, developed and commercialised, and better yet, because of the project’s open-source nature, this can be done without the material barriers to entry that are normally associated with disruptive hardware technologies.</p>
+
+<p>The diagram below illustrates the intended design of the EEV.
+Note this is an early diagram and the CHERIoT Ibex side may look different in the finished version (in particular the set of peripherals provided).
+The OpenTitan Earl Grey side will remain fixed as we are leveraging the existing high-quality verified design.</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  <img
+    srcset='https://www.lowrisc.org/blog/2023/09/dsbd-cheriot-announcement/eev-diagram_hu6537a0223bf0667bfd0fa04f80fa1c8a_143870_1099x0_resize_box_2.png 1x, https://www.lowrisc.org/blog/2023/09/dsbd-cheriot-announcement/eev-diagram_hu6537a0223bf0667bfd0fa04f80fa1c8a_143870_2198x0_resize_box_2.png 2x '
+    src="https://www.lowrisc.org/blog/2023/09/dsbd-cheriot-announcement/eev-diagram_hu6537a0223bf0667bfd0fa04f80fa1c8a_143870_1099x0_resize_box_2.png"alt='Diagram of the EEV' title='Diagram of the EEV' class='mx-auto d-block rounded img-fluid '
+  >
+
+
+
+
  ]]></description></item><item><title>Ibex Inside: How and Why We Built OpenTitan’s RISC-V Core</title><link>https://www.lowrisc.org/blog/2023/07/ibex-inside-how-and-why-we-built-opentitans-risc-v-core/</link><guid>https://www.lowrisc.org/blog/2023/07/ibex-inside-how-and-why-we-built-opentitans-risc-v-core/</guid><pubDate>Mon, 17 Jul 2023 16:30:00 +0000</pubDate><author>info@lowrisc.org (Greg Chadwick)</author><description><![CDATA[ 
 
 <p><a href="https://lowrisc.org/blog/2023/06/opentitans-rtl-freeze-leveraging-transparency-to-create-trustworthy-computing/">OpenTitan® recently announced the RTL freeze</a> of <a href="https://opentitan.org/book/hw/top_earlgrey/doc/specification.html">Earl Grey</a>, the first chip tapeout of its open source silicon root of trust (RoT). The first engineering samples should be in our hands before the end of the year.</p>

@@ -12,20 +12,26 @@ The hardware was first released in limited supply in 2021, but demand quickly sk
 With the improving supply chain, this announcement marks the beginning of setup for worldwide distribution of these boards.
 The new board, Luna, features an even larger Field Programmable Gate Array (FPGA) than the CW310.
 The Luna Board combines two parts (the CW340 baseboard &amp; CW341 Kintex UltraScale FPGA card) which can later be individually changed or upgraded, allowing for simple changes in FPGA size or connectivity.
-Other notable features of the new board enabling hardware security evaluation include:
-* <strong>Built-in interfaces</strong> including Joint Test Action Group (JTAG), serial, Serial Peripheral Interface (SPI) and FPGA configuration for a <strong>single-board solution</strong> when developing for OpenTitan
-* Designed to enable <strong>electromagnetic side-channel analysis</strong> (EM-SCA) and <strong>fault injection</strong> testing of typical cryptographic hardware and embedded software implementations
-* <strong>Low-noise</strong> and <strong>adjustable power supply</strong> for the FPGA core voltage, <strong>hardware temperature monitoring</strong> and <strong>automatic shut-down</strong>, and a <strong>cross-flow fan</strong> to enable cooling even with the heat spreader removed</p>
+Other notable features of the new board enabling hardware security evaluation include:</p>
+
+<ul>
+<li><strong>Built-in interfaces</strong> including Joint Test Action Group (JTAG), serial, Serial Peripheral Interface (SPI) and FPGA configuration for a <strong>single-board solution</strong> when developing for OpenTitan</li>
+<li>Designed to enable <strong>electromagnetic side-channel analysis</strong> (EM-SCA) and <strong>fault injection</strong> testing of typical cryptographic hardware and embedded software implementations</li>
+<li><strong>Low-noise</strong> and <strong>adjustable power supply</strong> for the FPGA core voltage, <strong>hardware temperature monitoring</strong> and <strong>automatic shut-down</strong>, and a <strong>cross-flow fan</strong> to enable cooling even with the heat spreader removed</li>
+</ul>
 
 <p>The OpenTitan project has <a href="https://opentitan.org/book/doc/contributing/fpga/get_a_board.html">recently announced official support for the Luna Board</a> as a supported board for building the complete OpenTitan top-level emulation (Bergen is already supported).</p>
 
 <p>While existing FPGA boards often require patching together various additional tools, the new boards come out-of-the-box with everything a developer needs for working with OpenTitan.
 As OpenTitan partners and RISC-V members continue their development work, having a turn-key development board will accelerate their research and integration of OpenTitan.
-Implementing both the Bergen and Luna Boards allows customers to:
-* Achieve a <strong>fully integrated development environment</strong> with no additional tooling required, and reliable and repeatable setups
-* Enable <strong>hardware security analysis</strong> and <strong>evaluate designs</strong> for those meeting certifications such as EAL or FIPS-140-3
-* Unlock a <strong>future-proof architecture</strong> (Luna board) with a modular design that splits the baseboard and FPGA card into <strong>two physical boards</strong>, enabling use of custom FPGA cards or evaluation of other targets using the same interface
-* Enable <strong>side-channel analysis</strong> more effectively than any other commercially available FPGA boards, greatly <strong>simplifying analysis</strong> using electromagnetic side channel evaluation</p>
+Implementing both the Bergen and Luna Boards allows customers to:</p>
+
+<ul>
+<li>Achieve a <strong>fully integrated development environment</strong> with no additional tooling required, and reliable and repeatable setups</li>
+<li>Enable <strong>hardware security analysis</strong> and <strong>evaluate designs</strong> for those meeting certifications such as EAL or FIPS-140-3</li>
+<li>Unlock a <strong>future-proof architecture</strong> (Luna board) with a modular design that splits the baseboard and FPGA card into <strong>two physical boards</strong>, enabling use of custom FPGA cards or evaluation of other targets using the same interface</li>
+<li>Enable <strong>side-channel analysis</strong> more effectively than any other commercially available FPGA boards, greatly <strong>simplifying analysis</strong> using electromagnetic side channel evaluation</li>
+</ul>
 
 <h3 id="pricing-and-availability:8698897344437522002e0e921bfb629e">Pricing and availability</h3>
 

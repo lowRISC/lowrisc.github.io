@@ -1,0 +1,59 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><base href=https://www.lowrisc.org><link rel=icon type=image/png sizes=32x32 href=/favicon.png><title>GSoC Projects Successfully Completed &middot; lowRISC: Collaborative open silicon engineering</title><link href=/main.b716e.css rel=stylesheet></head><body><header><nav class="navbar navbar-expand-md navbar-light"><div class=container><a class=navbar-brand href=#><img src=/img/logo/logo-dualcolor.svg alt=lowRISC></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarCollapse aria-controls=navbarCollapse aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarCollapse><ul class="navbar-nav ml-auto"><li class=nav-item><a href=/our-work class=nav-link>Our work</a></li><li class=nav-item><a href=/open-silicon class=nav-link>Open Silicon</a></li><li class=nav-item><a href=/community class=nav-link>Community</a></li><li class=nav-item><a href=/news class=nav-link>News</a></li><li class=nav-item><a href=/jobs class=nav-link>Jobs</a></li><li class=nav-item><a href=/about class=nav-link>About us</a></li><li class=nav-item><a class="btn lr-navbar-btn-gh" href=https://github.com/lowrisc>GitHub</a></li></ul></div></div></nav></header><main role=main><div class="container lr-blog"><article><h1>GSoC Projects Successfully Completed</h1><address class=lr-blog-author>by Pirmin Vogel, Sam Elliott, and Greg Chadwick,
+<time>September 14, 2020</time></address><p>Time is ticking and summer is almost over already. With that, also our this
+years’ <a href=https://summerofcode.withgoogle.com/>Google Summer of Code</a> (GSoC)
+projects are coming to an end. A lot of open-source coding has been done, pull
+requests have been made, reviewed and merged. Experiments have been conducted,
+results were gathered, interpreted and presented. Bugs were found and fixed, and
+the resulting designs further improved. Both our students and mentors have been
+working hard and we are pleased to announce that both our two projects described
+below have been completed successfully.</p><h2 id=flavien-solt-simulated-memory-controller:e3c03609ab0a0f9848f22352b7bf2286>Flavien Solt: Simulated Memory Controller</h2><p>It is a common pitfall to misinterpret or incorrectly scale performance numbers
+derived from benchmarks run on an FPGA-based SoC design. The problem is that the
+external memory interface is running at a very high speed compared to the core
+CPU (e.g. a 25MHz core clock speed but external memory running a several hundred
+MHz). This can be misleading when trying to consider what the performance would
+be on an ASIC, as the CPU clock speed could be many times higher but the memory
+frequency remains the same or increases by a much smaller amount. The solution
+is to implement a memory controller for the FPGA that can accurately “simulate”
+memory access delays in terms of the processor’s clock cycles.</p><p>In this project, Flavien designed, implemented and verified such a Simulated
+Memory Controller IP core from scratch. The core features configurable AMBA AXI4
+host and device interfaces and is inserted between the processor and the real
+memory controller. Internally, it observes the memory requests sent by the
+processor, buffers the responses from the memory controller, and releases them
+to the processor after inserting an additional delay. The delays are determined
+by a separated Delay Calculator block that emulates a memory request scheduler and controller.
+The first version designed by Flavien uses a First-Ready, First-Come First
+Served strategy but it can be replaced by more advanced schedulers if needed in
+the future. The design can be used both in RTL simulation and on FPGA.</p><p>All of Flavien&rsquo;s code, including documentation and a Verilator testbench can be found in <a href=https://github.com/lowRISC/gsoc-sim-mem>our
+<code>gsoc-sim-mem</code> GitHub repository</a>.</p><p>For more information on the project and Flavien’s experience, please read his
+<a href=https://flaviens.github.io/simmem/>blog post about the project</a>.</p><p>Flavien was mentored by Greg Chadwick, Alex Bradbury, and Pirmin Vogel.</p><h2 id=yuichi-sugiyama-integrating-pointer-authentication-into-ibex:e3c03609ab0a0f9848f22352b7bf2286>Yuichi Sugiyama: Integrating Pointer Authentication into Ibex</h2><p>Pointer Authentication (PA) uses cryptographic message authentication codes
+(MACs) both generated and authenticated at runtime to protect the integrity of
+pointers in order to aggravate attacks targeting arbitrary code execution
+through malicious manipulation of code and data pointers.</p><p>In this project, Yuichi performed a proof-of-concept integration of PA into our
+own RISC-V core <a href=https://github.com/lowRISC/ibex>Ibex</a>. Previously, pointer
+authentication had only been implemented in high-performance, 64-bit
+application-class processors. To our knowledge, this GSoC project is the first
+attempt to implement PA in a 32-bit embedded processor, and it required Yuichi
+to face a couple of challenges related to a reduced feature set and
+micro-architectural differences. Yuichi integrated an existing block cipher
+module for generating and authenticating the MACs into the Ibex pipeline and he
+added new instructions and control and status registers (CSRs) for using this
+cipher module. In addition, he added support for these instructions in the LLVM
+compiler and designed a new compiler pass to automatically protect return
+addresses using pointer authentication. The performance of the resulting PA
+implementation has been profiled using CoreMark and Embench in a Verilator
+simulation. This also allowed Yuichi to estimate the effect of different cipher
+core latencies on application performance. His work has demonstrated that PA can
+be implemented in embedded 32-bit processors at reasonable area overhead of
+roughly 20% and protect return address addresses at an average performance
+overhead of just 2 to 3%.</p><p>The work for integrating PA into Ibex, including a simple demo application, can
+be found on <a href=https://github.com/lowRISC/ibex/tree/gsoc/2020/pointer-authentication>the <code>gsoc/2020/pointer-authentication</code> branch of our GitHub
+repository</a>.</p><p>The work on the Clang and LLVM compilers can be found on <a href=https://github.com/lowRISC/llvm-project/tree/gsoc/2020/pointer-authentication>the
+<code>gsoc/2020/pointer-authentication</code> branch of our GitHub
+fork</a>.</p><p>In addition, Yuichi also landed <a href=https://reviews.llvm.org/rG3f7068ad986d7f44f47faec78597a5e62b07b20b>an upstream patch into
+LLVM</a>. This
+allows the Ibex benchmarks to be compiled with Clang/LLVM.</p><p>For more information and Yuichi’s detailed report, please read his <a href=https://mmxsrup.github.io/2020/08/31/gsoc2020-final-report.html>blog post
+about the
+project</a>.</p><p>Yuichi was mentored by Pirmin Vogel, Luis Marques, and Sam Elliott.</p></article></div></main><footer class=lr-footer><div class=container><div class=row><div class="col-lg-2 d-none d-lg-block"><img src=/img/logo/logo-dualcolor.svg width=150px></div><div class=col><p><small>The text content on this website is licensed under a <a href=https://creativecommons.org/licenses/by/4.0/>Creative Commons Attribution 4.0 International License</a>, except where otherwise noted. No license is granted for logos or other trademarks. Other content &copy; lowRISC Contributors.</small></p><p><small><a href=/privacy-policy>Privacy and cookies policy</a>
+&middot; <a href=/usage-licence>Usage licence</a></small></p></div><div class=col-lg-2><p><a href=#>Back to top</a></p></div></div></div></footer><script src=/main.b716e.js></script></body></html>

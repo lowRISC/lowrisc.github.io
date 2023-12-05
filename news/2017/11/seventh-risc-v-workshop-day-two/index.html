@@ -1,0 +1,312 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><base href=https://www.lowrisc.org><link rel=icon type=image/png sizes=32x32 href=/favicon.png><title>Seventh RISC-V Workshop: Day Two &middot; lowRISC: Collaborative open silicon engineering</title><link href=/main.b716e.css rel=stylesheet></head><body><header><nav class="navbar navbar-expand-md navbar-light"><div class=container><a class=navbar-brand href=#><img src=/img/logo/logo-dualcolor.svg alt=lowRISC></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarCollapse aria-controls=navbarCollapse aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarCollapse><ul class="navbar-nav ml-auto"><li class=nav-item><a href=/our-work class=nav-link>Our work</a></li><li class=nav-item><a href=/open-silicon class=nav-link>Open Silicon</a></li><li class=nav-item><a href=/community class=nav-link>Community</a></li><li class=nav-item><a href=/news class=nav-link>News</a></li><li class=nav-item><a href=/jobs class=nav-link>Jobs</a></li><li class=nav-item><a href=/about class=nav-link>About us</a></li><li class=nav-item><a class="btn lr-navbar-btn-gh" href=https://github.com/lowrisc>GitHub</a></li></ul></div></div></nav></header><main role=main><div class="container lr-blog"><article><h1>Seventh RISC-V Workshop: Day Two</h1><address class=lr-blog-author><time>November 29, 2017</time></address><p>The <a href=https://riscv.org/2017/10/7th-risc-v-workshop-agenda/>seventh RISC-V
+workshop</a> is concluding
+today at Western Digital in Milpitas. I&rsquo;ll be keeping a semi-live blog of
+talks and announcements throughout the day.</p><h2 id=celerity-an-open-source-511-core-risc-v-tiered-accelerator-fabric-michael-taylor:c1190c9fce5ebff3a640819731087371>Celerity: An Open Source 511-core RISC-V Tiered Accelerator Fabric: Michael Taylor</h2><ul><li>Built in only 9 months.</li><li>Celerity is an accelerator-centric SoC with a tiered accelertor fabric.</li><li>Implemented in TSMC 16nm FFC. 25mm2 die area, 385M transistors</li><li>Why 511 RISC-V cores? 5 Linux-capable RV64G Rocket cores, 496-core RV32IM
+mesh tiled area &ldquo;manycore&rdquo;, 10-core RV32IM mesh tiled array (low voltage).</li><li>Used a flip-chip package.</li><li>Of the 5 general purpose cores, 4 connect to the manycore array and 1
+interfaces with the Binary Neural Network accelerator. Each core executes
+independently within its own address space.</li><li>The BaseJump manycore architecture implements the RV32IM with a 5-stage
+pipeline (full forwarded, in-order, single issue). It has 4KB+4KB instruction
+and data scratchpads.</li><li>BaseJump Manycore Mesh Network: stores are routed based on the destination.
+Simple XY-dimension routing.</li><li>Each Rocket core has its own RoCC interface connecting to one of the routers
+in the mesh.</li><li>Uses a remote store programming model, which enables efficient
+producer-consumer programming models. Offer extended instructions such as load
+reserved (load value and set the reservation address),
+load-on-broken-reservation (stall if the reserved address wasn&rsquo;t written by
+other cores), and a consumer instruction to wait on a given address/valud. No
+polling or interrupts are required.</li><li>Currently working on CUDA support.</li><li>Can fit 42 of the &ldquo;manycore&rdquo; cores per mm2 (vs 5 cores per mm2 for Rocket).</li><li>80% of the modules in the manycore are from the BaseJump library.</li><li>For the backend, hardened each core and replicated across the die.</li><li>Over 2/3rds of each manycore tile is memory.</li><li>For the BNN: each core in the manycore tier executes a remote-load-store
+program to orchestrate sending weights to the specialization tier via a
+hardware FIFO.</li><li>All code available at <a href=http://opencelerity.org>opencelerity.org</a>.</li><li>Want to build the &ldquo;DNA&rdquo; for open source ASICs. i.e. the basic components
+needs for building a full system, spanning RTL, IP cores, hardware emulation,
+packaging, PCBs. See <a href=http://bjump.org>bjump.org</a>.</li><li>The BaseJump STL contains several hundred modules, all parameterised.</li></ul><h2 id=the-pulp-cores-a-set-of-open-source-ultra-low-power-risc-v-cores-for-internet-of-things-applications-pasquale-davide-schiavone:c1190c9fce5ebff3a640819731087371>The PULP Cores. A Set of Open-Source Ultra-Low-Power RISC-V Cores for Internet-of-Things Applications: Pasquale Davide Schiavone</h2><ul><li>PULP: Parallel Ultra-Low Power.</li><li>Designed for energy efficient hardware, e.g. near-sensor computation.</li><li>Have a set of 3 32-bit cores currently available, and working on a 64-bit
+Linux-capable core.</li><li>RISCY core has a 4-stage pipeline. RV32IM[F]C. 40.7-69.3kGE. 3.19
+CoreMark/MHz. Also has a number of extensions for packed SIMD, fixed point,
+bit manipulation and hardware loops.</li><li>Zero-riscy has a 2-stage pipeline. RV32{I,E}[M]C. 11.6-18.9kGE. 2.44
+CoreMark/MHz for RV32IMC and 0.91 for RV32EC. Optimized for area.</li><li>Arian core for Linux. 6-stage pipeline, RV64IMC, 185kGE, OoE execution and
+in-order commit. 2.01 CoreMark/MHz.</li><li>Also have a set of software tools for PULP. Virtual platform, timing model.
+Have 1MIPS simulation speed with timing accuracy between 20-20% of the target
+hardware. Can also profile using kcachegrind.</li><li>How to verify these cores? Use constrained pseudo-random test generation in
+a perturbated environment (random interrupts, stalls). The program generator
+tries to maximise the code coverage, and the instruction simulation and RTL
+model are compared.</li><li>Large number of companies using PULP/PULPino, e.g. Mentor, GreenWaves, NXP,
+Micron, Microsemi, Cadence, ST, Google, Intel.</li><li>PULPissimo platform will be released Q12018, including the new microDMA
+subsystem, new interrupt controller, new SDK etc. Taping out on GF22 soon.</li></ul><h2 id=boom-v2-an-open-source-out-of-order-risc-v-core-chris-celio:c1190c9fce5ebff3a640819731087371>BOOM v2. An open-source out-of-order RISC-V core: Chris Celio</h2><ul><li>Out of order superscalar implementing RV64g. Open source and written in
+Chisel (~16kloc). Built on top of the rocket-chip ecosystem.</li><li>Advanced branch prediction. Loads can issue out-of-order with regard to
+other loads and stores.</li><li>Parameterised, just a few lines to instantiate a 2-wide vs 4-wide BOOM.</li><li>BOOM has now been taped out! Taped out with a 2 person team in 4 months.</li><li>Total LoC for the SiFive U54 Rocket is 34kloc, vs 50kloc for BOOMv2, vs
+1.3mloc (Verilog) for the UltraSPARC T2.</li><li>Boomv2 achieves 3.92 CoreMark/MHz (on the taped out BOOM), vs 3.71 for the
+Cortex-A9.</li><li>BOOMv1 had a short pipeline inspired by R10K, 21264, Cortex-A9 and a unified
+issue window.</li><li>BOOMv2: broke critical paths in the frontend. Put the BTB into SRAM. Also
+moved hashing to its own stage.</li><li>The first place+route for register file resulted in huge area. Ended up
+splitting the unified issue window, splitting the physical register file,
+moving issue and register read into separate stages. Then implemented 2-stage
+rename and 3-stage fetch.</li><li>Didn&rsquo;t have the resources to support a customised register file. A
+synthesised register file resulted in huge congestion when routing the wires
+from the flip-flops. Instead, black-boxed the register file and hand-wrote
+some Verilog to instantiate specific flip-flops, muxes, and tri-state buffers.
+Effectively hand-crafting their own bit block out of standard cells.</li><li>Saw about a 25% decrease in clock period, and 20% decrease in CoreMark/MHz
+(due to increased load-use delay, fixable in the future). A lot of the work
+was about fixing design rule check and geometry errors.</li><li>Physical design is a bottleneck for agile hardware development. RTL hacking
+can be rapid, but it takes 2-3 hours for synthesis results and 8-24 hours for
+P+R results. Additionally, manual intervention is often required and reports
+are difficult to reason about.</li><li>Future directions for BOOM: further IPC and QoR improvements. Chris is
+joining Esperanto Technologies, but is committed to maintain the BOOM
+open-source repository.</li></ul><h2 id=rocket-engines-easy-custom-risc-v-cores-through-reuse-albert-magyar:c1190c9fce5ebff3a640819731087371>Rocket Engines. Easy, custom RISC-V cores through reuse: Albert Magyar</h2><ul><li>Why are there so many RISC-V cores (or: why not reuse rocket?). Often a
+desire to match interface to be a &ldquo;drop in&rdquo; replacement for an existing core,
+or want to tailor microarchitecture for custom extensions. Also, may find
+Rocket is over-featured for the desired design point.</li><li>Less good reasons: not invented here, fear of Chisel.</li><li>There are a number of pitfalls for customized cores. e.g. introducing bugs
+that have long since been avoided in Rocket.</li><li>Avoid reusing either too little or too much. Can reuse individual components
+without using the top-level rocket-chip framework at all. Stitch together
+individual components.</li><li>The &ldquo;big 3&rdquo; components: CSR file, decoder, RISC-V compressed (RVC) expander.</li><li>produced a new RISC-V core IP: &ldquo;BottleRocket&rdquo;. This has a classic
+three-stage pipeline with a similar microarchitecture to Z-Scale and V-Scale.
+Implements RV32IMC. The generator produces a single, easy to connect tile.</li><li>Supports debug, test, platform features: 0.13 debug spec, RVFI trace port,
+external interrupt controller.</li><li>The open sourcing effort is underway, as is the integration with
+riscv-formal.</li></ul><h2 id=a-perspective-on-the-role-of-open-source-ip-in-government-electronic-systems-linton-salmon:c1190c9fce5ebff3a640819731087371>A Perspective on the Role of Open-Source IP in Government Electronic Systems: Linton Salmon</h2><ul><li>The USD Department of Defence (DoD) needs custom SoCs. Custom ICs are
+necessary to reach the target GOps/W. Computation requirements keep growing,
+and real-time results are often required.</li><li>Current DoD architectures often use older technology nodes. Now moving
+towards newer technology nodes (28nm and below).</li><li>Most of the cost for DoD custom SoCs is in design. Typically low volume (1k
+parts). For small volume, find design costs 92%, fab NRE 7%, 1% production
+costs.</li><li>Design cost are skyrocketing, increasingly dramatically with each technology
+node. This is a huge problem for the low volume DoD designs.</li><li>Is open source IP the answer? The good news is that it can sharply reduce
+resources, time and complexity or a DoD custom SoC design. Open source IP
+permits increased use of unique DoD security approaches.</li><li>The not so good news: the open source community needs to develop a complete
+infrastructure, needs to e more robust than it is today, the community needs a
+model to fund infrastructure, and the support model must assure long term
+support and continued development of open source IP.</li><li>Unique differentiation doesn&rsquo;t require development of the entire platform.
+Want to put all the effort into the differentiating &ldquo;secret sauce&rdquo;.</li><li>Open source IP can address both the cost and availability of standard IP.
+Open source IP macros are a critical first step, but integration IP is also
+needed.</li><li>Open source IP enables specialisation. It provides the blocks and standard
+infrastructure that can then be specialised.</li><li>Open source IP enables greater scrutiny by the DoD to ensure trust:
+assurance it will only do as specified.</li><li>Hardware security requires the ability to modify the SoC, including 3d party
+IP. Added security capabilities require a robust base and infrastructure.</li><li>RISC-V is an adaptable open standard. RISC-V processors can be built in a
+way that can be trusted, and RISC-V can be used to enable increased security
+(easy to add security extensions).</li><li>Need a full ecosystem infrastructure. Need to cover the entire
+infrastructure, be robust, and easy to use.</li><li>DoD requires robustness and dependability of the open-source infrastructure.
+Need complete verification, clear documentation, robustness validated through
+to silicon implementation and test. This is not the role or the strength of
+universities.<ul><li>Savings requires the ability to depend on the open source IP.</li><li>Savings require the robustness of the IP across extended performance
+ranges.</li></ul></li><li>Need a model to fund long-term infrastructure. This isn&rsquo;t the role of DARPA,
+which funds projects rather than infrastructure. Much of the work is
+difficult, but not exciting.</li><li>Need continual maintenance and improvement. Regular updates in terms of
+performance, architecture, and fabrication technology.</li><li>DARPA programs driving open source IP: PERFECT, CRAFT, SSITH, POSH, IDEA.</li><li>CRAFT&rsquo;s goal is to enable more efficient custom IC design/fabrication to
+enable high performance electronic solutions faster and with more flexibility.</li><li>SSITH: develop hardware design tools and IP to provide inherent security
+against hardware vulnerabilities that are exploited through software in DoD
+and commercial electronic systems.</li><li>IDEA: no &ldquo;human in the lop&rdquo; 24-hour layout generation for mixed signal ICs,
+systems in package, and PCBs. Machine generated layout of electrical circuits
+and systems.</li><li>POSH: an open source System on Chip design and IP ecosystem.</li></ul><h2 id=boosting-risc-v-isa-with-open-source-peripherals-an-soc-for-low-power-sensors-elkim-roa:c1190c9fce5ebff3a640819731087371>Boosting RISC-V ISA with Open Source Peripherals. An SoC for Low Power Sensors: Elkim Roa</h2><ul><li>Challenges: ready-to-plug IP and expensive licenses.</li><li>Been working with SiFive, providing IP blocks for the always-on domain.</li><li>The power management unit is a state machine running a microcode program
+that triggers events as necessary.</li><li>Have implemented a wide range of IP: low-noise bandgap voltage reference,
+LDO, biasing control, crystal low-frequency driver (XTAL-RF), RC Oscillator,
+brownout detector, power-on reset, multi-resolution DAC and ADC, fully
+synthesized true random number generator</li><li>Finally, integrated these always-on domain blocks in a TSMC180nm SoC using
+Chisel at the top level.</li><li>Deliverables: releasing Verilog models, FSM Verilog RTL, documentation etc
+through the freechips project. Schematics and layout available through the
+SiFive Designshare program.</li><li>Taping out at the end of the year with SiFive, also want to include PHYs
+like SATA, PCIe, USB next year. Hope to have a qualified range of IP in 2019.</li></ul><h2 id=picosoc-how-we-created-a-risc-v-based-asic-processor-using-a-full-open-source-foundry-targeted-rtl-to-gds-flow-and-how-you-can-too-tim-edwards:c1190c9fce5ebff3a640819731087371>PicoSoC: How we created a RISC-V based ASIC processor using a full open source foundry-targeted RTL-to-GDS flow, and how you can, too!: Tim Edwards</h2><ul><li>Created an ASIC version of a RISC-V core (PicoRV32) using an entirely open
+source toolflow.</li><li>Targeting a 180nm process.</li><li>Open source synthesis toolchain: qflow is built using yosys/ABC, vesta,
+graywolf, qrouter, magic, netgin, iverilog, ngspice.</li><li>PicoSoC includes a UART, SPI memory controller, scratchpad SRAM, and SPI
+flash. Started the SoC targeting the open source Lattice ice40 flow, and add
+padframe, power-on-reset, and generated SRAM to target ASIC.</li><li>Can perform cosimulation using iverilog and ngspice.</li><li>The PicoSoC core is 1mm2, with analog+SRAM+padframe, 2mm x 1.5mm.</li><li>Can reproduce this yourself using the efabless IP catalog and the efablass
+CloudV-based design environment.</li><li>This is brought together in the efabless Open Galaxy Design Environment.</li></ul><h2 id=tilelink-a-free-and-open-source-high-performance-scalable-cache-coherent-fabric-designed-for-risc-v-wesley-terpstra:c1190c9fce5ebff3a640819731087371>TileLink. A free and open-source, high-performance scalable cache-coherent fabric designed for RISC-V: Wesley Terpstra</h2><ul><li>Requirements for a RISC-V bus: Open standard, easy to implemented,
+cache-coherent block motion, multiple cache layers, reusable on and off-chip,
+and high performance.</li><li>What about AMBA CHI/ACE?<ul><li>&ldquo;Open standard? CHI is not open!&rdquo;. Can&rsquo;t get hold of the spec.</li><li>Not easy to implement: 10 probe message types, split control/data, narrow
+bursts, &hellip;</li><li>No support for multiple cache layers.</li><li>Don&rsquo;t want to depend on a standard controlled by a RISC-V competitor</li></ul></li><li>TileLink was a clean slate project out of UC Berkeley. Featured a reduced
+message protocol, assumed all connected hardware is trusted (do security
+checking at the source, not in the network), and only supports power-of-2
+block transfers.</li><li>TileLink is a master-slave point-to-point protocol. It&rsquo;s message based with
+5 priorities. Out-order design with optional ordering. It&rsquo;s designed for
+composability and deadlock freedom.</li><li>TileLink is open source and in production. Over 30 public modules including
+cores, crossbars and adapters. Has a coherency manager similar to how ACE does
+snooping. Also have bridges to AXI/AHB/APB</li><li>SiFive chips use a banked directory-based wormhole MESI L2$.</li><li>There are a few simplifying assumptions that make the protocol easier to
+work with.<ul><li>Require there are no agent loops, i.e. the bus participants (agents) form
+a directed acyclic graph.</li><li>There are strict priorities. Messages have one of five priorities, and
+lower priority messages never block higher priority messages. Responses have
+a higher priority than requests.</li></ul></li><li>The on-chip TileLink wire protocol uses an independent channel for each
+message priority. Messages are transmitted using multi-beat bursts. Use
+ready-valid.</li></ul><h2 id=the-risc-v-vector-isa-roger-espasa:c1190c9fce5ebff3a640819731087371>The RISC-V Vector ISA: Roger Espasa</h2><ul><li>Why a vector extension? Reduce instruction bandwidth, reduce memory
+bandwidth, lower energy, exposes DLP, masked execution, gather/scatter.
+Scalable from small to large vector processing unit.</li><li>The vector ISA in a nutshell<ul><li>32 vector registers. Each can hold either a scalar, vector, or a matrix
+(shape). Each has an associated type (polymorphic encoding). There are a
+variable number of registers (dynamically changeable).</li><li>Vector instruction semantics: all instructions are controlled by the
+Vector Length (VL) register and can be executed under mask. Precise
+exceptions are supported.</li></ul></li><li>Suppose you&rsquo;re adding two vector registers: <code>vadd v1, v2 -&gt; v0</code>. If the
+vector length is less than maximum vector length, the remaining values must be
+zeroed.</li><li>You could implement this how you like. Might choose to have a 2-lane
+implementation (two FP adders), or 4-lane, or even 8-lane (SIMD, doing all in
+one cycle). The number of lanes is transparent to the programmer and the same
+code runs independent of the number of lanes.</li><li>Data inside a VREG could be a single scalar value, a vector, or a matrix
+(optionally). The current shape is held in the per-vreg type field.<ul><li>e.g. <code>vadd v1, v2.s -&gt; v0</code>. This adds the scalar value in v2 to every
+value in vector v1.</li></ul></li><li>Masks are stored in regular vector registers (i.e. there will not be
+separate mask registers). Masks are computed with compare operations, and
+instructions use 2 bits of encoding to select masked execution.<ul><li>e.g. <code>vadd v3, v4, v1.t -&gt; v5</code>.</li><li>v1 is the only register used as mask source.</li></ul></li><li>Vector load (unit stride). <code>vld 80(x3) -&gt; v5</code> will Vector Length elements.</li><li>Stride vector load. <code>vlds 80(x3, x9) -&gt; v5</code> performs a strided load.</li><li>Gather (indexed vector load). <code>vldx 80(x3, v2) -&gt; v5</code>. This uses a vector to
+hold offsets. Repeated addresses are legal.</li><li>Vector store: <code>vst v5 -&gt; 80(x3)</code>. Note that zeroes won&rsquo;t be written when MVL
+is larger than the vector length.</li><li>Scatter (indexed vector store). <code>vstx v5 -&gt; 80(x3, v2)</code>. Will probably have
+two version of scatter, where one has guarantees about the ordering or stores
+to repeated addresses.</li><li>Ordering:<ul><li>From the point of view of a given hart, vector loads and stores happen in
+order. You don&rsquo;t need any fences to see your own stores.</li><li>From the point of view of other harts, see the vector memory accesses as
+if done by a scalar loop. This means they can be seen out-of-order by other
+harts.</li></ul></li><li>Typed vector registers:<ul><li>Each vector register has an associated type, which can be different for
+different registers.</li><li>Types can be mixed in an instruction under certain rules.</li><li>Register types enable a &ldquo;polymorphic&rdquo; encoding an is also more scalable
+for the future.</li></ul></li><li>vcvt is used for type and data conversions.</li><li>In some cases, types can be mixed in an instruction. e.g. adding <code>v1_i8,
+v2_i64 -&gt; v0_i64</code>. When any source is smaller than the destination, the source
+is promoted to the destination size.</li><li>The size of the vector register file is not set by the ISA. It is configured
+by writing to the vdcfg CSR. When doing this, the hardware computes the
+maximum vector length. This configuration can be done in user mode.<ul><li>One implementation choice is to always return the same MVL, regardless of
+config. Alternatively, split storage across logical registers, perhaps
+losing some space.</li></ul></li><li>E.g the hardware has 32 registers, 4 elements per vector, each 4 bytes = 512
+bytes. If the user asks for 32 F32 registers, <code>MVL = 512B / (32 * 4) = 4</code>. If
+the user asked for only 2 F32 registers, <code>MVL = 512B / (4+4) = 64</code>. But it
+would be legal for the implementation to return something smaller, e.g. 4 as
+in the previous example.</li><li>If the user asks for 2 F16 regs and 2 F32 registers, <code>MVL = 512B / (12B +
+4B) = 32</code>.</li><li>MVL is transparent to software, meaning code can be portable across
+different number of lanes and different values of MVL.</li><li>Not covered today: exceptions, kernel save + restore, custom types, or
+matrix shapes.</li><li>Goal is to be the best vector ISA ever! Expect LLVM and GCC to support it.</li><li>Current spec on GitHub is out-of-date.</li></ul><h2 id=security-task-group-update-and-risc-v-security-extension-richard-newell:c1190c9fce5ebff3a640819731087371>Security task group update and RISC-V security extension: Richard Newell</h2><ul><li>The security working group works in two main areas. Trusted execution /
+isolation and cryptographic extensions. Recently had changes in direction for
+trusted execution / isolation.</li><li>This talk will focus on the cryptographic extensions status. Hope to have a
+written spec for the next workshop.</li><li>Want to rely heavily on the vector extensions for crypto.</li><li>Use vector functional units to perform modular and Galois Field arithmetic
+needed for existing popular and promising post-quantum asymmetric cryptography
+schemes. Also accelerate symmetric block ciphers and digest algorithms taking
+advantage of the wide vector registers, using specialized VFUs (e.g. AES,
+SHA-2).</li><li>Asymmetric crypto acceleration: use hardware support for modular arithmetic,
+but software for group operations and point multiplication.</li><li>Propose vector element widths up to 4096, as well as an escape mechanism to
+allow larger widths or non-power-of-two widths.</li><li>Intend to use just one major opcode for the cryptographic extension.</li><li>Richard presented a handy slide summarising the algorithms used in crypto
+suites / libraries. Be sure to check it out once the slides become available!</li><li>Proposing to define profiles that define the required crypto algorithms.
+e.g. a profile for &ldquo;internet&rdquo;, &ldquo;finance&rdquo;, and &ldquo;cellular&rdquo;.</li></ul><h2 id=using-proposed-vector-and-crypto-extensions-for-fast-and-secure-boot-richard-newell:c1190c9fce5ebff3a640819731087371>Using proposed vector and crypto extensions for fast and secure boot: Richard Newell</h2><ul><li>Richard is giving a great summary of implementing various crypto algorithms
+using the proposed crypto extensions, but unfortunately it&rsquo;s difficult to
+summarise the information presented in these diagrams.</li><li>Expect a huge speedup vs the ARM Cortex-M3 for an appropriate RV32IVY
+implementation (though very dependent on the hardware that is implemented).</li><li>Performed a case study using WalnutDSA signature verification, developed by
+SecureRF. Saw a 3x speedup with crypto extensions vs without crypto
+extensions.</li></ul><h2 id=using-risc-v-as-a-security-processor-for-darpa-chips-and-commercial-iot-mark-beal:c1190c9fce5ebff3a640819731087371>Using RISC-V as a security processor for DARPA CHIPS and Commercial IoT: Mark Beal</h2><ul><li>This talk is about leveraging RISC-V to deliver integrated hw/sw silicon IP.</li><li>The Intrinsix secure execution environment contains a tiny RISC-V core,
+crypto engines, secure fabric, as well as software.</li><li>Add a security CPU to provide an isolated execution environment. It&rsquo;s easier
+to verify the separation between secure and non-secure actions. Costs less
+than 1% of silicon area (20K gates).</li><li>Implement RV32IC with machine and user modes. 2-stage pipeline with a local
+ROM And RAM. The IRAM can only hold signed code, is fetch-only, and is locked
+after authentication.</li><li>Security RV32 runs signed firmware in user mode, and only executes from
+hardwired ROM in machine mode.</li><li>Suppose you have Zephyr running on Rocket, using TinyCrypt as the crypto
+API. Replace TinyCrypt on Rocket with a call to an API running on the Secure
+RV32.</li></ul><h2 id=isa-formal-task-group-update-rishiyur-nikhil:c1190c9fce5ebff3a640819731087371>ISA Formal Task Group Update: Rishiyur Nikhil</h2><ul><li>A formal spec is a key requirement to be able to definitively answer
+questions about compiler correctness and implementation correctness. e.g. will
+executing this RISC-V program on this implementation produce correct results?<br>For all RISC-V programs?</li><li>Clifford Wolf has demonstrated the value of formal spaces in identifying
+bugs in most publicly available RISC-V implementations.</li><li>The formal spec must be clear and understandable to the human reader,
+precise and complete, machine readable, executable, and usable with a variety
+of formal tools.<ul><li>English-text specs and instruction set simulators can be regarded as
+specs, but typically do not meet many of these goals.</li></ul></li><li>Our approach is to use a very minimal subset of Haskell to define a spec
+that is directly executable in Haskell. Then provide parsers to connect to
+other formal tools and formats.</li><li>See the current prototype
+<a href=https://github.com/mit-plv/riscv-semantics>here</a>.</li><li>Done: RV32I/RV64I, M, priv spec M. Currently ignoring memory model issues.
+Soon want to implement privilege spec supervisor mode, then A, C, F, D,
+integration with the memory model.</li></ul><h2 id=strong-formal-verification-for-risc-v-adam-chlipala:c1190c9fce5ebff3a640819731087371>Strong formal verification for RISC-V: Adam Chlipala</h2><ul><li>Simplify: start by proving a shallow property, proving some straight-forward
+invariants.</li><li>Simplify: analyze isolated components and build larger components by
+composing them.</li><li>Want to avoid starting over for each design. Instead prove a property once
+for all parameters.</li><li>Kami is a framework to support implementing, specifying, formally verifying,
+and compiling hardware designs. It is based on the Bluespec high-level
+hardware design language and the Coq proof assistant.</li><li>The big ideas (from Bluespec):<ul><li>Program modules are objects with mutable private state accessed via
+methods.</li><li>Every method call appears to execute atomically. So any step is summarized
+by a trace of calls.</li></ul></li><li>Object refinement is inclusion of all possible traces.</li><li>Composing objects hides internal method calls.</li><li>Use standard Coq ASCII syntax for mathematical proofs. These are checked
+automatically, just like type checking. Also benefit from streamlined IDE
+support for Coq.</li><li>Implement a design, which can be refined to check it against the spec (Coq
+tactics are used to prove the refinements). The design is also used to
+generate the RTL.</li><li>We are building a translator for the formal RISC-V ISA spec into the
+language of Coq/Kami.</li><li>Building an open library of formally verified components. Built a
+microcontroller-class RV32I. Working on desktop-class RV64IMA. Also have a
+cache-coherent memory system.</li><li>Reuse our proofs when composing our components with your own formally
+verified accelerators.</li></ul><h2 id=grvi-phalanz-update-jan-gray:c1190c9fce5ebff3a640819731087371>GRVI Phalanz Update: Jan Gray</h2><ul><li>The industry is looking to FPGAs to help accelerate cloud workloads.</li><li>Software challenge is how to map you multithreaded C++ app to your
+accelerator. On the hardware side, you want to avoid endless tapeouts as you
+tweak your algorithm.</li><li>GRVI Phalanx Accelerator Kit is a parallel processor overlay for
+software-first accelerators. Recompile your application and run on hundreds of
+RISC-V cores.</li><li>GRVI: FPGA-efficient RISC-V processing element. No CSRs or exceptions, but
+does implement mul and lr/sc.<ul><li>3-stage pipeline with some resources shared by a pair of cores. Fits in
+320 LUTs.</li><li>Take 8 of these and connect to form a cluster (8PEs, shared RAM). Takes
+approximately 3500 LUTs.</li></ul></li><li>Compose cores using message passing on the FPGA-optimised Hoplite NoC.</li><li>Use a partitioned global address space (PGAS).</li><li>Phalanx: fabric of clusters of PEs, memories, IOs</li><li>FPGAs used in the AWS F1 are huge, over 1.3M LUTs. Last December, fit 1680
+RISC-V cores on that FPGA. 250MHz, 420GIPS, 2.5TB/s cluster memory bandwidth,
+&hellip;</li><li>Working on a GRVI Phalanx SDK. Bridge the Phalanx and AX4 system interfaces
+with message passing bridges.</li><li>8-80 cores on the Pynq.</li><li>Can fit 884 cores on the FPGA on the F1 with 3 DDR controllers, 1240 with 1
+DDR controller.</li><li>Currently program using bare metal multithreaded C++ and message. Working on
+an OpenCL-based solution. Use the new &lsquo;SDAccell for RTL&rsquo;.</li><li>SDK coming, allowing 8-80-800-10000 core designs. All enabled by the
+excellent RISC-V ecosystem.</li></ul><h2 id=a-tightly-coupled-light-weight-neural-network-processing-unit-with-risc-v-core-lei-zhang:c1190c9fce5ebff3a640819731087371>A tightly-coupled light-weight neural network processing unit with RISC-V Core: Lei Zhang</h2><ul><li>Neural networks can be used to replace computation-intensive but
+error-resilient code.</li><li>Connected a tightly-coupled neural accelerator to a Rocket core through the
+RoCC interface.</li><li>Extended the instruction set. Added NPE instructions for neural accelerator
+initialisation and invocation. Also DMA instructions for data initialization
+in a buffer. Finally, AGU instructions for data streaming from buffer to
+processing elements.</li><li>The Neural Accelerator is a one-dimensional systolic array.</li></ul><h2 id=lacore-a-risc-v-based-linear-algebra-accelerator-for-soc-designs-samuel-steffi:c1190c9fce5ebff3a640819731087371>Lacore: A RISC-V based linear algebra accelerator for SoC designs: Samuel Steffi</h2><ul><li>Linear algebra is a foundation of high performance computing.</li><li>Most HPC apps can be reduced to a handful of computation classes:
+sparse/dense linear algebra, FFT, structured/unstructured grids. These all
+have overlap with linear algebra.</li><li>LACore targets a wide range of applications and tries to overcome hardware
+issues of other approaches (GPU, fixed-function accelerators).</li><li>Five main pieces in the LACore additions to the scalar SCPU<ul><li>LAExecUnit: mixed-precision systolic datapath connected to LAMemUnits with
+FIFOs. 3 inputs and 1 output, dual precision (32 and 64-bit). Datapath
+consists of a vector unit and a reduction unit.</li><li>LAMemUnits: read and write data-streams to the datapath FIFOs and
+LACache/Scratchpad. Can read or write scalars, vectors, matrices, and sparse
+matrices.</li><li>LAcfg provides configuration to LAMemUnits. These registers hold all info
+about data-stream type, precision, location etc.</li><li>64kb scratchpad (3r1w).</li><li>64kb LACache with 4 ports (3r1w) and 16 banks</li></ul></li><li>Adding 68 new instructions, broadly split into 3 classes: configuration,
+data movement, and execution.</li><li>The LACoreAPI allows the accelerator to be programmed.</li><li>Started by implementing in gem5. This was ~25kloc of C++ and Python.</li><li>Implemented the HPC Challenge (HPCC) benchmark suite. Compared versus a
+in-order RISC-V core, superscalar x86 core with SSE2, and equivalent Fermi GPU
+with 2 streaming multiprocessors. LACore saw a speedup of 3.43x over x86,
+10.72x vs baseline RISC-V, and 12.04 vs the GPU baseline.</li><li>Estimated area is only 2.53x the area of a single RISC-V scalar CPU and
+0.60x the area of the equivalent GPU.</li><li>Freely available <a href=https://github.com/scale-lab/la-core>here</a>.</li><li>Currently working a LACore multi-core design and evaluation, as well as an
+ASIC implementation and eventual tapeout.</li></ul><h2 id=packet-manipulation-processor-a-risc-v-vliw-core-for-networking-applications-salvatore-pontarelli:c1190c9fce5ebff3a640819731087371>Packet manipulation processor. A RISC-v VLIW core for networking applications: Salvatore Pontarelli</h2><ul><li>Network &ldquo;softwareization&rdquo; is seen as the optimal solution to design next
+generation network infrastructures, services, and applications.</li><li>Want high speed: 100-200Gbps (as achievable with FPGAs and network
+processors) and beyond, 5Tbps as achievable with programmable forwarding
+dataplanes.</li><li>Propose an architecture where programmable forwarding dataplanes are
+augmented with a PMP (packet manipulation processor)</li><li>Design a small, efficient CPU for packet manipulation. Deploy the PMP at the
+output port. Want to process packets at 10/40Gbps.</li><li>Possible programmable actions: inband packet reply, custom tunneling,
+NAT/PNAT.</li><li>The PMP has a small instruction memory (typically need less than 8K
+instructions). Small data memory (8KB). Flat memory, no cache hierarchy.</li><li>PMP throughput: 10Gbps is 14.88Mpps, 67 clock cycles at 1GHz. A multi-core
+CPU is one approach, but has challenges regarding the reordering of packets.
+Pursue a VLIW solution instead.</li><li>The PMP is a static 8-issue VLIW RISC-V core with the RV32I instruction set.
+Has a 32-bit dataplane (to be upgraded). Written in VHDL. Features branch
+prediction, lane forwarding.</li><li>Implemented in a NetFPGA based programmable dataplane.</li><li>Synthesized at 250MHz on FPGA.</li></ul><h2 id=adding-a-binarized-cnn-accelerator-to-risc-v-for-person-detection-guy-lemieux:c1190c9fce5ebff3a640819731087371>Adding a Binarized CNN Accelerator to RISC-V for Person Detection: Guy Lemieux</h2><ul><li>This talk uses VectorBlox Vector instructions, which are not the same as the
+vector instructions proposed in the RISC-V vector working group.</li><li>Prototyped in the Lattice iCE40 UltraPlus FPGA (5280 LUTs, 1Mb SRAM).</li><li>Inspired by BinaryConnect. Built a custom database, performed other
+optimisations, and managed 98% accuracy.</li><li>Use Orca (open source, BSD licensed). Written in VHDL, 200MHz fully
+pipelined, less than 2000 4LUTs.</li><li>Added streaming vector extensions and binary CNN accelerator.</li><li>The streaming vector instructions (SVE) operate only on stream memory. Add
+streaming version of all the base RV32 integer operations, multiply
+instructions. Add in some extra instructions such as mov, conditional move,
+comparisons, and vector control instructions. Packed SIMD can be supported
+naturally with this approach to vectors.</li><li>Would also like to add an extra SVE extension for DMA.</li><li>SVE has a base 32-bit encoding, as well an extended 64-bit encoding.</li><li>Can redirect the data to a domain-specific streaming pipeline.</li><li>4852 4-input LUTs for the whole solution.</li><li>Releasing the VectorBlox instruction set as an open specification, and
+joining the RISC-V vector working group to discuss it as a potential
+alternative.</li><li>SVE vs the RISC-V vector extension<ul><li>A &ldquo;memory-to-memory&rdquo; architecture, challenging the conventional wisdom of
+RISC.</li><li>No named vector registers in the ISA (no register allocation, no compiler
+changes needed)</li><li>High performance. Free loop unrolling, no saving/restoring of vector data.</li><li>No storage wasted with streaming memory. Free software scratchpad if
+vectors aren&rsquo;t used.</li><li>Easier/simpler hardware. Double-buffered DMA instead of prefetching +
+vector register renaming.</li></ul></li></ul><h2 id=risc5-improving-support-for-risc-v-in-gem5-alex-roelke:c1190c9fce5ebff3a640819731087371>RISC5. Improving support for RISC-V in gem5: Alex Roelke</h2><ul><li>gem5 is a popular cycle approximate simulator, which can be very useful in
+RISC-V hardware development.</li><li>RISC-V in gem5 supports RV64GC. It uses syscall emulation and doesn&rsquo;t yet
+support the privileged ISA.</li><li>Implemented the release consistency memory model for atomics.</li><li>Floating point support was verified against spike and a hardware design.</li><li>The main challenge when implementing the compressed instruction was
+interfacing with gem5&rsquo;s existing decode logic.</li><li>In the future, want to support multithreaded workloads in syscall emulation
+mode, enable full system mode (privileged ISA), and correct minor differences
+(e.g. floating point rounding).</li></ul><h2 id=renode-a-flexible-open-source-simulation-for-risc-v-system-development-michael-gielda:c1190c9fce5ebff3a640819731087371>Renode. A flexible open-source simulation for RISC-V system development: Michael Gielda</h2><ul><li>AntMicro was founded in 2009 and has been developing Renode since 2010.</li><li>Why did we build Renode? Observed data workflows for embedded development.
+Needed a fast simulator for software developers, as close to production as
+possible. Must support multi-node simulation, easy reuse of models, and be
+extensible.</li><li>It is an instruction set simulator, mostly written in C#. It supports fully
+deterministic execution, transparent debugging, integration with familiar
+tools (e.g. GDB).</li><li>Renode is open source, has a flexible structure and is constructed out of
+modular building blocks.</li><li>The platform description format is human readable, modular, and extendible.</li><li>Worked with Microsemi to support the Mi-V platform, integrate with
+SoftConsole IDE, and support Windows as a first-class platform.</li><li>Renode supports a range of handy features, such as fault injection,
+record/replay, and more.</li></ul><h2 id=qemu-based-hardware-modelling-of-a-multi-hard-risc-v-soc-daire-mcnamara:c1190c9fce5ebff3a640819731087371>QEMU-based hardware modelling of a multi-hard RISC-V SoC: Daire McNamara</h2><ul><li>Wanted to explore have separate execution contexts on the same SoC that are
+free from interference (e.g. one core running an RTOS, while others run a
+general purpose OS).</li><li>In the SiFive Unleashed platform, the E51 provides services for other U54
+harts.</li><li>E51 services/peripheral drivers are implemented as event-driven state
+machines. These are describes via a structure and states are named.</li><li>Needed an emulator to model all of this.</li><li>Modified RISC-V QEMU:<ul><li>Updated privileged spec support.</li><li>Hart synchronisation (IPIs)</li><li>Modelling physical memory protection</li><li>PLIC, CLINT, local interrupts</li><li>Support for managing contexts of multiple harts</li><li>Modelling L1/L2 cache configuration register writes/reads</li><li>&hellip;</li></ul></li><li>U54-MC QEMU hasn&rsquo;t yer been upstreamed to the main RISC-V QEMU github repo
+yet.</li><li>Can boot Linux to console and interact, but it&rsquo;s a little slow (takes about
+15 minutes).</li><li>Future plans: improve speed, add vectorisation for local interrupts, device
+tree support, QOM, remote control of real hardware. Finally, clean up and
+upstream.</li></ul><h2 id=firesim-cycle-accurate-rack-scale-system-simulation-using-fpgas-in-the-public-cloud-sagar-karandikar:c1190c9fce5ebff3a640819731087371>FireSim. Cycle-Accurate Rack-Scale System Simulation using FPGAs in the Public Cloud: Sagar Karandikar</h2><ul><li>Why simulate datacenters? Next-gen datacenters won&rsquo;t be built only from
+commodity components, and custom hardware is changing faster than ever.</li><li>Our simulator needs to model hardware at scale (CPUs down to
+microarchitecture, fast networks and switches, novel accelerators), run real
+software, and be usable.</li><li>One way to test would be to build the hardware, get the chips back, then
+network together into a datacenter. This has obvious disadvantages.</li><li>Alternatively, use a software simulator. Easy to prototype new hardware this
+way, but also easy to model something that you can&rsquo;t build. Additionally, it
+can be very slow to run, requiring the use of small microbenchmarks or
+sampling.</li><li>Or, build a hardware-accelerated simulator (see DIABLO). You need to
+hand-write RTL models, which in many ways is harder than &ldquo;tapeout-ready&rdquo; RTL.</li><li>How do we improve? Harness useful hardware trends such as the open RISC-V
+SoC, open silicon designs, high productivity hardware design languages
+(Chisel), FPGAs in the cloud.</li><li>FireSim target design: server blades, each with quad-core RISC-V Rocket at
+3.2GHz, 16KiB I+D cache, 256KiB L2, 16Gb DRAM, 200Gbps Ethernet NIC, optional
+accelerators. The network has parameterisable bandwidth/link latency and a
+configurable topology.</li><li>Transform the RTL to simulate on the FPGA. For the network simulation, use
+CPUs and the host network (one thread per port).</li><li>FAME-1 transforming RTL: given RTL, want to automatically transform it into
+decoupled cycle-accurate simulator RTL that we can run on the FPGA.</li><li>Can pack four quad-core server simulations per FPGA, meaning 32 server
+simulations per f1.16xlarge (128 simulated cores). Use a 32-port 200Gbps
+per-port top of rack switch model. The simulation runs at 5MHz (~400 million
+instructions/second). $13.20/hr on-demand, ~$2.60/hr on the spot market.</li><li>Can scale to simulating a 1024 node RISC-V datacenter. Ran across 32
+f1.16xlarge instances. In aggregate, runs at 3.4MHz (13 billions insts/s
+across the simulated datacenter).</li><li>Can also achieve &ldquo;functional&rdquo; network simulation. e.g. allowing all of
+SPECInt06-ref to run on Rocket Chip at 150MHz (completing in less than one
+day).</li></ul><p><em>Alex Bradbury</em></p></article></div></main><footer class=lr-footer><div class=container><div class=row><div class="col-lg-2 d-none d-lg-block"><img src=/img/logo/logo-dualcolor.svg width=150px></div><div class=col><p><small>The text content on this website is licensed under a <a href=https://creativecommons.org/licenses/by/4.0/>Creative Commons Attribution 4.0 International License</a>, except where otherwise noted. No license is granted for logos or other trademarks. Other content &copy; lowRISC Contributors.</small></p><p><small><a href=/privacy-policy>Privacy and cookies policy</a>
+&middot; <a href=/usage-licence>Usage licence</a></small></p></div><div class=col-lg-2><p><a href=#>Back to top</a></p></div></div></div></footer><script src=/main.b716e.js></script></body></html>

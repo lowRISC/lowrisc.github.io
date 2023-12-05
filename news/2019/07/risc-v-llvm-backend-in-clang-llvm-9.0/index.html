@@ -1,0 +1,68 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><base href=https://www.lowrisc.org><link rel=icon type=image/png sizes=32x32 href=/favicon.png><title>The RISC-V LLVM backend in Clang/LLVM 9.0 &middot; lowRISC: Collaborative open silicon engineering</title><link href=/main.b716e.css rel=stylesheet></head><body><header><nav class="navbar navbar-expand-md navbar-light"><div class=container><a class=navbar-brand href=#><img src=/img/logo/logo-dualcolor.svg alt=lowRISC></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarCollapse aria-controls=navbarCollapse aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarCollapse><ul class="navbar-nav ml-auto"><li class=nav-item><a href=/our-work class=nav-link>Our work</a></li><li class=nav-item><a href=/open-silicon class=nav-link>Open Silicon</a></li><li class=nav-item><a href=/community class=nav-link>Community</a></li><li class=nav-item><a href=/news class=nav-link>News</a></li><li class=nav-item><a href=/jobs class=nav-link>Jobs</a></li><li class=nav-item><a href=/about class=nav-link>About us</a></li><li class=nav-item><a class="btn lr-navbar-btn-gh" href=https://github.com/lowrisc>GitHub</a></li></ul></div></div></nav></header><main role=main><div class="container lr-blog"><article><h1>The RISC-V LLVM backend in Clang/LLVM 9.0</h1><address class=lr-blog-author><time>July 10, 2019</time></address><p>On Monday I
+<a href=http://lists.llvm.org/pipermail/llvm-dev/2019-July/133724.html>proposed</a>
+promoting the upstream RISC-V LLVM backend from &ldquo;experimental&rdquo; to &ldquo;official&rdquo;
+for the LLVM 9.0 release. Responses so far are <a href=http://lists.llvm.org/pipermail/llvm-dev/2019-July/133740.html>extremely
+positive</a>, and
+we&rsquo;re working to ensure this is a smooth process. This means that from 9.0, the
+RISC-V backend will be built by default for LLVM, making it usable out of the
+box for standard LLVM/Clang builds. As well as being more convenient for end
+users, this also makes it significantly easier for e.g. Rust/Julia/Swift and
+other languages using LLVM for code generation to do so using the
+system-provided LLVM libraries. This will make life easier for those working on
+RISC-V ports of Linux distros encountering issues with Rust dependencies. As
+<a href=https://www.lowrisc.org/news/2019/07/introducing-sam/>Sam mentioned yesterday</a>, we aim to work with the upstream
+Rust community to help unblock this. 9.0 will branch on the 18th of July with
+the release scheduled for the 28th of August.</p><p>The LLVM project is a popular open source suite of compiler toolchain related
+tools. The core LLVM library and Clang C/C++ front-end are the most
+recognisable components. See the <a href=https://llvm.org/>project home page</a> for
+more background.</p><p>I started the upstream RISC-V LLVM effort towards the end of 2016, having
+developed and maintained an out-of-tree backend for a research architecture for
+a number of years. At the time, there was some downstream work heavily based on
+the MIPS backend but it had a range of problems. In order to maximise the value
+from upstream code reviews (and also provide a useful reference for LLVM
+newcomers), great care was taken to ensure backend functionality could be built
+up incrementally. I&rsquo;m delighted that this has frequently been picked out by the
+LLVM community as the golden standard to follow when contributing new targets.</p><h2 id=status:63ab56a7247fa6daead2f447dd0b557e>Status</h2><p>The RISC-V backend supports the 32- and 64-bit RISC-V base ISAs and all
+standard extensions. i.e. RV32IMAFDC, RV64IMAFDC and the ilp32, ilp32f, ilp32d,
+lp64, lp64f, lp64d ABIs (the <a href=https://reviews.llvm.org/D60456>Clang hard-float ABI
+patch</a> will land imminently). Working with
+other backend contributors, we have developed a comprehensive set of in-tree
+unit tests. For quite some time various groups have reported success using
+Clang/LLVM for their RISC-V embedded firmware builds and more recently we have
+been pushing forwards on issues related to building Linux/BSD applications. The
+GCC torture suite has a 100% pass rate, we&rsquo;re seeing a 98% pass rate on the
+LLVM test-suite (failures are almost all related to C++ exception handling,
+which we hope to resolve soon), and we&rsquo;ve been able to get over 90% of
+buildroot&rsquo;s over 2000 packages to build for RISC-V using clang (most failures
+are due to build system issues or GCCisms). We can compile and run meaningful
+programs e.g. build a rootfs with nginx, serve HTTP requests). See the <a href=https://www.lowrisc.org/news/2019/07/large-scale-risc-v-llvm-testing-with-buildroot/>blog
+post from Luis</a> for many more
+details on this testing.</p><p>LLD support is now roughly feature-complete with the exception of support for
+linker relaxation. Fangrui Song has been most active on RISC-V LLD recently,
+and prior to that Andes Tech contributed the majority of this code. In terms of
+other language support, there is initial Rust support for bare metal RV32 and
+RV64 with support for hard float Linux targets due to start soon.</p><p>Support for RISC-V in LLVM is important for the wider RISC-V ecosystem and at
+lowRISC, we&rsquo;re proud of the role we&rsquo;ve played in initiating its development,
+driving it forwards, and building a community around it. As an independent
+non-profit engineering organisation, we&rsquo;re uniquely positioned to perform this
+kind of work - <a href=https://www.lowrisc.org/our-work/>it&rsquo;s what we do</a>. Our toolchain team has
+grown to include Luís Marques and Sam Elliott as well as myself and we are
+always interested in hearing from skilled engineers who’d like to <a href=https://www.lowrisc.org/jobs/>join our
+team</a>. If you&rsquo;re interested in further supporting this work
+or in applying a similar approach to other open source hardware/software
+projects then get in touch at info@lowrisc.org.</p><h2 id=thanks:63ab56a7247fa6daead2f447dd0b557e>Thanks</h2><p>As well as the lowRISC toolchain team I would like to thank everyone who gave
+encouragement, helped with funding in order to support this work, or submitted
+reviews or patches. We&rsquo;re delighted at the growing community of contributors
+around this backend and feel it&rsquo;s a real success story for collaboration within
+the RISC-V ecosystem. There are far too many names to mention everyone, but
+engineers from organisations such as (alphabetically) AndesTech, Embecosm,
+Google, Qualcomm, and the University of Cambridge have all made notable
+contributions.</p><h2 id=next-steps:63ab56a7247fa6daead2f447dd0b557e>Next steps</h2><p>Becoming an &ldquo;official&rdquo; backend is a huge milestone, but of course that doesn&rsquo;t
+mean we&rsquo;re done. As well as ongoing maintenance and support, we&rsquo;ll be
+continuing to work on: code size, generated code performance improvements,
+better testing, collaborating with language communities such as
+Rust/Swift/Julia, adding support for additional LLVM features or RISC-V
+instruction set extensions, and more.</p><p><em>Alex Bradbury, CTO and Co-Founder</em></p></article></div></main><footer class=lr-footer><div class=container><div class=row><div class="col-lg-2 d-none d-lg-block"><img src=/img/logo/logo-dualcolor.svg width=150px></div><div class=col><p><small>The text content on this website is licensed under a <a href=https://creativecommons.org/licenses/by/4.0/>Creative Commons Attribution 4.0 International License</a>, except where otherwise noted. No license is granted for logos or other trademarks. Other content &copy; lowRISC Contributors.</small></p><p><small><a href=/privacy-policy>Privacy and cookies policy</a>
+&middot; <a href=/usage-licence>Usage licence</a></small></p></div><div class=col-lg-2><p><a href=#>Back to top</a></p></div></div></div></footer><script src=/main.b716e.js></script></body></html>

@@ -1,0 +1,31 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><base href=https://www.lowrisc.org><link rel=icon type=image/png sizes=32x32 href=/favicon.png><title>lowRISC / IMC internship week one - VGA output &middot; lowRISC: Collaborative open silicon engineering</title><link href=/main.b716e.css rel=stylesheet></head><body><header><nav class="navbar navbar-expand-md navbar-light"><div class=container><a class=navbar-brand href=#><img src=/img/logo/logo-dualcolor.svg alt=lowRISC></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarCollapse aria-controls=navbarCollapse aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarCollapse><ul class="navbar-nav ml-auto"><li class=nav-item><a href=/our-work class=nav-link>Our work</a></li><li class=nav-item><a href=/open-silicon class=nav-link>Open Silicon</a></li><li class=nav-item><a href=/community class=nav-link>Community</a></li><li class=nav-item><a href=/news class=nav-link>News</a></li><li class=nav-item><a href=/jobs class=nav-link>Jobs</a></li><li class=nav-item><a href=/about class=nav-link>About us</a></li><li class=nav-item><a class="btn lr-navbar-btn-gh" href=https://github.com/lowrisc>GitHub</a></li></ul></div></div></nav></header><main role=main><div class="container lr-blog"><article><h1>lowRISC / IMC internship week one - VGA output</h1><address class=lr-blog-author><time>July 7, 2016</time></address><p><em>Begnning on Monday, June 27th, we had a team of four University of
+Cambridge undergrads begin a 10 week
+internship working on the lowRISC project at the Computer Laboratory,
+kindly sponsored by <a href=http://www.imc.nl/>IMC Financial Markets</a> (who are also
+helping to advise this project). The team will be blogging regularly over the
+course of the summer - I&rsquo;ll pass over to them to introduce
+themselves.</em></p><p>After some initial brainstorming, we decided to aim to extend the
+current lowRISC SoC design to enable video output, with the final goal of
+playing video smoothly at a resolution of 640x480 on FPGA. The photo below
+shows the four of us (left to right: Gary Guo, Profir-Petru Pârțachi, Alistair Fisher,
+Nathanael Davison).</p><img srcset="https://www.lowrisc.org/news/2016/07/lowrisc-/-imc-internship-week-one-vga-output/imc_lowrisc_interns_potatocam_hu8611ede73a0d62f7c7bd44ddfb81916d_102994_450x0_resize_q75_box.jpg 1x, https://www.lowrisc.org/news/2016/07/lowrisc-/-imc-internship-week-one-vga-output/imc_lowrisc_interns_potatocam_hu8611ede73a0d62f7c7bd44ddfb81916d_102994_900x0_resize_q75_box.jpg 2x" src=https://www.lowrisc.org/news/2016/07/lowrisc-/-imc-internship-week-one-vga-output/imc_lowrisc_interns_potatocam_hu8611ede73a0d62f7c7bd44ddfb81916d_102994_450x0_resize_q75_box.jpg alt="2016 lowRISC/IMC internship team" title="2016 lowRISC/IMC internship team" class="m-2 d-block mx-auto"><p>The final goal has been decomposed into several milestones: adding VGA
+functionality to lowRISC, adding an in-memory framebuffer, implementing a
+video codec for RISC-V and designing and creating a 2D accelerator to speed
+up video decoding. Our plan for the augmented SoC architecture is
+shown the in the diagram below:</p><img srcset="https://www.lowrisc.org/news/2016/07/lowrisc-/-imc-internship-week-one-vga-output/imc_lowrisc_vga_diagram_week1_hueb5ccec2b717b1a917f1b772fb1c2aa2_110393_650x0_resize_box_2.png 1x, https://www.lowrisc.org/news/2016/07/lowrisc-/-imc-internship-week-one-vga-output/imc_lowrisc_vga_diagram_week1_hueb5ccec2b717b1a917f1b772fb1c2aa2_110393_1300x0_resize_box_2.png 2x" src=https://www.lowrisc.org/news/2016/07/lowrisc-/-imc-internship-week-one-vga-output/imc_lowrisc_vga_diagram_week1_hueb5ccec2b717b1a917f1b772fb1c2aa2_110393_650x0_resize_box_2.png alt=Drawing title=Drawing class="m-2 d-block mx-auto"><p>In our first week, we&rsquo;ve succeeded in adding VGA output to lowRISC, a
+demonstration of this is shown in the video below. The demo shows lowRISC
+instantiated on a Nexys4 DDR board (Artix-7) displaying a static image
+that has been loaded into its BRAM. This image is read from SD card by a
+bare-metal program on the RISC-V application core, which then loads it in to
+the memory-mapped BRAM we hooked up to the AXI-Lite bus. The on-chip BRAM
+is obviously a very limited resource, so our next step is to use the
+board&rsquo;s DRAM to hold the framebuffer and make use of the BRAM for a
+line-buffer.</p><iframe width=560 height=315 src=https://www.youtube.com/embed/256wh1QOuH0 frameborder=0 allowfullscreen></iframe><p>We aim to publish something every week, either in the form of a blog post
+like this or as a more detailed guide showing how to repeat our work. Next
+week we&rsquo;ll share a guide on how to enable VGA in lowRISC. By the end
+of the summer, as well as a working technical demo, we will also have
+produced detailed documentation on the whole process of adding a
+customised accelerator to lowRISC.</p></article></div></main><footer class=lr-footer><div class=container><div class=row><div class="col-lg-2 d-none d-lg-block"><img src=/img/logo/logo-dualcolor.svg width=150px></div><div class=col><p><small>The text content on this website is licensed under a <a href=https://creativecommons.org/licenses/by/4.0/>Creative Commons Attribution 4.0 International License</a>, except where otherwise noted. No license is granted for logos or other trademarks. Other content &copy; lowRISC Contributors.</small></p><p><small><a href=/privacy-policy>Privacy and cookies policy</a>
+&middot; <a href=/usage-licence>Usage licence</a></small></p></div><div class=col-lg-2><p><a href=#>Back to top</a></p></div></div></div></footer><script src=/main.b716e.js></script></body></html>

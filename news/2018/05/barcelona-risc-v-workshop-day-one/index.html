@@ -1,0 +1,170 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><base href=https://www.lowrisc.org><link rel=icon type=image/png sizes=32x32 href=/favicon.png><title>Barcelona RISC-V Workshop: Day One &middot; lowRISC: Collaborative open silicon engineering</title><link href=/main.b716e.css rel=stylesheet></head><body><header><nav class="navbar navbar-expand-md navbar-light"><div class=container><a class=navbar-brand href=#><img src=/img/logo/logo-dualcolor.svg alt=lowRISC></a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#navbarCollapse aria-controls=navbarCollapse aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse" id=navbarCollapse><ul class="navbar-nav ml-auto"><li class=nav-item><a href=/our-work class=nav-link>Our work</a></li><li class=nav-item><a href=/open-silicon class=nav-link>Open Silicon</a></li><li class=nav-item><a href=/community class=nav-link>Community</a></li><li class=nav-item><a href=/news class=nav-link>News</a></li><li class=nav-item><a href=/jobs class=nav-link>Jobs</a></li><li class=nav-item><a href=/about class=nav-link>About us</a></li><li class=nav-item><a class="btn lr-navbar-btn-gh" href=https://github.com/lowrisc>GitHub</a></li></ul></div></div></nav></header><main role=main><div class="container lr-blog"><article><h1>Barcelona RISC-V Workshop: Day One</h1><address class=lr-blog-author><time>May 8, 2018</time></address><p>The <a href=https://riscv.org/2018/04/risc-v-workshop-in-barcelona-agenda/>eighth RISC-V
+workshop</a> is
+going
+on today in Barcleona. As usual, I&rsquo;ll be keeping a semi-live blog of talks and
+announcements throughout the day.</p><p>Follow <a href=https://www.lowrisc.org/news/2018/05/barcelona-risc-v-workshop-day-two/>here</a> for the
+day two live blog.</p><p>Note that slides from most presentations are now <a href=https://riscv.org/2018/05/risc-v-workshop-in-barcelona-proceedings/>available at
+riscv.org</a>.</p><h2 id=introduction-rick-o-connor:64ad415d4847dfba34ea36fbecbfd447>Introduction: Rick O&rsquo;Connor</h2><ul><li>This workshop has 325 attendees representing 101 companies and 25
+universties. Largest outside of Silicon Valley.</li><li>Rick gives the usual overview of the RISC-V Foundation structure.</li><li>The RISC-V Foundation currently has over 150 members, including invidual
+members. These members are distributed across 25 countries around the world.</li></ul><h2 id=risc-v-state-of-the-union-krste-asanovic:64ad415d4847dfba34ea36fbecbfd447>RISC-V state of the union: Krste Asanovic</h2><ul><li>Krste gives an overview of the RISC-V ISA for newcomers.</li><li>RISC-V encoding terminology.<ul><li>Standard: defined by the Foundation</li><li>Reserved: Foundation might eventually use this space for future standard
+extensions.</li><li>Custom: Space for impelmenter-specific extensions, never claimed by
+Foundation.</li></ul></li><li>The RISC-V big tent philosophy: enable all types of RISC-V implementation,
+from 32-bit microcontrollers with 1KiB SRAM up to 64-bit Unix servers with
+virtualisation or 128-bit 100k-core supercomputer with PiBs DRAM, open or
+proprietary business models, non-conforming extensions, software
+implementations (e.g. QEMU), &hellip;<ul><li>Minimize wasted work through maximum reuse. Factor out platform-level
+requirements from reusable ISA and software modules</li><li>Use standard platform profiles to reduce ecosystem effort.</li></ul></li><li>A system is minimally RISC-V-ISA-compliant if it runs claimed RISC-V
+unprivileged code correctly. e.g. gcc-compiled RV32IMAC functions work
+correctly. Platform must support loading program, returning result etc.</li><li>One set of unprivileged ISA compliance tests should be able to run on any
+platform. There is a challenge here in handling tiny platforms, e.g. 1KiB
+SRAM.</li><li>A platform specification provides tight constraints on system configuration
+and options to support a software ecosystem.<ul><li>It provides an interface between platform hardware and software, including
+privileged levels.</li><li>Avoid unnecessary duplication. Where it&rsquo;s possible to define a common
+standard, do so.</li><li>Platform compliance tests will be built in collaboration with the relevant
+ecosystem. e.g. server platform compliance, ZephyrOS platform compliance.</li></ul></li><li>Software is king in the RISC-V land<ul><li>ISA extensions need compiler/linker/library support</li><li>There&rsquo;s no point adding instructions if no software wants to use it.</li><li>ISA proposals should be sensible to implement.</li><li>Finished now is better than perfect sometime. But at the same time,
+shouldn&rsquo;t rush to freeze a spec before it&rsquo;s ready.</li></ul></li><li>Open-source hardware vs software<ul><li>Some lessons from the free/open source software community apply, but many
+things are different. e.g. very large investments in hardware that cannot be
+changed once manufactured, threat of patent lawsuits</li></ul></li><li>Major milestones in 2017<ul><li>Fixed holes in user ISA, no changed now in IMAFDQC</li><li>Froze priv-1.10 spec. Updates must be backwards compatible</li><li>Memory model work</li><li>Linux ABI frozen</li><li>Debug spec completed</li></ul></li><li>2018 initiatives<ul><li>Working to prepare the base ISA for ratifications</li><li>Formal spec in progress</li><li>Hypervisor spec done, need implementations</li><li>Crypto in progress</li><li>J (dynamic translation / runtimes) in progress</li><li>Packed SIMD in progress</li><li>Security task group ongoing</li><li>Fast interrupts started</li><li>Trace started</li><li>Krste comments it may take longer to finish these things vs comparable
+industry projects. Have many more stakeholders giving input.</li></ul></li><li>2018 embedded platform<ul><li>New ABI for embedded (e.g. long double = 64bit)</li><li>Build on RV32E</li><li>compiler/library work for improved code compression</li></ul></li><li>RISC-V and security<ul><li>Set up security standing committee. Chaired by Helena Handschuh (Rambus),
+vice-chair Joe Kiniry (Galois Research).</li></ul></li></ul><h2 id=the-state-of-risc-v-software-palmer-dabbelt:64ad415d4847dfba34ea36fbecbfd447>The state of RISC-V software: Palmer Dabbelt</h2><ul><li>Palmer shows a picture of Xorg with web browser, terminal, webcam, and a 3d
+video game all running on a RISC-V core (SiFive Unleashed with Microsemi
+add-on board).</li><li>GNU-based toolchains<ul><li>binutils, gcc, glibc, newlib all upstreamed.</li></ul></li><li>The RISC-V Linux kernel port was upstreamed in January 2018. It only
+supports RV64I systems for now, and is currently missing some platform
+drivers. Help would be welcomed in getting these upstream.</li><li>RISC-V Fedora and Debian support is in progress</li><li>RISC-V LLVM port is making rapid progress. RV32IMFDC upstream. [As a
+correction to the talk, compressed support is upstream - thanks to
+contributions from Andes Tech and Qualcomm!]</li><li>Bootloaders: U-boot is upstream, TianoCore is a work in progress. Coreboot
+RISC-V support is upstream but a little out of date. UEFI standard process is
+ongoing.</li><li>Embedded runtimes: Zephry is upstream, seL4 upstream, FreeRTOS exists but
+isn&rsquo;t upstream, Micrium uC/OS is available, as is ThreadX.</li><li>Debugging: GDB port upstream, OpenOCD exists but not upstream. Also
+commercial debuggers: Segger, Lauterbach, UltraSoC, IAR is upcoming.</li><li>The core software stack has been supported by a consortium of developers
+from a range of companies.</li><li>RISC-V software implementations: Spike, RV8, Renode, QEMU (upstreamed and
+included in a upstream release about a week ago)</li><li>There are also commercial simulators, such as Imperas OVP and Esperanto&rsquo;s
+simulator.</li><li>Help wanted: OpenJDK JIT port, Arduino runtime</li><li>The RISC-V platform specification working group will define profiles for
+types of RISC-V systems. e.g. bare-metal embedded, RTOS, embedded Linux,
+portable Linux.</li></ul><h2 id=the-risc-v-vector-isa-update-roger-espassa:64ad415d4847dfba34ea36fbecbfd447>The RISC-V vector ISA update: Roger Espassa</h2><ul><li>The spec isn&rsquo;t yet ready&hellip;but it&rsquo;s getting really close</li><li>Updates and discussion points:<ul><li>Register types moved to an extension.</li><li>Widening multiplies</li><li>Debating whether reductions should be in base or not</li><li>Worked on overlaying V-reg and F-reg to save state, decided against it</li><li>Fixed point vclip instructions</li><li>Mask support for speculative vectorisation</li><li>Possibility to fit integer MADD within encoding</li></ul></li><li>Scalar support: the encoding allows indicating that the destination vreg is
+a &ldquo;scalar shape&rdquo;. Introduce VLO/VSO to load/store single scalar elements.</li><li>Roger is outlining the newly introduced instructions. I can&rsquo;t usefully
+summarise these, so you&rsquo;re best waiting for the slides to be published.</li><li>vclip is introduced to help support fixed point.</li><li>FP16 operations are introduced and are required for the V extension.</li><li>The vector extension introduces interesting instructions such as vector-fpr
+merge, vector-fp merge, slide down / slide up</li><li>Plan to close the base spec very soon</li><li>Want to see compiler output before bringing for ratification</li><li>Haven&rsquo;t yet started on formal spec for the vector ISA</li></ul><h2 id=the-isa-formal-spec-technical-update-rishiyur-nikhil:64ad415d4847dfba34ea36fbecbfd447>The ISA formal spec technical update: Rishiyur Nikhil</h2><ul><li>What what use is an ISA formal spec?<ul><li>Answer questions about compiler correctness. Will executing a certain two
+C programs produce the same results? For all inputs? For all C and
+corresponding RISC-V programs?</li><li>Answer questions on implementation correctness. Will executing this progam
+produce correct results? On all RISC-V processors?</li></ul></li><li>ISA formal spec goals<ul><li>Clear and understandable to the human reader. Precise and complete.
+Machine readable. Executable (run RISC-V programs, boot an OS). Usable with
+various formal tools.</li></ul></li><li>Key issues<ul><li>RISC-V&rsquo;s modularity. A wide range of options, some of which are
+dynamically selectable or can vary between privilege levels. The spec needs
+to capture all combinations and still remain readable.</li><li>Extensibility. Want to allow people to build upon the formal spec to add
+support their own extensions.</li><li>Non-detterminism and concurrency.</li></ul></li><li>Status. Various approaches are being pursued: 3 projects in Haskell, 1
+project in SAIL, 1 project in L3, another in a &lsquo;functional subset&rsquo; of Verilog<ul><li>One of the Haskell projects (led by a team at MIT) is furthest along.
+Models RV32I, RV64I, M, priv U+S+M, Sv39 VM</li></ul></li><li>Next steps: within a couple of months publish a formal spec that is complete
+for RV32IMAC, RV64IMAC, user+supervisor+machine mode, sv32+sv39, and a simple
+sequential memory model. Liaise with the compliance group to use the formal
+spec as a golden reference for compliance suites. Then work to integrate with
+the weak memory model.</li><li>Potential follow-up projects (by community?)<ul><li>Formally show equivalences between different ISA formalisations</li><li>Demonstrate extensibility to other standard options (e.g. vector, crypto)</li><li>Use it! (to provide correctness of hardware implementations, compilers,
+&hellip;)</li></ul></li></ul><h2 id=risc-v-memory-consistency-model-status-update-dan-lustig:64ad415d4847dfba34ea36fbecbfd447>RISC-V memory consistency model status update: Dan Lustig</h2><ul><li>The specification is released for public comment, which will run through to
+June 16th.</li><li>Fundamentally, the RISC-V memory consistency model specifies the values that
+can be returned by loads.</li><li>The RISC-V memory model specification defines the RISC-V weak memory
+ordering (RVWMO) model and extensions: Zam (misaligned atomics), Ztso (Total
+Store Ordering).</li><li>Global memory order (GMO): a total order over the memory operations
+generated by the instructions in each program</li><li>GMO is constrained by the Preserved Program Order (PPO)</li><li>Load Value Axiom</li><li>Atomicity Axiom: no store from another hart can appear in the global memory
+order between a paired LR and successful SC (see spec for full details of
+rule)</li><li>Progress Axiom: no memory operation may be preceded in the global memory
+order by an infinite sequence of other memory operations</li><li>Misaligned AMOs are not supported in the base &lsquo;A&rsquo; extension, but can be
+supported with the &lsquo;Zam&rsquo; extension.</li><li>Ztso strengthens the baseline memory model to TSO, but TSO-only code is not
+backwards-compatible with RVWMO.</li><li>Authored two appendices which give lengthy explanations in plain English as
+well as axiomatic and operational models. More than 7000 litmus tests are
+available online.</li><li>Ongoing/future work<ul><li>Mixed-size, partially overlappy memory accesses</li><li>Instruction fetches and fence.i, TL flushes and sfence.vma etc</li><li>Integrations with V, J, N, T extensions</li><li>&hellip;</li></ul></li></ul><h2 id=software-drives-hardware-lessons-learned-and-future-directions-robert-oshana:64ad415d4847dfba34ea36fbecbfd447>Software drives hardware. Lessons learned and future directions: Robert Oshana</h2><ul><li>Software engineers can innovate earlier/often and drive more specific core
+requirements for hardware design team</li><li>Software engineers like to dream of a simple single core running at very
+high clock rate, and zero latency unlimited bandwidth access to a single
+memory. A hardware engineers dreams of many cores at 1ghz with accelerators,
+separate memories etc.</li><li>Trying to achieve even faster development cycles.</li><li>Start with system modelling, move to system definition, and produce
+intrinsic libraries, new instructions, programming model details, and a Chisel
+model.</li><li>Moving towards &ldquo;software driven hardware&rdquo; to support the software
+programming model (2020).</li><li>NXP are using PULPino.</li><li>Challenge: establishing a robust open community for RISC-V. Want to see
+multiple vendors contributing back to the &lsquo;RISC-V ISA mainline&rsquo;.</li><li>Using RISC-V mainly as &lsquo;minion cores&rsquo;. Focused on efficient core designs and
+ISA enhancement for application-specific functionality. e.g. bit manipulation,
+crypto. Other innovation targets include a multi RISC-V core MCU SoC.</li><li>Embedded software engineers will take a bigger role in defining the SoC
+architecture<ul><li>Programming model</li><li>System optimsiation</li></ul></li><li>Open source RISC-V implementations will allow more software driven hardware.
+Ecosystem is vital to success.</li></ul><h2 id=unleashing-the-power-of-data-with-risc-v-martin-fink:64ad415d4847dfba34ea36fbecbfd447>Unleashing the power of data with RISC-V: Martin Fink</h2><ul><li>Why has Western Digital made such a big commitment to RISC-V even though
+they&rsquo;re not in the processor business? Feel there&rsquo;s too much focus on the CPU,
+when the focus needs to be on the data.</li><li>Half the world&rsquo;s data lives on Western Digital devices.</li><li>First Western Digital RISC-V core. 2-way superscalar, mostly in-order core
+with 9 stage pipeline. RV32IMC, 1 load/store pipe, 1 multiplier, 1 divider, 4
+ALU engines.<ul><li>Performance targets at 28nm. Dhrystone greater than 2MIPS/Mhz, CoreMark
+over 3 CM/MH. 1GHz operation.</li><li>Built to show it can be done and better understand RISC-V</li><li>Most of the work went into the uncore.</li></ul></li><li>Produced a NAND controller SoC using RISC-V. Added instruction optimisations
+for NAND media handling.</li><li>Still on track to ship first products with RISC-V in 2019.</li><li>RISC-V in embedded<ul><li>Free and open IP connectivity buses enabling plug and play of proprietary
+and open source IPs</li></ul></li><li>RISC-V in enterprise<ul><li>Datacenter CPUs with smart, fast and open peripheral buses enable new
+compute paradigms for AI workloads</li></ul></li><li>General purpose architectures are no longer sufficient. Workload diversity
+demands diverse technologies and architectures.</li><li>Open source software licenses can apply to HDL, GDSII, Gerber. There is more
+work still needed though.</li><li>Strong believer in the GPLv2. The troubling part about permissive licensing
+is it allows people to do proprietary things without sharing. Pragmatically,
+many companies gravitate towards permissive licenses like Apache. Hope to move
+work word towards copyleft over time.</li><li>Western Digital is working to support development of open source IP building
+blocks for the community. Will actively partner and invest in the ecosystem.
+Accelerate development of purpose-built processors for a broad range of Big
+Data and Fast Data environments.</li><li>There is a multi-year transition of Western Digital devices, platforms and
+systems to RISC-V.</li><li>Question from the audience: will Western Digital be open sourcing their
+cores? Would like to, but not making a commitment today. One of the challenges
+is uncoupling from the uncore. Ultimately hope to share cores and IP blocks.</li></ul><h2 id=risc-v-debugging-custom-isa-extensions-multicore-dtm-variants-markus-goehrle:64ad415d4847dfba34ea36fbecbfd447>RISC-V debugging. Custom ISA extensions, multicore, DTM variants: Markus Goehrle</h2><ul><li>Support for a variety of external and internal interfaces, as well as
+interconnections of standard debug transport modules (DTM).</li><li>TRACE32 has Linux-awareness, including the ability to view resources such as
+task and kernel modules, addresses of dynamic objects etc.</li><li>Support heterogeneous systems, custom ISA extensions</li><li>Found that a lot of customers have built something based on the draft debug
+specification, as well as others who implement their own custom debug IP.
+People are also doing custom solutions for trace. The speaker strongly urges
+people to feed into the debug specification standardisation process.</li></ul><h2 id=gdb-for-risc-v-jeremy-bennett:64ad415d4847dfba34ea36fbecbfd447>GDB for RISC-V: Jeremy Bennett</h2><ul><li>GDB support was committed upstream as of early March, including basic bare
+metal support. This sees nightly regression tests with a pass rate above 99%.</li><li>Next steps include:<ul><li>XML target description support</li><li>Memory map support</li><li>Remote I/O support</li><li>Adding non-DWARF stack unwinding</li><li>Upstreaming a GDB Simulator</li><li>Linux application debugging</li></ul></li><li>GDB support for multicore debug is evolving, with support for multiple
+active inferiors with their own flow of control and address space. Each
+inferior is associated with a program space (symbol table and DWARF debug
+information) for the code running on that inferior.</li><li>Upstream GDB supports multiple concurrent inferiors which has been tested
+for RISC-V with a 36-core system. More work is needed for complex address
+spaces (e.g. where some memory is shared with other inferiors).</li></ul><h2 id=a-common-software-development-environment-for-many-core-risc-v-hardware-and-virtual-platforms-gajinder-panessar-and-simon-davidmann:64ad415d4847dfba34ea36fbecbfd447>A common software development environment for many-core RISC-V hardware and virtual platforms: Gajinder Panessar and Simon Davidmann</h2><ul><li>Talking today about a collaboration between Imperas and UltraSoC to provide
+a common environment for debugging simulation-based and hardware debug.</li><li>Chip designs are getting more complex, including asymmetric multi-core.</li><li>Embedded software is increasingly important and engineering intensive.</li><li>Traditionally use GDB, with one instance per core. This has little
+visibility as it only sees the memory space of the attached CPU. It also gives
+poor control, and bugs may occur non-deterministically.</li><li>Imperas provide a commercial simulation solution, running at 100-2000MIPS.<ul><li>This suports the Imperas &lsquo;MPD&rsquo; full platform debugger.</li></ul></li><li>UltraSoC provide IP for debug/monitoring for the whole SoC</li><li>Imperas and UltraSoC have collaborated to provide a common solution.</li></ul><h2 id=hifive-unleashed-world-s-first-multi-core-risc-v-linux-dev-board-yunsup-lee:64ad415d4847dfba34ea36fbecbfd447>HiFive unleashed. World&rsquo;s First Multi-Core RISC-V Linux Dev Board: Yunsup Lee</h2><ul><li>When Instagram was acquired for $1B it has just 13 engineers. They achieved
+that partially by reusing open source software.</li><li>See SiFive silicon cloud services as a parallel to Amazon AWS. Offers a
+selection of CPU soft IPs, prototype ASICs, production ASICs.</li><li>Talking today about the Freedom Unleashed platform. Features 4 application
+cores and 1 embedded core.</li><li>The HiFive Unleashed board feature an SiFive FU540-C000, 8GB DDR4, Gigabit
+Ethernet port, 32MB Quad SPI flash, microSD card for removable storage,
+MicroUSB for debug and serial communication, digital GPIO pins, FMC connector.</li><li>Did a preliminary SPECINT2006 comparison. Competitive with A53 chips from
+Rockchip or Alwinner (higher than the lower-clocked Allwinner, but slower than
+the Rockchip).</li><li>Open-V: a SiFive/ONCHIP microcontroller based on Freedom Everywhere. Built
+in TSMC 180nm, 3.3mm x 2.6mm. 2.7M transistors. ONCHIP provided a range of
+analog IP, which were integrated with a SiFive E31 core. The components will
+be available through SiFive.</li><li>You can now submit proposals for your own freedom chip through the
+&ldquo;Democratizing Ideas&rdquo; program. Partners will be announced at the First Annual
+RISC-V Summit in December. Deadline is the end of October.</li><li>RISC-V is completing the innovation cycle of research, education, and
+industry.</li></ul><h2 id=hifive-unleashed-expansion-kit-ted-marena:64ad415d4847dfba34ea36fbecbfd447>HiFive unleashed expansion kit: Ted Marena</h2><ul><li>Marketing update: Looking for collaboration on a porting to RISC-V
+whitepaper. Would also like to see member companies communicating why they
+chose RISC-V.</li><li>Microsemi set up the MI-V ecosystem to support various RTOSes on soft RISC-V
+cores on FPGA.</li><li>The Mi-V HiFive Unleashed Expansion board connects to the HiFive board via
+FMC. Has PCIe connectors, SATA, HDMI, USB, microSD.</li><li>Porting an application from ARM to RISC-V is the same effort as porting from
+one ARM SoC to another. No two ARM SoCs have the same memory map or peripheral
+functionality. Neither will RISC-V SoCs.</li><li>Mi-V HiFive Unleashed board aims to accelerate the RISC-V Linux ecosystem,
+enabling the community to port tools, OSes, middleware, packages to RISC-V.</li></ul><h2 id=simulating-heterogeneous-multi-node-32-bit-and-64-bit-risc-v-systems-running-linux-and-zephry-with-renode-michael-gielda:64ad415d4847dfba34ea36fbecbfd447>Simulating heterogeneous multi-node 32-bit and 64-bit RISC-V systems running Linux and Zephry with Renode: Michael Gielda</h2><ul><li>Antmicro: &lsquo;turn ideas into software-driven products&rsquo;</li><li>Check out renode.io</li><li>Renode is an open source instruction set simulator with a multi-layered
+framework on top. It mimics entire platforms.</li><li>Cores are implemented in C, and the rest is implemented in C&rsquo;, Python, or
+any .NET-compatible language.</li><li>Strengths include transparent and robust debugging, easy integration, rich
+model abstractions, &hellip;</li><li>Renode has a simple platform description format that is human readable,
+modular, and extendible.</li><li>Also have the capability to simulate entire networks or wireless and wired
+devices in one time domain.</li><li>Can save and restore whole simulation state.</li></ul><h2 id=debian-gnu-linux-port-for-risc-v-64-bit-manuel-fernandez-montecelo:64ad415d4847dfba34ea36fbecbfd447>Debian GNU/Linux port for RISC-V 64-bit: Manuel Fernandez Montecelo</h2><ul><li>Goal is to have Debian ready to install and run on RISC-V systems.</li><li>Debian has more than 27k source packages, and also supports other kernels
+such as FreeBSD or GNU Hurd.</li><li>There are three kinds of Debian port<ul><li>Those outside of Debian infrastructure, e.g. Raspbian.</li><li>Unofficial/unsupported. Not in &lsquo;stable&rsquo; releases but hosted in Debian
+infrastructure.</li><li>Officially supported. Part of the &lsquo;stable&rsquo; releases and fully supported.</li></ul></li><li>RISC-V is currently unofficial, working its way towards officially
+supported.</li><li>Initial plan<ul><li>Bootstrap and create viable, basic OS disk images</li><li>Get it to the state of &lsquo;unofficial/unsupported&rsquo;</li><li>Move towards an official backend</li></ul></li><li>Why not 32-bit or 128-bit variants?<ul><li>Too early for 128</li><li>32-bit ports struggle to get large packages built. Plus less work has been
+done on 32-bit Linux-capable systems.</li></ul></li><li>Started in 2016, but went in haitus until late 2017/early 2018 for Linux and
+glibc upstreaming and freezing of the ABI.</li><li>25th Feb - 5th March: Cross-built base set of packages</li><li>5th - 13th March: First &lsquo;native&rsquo; build.</li><li>13th - 23rd March: Second &lsquo;native&rsquo; build in a clean environment (isolated
+environment similar to &lsquo;production&rsquo; auto-builders.</li><li>75% of packages are now there. Progress is slowing down as many of the
+remaining packages are either very large or difficult.</li><li>Uncovered a range of bugs in QEMU, toolchain and so on.</li><li>Manuel has a long lost of contributors to thank. Thank you to everyone who
+helped make this port happen!</li></ul><h2 id=fedora-on-risc-v-richard-jones:64ad415d4847dfba34ea36fbecbfd447>Fedora on RISC-V: Richard Jones</h2><ul><li>Every few years Red Hat Enterprise Linux is forked from Fedora.</li><li>Red Hat and Fedora have a strong upstream first policy</li><li>Final bootstrap took 2 months. 16725 builds producing 12785 binary packages</li><li>The current build farm contains 2 HiFive unleashed boards, 11 qemu instances
+on 4 Intel servers.</li><li>The server market is worth about $80B/year annually. 3 billion physical
+servers are shipped a year. Of those, x86 servers are about 85% of the market
+by value.</li><li>Don&rsquo;t make these mistakes for the server market:<ul><li>Require manual intervention to choose the right bootloader/kernel per
+vendor</li><li>Require out of tree drivers or patches</li><li>No standards or constantly changing standards</li><li>No organisation providing direction on server standards</li><li>Incompatible variants of the ISA meaning a single kernel image can&rsquo;t be
+made</li><li>Breaking ABIs</li><li>Intimately tied to Linux so other OS vendors are excluded</li><li>Dev boards being too expensive for developers</li></ul></li></ul><h2 id=smallest-risc-v-device-for-next-generation-edge-computing-seiji-munetoh:64ad415d4847dfba34ea36fbecbfd447>Smallest RISC-V device for next-generation edge computing: Seiji Munetoh</h2><ul><li>First target application is authentication. HMAC-SHA256 and variants</li><li>Use optical communication for host/device comms</li><li>Use SRAM to emulate storage memory chip</li><li>The BootROM is synthesized and embedded in the SoC</li><li>The first generation processor utilises a PULPino core. Target GF14LP, 300um
+x 250uM. 2KB data SRAM. Plus authentication engine, analog custom circuits
+(LDO, clock/reset, PD/LED IF).</li><li>Created a 2.5D integrated device, use a silicon interposer less than 1mm2.
+Processor SoC plus 32KB MPI-SRAM, plus optical IO (MicroLED, MicroPD), plus
+power.</li><li>Evaluated the architecture using low cost FPGA boards (ZedBoard, Zybo,
+Arty).</li><li>Moved the instruction SRAM out of the processor die, and evaluate the
+performance effect of different widths between processor and external SRAM.
+Ended up using an 8-bit bus configuration.</li><li>Improved SHA256 performance by adding a hwardware engine.</li><li>Made a debug chip packaged in QFP64 wire-bond</li><li>Currently testing the 2.5D integrated device</li><li>The second generation device was taped out in Feb 2018, featuring a new SoC
+design with instruction cache, RF interface, sensors.</li></ul><h2 id=poster-and-demo-previews:64ad415d4847dfba34ea36fbecbfd447>Poster and demo previews</h2><ul><li>Far too fast-paced to summarise. Be sure to come back tomorrow for a new
+liveblog. If you&rsquo;re here at the workshop, be sure to come and say hello during
+the poster session.</li></ul><p><em>Alex Bradbury</em></p></article></div></main><footer class=lr-footer><div class=container><div class=row><div class="col-lg-2 d-none d-lg-block"><img src=/img/logo/logo-dualcolor.svg width=150px></div><div class=col><p><small>The text content on this website is licensed under a <a href=https://creativecommons.org/licenses/by/4.0/>Creative Commons Attribution 4.0 International License</a>, except where otherwise noted. No license is granted for logos or other trademarks. Other content &copy; lowRISC Contributors.</small></p><p><small><a href=/privacy-policy>Privacy and cookies policy</a>
+&middot; <a href=/usage-licence>Usage licence</a></small></p></div><div class=col-lg-2><p><a href=#>Back to top</a></p></div></div></div></footer><script src=/main.b716e.js></script></body></html>

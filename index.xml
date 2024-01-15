@@ -1,4 +1,89 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lowRISC: Collaborative open silicon engineering</title><link>https://www.lowrisc.org/</link><description>Latest news from lowRISC</description><language>en-us</language><lastBuildDate>Tue, 19 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link type="application/rss+xml" href="https://www.lowrisc.org/index.xml" rel="self"/><copyright> The text content on this website is licensed under a Creative Commons Attribution 4.0 International License, except where otherwise noted. No license is granted for logos or other trademarks. Other content Copyright lowRISC Contributors.</copyright><item><title>Sunburst Project Update</title><link>https://www.lowrisc.org/news/2023/12/sunburst-project-update-dec-23/</link><guid>https://www.lowrisc.org/news/2023/12/sunburst-project-update-dec-23/</guid><pubDate>Tue, 19 Dec 2023 00:00:00 +0000</pubDate><author>info@lowrisc.org (lowRISC)</author><description><![CDATA[ 
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lowRISC: Collaborative open silicon engineering</title><link>https://www.lowrisc.org/</link><description>Latest news from lowRISC</description><language>en-us</language><lastBuildDate>Mon, 15 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link type="application/rss+xml" href="https://www.lowrisc.org/index.xml" rel="self"/><copyright> The text content on this website is licensed under a Creative Commons Attribution 4.0 International License, except where otherwise noted. No license is granted for logos or other trademarks. Other content Copyright lowRISC Contributors.</copyright><item><title>Unveiling Sonata: Affordable CHERI Hardware for Embedded Systems</title><link>https://www.lowrisc.org/news/2024/01/sonata-board-update/</link><guid>https://www.lowrisc.org/news/2024/01/sonata-board-update/</guid><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><author>info@lowrisc.org (lowRISC)</author><description><![CDATA[ 
+
+<p>The lowRISC®/Sunburst team are pleased to announce that the initial Sonata prototype boards have been manufactured by our wholly owned subsidiary NewAE and are currently being tested, marking a significant milestone towards our goal of making CHERI technology widely available to embedded systems engineers.</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  <img
+    srcset='https://www.lowrisc.org/news/2024/01/sonata-board-update/sonata-board_huc84e63f6dc77192f086a5c0ce1be1001_389158_500x0_resize_q75_box.jpg 1x, https://www.lowrisc.org/news/2024/01/sonata-board-update/sonata-board_huc84e63f6dc77192f086a5c0ce1be1001_389158_1000x0_resize_q75_box.jpg 2x '
+    src="https://www.lowrisc.org/news/2024/01/sonata-board-update/sonata-board_huc84e63f6dc77192f086a5c0ce1be1001_389158_500x0_resize_q75_box.jpg"alt='Early Sonata Prototype' title='Early Sonata Prototype' class='d-block align-middle img-fluid mx-auto '
+  >
+
+
+
+
+
+<p><em><p style="text-align: center;">lowRISC®&rsquo;s Sonata Board - powered up and running!</p></em></p>
+
+<h2 id="ibex-inside:7715e774a583712fcb43e38e5867f573">Ibex Inside</h2>
+
+<p>The CHERIoT Ibex core lies at the heart of the Sonata system.
+Ibex is a production-quality, open-source 32-bit RISC-V CPU core, written in SystemVerilog.
+Ibex is highly parameterizable, making it an ideal choice for embedded control applications, and has undergone extensive verification and multiple tape-outs, ensuring reliability and robustness.
+CHERIoT Ibex is  an extension of the Ibex core, released into the open source by <a href="https://www.microsoft.com/en-us/research/publication/cheriot-rethinking-security-for-low-cost-embedded-systems/">Microsoft</a>, which integrates CHERI memory safety features and promises a new era of highly secure embedded applications.</p>
+
+<h2 id="configurability:7715e774a583712fcb43e38e5867f573">Configurability</h2>
+
+<p>Sonata places a strong emphasis on usability, offering users the flexibility to move between different configurations seamlessly.
+Physical switches for both bitstream and software images enable the user to easily transition between CHERI and non-CHERI bitstreams or different demo applications showcasing CHERI compartmentalization and exceptions.</p>
+
+<p>To facilitate this configurability, Sonata&rsquo;s USB connector functions as mass storage, allowing users to store and switch bitstreams effortlessly.
+The presence of an RP2040 on the board ensures efficient management of these configurations.
+In addition, the system includes two separate flash chips and an 8MB HyperRAM chip.</p>
+
+<h2 id="connectivity-and-extensibility:7715e774a583712fcb43e38e5867f573">Connectivity and Extensibility</h2>
+
+<p>Sonata is designed to be connectable and extensible, catering to diverse application needs.
+Common communication interfaces and peripherals such as Ethernet, RS-232, RS-485, MicroSD, and ADC are integrated into the board.
+Moreover, various headers, including Raspberry Pi, Arduino shield, microBUS Click, Sparkfun QWIIC, PMOD, and a 30-pin R/A header, provide avenues for custom functionalities.</p>
+
+<p>While there are, naturally, some physical layout constraints applying to the simultaneous use of certain headers, the required FPGA pins can be used independently, so modified wiring solutions allow users to leverage the capabilities of multiple expansion boards simultaneously should they require this flexibility.</p>
+
+<h2 id="streamlined-debugging-and-user-friendly-interface:7715e774a583712fcb43e38e5867f573">Streamlined Debugging and User-Friendly Interface</h2>
+
+<p>Sonata prioritizes ease of use.
+Firmware and FPGA bitstream loading, debugging via JTAG and virtual UARTs are all available via a single USB connector that also powers the board.
+External JTAG and UART headers are provided for users requiring different setups.</p>
+
+<p>The user interface is designed to be interactive and includes DIP switches, buttons, and a 5-way joystick for input.
+Output is facilitated through LEDs, an LCD screen, and CHERI-specific capability exception LEDs, ensuring a comprehensive and user-friendly experience.</p>
+
+<h2 id="an-affordable-revolution:7715e774a583712fcb43e38e5867f573">An Affordable Revolution</h2>
+
+<p>To make Sonata accessible to a wider audience, the team opted to utilise a cost-effective FPGA for Sonata, the Xilinx Artix 7.
+Balancing affordability with performance, this FPGA can support the peripherals on the board and the envisaged embedded use-cases.
+Its widespread tool support further enhances its appeal.</p>
+
+<h2 id="what-s-next-for-sonata:7715e774a583712fcb43e38e5867f573">What&rsquo;s Next for Sonata</h2>
+
+<p>The initial prototype boards are now starting to undergo testing, during which the lowRISC®/Sunburst team will carefully check the interfaces, onboard components including HyperRAM, clock rates, and overall performance to ensure the boards meet expectations.</p>
+
+<p>The results of this will be fed back into the design for the upcoming 100 board production run, scheduled for distribution to interested parties in Q2 2024.
+Following this, the prototype Sonata board will be made available, at cost, and subsequently a commercial variant through an international distributor, marking a significant milestone in the journey toward making CHERIoT hardware widely accessible.
+And of course the design and layout of the Sonata PCB is itself already available under a permissive open-source licence, <a href="https://github.com/newaetech/sonata-pcb">here</a>.</p>
+
+<p>In the challenging, resource-constrained world of embedded systems, the Sonata board provides an efficient route for developers to explore and leverage the security benefits of CHERI.
+Watch this space for further updates from the lowRISC®/Sunburst Team in 2024!</p>
+
+<p>The Sunburst Project is supported by DSbD/UKRI grant (#107540).</p>
+ ]]></description></item><item><title>Sunburst Project Update</title><link>https://www.lowrisc.org/news/2023/12/sunburst-project-update-dec-23/</link><guid>https://www.lowrisc.org/news/2023/12/sunburst-project-update-dec-23/</guid><pubDate>Tue, 19 Dec 2023 00:00:00 +0000</pubDate><author>info@lowrisc.org (lowRISC)</author><description><![CDATA[ 
 
 <p>The <a href="https://sunburst-project.org">Sunburst Project</a>, supported by DSbD/UKRI grant (#107540), focuses on enhancing security within the embedded and operational technology (OpTe) sectors.
 Its primary goal is to promote the adoption of CHERIoT, an open-source microcontroller technology that integrates CHERI capabilities within the RISC-V architecture.</p>

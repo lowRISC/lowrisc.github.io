@@ -1,4 +1,87 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lowRISC: Collaborative open silicon engineering</title><link>https://www.lowrisc.org/</link><description>Latest news from lowRISC</description><language>en-us</language><lastBuildDate>Tue, 13 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link type="application/rss+xml" href="https://www.lowrisc.org/index.xml" rel="self"/><copyright> The text content on this website is licensed under a Creative Commons Attribution 4.0 International License, except where otherwise noted. No license is granted for logos or other trademarks. Other content Copyright lowRISC Contributors.</copyright><item><title>OpenTitan® Partnership Makes History as First Open-Source Silicon Project to Reach Commercial Availability</title><link>https://www.lowrisc.org/news/2024/02/opentitan-commercial-availability/</link><guid>https://www.lowrisc.org/news/2024/02/opentitan-commercial-availability/</guid><pubDate>Tue, 13 Feb 2024 00:00:00 +0000</pubDate><author>info@lowrisc.org (lowRISC)</author><description><![CDATA[ 
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lowRISC: Collaborative open silicon engineering</title><link>https://www.lowrisc.org/</link><description>Latest news from lowRISC</description><language>en-us</language><lastBuildDate>Fri, 10 May 2024 00:00:00 +0100</lastBuildDate><atom:link type="application/rss+xml" href="https://www.lowrisc.org/index.xml" rel="self"/><copyright> The text content on this website is licensed under a Creative Commons Attribution 4.0 International License, except where otherwise noted. No license is granted for logos or other trademarks. Other content Copyright lowRISC Contributors.</copyright><item><title>SafetyDetectives Interview With Gavin Ferris - CEO at lowRISC</title><link>https://www.lowrisc.org/news/2024/05/safetydetectives-interview/</link><guid>https://www.lowrisc.org/news/2024/05/safetydetectives-interview/</guid><pubDate>Fri, 10 May 2024 00:00:00 +0100</pubDate><author>info@lowrisc.org (lowRISC)</author><description><![CDATA[ 
+
+<p>lowRISC&rsquo;s CEO, Dr. Gavin Ferris, was <a href="https://www.safetydetectives.com/blog/gavin-ferris-lowrisc/">recently interviewed</a> by SafetyDetectives&rsquo; Shauli Zacks.
+The article is reproduced here by kind permission:</p>
+
+<p><em>In an exclusive interview with SafetyDetectives, Gavin Ferris, CEO of lowRISC, shares invaluable insights into the transformative world of open-source silicon.
+lowRISC, a trailblazer in the field, not only champions the groundbreaking OpenTitan project but also fosters a collaborative ecosystem that includes tech giants and academic luminaries.
+This initiative marks a significant leap toward redefining hardware security through transparency and innovation.
+As OpenTitan becomes the first commercially available open-source silicon root of trust, Ferris discusses its impact, the challenges of hardware development, and the future of secure systems.
+Join us as we delve into the pioneering journey of lowRISC and its pivotal role in shaping the next generation of secure, open-source silicon.</em></p>
+
+<h2 id="can-you-introduce-yourself-and-give-a-brief-overview-of-lowrisc-and-how-its-work-enables-opentitan:cbcecfc56f788bc2f2828e9a94fc4b60">Can you introduce yourself and give a brief overview of lowRISC and how its work enables OpenTitan?</h2>
+
+<p>My name is Gavin Ferris and I&rsquo;m CEO of lowRISC, a UK-based nonprofit focused on developing open-source silicon designs.
+We provide a home for collaborative engineering to create and maintain high quality IP such as <a href="https://opentitan.org/">OpenTitan</a>, the world’s first open-source silicon root of trust (RoT).</p>
+
+<p>Our team of collaborators and partners (which includes Google, Winbond, Nuvoton, zeroRISC, Rivos, Western Digital, Seagate, ETH Zurich and Giesecke+Devrient) are responsible for the creation of the Silicon Commons, the development of the RISC-V Ibex core, and successfully delivering the world’s first commercial-grade open-source chip, OpenTitan &ldquo;Earl Grey.&rdquo;</p>
+
+<p>One key differentiator is our robust open-source design verification (DV) methodology, used to ensure quality across the OpenTitan family of designs.
+This approach has enabled OpenTitan to reach design parity with commercial silicon.</p>
+
+<h2 id="opentitan-has-recently-achieved-a-significant-milestone-by-becoming-the-first-open-source-silicon-project-to-reach-commercial-availability-can-you-elaborate-on-the-significance-of-this-achievement:cbcecfc56f788bc2f2828e9a94fc4b60">OpenTitan has recently achieved a significant milestone by becoming the first open source silicon project to reach commercial availability. Can you elaborate on the significance of this achievement?</h2>
+
+<p>In short, it&rsquo;s so significant because we&rsquo;ve finally made open-source silicon work the same way as open-source software, despite the cost, time, and correctness hurdles (not to mention the physical supply chain!) that makes hardware development so challenging.
+We&rsquo;re all familiar with the hugely beneficial, industry-level transformation that took place once open-source software achieved critical mass, and with this milestone the silicon industry is now primed for a similar change.
+There&rsquo;s still a long way to go of course, but the die is cast.</p>
+
+<p>Focusing on some specifics, commercial availability of the first OpenTitan chip (&ldquo;Earl Grey&rdquo;) means manufacturers can immediately start building it into their systems at the PCB level.
+There’s an integratable variant too (&ldquo;Darjeeling&rdquo;), which allows the same high-quality OpenTitan IP to be included as a subsystem within third party chiplets and SoCs (and indeed, the first design wins here have already happened, for example with <a href="https://www.rivosinc.com/technology/">Rivos</a>).</p>
+
+<p>Furthermore, since the design of OpenTitan is <em>modular</em> and permissively licensed (Apache 2 with a CLA), sub-blocks of its design — such as its Ibex CPU core — are being picked up by others and used in their own products.
+It&rsquo;s a trend we expect will go from strength to strength (and of course, encourage!).</p>
+
+<h2 id="could-you-explain-the-concept-of-a-root-of-trust-rot-and-its-importance-in-hardware-security:cbcecfc56f788bc2f2828e9a94fc4b60">Could you explain the concept of a root of trust (RoT) and its importance in hardware security?</h2>
+
+<p>All systems contain <em>some</em> sort of root of trust (RoT) — it&rsquo;s the part that you assume &lsquo;always works&rsquo; even when under attack, and upon which the security of the rest of the platform ultimately depends.
+The problem is that in many current designs, the RoT is <em>implicit</em> and inheres in low-software (for example, the BIOS) — a layer of the stack that’s now directly, and successfully, under attack by sophisticated cyber-attackers.
+And unfortunately for such hosts, once that software <em>is</em> compromised, there’s often no way for users or fleet managers to revert the system to a &lsquo;known good&rsquo; state (nor even, in many cases, know which nodes have been compromised), short of returning to the manufacturer.</p>
+
+<p>By contrast a silicon RoT (or SiRoT) is a highly secure &lsquo;computer within your computer&rsquo; that sits below the operating system and ensures the overall reliability of the computing environment, locking down the boot process and ensuring that all subsequent operations and critical processes are verified and trustworthy.
+The more advanced SiRoTs (such as OpenTitan) also provide a secure execution environment in which critical cryptographic key material may be stored and used post-boot (for example, for digital signing).</p>
+
+<p>By placing the RoT at the hardware level in this way, designers are wisely choosing to make the root of trust <em>explicit</em>, embodied in a subsystem that is far more resistant to attacks than inherently compromised software-based approaches.</p>
+
+<h2 id="why-was-it-important-for-lowrisc-and-the-opentitan-project-to-adopt-an-open-source-model-for-silicon-development:cbcecfc56f788bc2f2828e9a94fc4b60">Why was it important for lowRISC and the OpenTitan project to adopt an open source model for silicon development?</h2>
+
+<p>Similar to open-source software, we strongly believe that open-source silicon:</p>
+
+<ol>
+<li>Enhances trust and security through design and implementation <strong>transparency</strong> — issues can be discovered early, the need for blind trust is reduced, and system audits are greatly facilitated.</li>
+<li>Enables and encourages innovation through contributions to the open-source design via a <strong>collaborative approach</strong> to design.</li>
+<li>Provides implementation <strong>choice</strong> and preserves a set of common interfaces and software compatibility guarantees through a common, open reference design.</li>
+</ol>
+
+<h2 id="can-you-talk-about-how-security-works-at-the-microchip-level-of-a-device-and-why-a-secure-starting-point-for-the-system-is-essential-to-ensuring-the-integrity-and-authenticity-of-critical-software-components:cbcecfc56f788bc2f2828e9a94fc4b60">Can you talk about how security works at the microchip level of a device and why a secure starting point for the system is essential to ensuring the integrity and authenticity of critical software components?</h2>
+
+<p>True security has to be anchored in trustworthy silicon, because once a system&rsquo;s software is compromised by an attacker, any &lsquo;defense&rsquo; implemented in that software (such as anti-virus, firewall, SBOM etc.) is (for obvious reasons!) relatively straightforward to circumvent.</p>
+
+<p>By contrast, a SiRoT can:</p>
+
+<ul>
+<li>Ensure that its device boots with the correct firmware and <em>hasn&rsquo;t</em> been infected by low-level malware.</li>
+<li>Provide a cryptographically unique machine identity, so an operator can verify that the device is legitimate.</li>
+<li>Protect secrets such as encryption keys in a tamper-resistant manner, even for people with physical access (e.g., while a server or a device is being shipped through the supply chain).</li>
+<li>Provide authoritative, tamper-evident audit records and other runtime security services.</li>
+</ul>
+
+<p>Additionally the OpenTitan &ldquo;Earl Grey&rdquo; chip — and firmware — contains a number of sophisticated countermeasures against attack at different levels.
+These are described in detail in its <a href="https://opentitan.org/book/doc/security/index.html">extensive documentation</a>, and include hardening against fault injection and side-channel analysis, vectors that are normally out-of-scope for off-the-shelf application processors.</p>
+
+<h2 id="how-does-lowrisc-engage-with-the-broader-community-including-developers-researchers-and-industry-partners-to-further-the-opentitan-project:cbcecfc56f788bc2f2828e9a94fc4b60">How does lowRISC engage with the broader community, including developers, researchers, and industry partners, to further the OpenTitan project?</h2>
+
+<p>Collaborative engineering is absolutely central to lowRISC&rsquo;s mission — it&rsquo;s what we do. Our full-stack development team works closely with official partners, academics, and the wider community on a daily basis.</p>
+
+<p>When we publicly announced OpenTitan as the world&rsquo;s first open-source RoT in 2019, we did so with support from a broad and growing set of friends and partners, including Google, G+D Mobile Security, ETH Zurich, Nuvoton, Winbond, Seagate, Western Digital, Rivos, and now zeroRISC.
+We extend our heartfelt gratitude for their <a href="https://github.com/lowRISC/opentitan/pulse/monthly">contributions</a> and to the many individuals who have generously shared their expertise and creativity with us over the years.</p>
+
+<p>lowRISC C.I.C. has been privileged to support this flourishing community since inception.
+Our Silicon Commons™ methodology, developed with OpenTitan&rsquo;s partners to support distributed open silicon collaboration, has enabled commits to grow from 2,500 at launch to over 20,000 today, with more than 200 contributors merging over 15,000 pull requests containing more than 1 million lines of code!</p>
+
+<p>Many organizations are facing monumental challenges to securing IoT devices, especially in the age of AI.
+It is critical now more than ever that the cybersecurity industry comes together against rising threats by focusing on the foundation of our systems first, and we believe OpenTitan&rsquo;s open-source, commercially available silicon root of trust has a key part to play in that story.
+In keeping with our collaborative approach, we encourage anyone involved with commissioning, developing or securing IoT devices to <a href="info@lowrisc.org">reach out</a> with questions or requests for further information — our door is always open!</p>
+ ]]></description></item><item><title>OpenTitan® Partnership Makes History as First Open-Source Silicon Project to Reach Commercial Availability</title><link>https://www.lowrisc.org/news/2024/02/opentitan-commercial-availability/</link><guid>https://www.lowrisc.org/news/2024/02/opentitan-commercial-availability/</guid><pubDate>Tue, 13 Feb 2024 00:00:00 +0000</pubDate><author>info@lowrisc.org (lowRISC)</author><description><![CDATA[ 
 
 <p><em>Definitive Project Success is Result of Five Years of Strong Collaboration and Investment by the OpenTitan Coalition to Bring First Trustworthy, Transparent, Secure Silicon Platform to Market</em></p>
 

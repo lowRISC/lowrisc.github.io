@@ -1,4 +1,31 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lowRISC: Collaborative open silicon engineering</title><link>https://www.lowrisc.org/</link><description>Latest news from lowRISC</description><language>en-us</language><lastBuildDate>Thu, 30 May 2024 00:00:00 +0000</lastBuildDate><atom:link type="application/rss+xml" href="https://www.lowrisc.org/index.xml" rel="self"/><copyright> The text content on this website is licensed under a Creative Commons Attribution 4.0 International License, except where otherwise noted. No license is granted for logos or other trademarks. Other content Copyright lowRISC Contributors.</copyright><item><title>Nuvoton Develops OpenTitan® based Security Chip as Next Gen Security Solution for Chromebooks</title><link>https://www.lowrisc.org/news/2024/05/opentitan-chromebook-announcement/</link><guid>https://www.lowrisc.org/news/2024/05/opentitan-chromebook-announcement/</guid><pubDate>Thu, 30 May 2024 00:00:00 +0000</pubDate><author>info@lowrisc.org (lowRISC)</author><description><![CDATA[ 
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lowRISC: Collaborative open silicon engineering</title><link>https://www.lowrisc.org/</link><description>Latest news from lowRISC</description><language>en-us</language><lastBuildDate>Thu, 20 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link type="application/rss+xml" href="https://www.lowrisc.org/index.xml" rel="self"/><copyright> The text content on this website is licensed under a Creative Commons Attribution 4.0 International License, except where otherwise noted. No license is granted for logos or other trademarks. Other content Copyright lowRISC Contributors.</copyright><item><title>lowRISC and Microsoft Collaborate to Help Bring the Revolutionary CHERIoT-Ibex Core to Production Grade</title><link>https://www.lowrisc.org/news/2024/06/microsoft-collaboration/</link><guid>https://www.lowrisc.org/news/2024/06/microsoft-collaboration/</guid><pubDate>Thu, 20 Jun 2024 00:00:00 +0000</pubDate><author>info@lowrisc.org (lowRISC)</author><description><![CDATA[ 
+
+<p><em>Partners Work Together on the Design Verification of CHERIoT-Ibex, Bringing Class-Leading Hardware Memory Safety to Applications with Tight Power, Area and Financial Budgets</em></p>
+
+<p><strong>CAMBRIDGE, England</strong> – June 20, 2024 – <a href="https://lowrisc.org">lowRISC C.I.C.</a>, the open silicon ecosystem organization, today announced a formal collaboration with Microsoft to help bring its CHERIoT-Ibex design to production grade, leveraging lowRISC’s comprehensive open-source silicon development methodology, the Silicon Commons.</p>
+
+<p>&ldquo;We are delighted to be working with Microsoft to bring CHERIoT-Ibex to the very high quality required for deployment into commercial products,&rdquo; said Dr. Gavin Ferris, CEO of lowRISC.
+&ldquo;This joint effort further demonstrates the success of our Silicon Commons approach to making chip designs radically more transparent and trustworthy.&rdquo;</p>
+
+<p>Microsoft&rsquo;s CHERIoT design integrates CHERI&rsquo;s fine-grained hardware memory security technology within lowRISC&rsquo;s popular RISC-V microcontroller core Ibex®.</p>
+
+<p>CHERI has the potential to prevent around 70% of current exploits without requiring legacy software to be completely re-coded, yet to date it has been out of reach for many critical applications where power, memory and cost are at a premium — such as IoT, Operational Technology and embedded systems.
+CHERIoT-Ibex solves this problem, being a 32-bit implementation which — when coupled with the open-source CHERIoT-RTOS operating system — imposes almost no speed penalty and only 5-10% overhead in power and area in comparison with lowRISC&rsquo;s &lsquo;standard&rsquo; Ibex® core.</p>
+
+<p>By working together to create a comprehensive design verification (DV) suite for this groundbreaking IP, the collaboration between Microsoft and lowRISC announced today will allow companies to confidently deploy the core in commercial products.</p>
+
+<p>&ldquo;This is truly important foundational work, as it will help make CHERIoT-Ibex the world&rsquo;s first production grade, open-source CHERI-enabled microcontroller core,&rdquo; said Tony Chen, Partner Security Architect at Microsoft.
+&ldquo;We’re looking forward to seeing it broadly leveraged in commercial designs, bringing much-needed hardware security — in an efficient manner — to a broad swathe of critical applications.&rdquo;</p>
+
+<h2 id="about-lowrisc:d271e61a52e3c90b50c2ce6ce6d7cdd2">About lowRISC®</h2>
+
+<p>Founded in 2014 at the University of Cambridge Department of Computer Science and Technology, lowRISC is a not-for-profit company/CIC that provides a neutral home for collaborative engineering to develop and maintain open-source silicon designs and tools for the long term.
+The lowRISC not-for-profit structure combined with full-stack engineering capabilities in-house enables the hosting and management of high-quality projects like OpenTitan via the Silicon Commons approach.</p>
+
+<h2 id="media-contacts:d271e61a52e3c90b50c2ce6ce6d7cdd2">Media Contacts:</h2>
+
+<p><a href="mailto:lowRISC@w2comm.com">lowRISC@w2comm.com</a></p>
+ ]]></description></item><item><title>Nuvoton Develops OpenTitan® based Security Chip as Next Gen Security Solution for Chromebooks</title><link>https://www.lowrisc.org/news/2024/05/opentitan-chromebook-announcement/</link><guid>https://www.lowrisc.org/news/2024/05/opentitan-chromebook-announcement/</guid><pubDate>Thu, 30 May 2024 00:00:00 +0000</pubDate><author>info@lowrisc.org (lowRISC)</author><description><![CDATA[ 
 
 <p><strong>Hsinchu, Taiwan - May 30, 2024 -</strong> <a href="https://www.nuvoton.com/">Nuvoton Technology Corporation</a>, a global leader in embedded controller and secure IC solutions, announced today that Google&rsquo;s ChromeOS plans to use the first commercial chip built on the OpenTitan® open source secure silicon design as an evolution of its security chip for Chromebooks.
 This is a result of years of co-development and a close partnership between the companies.</p>
